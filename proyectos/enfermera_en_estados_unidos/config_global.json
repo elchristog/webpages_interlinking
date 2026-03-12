@@ -1,0 +1,244 @@
+{
+  "menu_global": [
+    { "nombre": "Guía y Requisitos", "ruta": "/requisitos" },
+    { "nombre": "Salarios 2025", "ruta": "/salarios" },
+    { "nombre": "Ofertas de Empleo", "ruta": "/vacantes" },
+    { "nombre": "Visado (EB-3)", "ruta": "/visa" }
+  ],
+  "sitios": {
+    "florida": {
+      "nombre_sitio": "Enfermería Florida Hoy",
+      "color_tema": "#FF5733",
+      "comando_deploy": "firebase deploy --only hosting",
+      "seo": {
+        "titulo_base": "Ofertas Médicas FL",
+        "descripcion_base": "Encuentra salarios, empleos y oportunidades con sponsor para enfermeras extranjeras en Miami, Tampa y Florida.",
+        "idioma": "es-US"
+      },
+      "footer": {
+        "empresa_legal": "Florida Nurse Network",
+        "direccion": "Zephyrhills, FL 33541",
+        "email_contacto": "info@enfermeriafloridahoy.com"
+      }
+    },
+    "georgia": {
+      "nombre_sitio": "Red de Enfermeras GA",
+      "color_tema": "#005b96",
+      "comando_deploy": "gcloud app deploy",
+      "seo": {
+        "titulo_base": "Licencias GA",
+        "descripcion_base": "Guía especializada del proceso NCLEX y EB-3 para conseguir trabajo registrado en hospitales de Georgia.",
+        "idioma": "es-US"
+      },
+      "footer": {
+        "empresa_legal": "Georgia Health Professionals",
+        "direccion": "Rome, GA 30161",
+        "email_contacto": "contacto@red-enfermeras-ga.com"
+      }
+    },
+    "texas_nclex": {
+      "nombre_sitio": "Prep NCLEX Texas",
+      "color_tema": "#b71c1c",
+      "comando_deploy": "aws s3 sync ./dist s3://texas-nclex",
+      "seo": {
+        "titulo_base": "Guía NCLEX TX",
+        "descripcion_base": "Paso a paso para superar el NCLEX y requisitos del CGFNS en Texas.",
+        "idioma": "es-US"
+      },
+      "footer": {
+        "empresa_legal": "Texas Prep LLC",
+        "direccion": "Houston, TX 77002",
+        "email_contacto": "info@texas-nclex-prep.com"
+      }
+    },
+    "homologacion": {
+      "nombre_sitio": "Homologa tu Título",
+      "color_tema": "#004d40",
+      "comando_deploy": "netlify deploy --dir=dist",
+      "seo": {
+        "titulo_base": "Valida tu Título",
+        "descripcion_base": "Instrucciones legales completas para homologar títulos de enfermería en USA.",
+        "idioma": "es-US"
+      },
+      "footer": {
+        "empresa_legal": "US Nursing Validations",
+        "direccion": "Miami, FL 33101",
+        "email_contacto": "admin@homologacion-enfermeria-usa.com"
+      }
+    },
+    "licencia_rn": {
+      "nombre_sitio": "Licencia RN Oficial",
+      "color_tema": "#1565c0",
+      "comando_deploy": "firebase deploy --only hosting",
+      "seo": {
+        "titulo_base": "Obtener Licencia RN",
+        "descripcion_base": "Aplica oficial y correctamente a tu RN (Registered Nurse License) en todos los estados.",
+        "idioma": "es-US"
+      },
+      "footer": {
+        "empresa_legal": "RN Registrants Group",
+        "direccion": "Atlanta, GA 30301",
+        "email_contacto": "support@licencia-enfermeria-rn.org"
+      }
+    },
+    "california_salarios": {
+      "nombre_sitio": "California Nurse Salaries",
+      "color_tema": "#ffb300",
+      "comando_deploy": "netlify deploy --prod",
+      "seo": {
+        "titulo_base": "Salarios CA 2025",
+        "descripcion_base": "Los mejores estados y especialidades para cobrar el máximo sueldo como enfermera en California.",
+        "idioma": "es-US"
+      },
+      "footer": {
+        "empresa_legal": "Cali Health Salaries",
+        "direccion": "Los Angeles, CA 90001",
+        "email_contacto": "contact@nursing-careers-california.com"
+      }
+    },
+    "sueldos_especialidades": {
+      "nombre_sitio": "Sueldos de Enfermería Hub",
+      "color_tema": "#2e7d32",
+      "comando_deploy": "vercel deploy --prod",
+      "seo": {
+        "titulo_base": "Estudio Sueldos USA",
+        "descripcion_base": "Estudio detallado de cuánto gana una enfermera quirúrgica vs anestesista vs emergencias.",
+        "idioma": "es-US"
+      },
+      "footer": {
+        "empresa_legal": "Nurse Salary Data",
+        "direccion": "Chicago, IL 60601",
+        "email_contacto": "data@sueldos-enfermeras-usa.com"
+      }
+    },
+    "travel_nurses": {
+      "nombre_sitio": "Travel Nurse Hispanas",
+      "color_tema": "#e65100",
+      "comando_deploy": "aws s3 sync ./dist s3://travel-nurses",
+      "seo": {
+        "titulo_base": "Travel Nurses USA",
+        "descripcion_base": "Ofertas agresivas y sueldos astronómicos para enfermeras que viajan dentro de Estados Unidos.",
+        "idioma": "es-US"
+      },
+      "footer": {
+        "empresa_legal": "Hispanas Travel LLC",
+        "direccion": "Denver, CO 80201",
+        "email_contacto": "hola@travel-nurse-hispanas.org"
+      }
+    },
+    "empleos_texas": {
+      "nombre_sitio": "Empleos en Hospitales TX",
+      "color_tema": "#4a148c",
+      "comando_deploy": "firebase deploy --only hosting",
+      "seo": {
+        "titulo_base": "Trabajos TX",
+        "descripcion_base": "Miles de vacantes abiertas en hospitales top grade de Houston y Dallas.",
+        "idioma": "es-US"
+      },
+      "footer": {
+        "empresa_legal": "Texas Recruits",
+        "direccion": "Dallas, TX 75201",
+        "email_contacto": "reclutamiento@empleos-enfermeria-texas.com"
+      }
+    },
+    "vacantes_hospitales": {
+      "nombre_sitio": "Vacantes Agencias USA",
+      "color_tema": "#3e2723",
+      "comando_deploy": "gcloud app deploy app.yaml --quiet",
+      "seo": {
+        "titulo_base": "Directorio Vacantes",
+        "descripcion_base": "El directorio más completo de agencias reclutadoras con sponsor de visa disponibles.",
+        "idioma": "es-US"
+      },
+      "footer": {
+        "empresa_legal": "US Agency Jobs",
+        "direccion": "New York, NY 10001",
+        "email_contacto": "apply@vacantes-hospitales-usa.org"
+      }
+    },
+    "green_card": {
+      "nombre_sitio": "Green Card Health Network",
+      "color_tema": "#00695c",
+      "comando_deploy": "vercel deploy --prod",
+      "seo": {
+        "titulo_base": "Proceso Green Card",
+        "descripcion_base": "Información indispensable sobre el otorgamiento de residencia permanente para profesionales de la salud.",
+        "idioma": "es-US"
+      },
+      "footer": {
+        "empresa_legal": "Health Migration Partners",
+        "direccion": "Washington, DC 20001",
+        "email_contacto": "legal@green-card-enfermeras.com"
+      }
+    },
+    "visas_trabajo": {
+      "nombre_sitio": "Visado Enfermeras Pro",
+      "color_tema": "#880e4f",
+      "comando_deploy": "firebase deploy --only hosting",
+      "seo": {
+        "titulo_base": "Visas de Trabajo EB",
+        "descripcion_base": "H-1B, TN y EB-3. Todo sobre peticiones migratorias de hospitales hacia extranjeras.",
+        "idioma": "es-US"
+      },
+      "footer": {
+        "empresa_legal": "Pro Nursing Visas",
+        "direccion": "Seattle, WA 98101",
+        "email_contacto": "tramites@visas-enfermeria-usa.net"
+      }
+    },
+    "enfermeras_mexicanas": {
+      "nombre_sitio": "Enfermeras Mexicanas Exitosas",
+      "color_tema": "#bf360c",
+      "comando_deploy": "netlify deploy --prod",
+      "seo": {
+        "titulo_base": "México a USA RN",
+        "descripcion_base": "Guía especializada en tramitar visa NAFTA (TN) y homologación rápida para talento de México.",
+        "idioma": "es-MX"
+      },
+      "footer": {
+        "empresa_legal": "Conexión Médica MX",
+        "direccion": "CDMX, México 01000",
+        "email_contacto": "contacto@enfermeras-mexicanas-usa.org"
+      }
+    },
+    "enfermeras_colombianas": {
+      "nombre_sitio": "Talento Enfermería CO",
+      "color_tema": "#fbc02d",
+      "comando_deploy": "gcloud app deploy app.yaml --quiet",
+      "seo": {
+        "titulo_base": "Desde Colombia a USA",
+        "descripcion_base": "Proceso EB-3 migratorio y reclutamiento garantizado para profesionales graduados en Colombia.",
+        "idioma": "es-CO"
+      },
+      "footer": {
+        "empresa_legal": "CO Nursing Link",
+        "direccion": "Bogotá, Colombia 110111",
+        "email_contacto": "asistencia@enfermeras-colombianas-usa.com"
+      }
+    },
+    "latinas": {
+      "nombre_sitio": "Red Enfermeras Latinas",
+      "color_tema": "#c2185b",
+      "comando_deploy": "vercel deploy --prod",
+      "seo": {
+        "titulo_base": "Comunidad Latina RN",
+        "descripcion_base": "Historias de éxito, consultoría migratoria y vacantes dirigidas enteramente a latinas.",
+        "idioma": "es-US"
+      },
+      "footer": {
+        "empresa_legal": "Latina Nurses US",
+        "direccion": "San Antonio, TX 78201",
+        "email_contacto": "unete@enfermeraslatinas.io"
+      }
+    }
+  },
+  "videos": {
+    "distraccion": [
+      "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "https://www.youtube.com/embed/jNQXAC9IVRw"
+    ],
+    "conversion": [
+      "https://www.youtube.com/embed/T6uALoR-k8o"
+    ]
+  }
+}

@@ -1,0 +1,91 @@
+=========================================================
+ GUÍA DE USO - ECOSISTEMA SEO & INTERLINKING MULTI-PROYECTO
+=========================================================
+
+¡Felicidades! Tienes en tus manos el sistema "Todo Google" para generar una red de sitios satélite (PBN) automatizada, con interlinking inteligente y generación de contenido por IA. Ahora está equipado con Soporte Multi-Proyecto.
+
+A continuación, te explico el flujo de trabajo para usar esta herramienta día a día.
+
+---------------------------------------------------------
+ 1. PREPARACIÓN DEL ENTORNO
+---------------------------------------------------------
+Antes de arrancar la red, asegúrate de tener tu entorno activado:
+
+1. Abre tu terminal en la carpeta principal del proyecto:
+   /home/elchristog/webpages_interlinling
+
+2. Activa el entorno virtual de Python donde están instaladas las dependencias:
+   source venv/bin/activate
+
+   (Verás que en tu terminal aparece "(venv)" al inicio de la línea).
+
+3. Verifica tu archivo `.env`. Este archivo contiene tus credenciales de Google Service Account y tu GEMINI_API_KEY.
+
+---------------------------------------------------------
+ 2. ARQUITECTURA DE PROYECTOS
+---------------------------------------------------------
+Cada ecosistema (nicho o cliente) vive en su propia carpeta aislada dentro de `proyectos/`.
+Por ejemplo, actualmente tienes: `/proyectos/enfermera_en_estados_unidos/`
+
+Si deseas crear un NUEVO ecosistema para abogados, simplemente crea la carpeta `/proyectos/abogados/` y pega en su interior los 4 archivos JSON de configuración.
+
+---------------------------------------------------------
+ 3. CÓMO CONFIGURAR TUS SITIOS Y ENLACES
+---------------------------------------------------------
+El sistema es dinámico. Todo se maneja desde los cuatro archivos dentro de tu carpeta de proyecto (p. ej., `/proyectos/enfermera_en_estados_unidos/`):
+
+>> A. config_global.json
+Este archivo controla:
+- "menu_global": Los enlaces que aparecerán en el menú superior de todos tus sitios espejo de este proyecto.
+- "videos": La lista de tus videos de YouTube (conversión y distracción).
+
+>> B. config_sitios.json
+Aquí es donde das de alta tus sitios espejo (flujo, florida, georgia). 
+- Modifica los nombres, colores, metas de palabras clave ("palabras_clave") y el comando de deploy necesario.
+
+>> C. config_enlaces.json
+Este archivo controla la lógica SEO (El Interlinking):
+- Agrega las URL profundas de tu Money Site ("deep_links").
+- Actualiza los variables de tus Textos Ancla a usar aleatoriamente por la IA ('marcas', 'genéricos', etc.).
+
+>> D. config_prompts.json
+Aquí defines el alma de la IA:
+- "personas": ¿Quieres que actúe como doctor, enfermera o abogado? Escribe los perfiles aquí.
+- "formatos": ¿Guía, Q&A, Caso de Estudio? La IA rotará sobre estos formatos estructuralmente.
+
+---------------------------------------------------------
+ 4. CÓMO EJECUTAR EL GENERADOR (EL ORQUESTADOR)
+---------------------------------------------------------
+Con tu terminal activada, hacer la magia requiere pasar el nombre del proyecto como parámetro:
+
+   python orquestador_seo.py enfermera_en_estados_unidos
+
+¿Qué pasa cuando presionas Enter?
+1. El script lee todo de `/proyectos/enfermera_en_estados_unidos/` y limpia los artículos viejos.
+2. Llama a Gemini-2.5-flash usando tus "Personas" rotativas y las instrucciones.
+3. Inserta matemáticamente tus enlaces de "Money Site" (solo 30% de las veces) y tus videos de YouTube.
+4. Sobrescribe la configuración visual de la `plantilla_astro_maestra`.
+5. Compila los sitios estáticos.
+6. (Por ahora simulado) Ejecuta los despliegues de Google Cloud (Firebase, App Engine, etc.).
+
+NOTA: Si escribes "python orquestador_seo.py" sin parámetros, te listará todos los proyectos disponibles en pantalla.
+
+---------------------------------------------------------
+ 5. REVISAR EL RESULTADO
+---------------------------------------------------------
+Si quieres ver cómo quedó un sitio web antes de publicarlo:
+
+1. Entra a la carpeta de Astro:
+   cd plantilla_astro_maestra
+2. Inicia el servidor de desarrollo temporal (asegurate de usar Node.js 22):
+   npm run dev
+3. Abre en tu navegador la dirección que te muestra la terminal (normalmente http://localhost:4321).
+
+---------------------------------------------------------
+ 6. PASO FINAL: HABILITAR PUBLICACIÓN REAL
+---------------------------------------------------------
+En tu `config_sitios.json`, tus sitios tienen un "comando_deploy" estructurado como `echo 'Simulando gcloud...'`.
+
+Cuando ya tengas tus cuentas de Firebase Hosting y App Engine configuradas, reemplaza ese "echo 'Simulando...'" por el comando real, p. ej., `firebase deploy --only hosting`.
+
+A partir de ese momento, ejecutar el orquestador publicará tus páginas directamente al universo sin intervención humana.

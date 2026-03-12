@@ -1,0 +1,53 @@
+{
+  "money_site": {
+    "home_url": "https://enfermeraenestadosunidos.com",
+    "deep_links": [
+      "https://enfermeraenestadosunidos.com/guia-para-trabajar-de-enfermera-en-estados-unidos/",
+      "https://enfermeraenestadosunidos.com/cuanto-gana-una-enfermera-en-estados-unidos/",
+      "https://enfermeraenestadosunidos.com/ofertas-de-empleo-para-enfermeras-en-usa/",
+      "https://enfermeraenestadosunidos.com/visa-y-green-card-para-enfermeras-en-usa/",
+      "https://enfermeraenestadosunidos.com/proceso-para-enfermeras-extranjeras-por-pais/"
+    ]
+  },
+  "anchor_texts": {
+    "marca": [
+      "EnfermeraEnEstadosUnidos",
+      "la agencia Enfermera En Estados Unidos",
+      "el equipo de enfermeraenestadosunidos.com"
+    ],
+    "desnudos": [
+      "https://enfermeraenestadosunidos.com",
+      "enfermeraenestadosunidos.com",
+      "www.enfermeraenestadosunidos.com"
+    ],
+    "genericos": [
+      "haciendo clic aquí",
+      "revisa nuestra guía oficial",
+      "evalúa tu perfil gratis aquí",
+      "contacta a un asesor legal",
+      "ve nuestra lista de vacantes"
+    ],
+    "exactos": [
+      "agencia de reclutamiento de enfermeras para USA",
+      "que se necesita para trabajar de enfermera en estados unidos",
+      "cuanto gana una enfermera en estados unidos",
+      "empleos para enfermeras en estados unidos",
+      "visa de trabajo para enfermeras en estados unidos",
+      "trabajar en usa como enfermera extranjera"
+    ],
+    "parciales": [
+      "requisitos para ser enfermera en usa siendo extranjera",
+      "sueldo de enfermero en estados unidos",
+      "vacantes de enfermeria en usa",
+      "sponsor para enfermeras extranjeras",
+      "agencias para enfermeras latinas",
+      "salario enfermera por estado en usa"
+    ]
+  },
+  "enlaces_autoridad": [
+    "https://www.ncsbn.org/nclex.page",
+    "https://www.cgfns.org/",
+    "https://www.bls.gov/ooh/healthcare/registered-nurses.htm",
+    "https://travel.state.gov/content/travel/en/us-visas/employment.html"
+  ]
+}

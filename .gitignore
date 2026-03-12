@@ -1,0 +1,23 @@
+# Ambientes Virtuales Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Variables de entorno y credenciales
+.env
+
+# Astro SPA y Node.js
+plantilla_astro_maestra/node_modules/
+plantilla_astro_maestra/dist/
+plantilla_astro_maestra/.astro/
+
+# Logs y SO
+*.log
+.DS_Store
+Thumbs.db
+
+# Editores
+.vscode/
+.idea/

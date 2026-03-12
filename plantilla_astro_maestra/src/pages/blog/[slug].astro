@@ -1,0 +1,24 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const { frontmatter, Content } = Astro.props;
+
+export async function getStaticPaths() {
+  const articulos = Object.values(import.meta.glob('../../content/articulos/*.md', { eager: true }));
+  
+  return articulos.map(articulo => ({
+    params: { slug: articulo.frontmatter.slug },
+    props: { ...articulo },
+  }));
+}
+---
+
+<Layout titulo={frontmatter.titulo} descripcion={frontmatter.descripcion}>
+  <article>
+    <h1>{frontmatter.titulo}</h1>
+    <p style="color: #666; font-size: 0.9rem;">Publicado el: {frontmatter.fecha}</p>
+    
+    <div class="contenido-seo" style="margin-top: 1.5rem;">
+      <Content />
+    </div>
+  </article>
+</Layout>

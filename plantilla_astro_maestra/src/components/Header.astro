@@ -1,0 +1,18 @@
+---
+// Lee la configuración que Python acaba de inyectar
+import config from '../data/config_inyectada.json';
+---
+
+<header style={`background-color: ${config.color_tema}; padding: 1rem; color: white; display: flex; justify-content: space-between; align-items: center;`}>
+  <div class="logo" style="font-weight: bold; font-size: 1.5rem;">{config.nombre_sitio}</div>
+  
+  <nav>
+    <ul style="list-style: none; display: flex; gap: 1rem; margin: 0; padding: 0;">
+      {config.menu_global.map((item: any) => (
+        <li>
+          <a href={item.ruta} style="color: white; text-decoration: none;">{item.nombre}</a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>

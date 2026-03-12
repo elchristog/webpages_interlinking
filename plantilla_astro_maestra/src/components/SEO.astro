@@ -1,0 +1,27 @@
+---
+// Importamos la configuración dinámica que Python acaba de generar para este sitio
+import config from '../data/config_inyectada.json';
+
+// Recibimos propiedades específicas de la página actual (ej. título del artículo)
+const { titulo_pagina, descripcion_pagina } = Astro.props;
+
+// Lógica de respaldo: Si el artículo no tiene título/descripción, usa los del sitio
+const tituloFinal = titulo_pagina 
+  ? `${titulo_pagina} | ${config.seo.titulo_base}` 
+  : config.nombre_sitio;
+
+const descripcionFinal = descripcion_pagina || config.seo.descripcion_base;
+---
+
+<title>{tituloFinal}</title>
+<meta name="description" content={descripcionFinal} />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<html lang={config.seo.idioma} />
+
+<meta property="og:title" content={tituloFinal} />
+<meta property="og:description" content={descripcionFinal} />
+<meta property="og:site_name" content={config.nombre_sitio} />
+<meta property="og:locale" content="es_US" />
+
+<meta name="geo.region" content="US" />
+<meta name="geo.placename" content={config.footer.direccion} />

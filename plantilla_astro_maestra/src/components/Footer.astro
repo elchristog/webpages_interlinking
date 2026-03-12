@@ -1,0 +1,23 @@
+---
+import config from '../data/config_inyectada.json';
+
+// Calculamos el año actual dinámicamente
+const anioActual = new Date().getFullYear();
+---
+
+<footer style={`border-top: 3px solid ${config.color_tema}; background-color: #f8f9fa; padding: 2rem; text-align: center; margin-top: 2rem;`}>
+  <div class="info-local">
+    <h4>{config.nombre_sitio}</h4>
+    <p>Oficina de información local: <strong>{config.footer.direccion}</strong></p>
+    <p>Contacto: <a href={`mailto:${config.footer.email_contacto}`}>{config.footer.email_contacto}</a></p>
+  </div>
+
+  <div class="enlaces-legales" style="margin: 1rem 0;">
+    <a href="/politica-de-privacidad">Política de Privacidad</a> | 
+    <a href="/terminos">Términos de Uso</a>
+  </div>
+
+  <div class="copyright">
+    <p>&copy; {anioActual} {config.footer.empresa_legal}. Todos los derechos reservados.</p>
+  </div>
+</footer>

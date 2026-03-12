@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+const articulos = Object.values(import.meta.glob('../content/articulos/*.md', { eager: true }));
+---
+
+<Layout titulo="Inicio | Red PBN">
+	<div class="homepage">
+		<h1>Bienvenido a la vista previa de tus Artículos</h1>
+		<p>Aquí puedes previsualizar los artículos generados por la IA en la carpeta actual:</p>
+		
+		<ul class="article-list">
+			{articulos.map((articulo) => (
+				<li>
+					<a href={`/blog/${articulo.frontmatter.slug}`}>
+						<h2>{articulo.frontmatter.titulo}</h2>
+						<p>{articulo.frontmatter.descripcion}</p>
+					</a>
+				</li>
+			))}
+		</ul>
+	</div>
+</Layout>
+
+<style>
+	.homepage {
+		max-width: 800px;
+		margin: 0 auto;
+		font-family: Arial, sans-serif;
+	}
+	.article-list {
+		list-style: none;
+		padding: 0;
+	}
+	.article-list li {
+		margin-bottom: 2rem;
+		border: 1px solid #ccc;
+		padding: 1rem;
+		border-radius: 8px;
+	}
+	.article-list a {
+		text-decoration: none;
+		color: inherit;
+	}
+	.article-list h2 {
+		margin: 0 0 0.5rem 0;
+		color: #005b96;
+	}
+	.article-list p {
+		margin: 0;
+		color: #555;
+	}
+</style>

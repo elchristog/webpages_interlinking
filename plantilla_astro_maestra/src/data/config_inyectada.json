@@ -1,0 +1,34 @@
+{
+  "nombre_sitio": "Red Enfermeras Latinas",
+  "color_tema": "#c2185b",
+  "comando_deploy": "vercel deploy --prod",
+  "seo": {
+    "titulo_base": "Comunidad Latina RN",
+    "descripcion_base": "Historias de éxito, consultoría migratoria y vacantes dirigidas enteramente a latinas.",
+    "idioma": "es-US"
+  },
+  "footer": {
+    "empresa_legal": "Latina Nurses US",
+    "direccion": "San Antonio, TX 78201",
+    "email_contacto": "unete@enfermeraslatinas.io"
+  },
+  "menu_global": [
+    {
+      "nombre": "Guía y Requisitos",
+      "ruta": "/requisitos"
+    },
+    {
+      "nombre": "Salarios 2025",
+      "ruta": "/salarios"
+    },
+    {
+      "nombre": "Ofertas de Empleo",
+      "ruta": "/vacantes"
+    },
+    {
+      "nombre": "Visado (EB-3)",
+      "ruta": "/visa"
+    }
+  ],
+  "dominio": "https://enfermeraslatinas.io"
+}
