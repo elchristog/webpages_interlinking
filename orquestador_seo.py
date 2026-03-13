@@ -117,7 +117,8 @@ def compilar_y_desplegar(ruta_proyecto, comando_deploy):
     print(f"[*] Compilando Astro en {ruta_proyecto}...")
     
     # 1. Construir el sitio estático (Genera la carpeta /dist)
-    subprocess.run("npm run build", cwd=ruta_proyecto, shell=True)
+    comando_build = "source ~/.config/nvm/nvm.sh && nvm use 22 && npm run build"
+    subprocess.run(comando_build, cwd=ruta_proyecto, shell=True, executable='/bin/bash')
     
     print(f"[*] Desplegando en Google Cloud Platform...")
     
@@ -162,7 +163,7 @@ if __name__ == "__main__":
         print(f"=== Procesando {sitio_id} ===")
         
         # 0. Limpiar contenido viejo e inyectar configuracion
-        limpiar_markdowns(sitio['ruta_astro'])
+        # limpiar_markdowns(sitio['ruta_astro']) # Deshabilitado para poder revisar todas las páginas a la vez
         
         configuracion_actual = config_global["sitios"][sitio_id]
         # Adjuntamos el menú global y el dominio
@@ -180,8 +181,17 @@ if __name__ == "__main__":
         # 3. Preparar robots.txt con el dominio dinámico
         escribir_robots_txt(sitio['ruta_astro'], configuracion_actual['dominio'])
         
-        # 4. Compilar a HTML puro y subir a Google Cloud
-        compilar_y_desplegar(sitio['ruta_astro'], sitio['comando_deploy'])
+        # 4. Aislar proyectos en Google Cloud y compilar
+        comando_deploy = sitio['comando_deploy']
+        gcp_project_id = configuracion_actual.get('gcp_project_id')
+        
+        if gcp_project_id:
+            if "firebase deploy" in comando_deploy:
+                comando_deploy = f"{comando_deploy} --project {gcp_project_id}"
+            elif "gcloud app deploy" in comando_deploy:
+                comando_deploy = f"{comando_deploy} --project {gcp_project_id}"
+        
+        compilar_y_desplegar(sitio['ruta_astro'], comando_deploy)
         
         # 5. Notificar silenciosamente al crawler de Google
         ping_sitemap(configuracion_actual['dominio'])

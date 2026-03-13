@@ -1,5 +1,9 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import LayoutA from '../../layouts/LayoutA.astro';
+import LayoutB from '../../layouts/LayoutB.astro';
+import LayoutC from '../../layouts/LayoutC.astro';
+import config from '../../data/config_inyectada.json';
+
 const { frontmatter, Content } = Astro.props;
 
 export async function getStaticPaths() {
@@ -10,9 +14,17 @@ export async function getStaticPaths() {
     props: { ...articulo },
   }));
 }
+
+// Logic to pick layout
+let SelectedLayout = LayoutA;
+if (config.layout === 'LayoutB') {
+  SelectedLayout = LayoutB;
+} else if (config.layout === 'LayoutC') {
+  SelectedLayout = LayoutC;
+}
 ---
 
-<Layout titulo={frontmatter.titulo} descripcion={frontmatter.descripcion}>
+<SelectedLayout titulo={frontmatter.titulo} descripcion={frontmatter.descripcion}>
   <article>
     <h1>{frontmatter.titulo}</h1>
     <p style="color: #666; font-size: 0.9rem;">Publicado el: {frontmatter.fecha}</p>
@@ -21,4 +33,4 @@ export async function getStaticPaths() {
       <Content />
     </div>
   </article>
-</Layout>
+</SelectedLayout>

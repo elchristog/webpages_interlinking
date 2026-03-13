@@ -2,6 +2,8 @@
   "nombre_sitio": "Red Enfermeras Latinas",
   "color_tema": "#c2185b",
   "comando_deploy": "vercel deploy --prod",
+  "layout": "LayoutB",
+  "gcp_project_id": "latina-net-vcl-66",
   "seo": {
     "titulo_base": "Comunidad Latina RN",
     "descripcion_base": "Historias de éxito, consultoría migratoria y vacantes dirigidas enteramente a latinas.",

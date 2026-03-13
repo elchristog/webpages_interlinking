@@ -1,15 +1,27 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import LayoutA from '../layouts/LayoutA.astro';
+import LayoutB from '../layouts/LayoutB.astro';
+import LayoutC from '../layouts/LayoutC.astro';
+import config from '../data/config_inyectada.json';
+
 const articulos = Object.values(import.meta.glob('../content/articulos/*.md', { eager: true }));
+
+// Logic to pick layout
+let SelectedLayout = LayoutA;
+if (config.layout === 'LayoutB') {
+  SelectedLayout = LayoutB;
+} else if (config.layout === 'LayoutC') {
+  SelectedLayout = LayoutC;
+}
 ---
 
-<Layout titulo="Inicio | Red PBN">
+<SelectedLayout titulo="Inicio | Red PBN">
 	<div class="homepage">
 		<h1>Bienvenido a la vista previa de tus Artículos</h1>
 		<p>Aquí puedes previsualizar los artículos generados por la IA en la carpeta actual:</p>
 		
 		<ul class="article-list">
-			{articulos.map((articulo) => (
+			{articulos.map((articulo: any) => (
 				<li>
 					<a href={`/blog/${articulo.frontmatter.slug}`}>
 						<h2>{articulo.frontmatter.titulo}</h2>
@@ -19,7 +31,7 @@ const articulos = Object.values(import.meta.glob('../content/articulos/*.md', { 
 			))}
 		</ul>
 	</div>
-</Layout>
+</SelectedLayout>
 
 <style>
 	.homepage {

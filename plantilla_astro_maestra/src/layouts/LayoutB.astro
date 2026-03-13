@@ -1,0 +1,78 @@
+---
+import SEO from '../components/SEO.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const { titulo, descripcion } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <SEO titulo_pagina={titulo} descripcion_pagina={descripcion} />
+    <style is:global>
+      body {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #222;
+        background-color: #f4f4f4;
+      }
+      .container {
+        display: flex;
+        max-width: 1000px;
+        margin: 2rem auto;
+        gap: 2rem;
+        padding: 0 1rem;
+      }
+      main {
+        flex: 3;
+        background: #fff;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      aside {
+        flex: 1;
+        background: #fff;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      a { color: #d32f2f; }
+      img, iframe {
+        max-width: 100%;
+        height: auto;
+      }
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    
+    <div class="container">
+      <main style="min-height: 70vh;">
+        <slot />
+      </main>
+      
+      <aside>
+        <h3>📌 Enlaces Rápidos</h3>
+        <ul style="list-style: none; padding: 0;">
+          <li style="margin-bottom: 0.5rem;"><a href="/">Página Principal</a></li>
+          <li style="margin-bottom: 0.5rem;"><a href="/contacto">Contacto</a></li>
+          <li><a href="/privacidad">Privacidad</a></li>
+        </ul>
+        <div style="margin-top: 2rem; padding: 1rem; background: #e3f2fd; border-radius: 4px;">
+          <p style="margin: 0; font-size: 0.9rem; color: #0d47a1;"><strong>Nota:</strong> Mantente actualizado con nuestras últimas guías y recursos.</p>
+        </div>
+      </aside>
+    </div>
+
+    <Footer />
+  </body>
+</html>

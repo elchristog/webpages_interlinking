@@ -10,6 +10,8 @@
       "nombre_sitio": "Enfermería Florida Hoy",
       "color_tema": "#FF5733",
       "comando_deploy": "firebase deploy --only hosting",
+      "layout": "LayoutA",
+      "gcp_project_id": "fl-nurses-proj-rtx",
       "seo": {
         "titulo_base": "Ofertas Médicas FL",
         "descripcion_base": "Encuentra salarios, empleos y oportunidades con sponsor para enfermeras extranjeras en Miami, Tampa y Florida.",
@@ -25,6 +27,8 @@
       "nombre_sitio": "Red de Enfermeras GA",
       "color_tema": "#005b96",
       "comando_deploy": "gcloud app deploy",
+      "layout": "LayoutB",
+      "gcp_project_id": "ga-health-net-991",
       "seo": {
         "titulo_base": "Licencias GA",
         "descripcion_base": "Guía especializada del proceso NCLEX y EB-3 para conseguir trabajo registrado en hospitales de Georgia.",
@@ -40,6 +44,8 @@
       "nombre_sitio": "Prep NCLEX Texas",
       "color_tema": "#b71c1c",
       "comando_deploy": "aws s3 sync ./dist s3://texas-nclex",
+      "layout": "LayoutC",
+      "gcp_project_id": "tx-nclex-prep-aws",
       "seo": {
         "titulo_base": "Guía NCLEX TX",
         "descripcion_base": "Paso a paso para superar el NCLEX y requisitos del CGFNS en Texas.",
@@ -55,6 +61,8 @@
       "nombre_sitio": "Homologa tu Título",
       "color_tema": "#004d40",
       "comando_deploy": "netlify deploy --dir=dist",
+      "layout": "LayoutA",
+      "gcp_project_id": "us-valid-ntlify-88",
       "seo": {
         "titulo_base": "Valida tu Título",
         "descripcion_base": "Instrucciones legales completas para homologar títulos de enfermería en USA.",
@@ -70,6 +78,8 @@
       "nombre_sitio": "Licencia RN Oficial",
       "color_tema": "#1565c0",
       "comando_deploy": "firebase deploy --only hosting",
+      "layout": "LayoutC",
+      "gcp_project_id": "rn-license-fb-002",
       "seo": {
         "titulo_base": "Obtener Licencia RN",
         "descripcion_base": "Aplica oficial y correctamente a tu RN (Registered Nurse License) en todos los estados.",
@@ -85,6 +95,8 @@
       "nombre_sitio": "California Nurse Salaries",
       "color_tema": "#ffb300",
       "comando_deploy": "netlify deploy --prod",
+      "layout": "LayoutB",
+      "gcp_project_id": "ca-salaries-ntl-1",
       "seo": {
         "titulo_base": "Salarios CA 2025",
         "descripcion_base": "Los mejores estados y especialidades para cobrar el máximo sueldo como enfermera en California.",
@@ -100,6 +112,8 @@
       "nombre_sitio": "Sueldos de Enfermería Hub",
       "color_tema": "#2e7d32",
       "comando_deploy": "vercel deploy --prod",
+      "layout": "LayoutA",
+      "gcp_project_id": "salary-hub-vcl-x",
       "seo": {
         "titulo_base": "Estudio Sueldos USA",
         "descripcion_base": "Estudio detallado de cuánto gana una enfermera quirúrgica vs anestesista vs emergencias.",
@@ -115,6 +129,8 @@
       "nombre_sitio": "Travel Nurse Hispanas",
       "color_tema": "#e65100",
       "comando_deploy": "aws s3 sync ./dist s3://travel-nurses",
+      "layout": "LayoutC",
+      "gcp_project_id": "travel-nrs-aws-77",
       "seo": {
         "titulo_base": "Travel Nurses USA",
         "descripcion_base": "Ofertas agresivas y sueldos astronómicos para enfermeras que viajan dentro de Estados Unidos.",
@@ -130,6 +146,8 @@
       "nombre_sitio": "Empleos en Hospitales TX",
       "color_tema": "#4a148c",
       "comando_deploy": "firebase deploy --only hosting",
+      "layout": "LayoutB",
+      "gcp_project_id": "tx-jobs-fb-909",
       "seo": {
         "titulo_base": "Trabajos TX",
         "descripcion_base": "Miles de vacantes abiertas en hospitales top grade de Houston y Dallas.",
@@ -145,6 +163,8 @@
       "nombre_sitio": "Vacantes Agencias USA",
       "color_tema": "#3e2723",
       "comando_deploy": "gcloud app deploy app.yaml --quiet",
+      "layout": "LayoutA",
+      "gcp_project_id": "us-vacancies-app-e",
       "seo": {
         "titulo_base": "Directorio Vacantes",
         "descripcion_base": "El directorio más completo de agencias reclutadoras con sponsor de visa disponibles.",
@@ -160,6 +180,8 @@
       "nombre_sitio": "Green Card Health Network",
       "color_tema": "#00695c",
       "comando_deploy": "vercel deploy --prod",
+      "layout": "LayoutC",
+      "gcp_project_id": "green-card-vcl-33",
       "seo": {
         "titulo_base": "Proceso Green Card",
         "descripcion_base": "Información indispensable sobre el otorgamiento de residencia permanente para profesionales de la salud.",
@@ -175,6 +197,8 @@
       "nombre_sitio": "Visado Enfermeras Pro",
       "color_tema": "#880e4f",
       "comando_deploy": "firebase deploy --only hosting",
+      "layout": "LayoutB",
+      "gcp_project_id": "work-visa-fb-551",
       "seo": {
         "titulo_base": "Visas de Trabajo EB",
         "descripcion_base": "H-1B, TN y EB-3. Todo sobre peticiones migratorias de hospitales hacia extranjeras.",
@@ -190,6 +214,8 @@
       "nombre_sitio": "Enfermeras Mexicanas Exitosas",
       "color_tema": "#bf360c",
       "comando_deploy": "netlify deploy --prod",
+      "layout": "LayoutA",
+      "gcp_project_id": "mx-nurses-ntl-22",
       "seo": {
         "titulo_base": "México a USA RN",
         "descripcion_base": "Guía especializada en tramitar visa NAFTA (TN) y homologación rápida para talento de México.",
@@ -205,6 +231,8 @@
       "nombre_sitio": "Talento Enfermería CO",
       "color_tema": "#fbc02d",
       "comando_deploy": "gcloud app deploy app.yaml --quiet",
+      "layout": "LayoutC",
+      "gcp_project_id": "co-talent-app-11",
       "seo": {
         "titulo_base": "Desde Colombia a USA",
         "descripcion_base": "Proceso EB-3 migratorio y reclutamiento garantizado para profesionales graduados en Colombia.",
@@ -220,6 +248,8 @@
       "nombre_sitio": "Red Enfermeras Latinas",
       "color_tema": "#c2185b",
       "comando_deploy": "vercel deploy --prod",
+      "layout": "LayoutB",
+      "gcp_project_id": "latina-net-vcl-66",
       "seo": {
         "titulo_base": "Comunidad Latina RN",
         "descripcion_base": "Historias de éxito, consultoría migratoria y vacantes dirigidas enteramente a latinas.",
