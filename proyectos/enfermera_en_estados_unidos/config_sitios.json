@@ -1,4 +1,12 @@
 {
+  "money_site": {
+      "id": "master_money_site",
+      "nicho": "Portal principal para enfermeras extranjeras que buscan trabajar en Estados Unidos",
+      "palabras_clave": ["homologar titulo enfermeria usa", "trabajar enfermera estados unidos", "agencia reclutamiento enfermeria usa"],
+      "dominio": "https://enfermeraenestadosunidos.com",
+      "ruta_astro": "./plantilla_astro_maestra",
+      "comando_deploy": "echo 'Simulando gcloud run deploy master-site --image gcr.io/proyecto/master-site'"
+  },
   "sitios_espejo": [
     {
         "id": "florida",

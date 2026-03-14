@@ -3,6 +3,7 @@ import LayoutA from '../layouts/LayoutA.astro';
 import LayoutB from '../layouts/LayoutB.astro';
 import LayoutC from '../layouts/LayoutC.astro';
 import config from '../data/config_inyectada.json';
+import home_content from '../data/home_content.json';
 
 const articulos = Object.values(import.meta.glob('../content/articulos/*.md', { eager: true }));
 
@@ -15,22 +16,41 @@ if (config.layout === 'LayoutB') {
 }
 ---
 
-<SelectedLayout titulo="Inicio | Red PBN">
-	<div class="homepage">
-		<h1>Bienvenido a la vista previa de tus Artículos</h1>
-		<p>Aquí puedes previsualizar los artículos generados por la IA en la carpeta actual:</p>
-		
-		<ul class="article-list">
-			{articulos.map((articulo: any) => (
-				<li>
-					<a href={`/blog/${articulo.frontmatter.slug}`}>
-						<h2>{articulo.frontmatter.titulo}</h2>
-						<p>{articulo.frontmatter.descripcion}</p>
-					</a>
-				</li>
-			))}
-		</ul>
-	</div>
+<SelectedLayout titulo={`${config.nombre_sitio} | Inicio`}>
+    {home_content.active ? (
+        <div class="custom-home">
+            <h1 style="color: var(--primary-color);">{home_content.titulo}</h1>
+            <div set:html={home_content.cuerpo} />
+            
+            <hr style="margin: 3rem 0;" />
+            <h3>Últimas actualizaciones</h3>
+            <ul class="article-list">
+                {articulos.map((articulo: any) => (
+                    <li>
+                        <a href={`/blog/${articulo.frontmatter.slug}`}>
+                            <h4>{articulo.frontmatter.titulo}</h4>
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    ) : (
+        <div class="homepage">
+            <h1>Bienvenido a {config.nombre_sitio}</h1>
+            <p>Aquí puedes encontrar información valiosa sobre:</p>
+            
+            <ul class="article-list">
+                {articulos.map((articulo: any) => (
+                    <li>
+                        <a href={`/blog/${articulo.frontmatter.slug}`}>
+                            <h2>{articulo.frontmatter.titulo}</h2>
+                            <p>{articulo.frontmatter.descripcion}</p>
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    )}
 </SelectedLayout>
 
 <style>

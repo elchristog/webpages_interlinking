@@ -1,18 +1,46 @@
 ---
-// Lee la configuración que Python acaba de inyectar
 import config from '../data/config_inyectada.json';
 ---
 
-<header style={`background-color: ${config.color_tema}; padding: 1rem; color: white; display: flex; justify-content: space-between; align-items: center;`}>
-  <div class="logo" style="font-weight: bold; font-size: 1.5rem;">{config.nombre_sitio}</div>
-  
-  <nav>
-    <ul style="list-style: none; display: flex; gap: 1rem; margin: 0; padding: 0;">
-      {config.menu_global.map((item: any) => (
-        <li>
-          <a href={item.ruta} style="color: white; text-decoration: none;">{item.nombre}</a>
-        </li>
-      ))}
-    </ul>
-  </nav>
+<header class="glass-header">
+  <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0;">
+    <div class="logo-area" style="display: flex; align-items: center; gap: 12px;">
+      <div class="logo-icon" style={`width: 28px; height: 28px; background: ${config.color_tema}; border-radius: 6px;`}></div>
+      <div class="logo-text" style="font-weight: 800; font-size: 1.25rem; color: var(--text-color); white-space: nowrap;">{config.nombre_sitio}</div>
+    </div>
+    
+    <nav style="display: flex; align-items: center; gap: 1.5rem;">
+      <ul style="list-style: none; display: flex; gap: 1.25rem; margin: 0; padding: 0; font-weight: 600; font-size: 0.95rem;">
+        {config.menu_global.map((item: any) => (
+          <li>
+            <a href={item.ruta} class="nav-link">{item.nombre}</a>
+          </li>
+        ))}
+      </ul>
+      
+      <a href="/contacto" class="btn-premium" style={`background: ${config.color_tema}; color: white; font-size: 0.9rem;`}>
+        Hablemos
+      </a>
+    </nav>
+  </div>
 </header>
+
+<style>
+  .nav-link {
+    position: relative;
+    color: var(--text-color);
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: currentColor;
+    transition: var(--transition);
+  }
+  .nav-link:hover::after {
+    width: 100%;
+  }
+</style>

@@ -1,23 +1,41 @@
 ---
 import config from '../data/config_inyectada.json';
 
-// Calculamos el año actual dinámicamente
 const anioActual = new Date().getFullYear();
 ---
 
-<footer style={`border-top: 3px solid ${config.color_tema}; background-color: #f8f9fa; padding: 2rem; text-align: center; margin-top: 2rem;`}>
-  <div class="info-local">
-    <h4>{config.nombre_sitio}</h4>
-    <p>Oficina de información local: <strong>{config.footer.direccion}</strong></p>
-    <p>Contacto: <a href={`mailto:${config.footer.email_contacto}`}>{config.footer.email_contacto}</a></p>
-  </div>
+<footer class="modern-footer">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; text-align: left;">
+      <div class="footer-brand">
+        <h2 style="font-size: 2rem; margin-bottom: 1rem;">{config.nombre_sitio}</h2>
+        <p style="color: var(--secondary-text); max-width: 400px;">
+          Un equipo apasionado que diseña y ofrece productos digitales a medida, centrados en el ser humano, con experiencias de cliente excepcionales.
+        </p>
+        <div class="awards" style="margin-top: 2rem; display: flex; gap: 1rem; opacity: 0.6;">
+          <div style="border: 1px solid #ddd; padding: 4px 10px; font-size: 0.7rem; font-weight: bold;">FORBES DIAMOND 2024</div>
+          <div style="border: 1px solid #ddd; padding: 4px 10px; font-size: 0.7rem; font-weight: bold;">AWWWARDS 4X</div>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h4 style="margin-bottom: 1.5rem;">Legal</h4>
+        <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem; color: var(--secondary-text);">
+          <li><a href="/politica-de-privacidad">Privacidad</a></li>
+          <li><a href="/terminos">Términos</a></li>
+        </ul>
+      </div>
 
-  <div class="enlaces-legales" style="margin: 1rem 0;">
-    <a href="/politica-de-privacidad">Política de Privacidad</a> | 
-    <a href="/terminos">Términos de Uso</a>
-  </div>
+      <div class="footer-contact">
+        <h4 style="margin-bottom: 1.5rem;">Contacto</h4>
+        <p style="color: var(--secondary-text);">{config.footer.direccion}</p>
+        <p><a href={`mailto:${config.footer.email_contacto}`} style="font-weight: 600;">{config.footer.email_contacto}</a></p>
+      </div>
+    </div>
 
-  <div class="copyright">
-    <p>&copy; {anioActual} {config.footer.empresa_legal}. Todos los derechos reservados.</p>
+    <div style="margin-top: 5rem; padding-top: 2rem; border-top: 1px solid #eee; display: flex; justify-content: space-between; color: var(--secondary-text); font-size: 0.9rem;">
+      <p>&copy; {anioActual} {config.footer.empresa_legal}.</p>
+      <p>Innovando en tu industria.</p>
+    </div>
   </div>
 </footer>

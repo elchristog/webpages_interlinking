@@ -2,73 +2,37 @@
 import SEO from '../components/SEO.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import '../styles/global.css';
 
 const { titulo, descripcion } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <SEO titulo_pagina={titulo} descripcion_pagina={descripcion} />
-    <style is:global>
-      body {
-        margin: 0;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        line-height: 1.6;
-        color: #222;
-        background-color: #f4f4f4;
-      }
-      .container {
-        display: flex;
-        max-width: 1000px;
-        margin: 2rem auto;
-        gap: 2rem;
-        padding: 0 1rem;
-      }
-      main {
-        flex: 3;
-        background: #fff;
-        padding: 2rem;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      }
-      aside {
-        flex: 1;
-        background: #fff;
-        padding: 1.5rem;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      }
-      a { color: #d32f2f; }
-      img, iframe {
-        max-width: 100%;
-        height: auto;
-      }
-      @media (max-width: 768px) {
-        .container {
-          flex-direction: column;
-        }
-      }
-    </style>
   </head>
   <body>
     <Header />
     
-    <div class="container">
+    <div class="container" style="display: grid; grid-template-columns: 3fr 1fr; gap: 4rem; padding: 5rem 0;">
       <main style="min-height: 70vh;">
         <slot />
       </main>
       
-      <aside>
-        <h3>📌 Enlaces Rápidos</h3>
-        <ul style="list-style: none; padding: 0;">
-          <li style="margin-bottom: 0.5rem;"><a href="/">Página Principal</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="/contacto">Contacto</a></li>
-          <li><a href="/privacidad">Privacidad</a></li>
+      <aside style="border-left: 1px solid #eee; padding-left: 2rem;">
+        <h4 style="margin-bottom: 2rem; color: var(--secondary-text); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em;">Navegación</h4>
+        <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1rem; font-weight: 600;">
+          <li><a href="/" class="side-link">Página Principal</a></li>
+          <li><a href="/contacto" class="side-link">Hablemos</a></li>
         </ul>
-        <div style="margin-top: 2rem; padding: 1rem; background: #e3f2fd; border-radius: 4px;">
-          <p style="margin: 0; font-size: 0.9rem; color: #0d47a1;"><strong>Nota:</strong> Mantente actualizado con nuestras últimas guías y recursos.</p>
+        
+        <div style="margin-top: 4rem; padding: 2rem; background: #000; color: #fff; border-radius: 24px;">
+          <h4 style="margin-bottom: 1rem;">¿Tienes dudas?</h4>
+          <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 2rem;">Nuestro equipo legal está listo para ayudarte con tu proceso migratorio.</p>
+          <a href="/contacto" style="font-weight: bold; border-bottom: 2px solid #fff;">Contáctanos &rarr;</a>
         </div>
       </aside>
     </div>
@@ -76,3 +40,13 @@ const { titulo, descripcion } = Astro.props;
     <Footer />
   </body>
 </html>
+
+<style>
+  .side-link {
+    transition: var(--transition);
+  }
+  .side-link:hover {
+    padding-left: 8px;
+    color: var(--secondary-text);
+  }
+</style>

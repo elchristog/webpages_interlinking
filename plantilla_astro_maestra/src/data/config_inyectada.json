@@ -16,19 +16,19 @@
   },
   "menu_global": [
     {
-      "nombre": "Guía y Requisitos",
+      "nombre": "Requisitos para Enfermeras Latinas en USA",
       "ruta": "/requisitos"
     },
     {
-      "nombre": "Salarios 2025",
+      "nombre": "Salarios de Enfermería en USA (2025)",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Ofertas de Empleo",
+      "nombre": "Trabajos de Enfermería en Estados Unidos para Latinas",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Visado (EB-3)",
+      "nombre": "Visa EB-3 para Enfermeras Latinas: Guía Completa",
       "ruta": "/visa"
     }
   ],

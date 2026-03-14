@@ -2,33 +2,22 @@
 import SEO from '../components/SEO.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import '../styles/global.css';
 
 const { titulo, descripcion } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <SEO titulo_pagina={titulo} descripcion_pagina={descripcion} />
-    <style is:global>
-      body {
-        margin: 0;
-        font-family: system-ui, -apple-system, sans-serif;
-        line-height: 1.5;
-        color: #333;
-      }
-      a { color: #005b96; }
-      img, iframe {
-        max-width: 100%;
-        height: auto;
-      }
-    </style>
   </head>
   <body>
     <Header />
     
-    <main style="min-height: 80vh; padding: 2rem; max-width: 800px; margin: 0 auto;">
+    <main class="container" style="min-height: 80vh; padding: 6rem 0;">
       <slot />
     </main>
 

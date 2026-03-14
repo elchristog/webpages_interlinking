@@ -2,56 +2,23 @@
 import SEO from '../components/SEO.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import '../styles/global.css';
 
 const { titulo, descripcion } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <SEO titulo_pagina={titulo} descripcion_pagina={descripcion} />
-    <style is:global>
-      body {
-        margin: 0;
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        line-height: 1.8;
-        color: #444;
-        background-color: #fafafa;
-      }
-      .wrapper {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-      }
-      .content-area {
-        flex: 1;
-        width: 100%;
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 3rem 1.5rem;
-        box-sizing: border-box;
-      }
-      article.post-content {
-        background: #ffffff;
-        padding: 2.5rem;
-        border-top: 5px solid #004d40;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-      }
-      a { color: #004d40; text-decoration: underline; }
-      img, iframe {
-        max-width: 100%;
-        height: auto;
-        display: block;
-        margin: 1rem auto;
-      }
-    </style>
   </head>
   <body>
     <div class="wrapper">
       <Header />
       
-      <main class="content-area">
+      <main class="container" style="padding: 5rem 0;">
         <article class="post-content">
           <slot />
         </article>
@@ -61,3 +28,18 @@ const { titulo, descripcion } = Astro.props;
     </div>
   </body>
 </html>
+
+<style>
+  .post-content {
+    background: #ffffff;
+    padding: 5rem;
+    border-radius: 32px;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.03);
+    border: 1px solid #eee;
+  }
+  .wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+</style>

@@ -260,6 +260,23 @@
         "direccion": "San Antonio, TX 78201",
         "email_contacto": "unete@enfermeraslatinas.io"
       }
+    },
+    "master_money_site": {
+      "nombre_sitio": "Enfermera en Estados Unidos",
+      "color_tema": "#0277bd",
+      "comando_deploy": "gcloud run deploy master-site",
+      "layout": "LayoutA",
+      "gcp_project_id": "money-site-project-id",
+      "seo": {
+        "titulo_base": "Enfermera en USA",
+        "descripcion_base": "Portal líder para la homologación y trabajo de enfermería en Estados Unidos.",
+        "idioma": "es-US"
+      },
+      "footer": {
+        "empresa_legal": "Enfermera en USA S.A.S",
+        "direccion": "Sede Global",
+        "email_contacto": "contacto@enfermeraenestadosunidos.com"
+      }
     }
   },
   "videos": {
