@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sueldos-enfermeras-usa.com/sitemap-index.xml

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://georgia-nurses-network.org/sitemap-index.xml

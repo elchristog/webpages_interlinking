@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://homologacion-enfermeria-usa.com/sitemap-index.xml

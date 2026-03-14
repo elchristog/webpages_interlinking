@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://texas-nclex-prep.com/sitemap-index.xml

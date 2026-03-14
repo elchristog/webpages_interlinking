@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://vacantes-hospitales-usa.org/sitemap-index.xml

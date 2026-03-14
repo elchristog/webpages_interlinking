@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://travel-nurse-hispanas.org/sitemap-index.xml

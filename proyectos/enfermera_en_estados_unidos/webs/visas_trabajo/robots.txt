@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://visas-enfermeria-usa.net/sitemap-index.xml

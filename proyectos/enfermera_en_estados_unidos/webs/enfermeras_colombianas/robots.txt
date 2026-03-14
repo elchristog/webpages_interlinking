@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://enfermeras-colombianas-usa.com/sitemap-index.xml

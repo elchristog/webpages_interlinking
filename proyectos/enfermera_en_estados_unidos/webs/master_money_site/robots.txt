@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://enfermeraenestadosunidos.com/sitemap-index.xml

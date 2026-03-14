@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://green-card-enfermeras.com/sitemap-index.xml
