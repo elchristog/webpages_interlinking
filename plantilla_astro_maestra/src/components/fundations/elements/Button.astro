@@ -1,0 +1,48 @@
+---
+interface Props {
+  variant?: "default" | "muted" | "accent";
+  size?: "md" | "xl";
+  isLink?: boolean;
+  href?: string;
+  class?: string;
+  type?: "button" | "submit";
+  id?: string;
+}
+
+const {
+  variant = "default",
+  size = "md",
+  isLink = false,
+  href = "#",
+  class: className = "",
+  type = "button",
+  id,
+} = Astro.props;
+
+const baseStyles = "inline-flex items-center justify-center font-medium transition-colors duration-200 focus:outline-none";
+
+const variants = {
+  default: "bg-black text-white hover:bg-zinc-800",
+  muted: "bg-zinc-100 text-zinc-900 hover:bg-zinc-200",
+  accent: "bg-blue-600 text-white hover:bg-blue-700",
+};
+
+const sizes = {
+  md: "px-4 py-2 text-sm",
+  xl: "px-8 py-3 text-base",
+};
+
+const combinedClasses = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`;
+---
+
+{
+  isLink ? (
+    <a href={href} class={combinedClasses} id={id}>
+      <slot />
+    </a>
+  ) : (
+    <button type={type} class={combinedClasses} id={id}>
+      <slot />
+    </button>
+  )
+}

@@ -1,0 +1,37 @@
+---
+import { AstroSeo } from "@lexingtonthemes/seo";
+import config from "@/data/config_inyectada.json";
+
+const { titulo, descripcion } = Astro.props;
+
+const title = titulo ? `${titulo} | ${config.seo.titulo_base}` : config.nombre_sitio;
+const description = descripcion || config.seo.descripcion_base;
+---
+
+<AstroSeo
+  title={title}
+  description={description}
+  canonical={config.dominio}
+  openGraph={{
+    url: config.dominio,
+    title: title,
+    description: description,
+    images: [
+      {
+        url: `${config.dominio}/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: title,
+        type: "image/jpeg",
+      },
+    ],
+    site_name: config.nombre_sitio,
+    type: "website",
+    locale: config.seo.idioma.replace("-", "_"),
+  }}
+  twitter={{
+    handle: "@enfermeraeeu",
+    site: config.dominio,
+    cardType: "summary_large_image",
+  }}
+/>

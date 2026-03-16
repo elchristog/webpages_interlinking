@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import tailwindv4 from '@tailwindcss/vite';
 import fs from 'fs';
 
 // Read injected config to fetch the current dynamic domain during build time
@@ -15,5 +16,12 @@ try {
 // https://astro.build/config
 export default defineConfig({
   site: siteUrl,
-  integrations: [sitemap()]
+  base: '/',
+  integrations: [sitemap()],
+  vite: {
+    plugins: [tailwindv4()],
+    build: {
+      assetsDir: '_astro'
+    }
+  }
 });

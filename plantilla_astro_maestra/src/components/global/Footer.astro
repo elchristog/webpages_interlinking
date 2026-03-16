@@ -1,0 +1,84 @@
+---
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import config from "@/data/config_inyectada.json";
+
+const footerLinks = [
+  {
+    title: "Explora",
+    links: config.menu_global || []
+  }
+];
+
+const anioActual = new Date().getFullYear();
+---
+
+<footer class="relative mt-20">
+  <Wrapper variant="standard" class="py-8">
+    <div
+      class="items-start pt-12 mt-12 tracking-tight border-t grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-24 border-base-200"
+    >
+      <div class="items-start tracking-tight grid grid-cols-2 gap-x-8 gap-y-12">
+        {
+          footerLinks.map((section) => (
+            <div>
+              <Text
+                tag="h3"
+                variant="textBase"
+                class="font-medium text-base-600"
+              >
+                {section.title}
+              </Text>
+              <ul role="list" class="mt-4 space-y-2">
+                {section.links.map((link) => (
+                  <li>
+                    <a
+                      class="text-base-500  hover:text-base-800"
+                      href={link.ruta}
+                    >
+                      {link.nombre}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+        <div>
+           <Text
+                tag="h3"
+                variant="textBase"
+                class="font-medium text-base-600"
+              >
+                Legal
+              </Text>
+              <ul role="list" class="mt-4 space-y-2">
+                 <li><a class="text-base-500 hover:text-base-800" href="/politica-de-privacidad">Privacidad</a></li>
+                 <li><a class="text-base-500 hover:text-base-800" href="/terminos">Términos</a></li>
+              </ul>
+        </div>
+      </div>
+      <div class="flex flex-col justify-between h-full p-8 bg-base-50">
+        <Text
+          tag="p"
+          variant="displaySM"
+          class="md:max-w-sm text-base-800 text-balance font-medium"
+          >{config.nombre_sitio}</Text
+        >
+        <Text tag="p" variant="textSM" class="text-base-500 mt-2">
+          {config.seo.descripcion_base}
+        </Text>
+
+        <div class="mt-8">
+           <Text tag="p" variant="textXS" class="text-base-500">
+             © {anioActual} {config.footer.empresa_legal}. {config.footer.direccion}
+           </Text>
+           <Text tag="p" variant="textXS" class="text-base-500 mt-1">
+             {config.footer.email_contacto}
+           </Text>
+        </div>
+      </div>
+    </div>
+  </Wrapper>
+</footer>

@@ -6,6 +6,23 @@
     { "nombre": "Visado (EB-3)", "ruta": "/visa" }
   ],
   "sitios": {
+    "money_site": {
+      "nombre_sitio": "Enfermera en Estados Unidos (Oficial)",
+      "color_tema": "#000000",
+      "comando_deploy": "echo 'Deploying Money Site'",
+      "layout": "LayoutA",
+      "gcp_project_id": "money-site-main-pbn",
+      "seo": {
+        "titulo_base": "Guía Maestra de Enfermería USA",
+        "descripcion_base": "El recurso número uno para enfermeras hispanas que buscan trabajar en Estados Unidos de forma legal y segura.",
+        "idioma": "es-US"
+      },
+      "footer": {
+        "empresa_legal": "EnfermeraEEU Network",
+        "direccion": "Main St, USA",
+        "email_contacto": "hola@enfermeraeeu.com"
+      }
+    },
     "florida": {
       "nombre_sitio": "Enfermería Florida Hoy",
       "color_tema": "#FF5733",

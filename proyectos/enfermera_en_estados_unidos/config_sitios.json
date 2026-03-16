@@ -1,6 +1,14 @@
 {
   "sitios_espejo": [
     {
+        "id": "money_site",
+        "nicho": "Enfermera en Estados Unidos - Guía Principal",
+        "palabras_clave": ["trabajar como enfermera en usa", "enfermeria estados unidos", "nclex para latinas"],
+        "dominio": "https://enfermeraeeu.com",
+        "ruta_astro": "./plantilla_astro_maestra",
+        "comando_deploy": "echo 'Simulando deploy principal'"
+    },
+    {
         "id": "florida",
         "nicho": "Ofertas de empleo y salarios promedios para enfermeras extranjeras en Miami y Tampa, Florida",
         "palabras_clave": ["vacantes enfermera miami", "salario enfermera florida", "trabajo enfermera quirurgica florida"],

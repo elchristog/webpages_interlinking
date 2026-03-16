@@ -1,0 +1,137 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms";
+
+@theme {
+  /* Typography */
+  --font-sans: "Inter", sans-serif;
+  /* Colors */
+  /* Yellow */
+  --color-yellow-50: oklch(97.14% 0.012 101.48);
+  --color-yellow-100: oklch(93.93% 0.027 102.24);
+  --color-yellow-200: oklch(88.26% 0.051 101.16);
+  --color-yellow-300: oklch(82.21% 0.078 101.37);
+  --color-yellow-400: oklch(76.44% 0.1 102.01);
+  --color-yellow-500: oklch(70.04% 0.11 102.24);
+  --color-yellow-600: oklch(58.95% 0.092 102.04);
+  --color-yellow-700: oklch(48.7% 0.074 101.86);
+  --color-yellow-800: oklch(36.67% 0.053 102.79);
+  --color-yellow-900: oklch(24.58% 0.031 100);
+  --color-yellow-950: oklch(17.57% 0.018 102.71);
+  /* Rose */
+  --color-purple-50: oklch(96.71% 0.014 304.14);
+  --color-purple-100: oklch(93.55% 0.027 299.54);
+  --color-purple-200: oklch(86.96% 0.058 300.78);
+  --color-purple-300: oklch(80.46% 0.087 299.46);
+  --color-purple-400: oklch(73.74% 0.118 298.82);
+  --color-purple-500: oklch(67.4% 0.148 297.83);
+  --color-purple-600: oklch(60.96% 0.179 296.19);
+  --color-purple-700: oklch(54.85% 0.207 293.9);
+  --color-purple-800: oklch(40.14% 0.193 289.64);
+  --color-purple-900: oklch(25.23% 0.11 292.04);
+  --color-purple-950: oklch(17.9% 0.064 294.41);
+  /* Green */
+  --color-green-50: oklch(95.7% 0.007 145.52);
+  --color-green-100: oklch(91.96% 0.014 145.46);
+  --color-green-200: oklch(85.22% 0.024 145.36);
+  --color-green-300: oklch(78.37% 0.036 145.23);
+  --color-green-400: oklch(70.66% 0.049 145.03);
+  --color-green-500: oklch(63.55% 0.061 144.81);
+  --color-green-600: oklch(54.59% 0.054 144.79);
+  --color-green-700: oklch(46.07% 0.044 144.82);
+  --color-green-800: oklch(37.13% 0.034 144.85);
+  --color-green-900: oklch(26.5% 0.021 144.96);
+  --color-green-950: oklch(20.93% 0.015 145.02);
+  /* Teal */
+  --color-teal-50: oklch(97.12% 0.003 219.53);
+  --color-teal-100: oklch(95.01% 0.008 207.14);
+  --color-teal-200: oklch(88.48% 0.016 212);
+  --color-teal-300: oklch(84.76% 0.021 211.77);
+  --color-teal-400: oklch(80.17% 0.026 215.18);
+  --color-teal-500: oklch(75.68% 0.033 213.96);
+  --color-teal-600: oklch(70.48% 0.04 211.18);
+  --color-teal-700: oklch(63.52% 0.049 212.05);
+  --color-teal-800: oklch(55.23% 0.043 214.97);
+  --color-teal-900: oklch(44.78% 0.035 212.42);
+  --color-teal-950: oklch(33.46% 0.024 212.93);
+  /* Rose */
+  --color-rose-50: oklch(95.73% 0.011 348.43);
+  --color-rose-100: oklch(91.27% 0.025 344.47);
+  --color-rose-200: oklch(82.45% 0.05 346.66);
+  --color-rose-300: oklch(73.64% 0.078 347.26);
+  --color-rose-400: oklch(65.8% 0.102 348.53);
+  --color-rose-500: oklch(57.12% 0.132 351.15);
+  --color-rose-600: oklch(49.05% 0.114 350.49);
+  --color-rose-700: oklch(39.55% 0.089 350.18);
+  --color-rose-800: oklch(30.36% 0.064 350.27);
+  --color-rose-900: oklch(20.49% 0.036 347.91);
+  --color-rose-950: oklch(15.01% 0.019 344.89);
+  /* Blue */
+  --color-blue-50: oklch(96.49% 0.012 255.51);
+  --color-blue-100: oklch(93.15% 0.024 250.08);
+  --color-blue-200: oklch(85.36% 0.051 251.16);
+  --color-blue-300: oklch(78.35% 0.078 252.91);
+  --color-blue-400: oklch(70.68% 0.107 253.1);
+  --color-blue-500: oklch(64.33% 0.132 252.83);
+  --color-blue-600: oklch(54.42% 0.148 254.44);
+  --color-blue-700: oklch(44.86% 0.119 254.66);
+  --color-blue-800: oklch(33.87% 0.085 254.36);
+  --color-blue-900: oklch(22.79% 0.05 253.67);
+  --color-blue-950: oklch(16.39% 0.027 247.53);
+  /* Base */
+  --color-base-50: oklch(0.985 0 0);
+  --color-base-100: oklch(0.967 0.001 286.375);
+  --color-base-200: oklch(0.92 0.004 286.32);
+  --color-base-300: oklch(0.871 0.006 286.286);
+  --color-base-400: oklch(0.705 0.015 286.067);
+  --color-base-500: oklch(0.552 0.016 285.938);
+  --color-base-600: oklch(0.442 0.017 285.786);
+  --color-base-700: oklch(0.37 0.013 285.805);
+  --color-base-800: oklch(0.274 0.006 286.033);
+  --color-base-900: oklch(0.21 0.006 285.885);
+  --color-base-950: oklch(0.141 0.005 285.823);
+  /* Keyframes */
+  --animate-marquee: marquee 42s linear infinite;
+  --animate-rightMarquee: rightMarquee 20s linear infinite;
+  --animate-slowMarquee: marquee 300s linear infinite;
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  @keyframes rightMarquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}
+:root {
+  /* Typography stylistic sets for Inter */
+  font-family: Inter, sans-serif;
+  font-feature-settings: 
+    "liga" 1, /* Standard Ligatures */
+    "calt" 1, /* Contextual Alternates */
+    "dlig" 1, /* Discretionary Ligatures */
+    "ss07" 1, /* Square punctuation */
+    "ss08" 1, /* Square quotes */
+    "zero" 1, /* Slashed zero */
+    "tnum" 1, /* Tabular numbers */
+    "cv03" 1, /* Open six */
+    "cv04" 1, /* Open nine */
+    "cv01" 1, /* Alternate one */
+    "cv09" 1, /* Flat-top three */
+    "cv02" 1; /* Open four */
+}
+
+/* Responsive fallback for variable fonts */
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: InterVariable, sans-serif;
+  }
+}

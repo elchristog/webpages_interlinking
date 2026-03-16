@@ -3,6 +3,8 @@ import LayoutA from '../../layouts/LayoutA.astro';
 import LayoutB from '../../layouts/LayoutB.astro';
 import LayoutC from '../../layouts/LayoutC.astro';
 import config from '../../data/config_inyectada.json';
+import Text from '../../components/fundations/elements/Text.astro';
+import Wrapper from '../../components/fundations/containers/Wrapper.astro';
 
 const { frontmatter, Content } = Astro.props;
 
@@ -26,11 +28,15 @@ if (config.layout === 'LayoutB') {
 
 <SelectedLayout titulo={frontmatter.titulo} descripcion={frontmatter.descripcion}>
   <article>
-    <h1>{frontmatter.titulo}</h1>
-    <p style="color: #666; font-size: 0.9rem;">Publicado el: {frontmatter.fecha}</p>
+    <Text tag="h1" variant="displayMD" class="font-bold text-black tracking-tight mb-2">
+      {frontmatter.titulo}
+    </Text>
+    <Text tag="p" variant="textSM" class="text-zinc-500 mb-8 border-b border-zinc-100 pb-4">
+      Publicado el: <time datetime={frontmatter.fecha}>{frontmatter.fecha}</time>
+    </Text>
     
-    <div class="contenido-seo" style="margin-top: 1.5rem;">
+    <Wrapper variant="prose">
       <Content />
-    </div>
+    </Wrapper>
   </article>
 </SelectedLayout>
