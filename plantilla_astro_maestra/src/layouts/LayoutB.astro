@@ -3,12 +3,16 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 import Text from "@/components/fundations/elements/Text.astro";
 
+import config from "@/data/config_inyectada.json";
+
 const { titulo, descripcion } = Astro.props;
+const sidebarPos = config.sidebar_pos || "right"; // default
+const menuItems = config.menu_global || [];
 ---
 
 <BaseLayout titulo={titulo} descripcion={descripcion}>
   <Wrapper variant="standard" class="py-12">
-    <div class="flex flex-col lg:flex-row gap-12">
+    <div class={`flex flex-col lg:flex-row gap-12 ${sidebarPos === 'left' ? 'lg:flex-row-reverse' : ''}`}>
       <main class="lg:w-2/3">
         <slot />
       </main>
@@ -17,14 +21,14 @@ const { titulo, descripcion } = Astro.props;
         <div class="bg-zinc-50 p-8 outline outline-base-200">
           <Text tag="h3" variant="textLG" class="font-bold text-black mb-4">📌 Enlaces Rápidos</Text>
           <ul class="space-y-3">
-            <li><a href="/" class="text-zinc-600 hover:text-black transition-colors">Página Principal</a></li>
-            <li><a href="/contacto" class="text-zinc-600 hover:text-black transition-colors">Contacto</a></li>
-            <li><a href="/politica-de-privacidad" class="text-zinc-600 hover:text-black transition-colors">Privacidad</a></li>
+            {menuItems.map((item: any) => (
+              <li><a href={item.ruta} class="text-zinc-600 hover:text-black transition-colors">{item.nombre}</a></li>
+            ))}
           </ul>
           
           <div class="mt-8 pt-8 border-t border-base-200">
              <Text tag="p" variant="textSM" class="text-zinc-500 italic">
-               Mantente actualizado con nuestras últimas guías y recursos de enfermería en USA.
+               {config.seo.descripcion_base}
              </Text>
           </div>
         </div>

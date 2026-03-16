@@ -1,0 +1,83 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import ChevronRight from "@/components/fundations/icons/ChevronRight.astro";
+import { Image } from "astro:assets";
+
+const { titulo, descripcion, image, page = "Blog" } = Astro.props;
+
+// Breadcrumbs Data
+const breadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: page, href: "#" },
+];
+---
+
+<BaseLayout titulo={titulo} descripcion={descripcion}>
+  <section>
+    <Wrapper variant="standard" class="pt-32 pb-4">
+      <div class="max-w-xl mx-auto text-balance">
+        <nav
+          aria-label="Breadcrumb"
+          class="bg-sand-100 p-1.5 rounded-full px-6 w-fit"
+        >
+          <ol class="flex items-center text-sm gap-x-2 text-base-600">
+            {
+              breadcrumbs.map((item, index) => (
+                <>
+                  <li>
+                    {index < breadcrumbs.length - 1 ? (
+                      <a
+                        href={item.href}
+                        class="text-xs font-medium hover:text-accent-500 text-base-800"
+                      >
+                        {item.label}
+                      </a>
+                    ) : (
+                      <span class="text-xs font-medium text-accent-500">
+                        {item.label}
+                      </span>
+                    )}
+                  </li>
+                  {index < breadcrumbs.length - 1 && (
+                    <li class="text-base-400">
+                      <ChevronRight size="sm" />
+                    </li>
+                  )}
+                </>
+              ))
+            }
+          </ol>
+        </nav>
+        <Text
+          tag="h1"
+          variant="displayMD"
+          class="mt-12 font-serif font-medium tracking-tight text-black"
+        >
+          {titulo}
+        </Text>
+        <Text variant="textBase" class="mt-4 text-base-600">
+          Publicado recientemente
+        </Text>
+      </div>
+      
+      {image && (
+        <Image
+          width={1000}
+          height={800}
+          alt={image.alt || titulo}
+          src={image.url}
+          class="object-cover object-center mt-8 size-full max-h-120 lg:col-span-2 rounded-xl"
+        />
+      )}
+    </Wrapper>
+  </section>
+  <section>
+    <Wrapper variant="standard" class="py-12 border-t border-dashed">
+      <Wrapper variant="prose" class="max-w-xl mx-auto">
+        <slot />
+      </Wrapper>
+    </Wrapper>
+  </section>
+</BaseLayout>

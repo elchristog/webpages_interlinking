@@ -1,0 +1,56 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import { Image } from "astro:assets";
+
+const { titulo, descripcion, image } = Astro.props;
+
+// Mock data for missing components/logic for now
+// In a real scenario, we'd fetch related posts
+const relatedPosts: any[] = [];
+---
+
+<BaseLayout titulo={titulo} descripcion={descripcion}>
+  <section>
+    <Wrapper variant="standard" class="pt-32 pb-4">
+      <div
+        class="flex flex-col justify-between max-w-xl mx-auto text-center text-balance"
+      >
+        <div>
+          <Text
+            tag="h1"
+            variant="displaySM"
+            class="font-serif font-medium tracking-tight text-base-900"
+          >
+            {titulo}
+          </Text>
+          <Text
+            tag="p"
+            variant="textBase"
+            class="max-w-xl mx-auto mt-4 text-base-500"
+          >
+            {descripcion}
+          </Text>
+        </div>
+      </div>
+
+      {image && (
+        <Image
+          width={1000}
+          height={800}
+          alt={image.alt || titulo}
+          src={image.url}
+          class="object-cover object-center mt-8 size-full max-h-120 lg:col-span-2 rounded-xl"
+        />
+      )}
+    </Wrapper>
+    <Wrapper variant="standard" class="py-4 border-t">
+      <div class="max-w-xl mx-auto">
+        <Wrapper variant="prose">
+          <slot />
+        </Wrapper>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

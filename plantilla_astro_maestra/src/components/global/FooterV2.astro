@@ -1,0 +1,65 @@
+---
+// Fundatons
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Logo from "@/components/assets/Logo.astro";
+import config from "@/data/config_inyectada.json";
+
+const footerLinks = [
+  {
+    heading: "Enlaces",
+    links: config.menu_global || []
+  },
+  {
+    heading: "Legal",
+    links: [
+      { label: "Privacidad", href: "/politica-de-privacidad" },
+      { label: "Términos", href: "/terminos" },
+    ],
+  }
+];
+
+const anioActual = new Date().getFullYear();
+---
+<footer class="border-t border-base-200 border-dashed">
+  <Wrapper variant="standard" class="py-12">
+    <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+      <div class="text-black">
+        <a
+          href="/"
+          class="flex items-center font-serif text-lg gap-2 text-accent-900"
+        >
+          <span class="sr-only">Ir al inicio</span>
+          <Logo class="h-4 text-base-900" />
+          {config.nombre_sitio}
+        </a>
+        <p class="mt-1 text-sm font-normal text-base-500 text-balance">
+          {config.seo.descripcion_base}
+        </p>
+      </div>
+      <div class="md:grid md:grid-cols-2 xl:grid-cols-4 md:gap-8 xl:col-span-2">
+        {
+          footerLinks.map((section) => (
+            <div class="mt-12 md:mt-0">
+              <h3 class="text-black font-display font-bold">{section.heading}</h3>
+              <ul role="list" class="mt-4 text-sm space-y-2 text-base-500">
+                {section.links.map((link: any) => (
+                  <li>
+                    <a
+                      href={link.href || link.ruta}
+                      class="hover:text-black"
+                    >
+                      {link.label || link.nombre}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    <div class="mt-8 pt-8 border-t border-base-200 border-dashed text-xs text-base-400">
+      © {anioActual} {config.footer.empresa_legal}. {config.footer.direccion}
+    </div>
+  </Wrapper>
+</footer>

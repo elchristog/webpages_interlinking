@@ -8,7 +8,7 @@ const { titulo, descripcion } = Astro.props;
 <BaseLayout titulo={titulo} descripcion={descripcion}>
   <Wrapper variant="standard" class="py-12 flex justify-center">
     <div class="w-full max-w-3xl">
-      <main class="bg-white p-10 outline outline-base-200 shadow-sm border-t-8 border-black">
+      <main class="bg-white p-10 outline outline-base-200 shadow-sm border-t-8 border-[var(--color-primary)]">
         <slot />
       </main>
     </div>

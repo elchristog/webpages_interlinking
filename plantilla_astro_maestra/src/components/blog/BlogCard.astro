@@ -1,0 +1,16 @@
+---
+import { ChevronRight } from "lucide-astro";
+
+const { url = "#", title = "Título", description = "Descripción" } = Astro.props;
+---
+<a href={url} class="group block p-6 bg-white outline outline-base-200 hover:outline-accent-500 transition-all">
+  <h3 class="font-serif text-lg font-medium text-base-900 group-hover:text-accent-600">
+    {title}
+  </h3>
+  <p class="mt-2 text-sm text-base-500 line-clamp-2">
+    {description}
+  </p>
+  <div class="mt-4 flex items-center text-xs font-medium text-accent-500">
+    Leer más <ChevronRight class="ml-1 size-3" />
+  </div>
+</a>

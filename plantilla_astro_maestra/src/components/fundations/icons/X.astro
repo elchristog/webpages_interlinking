@@ -1,0 +1,26 @@
+---
+const { size = "md" } = Astro.props;
+
+const sizes = {
+  sm: "size-4",
+  md: "size-6",
+  lg: "size-8"
+};
+
+const sizeClass = sizes[size as keyof typeof sizes] || sizes.md;
+---
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class={sizeClass}
+>
+  <path d="M18 6 6 18"></path>
+  <path d="m6 6 12 12"></path>
+</svg>

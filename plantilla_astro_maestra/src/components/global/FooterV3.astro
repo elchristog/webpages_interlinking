@@ -1,0 +1,70 @@
+---
+// Assets
+import Logo from "@/components/assets/Logo.astro";
+// Fundatons
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import config from "@/data/config_inyectada.json";
+
+const footerLinks = [
+  {
+    heading: "Enlaces",
+    links: config.menu_global || []
+  },
+  {
+    heading: "Legal",
+    links: [
+      { label: "Privacidad", href: "/politica-de-privacidad" },
+      { label: "Términos", href: "/terminos" },
+    ],
+  }
+];
+---
+
+<footer class="bg-base-950">
+  <Wrapper
+    variant="paddinglessDesktop"
+    class="relative py-12 overflow-hidden border-white/10 border-t"
+  >
+    <div class="relative pb-24 gap-8 grid grid-cols-1 lg:grid-cols-3">
+      <div class="text-white">
+        <a href="/" class="flex items-center text-sm text-white gap-2">
+          <span class="sr-only">Ir al inicio</span>
+          <Logo class="h-6" />
+          <span class="font-bold text-lg">{config.nombre_sitio}</span>
+        </a>
+        <p class="mt-1 text-sm font-normal text-base-500 text-balance">
+          {config.seo.descripcion_base}
+        </p>
+      </div>
+      <div class="grid grid-cols-2 gap-8 xl:col-span-2 xl:col-start-3">
+        {
+          footerLinks.map((section) => (
+            <div>
+              <Text tag="h3" variant="textBase" class="text-white font-display font-bold">
+                {section.heading}
+              </Text>
+              <ul role="list" class="mt-2 text-sm space-y-1 text-base-500">
+                {section.links.map((link: any) => (
+                  <li>
+                    <a
+                      href={link.href || link.ruta}
+                      class="hover:text-white transition-colors"
+                    >
+                      {link.label || link.nombre}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    
+    <div aria-hidden="true" class="bg-light-vertical-stripes p-20 clip-rect-inset lg:py-62 mt-12 opacity-5"></div>
+    <div class="mt-12 text-xs text-base-500 border-t border-white/5 pt-8">
+      © {new Date().getFullYear()} {config.footer.empresa_legal}. {config.footer.direccion}
+    </div>
+  </Wrapper>
+</footer>

@@ -1,0 +1,81 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import StripesBG from "@/components/assets/StripesBG.astro";
+
+const { titulo, descripcion, customer = "Cliente", about = "Sobre el proyecto" } = Astro.props;
+
+// Mock data for results and challenges
+const results = ["Aumento del 200% en tráfico", "Top 1 en keywords objetivo", "ROI positivo en 3 meses"];
+const challenges = [
+  { title: "Desafío", content: "Competencia agresiva en el sector salud y requisitos legales estrictos." },
+  { title: "Solución", content: "Estrategia de contenido especializado y optimización técnica profunda." }
+];
+---
+
+<BaseLayout titulo={titulo} descripcion={descripcion}>
+  <section class="bg-base-950 text-white">
+    <Wrapper variant="standard" class="relative pt-32 pb-12 overflow-hidden">
+      <StripesBG
+        variant="base"
+        class="absolute inset-0 h-24 p-20 mt-auto -mx-px border-t border-white/10 opacity-20"
+      />
+      <div class="max-w-xl mx-auto text-balance relative">
+        <Text tag="h1" variant="displayMD" class="text-white font-bold">
+          {customer}
+        </Text>
+        <Text tag="p" variant="textBase" class="mt-4 text-base-400">
+          {about}
+        </Text>
+      </div>
+      <div
+        class="grid grid-cols-1 md:grid-cols-3 gap-px items-start mt-8 relative border-t border-white/10"
+      >
+        {
+          results.map((result) => (
+            <div class="gap-2 p-6 pb-24 bg-white/5 h-full border-b border-white">
+              <Text tag="p" variant="textBase" class="text-white font-medium">
+                {result}
+              </Text>
+            </div>
+          ))
+        }
+      </div>
+    </Wrapper>
+  </section>
+
+  <section class="bg-white py-24">
+    <Wrapper variant="standard">
+       <div class="max-w-3xl mx-auto">
+          <Wrapper variant="prose" class="text-base-800">
+            <slot />
+          </Wrapper>
+       </div>
+    </Wrapper>
+  </section>
+
+  <section class="bg-base-950">
+    <dl class="items-center grid grid-cols-1 md:grid-cols-2 gap-px border-t border-white/10">
+      {
+        challenges.map((item) => (
+          <div class="flex flex-col h-full overflow-hidden border-r border-white/10 last:border-r-0">
+            <div class="h-full flex flex-col p-8 pt-24 bg-white/5">
+              <dt>
+                <Text tag="h3" variant="displaySM" class="text-white ">
+                  {item.title}
+                </Text>
+              </dt>
+              <dd>
+                <Text tag="p" variant="textSM" class=" text-base-400 mt-4">
+                  {item.content}
+                </Text>
+              </dd>
+            </div>
+            <div class="aspect-video p-4 -mx-px bg-accent-vertical-stripes h-full order-first opacity-10" />
+          </div>
+        ))
+      }
+    </dl>
+  </section>
+</BaseLayout>

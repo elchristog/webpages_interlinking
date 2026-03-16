@@ -1,0 +1,136 @@
+---
+// Fundations
+import Logo from "@/components/assets/Logo.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import X from "@/components/fundations/icons/X.astro";
+import config from "@/data/config_inyectada.json";
+
+const navigationLinks = config.menu_global || [];
+---
+
+<div
+  id="nav-wrapper"
+  class="fixed inset-x-0 top-0 w-full mx-auto z-51 bg-base-950"
+>
+  <Wrapper
+    id="second-wrapper"
+    variant="paddinglessDesktop"
+    class="py-4 border-b lg:py-8 border-base-800"
+  >
+    <div
+      id="navigation-wrapper"
+      class="relative flex flex-col md:items-center md:justify-start md:gap-12 md:flex-row"
+    >
+      <div class="flex flex-row items-center justify-between">
+        <a href="/" class="flex items-center text-xs text-white gap-2">
+          <span class="sr-only">Ir al inicio</span>
+          <Logo class="h-8" />
+          <span class="font-bold text-lg">{config.nombre_sitio}</span>
+        </a>
+        <Button
+          id="menu-toggle"
+          size="md"
+          variant="muted"
+          class="md:hidden"
+        >
+          <svg
+            class="size-4"
+            stroke="currentColor"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              id="menu-icon"
+              class="inline-flex"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"></path>
+            <path
+              id="close-icon"
+              class="hidden"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </Button>
+      </div>
+      <nav
+        id="navigation-menu"
+        class="fixed inset-0 flex flex-col justify-between h-full py-12 bg-black opacity-0 pointer-events-none md:bg-none md:bg-transparent lg:p-0 md:p-0 transform transition-all duration-300 ease-in-out -translate-y-4 md:relative md:inset-auto md:opacity-100 md:pointer-events-auto md:translate-y-0 md:w-full"
+      >
+        <button
+          id="menu-close"
+          class="absolute top-4 right-4 md:hidden focus:outline-none text-white p-2"
+          aria-label="Close menu"
+        >
+          <X size="sm" />
+        </button>
+        <div
+          class="relative flex flex-col items-start justify-start w-full h-full px-8 py-12 md:py-0 gap-12 md:px-0 md:flex-row md:items-center md:text-left overflow-hidden lg:overflow-visible"
+        >
+          <div
+            aria-hidden="true"
+            class="block md:hidden absolute inset-0 pointer-events-none my-12 bg-accent-vertical-stripes w-[10%] ml-auto"
+          >
+          </div>
+          
+          <a href="/" class="md:hidden">
+            <span class="sr-only">Ir al inicio</span>
+            <Logo class="h-12 text-white" />
+          </a>
+          <div
+            class="relative flex flex-col gap-2 md:gap-4 md:flex-row md:mr-auto"
+          >
+            {
+              navigationLinks.map((link: any) => (
+                <a
+                  href={link.ruta}
+                  class="text-2xl text-white md:text-xs hover:text-accent-400"
+                >
+                  {link.nombre}
+                </a>
+              ))
+            }
+          </div>
+          <div class="flex flex-wrap items-center mt-auto gap-2">
+            <Button
+              isLink={true}
+              size="md"
+              variant="muted"
+              href="/"
+            >
+              Comenzar
+            </Button>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </Wrapper>
+</div>
+<script type="module">
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menu-toggle");
+    const menuClose = document.getElementById("menu-close");
+    const menuIcon = document.getElementById("menu-icon");
+    const closeIcon = document.getElementById("close-icon");
+    const navigationMenu = document.getElementById("navigation-menu");
+    // Toggle mobile menu
+    function toggleMenu(open) {
+      if(!navigationMenu) return;
+      navigationMenu.classList.toggle("opacity-100", open);
+      navigationMenu.classList.toggle("translate-y-0", open);
+      navigationMenu.classList.toggle("pointer-events-auto", open);
+      navigationMenu.classList.toggle("opacity-0", !open);
+      navigationMenu.classList.toggle("-translate-y-4", !open);
+      navigationMenu.classList.toggle("pointer-events-none", !open);
+      if(menuIcon) menuIcon.classList.toggle("hidden", open);
+      if(closeIcon) closeIcon.classList.toggle("hidden", !open);
+    }
+    // Event Listeners
+    if(menuToggle) menuToggle.addEventListener("click", () => toggleMenu(true));
+    if(menuClose) menuClose.addEventListener("click", () => toggleMenu(false));
+  });
+</script>

@@ -25,12 +25,31 @@ def cargar_config_sitios(ruta_proyecto):
     with open(os.path.join(ruta_proyecto, 'config_sitios.json'), 'r', encoding='utf-8') as f:
         return json.load(f)
 
+def guardar_config_global(ruta_proyecto, data):
+    ruta_destino = os.path.join(ruta_proyecto, 'config_global.json')
+    with open(ruta_destino, 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
 def escribir_config_inyectada(ruta_proyecto, data):
     ruta_data = os.path.join(ruta_proyecto, 'src', 'data')
     os.makedirs(ruta_data, exist_ok=True)
     ruta_destino = os.path.join(ruta_data, 'config_inyectada.json')
     with open(ruta_destino, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
+
+def generar_paleta_aleatoria():
+    """Genera una paleta de colores coherente basada en un color primario aleatorio."""
+    # Hue aleatorio, Sat alta para vibrancia, Lightness media
+    h = random.randint(0, 360)
+    s = random.randint(60, 90)
+    l = random.randint(40, 60)
+    
+    return {
+        "primary": f"hsl({h}, {s}%, {l}%)",
+        "secondary": f"hsl({h}, {s}%, {l+20}%)",
+        "accent": f"hsl({(h+180)%360}, {s}%, {l}%)", # Complementario
+        "text_bold": f"hsl({h}, {s}%, 15%)"
+    }
 
 def generar_contenido_ia(sitio_id, nicho, palabras_clave, ruta_proyecto, contenido_base=None):
     """Llama a Gemini para generar el artículo en formato Markdown basándose opcionalmente en contenido_base."""
@@ -111,10 +130,11 @@ def post_procesar_rutas_locales(ruta_persistente):
                 with open(ruta_archivo, 'w', encoding='utf-8') as f:
                     f.write(contenido)
 
-def compilar_y_persistir(sitio_id, ruta_proyecto, ruta_base):
+def compilar_y_persistir(sitio_id, ruta_proyecto, ruta_base, nombre_proyecto):
     """Construye el sitio y lo mueve a una carpeta persistente para su visualización."""
-    os.makedirs(os.path.join(ruta_base, 'sitios_generados'), exist_ok=True)
-    ruta_persistente = os.path.join(ruta_base, 'sitios_generados', sitio_id)
+    ruta_sitios = os.path.join(ruta_base, 'sitios_generados', nombre_proyecto)
+    os.makedirs(ruta_sitios, exist_ok=True)
+    ruta_persistente = os.path.join(ruta_sitios, sitio_id)
     
     print(f"[*] Compilando Astro para {sitio_id}...")
     comando_build = "npm run build"
@@ -132,9 +152,9 @@ def compilar_y_persistir(sitio_id, ruta_proyecto, ruta_base):
     else:
         print(f"[-] Error: No se encontró la carpeta /dist tras la compilación en {ruta_proyecto}")
 
-def generar_index_dashboard(ruta_base, sitios):
-    """Genera un archivo index.html central para navegar entre los sitios."""
-    ruta_dashboard = os.path.join(ruta_base, 'sitios_generados', 'index.html')
+def generar_index_dashboard(ruta_base, sitios, nombre_proyecto):
+    """Genera un archivo index.html central para navegar entre los sitios del proyecto."""
+    ruta_dashboard = os.path.join(ruta_base, 'sitios_generados', nombre_proyecto, 'index.html')
     
     html = """<!DOCTYPE html>
 <html lang="es">
@@ -149,8 +169,8 @@ def generar_index_dashboard(ruta_base, sitios):
 <body class="bg-zinc-50 p-8 md:p-20">
     <div class="max-w-6xl mx-auto">
         <header class="mb-12 border-b border-zinc-200 pb-8">
-            <h1 class="text-4xl font-extrabold text-black tracking-tight">PBN Dashboard</h1>
-            <p class="text-zinc-500 mt-2">Navega y verifica los 16 sitios generados (1 Principal + 15 Espejos).</p>
+            <h1 class="text-4xl font-extrabold text-black tracking-tight">PBN Dashboard: {nombre_proyecto.replace('_', ' ').title()}</h1>
+            <p class="text-zinc-500 mt-2">Navega y verifica los sitios generados para este proyecto.</p>
         </header>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -219,9 +239,33 @@ if __name__ == "__main__":
         configuracion_actual["menu_global"] = config_global["menu_global"]
         configuracion_actual["dominio"] = sitio.get("dominio", "http://localhost:4321")
         
-        # Layout diversification
+        # Persistencia de Identidad (Variedad tokens)
+        cambio_detectado = False
+        
         if "layout" not in configuracion_actual:
-            configuracion_actual["layout"] = random.choice(["LayoutA", "LayoutB", "LayoutC"])
+            configuracion_actual["layout"] = random.choice(["LayoutA", "LayoutB", "LayoutC", "LayoutD", "LayoutE", "LayoutF", "LayoutG"])
+            cambio_detectado = True
+        
+        if "nav_footer_version" not in configuracion_actual:
+            configuracion_actual["nav_footer_version"] = random.choice(["v1", "v2", "v3"])
+            cambio_detectado = True
+
+        if "font_family" not in configuracion_actual:
+            configuracion_actual["font_family"] = random.choice(["Inter", "Roboto", "Outfit", "Plus Jakarta Sans"])
+            cambio_detectado = True
+        
+        if configuracion_actual["layout"] == "LayoutB" and "sidebar_pos" not in configuracion_actual:
+            configuracion_actual["sidebar_pos"] = random.choice(["left", "right"])
+            cambio_detectado = True
+
+        if "color_palette" not in configuracion_actual:
+            configuracion_actual["color_palette"] = generar_paleta_aleatoria()
+            cambio_detectado = True
+        
+        if cambio_detectado:
+            config_global["sitios"][sitio_id] = configuracion_actual
+            guardar_config_global(ruta_proyecto_config, config_global)
+            print(f"[!] Identidad persistida para {sitio_id}")
         
         escribir_config_inyectada(sitio['ruta_astro'], configuracion_actual)
         
@@ -232,15 +276,15 @@ if __name__ == "__main__":
         guardar_markdown(sitio['ruta_astro'], markdown_ia, slug_generado)
         
         # 2. Compilar y Persistir localmente
-        compilar_y_persistir(sitio_id, sitio['ruta_astro'], ruta_base)
+        compilar_y_persistir(sitio_id, sitio['ruta_astro'], ruta_base, nombre_proyecto)
         
         sitios_procesados.append({
             "id": sitio_id,
             "dominio": configuracion_actual["dominio"]
         })
 
-    # 3. Generar Dashboard Final
-    generar_index_dashboard(ruta_base, sitios_procesados)
+    # 3. Generar Dashboard Final para el proyecto
+    generar_index_dashboard(ruta_base, sitios_procesados, nombre_proyecto)
     
     print("\n[!!!] PROCESO COMPLETADO [!!!]")
     print(f"Puedes ver todos los sitios en: file://{os.path.join(ruta_base, 'sitios_generados', 'index.html')}")

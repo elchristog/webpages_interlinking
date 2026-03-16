@@ -1,16 +1,28 @@
 {
   "menu_global": [
-    { "nombre": "Guía y Requisitos", "ruta": "/requisitos" },
-    { "nombre": "Salarios 2025", "ruta": "/salarios" },
-    { "nombre": "Ofertas de Empleo", "ruta": "/vacantes" },
-    { "nombre": "Visado (EB-3)", "ruta": "/visa" }
+    {
+      "nombre": "Guía y Requisitos",
+      "ruta": "/requisitos"
+    },
+    {
+      "nombre": "Salarios 2025",
+      "ruta": "/salarios"
+    },
+    {
+      "nombre": "Ofertas de Empleo",
+      "ruta": "/vacantes"
+    },
+    {
+      "nombre": "Visado (EB-3)",
+      "ruta": "/visa"
+    }
   ],
   "sitios": {
     "money_site": {
       "nombre_sitio": "Enfermera en Estados Unidos (Oficial)",
       "color_tema": "#000000",
       "comando_deploy": "echo 'Deploying Money Site'",
-      "layout": "LayoutA",
+      "layout": "LayoutF",
       "gcp_project_id": "money-site-main-pbn",
       "seo": {
         "titulo_base": "Guía Maestra de Enfermería USA",
@@ -21,7 +33,34 @@
         "empresa_legal": "EnfermeraEEU Network",
         "direccion": "Main St, USA",
         "email_contacto": "hola@enfermeraeeu.com"
-      }
+      },
+      "menu_global": [
+        {
+          "nombre": "Guía y Requisitos",
+          "ruta": "/requisitos"
+        },
+        {
+          "nombre": "Salarios 2025",
+          "ruta": "/salarios"
+        },
+        {
+          "nombre": "Ofertas de Empleo",
+          "ruta": "/vacantes"
+        },
+        {
+          "nombre": "Visado (EB-3)",
+          "ruta": "/visa"
+        }
+      ],
+      "dominio": "https://enfermeraeeu.com",
+      "font_family": "Plus Jakarta Sans",
+      "color_palette": {
+        "primary": "hsl(22, 60%, 59%)",
+        "secondary": "hsl(22, 60%, 79%)",
+        "accent": "hsl(202, 60%, 59%)",
+        "text_bold": "hsl(22, 60%, 15%)"
+      },
+      "nav_footer_version": "v3"
     },
     "florida": {
       "nombre_sitio": "Enfermería Florida Hoy",
@@ -38,7 +77,34 @@
         "empresa_legal": "Florida Nurse Network",
         "direccion": "Zephyrhills, FL 33541",
         "email_contacto": "info@enfermeriafloridahoy.com"
-      }
+      },
+      "menu_global": [
+        {
+          "nombre": "Guía y Requisitos",
+          "ruta": "/requisitos"
+        },
+        {
+          "nombre": "Salarios 2025",
+          "ruta": "/salarios"
+        },
+        {
+          "nombre": "Ofertas de Empleo",
+          "ruta": "/vacantes"
+        },
+        {
+          "nombre": "Visado (EB-3)",
+          "ruta": "/visa"
+        }
+      ],
+      "dominio": "https://enfermerasflorida.net",
+      "font_family": "Roboto",
+      "color_palette": {
+        "primary": "hsl(85, 86%, 53%)",
+        "secondary": "hsl(85, 86%, 73%)",
+        "accent": "hsl(265, 86%, 53%)",
+        "text_bold": "hsl(85, 86%, 15%)"
+      },
+      "nav_footer_version": "v2"
     },
     "georgia": {
       "nombre_sitio": "Red de Enfermeras GA",
@@ -55,7 +121,35 @@
         "empresa_legal": "Georgia Health Professionals",
         "direccion": "Rome, GA 30161",
         "email_contacto": "contacto@red-enfermeras-ga.com"
-      }
+      },
+      "menu_global": [
+        {
+          "nombre": "Guía y Requisitos",
+          "ruta": "/requisitos"
+        },
+        {
+          "nombre": "Salarios 2025",
+          "ruta": "/salarios"
+        },
+        {
+          "nombre": "Ofertas de Empleo",
+          "ruta": "/vacantes"
+        },
+        {
+          "nombre": "Visado (EB-3)",
+          "ruta": "/visa"
+        }
+      ],
+      "dominio": "https://georgia-nurses-network.org",
+      "font_family": "Inter",
+      "sidebar_pos": "right",
+      "color_palette": {
+        "primary": "hsl(218, 80%, 42%)",
+        "secondary": "hsl(218, 80%, 62%)",
+        "accent": "hsl(38, 80%, 42%)",
+        "text_bold": "hsl(218, 80%, 15%)"
+      },
+      "nav_footer_version": "v1"
     },
     "texas_nclex": {
       "nombre_sitio": "Prep NCLEX Texas",
@@ -72,7 +166,34 @@
         "empresa_legal": "Texas Prep LLC",
         "direccion": "Houston, TX 77002",
         "email_contacto": "info@texas-nclex-prep.com"
-      }
+      },
+      "menu_global": [
+        {
+          "nombre": "Guía y Requisitos",
+          "ruta": "/requisitos"
+        },
+        {
+          "nombre": "Salarios 2025",
+          "ruta": "/salarios"
+        },
+        {
+          "nombre": "Ofertas de Empleo",
+          "ruta": "/vacantes"
+        },
+        {
+          "nombre": "Visado (EB-3)",
+          "ruta": "/visa"
+        }
+      ],
+      "dominio": "https://texas-nclex-prep.com",
+      "font_family": "Roboto",
+      "color_palette": {
+        "primary": "hsl(296, 67%, 40%)",
+        "secondary": "hsl(296, 67%, 60%)",
+        "accent": "hsl(116, 67%, 40%)",
+        "text_bold": "hsl(296, 67%, 15%)"
+      },
+      "nav_footer_version": "v2"
     },
     "homologacion": {
       "nombre_sitio": "Homologa tu Título",
@@ -89,7 +210,34 @@
         "empresa_legal": "US Nursing Validations",
         "direccion": "Miami, FL 33101",
         "email_contacto": "admin@homologacion-enfermeria-usa.com"
-      }
+      },
+      "menu_global": [
+        {
+          "nombre": "Guía y Requisitos",
+          "ruta": "/requisitos"
+        },
+        {
+          "nombre": "Salarios 2025",
+          "ruta": "/salarios"
+        },
+        {
+          "nombre": "Ofertas de Empleo",
+          "ruta": "/vacantes"
+        },
+        {
+          "nombre": "Visado (EB-3)",
+          "ruta": "/visa"
+        }
+      ],
+      "dominio": "https://homologacion-enfermeria-usa.com",
+      "font_family": "Inter",
+      "color_palette": {
+        "primary": "hsl(205, 74%, 43%)",
+        "secondary": "hsl(205, 74%, 63%)",
+        "accent": "hsl(25, 74%, 43%)",
+        "text_bold": "hsl(205, 74%, 15%)"
+      },
+      "nav_footer_version": "v2"
     },
     "licencia_rn": {
       "nombre_sitio": "Licencia RN Oficial",
@@ -106,7 +254,34 @@
         "empresa_legal": "RN Registrants Group",
         "direccion": "Atlanta, GA 30301",
         "email_contacto": "support@licencia-enfermeria-rn.org"
-      }
+      },
+      "menu_global": [
+        {
+          "nombre": "Guía y Requisitos",
+          "ruta": "/requisitos"
+        },
+        {
+          "nombre": "Salarios 2025",
+          "ruta": "/salarios"
+        },
+        {
+          "nombre": "Ofertas de Empleo",
+          "ruta": "/vacantes"
+        },
+        {
+          "nombre": "Visado (EB-3)",
+          "ruta": "/visa"
+        }
+      ],
+      "dominio": "https://licencia-enfermeria-rn.org",
+      "font_family": "Plus Jakarta Sans",
+      "color_palette": {
+        "primary": "hsl(354, 65%, 46%)",
+        "secondary": "hsl(354, 65%, 66%)",
+        "accent": "hsl(174, 65%, 46%)",
+        "text_bold": "hsl(354, 65%, 15%)"
+      },
+      "nav_footer_version": "v2"
     },
     "california_salarios": {
       "nombre_sitio": "California Nurse Salaries",
@@ -123,7 +298,35 @@
         "empresa_legal": "Cali Health Salaries",
         "direccion": "Los Angeles, CA 90001",
         "email_contacto": "contact@nursing-careers-california.com"
-      }
+      },
+      "menu_global": [
+        {
+          "nombre": "Guía y Requisitos",
+          "ruta": "/requisitos"
+        },
+        {
+          "nombre": "Salarios 2025",
+          "ruta": "/salarios"
+        },
+        {
+          "nombre": "Ofertas de Empleo",
+          "ruta": "/vacantes"
+        },
+        {
+          "nombre": "Visado (EB-3)",
+          "ruta": "/visa"
+        }
+      ],
+      "dominio": "https://nursing-careers-california.com",
+      "font_family": "Plus Jakarta Sans",
+      "sidebar_pos": "left",
+      "color_palette": {
+        "primary": "hsl(219, 65%, 42%)",
+        "secondary": "hsl(219, 65%, 62%)",
+        "accent": "hsl(39, 65%, 42%)",
+        "text_bold": "hsl(219, 65%, 15%)"
+      },
+      "nav_footer_version": "v1"
     },
     "sueldos_especialidades": {
       "nombre_sitio": "Sueldos de Enfermería Hub",
@@ -140,7 +343,34 @@
         "empresa_legal": "Nurse Salary Data",
         "direccion": "Chicago, IL 60601",
         "email_contacto": "data@sueldos-enfermeras-usa.com"
-      }
+      },
+      "menu_global": [
+        {
+          "nombre": "Guía y Requisitos",
+          "ruta": "/requisitos"
+        },
+        {
+          "nombre": "Salarios 2025",
+          "ruta": "/salarios"
+        },
+        {
+          "nombre": "Ofertas de Empleo",
+          "ruta": "/vacantes"
+        },
+        {
+          "nombre": "Visado (EB-3)",
+          "ruta": "/visa"
+        }
+      ],
+      "dominio": "https://sueldos-enfermeras-usa.com",
+      "font_family": "Outfit",
+      "color_palette": {
+        "primary": "hsl(238, 61%, 50%)",
+        "secondary": "hsl(238, 61%, 70%)",
+        "accent": "hsl(58, 61%, 50%)",
+        "text_bold": "hsl(238, 61%, 15%)"
+      },
+      "nav_footer_version": "v2"
     },
     "travel_nurses": {
       "nombre_sitio": "Travel Nurse Hispanas",
@@ -157,7 +387,34 @@
         "empresa_legal": "Hispanas Travel LLC",
         "direccion": "Denver, CO 80201",
         "email_contacto": "hola@travel-nurse-hispanas.org"
-      }
+      },
+      "menu_global": [
+        {
+          "nombre": "Guía y Requisitos",
+          "ruta": "/requisitos"
+        },
+        {
+          "nombre": "Salarios 2025",
+          "ruta": "/salarios"
+        },
+        {
+          "nombre": "Ofertas de Empleo",
+          "ruta": "/vacantes"
+        },
+        {
+          "nombre": "Visado (EB-3)",
+          "ruta": "/visa"
+        }
+      ],
+      "dominio": "https://travel-nurse-hispanas.org",
+      "font_family": "Roboto",
+      "color_palette": {
+        "primary": "hsl(141, 86%, 55%)",
+        "secondary": "hsl(141, 86%, 75%)",
+        "accent": "hsl(321, 86%, 55%)",
+        "text_bold": "hsl(141, 86%, 15%)"
+      },
+      "nav_footer_version": "v1"
     },
     "empleos_texas": {
       "nombre_sitio": "Empleos en Hospitales TX",
@@ -174,7 +431,35 @@
         "empresa_legal": "Texas Recruits",
         "direccion": "Dallas, TX 75201",
         "email_contacto": "reclutamiento@empleos-enfermeria-texas.com"
-      }
+      },
+      "menu_global": [
+        {
+          "nombre": "Guía y Requisitos",
+          "ruta": "/requisitos"
+        },
+        {
+          "nombre": "Salarios 2025",
+          "ruta": "/salarios"
+        },
+        {
+          "nombre": "Ofertas de Empleo",
+          "ruta": "/vacantes"
+        },
+        {
+          "nombre": "Visado (EB-3)",
+          "ruta": "/visa"
+        }
+      ],
+      "dominio": "https://empleos-enfermeria-texas.com",
+      "font_family": "Roboto",
+      "sidebar_pos": "left",
+      "color_palette": {
+        "primary": "hsl(325, 61%, 40%)",
+        "secondary": "hsl(325, 61%, 60%)",
+        "accent": "hsl(145, 61%, 40%)",
+        "text_bold": "hsl(325, 61%, 15%)"
+      },
+      "nav_footer_version": "v2"
     },
     "vacantes_hospitales": {
       "nombre_sitio": "Vacantes Agencias USA",
@@ -191,6 +476,33 @@
         "empresa_legal": "US Agency Jobs",
         "direccion": "New York, NY 10001",
         "email_contacto": "apply@vacantes-hospitales-usa.org"
+      },
+      "menu_global": [
+        {
+          "nombre": "Guía y Requisitos",
+          "ruta": "/requisitos"
+        },
+        {
+          "nombre": "Salarios 2025",
+          "ruta": "/salarios"
+        },
+        {
+          "nombre": "Ofertas de Empleo",
+          "ruta": "/vacantes"
+        },
+        {
+          "nombre": "Visado (EB-3)",
+          "ruta": "/visa"
+        }
+      ],
+      "dominio": "https://vacantes-hospitales-usa.org",
+      "nav_footer_version": "v1",
+      "font_family": "Outfit",
+      "color_palette": {
+        "primary": "hsl(323, 64%, 60%)",
+        "secondary": "hsl(323, 64%, 80%)",
+        "accent": "hsl(143, 64%, 60%)",
+        "text_bold": "hsl(323, 64%, 15%)"
       }
     },
     "green_card": {
@@ -208,6 +520,33 @@
         "empresa_legal": "Health Migration Partners",
         "direccion": "Washington, DC 20001",
         "email_contacto": "legal@green-card-enfermeras.com"
+      },
+      "menu_global": [
+        {
+          "nombre": "Guía y Requisitos",
+          "ruta": "/requisitos"
+        },
+        {
+          "nombre": "Salarios 2025",
+          "ruta": "/salarios"
+        },
+        {
+          "nombre": "Ofertas de Empleo",
+          "ruta": "/vacantes"
+        },
+        {
+          "nombre": "Visado (EB-3)",
+          "ruta": "/visa"
+        }
+      ],
+      "dominio": "https://green-card-enfermeras.com",
+      "nav_footer_version": "v2",
+      "font_family": "Plus Jakarta Sans",
+      "color_palette": {
+        "primary": "hsl(218, 65%, 58%)",
+        "secondary": "hsl(218, 65%, 78%)",
+        "accent": "hsl(38, 65%, 58%)",
+        "text_bold": "hsl(218, 65%, 15%)"
       }
     },
     "visas_trabajo": {
@@ -225,6 +564,34 @@
         "empresa_legal": "Pro Nursing Visas",
         "direccion": "Seattle, WA 98101",
         "email_contacto": "tramites@visas-enfermeria-usa.net"
+      },
+      "menu_global": [
+        {
+          "nombre": "Guía y Requisitos",
+          "ruta": "/requisitos"
+        },
+        {
+          "nombre": "Salarios 2025",
+          "ruta": "/salarios"
+        },
+        {
+          "nombre": "Ofertas de Empleo",
+          "ruta": "/vacantes"
+        },
+        {
+          "nombre": "Visado (EB-3)",
+          "ruta": "/visa"
+        }
+      ],
+      "dominio": "https://visas-enfermeria-usa.net",
+      "nav_footer_version": "v2",
+      "font_family": "Outfit",
+      "sidebar_pos": "left",
+      "color_palette": {
+        "primary": "hsl(183, 66%, 60%)",
+        "secondary": "hsl(183, 66%, 80%)",
+        "accent": "hsl(3, 66%, 60%)",
+        "text_bold": "hsl(183, 66%, 15%)"
       }
     },
     "enfermeras_mexicanas": {
@@ -242,6 +609,33 @@
         "empresa_legal": "Conexión Médica MX",
         "direccion": "CDMX, México 01000",
         "email_contacto": "contacto@enfermeras-mexicanas-usa.org"
+      },
+      "menu_global": [
+        {
+          "nombre": "Guía y Requisitos",
+          "ruta": "/requisitos"
+        },
+        {
+          "nombre": "Salarios 2025",
+          "ruta": "/salarios"
+        },
+        {
+          "nombre": "Ofertas de Empleo",
+          "ruta": "/vacantes"
+        },
+        {
+          "nombre": "Visado (EB-3)",
+          "ruta": "/visa"
+        }
+      ],
+      "dominio": "https://enfermeras-mexicanas-usa.org",
+      "nav_footer_version": "v1",
+      "font_family": "Plus Jakarta Sans",
+      "color_palette": {
+        "primary": "hsl(63, 73%, 59%)",
+        "secondary": "hsl(63, 73%, 79%)",
+        "accent": "hsl(243, 73%, 59%)",
+        "text_bold": "hsl(63, 73%, 15%)"
       }
     },
     "enfermeras_colombianas": {
@@ -259,6 +653,33 @@
         "empresa_legal": "CO Nursing Link",
         "direccion": "Bogotá, Colombia 110111",
         "email_contacto": "asistencia@enfermeras-colombianas-usa.com"
+      },
+      "menu_global": [
+        {
+          "nombre": "Guía y Requisitos",
+          "ruta": "/requisitos"
+        },
+        {
+          "nombre": "Salarios 2025",
+          "ruta": "/salarios"
+        },
+        {
+          "nombre": "Ofertas de Empleo",
+          "ruta": "/vacantes"
+        },
+        {
+          "nombre": "Visado (EB-3)",
+          "ruta": "/visa"
+        }
+      ],
+      "dominio": "https://enfermeras-colombianas-usa.com",
+      "nav_footer_version": "v2",
+      "font_family": "Outfit",
+      "color_palette": {
+        "primary": "hsl(209, 66%, 44%)",
+        "secondary": "hsl(209, 66%, 64%)",
+        "accent": "hsl(29, 66%, 44%)",
+        "text_bold": "hsl(209, 66%, 15%)"
       }
     },
     "latinas": {
@@ -276,6 +697,34 @@
         "empresa_legal": "Latina Nurses US",
         "direccion": "San Antonio, TX 78201",
         "email_contacto": "unete@enfermeraslatinas.io"
+      },
+      "menu_global": [
+        {
+          "nombre": "Guía y Requisitos",
+          "ruta": "/requisitos"
+        },
+        {
+          "nombre": "Salarios 2025",
+          "ruta": "/salarios"
+        },
+        {
+          "nombre": "Ofertas de Empleo",
+          "ruta": "/vacantes"
+        },
+        {
+          "nombre": "Visado (EB-3)",
+          "ruta": "/visa"
+        }
+      ],
+      "dominio": "https://enfermeraslatinas.io",
+      "nav_footer_version": "v1",
+      "font_family": "Outfit",
+      "sidebar_pos": "right",
+      "color_palette": {
+        "primary": "hsl(128, 60%, 46%)",
+        "secondary": "hsl(128, 60%, 66%)",
+        "accent": "hsl(308, 60%, 46%)",
+        "text_bold": "hsl(128, 60%, 15%)"
       }
     }
   },
