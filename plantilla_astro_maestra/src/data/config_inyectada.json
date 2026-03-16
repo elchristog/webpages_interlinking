@@ -16,30 +16,46 @@
   },
   "menu_global": [
     {
-      "nombre": "Guía y Requisitos",
-      "ruta": "/requisitos"
+      "nombre": "Homologación",
+      "ruta": "/homologacion"
     },
     {
-      "nombre": "Salarios 2025",
-      "ruta": "/salarios"
+      "nombre": "NCLEX",
+      "ruta": "/nclex"
     },
     {
-      "nombre": "Ofertas de Empleo",
+      "nombre": "Empleos",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Visado (EB-3)",
+      "nombre": "Visa y Green Card",
       "ruta": "/visa"
+    },
+    {
+      "nombre": "Salarios",
+      "ruta": "/salarios"
+    },
+    {
+      "nombre": "Blog",
+      "ruta": "/blog"
+    },
+    {
+      "nombre": "Whatsapp",
+      "ruta": "https://wa.me/something"
+    },
+    {
+      "nombre": "Login",
+      "ruta": "/login"
     }
   ],
   "dominio": "https://enfermeraslatinas.io",
-  "nav_footer_version": "v1",
-  "font_family": "Outfit",
-  "sidebar_pos": "right",
+  "nav_footer_version": "v2",
+  "font_family": "Inter",
+  "sidebar_pos": "left",
   "color_palette": {
-    "primary": "hsl(128, 60%, 46%)",
-    "secondary": "hsl(128, 60%, 66%)",
-    "accent": "hsl(308, 60%, 46%)",
-    "text_bold": "hsl(128, 60%, 15%)"
+    "primary": "hsl(314, 65%, 56%)",
+    "secondary": "hsl(314, 65%, 76%)",
+    "accent": "hsl(134, 65%, 56%)",
+    "text_bold": "hsl(314, 65%, 15%)"
   }
 }

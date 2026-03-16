@@ -11,6 +11,8 @@ import Text from '../components/fundations/elements/Text.astro';
 import Button from '../components/fundations/elements/Button.astro';
 
 const articulos = Object.values(import.meta.glob('../content/articulos/*.md', { eager: true }));
+const paginas = Object.values(import.meta.glob('../content/*.md', { eager: true }));
+const indexContent: any = paginas.find((p: any) => p.frontmatter.slug === 'index');
 
 // Logic to pick layout
 let SelectedLayout = LayoutA;
@@ -29,31 +31,39 @@ if (config.layout === 'LayoutB') {
 }
 ---
 
-<SelectedLayout titulo={`Inicio | ${config.nombre_sitio}`}>
-	<div class="space-y-12">
-    <div>
-      <Text tag="h1" variant="displayLG" class="font-bold text-black tracking-tighter">
-        Bienvenido a {config.nombre_sitio}
-      </Text>
-      <Text tag="p" variant="textLG" class="text-zinc-500 mt-4 max-w-2xl">
-        {config.seo.descripcion_base}
-      </Text>
-    </div>
-		
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-			{articulos.map((articulo: any) => (
-				<div class="group relative flex flex-col p-8 bg-zinc-50 outline outline-base-200 transition-all hover:bg-white hover:shadow-xl">
-					<Text tag="h2" variant="textXL" class="font-bold text-black mb-2 group-hover:text-blue-600 transition-colors">
-						{articulo.frontmatter.titulo}
-					</Text>
-					<Text tag="p" variant="textSM" class="text-zinc-600 mb-6 flex-grow">
-						{articulo.frontmatter.descripcion}
-					</Text>
-          <Button isLink href={`/blog/${articulo.frontmatter.slug}`} variant="muted" size="md" class="w-fit">
-            Leer artículo
-          </Button>
-				</div>
-			))}
-		</div>
-	</div>
+<SelectedLayout titulo={`Inicio | ${config.nombre_sitio}`} descripcion={config.seo.descripcion_base}>
+  {
+    indexContent ? (
+      <div class="prose prose-zinc max-w-none">
+        <indexContent.Content />
+      </div>
+    ) : (
+      <div class="space-y-12">
+        <div>
+          <Text tag="h1" variant="displayLG" class="font-bold text-zinc-950 tracking-tighter">
+            Bienvenido a {config.nombre_sitio}
+          </Text>
+          <Text tag="p" variant="textLG" class="text-zinc-500 mt-4 max-w-2xl">
+            {config.seo.descripcion_base}
+          </Text>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {articulos.map((articulo: any) => (
+            <div class="group relative flex flex-col p-8 bg-zinc-50 outline outline-base-200 transition-all hover:bg-white hover:shadow-xl">
+              <Text tag="h2" variant="textXL" class="font-bold text-zinc-950 mb-2 group-hover:text-blue-600 transition-colors">
+                {articulo.frontmatter.titulo}
+              </Text>
+              <Text tag="p" variant="textSM" class="text-zinc-600 mb-6 flex-grow">
+                {articulo.frontmatter.descripcion}
+              </Text>
+              <Button isLink href={`/blog/${articulo.frontmatter.slug}`} variant="muted" size="md" class="w-fit">
+                Leer artículo
+              </Button>
+            </div>
+          ))}
+        </div>
+      </div>
+    )
+  }
 </SelectedLayout>

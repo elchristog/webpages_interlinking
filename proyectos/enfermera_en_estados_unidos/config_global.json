@@ -1,21 +1,13 @@
 {
   "menu_global": [
-    {
-      "nombre": "Guía y Requisitos",
-      "ruta": "/requisitos"
-    },
-    {
-      "nombre": "Salarios 2025",
-      "ruta": "/salarios"
-    },
-    {
-      "nombre": "Ofertas de Empleo",
-      "ruta": "/vacantes"
-    },
-    {
-      "nombre": "Visado (EB-3)",
-      "ruta": "/visa"
-    }
+    { "nombre": "Homologación", "ruta": "/homologacion" },
+    { "nombre": "NCLEX", "ruta": "/nclex" },
+    { "nombre": "Empleos", "ruta": "/vacantes" },
+    { "nombre": "Visa y Green Card", "ruta": "/visa" },
+    { "nombre": "Salarios", "ruta": "/salarios" },
+    { "nombre": "Blog", "ruta": "/blog" },
+    { "nombre": "Whatsapp", "ruta": "https://wa.me/something" },
+    { "nombre": "Login", "ruta": "/login" }
   ],
   "sitios": {
     "money_site": {
