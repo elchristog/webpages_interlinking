@@ -1,18 +1,18 @@
 {
-  "nombre_sitio": "Travel Nurse Hispanas",
-  "color_tema": "#e65100",
-  "comando_deploy": "aws s3 sync ./dist s3://travel-nurses",
-  "layout": "LayoutC",
-  "gcp_project_id": "travel-nrs-aws-77",
+  "nombre_sitio": "Red Enfermeras Latinas",
+  "color_tema": "#c2185b",
+  "comando_deploy": "vercel deploy --prod",
+  "layout": "LayoutB",
+  "gcp_project_id": "latina-net-vcl-66",
   "seo": {
-    "titulo_base": "Travel Nurses USA",
-    "descripcion_base": "Ofertas agresivas y sueldos astronómicos para enfermeras que viajan dentro de Estados Unidos.",
+    "titulo_base": "Comunidad Latina RN",
+    "descripcion_base": "Historias de éxito, consultoría migratoria y vacantes dirigidas enteramente a latinas.",
     "idioma": "es-US"
   },
   "footer": {
-    "empresa_legal": "Hispanas Travel LLC",
-    "direccion": "Denver, CO 80201",
-    "email_contacto": "hola@travel-nurse-hispanas.org"
+    "empresa_legal": "Latina Nurses US",
+    "direccion": "San Antonio, TX 78201",
+    "email_contacto": "unete@enfermeraslatinas.io"
   },
   "menu_global": [
     {
@@ -32,13 +32,14 @@
       "ruta": "/visa"
     }
   ],
-  "dominio": "https://travel-nurse-hispanas.org",
-  "font_family": "Roboto",
+  "dominio": "https://enfermeraslatinas.io",
+  "nav_footer_version": "v1",
+  "font_family": "Outfit",
+  "sidebar_pos": "right",
   "color_palette": {
-    "primary": "hsl(141, 86%, 55%)",
-    "secondary": "hsl(141, 86%, 75%)",
-    "accent": "hsl(321, 86%, 55%)",
-    "text_bold": "hsl(141, 86%, 15%)"
-  },
-  "nav_footer_version": "v1"
+    "primary": "hsl(128, 60%, 46%)",
+    "secondary": "hsl(128, 60%, 66%)",
+    "accent": "hsl(308, 60%, 46%)",
+    "text_bold": "hsl(128, 60%, 15%)"
+  }
 }

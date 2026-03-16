@@ -10,6 +10,7 @@ from generador_prompts import generar_prompt_antidetencion, inicializar_prompts
 from generador_interlinking import decidir_si_enlazar, obtener_url_objetivo, obtener_anchor_text, inicializar_interlinking
 import sys
 import urllib.request
+import colorsys
 
 load_dotenv()
 
@@ -37,18 +38,65 @@ def escribir_config_inyectada(ruta_proyecto, data):
     with open(ruta_destino, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
-def generar_paleta_aleatoria():
-    """Genera una paleta de colores coherente basada en un color primario aleatorio."""
-    # Hue aleatorio, Sat alta para vibrancia, Lightness media
-    h = random.randint(0, 360)
-    s = random.randint(60, 90)
-    l = random.randint(40, 60)
+def hsl_to_relative_luminance(h, s, l):
+    """
+    Calcula la luminancia relativa según el estándar WCAG.
+    h: [0, 360], s: [0, 100], l: [0, 100]
+    """
+    # Convertir HSL a RGB [0, 1]
+    r, g, b = colorsys.hls_to_rgb(h / 360.0, l / 100.0, s / 100.0)
     
+    # Convertir sRGB a lineal
+    def to_linear(c):
+        return c / 12.92 if c <= 0.03928 else ((c + 0.055) / 1.055) ** 2.4
+    
+    rl, gl, bl = to_linear(r), to_linear(g), to_linear(b)
+    
+    # Luminancia relativa
+    return 0.2126 * rl + 0.7152 * gl + 0.0722 * bl
+
+def calcular_contraste_contra_blanco(luminancia):
+    """
+    Razón de contraste (L1 + 0.05) / (L2 + 0.05)
+    Para blanco (L1 = 1.0), es 1.05 / (luminancia + 0.05)
+    """
+    return 1.05 / (luminancia + 0.05)
+
+def generar_paleta_aleatoria():
+    """Genera una paleta de colores que cumpla con WCAG AA (4.5:1) contra blanco."""
+    h = random.randint(0, 360)
+    s = random.randint(50, 95)
+    
+    # Buscamos una luminosidad (l) que pase el contraste 4.5:1 contra blanco
+    # Generalmente l <= 50-60% dependiendo del hue.
+    def ajustar_por_accesibilidad(hue, sat):
+        l_test = 50 # Empezamos en un punto medio
+        intentos = 0
+        while intentos < 50:
+            lum = hsl_to_relative_luminance(hue, sat, l_test)
+            ratio = calcular_contraste_contra_blanco(lum)
+            if ratio >= 4.55: # Sutil margen sobre 4.5
+                return l_test, ratio
+            l_test -= 2 # Oscurecer
+            if l_test < 10: break
+            intentos += 1
+        return 15, 7.0 # Fallback seguro muy oscuro
+
+    l_prim, ratio_prim = ajustar_por_accesibilidad(h, s)
+    
+    # Variaciones para acento (complementario o rotado)
+    h_acc = (h + random.randint(120, 240)) % 360
+    l_acc, ratio_acc = ajustar_por_accesibilidad(h_acc, s)
+
     return {
-        "primary": f"hsl({h}, {s}%, {l}%)",
-        "secondary": f"hsl({h}, {s}%, {l+20}%)",
-        "accent": f"hsl({(h+180)%360}, {s}%, {l}%)", # Complementario
-        "text_bold": f"hsl({h}, {s}%, 15%)"
+        "primary": f"hsl({h}, {s}%, {l_prim}%)",
+        "secondary": f"hsl({h}, {s}%, {l_prim + 15}%)", # Secundario es más suave
+        "accent": f"hsl({h_acc}, {s}%, {l_acc}%)",
+        "text_bold": f"hsl({h}, {s}%, 15%)", # Siempre oscuro para máxima legibilidad
+        "meta": {
+            "primary_contrast": f"{ratio_prim:.2f}",
+            "accent_contrast": f"{ratio_acc:.2f}"
+        }
     }
 
 def generar_contenido_ia(sitio_id, nicho, palabras_clave, ruta_proyecto, contenido_base=None):

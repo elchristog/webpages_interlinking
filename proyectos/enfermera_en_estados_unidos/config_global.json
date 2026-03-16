@@ -22,7 +22,7 @@
       "nombre_sitio": "Enfermera en Estados Unidos (Oficial)",
       "color_tema": "#000000",
       "comando_deploy": "echo 'Deploying Money Site'",
-      "layout": "LayoutF",
+      "layout": "LayoutA",
       "gcp_project_id": "money-site-main-pbn",
       "seo": {
         "titulo_base": "Guía Maestra de Enfermería USA",
@@ -60,7 +60,7 @@
         "accent": "hsl(202, 60%, 59%)",
         "text_bold": "hsl(22, 60%, 15%)"
       },
-      "nav_footer_version": "v3"
+      "nav_footer_version": "v1"
     },
     "florida": {
       "nombre_sitio": "Enfermería Florida Hoy",
@@ -673,13 +673,13 @@
         }
       ],
       "dominio": "https://enfermeras-colombianas-usa.com",
-      "nav_footer_version": "v2",
-      "font_family": "Outfit",
+      "nav_footer_version": "v3",
+      "font_family": "Inter",
       "color_palette": {
-        "primary": "hsl(209, 66%, 44%)",
-        "secondary": "hsl(209, 66%, 64%)",
-        "accent": "hsl(29, 66%, 44%)",
-        "text_bold": "hsl(209, 66%, 15%)"
+        "primary": "hsl(244, 79%, 46%)",
+        "secondary": "hsl(244, 79%, 66%)",
+        "accent": "hsl(64, 79%, 46%)",
+        "text_bold": "hsl(244, 79%, 15%)"
       }
     },
     "latinas": {
@@ -717,14 +717,14 @@
         }
       ],
       "dominio": "https://enfermeraslatinas.io",
-      "nav_footer_version": "v1",
-      "font_family": "Outfit",
-      "sidebar_pos": "right",
+      "nav_footer_version": "v2",
+      "font_family": "Inter",
+      "sidebar_pos": "left",
       "color_palette": {
-        "primary": "hsl(128, 60%, 46%)",
-        "secondary": "hsl(128, 60%, 66%)",
-        "accent": "hsl(308, 60%, 46%)",
-        "text_bold": "hsl(128, 60%, 15%)"
+        "primary": "hsl(314, 65%, 56%)",
+        "secondary": "hsl(314, 65%, 76%)",
+        "accent": "hsl(134, 65%, 56%)",
+        "text_bold": "hsl(314, 65%, 15%)"
       }
     }
   },
