@@ -14,10 +14,12 @@ def inicializar_prompts(ruta_proyecto="."):
     else:
         raise FileNotFoundError(f"No se encontró config_prompts.json en {ruta_proyecto}")
 
-def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, anchor_text):
+def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, anchor_text, modo="articulo", contenido_base=None):
     """
     Construye un prompt hiper-específico rotando identidades y formatos estructurales
     para evadir la detección de contenido programático (AI Spam).
+    
+    modo: "articulo" (genera post nuevo) o "home" (reescribe contenido_base)
     """
 
     # 3. Selección Aleatoria de las Listas en Config
@@ -25,13 +27,27 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
     formato_elegido = random.choice(config_prompts["formatos"])
 
     # 4. Construcción del Prompt Maestro
+    instruccion_modo = ""
+    if modo == "home" and contenido_base:
+        instruccion_modo = f"""
+        OBJETIVO: Re-escribe el siguiente texto FUENTE para convertirlo en una página de inicio (HOME) única y de altísima calidad.
+        REGLA DE ORO: No copies frases del texto fuente. Debes re-imaginar todo el contenido usando tu perfil y formato asignado, pero manteniendo la oferta de valor y los datos de contacto.
+        
+        TEXTO FUENTE A RE-ESCRIBIR:
+        {contenido_base}
+        """
+    else:
+        instruccion_modo = f"""
+        TEMA CENTRAL: {nicho_actual}
+        PALABRAS CLAVE A INCLUIR NATURALMENTE: {', '.join(palabras_clave)}
+        """
+
     prompt = f"""
     {persona_elegida}
     
     {formato_elegido}
     
-    TEMA CENTRAL: {nicho_actual}
-    PALABRAS CLAVE A INCLUIR NATURALMENTE: {', '.join(palabras_clave)}
+    {instruccion_modo}
     
     INSTRUCCIONES DE REDACCIÓN (OBLIGATORIAS):
     1. REGLA DE FORMATO: Devuelve el texto ÚNICAMENTE en Markdown válido. Usa subtítulos H2 y H3.

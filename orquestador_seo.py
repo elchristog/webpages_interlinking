@@ -99,19 +99,20 @@ def generar_paleta_aleatoria():
         }
     }
 
-def generar_contenido_ia(sitio_id, nicho, palabras_clave, ruta_proyecto, contenido_base=None):
-    """Llama a Gemini para generar el artículo en formato Markdown basándose opcionalmente en contenido_base."""
+def limpiar_indices(ruta_proyecto):
+    ruta_index = os.path.join(ruta_proyecto, 'src', 'content', 'index.md')
+    if os.path.exists(ruta_index):
+        os.remove(ruta_index)
+        print(f"[*] Index anterior eliminado en {ruta_proyecto}")
+
+def generar_contenido_ia(sitio_id, nicho, palabras_clave, ruta_proyecto, modo="articulo", contenido_base=None):
+    """Llama a Gemini para generar el artículo o la home en formato Markdown."""
     
     poner_enlace = decidir_si_enlazar()
     url_destino = obtener_url_objetivo() if poner_enlace else "N/A"
     anchor = obtener_anchor_text() if poner_enlace else "N/A"
 
-    if contenido_base:
-        mensaje_propago = f"Toma este contenido base y crea una versión única y expandida para el nicho '{nicho}':\n\n{contenido_base}"
-        prompt = generar_prompt_antidetencion(nicho, palabras_clave, url_destino, anchor)
-        prompt = f"{prompt}\n\n{mensaje_propago}"
-    else:
-        prompt = generar_prompt_antidetencion(nicho, palabras_clave, url_destino, anchor)
+    prompt = generar_prompt_antidetencion(nicho, palabras_clave, url_destino, anchor, modo=modo, contenido_base=contenido_base)
     
     respuesta = modelo.generate_content(prompt)
     content = respuesta.text
@@ -132,16 +133,26 @@ def generar_contenido_ia(sitio_id, nicho, palabras_clave, ruta_proyecto, conteni
         
     video_iframe = f"\n\n### Recomendación en Video\n<iframe width='560' height='315' src='{video_url}' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
     
-    slug_generado = f"{sitio_id}-guia-oficial-{int(datetime.now().timestamp())}"
-    frontmatter = f"---\ntitulo: \"{nicho.title()}\"\ndescripcion: \"Guía definitiva sobre {nicho}.\"\nslug: \"{slug_generado}\"\nfecha: \"{datetime.now().strftime('%Y-%m-%d')}\"\n---\n\n"
+    if modo == "home":
+        slug_generado = "index"
+        frontmatter = f"---\ntitulo: \"{nicho.title()}\"\ndescripcion: \"Bienvenidos a {nicho}.\"\nslug: \"index\"\n---\n\n"
+    else:
+        slug_generado = f"{sitio_id}-guia-oficial-{int(datetime.now().timestamp())}"
+        frontmatter = f"---\ntitulo: \"{nicho.title()}\"\ndescripcion: \"Guía definitiva sobre {nicho}.\"\nslug: \"{slug_generado}\"\nfecha: \"{datetime.now().strftime('%Y-%m-%d')}\"\n---\n\n"
     
     content = frontmatter + content.strip() + video_iframe
     return content, slug_generado
 
-def guardar_markdown(ruta_proyecto, contenido_md, slug):
-    ruta_dir = os.path.join(ruta_proyecto, 'src', 'content', 'articulos')
-    os.makedirs(ruta_dir, exist_ok=True)
-    ruta_destino = os.path.join(ruta_dir, f"{slug}.md")
+def guardar_markdown(ruta_proyecto, contenido_md, slug, es_home=False):
+    if es_home:
+        ruta_dir = os.path.join(ruta_proyecto, 'src', 'content')
+        os.makedirs(ruta_dir, exist_ok=True)
+        ruta_destino = os.path.join(ruta_dir, "index.md")
+    else:
+        ruta_dir = os.path.join(ruta_proyecto, 'src', 'content', 'articulos')
+        os.makedirs(ruta_dir, exist_ok=True)
+        ruta_destino = os.path.join(ruta_dir, f"{slug}.md")
+    
     with open(ruta_destino, 'w', encoding='utf-8') as f:
         f.write(contenido_md)
     print(f"[+] Archivo guardado: {ruta_destino}")
@@ -266,7 +277,7 @@ if __name__ == "__main__":
         if os.path.exists(sys.argv[2]):
             with open(sys.argv[2], 'r', encoding='utf-8') as f:
                 contenido_base = f.read()
-            print("[*] Contenido base cargado para propagación.")
+            print("[*] Contenido base cargado para propagación y re-escritura de Homes.")
 
     inicializar_interlinking(ruta_proyecto_config)
     inicializar_prompts(ruta_proyecto_config)
@@ -282,6 +293,7 @@ if __name__ == "__main__":
         
         # 0. Limpiar y configurar
         limpiar_markdowns(sitio['ruta_astro'])
+        limpiar_indices(sitio['ruta_astro'])
         
         configuracion_actual = config_global["sitios"][sitio_id].copy()
         configuracion_actual["menu_global"] = config_global["menu_global"]
@@ -317,13 +329,18 @@ if __name__ == "__main__":
         
         escribir_config_inyectada(sitio['ruta_astro'], configuracion_actual)
         
-        # 1. Generar Contenido (Propagación si hay contenido_base)
-        print(f"[*] Generando versión para {sitio_id}...")
-        markdown_ia, slug_generado = generar_contenido_ia(sitio_id, sitio['nicho'], sitio['palabras_clave'], ruta_proyecto_config, contenido_base)
-        
+        # 1. Generar Home Única (si hay contenido_base)
+        if contenido_base:
+            print(f"[*] Re-escribiendo HOME para {sitio_id}...")
+            home_ia, _ = generar_contenido_ia(sitio_id, sitio.get('nombre_sitio', sitio_id), sitio['palabras_clave'], ruta_proyecto_config, modo="home", contenido_base=contenido_base)
+            guardar_markdown(sitio['ruta_astro'], home_ia, "index", es_home=True)
+
+        # 2. Generar Artículo Nuevo
+        print(f"[*] Generando artículo para {sitio_id}...")
+        markdown_ia, slug_generado = generar_contenido_ia(sitio_id, sitio['nicho'], sitio['palabras_clave'], ruta_proyecto_config, modo="articulo")
         guardar_markdown(sitio['ruta_astro'], markdown_ia, slug_generado)
         
-        # 2. Compilar y Persistir localmente
+        # 3. Compilar y Persistir localmente
         compilar_y_persistir(sitio_id, sitio['ruta_astro'], ruta_base, nombre_proyecto)
         
         sitios_procesados.append({
