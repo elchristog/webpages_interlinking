@@ -22,6 +22,5 @@ Thumbs.db
 .vscode/
 .idea/
 
-sitios_generados/
 contenido_base_test.md
 list_models.py
