@@ -26,6 +26,32 @@ def cargar_config_sitios(ruta_proyecto):
     with open(os.path.join(ruta_proyecto, 'config_sitios.json'), 'r', encoding='utf-8') as f:
         return json.load(f)
 
+def cargar_config_menus(ruta_proyecto):
+    ruta_menus = os.path.join(ruta_proyecto, 'config_menus.json')
+    if os.path.exists(ruta_menus):
+        with open(ruta_menus, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    return None
+
+def generar_menu_dinamico(config_menus):
+    """Genera un menú con variaciones de keywords según el config_menus."""
+    if not config_menus:
+        return None
+    
+    nuevo_menu = []
+    for item in config_menus["menu_structure"]:
+        categoria = item["id"]
+        if categoria in config_menus["variations"]:
+            nombre = random.choice(config_menus["variations"][categoria])
+        else:
+            nombre = categoria.title()
+        
+        nuevo_menu.append({
+            "nombre": nombre,
+            "ruta": item["ruta"]
+        })
+    return nuevo_menu
+
 def guardar_config_global(ruta_proyecto, data):
     ruta_destino = os.path.join(ruta_proyecto, 'config_global.json')
     with open(ruta_destino, 'w', encoding='utf-8') as f:
@@ -284,6 +310,7 @@ if __name__ == "__main__":
     
     config_global = cargar_config_global(ruta_proyecto_config)
     config_sitios = cargar_config_sitios(ruta_proyecto_config)
+    config_menus = cargar_config_menus(ruta_proyecto_config)
     
     sitios_procesados = []
 
@@ -296,7 +323,15 @@ if __name__ == "__main__":
         limpiar_indices(sitio['ruta_astro'])
         
         configuracion_actual = config_global["sitios"][sitio_id].copy()
-        configuracion_actual["menu_global"] = config_global["menu_global"]
+        
+        # Generar Menú Dinámico si existe configuración
+        menu_dinamico = generar_menu_dinamico(config_menus)
+        if menu_dinamico:
+            configuracion_actual["menu_global"] = menu_dinamico
+            print(f"[*] Menú dinámico generado para {sitio_id}")
+        else:
+            configuracion_actual["menu_global"] = config_global["menu_global"]
+            
         configuracion_actual["dominio"] = sitio.get("dominio", "http://localhost:4321")
         
         # Persistencia de Identidad (Variedad tokens)

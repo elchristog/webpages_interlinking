@@ -1,0 +1,85 @@
+{
+  "menu_structure": [
+    { "id": "homologacion", "ruta": "/homologacion" },
+    { "id": "nclex", "ruta": "/nclex" },
+    { "id": "vacantes", "ruta": "/vacantes" },
+    { "id": "visa", "ruta": "/visa" },
+    { "id": "salarios", "ruta": "/salarios" },
+    { "id": "blog", "ruta": "/blog" },
+    { "id": "whatsapp", "ruta": "https://wa.me/something" },
+    { "id": "login", "ruta": "/login" }
+  ],
+  "variations": {
+    "login": [
+      "Acceso",
+      "Entrar",
+      "Mi Cuenta",
+      "Iniciar",
+      "Portal RN",
+      "Login"
+    ],
+    "homologacion": [
+      "Homologar Título",
+      "Validar Diploma",
+      "Título USA",
+      "Proceso Grado",
+      "Validar Título",
+      "Revalidar Meta",
+      "Diploma Online"
+    ],
+    "nclex": [
+      "Examen NCLEX",
+      "Pasar NCLEX",
+      "Prep NCLEX",
+      "Guía NCLEX",
+      "Superar NCLEX",
+      "Estudio NCLEX",
+      "NCLEX Paso"
+    ],
+    "vacantes": [
+      "Ofertas Trabajo",
+      "Vacantes USA",
+      "Empleos RN",
+      "Buscar Trabajo",
+      "Puestos Libres",
+      "Trabajo Hoy",
+      "Bolsa Empleo"
+    ],
+    "visa": [
+      "Visa EB-3",
+      "Green Card",
+      "Residencia USA",
+      "Sponsor Visa",
+      "Migrar Legal",
+      "Trámite EB3",
+      "Visa Trabajo"
+    ],
+    "salarios": [
+      "Sueldos USA",
+      "Cuanto Ganan",
+      "Salario Real",
+      "Tablas Sueldos",
+      "Ingresos USA",
+      "Pagos RN",
+      "Sueldo Promedio"
+    ],
+    "blog": [
+      "Noticias",
+      "Casos Éxito",
+      "Historias",
+      "Blog Oficial",
+      "Guías Tips",
+      "Actualidad",
+      "Novedades"
+    ],
+    "whatsapp": [
+      "WhatsApp",
+      "Consultar Ahora",
+      "Hablar Asesor",
+      "Ayuda Chat",
+      "Escríbenos",
+      "Soporte",
+      "Chat Directo"
+    ]
+  }
+}

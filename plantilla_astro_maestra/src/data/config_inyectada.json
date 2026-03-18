@@ -16,31 +16,31 @@
   },
   "menu_global": [
     {
-      "nombre": "Homologación",
+      "nombre": "Diploma Online",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "NCLEX",
+      "nombre": "Superar NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Empleos",
+      "nombre": "Vacantes USA",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Visa y Green Card",
+      "nombre": "Sponsor Visa",
       "ruta": "/visa"
     },
     {
-      "nombre": "Salarios",
+      "nombre": "Sueldos USA",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Blog",
+      "nombre": "Noticias",
       "ruta": "/blog"
     },
     {
-      "nombre": "Whatsapp",
+      "nombre": "Chat Directo",
       "ruta": "https://wa.me/something"
     },
     {
