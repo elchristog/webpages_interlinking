@@ -15,8 +15,8 @@ def inicializar_interlinking(ruta_proyecto="."):
         raise FileNotFoundError(f"No se encontró config_enlaces.json en {ruta_proyecto}")
 
 def decidir_si_enlazar():
-    """Regla del 30%: Solo el 30% de los artículos llevarán enlace al Money Site."""
-    return random.random() <= 0.30
+    """Regla del 50%: El 50% de los artículos llevarán enlace al Money Site."""
+    return random.random() <= 0.50
 
 def obtener_url_objetivo():
     """Regla de Profundidad: 40% al Home, 60% a Deep Links (páginas internas)."""

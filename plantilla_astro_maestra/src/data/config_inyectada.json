@@ -16,35 +16,35 @@
   },
   "menu_global": [
     {
-      "nombre": "Revalidar Meta",
+      "nombre": "Validar Título",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Estudio NCLEX",
+      "nombre": "Pasar NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Ofertas Trabajo",
+      "nombre": "Vacantes USA",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Green Card",
+      "nombre": "Sponsor Visa",
       "ruta": "/visa"
     },
     {
-      "nombre": "Ingresos USA",
+      "nombre": "Salario Real",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Casos Éxito",
+      "nombre": "Actualidad",
       "ruta": "/blog"
     },
     {
-      "nombre": "Soporte",
+      "nombre": "Ayuda Chat",
       "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Iniciar",
+      "nombre": "Login",
       "ruta": "/login"
     }
   ],

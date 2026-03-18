@@ -138,7 +138,7 @@ def limpiar_indices(ruta_proyecto):
         os.remove(ruta_index)
         print(f"[*] Index anterior eliminado en {ruta_proyecto}")
 
-def generar_contenido_ia(sitio_id, nicho, palabras_clave, ruta_proyecto, modo="articulo", contenido_base=None, slug_override=None):
+def generar_contenido_ia(sitio_id, nicho, palabras_clave, ruta_proyecto, modo="articulo", contenido_base=None, slug_override=None, nombre_sitio="este sitio"):
     """Llama a Gemini para generar el artículo o la home en formato Markdown."""
     
     poner_enlace = decidir_si_enlazar()
@@ -146,7 +146,7 @@ def generar_contenido_ia(sitio_id, nicho, palabras_clave, ruta_proyecto, modo="a
     anchor = obtener_anchor_text() if poner_enlace else "N/A"
 
     url_outbound = obtener_enlace_autoridad()
-    prompt = generar_prompt_antidetencion(nicho, palabras_clave, url_destino, anchor, url_outbound=url_outbound, modo=modo, contenido_base=contenido_base)
+    prompt = generar_prompt_antidetencion(nicho, palabras_clave, url_destino, anchor, url_outbound=url_outbound, modo=modo, contenido_base=contenido_base, nombre_sitio=nombre_sitio)
     
     respuesta = modelo.generate_content(prompt)
     content = respuesta.text
@@ -366,7 +366,8 @@ def procesar_sitio(sitio, config_global, config_menus, ruta_proyecto_config, rut
             ruta_proyecto_config, 
             modo=modo_propagar, 
             contenido_base=input_base,
-            slug_override=slug_pestaña
+            slug_override=slug_pestaña,
+            nombre_sitio=configuracion_actual["nombre_sitio"]
         )
         guardar_markdown(sitio['ruta_astro'], contenido_ia, slug_final, modo=modo_propagar)
     else:
