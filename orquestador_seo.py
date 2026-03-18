@@ -389,6 +389,7 @@ if __name__ == "__main__":
     parser.add_argument("--modo", choices=["home", "pestaña", "blog"], default="articulo", help="Tipo de contenido a propagar")
     parser.add_argument("--slug", help="Slug para la pestaña o artículo (obligatorio para --modo pestaña)")
     parser.add_argument("--inputfile", help="Archivo .txt con el contenido base o tema a propagar")
+    parser.add_argument("--cola", action="store_true", help="Procesa los archivos en input_cola/")
     
     args = parser.parse_args()
     
@@ -400,15 +401,36 @@ if __name__ == "__main__":
         print(f"[-] Error: No existe la carpeta del proyecto en {ruta_proyecto_config}")
         sys.exit(1)
 
-    input_text = None
-    if args.inputfile:
+    peticiones = []
+    
+    if args.cola:
+        ruta_cola = os.path.join(ruta_base, 'input_cola')
+        if os.path.exists(ruta_cola):
+            for f in os.listdir(ruta_cola):
+                if f.endswith(".json"):
+                    with open(os.path.join(ruta_cola, f), 'r', encoding='utf-8') as jf:
+                        peticiones.append(json.load(jf))
+            if not peticiones:
+                print("[*] La cola está vacía.")
+        else:
+            print("[-] Error: No existe la carpeta input_cola/")
+            sys.exit(1)
+    elif args.inputfile:
         if os.path.exists(args.inputfile):
             with open(args.inputfile, 'r', encoding='utf-8') as f:
                 input_text = f.read()
-            print(f"[*] Input cargado desde {args.inputfile}")
+            peticiones.append({
+                "modo": args.modo,
+                "slug": args.slug,
+                "input_base": input_text
+            })
         else:
             print(f"[-] Error: No se encuentra el archivo de entrada {args.inputfile}")
             sys.exit(1)
+    elif args.propagar:
+        # Si se usa --propagar sin inputfile, buscamos un input default o error
+        print("[-] Error: Debes especificar --inputfile o usar --cola")
+        sys.exit(1)
 
     inicializar_interlinking(ruta_proyecto_config)
     inicializar_prompts(ruta_proyecto_config)
@@ -417,21 +439,35 @@ if __name__ == "__main__":
     config_sitios = cargar_config_sitios(ruta_proyecto_config)
     config_menus = cargar_config_menus(ruta_proyecto_config)
     
-    sitios_procesados = []
-    
-    modo_ejecucion = args.modo if args.propagar else None
+    if not peticiones:
+        # Generación base (bulk) si no hay peticiones específicas
+        print("[*] Iniciando generación base (bulk)...")
+        sitios_procesados = []
+        for sitio in config_sitios["sitios_espejo"]:
+            resultado = procesar_sitio(
+                sitio, config_global, config_menus, 
+                ruta_proyecto_config, ruta_base, nombre_proyecto
+            )
+            sitios_procesados.append(resultado)
+        generar_index_dashboard(ruta_base, sitios_procesados, nombre_proyecto)
+    else:
+        for p in peticiones:
+            print(f"\n[*] Procesando petición: {p.get('tema', p.get('slug', 'sin nombre'))}")
+            modo_ejecucion = p.get("modo", "articulo")
+            input_text = p.get("contenido") or p.get("tema") or p.get("input_base") or p.get("contenido_base")
+            slug_pestaña = p.get("slug")
+            
+            sitios_procesados = []
+            for sitio in config_sitios["sitios_espejo"]:
+                resultado = procesar_sitio(
+                    sitio, config_global, config_menus, 
+                    ruta_proyecto_config, ruta_base, nombre_proyecto,
+                    modo_propagar=modo_ejecucion,
+                    input_base=input_text,
+                    slug_pestaña=slug_pestaña
+                )
+                sitios_procesados.append(resultado)
+            generar_index_dashboard(ruta_base, sitios_procesados, nombre_proyecto)
 
-    for sitio in config_sitios["sitios_espejo"]:
-        resultado = procesar_sitio(
-            sitio, config_global, config_menus, 
-            ruta_proyecto_config, ruta_base, nombre_proyecto,
-            modo_propagar=modo_ejecucion,
-            input_base=input_text,
-            slug_pestaña=args.slug
-        )
-        sitios_procesados.append(resultado)
-
-    generar_index_dashboard(ruta_base, sitios_procesados, nombre_proyecto)
-    
     print("\n[!!!] PROCESO COMPLETADO [!!!]")
     print(f"Dashboard: file://{os.path.join(ruta_base, 'sitios_generados', nombre_proyecto, 'index.html')}")

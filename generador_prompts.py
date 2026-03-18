@@ -79,15 +79,14 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
     {instruccion_modo}
     
     INSTRUCCIONES DE REDACCIÓN (OBLIGATORIAS):
-    1. REGLA DE UNICIDAD TOTAL: Si eres parte de una red de sitios, tu texto debe ser DRÁSTICAMENTE diferente a cualquier otro. Cambia la estructura, el orden de las ideas y el estilo gramatical.
+    1. REGLA DE UNICIDAD RADICAL: Estás generando una de las 16 variantes para una red. Es CRÍTICO que este texto sea 100% original. Cambia el orden de los conceptos, usa sinónimos poco comunes, y varía la longitud de las oraciones. Si el tema es general, aterrizalo a la realidad de '{nicho_actual}' y menciona elementos locales (hospitales, leyes estatales, clima laboral en esa zona) para que Google no vea dos textos iguales.
     2. REGLA DE FORMATO: Devuelve el texto ÚNICAMENTE en Markdown válido. Usa subtítulos H2 y H3.
     3. REGLA DE LONGITUD: El texto debe tener entre 800 y 1200 palabras. Usa párrafos cortos (máximo 3 oraciones por párrafo).
     4. REGLA DE AUTORIDAD: Debes incluir naturalmente un enlace hacia esta fuente oficial/gubernamental: {url_outbound}. El texto ancla debe ser natural y relevante al contexto.
 
-    RESTRICCIONES NEGATIVAS (PROHIBIDO USAR ESTAS FRASES):
-    - NO uses transiciones robóticas como: "En conclusión", "En resumen", "Por otro lado", "Es importante destacar que", "Adentrémonos", "En el vertiginoso mundo de".
-    - NO hagas una introducción genérica diciendo de qué vas a hablar. Empieza directo con el valor.
-    - NO uses un tono excesivamente entusiasta o poético.
+    RESTRICCIONES NEGATIVAS (EVITAR PATRONES DE IA):
+    - PROHIBIDO usar: "En conclusión", "En resumen", "Por otro lado", "Es importante destacar que", "Adentrémonos", "En el vertiginoso mundo de", "No importa si eres... o si eres...".
+    - Empieza con un gancho directo. No hagas intros de "En este artículo hablaremos de...".
     
     {instruccion_interlinking}
     """
