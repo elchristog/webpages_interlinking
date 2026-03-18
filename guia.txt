@@ -104,7 +104,7 @@ Ejemplo de un espejo local (Florida):
 "Muchos hospitales en Tampa y Zephyrhills están buscando activamente talento internacional. Si ya tienes tu documentación de tu país de origen, el siguiente paso es prepararte para los exámenes estatales. Puedes revisar cómo es el proceso completo a través de la asesoría de ENFERMERAEEU, donde explican los tiempos exactos para obtener la licencia en el estado de Florida."
 Paso 4: Volumen y Frecuencia de Enlazado
 No inyectes enlaces en el 100% de los artículos que generes en tus sitios espejo. Si un blog satélite tiene 50 artículos y los 50 apuntan a tu sitio principal, es sospechoso.
-La regla del 30%: Programa tu script de Python para que solo 3 de cada 10 artículos generados contengan un enlace hacia tu sitio principal.
+La regla del 50%: Programa tu script de Python para que solo 3 de cada 10 artículos generados contengan un enlace hacia tu sitio principal.
 Enlaces de distracción (Outbound Links): Los 7 artículos restantes, y a veces los mismos que tienen tu enlace, deben apuntar a sitios de altísima autoridad que no son tuyos. Enlaza a Wikipedia, al sitio oficial del NCSBN (National Council of State Boards of Nursing), o a portales de salud gubernamentales (.gov). Esto hace que tu sitio espejo parezca un recurso legítimo y no una granja de enlaces encubierta.
 Paso 5: Apuntar a Páginas Profundas (Deep Linking)
 No envíes todo el tráfico y la autoridad únicamente a la página de inicio (Home) de tu sitio principal.
@@ -177,8 +177,8 @@ with open('config_enlaces.json', 'r', encoding='utf-8') as file:
     config = json.load(file)
 
 def decidir_si_enlazar():
-    """Regla del 30%: Solo el 30% de los artículos llevarán enlace al Money Site."""
-    return random.random() <= 0.30
+    """Regla del 50%: Solo el 50% de los artículos llevarán enlace al Money Site."""
+    return random.random() <= 0.50
 
 def obtener_url_objetivo():
     """Regla de Profundidad: 40% al Home, 60% a Deep Links (páginas internas)."""
@@ -216,7 +216,7 @@ def inyectar_instrucciones_ia(ciudad_objetivo):
     REGLA 1: Debes incluir naturalmente un enlace hacia esta fuente oficial: {enlace_outbound}
     """
     
-    # Si cae en el 30%, inyectamos nuestro Money Site
+    # Si cae en el 50%, inyectamos nuestro Money Site
     if decidir_si_enlazar():
         url_money_site = obtener_url_objetivo()
         anchor = obtener_anchor_text()
@@ -324,7 +324,7 @@ sitios_espejo = [
 def generar_contenido_ia(nicho):
     """Llama a Gemini para generar el artículo en formato Markdown."""
     
-    # Aquí integrarías la lógica de interlinking (Regla del 30%) que vimos antes
+    # Aquí integrarías la lógica de interlinking (Regla del 50%) que vimos antes
     prompt = f"""
     Escribe un artículo optimizado para SEO sobre {nicho}.
     Devuelve el resultado ESTRICTAMENTE en formato Markdown.
@@ -425,7 +425,7 @@ def crear_prompt_aislado(nicho_actual, palabras_clave):
     Garantiza que la autoridad solo fluya hacia el MONEY_SITE_URL.
     """
     
-    # 1. Regla del 30% (Aleatoriedad para parecer natural)
+    # 1. Regla del 50% (Aleatoriedad para parecer natural)
     poner_enlace = random.choice([True, False, False]) 
     
     # 2. Construcción de la instrucción base
