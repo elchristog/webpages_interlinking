@@ -14,7 +14,7 @@ def inicializar_prompts(ruta_proyecto="."):
     else:
         raise FileNotFoundError(f"No se encontró config_prompts.json en {ruta_proyecto}")
 
-def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, anchor_text, modo="articulo", contenido_base=None):
+def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, anchor_text, url_outbound="https://wikipedia.org", modo="articulo", contenido_base=None):
     """
     Construye un prompt hiper-específico rotando identidades y formatos estructurales
     para evadir la detección de contenido programático (AI Spam).
@@ -42,6 +42,21 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
         PALABRAS CLAVE A INCLUIR NATURALMENTE: {', '.join(palabras_clave)}
         """
 
+    instruccion_interlinking = ""
+    if url_money_site != "N/A":
+        instruccion_interlinking = f"""
+    INSTRUCCIÓN DE ENLAZADO (INTERLINKING SECRETO):
+    Dentro del flujo natural del texto, en uno de los párrafos intermedios, debes integrar ESTRICTAMENTE el siguiente enlace promocional:
+    - URL de destino: {url_money_site}
+    - Texto ancla EXACTO: "{anchor_text}"
+    El enlace debe integrarse de forma semántica, como una recomendación de una plataforma donde pueden revisar el proceso completo o buscar ayuda. NO lo pongas como un botón o al final del artículo.
+    """
+    else:
+        instruccion_interlinking = """
+    INSTRUCCIÓN DE ENLAZADO (INTERLINKING SECRETO):
+    NO incluyas ningún enlace promocional o externo hacia sitios comerciales en este artículo. Solo puedes enlazar a fuentes oficiales o gubernamentales como referencias.
+    """
+
     prompt = f"""
     {persona_elegida}
     
@@ -52,17 +67,14 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
     INSTRUCCIONES DE REDACCIÓN (OBLIGATORIAS):
     1. REGLA DE FORMATO: Devuelve el texto ÚNICAMENTE en Markdown válido. Usa subtítulos H2 y H3.
     2. REGLA DE LONGITUD: El texto debe tener entre 800 y 1200 palabras. Usa párrafos cortos (máximo 3 oraciones por párrafo).
-    
+    3. REGLA DE AUTORIDAD: Debes incluir naturalmente un enlace hacia esta fuente oficial/gubernamental: {url_outbound}. El texto ancla debe ser natural y relevante al contexto.
+
     RESTRICCIONES NEGATIVAS (PROHIBIDO USAR ESTAS FRASES):
     - NO uses transiciones robóticas como: "En conclusión", "En resumen", "Por otro lado", "Es importante destacar que", "Adentrémonos", "En el vertiginoso mundo de".
     - NO hagas una introducción genérica diciendo de qué vas a hablar. Empieza directo con el valor.
     - NO uses un tono excesivamente entusiasta o poético.
     
-    INSTRUCCIÓN DE ENLAZADO (INTERLINKING SECRETO):
-    Dentro del flujo natural del texto, en uno de los párrafos intermedios, debes integrar ESTRICTAMENTE el siguiente enlace promocional:
-    - URL de destino: {url_money_site}
-    - Texto ancla EXACTO: "{anchor_text}"
-    El enlace debe integrarse de forma semántica, como una recomendación de una plataforma donde pueden revisar el proceso completo o buscar ayuda. NO lo pongas como un botón o al final del artículo.
+    {instruccion_interlinking}
     """
     
     return prompt

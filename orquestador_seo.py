@@ -7,7 +7,7 @@ import random
 import shutil
 from dotenv import load_dotenv
 from generador_prompts import generar_prompt_antidetencion, inicializar_prompts
-from generador_interlinking import decidir_si_enlazar, obtener_url_objetivo, obtener_anchor_text, inicializar_interlinking
+from generador_interlinking import decidir_si_enlazar, obtener_url_objetivo, obtener_anchor_text, inicializar_interlinking, obtener_enlace_autoridad
 import sys
 import urllib.request
 import colorsys
@@ -114,13 +114,18 @@ def generar_paleta_aleatoria():
     h_acc = (h + random.randint(120, 240)) % 360
     l_acc, ratio_acc = ajustar_por_accesibilidad(h_acc, s)
 
+    # Secundario: Un tono análogo o monocromático que también sea accesible
+    h_sec = (h + 30) % 360 # Tono análogo
+    l_sec, ratio_sec = ajustar_por_accesibilidad(h_sec, s - 20) # Menos saturado para ser "más suave"
+
     return {
         "primary": f"hsl({h}, {s}%, {l_prim}%)",
-        "secondary": f"hsl({h}, {s}%, {l_prim + 15}%)", # Secundario es más suave
+        "secondary": f"hsl({h_sec}, {max(0, s-20)}%, {l_sec}%)",
         "accent": f"hsl({h_acc}, {s}%, {l_acc}%)",
         "text_bold": f"hsl({h}, {s}%, 15%)", # Siempre oscuro para máxima legibilidad
         "meta": {
             "primary_contrast": f"{ratio_prim:.2f}",
+            "secondary_contrast": f"{ratio_sec:.2f}",
             "accent_contrast": f"{ratio_acc:.2f}"
         }
     }
@@ -138,7 +143,8 @@ def generar_contenido_ia(sitio_id, nicho, palabras_clave, ruta_proyecto, modo="a
     url_destino = obtener_url_objetivo() if poner_enlace else "N/A"
     anchor = obtener_anchor_text() if poner_enlace else "N/A"
 
-    prompt = generar_prompt_antidetencion(nicho, palabras_clave, url_destino, anchor, modo=modo, contenido_base=contenido_base)
+    url_outbound = obtener_enlace_autoridad()
+    prompt = generar_prompt_antidetencion(nicho, palabras_clave, url_destino, anchor, url_outbound=url_outbound, modo=modo, contenido_base=contenido_base)
     
     respuesta = modelo.generate_content(prompt)
     content = respuesta.text
@@ -241,7 +247,7 @@ def generar_index_dashboard(ruta_base, sitios, nombre_proyecto):
     """Genera un archivo index.html central para navegar entre los sitios del proyecto."""
     ruta_dashboard = os.path.join(ruta_base, 'sitios_generados', nombre_proyecto, 'index.html')
     
-    html = """<!DOCTYPE html>
+    html = f"""<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -249,7 +255,7 @@ def generar_index_dashboard(ruta_base, sitios, nombre_proyecto):
     <title>PBN Dashboard - Previsualización Local</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <style>body { font-family: 'Inter', sans-serif; }</style>
+    <style>body {{ font-family: 'Inter', sans-serif; }}</style>
 </head>
 <body class="bg-zinc-50 p-8 md:p-20">
     <div class="max-w-6xl mx-auto">
@@ -269,7 +275,7 @@ def generar_index_dashboard(ruta_base, sitios, nombre_proyecto):
             <a href="./{s['id']}/index.html" target="_blank" class="{estilo} p-6 h-40 flex flex-col justify-between hover:scale-105 transition-transform shadow-sm">
                 <div>
                    <h2 class="font-bold text-lg">{s['id'].replace('_', ' ').title()}{badge}</h2>
-                   <p class="text-xs opacity-70 mt-1 line-clamp-2">{s['dominiio'] if 'dominiio' in s else s.get('dominio', '')}</p>
+                   <p class="text-xs opacity-70 mt-1 line-clamp-2">{s.get('dominio', '')}</p>
                 </div>
                 <span class="text-xs font-mono">Abrir sitio →</span>
             </a>
@@ -322,6 +328,12 @@ if __name__ == "__main__":
         limpiar_markdowns(sitio['ruta_astro'])
         limpiar_indices(sitio['ruta_astro'])
         
+        # Limpiar dist para evitar rastro de otros sitios
+        dist_path = os.path.join(sitio['ruta_astro'], 'dist')
+        if os.path.exists(dist_path):
+            shutil.rmtree(dist_path)
+            print(f"[*] Carpeta /dist limpiada en {sitio_id}")
+        
         configuracion_actual = config_global["sitios"][sitio_id].copy()
         
         # Generar Menú Dinámico si existe configuración
@@ -353,7 +365,8 @@ if __name__ == "__main__":
             configuracion_actual["sidebar_pos"] = random.choice(["left", "right"])
             cambio_detectado = True
 
-        if "color_palette" not in configuracion_actual:
+        # Forzar regeneración si no tiene la metadata de accesibilidad (nueva versión)
+        if "color_palette" not in configuracion_actual or "meta" not in configuracion_actual["color_palette"]:
             configuracion_actual["color_palette"] = generar_paleta_aleatoria()
             cambio_detectado = True
         

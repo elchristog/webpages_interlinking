@@ -16,11 +16,11 @@
   },
   "menu_global": [
     {
-      "nombre": "Diploma Online",
+      "nombre": "Título USA",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Superar NCLEX",
+      "nombre": "Pasar NCLEX",
       "ruta": "/nclex"
     },
     {
@@ -28,23 +28,23 @@
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Sponsor Visa",
+      "nombre": "Residencia USA",
       "ruta": "/visa"
     },
     {
-      "nombre": "Sueldos USA",
+      "nombre": "Tablas Sueldos",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Noticias",
+      "nombre": "Actualidad",
       "ruta": "/blog"
     },
     {
-      "nombre": "Chat Directo",
+      "nombre": "Escríbenos",
       "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Login",
+      "nombre": "Iniciar",
       "ruta": "/login"
     }
   ],
@@ -53,9 +53,14 @@
   "font_family": "Inter",
   "sidebar_pos": "left",
   "color_palette": {
-    "primary": "hsl(314, 65%, 56%)",
-    "secondary": "hsl(314, 65%, 76%)",
-    "accent": "hsl(134, 65%, 56%)",
-    "text_bold": "hsl(314, 65%, 15%)"
+    "primary": "hsl(88, 86%, 26%)",
+    "secondary": "hsl(118, 66%, 32%)",
+    "accent": "hsl(239, 86%, 50%)",
+    "text_bold": "hsl(88, 86%, 15%)",
+    "meta": {
+      "primary_contrast": "5.10",
+      "secondary_contrast": "4.60",
+      "accent_contrast": "8.89"
+    }
   }
 }
