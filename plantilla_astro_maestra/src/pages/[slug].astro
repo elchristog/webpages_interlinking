@@ -1,0 +1,51 @@
+---
+import LayoutA from '../layouts/LayoutA.astro';
+import LayoutB from '../layouts/LayoutB.astro';
+import LayoutC from '../layouts/LayoutC.astro';
+import LayoutD from '../layouts/LayoutD.astro';
+import LayoutE from '../layouts/LayoutE.astro';
+import LayoutF from '../layouts/LayoutF.astro';
+import LayoutG from '../layouts/LayoutG.astro';
+import config from '../data/config_inyectada.json';
+import Text from '../components/fundations/elements/Text.astro';
+import Wrapper from '../components/fundations/containers/Wrapper.astro';
+
+export async function getStaticPaths() {
+  const paginas = Object.values(import.meta.glob('../content/paginas/*.md', { eager: true }));
+  
+  return paginas.map((pagina: any) => ({
+    params: { slug: pagina.frontmatter.slug },
+    props: { ...pagina },
+  }));
+}
+
+const { frontmatter, Content } = Astro.props;
+
+// Logic to pick layout
+let SelectedLayout = LayoutA;
+if (config.layout === 'LayoutB') {
+  SelectedLayout = LayoutB;
+} else if (config.layout === 'LayoutC') {
+  SelectedLayout = LayoutC;
+} else if (config.layout === 'LayoutD') {
+  SelectedLayout = LayoutD;
+} else if (config.layout === 'LayoutE') {
+  SelectedLayout = LayoutE;
+} else if (config.layout === 'LayoutF') {
+  SelectedLayout = LayoutF;
+} else if (config.layout === 'LayoutG') {
+  SelectedLayout = LayoutG;
+}
+---
+
+<SelectedLayout titulo={frontmatter.titulo} descripcion={frontmatter.descripcion}>
+  <article>
+    <Text tag="h1" variant="displayMD" class="font-bold text-black tracking-tight mb-8">
+      {frontmatter.titulo}
+    </Text>
+    
+    <Wrapper variant="prose">
+      <Content />
+    </Wrapper>
+  </article>
+</SelectedLayout>

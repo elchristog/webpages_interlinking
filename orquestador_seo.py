@@ -9,8 +9,10 @@ from dotenv import load_dotenv
 from generador_prompts import generar_prompt_antidetencion, inicializar_prompts
 from generador_interlinking import decidir_si_enlazar, obtener_url_objetivo, obtener_anchor_text, inicializar_interlinking, obtener_enlace_autoridad
 import sys
+import argparse
 import urllib.request
 import colorsys
+import time
 
 load_dotenv()
 
@@ -136,7 +138,7 @@ def limpiar_indices(ruta_proyecto):
         os.remove(ruta_index)
         print(f"[*] Index anterior eliminado en {ruta_proyecto}")
 
-def generar_contenido_ia(sitio_id, nicho, palabras_clave, ruta_proyecto, modo="articulo", contenido_base=None):
+def generar_contenido_ia(sitio_id, nicho, palabras_clave, ruta_proyecto, modo="articulo", contenido_base=None, slug_override=None):
     """Llama a Gemini para generar el artículo o la home en formato Markdown."""
     
     poner_enlace = decidir_si_enlazar()
@@ -168,6 +170,9 @@ def generar_contenido_ia(sitio_id, nicho, palabras_clave, ruta_proyecto, modo="a
     if modo == "home":
         slug_generado = "index"
         frontmatter = f"---\ntitulo: \"{nicho.title()}\"\ndescripcion: \"Bienvenidos a {nicho}.\"\nslug: \"index\"\n---\n\n"
+    elif modo == "pestaña":
+        slug_generado = slug_override if slug_override else f"pagina-{int(datetime.now().timestamp())}"
+        frontmatter = f"---\ntitulo: \"{nicho.title()}\"\ndescripcion: \"Información oficial sobre {nicho}.\"\nslug: \"{slug_generado}\"\n---\n\n"
     else:
         slug_generado = f"{sitio_id}-guia-oficial-{int(datetime.now().timestamp())}"
         frontmatter = f"---\ntitulo: \"{nicho.title()}\"\ndescripcion: \"Guía definitiva sobre {nicho}.\"\nslug: \"{slug_generado}\"\nfecha: \"{datetime.now().strftime('%Y-%m-%d')}\"\n---\n\n"
@@ -175,11 +180,15 @@ def generar_contenido_ia(sitio_id, nicho, palabras_clave, ruta_proyecto, modo="a
     content = frontmatter + content.strip() + video_iframe
     return content, slug_generado
 
-def guardar_markdown(ruta_proyecto, contenido_md, slug, es_home=False):
-    if es_home:
+def guardar_markdown(ruta_proyecto, contenido_md, slug, modo="articulo"):
+    if modo == "home":
         ruta_dir = os.path.join(ruta_proyecto, 'src', 'content')
         os.makedirs(ruta_dir, exist_ok=True)
         ruta_destino = os.path.join(ruta_dir, "index.md")
+    elif modo == "pestaña":
+        ruta_dir = os.path.join(ruta_proyecto, 'src', 'content', 'paginas')
+        os.makedirs(ruta_dir, exist_ok=True)
+        ruta_destino = os.path.join(ruta_dir, f"{slug}.md")
     else:
         ruta_dir = os.path.join(ruta_proyecto, 'src', 'content', 'articulos')
         os.makedirs(ruta_dir, exist_ok=True)
@@ -295,21 +304,110 @@ def generar_index_dashboard(ruta_base, sitios, nombre_proyecto):
         f.write(html)
     print(f"[+] Dashboard generado en: {ruta_dashboard}")
 
-if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Uso: python orquestador_seo.py <nombre_proyecto> [contenido_base_archivo]")
-        sys.exit(1)
+def preparar_identidad_sitio(sitio_id, configuracion_actual, config_global, config_menus, ruta_proyecto_config):
+    """Configura y persiste la identidad (colores, layout, etc) de un sitio."""
+    cambio_detectado = False
+    
+    # Generar Menú Dinámico si existe configuración
+    menu_dinamico = generar_menu_dinamico(config_menus)
+    if menu_dinamico:
+        configuracion_actual["menu_global"] = menu_dinamico
+        print(f"[*] Menú dinámico generado para {sitio_id}")
+    
+    if "layout" not in configuracion_actual:
+        configuracion_actual["layout"] = random.choice(["LayoutA", "LayoutB", "LayoutC", "LayoutD", "LayoutE", "LayoutF", "LayoutG"])
+        cambio_detectado = True
+    
+    if "nav_footer_version" not in configuracion_actual:
+        configuracion_actual["nav_footer_version"] = random.choice(["v1", "v2", "v3"])
+        cambio_detectado = True
+
+    if "font_family" not in configuracion_actual:
+        configuracion_actual["font_family"] = random.choice(["Inter", "Roboto", "Outfit", "Plus Jakarta Sans"])
+        cambio_detectado = True
+    
+    if configuracion_actual.get("layout") == "LayoutB" and "sidebar_pos" not in configuracion_actual:
+        configuracion_actual["sidebar_pos"] = random.choice(["left", "right"])
+        cambio_detectado = True
+
+    if "color_palette" not in configuracion_actual or "meta" not in configuracion_actual["color_palette"]:
+        configuracion_actual["color_palette"] = generar_paleta_aleatoria()
+        cambio_detectado = True
+    
+    if cambio_detectado:
+        config_global["sitios"][sitio_id] = configuracion_actual
+        guardar_config_global(ruta_proyecto_config, config_global)
+        print(f"[!] Identidad persistida para {sitio_id}")
+    
+    return configuracion_actual
+
+def procesar_sitio(sitio, config_global, config_menus, ruta_proyecto_config, ruta_base, nombre_proyecto, modo_propagar=None, input_base=None, slug_pestaña=None):
+    sitio_id = sitio['id']
+    print(f"\n=== Procesando {sitio_id} ===")
+    
+    # Limpiar dist para evitar rastro de otros sitios
+    dist_path = os.path.join(sitio['ruta_astro'], 'dist')
+    if os.path.exists(dist_path):
+        shutil.rmtree(dist_path)
+    
+    configuracion_actual = config_global["sitios"][sitio_id].copy()
+    configuracion_actual["dominio"] = sitio.get("dominio", "http://localhost:4321")
+    
+    configuracion_actual = preparar_identidad_sitio(sitio_id, configuracion_actual, config_global, config_menus, ruta_proyecto_config)
+    escribir_config_inyectada(sitio['ruta_astro'], configuracion_actual)
+
+    if modo_propagar:
+        # Modo propagación dirigida
+        print(f"[*] Propagando {modo_propagar} para {sitio_id}...")
+        contenido_ia, slug_final = generar_contenido_ia(
+            sitio_id, 
+            sitio['nicho'], 
+            sitio['palabras_clave'], 
+            ruta_proyecto_config, 
+            modo=modo_propagar, 
+            contenido_base=input_base,
+            slug_override=slug_pestaña
+        )
+        guardar_markdown(sitio['ruta_astro'], contenido_ia, slug_final, modo=modo_propagar)
+    else:
+        # Modo generación base/bulk
+        limpiar_markdowns(sitio['ruta_astro'])
+        limpiar_indices(sitio['ruta_astro'])
         
-    nombre_proyecto = sys.argv[1]
+        print(f"[*] Generando artículo inicial para {sitio_id}...")
+        markdown_ia, slug_generado = generar_contenido_ia(sitio_id, sitio['nicho'], sitio['palabras_clave'], ruta_proyecto_config, modo="articulo")
+        guardar_markdown(sitio['ruta_astro'], markdown_ia, slug_generado)
+    
+    compilar_y_persistir(sitio_id, sitio['ruta_astro'], ruta_base, nombre_proyecto)
+    return {"id": sitio_id, "dominio": configuracion_actual["dominio"]}
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Orquestador SEO PBN - Generador de Sitios Espejo")
+    parser.add_argument("proyecto", help="Nombre del proyecto (ej: enfermera_en_estados_unidos)")
+    parser.add_argument("--propagar", action="store_true", help="Activa el modo propagación de contenido específico")
+    parser.add_argument("--modo", choices=["home", "pestaña", "blog"], default="articulo", help="Tipo de contenido a propagar")
+    parser.add_argument("--slug", help="Slug para la pestaña o artículo (obligatorio para --modo pestaña)")
+    parser.add_argument("--inputfile", help="Archivo .txt con el contenido base o tema a propagar")
+    
+    args = parser.parse_args()
+    
+    nombre_proyecto = args.proyecto
     ruta_base = os.getcwd()
     ruta_proyecto_config = os.path.join(ruta_base, 'proyectos', nombre_proyecto)
     
-    contenido_base = None
-    if len(sys.argv) > 2:
-        if os.path.exists(sys.argv[2]):
-            with open(sys.argv[2], 'r', encoding='utf-8') as f:
-                contenido_base = f.read()
-            print("[*] Contenido base cargado para propagación y re-escritura de Homes.")
+    if not os.path.exists(ruta_proyecto_config):
+        print(f"[-] Error: No existe la carpeta del proyecto en {ruta_proyecto_config}")
+        sys.exit(1)
+
+    input_text = None
+    if args.inputfile:
+        if os.path.exists(args.inputfile):
+            with open(args.inputfile, 'r', encoding='utf-8') as f:
+                input_text = f.read()
+            print(f"[*] Input cargado desde {args.inputfile}")
+        else:
+            print(f"[-] Error: No se encuentra el archivo de entrada {args.inputfile}")
+            sys.exit(1)
 
     inicializar_interlinking(ruta_proyecto_config)
     inicializar_prompts(ruta_proyecto_config)
@@ -319,85 +417,20 @@ if __name__ == "__main__":
     config_menus = cargar_config_menus(ruta_proyecto_config)
     
     sitios_procesados = []
+    
+    modo_ejecucion = args.modo if args.propagar else None
 
     for sitio in config_sitios["sitios_espejo"]:
-        sitio_id = sitio['id']
-        print(f"\n=== Procesando {sitio_id} ===")
-        
-        # 0. Limpiar y configurar
-        limpiar_markdowns(sitio['ruta_astro'])
-        limpiar_indices(sitio['ruta_astro'])
-        
-        # Limpiar dist para evitar rastro de otros sitios
-        dist_path = os.path.join(sitio['ruta_astro'], 'dist')
-        if os.path.exists(dist_path):
-            shutil.rmtree(dist_path)
-            print(f"[*] Carpeta /dist limpiada en {sitio_id}")
-        
-        configuracion_actual = config_global["sitios"][sitio_id].copy()
-        
-        # Generar Menú Dinámico si existe configuración
-        menu_dinamico = generar_menu_dinamico(config_menus)
-        if menu_dinamico:
-            configuracion_actual["menu_global"] = menu_dinamico
-            print(f"[*] Menú dinámico generado para {sitio_id}")
-        else:
-            configuracion_actual["menu_global"] = config_global["menu_global"]
-            
-        configuracion_actual["dominio"] = sitio.get("dominio", "http://localhost:4321")
-        
-        # Persistencia de Identidad (Variedad tokens)
-        cambio_detectado = False
-        
-        if "layout" not in configuracion_actual:
-            configuracion_actual["layout"] = random.choice(["LayoutA", "LayoutB", "LayoutC", "LayoutD", "LayoutE", "LayoutF", "LayoutG"])
-            cambio_detectado = True
-        
-        if "nav_footer_version" not in configuracion_actual:
-            configuracion_actual["nav_footer_version"] = random.choice(["v1", "v2", "v3"])
-            cambio_detectado = True
+        resultado = procesar_sitio(
+            sitio, config_global, config_menus, 
+            ruta_proyecto_config, ruta_base, nombre_proyecto,
+            modo_propagar=modo_ejecucion,
+            input_base=input_text,
+            slug_pestaña=args.slug
+        )
+        sitios_procesados.append(resultado)
 
-        if "font_family" not in configuracion_actual:
-            configuracion_actual["font_family"] = random.choice(["Inter", "Roboto", "Outfit", "Plus Jakarta Sans"])
-            cambio_detectado = True
-        
-        if configuracion_actual["layout"] == "LayoutB" and "sidebar_pos" not in configuracion_actual:
-            configuracion_actual["sidebar_pos"] = random.choice(["left", "right"])
-            cambio_detectado = True
-
-        # Forzar regeneración si no tiene la metadata de accesibilidad (nueva versión)
-        if "color_palette" not in configuracion_actual or "meta" not in configuracion_actual["color_palette"]:
-            configuracion_actual["color_palette"] = generar_paleta_aleatoria()
-            cambio_detectado = True
-        
-        if cambio_detectado:
-            config_global["sitios"][sitio_id] = configuracion_actual
-            guardar_config_global(ruta_proyecto_config, config_global)
-            print(f"[!] Identidad persistida para {sitio_id}")
-        
-        escribir_config_inyectada(sitio['ruta_astro'], configuracion_actual)
-        
-        # 1. Generar Home Única (si hay contenido_base)
-        if contenido_base:
-            print(f"[*] Re-escribiendo HOME para {sitio_id}...")
-            home_ia, _ = generar_contenido_ia(sitio_id, sitio.get('nombre_sitio', sitio_id), sitio['palabras_clave'], ruta_proyecto_config, modo="home", contenido_base=contenido_base)
-            guardar_markdown(sitio['ruta_astro'], home_ia, "index", es_home=True)
-
-        # 2. Generar Artículo Nuevo
-        print(f"[*] Generando artículo para {sitio_id}...")
-        markdown_ia, slug_generado = generar_contenido_ia(sitio_id, sitio['nicho'], sitio['palabras_clave'], ruta_proyecto_config, modo="articulo")
-        guardar_markdown(sitio['ruta_astro'], markdown_ia, slug_generado)
-        
-        # 3. Compilar y Persistir localmente
-        compilar_y_persistir(sitio_id, sitio['ruta_astro'], ruta_base, nombre_proyecto)
-        
-        sitios_procesados.append({
-            "id": sitio_id,
-            "dominio": configuracion_actual["dominio"]
-        })
-
-    # 3. Generar Dashboard Final para el proyecto
     generar_index_dashboard(ruta_base, sitios_procesados, nombre_proyecto)
     
     print("\n[!!!] PROCESO COMPLETADO [!!!]")
-    print(f"Puedes ver todos los sitios en: file://{os.path.join(ruta_base, 'sitios_generados', 'index.html')}")
+    print(f"Dashboard: file://{os.path.join(ruta_base, 'sitios_generados', nombre_proyecto, 'index.html')}")

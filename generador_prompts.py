@@ -36,9 +36,19 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
         TEXTO FUENTE A RE-ESCRIBIR:
         {contenido_base}
         """
-    else:
+    elif modo == "pestaña":
+        tema = contenido_base if contenido_base else nicho_actual
         instruccion_modo = f"""
-        TEMA CENTRAL: {nicho_actual}
+        OBJETIVO: Crea una página institucional/informativa (Pestaña de Menú) sobre el siguiente TEMA.
+        TEMA: {tema}
+        TONO: Profesional, autoritario y servicial. Menos narrativo que un blog, más estructurado como una guía oficial.
+        PALABRAS CLAVE: {', '.join(palabras_clave)}
+        """
+    else:
+        tema = contenido_base if contenido_base else nicho_actual
+        instruccion_modo = f"""
+        TEMA CENTRAL: {tema}
+        CONTEXTO DEL SITIO (NICHO): {nicho_actual}
         PALABRAS CLAVE A INCLUIR NATURALMENTE: {', '.join(palabras_clave)}
         """
 
