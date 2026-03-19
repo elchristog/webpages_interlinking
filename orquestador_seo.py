@@ -404,7 +404,7 @@ if __name__ == "__main__":
     peticiones = []
     
     if args.cola:
-        ruta_cola = os.path.join(ruta_base, 'input_cola')
+        ruta_cola = os.path.join(ruta_proyecto_config, 'input_cola')
         if os.path.exists(ruta_cola):
             for f in os.listdir(ruta_cola):
                 if f.endswith(".json"):

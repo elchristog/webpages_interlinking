@@ -1,42 +1,42 @@
 {
-  "nombre_sitio": "Red Enfermeras Latinas",
-  "color_tema": "#c2185b",
-  "comando_deploy": "vercel deploy --prod",
-  "layout": "LayoutB",
-  "gcp_project_id": "latina-net-vcl-66",
+  "nombre_sitio": "Enfermera en Estados Unidos (Oficial)",
+  "color_tema": "#000000",
+  "comando_deploy": "echo 'Deploying Money Site'",
+  "layout": "LayoutA",
+  "gcp_project_id": "money-site-main-pbn",
   "seo": {
-    "titulo_base": "Comunidad Latina RN",
-    "descripcion_base": "Historias de éxito, consultoría migratoria y vacantes dirigidas enteramente a latinas.",
+    "titulo_base": "Guía Maestra de Enfermería USA",
+    "descripcion_base": "El recurso número uno para enfermeras hispanas que buscan trabajar en Estados Unidos de forma legal y segura.",
     "idioma": "es-US"
   },
   "footer": {
-    "empresa_legal": "Latina Nurses US",
-    "direccion": "San Antonio, TX 78201",
-    "email_contacto": "unete@enfermeraslatinas.io"
+    "empresa_legal": "EnfermeraEEU Network",
+    "direccion": "Main St, USA",
+    "email_contacto": "hola@enfermeraeeu.com"
   },
   "menu_global": [
     {
-      "nombre": "Validar Título",
+      "nombre": "Título USA",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Pasar NCLEX",
+      "nombre": "Superar NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Vacantes USA",
+      "nombre": "Ofertas Trabajo",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Sponsor Visa",
+      "nombre": "Residencia USA",
       "ruta": "/visa"
     },
     {
-      "nombre": "Salario Real",
+      "nombre": "Sueldo Promedio",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Actualidad",
+      "nombre": "Blog Oficial",
       "ruta": "/blog"
     },
     {
@@ -44,23 +44,22 @@
       "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Login",
+      "nombre": "Portal RN",
       "ruta": "/login"
     }
   ],
-  "dominio": "https://enfermeraslatinas.io",
-  "nav_footer_version": "v2",
-  "font_family": "Inter",
-  "sidebar_pos": "left",
+  "dominio": "https://enfermeraeeu.com",
+  "font_family": "Plus Jakarta Sans",
   "color_palette": {
-    "primary": "hsl(88, 86%, 26%)",
-    "secondary": "hsl(118, 66%, 32%)",
-    "accent": "hsl(239, 86%, 50%)",
-    "text_bold": "hsl(88, 86%, 15%)",
+    "primary": "hsl(147, 61%, 32%)",
+    "secondary": "hsl(177, 41%, 34%)",
+    "accent": "hsl(26, 61%, 42%)",
+    "text_bold": "hsl(147, 61%, 15%)",
     "meta": {
-      "primary_contrast": "5.10",
-      "secondary_contrast": "4.60",
-      "accent_contrast": "8.89"
+      "primary_contrast": "4.74",
+      "secondary_contrast": "5.00",
+      "accent_contrast": "4.61"
     }
-  }
+  },
+  "nav_footer_version": "v1"
 }

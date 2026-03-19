@@ -4,7 +4,7 @@ Para facilitar la creación de contenido con alta variación en toda tu red de 1
 
 ## 1. El Lugar de Entrada (Input)
 Crea un archivo `.json` dentro de la carpeta:
-`/home/elchristog/webpages_interlinking/input_cola/`
+`/home/elchristog/webpages_interlinking/proyectos/[nombre_del_proyecto]/input_cola/`
 
 ## 2. Formato del Archivo
 Puedes nombrar el archivo como quieras (ej. `mi_articulo.json`). El contenido debe seguir este formato:
