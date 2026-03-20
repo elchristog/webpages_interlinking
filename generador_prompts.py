@@ -23,36 +23,60 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
     """
 
     # 3. Selección Aleatoria de las Listas en Config
-    persona_elegida = random.choice(config_prompts["personas"])
-    formato_elegido = random.choice(config_prompts["formatos"])
+    # Detectar si estamos en modo página (home/pestaña) o blog (articulo/blog)
+    categoria = "paginas" if modo in ["home", "pestaña"] else "blog"
+    
+    if categoria in config_prompts:
+        persona_elegida = random.choice(config_prompts[categoria]["personas"])
+        formato_elegido = random.choice(config_prompts[categoria]["formatos"])
+    else:
+        # Fallback para compatibilidad con el formato antiguo si fuera necesario
+        lista_personas = config_prompts.get("personas", ["Eres un experto en el tema."])
+        lista_formatos = config_prompts.get("formatos", ["Escribe en formato profesional."])
+        persona_elegida = random.choice(lista_personas)
+        formato_elegido = random.choice(lista_formatos)
 
     # 4. Construcción del Prompt Maestro
     instruccion_modo = ""
     if modo == "home" and contenido_base:
         instruccion_modo = f"""
-        OBJETIVO: Re-escribe el siguiente texto FUENTE para convertirlo en una página de inicio (HOME) única para el sitio '{nombre_sitio}'.
-        REGLA DE ORO DE UNICIDAD: La redacción debe ser TOTALMENTE diferente al texto fuente. No se trata de cambiar unas palabras, sino de re-imaginar todo el mensaje desde la perspectiva de tu perfil y adaptarlo al nicho: {nicho_actual}.
+        OBJETIVO: Convierte el texto FUENTE en una página de inicio (HOME) altamente PERSUASIVA y TRANSACCIONAL para '{nombre_sitio}'.
+        ESTILO: Directo, vendedor, enfocado en BENEFICIOS y en qué ofrece el sitio. Usa un lenguaje que invite a la acción (CTA).
+        REGLA DE ORO: La redacción debe ser TOTALMENTE única y adaptada al nicho: {nicho_actual}. No solo informes, ¡VENDE la idea o el servicio!
+        ESTRUCTURA: Usa encabezados que resalten promesas de valor. Convierte los datos informativos en beneficios tangibles para el usuario.
+        SEO: La palabra clave principal '{palabras_clave[0]}' debe aparecer en el H1 (o primer H2) y en las primeras 50 palabras.
         
-        TEXTO FUENTE A RE-ESCRIBIR:
+        TEXTO FUENTE A TRANSFORMAR:
         {contenido_base}
         """
     elif modo == "pestaña":
         tema = contenido_base if contenido_base else nicho_actual
         instruccion_modo = f"""
-        OBJETIVO: Crea una página institucional/informativa (Pestaña de Menú) sobre el siguiente TEMA para el sitio '{nombre_sitio}'.
+        OBJETIVO: Crea una página de aterrizaje (Landing/Pestaña) TRANSACCIONAL y PERSUASIVA sobre el TEMA para el sitio '{nombre_sitio}'.
         TEMA: {tema}
-        NICHO DEL SITIO: {nicho_actual}
-        TONO: Profesional, autoritario y servicial. Menos narrativo que un blog, más estructurado como una guía oficial.
-        REGLA SEO: Debes incluir la palabra clave principal '{palabras_clave[0]}' en el primer título H2 y en el primer párrafo de forma natural.
+        NICHO: {nicho_actual}
+        TONO: Profesional pero orientado a CONVERSIÓN. Resalta por qué el usuario debería interesarse en este tema/servicio.
+        ESTRUCTURA: Usa viñetas para listar beneficios. Incluye secciones de "Por qué elegirnos" o "Lo que obtendrás" de forma natural.
+        SEO: Optimiza para '{palabras_clave[0]}'. Debe sentirse como una página oficial que resuelve una necesidad específica.
+        """
+    elif modo == "blog" or modo == "articulo":
+        tema = contenido_base if contenido_base else nicho_actual
+        instruccion_modo = f"""
+        OBJETIVO: Crea un artículo de BLOG INFORMATIVO y educativo sobre el TEMA para el sitio '{nombre_sitio}'.
+        TEMA: {tema}
+        NICHO: {nicho_actual}
+        TONO: Educativo, útil y detallado. Resuelve dudas del usuario de forma exhaustiva.
+        PALABRAS CLAVE: {', '.join(palabras_clave)}
+        SEO: Distribuye las palabras clave de forma natural. Prioriza la intención de búsqueda informativa.
+        REGLA LOCAL: Usa el entorno de '{nicho_actual}' para contextualizar la información con ejemplos reales.
         """
     else:
+        # Fallback genérico
         tema = contenido_base if contenido_base else nicho_actual
         instruccion_modo = f"""
         TEMA CENTRAL: {tema}
-        SITIO ACTUAL: {nombre_sitio}
-        CONTEXTO DEL SITIO (NICHO): {nicho_actual}
+        CONTEXTO: {nicho_actual}
         PALABRAS CLAVE: {', '.join(palabras_clave)}
-        REGLA DE REDACCIÓN: Usa el nicho local '{nicho_actual}' para dar ejemplos específicos, mencionar hospitales de la zona o realidades del mercado local que no estén en el tema general.
         """
 
     instruccion_interlinking = ""

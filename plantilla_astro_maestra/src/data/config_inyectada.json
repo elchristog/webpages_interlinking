@@ -1,18 +1,18 @@
 {
-  "nombre_sitio": "Enfermera en Estados Unidos (Oficial)",
-  "color_tema": "#000000",
-  "comando_deploy": "echo 'Deploying Money Site'",
+  "nombre_sitio": "Sueldos de Enfermería Hub",
+  "color_tema": "#2e7d32",
+  "comando_deploy": "vercel deploy --prod",
   "layout": "LayoutA",
-  "gcp_project_id": "money-site-main-pbn",
+  "gcp_project_id": "salary-hub-vcl-x",
   "seo": {
-    "titulo_base": "Guía Maestra de Enfermería USA",
-    "descripcion_base": "El recurso número uno para enfermeras hispanas que buscan trabajar en Estados Unidos de forma legal y segura.",
+    "titulo_base": "Estudio Sueldos USA",
+    "descripcion_base": "Estudio detallado de cuánto gana una enfermera quirúrgica vs anestesista vs emergencias.",
     "idioma": "es-US"
   },
   "footer": {
-    "empresa_legal": "EnfermeraEEU Network",
-    "direccion": "Main St, USA",
-    "email_contacto": "hola@enfermeraeeu.com"
+    "empresa_legal": "Nurse Salary Data",
+    "direccion": "Chicago, IL 60601",
+    "email_contacto": "data@sueldos-enfermeras-usa.com"
   },
   "menu_global": [
     {
@@ -20,46 +20,46 @@
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Superar NCLEX",
+      "nombre": "Prep NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Ofertas Trabajo",
+      "nombre": "Vacantes USA",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Residencia USA",
+      "nombre": "Migrar Legal",
       "ruta": "/visa"
     },
     {
-      "nombre": "Sueldo Promedio",
+      "nombre": "Tablas Sueldos",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Blog Oficial",
+      "nombre": "Novedades",
       "ruta": "/blog"
     },
     {
-      "nombre": "Ayuda Chat",
+      "nombre": "WhatsApp",
       "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Portal RN",
+      "nombre": "Mi Cuenta",
       "ruta": "/login"
     }
   ],
-  "dominio": "https://enfermeraeeu.com",
-  "font_family": "Plus Jakarta Sans",
+  "dominio": "https://sueldos-enfermeras-usa.com",
+  "font_family": "Outfit",
   "color_palette": {
-    "primary": "hsl(147, 61%, 32%)",
-    "secondary": "hsl(177, 41%, 34%)",
-    "accent": "hsl(26, 61%, 42%)",
-    "text_bold": "hsl(147, 61%, 15%)",
+    "primary": "hsl(110, 85%, 28%)",
+    "secondary": "hsl(140, 65%, 32%)",
+    "accent": "hsl(307, 85%, 44%)",
+    "text_bold": "hsl(110, 85%, 15%)",
     "meta": {
-      "primary_contrast": "4.74",
-      "secondary_contrast": "5.00",
-      "accent_contrast": "4.61"
+      "primary_contrast": "4.81",
+      "secondary_contrast": "4.59",
+      "accent_contrast": "4.72"
     }
   },
-  "nav_footer_version": "v1"
+  "nav_footer_version": "v2"
 }
