@@ -1,65 +1,66 @@
 {
-  "nombre_sitio": "Enfermería Florida Hoy",
-  "color_tema": "#FF5733",
-  "comando_deploy": "firebase deploy --only hosting",
-  "layout": "LayoutA",
-  "gcp_project_id": "fl-nurses-proj-rtx",
+  "nombre_sitio": "Red de Enfermeras GA",
+  "color_tema": "#005b96",
+  "comando_deploy": "gcloud app deploy",
+  "layout": "LayoutB",
+  "gcp_project_id": "ga-health-net-991",
   "seo": {
-    "titulo_base": "Ofertas Médicas FL",
-    "descripcion_base": "Encuentra salarios, empleos y oportunidades con sponsor para enfermeras extranjeras en Miami, Tampa y Florida.",
+    "titulo_base": "Licencias GA",
+    "descripcion_base": "Guía especializada del proceso NCLEX y EB-3 para conseguir trabajo registrado en hospitales de Georgia.",
     "idioma": "es-US"
   },
   "footer": {
-    "empresa_legal": "Florida Nurse Network",
-    "direccion": "Zephyrhills, FL 33541",
-    "email_contacto": "info@enfermeriafloridahoy.com"
+    "empresa_legal": "Georgia Health Professionals",
+    "direccion": "Rome, GA 30161",
+    "email_contacto": "contacto@red-enfermeras-ga.com"
   },
   "menu_global": [
     {
-      "nombre": "Validar Título",
+      "nombre": "Diploma Online",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Examen NCLEX",
+      "nombre": "Estudio NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Empleos RN",
+      "nombre": "Trabajo Hoy",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Sponsor Visa",
+      "nombre": "Migrar Legal",
       "ruta": "/visa"
     },
     {
-      "nombre": "Ingresos USA",
+      "nombre": "Salario Real",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Blog Oficial",
+      "nombre": "Actualidad",
       "ruta": "/blog"
     },
     {
-      "nombre": "Hablar Asesor",
+      "nombre": "Ayuda Chat",
       "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Login",
+      "nombre": "Portal RN",
       "ruta": "/login"
     }
   ],
-  "dominio": "https://enfermerasflorida.net",
-  "font_family": "Roboto",
+  "dominio": "https://georgia-nurses-network.org",
+  "font_family": "Inter",
+  "sidebar_pos": "right",
   "color_palette": {
-    "primary": "hsl(188, 81%, 30%)",
-    "secondary": "hsl(218, 61%, 50%)",
-    "accent": "hsl(358, 81%, 50%)",
-    "text_bold": "hsl(188, 81%, 15%)",
+    "primary": "hsl(133, 94%, 26%)",
+    "secondary": "hsl(163, 74%, 30%)",
+    "accent": "hsl(340, 94%, 46%)",
+    "text_bold": "hsl(133, 94%, 15%)",
     "meta": {
-      "primary_contrast": "5.04",
-      "secondary_contrast": "5.11",
-      "accent_contrast": "4.62"
+      "primary_contrast": "5.07",
+      "secondary_contrast": "4.59",
+      "accent_contrast": "4.74"
     }
   },
-  "nav_footer_version": "v2"
+  "nav_footer_version": "v1"
 }
