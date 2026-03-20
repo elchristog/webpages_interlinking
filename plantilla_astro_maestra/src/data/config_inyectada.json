@@ -1,22 +1,22 @@
 {
-  "nombre_sitio": "Prep NCLEX Texas",
-  "color_tema": "#b71c1c",
-  "comando_deploy": "aws s3 sync ./dist s3://texas-nclex",
-  "layout": "LayoutC",
-  "gcp_project_id": "tx-nclex-prep-aws",
+  "nombre_sitio": "Enfermería Florida Hoy",
+  "color_tema": "#FF5733",
+  "comando_deploy": "firebase deploy --only hosting",
+  "layout": "LayoutA",
+  "gcp_project_id": "fl-nurses-proj-rtx",
   "seo": {
-    "titulo_base": "Guía NCLEX TX",
-    "descripcion_base": "Paso a paso para superar el NCLEX y requisitos del CGFNS en Texas.",
+    "titulo_base": "Ofertas Médicas FL",
+    "descripcion_base": "Encuentra salarios, empleos y oportunidades con sponsor para enfermeras extranjeras en Miami, Tampa y Florida.",
     "idioma": "es-US"
   },
   "footer": {
-    "empresa_legal": "Texas Prep LLC",
-    "direccion": "Houston, TX 77002",
-    "email_contacto": "info@texas-nclex-prep.com"
+    "empresa_legal": "Florida Nurse Network",
+    "direccion": "Zephyrhills, FL 33541",
+    "email_contacto": "info@enfermeriafloridahoy.com"
   },
   "menu_global": [
     {
-      "nombre": "Proceso Grado",
+      "nombre": "Validar Título",
       "ruta": "/homologacion"
     },
     {
@@ -24,19 +24,19 @@
       "ruta": "/nclex"
     },
     {
-      "nombre": "Puestos Libres",
+      "nombre": "Empleos RN",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Residencia USA",
+      "nombre": "Sponsor Visa",
       "ruta": "/visa"
     },
     {
-      "nombre": "Tablas Sueldos",
+      "nombre": "Ingresos USA",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Historias",
+      "nombre": "Blog Oficial",
       "ruta": "/blog"
     },
     {
@@ -44,21 +44,21 @@
       "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Acceso",
+      "nombre": "Login",
       "ruta": "/login"
     }
   ],
-  "dominio": "https://texas-nclex-prep.com",
+  "dominio": "https://enfermerasflorida.net",
   "font_family": "Roboto",
   "color_palette": {
-    "primary": "hsl(9, 81%, 48%)",
-    "secondary": "hsl(39, 61%, 36%)",
-    "accent": "hsl(161, 81%, 28%)",
-    "text_bold": "hsl(9, 81%, 15%)",
+    "primary": "hsl(188, 81%, 30%)",
+    "secondary": "hsl(218, 61%, 50%)",
+    "accent": "hsl(358, 81%, 50%)",
+    "text_bold": "hsl(188, 81%, 15%)",
     "meta": {
-      "primary_contrast": "4.55",
-      "secondary_contrast": "4.72",
-      "accent_contrast": "4.85"
+      "primary_contrast": "5.04",
+      "secondary_contrast": "5.11",
+      "accent_contrast": "4.62"
     }
   },
   "nav_footer_version": "v2"
