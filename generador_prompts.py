@@ -103,38 +103,36 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
     4. Consecutive sentences: EVITA que 3 o más frases seguidas comiencen con la misma palabra. Varía la estructura.
     5. Transition words: Usa palabras de transición (ej: "Por consiguiente", "Además", "Sin embargo", "A continuación") en al menos el 25% de las oraciones.
     6. Passive voice: Usa predominantemente la voz activa. La voz pasiva debe ser mínima (menos del 10%).
-    7. Paragraph length: Los párrafos deben ser CORTOS (máximo 3-4 líneas o 3 oraciones).
+    7. Paragraph length: Los párrafos deben ser CORTOS (máximo 3-4 líneas).
     8. Keyphrase density: La palabra clave principal debe aparecer al menos 5-6 veces en el texto.
-    9. Keyphrase in meta description: Asegúrate de que el primer párrafo (que servirá de base para la meta descripción) contenga la palabra clave.
+    9. Keyphrase in meta description: Asegúrate de que el primer párrafo sea potente y contenga la keyword.
     10. Keyphrase in subheadings: Usa la palabra clave o sus sinónimos en al menos el 50% de los subtítulos H2 y H3.
-    11. Text length: El texto DEBE tener al menos 1300 palabras para una cobertura completa y autoridad.
+    11. Text length: El texto DEBE tener al menos 1300 palabras para una cobertura completa.
     """
 
-    FORMATO_WORDPRESS_BLOQUES = """
-    REGLA DE FORMATO (ESTRUCTURA DE BLOQUES WORDPRESS):
-    Usa ESTRICTAMENTE los siguientes marcadores de comentarios para separar el contenido, esto es vital para la legibilidad:
+    REGLAS_LEGIBILIDAD_ASTRO = """
+    REGLA DE FORMATO (LIMPIO PARA ASTRO Y ALTA ACCESIBILIDAD):
+    Genera el contenido usando Markdown y HTML estándar. Prioriza el contraste para pasar las pruebas de PageSpeed Insights:
     
-    - Para Espacios: 
-    <!-- wp:spacer {"height":"50px"} -->
-    <div style="height:50px" aria-hidden="true" class="wp-block-spacer"></div>
-    <!-- /wp:spacer -->
-
-    - Para Párrafos (usar esta estructura):
-    <!-- wp:paragraph {"style":{"typography":{"fontStyle":"normal","fontWeight":"300","lineHeight":"2"}},"fontSize":"medium"} -->
-    <p style="font-style:normal;font-weight:300;line-height:2">CONTENIDO EL PÁRRAFO AQUÍ</p>
-    <!-- /wp:paragraph -->
-
-    - Para Títulos (H2 Centrados):
-    <!-- wp:heading {"textAlign":"center","style":{"typography":{"fontStyle":"normal","fontWeight":"300","lineHeight":"2"}},"fontSize":"large"} -->
-    <h2 class="wp-block-heading has-text-align-center has-large-font-size" style="font-style:normal;font-weight:300;line-height:2"><strong>TÍTULO AQUÍ</strong></h2>
-    <!-- /wp:heading -->
-
-    - Líneas Separadoras: Usa `<hr class="wp-block-separator has-alpha-channel-opacity" style="border-top: 1px solid #ccc; margin: 40px 0;">` para dividir secciones importantes.
+    - ACCESIBILIDAD DE COLOR: 
+      - El texto principal debe ser NEGRO (#000) o GRIS MUY OSCURO (#1a1a1a) para máximo contraste.
+      - NO uses fuentes de peso delgado (como font-weight: 300) para el cuerpo del texto; usa el peso estándar.
     
-    - Resaltado (Highlights): Para frases CRÍTICAS o ideas importantes, usa un resaltado de fondo verde claro que sea ACCESIBLE (contraste alto):
-    `<span style="background-color: #d4edda; color: #155724; padding: 2px 5px; border-radius: 3px;">TEXTO RESALTADO</span>`. Asegúrate de que el contraste sea apto para PageSpeed Insights.
+    - ESPACIADO: 
+      - Usa <div style="height:50px"></div> para separar las secciones principales. NO uses comentarios de WordPress.
     
-    - Iconos: NO incluyas imágenes. En su lugar, usa iconos de texto o emojis relevantes al inicio de cada sección principal (ej: 🏥, 📚, ✈️, 💰) para mejorar la escaneabilidad.
+    - TÍTULOS: 
+      - Usa encabezados H1, H2, H3 estándar. Los H2 deben estar centrados: `<h2 style="text-align: center;">TÍTULO</h2>`.
+    
+    - RESALTADO (HIGHLIGHTS): 
+      - Para destacar ideas clave, usa este formato de alto contraste (AAA):
+        `<span style="background-color: #dcfce7; color: #166534; padding: 2px 5px; border-radius: 3px; font-weight: 600;">TEXTO RESALTADO</span>`.
+    
+    - ICONOS: 
+      - Incluye un emoji relevante al inicio de los subtítulos principales (ej: 🏥, 📚) para mejorar la escaneabilidad.
+    
+    - LÍNEAS SEPARADORAS: 
+      - Usa `<hr style="border: 0; border-top: 1px solid #eaeaea; margin: 40px 0;">` para dividir secciones.
     """
 
     prompt = f"""
@@ -146,14 +144,14 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
     
     {REGLAS_SEO_AVANZADO}
     
-    {FORMATO_WORDPRESS_BLOQUES}
+    {REGLAS_LEGIBILIDAD_ASTRO}
     
     INSTRUCCIONES DE REDACCIÓN (OBLIGATORIAS):
     1. REGLA DE UNICIDAD RADICAL: Estás generando una de las 16 variantes para una red. Es CRÍTICO que este texto sea 100% original. Cambia el orden de los conceptos, usa sinónimos poco comunes, y varía la longitud de las oraciones. Si el tema es general, aterrizalo a la realidad de '{nicho_actual}' y menciona elementos locales (hospitales, leyes estatales, clima laboral en esa zona) para que Google no vea dos textos iguales.
-    2. REGLA DE FORMATO: Devuelve el texto ÚNICAMENTE con la estructura de bloques de WordPress especificada arriba. NO uses Markdown estándar para párrafos o títulos, usa los tags `<!-- wp:... -->` y el HTML interno.
+    2. REGLA DE FORMATO: Devuelve el texto en Markdown con los fragmentos HTML de espaciado y resaltado indicados. NO uses el formato de bloques de WordPress (<!-- wp:... -->).
     3. REGLA DE LONGITUD: El texto debe tener al menos 1300 palabras.
     4. REGLA DE AUTORIDAD: Debes incluir naturalmente un enlace hacia esta fuente oficial/gubernamental: {url_outbound}. El texto ancla debe ser natural y relevante al contexto.
-    5. REGLA DE LEGIBILIDAD: Usa muchas palabras de transición. Evita la voz pasiva.
+    5. REGLA DE LEGIBILIDAD: Usa muchas palabras de transición. Evita la voz pasiva. NO uses colores claros para el texto general.
     
     RESTRICCIONES NEGATIVAS (EVITAR PATRONES DE IA):
     - PROHIBIDO usar: "En conclusión", "En resumen", "Por otro lado", "Es importante destacar que", "Adentrémonos", "En el vertiginoso mundo de", "No importa si eres... o si eres...".
