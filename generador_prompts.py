@@ -95,6 +95,48 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
     NO incluyas ningún enlace promocional o externo hacia sitios comerciales en este artículo. Solo puedes enlazar a fuentes oficiales o gubernamentales como referencias.
     """
 
+    REGLAS_SEO_AVANZADO = """
+    REQUISITOS SEO Y LEGIBILIDAD (YOAST STYLE):
+    1. Keyphrase distribution: Distribuye la palabra clave principal de forma equilibrada en todo el texto.
+    2. Outbound links: DEBES incluir enlaces a fuentes externas oficiales o de Wikipedia.
+    3. Keyphrase in introduction: La palabra clave debe aparecer en el primer párrafo de forma obligatoria.
+    4. Consecutive sentences: EVITA que 3 o más frases seguidas comiencen con la misma palabra. Varía la estructura.
+    5. Transition words: Usa palabras de transición (ej: "Por consiguiente", "Además", "Sin embargo", "A continuación") en al menos el 25% de las oraciones.
+    6. Passive voice: Usa predominantemente la voz activa. La voz pasiva debe ser mínima (menos del 10%).
+    7. Paragraph length: Los párrafos deben ser CORTOS (máximo 3-4 líneas o 3 oraciones).
+    8. Keyphrase density: La palabra clave principal debe aparecer al menos 5-6 veces en el texto.
+    9. Keyphrase in meta description: Asegúrate de que el primer párrafo (que servirá de base para la meta descripción) contenga la palabra clave.
+    10. Keyphrase in subheadings: Usa la palabra clave o sus sinónimos en al menos el 50% de los subtítulos H2 y H3.
+    11. Text length: El texto DEBE tener al menos 1300 palabras para una cobertura completa y autoridad.
+    """
+
+    FORMATO_WORDPRESS_BLOQUES = """
+    REGLA DE FORMATO (ESTRUCTURA DE BLOQUES WORDPRESS):
+    Usa ESTRICTAMENTE los siguientes marcadores de comentarios para separar el contenido, esto es vital para la legibilidad:
+    
+    - Para Espacios: 
+    <!-- wp:spacer {"height":"50px"} -->
+    <div style="height:50px" aria-hidden="true" class="wp-block-spacer"></div>
+    <!-- /wp:spacer -->
+
+    - Para Párrafos (usar esta estructura):
+    <!-- wp:paragraph {"style":{"typography":{"fontStyle":"normal","fontWeight":"300","lineHeight":"2"}},"fontSize":"medium"} -->
+    <p style="font-style:normal;font-weight:300;line-height:2">CONTENIDO EL PÁRRAFO AQUÍ</p>
+    <!-- /wp:paragraph -->
+
+    - Para Títulos (H2 Centrados):
+    <!-- wp:heading {"textAlign":"center","style":{"typography":{"fontStyle":"normal","fontWeight":"300","lineHeight":"2"}},"fontSize":"large"} -->
+    <h2 class="wp-block-heading has-text-align-center has-large-font-size" style="font-style:normal;font-weight:300;line-height:2"><strong>TÍTULO AQUÍ</strong></h2>
+    <!-- /wp:heading -->
+
+    - Líneas Separadoras: Usa `<hr class="wp-block-separator has-alpha-channel-opacity" style="border-top: 1px solid #ccc; margin: 40px 0;">` para dividir secciones importantes.
+    
+    - Resaltado (Highlights): Para frases CRÍTICAS o ideas importantes, usa un resaltado de fondo verde claro que sea ACCESIBLE (contraste alto):
+    `<span style="background-color: #d4edda; color: #155724; padding: 2px 5px; border-radius: 3px;">TEXTO RESALTADO</span>`. Asegúrate de que el contraste sea apto para PageSpeed Insights.
+    
+    - Iconos: NO incluyas imágenes. En su lugar, usa iconos de texto o emojis relevantes al inicio de cada sección principal (ej: 🏥, 📚, ✈️, 💰) para mejorar la escaneabilidad.
+    """
+
     prompt = f"""
     {persona_elegida}
     
@@ -102,12 +144,17 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
     
     {instruccion_modo}
     
+    {REGLAS_SEO_AVANZADO}
+    
+    {FORMATO_WORDPRESS_BLOQUES}
+    
     INSTRUCCIONES DE REDACCIÓN (OBLIGATORIAS):
     1. REGLA DE UNICIDAD RADICAL: Estás generando una de las 16 variantes para una red. Es CRÍTICO que este texto sea 100% original. Cambia el orden de los conceptos, usa sinónimos poco comunes, y varía la longitud de las oraciones. Si el tema es general, aterrizalo a la realidad de '{nicho_actual}' y menciona elementos locales (hospitales, leyes estatales, clima laboral en esa zona) para que Google no vea dos textos iguales.
-    2. REGLA DE FORMATO: Devuelve el texto ÚNICAMENTE en Markdown válido. Usa subtítulos H2 y H3.
-    3. REGLA DE LONGITUD: El texto debe tener entre 800 y 1200 palabras. Usa párrafos cortos (máximo 3 oraciones por párrafo).
+    2. REGLA DE FORMATO: Devuelve el texto ÚNICAMENTE con la estructura de bloques de WordPress especificada arriba. NO uses Markdown estándar para párrafos o títulos, usa los tags `<!-- wp:... -->` y el HTML interno.
+    3. REGLA DE LONGITUD: El texto debe tener al menos 1300 palabras.
     4. REGLA DE AUTORIDAD: Debes incluir naturalmente un enlace hacia esta fuente oficial/gubernamental: {url_outbound}. El texto ancla debe ser natural y relevante al contexto.
-
+    5. REGLA DE LEGIBILIDAD: Usa muchas palabras de transición. Evita la voz pasiva.
+    
     RESTRICCIONES NEGATIVAS (EVITAR PATRONES DE IA):
     - PROHIBIDO usar: "En conclusión", "En resumen", "Por otro lado", "Es importante destacar que", "Adentrémonos", "En el vertiginoso mundo de", "No importa si eres... o si eres...".
     - Empieza con un gancho directo. No hagas intros de "En este artículo hablaremos de...".
