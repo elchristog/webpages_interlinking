@@ -1,18 +1,18 @@
 {
-  "nombre_sitio": "Homologa tu Título",
-  "color_tema": "#004d40",
-  "comando_deploy": "netlify deploy --dir=dist",
-  "layout": "LayoutA",
-  "gcp_project_id": "us-valid-ntlify-88",
+  "nombre_sitio": "Prep NCLEX Texas",
+  "color_tema": "#b71c1c",
+  "comando_deploy": "aws s3 sync ./dist s3://texas-nclex",
+  "layout": "LayoutC",
+  "gcp_project_id": "tx-nclex-prep-aws",
   "seo": {
-    "titulo_base": "Valida tu Título",
-    "descripcion_base": "Instrucciones legales completas para homologar títulos de enfermería en USA.",
+    "titulo_base": "Guía NCLEX TX",
+    "descripcion_base": "Paso a paso para superar el NCLEX y requisitos del CGFNS en Texas.",
     "idioma": "es-US"
   },
   "footer": {
-    "empresa_legal": "US Nursing Validations",
-    "direccion": "Miami, FL 33101",
-    "email_contacto": "admin@homologacion-enfermeria-usa.com"
+    "empresa_legal": "Texas Prep LLC",
+    "direccion": "Houston, TX 77002",
+    "email_contacto": "info@texas-nclex-prep.com"
   },
   "menu_global": [
     {
@@ -20,7 +20,7 @@
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Superar NCLEX",
+      "nombre": "Examen NCLEX",
       "ruta": "/nclex"
     },
     {
@@ -28,11 +28,11 @@
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Sponsor Visa",
+      "nombre": "Residencia USA",
       "ruta": "/visa"
     },
     {
-      "nombre": "Sueldo Promedio",
+      "nombre": "Tablas Sueldos",
       "ruta": "/salarios"
     },
     {
@@ -40,25 +40,25 @@
       "ruta": "/blog"
     },
     {
-      "nombre": "WhatsApp",
+      "nombre": "Hablar Asesor",
       "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Login",
+      "nombre": "Acceso",
       "ruta": "/login"
     }
   ],
-  "dominio": "https://homologacion-enfermeria-usa.com",
-  "font_family": "Inter",
+  "dominio": "https://texas-nclex-prep.com",
+  "font_family": "Roboto",
   "color_palette": {
-    "primary": "hsl(196, 92%, 34%)",
-    "secondary": "hsl(226, 72%, 50%)",
-    "accent": "hsl(325, 92%, 46%)",
-    "text_bold": "hsl(196, 92%, 15%)",
+    "primary": "hsl(9, 81%, 48%)",
+    "secondary": "hsl(39, 61%, 36%)",
+    "accent": "hsl(161, 81%, 28%)",
+    "text_bold": "hsl(9, 81%, 15%)",
     "meta": {
-      "primary_contrast": "4.73",
-      "secondary_contrast": "6.55",
-      "accent_contrast": "4.56"
+      "primary_contrast": "4.55",
+      "secondary_contrast": "4.72",
+      "accent_contrast": "4.85"
     }
   },
   "nav_footer_version": "v2"
