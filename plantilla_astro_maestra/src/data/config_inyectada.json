@@ -1,34 +1,34 @@
 {
-  "nombre_sitio": "Vacantes Agencias USA",
-  "color_tema": "#3e2723",
-  "comando_deploy": "gcloud app deploy app.yaml --quiet",
+  "nombre_sitio": "Enfermeras Mexicanas Exitosas",
+  "color_tema": "#bf360c",
+  "comando_deploy": "netlify deploy --prod",
   "layout": "LayoutA",
-  "gcp_project_id": "us-vacancies-app-e",
+  "gcp_project_id": "mx-nurses-ntl-22",
   "seo": {
-    "titulo_base": "Directorio Vacantes",
-    "descripcion_base": "El directorio más completo de agencias reclutadoras con sponsor de visa disponibles.",
-    "idioma": "es-US"
+    "titulo_base": "México a USA RN",
+    "descripcion_base": "Guía especializada en tramitar visa NAFTA (TN) y homologación rápida para talento de México.",
+    "idioma": "es-MX"
   },
   "footer": {
     "empresa_legal": "Enfermera en Estados Unidos",
-    "direccion": "New York, NY 10001",
-    "email_contacto": "apply@vacantes-hospitales-usa.org"
+    "direccion": "CDMX, México 01000",
+    "email_contacto": "contacto@enfermeras-mexicanas-usa.org"
   },
   "menu_global": [
     {
-      "nombre": "Validar Diploma",
+      "nombre": "Diploma Online",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Pasar NCLEX",
+      "nombre": "Superar NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Vacantes USA",
+      "nombre": "Bolsa Empleo",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Sponsor Visa",
+      "nombre": "Visa EB-3",
       "ruta": "/visa"
     },
     {
@@ -36,11 +36,11 @@
       "ruta": "/salarios"
     },
     {
-      "nombre": "Casos Éxito",
+      "nombre": "Actualidad",
       "ruta": "/blog"
     },
     {
-      "nombre": "WhatsApp",
+      "nombre": "Chat Directo",
       "ruta": "https://wa.me/something"
     },
     {
@@ -48,18 +48,18 @@
       "ruta": "/login"
     }
   ],
-  "dominio": "https://vacantes-hospitales-usa.org",
+  "dominio": "https://enfermeras-mexicanas-usa.org",
   "nav_footer_version": "v1",
-  "font_family": "Outfit",
+  "font_family": "Plus Jakarta Sans",
   "color_palette": {
-    "primary": "hsl(294, 74%, 48%)",
-    "secondary": "hsl(324, 54%, 50%)",
-    "accent": "hsl(59, 74%, 26%)",
-    "text_bold": "hsl(294, 74%, 15%)",
+    "primary": "hsl(26, 73%, 40%)",
+    "secondary": "hsl(56, 53%, 32%)",
+    "accent": "hsl(204, 73%, 42%)",
+    "text_bold": "hsl(26, 73%, 15%)",
     "meta": {
-      "primary_contrast": "4.69",
-      "secondary_contrast": "4.82",
-      "accent_contrast": "5.08"
+      "primary_contrast": "4.77",
+      "secondary_contrast": "4.62",
+      "accent_contrast": "4.59"
     }
   }
 }
