@@ -135,6 +135,81 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
       - Usa `<hr style="border: 0; border-top: 1px solid #eaeaea; margin: 40px 0;">` para dividir secciones.
     """
 
+    REGLAS_COMPONENTES_UI = """
+    REQUISITOS DE COMPONENTES VISUALES (UI):
+    Para que el contenido sea dinámico y no solo texto, DEBES usar estas estructuras HTML/Tailwind en al menos 3 secciones del artículo:
+
+    1. TARJETA PREMIUM (ui-card): Úsala para resaltar consejos clave, pasos importantes o resúmenes.
+       Formato: <div class="ui-card"><h3>Título</h3><p>Contenido...</p></div>
+
+    2. RECUADROS DE LLAMADA (ui-callout):
+       - Info: <div class="ui-callout ui-callout-info"><span>ℹ️</span><p>Información útil...</p></div>
+       - Tip: <div class="ui-callout ui-callout-tip"><span>💡</span><p>Consejo experto...</p></div>
+       - Warning: <div class="ui-callout ui-callout-warning"><span>⚠️</span><p>Atención/Advertencia...</p></div>
+
+    3. TABLA DE COMPARACIÓN (ui-comparison-table): Úsala para comparar requisitos, salarios o tipos de licencias.
+       Formato: <table class="ui-comparison-table"><thead><tr><th>Concepto</th><th>Detalle</th></tr></thead><tbody><tr><td>Dato 1</td><td>Explicación 1</td></tr></tbody></table>
+
+    4. LISTA DE PASOS (ui-step-list): Para procesos secuenciales como la homologación.
+       Formato: <div class="ui-step-list"><div class="ui-step-item"><h4>Paso 1</h4><p>Descripción...</p></div></div>
+
+    5. GRID DE TEXTO + IMGEN (ui-grid-2): Para secciones visuales equilibradas.
+       Formato: 
+       <div class="ui-grid-2">
+         <div><h3>Título de Sección</h3><p>Texto explicativo...</p></div>
+         <div class="ui-image-side"><img src="URL_IMAGEN_RELACIONADA" alt="Descripción detallada"></div>
+       </div>
+       (Nota: Si no tienes una URL real, usa una descripción de cómo debería ser la imagen en el 'src' o deja un placeholder tipo 'IMAGEN_HOSPITAL_TAMPA').
+
+    6. ESTADÍSTICAS (ui-stats): Para resaltar números impactantes.
+       Formato: <div class="ui-stats"><div class="ui-stat-item"><span class="ui-stat-value">97%</span><span class="ui-stat-label">Éxito NCLEX</span></div></div>
+
+    7. ACORDEÓN / FAQ (ui-accordion): Ideal para preguntas frecuentes o detalles técnicos extensos.
+       Formato: 
+       <div class="ui-accordion">
+         <details><summary>¿Pregunta 1?</summary><div class="accordion-content">Respuesta...</div></details>
+         <details><summary>¿Pregunta 2?</summary><div class="accordion-content">Respuesta...</div></details>
+       </div>
+
+    8. LÍNEA DE TIEMPO (ui-timeline): Para procesos o hitos cronológicos.
+       Formato: <div class="ui-timeline"><div class="ui-timeline-step"><span class="step-number">1</span><h4>Título</h4><p>Texto...</p></div></div>
+
+    9. HERO CALLOUT (ui-hero-callout): Un bloque de alto impacto visual para conclusiones o llamadas a la acción potentes.
+       Formato: <div class="ui-hero-callout"><h2>Título Impactante</h2><p>Texto que inspire o venda...</p></div>
+
+    10. LISTA DE VERIFICACIÓN (ui-check-list): Para beneficios o requisitos con un check verde.
+        Formato: <div class="ui-check-list"><div class="ui-check-item"><span>✅</span><p>Beneficio o requisito...</p></div></div>
+
+    11. CITA DESTACADA (ui-quote): Para testimonios o frases de autoridad.
+        Formato: <div class="ui-quote">"El éxito en el NCLEX depende de la estrategia, no solo del estudio."</div>
+
+    12. HERO DE ALTO IMPACTO (ui-hero-full): Úsalo al inicio de la página o para cierres épicos. DEBE tener una imagen de fondo.
+        Formato: 
+        <div class="ui-hero-full" style="background-image: url('URL_IMAGEN_FONDO')">
+          <div class="hero-content">
+            <h1>TÍTULO IMPACTANTE</h1>
+            <p>Subtítulo persuasivo y potente sobre la transformación que ofreces.</p>
+          </div>
+        </div>
+
+    13. SECCIÓN DE ANCHO COMPLETO (ui-section-dark / ui-section-accent): Para romper la monotonía del texto y crear una jerarquía visual.
+        Formato: 
+        <div class="ui-section-dark">
+          <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <h2 style="color: white; text-align: center;">Título en Fondo Oscuro</h2>
+            <p style="text-align: center;">Contenido que resalta sobre el resto...</p>
+          </div>
+        </div>
+
+    14. GRID MULTI-COLUMNA (ui-grid-3 / ui-grid-4): Para listar servicios, beneficios o pasos rápidos.
+        Formato:
+        <div class="ui-grid-3">
+          <div class="ui-card"><h3>Beneficio 1</h3><p>Descripción...</p></div>
+          <div class="ui-card"><h3>Beneficio 2</h3><p>Descripción...</p></div>
+          <div class="ui-card"><h3>Beneficio 3</h3><p>Descripción...</p></div>
+        </div>
+    """
+
     prompt = f"""
     {persona_elegida}
     
@@ -146,13 +221,20 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
     
     {REGLAS_LEGIBILIDAD_ASTRO}
     
+    {REGLAS_COMPONENTES_UI}
+    
     INSTRUCCIONES DE REDACCIÓN (OBLIGATORIAS):
     1. REGLA DE UNICIDAD RADICAL: Estás generando una de las 16 variantes para una red. Es CRÍTICO que este texto sea 100% original. Cambia el orden de los conceptos, usa sinónimos poco comunes, y varía la longitud de las oraciones. Si el tema es general, aterrizalo a la realidad de '{nicho_actual}' y menciona elementos locales (hospitales, leyes estatales, clima laboral en esa zona) para que Google no vea dos textos iguales.
-    2. REGLA DE MARCA: El sitio web '{nombre_sitio}' pertenece a la empresa '{nombre_empresa}'. Siempre que te refieras a la organización detrás de la web, usa el nombre '{nombre_empresa}'.
-    3. REGLA DE FORMATO: Devuelve el texto en Markdown con los fragmentos HTML de espaciado y resaltado indicados. NO uses el formato de bloques de WordPress (<!-- wp:... -->).
-    4. REGLA DE LONGITUD: El texto debe tener al menos 1300 palabras.
-    5. REGLA DE AUTORIDAD: Debes incluir naturalmente un enlace hacia esta fuente oficial/gubernamental: {url_outbound}. El texto ancla debe ser natural y relevante al contexto.
-    6. REGLA DE LEGIBILIDAD: Usa muchas palabras de transición. Evita la voz pasiva. NO uses colores claros para el texto general.
+    2. DISEÑO NIVEL PRO (CRÍTICO): Tu objetivo es crear una LANDING PAGE DE LUJO. NO generes un bloque de texto plano. Debes jugar con la distribución del contenido:
+       - INICIO: Empieza OBLIGATORIAMENTE con un `ui-hero-full` con un título H1 gigante y un fondo impactante.
+       - RITMO VISUAL: Alterna secciones de "Ancho Completo" (`ui-section-dark` o `ui-section-accent`) con secciones de lectura estándar.
+       - MULTI-COLUMNAS: Para mostrar beneficios o requisitos, usa un `ui-grid-3` o `ui-grid-4` en lugar de una lista de puntos aburrida.
+       - COMPONENTES: Usa al menos 1 Tabla de comparación, 1 Acordeón de FAQ, 1 Línea de Tiempo y varios Hero Callouts.
+    3. REGLA DE MARCA: El sitio web '{nombre_sitio}' pertenece a la empresa '{nombre_empresa}'. Siempre que te refieras a la organización detrás de la web, usa el nombre '{nombre_empresa}'.
+    4. REGLA DE FORMATO: Devuelve el texto en Markdown con los fragmentos HTML de los componentes UI indicados.
+    5. REGLA DE LONGITUD: El texto debe tener al menos 1300 palabras.
+    6. REGLA DE AUTORIDAD: Debes incluir naturalmente un enlace hacia esta fuente oficial/gubernamental: {url_outbound}. El texto ancla debe ser natural y relevante al contexto.
+    7. REGLA DE LEGIBILIDAD: Usa muchas palabras de transición. Evita la voz pasiva. NO uses colores claros para el texto general.
     
     RESTRICCIONES NEGATIVAS (EVITAR PATRONES DE IA):
     - PROHIBIDO usar: "En conclusión", "En resumen", "Por otro lado", "Es importante destacar que", "Adentrémonos", "En el vertiginoso mundo de", "No importa si eres... o si eres...".

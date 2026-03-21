@@ -226,3 +226,308 @@
     100% 0%
   );
 }
+
+/* 
+   CONTENT UI COMPONENTS 
+   These classes are used by the AI-generated content to create modern, 
+   dynamic, and visually appealing sections beyond simple text.
+*/
+
+/* Premium Card */
+.ui-card {
+  @apply bg-white border border-base-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 my-8;
+}
+
+.ui-card h3, .ui-card h4 {
+  @apply mt-0 text-accent-600 font-serif;
+}
+
+/* 2-Column Grid for Text + Image */
+.ui-grid-2 {
+  @apply grid md:grid-cols-2 gap-8 items-center my-12;
+}
+
+.ui-grid-2 .ui-image-side {
+  @apply rounded-xl overflow-hidden shadow-lg;
+}
+
+.ui-grid-2 .ui-image-side img {
+  @apply w-full h-auto object-cover m-0;
+}
+
+/* Styled Comparison Table */
+.ui-comparison-table {
+  @apply w-full border-collapse my-8 overflow-hidden rounded-xl border border-base-200;
+}
+
+.ui-comparison-table th {
+  @apply bg-sand-100 text-base-900 font-semibold p-4 text-left border-b border-base-200;
+}
+
+.ui-comparison-table td {
+  @apply p-4 border-b border-base-100 text-base-700;
+}
+
+.ui-comparison-table tr:last-child td {
+  @apply border-b-0;
+}
+
+.ui-comparison-table tr:hover {
+  @apply bg-sand-50/50;
+}
+
+/* Step Process List */
+.ui-step-list {
+  @apply relative pl-8 border-l-2 border-accent-200 space-y-8 my-10;
+}
+
+.ui-step-item {
+  @apply relative;
+}
+
+.ui-step-item::before {
+  content: "";
+  @apply absolute -left-[41px] top-0 w-4 h-4 rounded-full bg-accent-500 border-4 border-white ring-2 ring-accent-100;
+}
+
+.ui-step-item h4 {
+  @apply mt-0 text-base-900 font-bold;
+}
+
+/* Modern Callouts / Alert Boxes */
+.ui-callout {
+  @apply p-6 rounded-xl my-8 border-l-4 flex gap-4 items-start;
+}
+
+.ui-callout-info {
+  @apply bg-blue-50 border-blue-500 text-blue-900;
+}
+
+.ui-callout-tip {
+  @apply bg-green-50 border-green-500 text-green-900;
+}
+
+.ui-callout-warning {
+  @apply bg-yellow-50 border-yellow-500 text-yellow-900;
+}
+
+.ui-callout icon {
+  @apply text-xl mt-1;
+}
+
+/* Stats Grid */
+.ui-stats {
+  @apply grid grid-cols-2 md:grid-cols-4 gap-4 my-10;
+}
+
+.ui-stat-item {
+  @apply text-center p-4 bg-sand-100 rounded-xl;
+}
+
+.ui-stat-value {
+  @apply block text-3xl font-bold text-accent-600 font-serif;
+}
+
+.ui-stat-label {
+  @apply block text-xs text-base-600 uppercase tracking-wider mt-1 font-semibold;
+}
+
+/* --- Phase 2: Expanded UI Library --- */
+
+/* Modern Accordion (using <details> and <summary>) */
+.ui-accordion {
+  @apply border border-base-200 rounded-xl overflow-hidden my-6;
+}
+
+.ui-accordion details {
+  @apply border-b border-base-200 last:border-b-0;
+}
+
+.ui-accordion summary {
+  @apply p-4 bg-white cursor-pointer font-semibold flex justify-between items-center transition-colors hover:bg-sand-50 list-none;
+}
+
+.ui-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.ui-accordion summary::after {
+  content: "→";
+  @apply text-accent-500 transition-transform duration-300;
+}
+
+.ui-accordion details[open] summary::after {
+  @apply rotate-90;
+}
+
+.ui-accordion .accordion-content {
+  @apply p-4 bg-sand-50/30 text-base-700 leading-relaxed;
+}
+
+/* Horizontal Timeline */
+.ui-timeline {
+  @apply flex flex-col md:flex-row gap-4 my-10 overflow-x-auto pb-4;
+}
+
+.ui-timeline-step {
+  @apply flex-1 min-w-[200px] p-6 bg-white border border-base-200 rounded-2xl relative shadow-sm;
+}
+
+.ui-timeline-step .step-number {
+  @apply absolute -top-4 -left-4 w-10 h-10 bg-accent-600 text-white rounded-full flex items-center justify-center font-bold shadow-md;
+}
+
+/* Hero Section Callout */
+.ui-hero-callout {
+  @apply relative overflow-hidden bg-accent-600 text-white p-12 rounded-3xl my-12 shadow-xl;
+  background-image: var(--background-image-accent_vertical_stripes);
+}
+
+.ui-hero-callout h2, .ui-hero-callout h3 {
+  @apply text-white border-none mt-0 mb-4;
+}
+
+.ui-hero-callout p {
+  @apply text-accent-50 text-lg opacity-90;
+}
+
+/* Quote Block */
+.ui-quote {
+  @apply pl-10 py-4 border-l-8 border-accent-500 my-10 relative italic text-xl text-base-700;
+}
+
+.ui-quote::before {
+  content: "“";
+  @apply absolute left-2 top-0 text-6xl text-accent-200 leading-none font-serif;
+}
+
+/* Check List Grid */
+.ui-check-list {
+  @apply grid md:grid-cols-2 gap-4 my-8;
+}
+
+.ui-check-item {
+  @apply flex items-start gap-3 bg-green-50/50 p-4 rounded-lg border border-green-100;
+}
+
+.ui-check-item span {
+  @apply text-green-600 font-bold;
+}
+
+/* Badge/Tag List */
+.ui-tag-list {
+  @apply flex flex-wrap gap-2 my-6;
+}
+
+.ui-tag {
+  @apply px-3 py-1 bg-sand-100 text-base-700 rounded-full text-sm font-medium border border-base-200;
+}
+
+/* --- Phase 3: High-End Layouts & Heros --- */
+
+/* Breakout Utility: Allows a div to span the full width of the viewport even inside a container */
+.ui-breakout {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+}
+
+/* Luxury Hero with Background Image Overlay */
+.ui-hero-full {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  @apply relative min-h-[60vh] flex items-center justify-center text-center p-12 bg-cover bg-center;
+  background-attachment: fixed; /* Parallax effect */
+}
+
+.ui-hero-full::before {
+  content: "";
+  @apply absolute inset-0 bg-black/50 backdrop-blur-[2px];
+}
+
+.ui-hero-full .hero-content {
+  @apply relative z-10 max-w-4xl mx-auto;
+}
+
+.ui-hero-full h1, .ui-hero-full h2 {
+  @apply text-white text-5xl md:text-7xl font-bold leading-tight mb-6 tracking-tight;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.ui-hero-full p {
+  @apply text-white/90 text-xl md:text-2xl leading-relaxed max-w-2xl mx-auto;
+}
+
+/* Multi-Column Grids */
+.ui-grid-3 {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-8 my-12;
+}
+
+.ui-grid-4 {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 my-12;
+}
+
+/* Advanced Section Backgrounds */
+.ui-section-dark {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  @apply bg-base-950 text-white py-20 my-16;
+}
+
+.ui-section-accent {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  @apply bg-accent-600 text-white py-20 my-16;
+}
+
+.ui-section-sand {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  @apply bg-sand-50 py-20 my-16;
+}
+
+/* Glassmorphism Card */
+.ui-card-glass {
+  @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 shadow-2xl text-white;
+}
+
+/* Section Divider (Slanted) */
+.ui-divider-slanted {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  @apply h-16 bg-white;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0);
+  margin-top: -64px;
+}
+
+
+

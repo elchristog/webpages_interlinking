@@ -1,18 +1,18 @@
 {
-  "nombre_sitio": "Red Enfermeras Latinas",
-  "color_tema": "#c2185b",
-  "comando_deploy": "vercel deploy --prod",
-  "layout": "LayoutB",
-  "gcp_project_id": "latina-net-vcl-66",
+  "nombre_sitio": "Vacantes Agencias USA",
+  "color_tema": "#3e2723",
+  "comando_deploy": "gcloud app deploy app.yaml --quiet",
+  "layout": "LayoutA",
+  "gcp_project_id": "us-vacancies-app-e",
   "seo": {
-    "titulo_base": "Comunidad Latina RN",
-    "descripcion_base": "Historias de éxito, consultoría migratoria y vacantes dirigidas enteramente a latinas.",
+    "titulo_base": "Directorio Vacantes",
+    "descripcion_base": "El directorio más completo de agencias reclutadoras con sponsor de visa disponibles.",
     "idioma": "es-US"
   },
   "footer": {
     "empresa_legal": "Enfermera en Estados Unidos",
-    "direccion": "San Antonio, TX 78201",
-    "email_contacto": "unete@enfermeraslatinas.io"
+    "direccion": "New York, NY 10001",
+    "email_contacto": "apply@vacantes-hospitales-usa.org"
   },
   "menu_global": [
     {
@@ -20,27 +20,27 @@
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Guía NCLEX",
+      "nombre": "Pasar NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Buscar Trabajo",
+      "nombre": "Vacantes USA",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Visa Trabajo",
+      "nombre": "Sponsor Visa",
       "ruta": "/visa"
     },
     {
-      "nombre": "Ingresos USA",
+      "nombre": "Tablas Sueldos",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Noticias",
+      "nombre": "Casos Éxito",
       "ruta": "/blog"
     },
     {
-      "nombre": "Hablar Asesor",
+      "nombre": "WhatsApp",
       "ruta": "https://wa.me/something"
     },
     {
@@ -48,19 +48,18 @@
       "ruta": "/login"
     }
   ],
-  "dominio": "https://enfermeraslatinas.io",
-  "nav_footer_version": "v2",
-  "font_family": "Inter",
-  "sidebar_pos": "left",
+  "dominio": "https://vacantes-hospitales-usa.org",
+  "nav_footer_version": "v1",
+  "font_family": "Outfit",
   "color_palette": {
-    "primary": "hsl(88, 86%, 26%)",
-    "secondary": "hsl(118, 66%, 32%)",
-    "accent": "hsl(239, 86%, 50%)",
-    "text_bold": "hsl(88, 86%, 15%)",
+    "primary": "hsl(294, 74%, 48%)",
+    "secondary": "hsl(324, 54%, 50%)",
+    "accent": "hsl(59, 74%, 26%)",
+    "text_bold": "hsl(294, 74%, 15%)",
     "meta": {
-      "primary_contrast": "5.10",
-      "secondary_contrast": "4.60",
-      "accent_contrast": "8.89"
+      "primary_contrast": "4.69",
+      "secondary_contrast": "4.82",
+      "accent_contrast": "5.08"
     }
   }
 }
