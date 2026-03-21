@@ -10,13 +10,13 @@
     "idioma": "es-US"
   },
   "footer": {
-    "empresa_legal": "Latina Nurses US",
+    "empresa_legal": "Enfermera en Estados Unidos",
     "direccion": "San Antonio, TX 78201",
     "email_contacto": "unete@enfermeraslatinas.io"
   },
   "menu_global": [
     {
-      "nombre": "Título USA",
+      "nombre": "Validar Diploma",
       "ruta": "/homologacion"
     },
     {
@@ -24,7 +24,7 @@
       "ruta": "/nclex"
     },
     {
-      "nombre": "Bolsa Empleo",
+      "nombre": "Buscar Trabajo",
       "ruta": "/vacantes"
     },
     {
@@ -32,19 +32,19 @@
       "ruta": "/visa"
     },
     {
-      "nombre": "Tablas Sueldos",
+      "nombre": "Ingresos USA",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Casos Éxito",
+      "nombre": "Noticias",
       "ruta": "/blog"
     },
     {
-      "nombre": "Chat Directo",
+      "nombre": "Hablar Asesor",
       "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Login",
+      "nombre": "Acceso",
       "ruta": "/login"
     }
   ],

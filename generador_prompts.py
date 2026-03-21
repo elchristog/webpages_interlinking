@@ -14,7 +14,7 @@ def inicializar_prompts(ruta_proyecto="."):
     else:
         raise FileNotFoundError(f"No se encontró config_prompts.json en {ruta_proyecto}")
 
-def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, anchor_text, url_outbound="https://wikipedia.org", modo="articulo", contenido_base=None, nombre_sitio="este sitio"):
+def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, anchor_text, url_outbound="https://wikipedia.org", modo="articulo", contenido_base=None, nombre_sitio="este sitio", nombre_empresa="Enfermera en Estados Unidos"):
     """
     Construye un prompt hiper-específico rotando identidades y formatos estructurales
     para evadir la detección de contenido programático (AI Spam).
@@ -148,10 +148,11 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
     
     INSTRUCCIONES DE REDACCIÓN (OBLIGATORIAS):
     1. REGLA DE UNICIDAD RADICAL: Estás generando una de las 16 variantes para una red. Es CRÍTICO que este texto sea 100% original. Cambia el orden de los conceptos, usa sinónimos poco comunes, y varía la longitud de las oraciones. Si el tema es general, aterrizalo a la realidad de '{nicho_actual}' y menciona elementos locales (hospitales, leyes estatales, clima laboral en esa zona) para que Google no vea dos textos iguales.
-    2. REGLA DE FORMATO: Devuelve el texto en Markdown con los fragmentos HTML de espaciado y resaltado indicados. NO uses el formato de bloques de WordPress (<!-- wp:... -->).
-    3. REGLA DE LONGITUD: El texto debe tener al menos 1300 palabras.
-    4. REGLA DE AUTORIDAD: Debes incluir naturalmente un enlace hacia esta fuente oficial/gubernamental: {url_outbound}. El texto ancla debe ser natural y relevante al contexto.
-    5. REGLA DE LEGIBILIDAD: Usa muchas palabras de transición. Evita la voz pasiva. NO uses colores claros para el texto general.
+    2. REGLA DE MARCA: El sitio web '{nombre_sitio}' pertenece a la empresa '{nombre_empresa}'. Siempre que te refieras a la organización detrás de la web, usa el nombre '{nombre_empresa}'.
+    3. REGLA DE FORMATO: Devuelve el texto en Markdown con los fragmentos HTML de espaciado y resaltado indicados. NO uses el formato de bloques de WordPress (<!-- wp:... -->).
+    4. REGLA DE LONGITUD: El texto debe tener al menos 1300 palabras.
+    5. REGLA DE AUTORIDAD: Debes incluir naturalmente un enlace hacia esta fuente oficial/gubernamental: {url_outbound}. El texto ancla debe ser natural y relevante al contexto.
+    6. REGLA DE LEGIBILIDAD: Usa muchas palabras de transición. Evita la voz pasiva. NO uses colores claros para el texto general.
     
     RESTRICCIONES NEGATIVAS (EVITAR PATRONES DE IA):
     - PROHIBIDO usar: "En conclusión", "En resumen", "Por otro lado", "Es importante destacar que", "Adentrémonos", "En el vertiginoso mundo de", "No importa si eres... o si eres...".
