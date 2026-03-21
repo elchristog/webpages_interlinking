@@ -1,66 +1,66 @@
 {
-  "nombre_sitio": "Red de Enfermeras GA",
-  "color_tema": "#005b96",
-  "comando_deploy": "gcloud app deploy",
+  "nombre_sitio": "Red Enfermeras Latinas",
+  "color_tema": "#c2185b",
+  "comando_deploy": "vercel deploy --prod",
   "layout": "LayoutB",
-  "gcp_project_id": "ga-health-net-991",
+  "gcp_project_id": "latina-net-vcl-66",
   "seo": {
-    "titulo_base": "Licencias GA",
-    "descripcion_base": "Guía especializada del proceso NCLEX y EB-3 para conseguir trabajo registrado en hospitales de Georgia.",
+    "titulo_base": "Comunidad Latina RN",
+    "descripcion_base": "Historias de éxito, consultoría migratoria y vacantes dirigidas enteramente a latinas.",
     "idioma": "es-US"
   },
   "footer": {
-    "empresa_legal": "Georgia Health Professionals",
-    "direccion": "Rome, GA 30161",
-    "email_contacto": "contacto@red-enfermeras-ga.com"
+    "empresa_legal": "Latina Nurses US",
+    "direccion": "San Antonio, TX 78201",
+    "email_contacto": "unete@enfermeraslatinas.io"
   },
   "menu_global": [
     {
-      "nombre": "Diploma Online",
+      "nombre": "Título USA",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Estudio NCLEX",
+      "nombre": "Guía NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Trabajo Hoy",
+      "nombre": "Bolsa Empleo",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Migrar Legal",
+      "nombre": "Visa Trabajo",
       "ruta": "/visa"
     },
     {
-      "nombre": "Salario Real",
+      "nombre": "Tablas Sueldos",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Actualidad",
+      "nombre": "Casos Éxito",
       "ruta": "/blog"
     },
     {
-      "nombre": "Ayuda Chat",
+      "nombre": "Chat Directo",
       "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Portal RN",
+      "nombre": "Login",
       "ruta": "/login"
     }
   ],
-  "dominio": "https://georgia-nurses-network.org",
+  "dominio": "https://enfermeraslatinas.io",
+  "nav_footer_version": "v2",
   "font_family": "Inter",
-  "sidebar_pos": "right",
+  "sidebar_pos": "left",
   "color_palette": {
-    "primary": "hsl(133, 94%, 26%)",
-    "secondary": "hsl(163, 74%, 30%)",
-    "accent": "hsl(340, 94%, 46%)",
-    "text_bold": "hsl(133, 94%, 15%)",
+    "primary": "hsl(88, 86%, 26%)",
+    "secondary": "hsl(118, 66%, 32%)",
+    "accent": "hsl(239, 86%, 50%)",
+    "text_bold": "hsl(88, 86%, 15%)",
     "meta": {
-      "primary_contrast": "5.07",
-      "secondary_contrast": "4.59",
-      "accent_contrast": "4.74"
+      "primary_contrast": "5.10",
+      "secondary_contrast": "4.60",
+      "accent_contrast": "8.89"
     }
-  },
-  "nav_footer_version": "v1"
+  }
 }

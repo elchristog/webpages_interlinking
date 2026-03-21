@@ -58,7 +58,7 @@ Aquí defines el alma de la IA:
 ---------------------------------------------------------
 Con tu terminal activada, hacer la magia requiere pasar el nombre del proyecto como parámetro:
 
-   python orquestador_seo.py enfermera_en_estados_unidos
+   python orquestador_seo.py enfermera_en_estados_unidos --cola mi_articulo.json
 
 ¿Qué pasa cuando presionas Enter?
 1. El script lee todo de `/proyectos/enfermera_en_estados_unidos/` y limpia los artículos viejos.

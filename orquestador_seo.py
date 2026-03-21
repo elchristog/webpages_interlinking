@@ -389,7 +389,7 @@ if __name__ == "__main__":
     parser.add_argument("--modo", choices=["home", "pestaña", "blog"], default="articulo", help="Tipo de contenido a propagar")
     parser.add_argument("--slug", help="Slug para la pestaña o artículo (obligatorio para --modo pestaña)")
     parser.add_argument("--inputfile", help="Archivo .txt con el contenido base o tema a propagar")
-    parser.add_argument("--cola", action="store_true", help="Procesa los archivos en input_cola/")
+    parser.add_argument("--cola", nargs='?', const='ALL', help="Procesa archivos en input_cola/. Especifica un archivo (ej: mi_articulo.json) o deja vacío para listar disponibles.")
     
     args = parser.parse_args()
     
@@ -405,16 +405,40 @@ if __name__ == "__main__":
     
     if args.cola:
         ruta_cola = os.path.join(ruta_proyecto_config, 'input_cola')
-        if os.path.exists(ruta_cola):
-            for f in os.listdir(ruta_cola):
-                if f.endswith(".json"):
-                    with open(os.path.join(ruta_cola, f), 'r', encoding='utf-8') as jf:
-                        peticiones.append(json.load(jf))
-            if not peticiones:
-                print("[*] La cola está vacía.")
-        else:
+        if not os.path.exists(ruta_cola):
             print("[-] Error: No existe la carpeta input_cola/")
             sys.exit(1)
+            
+        archivos_disponibles = sorted([f for f in os.listdir(ruta_cola) if f.endswith(".json")])
+        
+        if not archivos_disponibles:
+            print("[*] La cola está vacía.")
+            sys.exit(0)
+
+        # Si el usuario NO especificó un archivo (args.cola es 'ALL')
+        if args.cola == 'ALL':
+            print("\n[*] Archivos disponibles en la cola (input_cola/):")
+            for i, f in enumerate(archivos_disponibles, 1):
+                print(f"  {i}. {f}")
+            print("\n[!] Por seguridad, debes especificar qué archivo quieres generar.")
+            print(f"Ejemplo: python orquestador_seo.py {nombre_proyecto} --cola {archivos_disponibles[0]}")
+            sys.exit(0)
+        else:
+            # El usuario especificó un archivo
+            archivo_buscado = args.cola
+            if not archivo_buscado.endswith(".json"):
+                archivo_buscado += ".json"
+            
+            if archivo_buscado in archivos_disponibles:
+                ruta_final = os.path.join(ruta_cola, archivo_buscado)
+                with open(ruta_final, 'r', encoding='utf-8') as jf:
+                    peticiones.append(json.load(jf))
+            else:
+                print(f"[-] Error: No se encuentra el archivo '{args.cola}' en input_cola/")
+                print("[*] Archivos disponibles:")
+                for f in archivos_disponibles:
+                    print(f" - {f}")
+                sys.exit(1)
     elif args.inputfile:
         if os.path.exists(args.inputfile):
             with open(args.inputfile, 'r', encoding='utf-8') as f:

@@ -29,11 +29,18 @@ Puedes nombrar el archivo como quieras (ej. `mi_articulo.json`). El contenido de
 ```
 
 ## 3. Ejecución
-Una vez que hayas puesto uno o varios archivos JSON en la carpeta, ejecuta el siguiente comando en tu terminal (con el entorno `venv` activado):
+Una vez que hayas puesto uno o varios archivos JSON en la carpeta, ejecuta el siguiente comando en tu terminal (con el entorno `venv` activado).
 
+**Para elegir un archivo específico (Recomendado):**
+```bash
+python orquestador_seo.py enfermera_en_estados_unidos --cola mi_articulo.json
+```
+
+**Para listar los archivos disponibles en la cola:**
 ```bash
 python orquestador_seo.py enfermera_en_estados_unidos --cola
 ```
+(Esto te mostrará una lista y te pedirá que especifiques cuál quieres generar).
 
 ## 4. Resultado
 El script hará lo siguiente:
