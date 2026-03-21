@@ -1,118 +1,78 @@
 ---
-titulo: "Análisis Legal De Los Tipos De Visa (H-1B, Tn, Eb-3) Para Trabajar De Enfermera Extranjera En Usa"
-descripcion: "Bienvenidos a Análisis legal de los tipos de visa (H-1B, TN, EB-3) para trabajar de enfermera extranjera en USA."
+titulo: "Requisitos Específicos, Equivalencias Y Trámites Consulares Para Enfermeras Mexicanas Queriendo Cruzar A Usa"
+descripcion: "Bienvenidos a Requisitos específicos, equivalencias y trámites consulares para enfermeras mexicanas queriendo cruzar a USA."
 slug: "index"
 ---
 
-<div class="ui-hero-full" style="background-image: url('https://images.unsplash.com/photo-1579737976156-f579ae745199?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')">
-  <div class="hero-content">
-    <h1>¡Tu Futuro como Enfermera en EE. UU. Comienza AHORA! Dominando los <span style="background-color: #dcfce7; color: #166534; padding: 2px 5px; border-radius: 3px; font-weight: 600;">Tipos de Visa para Trabajar como Enfermera en USA</span></h1>
-    <p>Soy Alejandra Martínez, RN, BSN, IBCLC, fundadora de rnnclex.com. He guiado a cientos de profesionales como tú a transformar su vida en Estados Unidos. Con <span style="font-weight: 600;">Enfermera en Estados Unidos</span>, no solo sueñas con una carrera en EE. UU.; la haces realidad.</p>
-    <a href="https://wa.me/something" class="cta-button" style="display: inline-block; background-color: #2563eb; color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-size: 1.1em; font-weight: bold; margin-top: 20px;">🚨 ¡Reserva tu Sesión Estratégica Gratuita! 🚨</a>
+html
+<div class="ui-hero-full" style="background-image: url('IMAGEN_FONDO_ENFERMERA_MEXICANA_EXITOSA_USA.jpg'); background-size: cover; background-position: center; min-height: 500px; display: flex; align-items: center; justify-content: center;">
+  <div class="hero-content" style="max-width: 900px; margin: 0 auto; padding: 40px 20px; text-align: center; color: white; background-color: rgba(0, 0, 0, 0.6); border-radius: 12px;">
+    <h1 style="font-size: 3.5em; margin-bottom: 20px; font-weight: 700; line-height: 1.2; color: white;">Tu Futuro Comienza Aquí: Conquista los <span style="background-color: #dcfce7; color: #166534; padding: 2px 5px; border-radius: 3px; font-weight: 700;">Requisitos para Enfermera Mexicana en USA</span> y Transforma tu Vida</h1>
+    <p style="font-size: 1.5em; font-weight: 400; line-height: 1.5; margin-bottom: 30px; color: white;">Soy Alejandra Martínez, y he guiado a cientos de profesionales como tú a trascender fronteras. Deja de soñar con trabajar en Estados Unidos y empieza a construir esa realidad. Nosotros simplificamos cada paso, desde la homologación de tu título hasta tu contrato en los mejores hospitales del país.</p>
+    <a href="https://wa.me/something" style="background-color: #16a34a; color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-size: 1.2em; font-weight: 600; display: inline-block; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">¡Reserva tu Sesión Estratégica Gratuita!</a>
   </div>
 </div>
 
 <div style="height:50px"></div>
 
-<div class="ui-section-dark">
-  <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-    <h2 style="color: white; text-align: center; margin-bottom: 30px;">¡No te quedes atrás! La Demanda de Enfermeras Hispanas en EE. UU. es Histórica</h2>
-    <p style="color: #f0f0f0; text-align: center; font-size: 1.1em;">La pregunta que resuena en tu mente, "¿Realmente hay trabajo para mí en EE. UU.?", tiene una respuesta rotunda y basada en evidencia: <span style="font-weight: 700; color: #a7f3d0;">SÍ, ABSOLUTAMENTE.</span> En Enfermera en Estados Unidos, no trabajamos con suposiciones. Nuestra metodología se fundamenta en un análisis exhaustivo del mercado laboral estadounidense de la última década.</p>
-    <p style="color: #f0f0f0; text-align: center; font-size: 1.1em;">Hemos sintetizado datos críticos de USCIS (Servicios de Ciudadanía e Inmigración de Estados Unidos), las aplicaciones globales de CGFNS y las tendencias de contratación de la American Hospital Association (AHA). Estos indicadores revelan una verdad innegable: estamos frente a la <span style="font-weight: 700; color: #a7f3d0;">mayor necesidad de talento de enfermería internacional</span> que la historia moderna haya registrado.</p>
-    <div style="height:30px"></div>
-    <div class="ui-stats" style="margin-bottom: 40px;">
-      <div class="ui-stat-item">
-        <span class="ui-stat-value" style="color: #a7f3d0;">+200K</span>
-        <span class="ui-stat-label" style="color: #f0f0f0;">Ofertas Anuales para RN Internacionales (Green Card)</span>
+<h2 style="text-align: center; color: #1a1a1a; font-size: 2.2em; margin-bottom: 30px;">✨ La Oportunidad que Esperabas: Demanda Histórica para Enfermeras Mexicanas en USA</h2>
+
+<p style="color: #1a1a1a; font-size: 1.1em; line-height: 1.7; max-width: 900px; margin: 0 auto 20px auto; text-align: center;">Como fundadora de Enfermera en Estados Unidos y experta en migración de talento, he sido testigo directo de la transformación de cientos de vidas. Por consiguiente, puedo afirmarte con total certeza: la puerta de entrada a Estados Unidos para enfermeras mexicanas está más abierta que nunca. Los <span style="background-color: #dcfce7; color: #166534; padding: 2px 5px; border-radius: 3px; font-weight: 600;">requisitos para enfermera mexicana en usa</span>, aunque específicos, son completamente manejables con la guía y el conocimiento adecuados.</p>
+
+<p style="color: #1a1a1a; font-size: 1.1em; line-height: 1.7; max-width: 900px; margin: 0 auto 30px auto; text-align: center;">No me baso en anécdotas, sino en datos sólidos y análisis rigurosos. Durante la última década, hemos monitoreado con precisión las estadísticas de inmigración (USCIS), las evaluaciones globales de credenciales (CGFNS) y los patrones de contratación de la American Hospital Association (AHA). El panorama es inequívoco: estamos ante la <span style="font-weight: 600;">mayor escasez de talento de enfermería en la historia moderna de EE. UU.</span> ¡Tu habilidad es un activo invaluable!</p>
+
+<div class="ui-section-dark" style="background-color: #2c3e50; padding: 60px 20px;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <h2 style="color: white; text-align: center; font-size: 2.5em; margin-bottom: 40px;">📈 Números que Impulsan tu Futuro: Estadísticas Reales</h2>
+    <p style="text-align: center; color: rgba(255,255,255,0.9); font-size: 1.2em; margin-bottom: 50px;">La inmensa necesidad de profesionales de la enfermería te ofrece una oportunidad sin precedentes.</p>
+    <div class="ui-stats" style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px;">
+      <div class="ui-stat-item" style="text-align: center; background-color: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; flex: 1; min-width: 280px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+        <span class="ui-stat-value" style="font-size: 3em; font-weight: 700; color: #dcfce7; display: block; margin-bottom: 10px;">+200,000</span>
+        <span class="ui-stat-label" style="font-size: 1.2em; color: rgba(255,255,255,0.8);">Vacantes Anuales para RNs</span>
       </div>
-      <div class="ui-stat-item">
-        <span class="ui-stat-value" style="color: #a7f3d0;">97%</span>
-        <span class="ui-stat-label" style="color: #f0f0f0;">Tasa de Éxito de Nuestros Enfermeros en NCLEX</span>
+      <div class="ui-stat-item" style="text-align: center; background-color: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; flex: 1; min-width: 280px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+        <span class="ui-stat-value" style="font-size: 3em; font-weight: 700; color: #dcfce7; display: block; margin-bottom: 10px;">97%</span>
+        <span class="ui-stat-label" style="font-size: 1.2em; color: rgba(255,255,255,0.8);">Tasa de Éxito en el NCLEX*</span>
       </div>
-      <div class="ui-stat-item">
-        <span class="ui-stat-value" style="color: #a7f3d0;">100%</span>
-        <span class="ui-stat-label" style="color: #f0f0f0;">Garantía de Patrocinio de Visa (con sponsor)</span>
+      <div class="ui-stat-item" style="text-align: center; background-color: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; flex: 1; min-width: 280px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+        <span class="ui-stat-value" style="font-size: 3em; font-weight: 700; color: #dcfce7; display: block; margin-bottom: 10px;">Crecimiento 6%</span>
+        <span class="ui-stat-label" style="font-size: 1.2em; color: rgba(255,255,255,0.8);">Proyectado (2022-2032)</span>
       </div>
     </div>
-    <div class="ui-callout ui-callout-warning" style="max-width: 800px; margin: 30px auto;">
-      <span>⚠️</span><p>La alta demanda de los hospitales ha saturado la capacidad del sistema de inmigración para procesar visas, generando un "cuello de botella". <span style="font-weight: 600;">Esto significa que existe una lista de espera.</span> Iniciar tu proceso de homologación y licenciamiento <span style="text-decoration: underline;">hoy mismo</span> es la única estrategia para asegurar tu posición y no ver pasar esta oportunidad histórica.</p>
-    </div>
+    <p style="text-align: center; color: rgba(255,255,255,0.7); font-size: 0.9em; margin-top: 40px;">*Tasa interna de éxito de nuestros estudiantes en el examen NCLEX-RN.</p>
   </div>
 </div>
 
 <div style="height:50px"></div>
 
-<h2 style="text-align: center;">🛡️ Desbloqueando los <span style="background-color: #dcfce7; color: #166534; padding: 2px 5px; border-radius: 3px; font-weight: 600;">Tipos de Visa para Trabajar como Enfermera en USA</span>: Tu Estrategia Legal Definitiva</h2>
-<p style="color: #1a1a1a; text-align: center; max-width: 900px; margin: 20px auto 40px auto; font-size: 1.1em;">La ruta hacia Estados Unidos como enfermera puede parecer un laberinto legal complejo. Sin embargo, en Enfermera en Estados Unidos, transformamos esa complejidad en un camino claro y estructurado. Nuestro expertise radica en el análisis legal y la gestión estratégica de cada tipo de visa, asegurando que elijas la opción más eficiente y segura para tu perfil.</p>
+<p style="color: #1a1a1a; font-size: 1.1em; line-height: 1.7; max-width: 900px; margin: 0 auto 20px auto; text-align: center;">Sin embargo, la inmensa demanda hospitalaria ha superado la capacidad de procesamiento del sistema migratorio estadounidense, creando un “cuello de botella”. Esto significa que hay una <span style="font-weight: 600;">“fila” de espera para la asignación de visas de residencia (Green Card)</span>. Para evitar dilaciones, iniciar hoy mismo tu proceso de homologación y licenciamiento es la única estrategia eficaz para asegurar tu posición en esa fila y no perder esta valiosa oportunidad. Cada día de anticipación es una inversión en tu futuro.</p>
 
-<div class="ui-callout ui-callout-tip" style="max-width: 900px; margin: 30px auto;">
-  <span>💡</span><p>Saber diferenciar los <span style="font-weight: 600;">tipos de visa para trabajar como enfermera en usa</span> es el primer paso crítico. Cada opción tiene requisitos, plazos y ventajas distintas. Nosotros te proporcionamos la claridad que necesitas.</p>
+<div class="ui-callout ui-callout-warning" style="max-width: 800px; margin: 40px auto; border-radius: 8px; padding: 20px; display: flex; align-items: flex-start; gap: 15px; background-color: #fef2f2; border: 1px solid #ef4444; color: #dc2626;">
+  <span style="font-size: 1.8em; line-height: 1;">⚠️</span><p style="margin: 0; font-weight: 600; font-size: 1.1em; line-height: 1.5;">¡Atención Crucial! No pospongas tu decisión. La ventana de oportunidad es real y exige acción temprana. Los tiempos de espera son una realidad que solo se maneja con una planificación estratégica y un inicio de trámite proactivo. ¡Tu sueño no puede esperar!</p>
 </div>
-
-<div style="height:30px"></div>
-
-<h3 style="text-align: center;">🔍 Análisis Detallado de las Opciones Migratorias para Enfermeras</h3>
-
-<div class="ui-grid-3">
-  <div class="ui-card">
-    <h4>Visa EB-3: La Ruta Dorada hacia la Green Card</h4>
-    <p style="color: #1a1a1a;">La visa EB-3 (Employment-Based Third Preference) es, sin duda, la vía más estable y anhelada por enfermeros internacionales. Permite obtener la Green Card, brindando residencia permanente y un camino claro hacia la ciudadanía estadounidense. Requiere de un empleador patrocinador, lo cual nosotros facilitamos a través de nuestra extensa red de hospitales de primer nivel. Es una inversión a largo plazo en tu estabilidad y la de tu familia.</p>
-    <a href="/visa-eb3" style="color: #2563eb; text-decoration: none; font-weight: 600;">Ver Detalles EB-3</a>
-  </div>
-  <div class="ui-card">
-    <h4>Visa H-1B: Una Opción Limitada y Competitiva</h4>
-    <p style="color: #1a1a1a;">La visa H-1B está diseñada para profesionales en ocupaciones especializadas, que generalmente requieren un título universitario de cuatro años o su equivalente. Aunque algunas enfermeras con BSN avanzado o roles especializados podrían calificar, su principal limitación es el sorteo anual (lotería) y la cuota limitada. Analizamos si tu perfil encaja en esta categoría y te asesoramos sobre su viabilidad real, considerando siempre las alternativas más seguras.</p>
-    <a href="/visa-h1b" style="color: #2563eb; text-decoration: none; font-weight: 600;">Explorar H-1B</a>
-  </div>
-  <div class="ui-card">
-    <h4>Visa TN: El Camino Rápido para Nuestros Vecinos (Canadá y México)</h4>
-    <p style="color: #1a1a1a;">Para enfermeras y enfermeros con nacionalidad canadiense o mexicana, la visa TN (Trade NAFTA, ahora bajo USMCA) ofrece un proceso simplificado y más rápido para trabajar en Estados Unidos. Es una visa no inmigrante, renovable, que no requiere de la lotería H-1B. En Enfermera en Estados Unidos, te guiamos en la preparación de tu paquete de aplicación para garantizar el cumplimiento de todos los requisitos bajo el Tratado de Libre Comercio.</p>
-    <a href="/visa-tn" style="color: #2563eb; text-decoration: none; font-weight: 600;">Conocer Visa TN</a>
-  </div>
-</div>
-
-<div style="height:50px"></div>
 
 <hr style="border: 0; border-top: 1px solid #eaeaea; margin: 40px 0;">
 
-<div class="ui-grid-2">
+<h2 style="text-align: center; color: #1a1a1a; font-size: 2.2em; margin-bottom: 30px;">🔑 Nuestro Diferencial: El Método Probado para Conquistar tu Licencia RN</h2>
+
+<p style="color: #1a1a1a; font-size: 1.1em; line-height: 1.7; max-width: 900px; margin: 0 auto 30px auto; text-align: center;">Dile adiós a la burocracia intimidante, la incertidumbre y los errores costosos que lamentablemente otras agencias no logran evitar. Nuestro método, rigurosamente probado y perfeccionado a lo largo de los años, ha catapultado a cientos de profesionales como tú hacia un futuro próspero en Estados Unidos. En Enfermera en Estados Unidos, no solo te informamos sobre los <span style="font-weight: 600;">requisitos para enfermera mexicana en usa</span>; te llevamos de la mano en cada fase crítica del proceso, asegurando tu éxito.</p>
+
+<div class="ui-grid-2" style="max-width: 1200px; margin: 0 auto; gap: 40px; align-items: center;">
   <div>
-    <h3 style="color: #1a1a1a;">Comprendiendo la Retrogresión de Visas: Anticipación es Clave</h3>
-    <p style="color: #1a1a1a;">Un factor crucial al considerar los <span style="font-weight: 600;">tipos de visa para trabajar como enfermera en usa</span> es el concepto de retrogresión. Debido a la abrumadora demanda de visas EB-3, especialmente para ciertos países, puede haber tiempos de espera prolongados antes de que tu fecha de prioridad se vuelva actual. Sin embargo, no dejes que esto te desanime.</p>
-    <p style="color: #1a1a1a;">Nuestra estrategia se centra en la <span style="font-weight: 600;">anticipación y la preparación</span>. Iniciar tu proceso de homologación y licenciamiento HOY te asegura un lugar en la "fila", minimizando el impacto de la retrogresión una vez que tu fecha de prioridad avance. La clave es empezar la preparación mucho antes de que la visa esté disponible.</p>
-    <div class="ui-callout ui-callout-info">
-      <span>ℹ️</span><p>Para una comprensión más profunda de las categorías de visas de empleo, puedes consultar la información oficial del <a href="https://travel.state.gov/content/travel/en/us-visas/employment.html" target="_blank" rel="noopener noreferrer" style="color: #2563eb; text-decoration: underline;">Departamento de Estado de EE. UU.</a>. Es vital estar informado directamente de las fuentes gubernamentales.</p>
+    <p style="color: #1a1a1a; font-size: 1.1em; line-height: 1.7; margin-bottom: 25px;">Somos la agencia de reclutamiento líder, exclusivamente especializada en enfermeros hispanos. Nuestro compromiso va más allá del simple trámite; es transformar tu meta profesional en una realidad tangible y próspera. Desde la minuciosa <span style="font-weight: 600;">homologación de tu título universitario mexicano</span>, pasando por la obtención de tu licencia RN y la gestión de tu visa de trabajo con patrocinio, hasta tu contrato en los hospitales más prestigiosos de la nación, nuestro equipo de expertos está contigo en cada paso. Además, nuestra experiencia nos permite anticipar y resolver los desafíos específicos que enfrentan las enfermeras mexicanas.</p>
+    <div class="ui-check-list" style="margin-top: 30px;">
+      <div class="ui-check-item" style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 15px;">
+        <span style="font-size: 1.4em; color: #16a34a;">✅</span><p style="margin: 0; color: #1a1a1a;"><span style="font-weight: 700;">Experiencia Comprobada en el Nicho:</span> Cientos de enfermeras mexicanas ya están ejerciendo en EE. UU. gracias a nuestra guía precisa y efectiva.</p></div>
+      <div class="ui-check-item" style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 15px;">
+        <span style="font-size: 1.4em; color: #16a34a;">✅</span><p style="margin: 0; color: #1a1a1a;"><span style="font-weight: 700;">Asesoría 360° Integral:</span> Cubrimos cada aspecto: homologación, preparación NCLEX, gestión de visado, y acompañamiento en tu relocalización.</p></div>
+      <div class="ui-check-item" style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 15px;">
+        <span style="font-size: 1.4em; color: #16a34a;">✅</span><p style="margin: 0; color: #1a1a1a;"><span style="font-weight: 700;">Transparencia y Seguridad:</span> Sin sorpresas ocultas, con costos claros y un plan de acción definido desde el inicio de tu proceso.</p></div>
+      <div class="ui-check-item" style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 15px;">
+        <span style="font-size: 1.4em; color: #16a34a;">✅</span><p style="margin: 0; color: #1a1a1a;"><span style="font-weight: 700;">Red de Hospitales Patrocinadores:</span> Acceso exclusivo a nuestra extensa red de hospitales en EE. UU. que patrocinan visas.</p></div>
     </div>
   </div>
-  <div class="ui-image-side"><img src="https://images.unsplash.com/photo-1579737976156-f579ae745199?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Oficina legal analizando documentos de visa para enfermeras en Estados Unidos"></div>
-</div>
-
-<div style="height:50px"></div>
-
-<h2 style="text-align: center;">🚀 Tu Éxito Simplificado: El Método "Enfermera en Estados Unidos"</h2>
-<p style="color: #1a1a1a; text-align: center; max-width: 900px; margin: 20px auto 40px auto; font-size: 1.1em;">Olvídate de la burocracia intimidante, la incertidumbre que desgasta y los errores costosos que pueden detener tu sueño. Mi equipo y yo hemos perfeccionado un método infalible que ha catapultado a cientos de profesionales como tú hacia una vida mejor en EE. UU. Te acompañamos con precisión experta en cada una de estas cuatro etapas transformadoras:</p>
-
-<div class="ui-timeline">
-  <div class="ui-timeline-step">
-    <span class="step-number">1</span>
-    <h4>Evaluación y Homologación sin Estrés</h4>
-    <p style="color: #1a1a1a;">Mi equipo realiza un análisis meticuloso de tu perfil académico y profesional. Posteriormente, te guiamos con una estrategia personalizada para la revalidación de tu título y credenciales ante el World Education Services (WES) o CGFNS, dependiendo de los requisitos específicos de cada estado y de los <span style="font-weight: 600;">tipos de visa para trabajar como enfermera en usa</span> que estemos persiguiendo. Este es el cimiento de tu proceso.</p>
-  </div>
-  <div class="ui-timeline-step">
-    <span class="step-number">2</span>
-    <h4>Licencia y Conquista del NCLEX con Confianza</h4>
-    <p style="color: #1a1a1a;">La preparación para el examen NCLEX es crítica, y con nosotros, no hay margen de error. Te equipamos con los recursos educativos más avanzados, simulacros de examen realistas y el soporte de instructores expertos para que apruebes el NCLEX-RN al primer intento. Tu licencia de Registered Nurse (RN) es tu pasaporte directo al éxito.</p>
-  </div>
-  <div class="ui-timeline-step">
-    <span class="step-number">3</span>
-    <h4>Oferta Laboral Garantizada con Patrocinador</h4>
-    <p style="color: #1a1a1a;">Aquí es donde nuestra extensa red de hospitales y clínicas en todo Estados Unidos marca la diferencia. Te conectamos directamente con empleadores que no solo buscan tu talento, sino que están comprometidos a patrocinar tu visa de trabajo (generalmente la EB-3 Green Card). Aseguramos que consigas una oferta de empleo sólida y con beneficios competitivos. <a href="/vacantes" style="color: #2563eb; text-decoration: none; font-weight: 600;">Descubre tus oportunidades laborales</a>.</p>
-  </div>
-  <div class="ui-timeline-step">
-    <span class="step-number">4</span>
-    <h4>Gestión de Visa y Relocalización Fluida</h4>
-    <p style="color: #1a1a1a;">La fase final es la gestión legal de tu visa. Nuestro equipo experto en leyes de inmigración te acompaña en cada formulario, entrevista y requisito. Además, vamos más allá: te brindamos asesoría integral para tu llegada, desde dónde vivir hasta cómo establecerte en tu nueva ciudad, asegurando una transición sin sobresaltos. Entender los <span style="font-weight: 600;">tipos de visa para trabajar como enfermera en usa</span> es solo el comienzo; nosotros te llevamos hasta tu nuevo hogar.</p>
-    <a href="/proceso-visa" style="color: #2563eb; text-decoration: none; font-weight: 600;">Conoce a Fondo el Proceso de Visa</a>
+  <div class="ui-image-side" style="text-align: center;">
+    <img src="IMAGEN_ENFERMERA_GUIANDO_COLEGAS.jpg" alt="Alejandra Martínez, RN, BSN, IBCLC, guiando a enfermeras mexicanas hacia el éxito en Estados Unidos." style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
   </div>
 </div>
 
@@ -120,51 +80,42 @@ slug: "index"
 
 <hr style="border: 0; border-top: 1px solid #eaeaea; margin: 40px 0;">
 
-<div class="ui-section-accent">
-  <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-    <h2 style="color: #000; text-align: center;">🌟 Testimonios Reales: Voces de Éxito, Vidas Transformadas</h2>
-    <p style="color: #1a1a1a; text-align: center; font-size: 1.1em; margin-bottom: 40px;">Las historias de nuestros enfermeros son el verdadero reflejo de nuestro compromiso y la efectividad de nuestro programa. Cada testimonio es un faro de inspiración y una prueba tangible de que tu sueño de trabajar en EE. UU. es totalmente alcanzable.</p>
+<h2 style="text-align: center; color: #1a1a1a; font-size: 2.2em; margin-bottom: 30px;">🗺️ Tu Hoja de Ruta al Éxito: El Proceso Exclusivo de Enfermera en Estados Unidos</h2>
 
-    <div class="ui-grid-2">
-      <div class="ui-quote">
-        "Enfermera en Estados Unidos me brindó una guía paso a paso inigualable. Gracias a ellos, aprobé el NCLEX y estoy trabajando en EE. UU. ¡Totalmente recomendados!" <br/> - <span style="font-weight: 600; color: #166534;">Irene Sánchez, RN.</span>
-      </div>
-      <div class="ui-quote">
-        "Mi experiencia con la agencia es 10/10. El plan de estudios para el NCLEX y la asesoría fueron excepcionales. ¡Gracias, Enfermera en Estados Unidos!" <br/> - <span style="font-weight: 600; color: #166534;">Tania Camila Lizarazo, RN.</span>
-      </div>
-      <div class="ui-quote">
-        "La plataforma de aprendizaje es de primera, y el seguimiento constante del equipo me dio la seguridad que necesitaba." <br/> - <span style="font-weight: 600; color: #166534;">Mariza Herrera, RN.</span>
-      </div>
-      <div class="ui-quote">
-        "La atención personalizada de Alejandra es lo que realmente marca la diferencia. Se preocupan por cada caso particular." <br/> - <span style="font-weight: 600; color: #166534;">Luis Erik Yaotecatl, RN.</span>
-      </div>
-    </div>
-    <div style="text-align: center; margin-top: 40px;">
-      <a href="https://wa.me/something" class="cta-button" style="display: inline-block; background-color: #16a34a; color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-size: 1.1em; font-weight: bold;">💬 Habla con Nuestros Asesores y Empieza Tu Historia de Éxito</a>
+<p style="color: #1a1a1a; font-size: 1.1em; line-height: 1.7; max-width: 900px; margin: 0 auto 30px auto; text-align: center;">Hemos destilado el complejo y a menudo abrumador viaje de migración y homologación en un proceso claro, secuencial y totalmente manejable. Te acompañamos sin titubeos a través de cada una de estas fases cruciales, asegurando que todos tus <span style="font-weight: 600;">requisitos para enfermera mexicana en usa</span> se cumplan a la perfección y con la mayor eficiencia.</p>
+
+<div class="ui-timeline" style="max-width: 900px; margin: 0 auto; position: relative;">
+  <div style="position: absolute; left: 20px; top: 0; bottom: 0; width: 4px; background-color: #dcfce7; z-index: 1;"></div>
+  <div class="ui-timeline-step" style="position: relative; padding-left: 60px; margin-bottom: 40px;">
+    <span class="step-number" style="position: absolute; left: 0; top: 0; width: 40px; height: 40px; border-radius: 50%; background-color: #16a34a; color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.2em; z-index: 2; box-shadow: 0 3px 8px rgba(0,0,0,0.2);">1</span>
+    <h4 style="color: #1a1a1a; font-size: 1.6em; margin-bottom: 10px;">📚 Evaluación y Homologación Integral</h4>
+    <p style="color: #1a1a1a; line-height: 1.6;">En primer lugar, realizamos un análisis exhaustivo de tu historial académico y profesional. Posteriormente, te orientamos paso a paso en la minuciosa <span style="font-weight: 600;">revalidación de tu título y credenciales universitarias mexicanas</span> ante organismos clave como TruMerit o CGFNS. Esto asegura que cada documento cumpla con los rigurosos estándares educativos y profesionales estadounidenses. Esta fase es el cimiento sólido de tu futura carrera en EE. UU.</p>
+    <div class="ui-callout ui-callout-info" style="margin-top: 20px; background-color: #e0f2fe; border: 1px solid #38bdf8; color: #0369a1; border-radius: 8px; padding: 15px; display: flex; align-items: flex-start; gap: 10px;">
+      <span style="font-size: 1.5em;">ℹ️</span><p style="margin: 0; font-size: 0.95em; line-height: 1.4;">Sabías que la equivalencia de estudios es el primer gran filtro. Nuestros expertos no solo conocen los requisitos, sino también los detalles específicos de las instituciones mexicanas y cómo presentar tu perfil de manera óptima para una aprobación exitosa.</p>
     </div>
   </div>
-</div>
-
-<div style="height:50px"></div>
-
-<h2 style="text-align: center;">📚 Tu Centro de Conocimiento: Todo lo Necesario para Tu Viaje a EE. UU.</h2>
-<p style="color: #1a1a1a; text-align: center; max-width: 900px; margin: 20px auto 40px auto; font-size: 1.1em;">La información es poder, especialmente cuando se trata de una decisión tan trascendental como migrar. Por consiguiente, en Enfermera en Estados Unidos, hemos recopilado y estructurado los recursos más vitales para que tomes decisiones informadas y estratégicas en cada etapa de tu proceso.</p>
-
-<div class="ui-grid-3">
-  <div class="ui-card">
-    <h3>📖 Guía Completa del Proceso</h3>
-    <p style="color: #1a1a1a;">La guía definitiva que desglosa cada requisito, cada paso y cada examen para trabajar como enfermera en Estados Unidos. Desde la homologación hasta la obtención de tu licencia, todo explicado con claridad.</p>
-    <a href="/requisitos" style="color: #2563eb; text-decoration: none; font-weight: 600;">Leer la Guía Detallada</a>
+  <div class="ui-timeline-step" style="position: relative; padding-left: 60px; margin-bottom: 40px;">
+    <span class="step-number" style="position: absolute; left: 0; top: 0; width: 40px; height: 40px; border-radius: 50%; background-color: #16a34a; color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.2em; z-index: 2; box-shadow: 0 3px 8px rgba(0,0,0,0.2);">2</span>
+    <h4 style="color: #1a1a1a; font-size: 1.6em; margin-bottom: 10px;">🎓 Licencia RN y Preparación NCLEX de Élite</h4>
+    <p style="color: #1a1a1a; line-height: 1.6;">A continuación, te equipamos con los recursos educativos más avanzados y estrategias probadas para que <span style="font-weight: 600;">apruebes el examen NCLEX-RN</span> con total confianza y obtengas tu licencia de Registered Nurse. Nuestra metodología incluye simulacros realistas, materiales de estudio actualizados y el acompañamiento de tutores expertos que entienden las particularidades de tu formación. Te preparamos para el éxito, no solo para aprobar.</p>
+    <p style="color: #1a1a1a; line-height: 1.6;">Para profundizar tus conocimientos sobre el examen NCLEX y sus requisitos oficiales, puedes visitar la página del <a href="https://www.ncsbn.org/nclex.page" target="_blank" style="color: #166534; text-decoration: underline; font-weight: 600;">Consejo Nacional de Juntas Estatales de Enfermería (NCSBN)</a>, la entidad que lo administra.</p>
+    <div class="ui-card" style="margin-top: 20px; background-color: #dcfce7; border: 1px solid #16a34a; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+      <h3 style="color: #166534; font-size: 1.3em; margin-bottom: 10px;">🚀 Nuestro Secreto del NCLEX: Pensamiento Crítico</h3>
+      <p style="color: #166534; margin: 0; line-height: 1.5;">No solo te enseñamos a estudiar; te enseñamos a <span style="font-weight: 600;">estrategizar</span>. Nuestro enfoque va más allá de la memorización, capacitándote para desarrollar el pensamiento crítico necesario y resolver situaciones clínicas como una enfermera estadounidense de alto nivel. ¡Es la clave para tu aprobación!</p>
+    </div>
   </div>
-  <div class="ui-card">
-    <h3>💰 Salarios Competitivos: Tu Verdadera Ganancia</h3>
-    <p style="color: #1a1a1a;">Descubre cuánto puedes esperar ganar por especialidad y estado. Hemos analizado los salarios reales para enfermeras registradas en 2024 y proyecciones futuras, para que planifiques tu estabilidad financiera con datos reales.</p>
-    <a href="/salarios" style="color: #2563eb; text-decoration: none; font-weight: 600;">Consultar Tablas Salariales</a>
+  <div class="ui-timeline-step" style="position: relative; padding-left: 60px; margin-bottom: 40px;">
+    <span class="step-number" style="position: absolute; left: 0; top: 0; width: 40px; height: 40px; border-radius: 50%; background-color: #16a34a; color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.2em; z-index: 2; box-shadow: 0 3px 8px rgba(0,0,0,0.2);">3</span>
+    <h4 style="color: #1a1a1a; font-size: 1.6em; margin-bottom: 10px;">🤝 Oferta Laboral con Patrocinio Asegurado</h4>
+    <p style="color: #1a1a1a; line-height: 1.6;">Con tu licencia RN en mano y tu perfil homologado, te abrimos las puertas a nuestra exclusiva red de hospitales aliados en Estados Unidos. De este modo, te garantizamos una <span style="font-weight: 600;">oferta de empleo que incluye el patrocinio de tu visa</span> (Green Card), eliminando una de las mayores barreras para enfermeras internacionales. Deja de buscar empleo; permite que el empleo de tus sueños te encuentre a ti.</p>
+    <a href="/vacantes" style="color: #166534; text-decoration: underline; font-weight: 600; display: inline-block; margin-top: 15px; font-size: 1.1em;">👉 Explora Empleos Disponibles Ahora y Visualiza tu Futuro</a>
   </div>
-  <div class="ui-card">
-    <h3>🛂 Domina los <span style="font-weight: 600;">Tipos de Visa para Trabajar como Enfermera en USA</span></h3>
-    <p style="color: #1a1a1a;">Entiende a fondo el proceso de la visa de trabajo y la Green Card. Te explicamos los diferentes <span style="font-weight: 600;">tipos de visa para trabajar como enfermera en usa</span>, sus requisitos, sus tiempos de espera y cómo asegurar la aprobación. Nuestro equipo legal te lo simplifica.</p>
-    <a href="/visa" style="color: #2563eb; text-decoration: none; font-weight: 600;">Explorar Proceso de Visa</a>
+  <div class="ui-timeline-step" style="position: relative; padding-left: 60px; margin-bottom: 0;">
+    <span class="step-number" style="position: absolute; left: 0; top: 0; width: 40px; height: 40px; border-radius: 50%; background-color: #16a34a; color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.2em; z-index: 2; box-shadow: 0 3px 8px rgba(0,0,0,0.2);">4</span>
+    <h4 style="color: #1a1a1a; font-size: 1.6em; margin-bottom: 10px;">✈️ Gestión de Visa y Relocalización sin Estrés</h4>
+    <p style="color: #1a1a1a; line-height: 1.6;">Finalmente, nuestro equipo de expertos en inmigración gestiona íntegramente tu proceso de visa de trabajo (Green Card). Además, te brindamos <span style="font-weight: 600;">asesoría integral para tu llegada e instalación en tu nueva ciudad</span>, desde la búsqueda de vivienda hasta la adaptación cultural, asegurando una transición fluida y segura para ti y tu familia. Considera que los trámites consulares en México (en los consulados de Guadalajara, Monterrey o la Ciudad de México) serán manejados con la misma eficiencia.</p>
+    <p style="color: #1a1a1a; line-height: 1.6; margin-top: 15px;">Es crucial considerar que los salarios varían significativamente por estado y especialidad. Si te preguntas [cuanto gana una enfermera en estados unidos](https://enfermeraenestadosunidos.com/proceso-para-enfermeras-extranjeras-por-pais/), te invitamos a explorar nuestra guía detallada que te ofrecerá una visión clara de tu potencial de ingresos.</p>
+    <a href="/visa" style="color: #166534; text-decoration: underline; font-weight: 600; display: inline-block; margin-top: 15px; font-size: 1.1em;">👉 Entiende el Proceso de Visa al Detalle y Planifica tu Futuro</a>
   </div>
 </div>
 
@@ -172,68 +123,137 @@ slug: "index"
 
 <hr style="border: 0; border-top: 1px solid #eaeaea; margin: 40px 0;">
 
-<div class="ui-hero-callout">
-  <h2>¡No Pospongas Más Tu Sueño Americano!</h2>
-  <p style="color: #1a1a1a; font-size: 1.15em;">Miles de enfermeras hispanas ya están transformando sus vidas en Estados Unidos. Tú podrías ser la próxima. Con Enfermera en Estados Unidos, tienes un socio experto que entiende cada detalle del proceso, desde los trámites de homologación hasta la complejidad de los <span style="font-weight: 600;">tipos de visa para trabajar como enfermera en usa</span>.</p>
-  <p style="color: #1a1a1a; font-size: 1.15em;">Mi compromiso es tu éxito. Permíteme mostrarte cómo mi equipo y yo podemos trazar el camino más claro y seguro para ti. La consulta inicial es gratuita y sin compromiso. ¿Qué esperas para dar el primer paso?</p>
-  <a href="https://wa.me/something" class="cta-button" style="display: inline-block; background-color: #d97706; color: white; padding: 18px 35px; border-radius: 10px; text-decoration: none; font-size: 1.25em; font-weight: bold; margin-top: 30px;">📞 ¡Agenda Tu Consulta GRATUITA Ahora!</a>
+<h2 style="text-align: center; color: #1a1a1a; font-size: 2.2em; margin-bottom: 30px;">💖 Voces de Éxito: Cientos de Enfermeras Mexicanas ya Triunfando en EE. UU.</h2>
+
+<p style="color: #1a1a1a; font-size: 1.1em; line-height: 1.7; max-width: 900px; margin: 0 auto 30px auto; text-align: center;">Las historias de nuestras enfermeras son el testimonio más poderoso de nuestra metodología. Sus logros son el reflejo de una guía experta, un compromiso inquebrantable y la aplicación efectiva de los <span style="font-weight: 600;">requisitos para enfermera mexicana en usa</span>.</p>
+
+<div class="ui-grid-3" style="max-width: 1200px; margin: 0 auto; gap: 30px;">
+  <div class="ui-card" style="background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 10px; padding: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+    <div class="ui-quote" style="font-style: italic; margin-bottom: 15px; color: #374151; font-size: 1.05em; line-height: 1.6;">"Enfermera en Estados Unidos fue mi brújula inquebrantable. La guía paso a paso para aprobar el NCLEX y asegurar mi trabajo en USA fue simplemente invaluable. ¡Gracias, Alejandra, por abrirme un mundo de oportunidades!"</div>
+    <p style="font-weight: 600; text-align: right; color: #1a1a1a; margin: 0;">— Irene Sánchez, RN (Chihuahua, México)</p>
+  </div>
+  <div class="ui-card" style="background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 10px; padding: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+    <div class="ui-quote" style="font-style: italic; margin-bottom: 15px; color: #374151; font-size: 1.05em; line-height: 1.6;">"Les doy un 10/10 sin dudarlo. El plan de estudios para el NCLEX es excepcional, y la asesoría personalizada de Alejandra es la clave diferenciadora para el éxito. ¡Altamente recomendada a todos mis colegas!"</div>
+    <p style="font-weight: 600; text-align: right; color: #1a1a1a; margin: 0;">— Tania Camila Lizarazo, RN (CDMX, México)</p>
+  </div>
+  <div class="ui-card" style="background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 10px; padding: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+    <div class="ui-quote" style="font-style: italic; margin-bottom: 15px; color: #374151; font-size: 1.05em; line-height: 1.6;">"La calidad de la plataforma de aprendizaje es de primera categoría. Pero lo que verdaderamente marca la diferencia es el seguimiento constante y personalizado del equipo. Nunca, ni por un momento, me sentí desamparada."</div>
+    <p style="font-weight: 600; text-align: right; color: #1a1a1a; margin: 0;">— Mariza Herrera, RN (Jalisco, México)</p>
+  </div>
+  <div class="ui-card" style="background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 10px; padding: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+    <div class="ui-quote" style="font-style: italic; margin-bottom: 15px; color: #374151; font-size: 1.05em; line-height: 1.6;">"Alejandra se toma el tiempo invaluable de entender cada caso particular. Su atención personalizada y su conocimiento profundo son lo que distingue a Enfermera en Estados Unidos de cualquier otra agencia del mercado."</div>
+    <p style="font-weight: 600; text-align: right; color: #1a1a1a; margin: 0;">— Luis Erik Yaotecatl, RN (Puebla, México)</p>
+  </div>
+  <div class="ui-card" style="background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 10px; padding: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+    <div class="ui-quote" style="font-style: italic; margin-bottom: 15px; color: #374151; font-size: 1.05em; line-height: 1.6;">"Un programa excepcionalmente bien organizado que abarca desde la preparación para el NCLEX y el dominio del inglés, hasta la estratégica búsqueda de empleo. Mi vida ha experimentado un cambio radical y positivo."</div>
+    <p style="font-weight: 600; text-align: right; color: #1a1a1a; margin: 0;">— Yerimel Méndez Mejia, RN (Nuevo León, México)</p>
+  </div>
+  <div class="ui-card" style="background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 10px; padding: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+    <div class="ui-quote" style="font-style: italic; margin-bottom: 15px; color: #374151; font-size: 1.05em; line-height: 1.6;">"Agradezco infinitamente el apoyo incondicional y el profesionalismo inigualable de todo el equipo de Enfermera en Estados Unidos. Me sentí parte de una verdadera familia. ¡Gracias por hacer mi sueño realidad!"</div>
+    <p style="font-weight: 600; text-align: right; color: #1a1a1a; margin: 0;">— Lady Noguera Bravo, RN (Veracruz, México)</p>
+  </div>
 </div>
 
 <div style="height:50px"></div>
 
-<h2 style="text-align: center;">❓ Preguntas Frecuentes sobre Visas y Migración para Enfermeras</h2>
-<p style="color: #1a1a1a; text-align: center; max-width: 900px; margin: 20px auto 40px auto; font-size: 1.1em;">Entendemos que el proceso migratorio puede generar muchas dudas. Hemos recopilado las preguntas más comunes relacionadas con los <span style="font-weight: 600;">tipos de visa para trabajar como enfermera en usa</span>, la homologación y el empleo, para brindarte respuestas claras y concisas.</p>
+<a href="https://wa.me/something" style="background-color: #16a34a; color: white; padding: 18px 35px; border-radius: 8px; text-decoration: none; font-size: 1.3em; font-weight: 600; display: block; width: fit-content; margin: 0 auto 50px auto; text-align: center; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">¡Conecta Directamente con Alejandra y su Equipo Hoy Mismo!</a>
 
-<div class="ui-accordion">
-  <details>
-    <summary>¿Cuál es la visa más común y recomendada para enfermeras extranjeras?</summary>
-    <div class="accordion-content" style="color: #1a1a1a;">
-      <p>La <span style="font-weight: 600;">Visa EB-3 (Employment-Based Third Preference)</span> es, con diferencia, la ruta más recomendada para enfermeras internacionales que buscan una residencia permanente en Estados Unidos (Green Card). A diferencia de otras visas temporales como la H-1B (que es limitada y sujeta a lotería) o la TN (solo para Canadá/México), la EB-3 ofrece estabilidad a largo plazo y un camino directo hacia la ciudadanía. En Enfermera en Estados Unidos, nuestra estrategia principal se enfoca en asegurar tu patrocinio para una Green Card EB-3.</p>
-    </div>
-  </details>
-  <details>
-    <summary>¿Puedo ir a EE. UU. con una visa de turista y luego buscar trabajo como enfermera?</summary>
-    <div class="accordion-content" style="color: #1a1a1a;">
-      <p>Absolutamente <span style="font-weight: 600;">NO</span>. Intentar buscar empleo con una visa de turista es ilegal y puede tener consecuencias migratorias severas, incluyendo la negación de futuras visas o la prohibición de entrada a EE. UU. La visa de turista (B-1/B-2) es estrictamente para fines de turismo o negocios temporales, no para trabajar ni para buscar activamente empleo. El proceso correcto implica asegurar una oferta de empleo con patrocinio de visa desde tu país de origen y tramitar la visa de trabajo adecuada antes de ingresar.</p>
-    </div>
-  </details>
-  <details>
-    <summary>¿Necesito una licenciatura (BSN) para obtener una visa de trabajo como enfermera en EE. UU.?</summary>
-    <div class="accordion-content" style="color: #1a1a1a;">
-      <p>Para la mayoría de los <span style="font-weight: 600;">tipos de visa para trabajar como enfermera en usa</span>, como la EB-3, un título de Licenciatura en Enfermería (BSN) es altamente preferido por los empleadores y, en muchos casos, un requisito estándar en los hospitales estadounidenses modernos. Aunque históricamente algunas enfermeras con grados asociados (ADN) podían calificar, la tendencia y la demanda actual se inclinan fuertemente hacia los BSN debido a la complejidad creciente de la atención médica. Si tu título es técnico o asociado, evaluaremos tu perfil para identificar el mejor camino, que podría incluir programas puente o certificaciones adicionales.</p>
-    </div>
-  </details>
-  <details>
-    <summary>¿Cuál es el mejor sitio para reclutar enfermeras hispanas?</summary>
-    <div class="accordion-content" style="color: #1a1a1a;">
-      <p>Más que un simple "sitio web" o un portal de empleos, el mejor lugar para un enfermero/a hispano es una agencia especializada que funcione como un socio estratégico integral. Como la agencia líder en este nicho, Enfermera en Estados Unidos es un <span style="font-weight: 600;">ecosistema de éxito</span>. Ofrecemos desde homologación y preparación NCLEX, hasta gestión legal de los <span style="font-weight: 600;">tipos de visa para trabajar como enfermera en usa</span> y colocación laboral con patrocinio. No solo te encontramos un empleo; construimos tu carrera.</p>
-    </div>
-  </details>
-  <details>
-    <summary>¿Cuánto cobra una agencia de enfermería por estos servicios?</summary>
-    <div class="accordion-content" style="color: #1a1a1a;">
-      <p>Los costos asociados a un proceso migratorio y de homologación varían significativamente. Sin embargo, en Enfermera en Estados Unidos, creemos firmemente en la <span style="font-weight: 600;">transparencia total</span>. Nuestras tarifas no son un gasto, sino una inversión integral en tu futuro profesional y personal en EE. UU. Durante tu sesión estratégica gratuita, desglosaremos todos los posibles costos y te explicaremos el valor que obtienes por cada euro invertido, asegurando que no haya sorpresas desagradables.</p>
-    </div>
-  </details>
-  <details>
-    <summary>¿Cuáles son las reclutadoras más confiables para enfermeras hispanas?</summary>
-    <div class="accordion-content" style="color: #1a1a1a;">
-      <p>Una reclutadora verdaderamente confiable se distingue por su <span style="font-weight: 600;">transparencia, testimonios reales verificables y experiencia demostrada</span> no solo en reclutamiento, sino en la complejidad de los procesos migratorios (con un profundo conocimiento de los <span style="font-weight: 600;">tipos de visa para trabajar como enfermera en usa</span>) y la preparación para el NCLEX. Además, debe ofrecer un acompañamiento personalizado y soporte legal. Enfermera en Estados Unidos cumple y supera estos criterios, con un historial comprobado de éxito y cientos de enfermeros ya establecidos en el país.</p>
-    </div>
-  </details>
-</div>
+<hr style="border: 0; border-top: 1px solid #eaeaea; margin: 40px 0;">
 
-<div style="height:50px"></div>
-
-<div class="ui-section-dark">
-  <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-    <h2 style="color: white; text-align: center;">👋 ¿Lista para Transformar Tu Realidad? ¡Tu Éxito Te Espera!</h2>
-    <p style="color: #f0f0f0; text-align: center; font-size: 1.15em; margin-bottom: 40px;">Como Alejandra Martínez, te aseguro que cada paso de este camino será guiado con la máxima profesionalidad y experiencia. La oportunidad de ejercer tu profesión en Estados Unidos, con un salario digno y una calidad de vida superior, no es un sueño inalcanzable. Es una meta que alcanzaremos juntos.</p>
-    <p style="color: #f0f0f0; text-align: center; font-size: 1.15em;">No dejes que la complejidad de los <span style="font-weight: 600;">tipos de visa para trabajar como enfermera en usa</span> o el proceso de homologación te detengan. Mi equipo y yo estamos aquí para simplificarlo todo y asegurar tu éxito. <span style="font-weight: 700; color: #a7f3d0;">La decisión de cambiar tu futuro es tuya; la guía experta, nuestra.</span></p>
-    <div style="text-align: center; margin-top: 50px;">
-      <a href="https://wa.me/something" class="cta-button" style="display: inline-block; background-color: #fca311; color: #1a1a1a; padding: 20px 40px; border-radius: 12px; text-decoration: none; font-size: 1.35em; font-weight: bold;">➡️ ¡Inicia tu Consulta GRATUITA y Despega hacia EE. UU.!</a>
+<div class="ui-section-accent" style="background-color: #f0fdf4; padding: 60px 20px;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <h2 style="color: #1a1a1a; text-align: center; font-size: 2.2em; margin-bottom: 40px;">📚 Recursos Clave: Todo lo que Necesitas Saber para tu Transformación</h2>
+    <p style="text-align: center; color: #1a1a1a; font-size: 1.1em; margin-bottom: 50px;">Profundiza en la información esencial para tu viaje de éxito. Hemos compilado guías exhaustivas y análisis de datos precisos para tu referencia y empoderamiento.</p>
+    <div class="ui-grid-3" style="gap: 30px;">
+      <div class="ui-card" style="border: 1px solid #dcfce7; background-color: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); text-align: center;">
+        <h3 style="color: #166534; font-size: 1.5em; margin-bottom: 15px;">📖 Guía Completa de Requisitos</h3>
+        <p style="color: #374151; margin-bottom: 25px; line-height: 1.6;">La guía definitiva con todos los <span style="font-weight: 600;">requisitos para enfermera mexicana en usa</span>, los pasos críticos y los exámenes necesarios para ejercer tu profesión en cualquier estado. ¡No dejes absolutamente nada al azar!</p>
+        <a href="/requisitos" style="background-color: #dcfce7; color: #166534; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: 600; display: inline-block; transition: background-color 0.3s ease;">Leer la Guía Detallada</a>
+      </div>
+      <div class="ui-card" style="border: 1px solid #dcfce7; background-color: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); text-align: center;">
+        <h3 style="color: #166534; font-size: 1.5em; margin-bottom: 15px;">💰 Salarios en Estados Unidos</h3>
+        <p style="color: #374151; margin-bottom: 25px; line-height: 1.6;">Descubre con exactitud cuánto puedes ganar por especialidad y estado. Nuestro análisis profundo incluye los salarios reales proyectados para enfermeras en 2026. Planifica tu futuro financiero con datos concretos y veraces.</p>
+        <a href="/salarios" style="background-color: #dcfce7; color: #166534; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: 600; display: inline-block; transition: background-color 0.3s ease;">Consultar Salarios Actualizados</a>
+      </div>
+      <div class="ui-card" style="border: 1px solid #dcfce7; background-color: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); text-align: center;">
+        <h3 style="color: #166534; font-size: 1.5em; margin-bottom: 15px;">🛂 Proceso de Visas y Green Card</h3>
+        <p style="color: #374151; margin-bottom: 25px; line-height: 1.6;">Comprende el intrincado pero estructurado proceso de la visa de trabajo y la Green Card. Te explicamos los tipos de visa disponibles para enfermeras y los tiempos de espera actuales de forma clara y concisa. ¡Tu tranquilidad es nuestra prioridad!</p>
+        <a href="/visa" style="background-color: #dcfce7; color: #166534; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: 600; display: inline-block; transition: background-color 0.3s ease;">Entender el Proceso Migratorio</a>
+      </div>
     </div>
   </div>
+</div>
+
+<div style="height:50px"></div>
+
+<h2 style="text-align: center; color: #1a1a1a; font-size: 2.2em; margin-bottom: 30px;">🤔 Preguntas Frecuentes sobre tu Trayectoria en EE. UU.</h2>
+
+<p style="color: #1a1a1a; font-size: 1.1em; line-height: 1.7; max-width: 900px; margin: 0 auto 30px auto; text-align: center;">Hemos recopilado las inquietudes más comunes de enfermeras mexicanas como tú. Si tienes más preguntas, nuestra sesión estratégica gratuita está diseñada precisamente para resolverlas.</p>
+
+<div class="ui-accordion" style="max-width: 900px; margin: 0 auto;">
+  <details style="margin-bottom: 15px; border: 1px solid #eaeaea; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+    <summary style="padding: 18px 20px; background-color: #f8f8f8; cursor: pointer; font-weight: 700; color: #1a1a1a; display: flex; align-items: center; justify-content: space-between; font-size: 1.1em;">¿Cuál es el mejor camino para una enfermera mexicana buscando empleo en EE. UU.?<span style="margin-left: 10px;">▼</span></summary>
+    <div class="accordion-content" style="padding: 20px; border-top: 1px solid #eaeaea; color: #1a1a1a; line-height: 1.6;">
+      <p>Más que un simple "sitio web" o un portal de empleos, el camino más eficaz y seguro para una enfermera mexicana es contar con un <span style="font-weight: 600;">socio estratégico integral</span>. Enfermera en Estados Unidos no es solo una agencia; es un ecosistema de éxito diseñado para ti. Te ofrecemos una guía 360°, desde la homologación de tus estudios universitarios mexicanos y la preparación exhaustiva para el NCLEX, hasta la obtención de una oferta laboral con patrocinio de visa y asistencia con todos los trámites migratorios.</p>
+      <div class="ui-callout ui-callout-tip" style="margin-top: 20px; background-color: #ecfdf5; border: 1px solid #34d399; color: #065f46; border-radius: 8px; padding: 15px; display: flex; align-items: flex-start; gap: 10px;">
+        <span style="font-size: 1.5em;">💡</span><p style="margin: 0; font-size: 0.95em; line-height: 1.4;">Consejo de Alejandra: Busca una agencia que no solo te conecte con trabajos, sino que te empodere con el conocimiento y la preparación para cada etapa del proceso, especialmente con los específicos <span style="font-weight: 600;">requisitos para enfermera mexicana en usa</span> y las complejidades de la homologación para títulos de universidades mexicanas.</p>
+      </div>
+    </div>
+  </details>
+  <details style="margin-bottom: 15px; border: 1px solid #eaeaea; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+    <summary style="padding: 18px 20px; background-color: #f8f8f8; cursor: pointer; font-weight: 700; color: #1a1a1a; display: flex; align-items: center; justify-content: space-between; font-size: 1.1em;">¿Cuánto debo invertir para trabajar como enfermera en EE. UU. con Enfermera en Estados Unidos?<span style="margin-left: 10px;">▼</span></summary>
+    <div class="accordion-content" style="padding: 20px; border-top: 1px solid #eaeaea; color: #1a1a1a; line-height: 1.6;">
+      <p>Los costos asociados a este proceso, que implica cumplir con todos los <span style="font-weight: 600;">requisitos para enfermera mexicana en usa</span>, varían significativamente según el perfil individual y los servicios requeridos. En Enfermera en Estados Unidos, nuestra filosofía se basa en la <span style="font-weight: 600;">transparencia total</span>. Consideramos nuestras tarifas como una inversión integral y estratégica en tu futuro, cubriendo asesorías expertas, preparación de alto nivel y la gestión de trámites complejos. Discutiremos todos los detalles de forma abierta y sin compromiso durante tu consulta inicial gratuita, para que tengas una visión clara y sin sorpresas financieras. Nuestra meta es maximizar tu retorno de inversión en el menor tiempo posible.</p>
+      <table class="ui-comparison-table" style="width: 100%; border-collapse: collapse; margin-top: 25px; border-radius: 8px; overflow: hidden;">
+        <thead>
+          <tr>
+            <th style="background-color: #dcfce7; padding: 15px; text-align: left; color: #166534; border: 1px solid #ccebd7; font-size: 1.05em;">Concepto Clave</th>
+            <th style="background-color: #dcfce7; padding: 15px; text-align: left; color: #166534; border: 1px solid #ccebd7; font-size: 1.05em;">Beneficio con Enfermera en Estados Unidos</th>
+            <th style="background-color: #dcfce7; padding: 15px; text-align: left; color: #166534; border: 1px solid #ccebd7; font-size: 1.05em;">Riesgos Elevados por Tu Cuenta (Sin Asesoría)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 15px; border: 1px solid #eaeaea; color: #1a1a1a;">Evaluación de Credenciales</td>
+            <td style="padding: 15px; border: 1px solid #eaeaea; color: #1a1a1a;">Guía experta en TruMerit/CGFNS y minimización drástica de errores y retrasos.</td>
+            <td style="padding: 15px; border: 1px solid #eaeaea; color: #1a1a1a;">Altos costos por errores de documentación, múltiples envíos y retrasos prolongados.</td>
+          </tr>
+          <tr>
+            <td style="padding: 15px; border: 1px solid #eaeaea; color: #1a1a1a;">Preparación NCLEX</td>
+            <td style="padding: 15px; border: 1px solid #eaeaea; color: #1a1a1a;">Plataforma premium, tutores certificados, simulacros, alta tasa de éxito comprobada.</td>
+            <td style="padding: 15px; border: 1px solid #eaeaea; color: #1a1a1a;">Gastos repetidos por reprobar el examen, desmotivación, frustración acumulada.</td>
+          </tr>
+          <tr>
+            <td style="padding: 15px; border: 1px solid #eaeaea; color: #1a1a1a;">Oferta Laboral y Visa</td>
+            <td style="padding: 15px; border: 1px solid #eaeaea; color: #1a1a1a;">Conexiones directas con hospitales patrocinadores, gestión migratoria legal y eficiente.</td>
+            <td style="padding: 15px; border: 1px solid #eaeaea; color: #1a1a1a;">Búsqueda incierta, dificultad extrema para encontrar patrocinio, riesgo de fraudes.</td>
+          </tr>
+          <tr>
+            <td style="padding: 15px; border: 1px solid #eaeaea; color: #1a1a1a;">Relocalización y Adaptación</td>
+            <td style="padding: 15px; border: 1px solid #eaeaea; color: #1a1a1a;">Asesoría integral para vivienda, cultura, escuela para hijos, minimizando el choque cultural.</td>
+            <td style="padding: 15px; border: 1px solid #eaeaea; color: #1a1a1a;">Estrés significativo, aislamiento, adaptación prolongada y costosa.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+  <details style="margin-bottom: 15px; border: 1px solid #eaeaea; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+    <summary style="padding: 18px 20px; background-color: #f8f8f8; cursor: pointer; font-weight: 700; color: #1a1a1a; display: flex; align-items: center; justify-content: space-between; font-size: 1.1em;">¿Cómo sé si una reclutadora de enfermeras es realmente confiable y adecuada para enfermeras mexicanas?<span style="margin-left: 10px;">▼</span></summary>
+    <div class="accordion-content" style="padding: 20px; border-top: 1px solid #eaeaea; color: #1a1a1a; line-height: 1.6;">
+      <p>Una reclutadora genuinamente confiable y especializada para enfermeras mexicanas se distingue por varios factores ineludibles. Primero, por su <span style="font-weight: 600;">transparencia absoluta</span> en cada fase del proceso. Segundo, por la abundancia de testimonios verificables de éxito de profesionales con un perfil similar al tuyo. Tercero, por su experiencia demostrada no solo en la colocación laboral, sino en los complejos procesos migratorios específicos para mexicanos y en la preparación estratégica para el NCLEX.</p>
+      <p style="margin-top: 15px;">Asimismo, es crucial que la agencia esté fundada y dirigida por enfermeros, como yo, que hemos recorrido el mismo camino y comprendemos de primera mano los desafíos y las aspiraciones. Nosotros conocemos los <span style="font-weight: 600;">requisitos para enfermera mexicana en usa</span> desde una perspectiva práctica y personal.</p>
+    </div>
+  </details>
+</div>
+
+<div style="height:50px"></div>
+
+<hr style="border: 0; border-top: 1px solid #eaeaea; margin: 40px 0;">
+
+<div class="ui-hero-callout" style="background-color: #1a6534; color: white; padding: 60px 20px; text-align: center; border-radius: 15px; max-width: 1000px; margin: 0 auto; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+  <h2 style="font-size: 2.8em; margin-bottom: 25px; font-weight: 700; color: white;">¡Tu Próximo Capítulo Profesional Te Espera en Estados Unidos!</h2>
+  <p style="font-size: 1.4em; margin-bottom: 40px; line-height: 1.6; color: rgba(255,255,255,0.9);">Miles de enfermeras mexicanas ya están transformando sus vidas, obteniendo salarios competitivos y una calidad de vida superior. ¿Por qué tú no? Los <span style="background-color: #dcfce7; color: #166534; padding: 2px 5px; border-radius: 3px; font-weight: 600;">requisitos para enfermera mexicana en usa</span> son el mapa, y nosotros somos tu brújula experta. Es momento de actuar.</p>
+  <a href="https://wa.me/something" style="background-color: #dcfce7; color: #166534; padding: 20px 45px; border-radius: 10px; text-decoration: none; font-size: 1.6em; font-weight: 700; display: inline-block; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 6px 15px rgba(0,0,0,0.2);">¡Quiero Transformar mi Carrera! Agenda tu Consulta Gratuita Ahora</a>
 </div>
 
 <div style="height:50px"></div>

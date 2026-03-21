@@ -1,65 +1,65 @@
 {
-  "nombre_sitio": "Enfermeras Mexicanas Exitosas",
-  "color_tema": "#bf360c",
-  "comando_deploy": "netlify deploy --prod",
-  "layout": "LayoutA",
-  "gcp_project_id": "mx-nurses-ntl-22",
+  "nombre_sitio": "Talento Enfermería CO",
+  "color_tema": "#fbc02d",
+  "comando_deploy": "gcloud app deploy app.yaml --quiet",
+  "layout": "LayoutC",
+  "gcp_project_id": "co-talent-app-11",
   "seo": {
-    "titulo_base": "México a USA RN",
-    "descripcion_base": "Guía especializada en tramitar visa NAFTA (TN) y homologación rápida para talento de México.",
-    "idioma": "es-MX"
+    "titulo_base": "Desde Colombia a USA",
+    "descripcion_base": "Proceso EB-3 migratorio y reclutamiento garantizado para profesionales graduados en Colombia.",
+    "idioma": "es-CO"
   },
   "footer": {
     "empresa_legal": "Enfermera en Estados Unidos",
-    "direccion": "CDMX, México 01000",
-    "email_contacto": "contacto@enfermeras-mexicanas-usa.org"
+    "direccion": "Bogotá, Colombia 110111",
+    "email_contacto": "asistencia@enfermeras-colombianas-usa.com"
   },
   "menu_global": [
     {
-      "nombre": "Diploma Online",
+      "nombre": "Título USA",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Superar NCLEX",
+      "nombre": "Prep NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Bolsa Empleo",
+      "nombre": "Buscar Trabajo",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Visa EB-3",
+      "nombre": "Trámite EB3",
       "ruta": "/visa"
     },
     {
-      "nombre": "Tablas Sueldos",
+      "nombre": "Salario Real",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Actualidad",
+      "nombre": "Noticias",
       "ruta": "/blog"
     },
     {
-      "nombre": "Chat Directo",
+      "nombre": "Ayuda Chat",
       "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Acceso",
+      "nombre": "Iniciar",
       "ruta": "/login"
     }
   ],
-  "dominio": "https://enfermeras-mexicanas-usa.org",
-  "nav_footer_version": "v1",
-  "font_family": "Plus Jakarta Sans",
+  "dominio": "https://enfermeras-colombianas-usa.com",
+  "nav_footer_version": "v3",
+  "font_family": "Inter",
   "color_palette": {
-    "primary": "hsl(26, 73%, 40%)",
-    "secondary": "hsl(56, 53%, 32%)",
-    "accent": "hsl(204, 73%, 42%)",
-    "text_bold": "hsl(26, 73%, 15%)",
+    "primary": "hsl(55, 95%, 26%)",
+    "secondary": "hsl(85, 75%, 28%)",
+    "accent": "hsl(210, 95%, 44%)",
+    "text_bold": "hsl(55, 95%, 15%)",
     "meta": {
-      "primary_contrast": "4.77",
-      "secondary_contrast": "4.62",
-      "accent_contrast": "4.59"
+      "primary_contrast": "4.60",
+      "secondary_contrast": "4.90",
+      "accent_contrast": "4.82"
     }
   }
 }
