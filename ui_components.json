@@ -37,6 +37,12 @@
       "name": "Hero Performance (Centered)",
       "allowed_presets": ["ui-preset--emerald", "ui-preset--midnight", "ui-preset--professional"],
       "prompt": "HERO PERFORMANCE (ui-hero-performance): Diseño centrado para destacar RESULTADOS y AUTORIDAD. Úsalo como alternativa al Romuald.\n<div class=\"ui-hero-performance {preset}\">\n  <div class=\"hero-content\">\n    <span class=\"hero-badge\">RESULTADOS GARANTIZADOS</span>\n    <h1>Título con <span class=\"ui-highlight-alt\">Highlight de Impacto</span></h1>\n    <p class=\"hero-subtitle\">Subtítulo que detalle el beneficio principal en 2 líneas...</p>\n    <a href=\"URL\" class=\"btn\">🚀 BOTÓN DE ACCIÓN</a>\n  </div>\n</div>"
+    },
+    {
+      "id": "ui-hero-agency",
+      "name": "Hero Agency (BigSEO style)",
+      "allowed_presets": ["ui-preset--midnight", "ui-preset--emerald", "ui-preset--professional"],
+      "prompt": "HERO AGENCY (ui-hero-agency): Estilo corporativo de alto impacto con logos de confianza al pie. Úsalo para landing pages transaccionales.\n<div class=\"ui-hero-agency {preset}\">\n  <div class=\"hero-content\">\n    <h1>Título <span class=\"ui-highlight\">Impactante</span></h1>\n    <p class=\"subtitle\">Subtítulo que detalle el beneficio principal en 2-3 líneas...</p>\n    <div class=\"hero-cta\"><a href=\"URL\" class=\"btn-agency\">BOTÓN ACCIÓN</a></div>\n    <div class=\"trust-bar\">\n      <img src=\"https://via.placeholder.com/150x50?text=LOGO1\" alt=\"Trust 1\" class=\"trust-logo\">\n      <img src=\"https://via.placeholder.com/150x50?text=LOGO2\" alt=\"Trust 2\" class=\"trust-logo\">\n      <img src=\"https://via.placeholder.com/150x50?text=LOGO3\" alt=\"Trust 3\" class=\"trust-logo\">\n    </div>\n  </div>\n</div>"
     }
   ],
   "sections": [

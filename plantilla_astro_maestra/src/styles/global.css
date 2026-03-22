@@ -774,3 +774,56 @@ body {
   background-color: rgb(249, 115, 22);
   transform: scale(1.05);
 }
+
+/* Hero Agency Style (BigSEO Inspired) */
+.ui-hero-agency {
+  @apply relative min-h-[85vh] flex items-center overflow-hidden rounded-3xl my-12;
+  background-color: var(--color-primary, #09090b);
+}
+
+.ui-hero-agency::before {
+  content: "";
+  @apply absolute inset-0 bg-cover bg-center opacity-50 grayscale-[30%];
+  background-image: var(--bg-image, url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop'));
+}
+
+.ui-hero-agency::after {
+  content: "";
+  @apply absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent;
+}
+
+.ui-hero-agency .hero-content {
+  @apply relative z-10 w-full max-w-6xl px-8 md:px-20 py-16 flex flex-col items-start text-left;
+}
+
+.ui-hero-agency h1 {
+  @apply text-white text-5xl md:text-8xl font-black mb-4 leading-tight tracking-tighter;
+}
+
+.ui-hero-agency .subtitle {
+  @apply text-zinc-300 text-lg md:text-2xl mb-10 max-w-xl leading-relaxed opacity-90;
+}
+
+.ui-hero-agency .hero-cta {
+  @apply flex flex-col sm:flex-row gap-4 mb-20;
+}
+
+.ui-hero-agency .btn-agency {
+  @apply px-10 py-5 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-all shadow-2xl uppercase tracking-wider text-sm;
+}
+
+/* Trust Bar / Logos */
+.ui-hero-agency .trust-bar {
+  @apply flex flex-wrap items-center gap-8 md:gap-12 opacity-80 grayscale brightness-200 mt-auto;
+}
+
+.ui-hero-agency .trust-logo {
+  @apply h-8 md:h-10 w-auto object-contain;
+}
+
+/* Responsive adjustments for very small screens */
+@media (max-width: 640px) {
+  .ui-hero-agency h1 {
+    @apply text-4xl;
+  }
+}

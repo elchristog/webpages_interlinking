@@ -1,0 +1,44 @@
+---
+import LayoutA from '../layouts/LayoutA.astro';
+import HeroAgency from '../components/fundations/containers/HeroAgency.astro';
+import config from '../data/config_inyectada.json';
+---
+
+<LayoutA titulo="Test Hero Agency" descripcion="Verified Hero Agency component">
+  <div class="space-y-20">
+    <section>
+      <h2 class="text-2xl font-bold mb-4">Hero Agency - Midnight Preset</h2>
+      <HeroAgency 
+        class="ui-preset--midnight"
+        title="Marketing Digital que <span class='ui-highlight'>Genera Negocio</span>"
+        subtitle="Agencia de Marketing Digital especializada en resultados medibles y crecimiento acelerado para el sector salud."
+        ctaText="Reserva tu Consultoría Gratuita"
+        ctaLink="/contacto"
+        logos={["shopify", "cooltra", "danone", "enrique-tomas", "glovo", "typeform"]}
+      />
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-bold mb-4">Hero Agency - Emerald Preset</h2>
+      <HeroAgency 
+        class="ui-preset--emerald"
+        title="Tu Próximo Paso en <span class='ui-highlight'>Enfermería USA</span>"
+        subtitle="Conectamos el talento latino con los mejores hospitales de Estados Unidos. Proceso 100% garantizado."
+        ctaText="Empieza el Proceso Hoy"
+        ctaLink="/asesoria"
+        logos={["ncsbn", "cgfns", "ancc", "joint-commission", "hrsa"]}
+      />
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-bold mb-4">Hero Agency - Professional Preset</h2>
+      <HeroAgency 
+        class="ui-preset--professional"
+        title="Liderazgo y <span class='ui-highlight'>Excelencia Clínica</span>"
+        subtitle="Formación de alto nivel para enfermeros que aspiran a la excelencia en el sistema de salud más avanzado del mundo."
+        ctaText="Ver Programas"
+        ctaLink="/cursos"
+      />
+    </section>
+  </div>
+</LayoutA>
