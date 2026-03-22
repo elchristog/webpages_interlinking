@@ -1,18 +1,176 @@
 ---
-// Lee la configuración que Python acaba de inyectar
 import config from '../data/config_inyectada.json';
 ---
 
-<header style={`background-color: ${config.color_tema}; padding: 1rem; color: white; display: flex; justify-content: space-between; align-items: center;`}>
-  <div class="logo" style="font-weight: bold; font-size: 1.5rem;">{config.nombre_sitio}</div>
-  
-  <nav>
-    <ul style="list-style: none; display: flex; gap: 1rem; margin: 0; padding: 0;">
+<header class="navbar-apple">
+  <div class="navbar-container">
+    {/* Desktop Logo */}
+    <a href="/" class="navbar-logo">
+      <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+      </svg>
+      <span class="sr-only">{config.nombre_sitio}</span>
+    </a>
+
+    {/* Desktop Navigation */}
+    <nav class="navbar-links">
       {config.menu_global.map((item: any) => (
-        <li>
-          <a href={item.ruta} style="color: white; text-decoration: none;">{item.nombre}</a>
-        </li>
+        <a href={item.ruta} class="navbar-link">
+          {item.nombre}
+        </a>
       ))}
-    </ul>
-  </nav>
+    </nav>
+
+    {/* Right Actions */}
+    <div class="navbar-actions">
+      <button class="icon-btn search-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+        </svg>
+      </button>
+      <button class="icon-btn mobile-menu-toggle lg:hidden" id="menuToggle">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  {/* Mobile Menu Overlay */}
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-links">
+      {config.menu_global.map((item: any) => (
+        <a href={item.ruta} class="mobile-link">
+          {item.nombre}
+        </a>
+      ))}
+    </nav>
+  </div>
 </header>
+
+<style>
+  .navbar-apple {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(20px);
+    background-color: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  /* Version oscura si el preset es oscuro o la pagina lo requiere */
+  :root.dark .navbar-apple {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .navbar-container {
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @media (min-width: 640px) {
+    .navbar-container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .navbar-container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  .navbar-logo {
+    @apply flex items-center text-zinc-900 transition-opacity hover:opacity-70;
+  }
+  :root.dark .navbar-logo { @apply text-white; }
+
+  .navbar-links {
+    display: none;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    .navbar-links {
+      display: flex;
+    }
+  }
+
+  .navbar-link {
+    @apply text-[12px] font-normal text-zinc-900/80 hover:text-zinc-900 transition-colors no-underline tracking-tight;
+  }
+  :root.dark .navbar-link { @apply text-zinc-400 hover:text-white; }
+
+  .navbar-actions {
+    @apply flex items-center space-x-4;
+  }
+
+  .icon-btn {
+    @apply text-zinc-900/80 hover:text-zinc-900 transition-colors;
+  }
+  :root.dark .icon-btn { @apply text-zinc-400 hover:text-white; }
+
+  .mobile-menu {
+    @apply fixed inset-0 top-12 bg-white z-[90] flex-col items-start px-8 py-12 hidden;
+  }
+  :root.dark .mobile-menu { @apply bg-black; }
+
+  .mobile-menu.active {
+    display: flex;
+    animation: fadeIn 0.3s ease-out, slideInFromTop 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideInFromTop {
+    from { transform: translateY(-1rem); }
+    to { transform: translateY(0); }
+  }
+
+  .mobile-links {
+    @apply flex flex-col space-y-6 w-full;
+  }
+
+  .mobile-link {
+    @apply text-3xl font-semibold text-zinc-900 hover:text-blue-600 transition-colors no-underline;
+  }
+  :root.dark .mobile-link { @apply text-white hover:text-blue-400; }
+</style>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+      document.body.classList.toggle('overflow-hidden');
+    });
+
+    // Close on link click
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        document.body.classList.remove('overflow-hidden');
+      });
+    });
+  }
+</script>
