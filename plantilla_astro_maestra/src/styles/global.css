@@ -607,3 +607,49 @@ body {
 
 
 
+/* Hero Premium Romuald Style */
+.ui-hero-romuald {
+  @apply relative min-h-[90vh] flex items-center overflow-hidden bg-zinc-950 rounded-3xl my-12;
+}
+
+.ui-hero-romuald::before {
+  content: "";
+  @apply absolute inset-0 bg-[url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-40 grayscale-[20%];
+}
+
+.ui-hero-romuald::after {
+  content: "";
+  @apply absolute inset-0 bg-gradient-to-tr from-zinc-950 via-zinc-950/60 to-transparent;
+}
+
+.ui-hero-romuald .hero-content {
+  @apply relative z-10 w-full max-w-4xl px-8 md:px-20 py-20 text-center md:text-left;
+}
+
+.ui-hero-romuald .badge {
+  @apply inline-block px-4 py-1 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-400 text-xs font-bold tracking-widest uppercase mb-6;
+}
+
+.ui-hero-romuald h1 {
+  @apply text-white text-5xl md:text-7xl font-black mb-6 leading-tight tracking-tighter m-0;
+}
+
+.ui-hero-romuald .subtitle {
+  @apply text-zinc-300 text-xl md:text-2xl mb-8 max-w-2xl leading-relaxed opacity-90;
+}
+
+.ui-hero-romuald .cta-text {
+  @apply text-zinc-400 text-lg mb-8 font-medium italic;
+}
+
+.ui-hero-romuald .btn {
+  @apply inline-flex items-center justify-center px-10 py-4 rounded-2xl bg-blue-600 text-white font-bold text-lg transition-all duration-300 shadow-2xl shadow-blue-500/30 hover:bg-blue-500 hover:-translate-y-1 no-underline;
+}
+
+.ui-hero-romuald .hero-image {
+  @apply hidden lg:flex flex-1 justify-end pr-20 relative z-10;
+}
+
+.ui-hero-romuald .hero-image img {
+  @apply w-full max-w-md object-contain drop-shadow-[0_35px_60px_rgba(0,0,0,0.8)] m-0;
+}

@@ -1,64 +1,65 @@
 {
-  "nombre_sitio": "Enfermeras Mexicanas Exitosas",
-  "color_tema": "#bf360c",
+  "nombre_sitio": "California Nurse Salaries",
+  "color_tema": "#ffb300",
   "comando_deploy": "netlify deploy --prod",
-  "layout": "LayoutA",
-  "gcp_project_id": "mx-nurses-ntl-22",
+  "layout": "LayoutB",
+  "gcp_project_id": "ca-salaries-ntl-1",
   "seo": {
-    "titulo_base": "México a USA RN",
-    "descripcion_base": "Guía especializada en tramitar visa NAFTA (TN) y homologación rápida para talento de México.",
-    "idioma": "es-MX"
+    "titulo_base": "Salarios CA 2025",
+    "descripcion_base": "Los mejores estados y especialidades para cobrar el máximo sueldo como enfermera en California.",
+    "idioma": "es-US"
   },
   "footer": {
     "empresa_legal": "Enfermera en Estados Unidos",
-    "direccion": "CDMX, México 01000",
-    "email_contacto": "contacto@enfermeras-mexicanas-usa.org"
+    "direccion": "Los Angeles, CA 90001",
+    "email_contacto": "contact@nursing-careers-california.com"
   },
   "menu_global": [
     {
-      "nombre": "Homologar Título",
+      "nombre": "Validar Título",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Examen NCLEX",
+      "nombre": "Guía NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Trabajo Hoy",
+      "nombre": "Empleos RN",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Sponsor Visa",
+      "nombre": "Migrar Legal",
       "ruta": "/visa"
     },
     {
-      "nombre": "Tablas Sueldos",
+      "nombre": "Sueldos USA",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Actualidad",
+      "nombre": "Novedades",
       "ruta": "/blog"
     },
     {
-      "nombre": "WhatsApp",
+      "nombre": "Soporte",
       "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Mi Cuenta",
+      "nombre": "Entrar",
       "ruta": "/login"
     }
   ],
-  "dominio": "https://enfermeras-mexicanas-usa.org",
-  "nav_footer_version": "v1",
+  "dominio": "https://nursing-careers-california.com",
   "font_family": "Plus Jakarta Sans",
+  "sidebar_pos": "left",
   "color_palette": {
-    "primary": "oklch(38% 0.14 260)",
-    "secondary": "oklch(50% 0.10 260)",
-    "accent": "oklch(85% 0.12 190)",
-    "text_bold": "oklch(15% 0.06 260)",
+    "primary": "oklch(38% 0.11 50)",
+    "secondary": "oklch(52% 0.07 50)",
+    "accent": "oklch(86% 0.14 20)",
+    "text_bold": "oklch(18% 0.05 50)",
     "meta": {
-      "name": "Midnight Ocean",
+      "name": "Warm Professional",
       "system": "OKLCH Premium v2"
     }
-  }
+  },
+  "nav_footer_version": "v1"
 }

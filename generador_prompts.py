@@ -200,18 +200,32 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
     11. CITA DESTACADA (ui-quote):
         <div class="ui-quote">"Frase de autoridad."</div>
 
-    12. HERO DE ALTO IMPACTO (ui-hero-full): Úsalo al inicio.
-        <div class="ui-hero-full">
+    12. HERO PREMIUM ROMUALD (ui-hero-romuald): DISEÑO ESTÁNDAR OBLIGATORIO PARA 2026. Úsalo SIEMPRE en el inicio del artículo o home.
+        <div class="ui-hero-romuald">
           <div class="hero-content">
-            <h1>TÍTULO GIGANTE</h1>
-            <p>Subtítulo potente.</p>
+            <span class="badge">NUEVO MÉTODO 2026</span>
+            <h1>Título de Impacto</h1>
+            <p class="subtitle">Subtítulo que resuelva el dolor principal del usuario...</p>
+            <p class="cta-text">¿Deseas dar el siguiente paso hoy?</p>
+            <a href="URL" class="btn">🚀 Sí, Cuéntame Más</a>
+          </div>
+          <div class="hero-image">
+            <img src="URL_IMAGEN_PERSONA" alt="Persona de confianza">
           </div>
         </div>
 
-    13. SECCIÓN DE ANCHO COMPLETO (ui-section-dark / ui-section-accent / ui-section-sand):
+    13. HERO SECUNDARIO (ui-hero-secondary): Úsalo solo para secciones internas de bajo impacto.
+        <div class="ui-hero-secondary">
+          <div class="hero-content">
+            <h2>TÍTULO...</h2>
+            <p>Subtítulo...</p>
+          </div>
+        </div>
+
+    14. SECCIÓN DE ANCHO COMPLETO (ui-section-dark / ui-section-accent / ui-section-sand):
         <div class="ui-section-dark"><div class="container">...</div></div>
 
-    14. GRID MULTI-COLUMNA (ui-grid-3 / ui-grid-4):
+    15. GRID MULTI-COLUMNA (ui-grid-3 / ui-grid-4):
         <div class="ui-grid-3">...</div>
     """
 
