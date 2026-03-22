@@ -133,7 +133,7 @@ def generar_paleta_aleatoria(sitio_id):
         "text_bold": paleta["text_bold"],
         "meta": {
             "name": paleta["name"],
-            "system": "OKLCH Premium"
+            "system": "OKLCH Premium v2"
         }
     }
 
@@ -339,7 +339,7 @@ def preparar_identidad_sitio(sitio_id, configuracion_actual, config_global, conf
         configuracion_actual["sidebar_pos"] = random.choice(["left", "right"])
         cambio_detectado = True
 
-    if "color_palette" not in configuracion_actual or "meta" not in configuracion_actual["color_palette"] or configuracion_actual["color_palette"]["meta"].get("system") != "OKLCH Premium":
+    if "color_palette" not in configuracion_actual or "meta" not in configuracion_actual["color_palette"] or configuracion_actual["color_palette"]["meta"].get("system") != "OKLCH Premium v2":
         configuracion_actual["color_palette"] = generar_paleta_aleatoria(sitio_id)
         cambio_detectado = True
     

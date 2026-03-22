@@ -122,7 +122,9 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
     """
 
     REGLAS_LEGIBILIDAD_ASTRO = """
-    REGLA DE FORMATO (LIMPIO PARA ASTRO Y ALTA ACCESIBILIDAD):
+- **PROHIBIDO EL USO DE SÍMBOLOS MARKDOWN (** , _, *, #) DENTRO DE ETIQUETAS HTML**. Si necesitas negrita dentro de un H1 o P, usa <strong> o <span class="ui-highlight">.
+- **NO INDENTES EL HTML CON ESPACIOS NI TABS**. Debe estar pegado al margen izquierdo.
+- **NO ENVUELVAS EL HTML EN BLOQUES DE CÓDIGO (```html ... ```)**. Escribe el HTML directamente.
     Genera el contenido usando Markdown y HTML estándar con clases semánticas. 
     
     - ACCESIBILIDAD: El texto debe ser fácil de leer. Usa párrafos cortos.
@@ -215,10 +217,17 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
        - RITMO VISUAL: Alterna secciones de "Ancho Completo" con secciones de lectura estándar.
        - MULTI-COLUMNAS: Para mostrar beneficios o requisitos, usa un `ui-grid-3` o `ui-grid-4`.
     3. REGLA DE MARCA: El sitio web '{nombre_sitio}' pertenece a la empresa '{nombre_empresa}'. Siempre que te refieras a la organización detrás de la web, usa el nombre '{nombre_empresa}'.
-    4. REGLA DE FORMATO: Devuelve el texto en Markdown mezclado con los fragmentos HTML de los componentes UI indicados. **NO USES BLOQUES DE CÓDIGO (```) PARA EL HTML**. **NO INDENTES EL HTML CON ESPACIOS NI TABS** (debe estar pegado al margen izquierdo) para evitar que Markdown lo trate como un bloque de código. Asegúrate de cerrar todas las etiquetas HTML correctamente (ej: abrir `<div>` y cerrar `</div>`).
+    **REGLA DE FORMATO**: 
+    1. Escribe el contenido en español de alta calidad.
+    2. Usa los componentes UI indicados (Hero, Accordion, etc.) con sus clases `ui-*`.
+    3. **NO INDENTES EL HTML**: Todo el código HTML debe empezar en la columna 0.
+    4. **NO USES MARKDOWN (** , _, #) DENTRO DEL HTML**. Usa etiquetas HTML puras.
+    5. **NO USES BLOQUES DE CÓDIGO (```)** para el HTML.
+    6. Asegura que el texto sea legible: usa `ui-highlight` para resaltar, pero no abuses de colores similares al fondo.
+ Asegúrate de cerrar todas las etiquetas HTML correctamente (ej: abrir `<div>` y cerrar `</div>`).
     5. REGLA DE LONGITUD: El texto debe tener al menos {REQUISITOS_WORD_COUNT} palabras. Usa párrafos de máximo {MAX_SENTENCES} oraciones.
     6. REGLA DE AUTORIDAD: Debes incluir naturalmente un enlace hacia esta fuente oficial/gubernamental: {url_outbound}. El texto ancla debe ser natural y relevante al contexto.
-    7. REGLA DE LEGIBILIDAD: Usa muchas palabras de transición. Evita la voz pasiva. NO uses colores claros para el texto general.
+    7. REGLA DE LEGIBILIDAD: Usa muchas palabras de transición. Evita la voz pasiva.
     
     RESTRICCIONES NEGATIVAS (EVITAR PATRONES DE IA):
     - PROHIBIDO usar: "En conclusión", "En resumen", "Por otro lado", "Es importante destacar que", "Adentrémonos", "En el vertiginoso mundo de", "No importa si eres... o si eres...".

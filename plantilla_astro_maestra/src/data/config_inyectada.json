@@ -1,22 +1,22 @@
 {
-  "nombre_sitio": "Enfermería Florida Hoy",
-  "color_tema": "#FF5733",
-  "comando_deploy": "firebase deploy --only hosting",
-  "layout": "LayoutA",
-  "gcp_project_id": "fl-nurses-proj-rtx",
+  "nombre_sitio": "Red Enfermeras Latinas",
+  "color_tema": "#c2185b",
+  "comando_deploy": "vercel deploy --prod",
+  "layout": "LayoutB",
+  "gcp_project_id": "latina-net-vcl-66",
   "seo": {
-    "titulo_base": "Ofertas Médicas FL",
-    "descripcion_base": "Encuentra salarios, empleos y oportunidades con sponsor para enfermeras extranjeras en Miami, Tampa y Florida.",
+    "titulo_base": "Comunidad Latina RN",
+    "descripcion_base": "Historias de éxito, consultoría migratoria y vacantes dirigidas enteramente a latinas.",
     "idioma": "es-US"
   },
   "footer": {
     "empresa_legal": "Enfermera en Estados Unidos",
-    "direccion": "Zephyrhills, FL 33541",
-    "email_contacto": "info@enfermeriafloridahoy.com"
+    "direccion": "San Antonio, TX 78201",
+    "email_contacto": "unete@enfermeraslatinas.io"
   },
   "menu_global": [
     {
-      "nombre": "Revalidar Meta",
+      "nombre": "Título USA",
       "ruta": "/homologacion"
     },
     {
@@ -24,41 +24,42 @@
       "ruta": "/nclex"
     },
     {
-      "nombre": "Vacantes USA",
+      "nombre": "Ofertas Trabajo",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Residencia USA",
+      "nombre": "Trámite EB3",
       "ruta": "/visa"
     },
     {
-      "nombre": "Salario Real",
+      "nombre": "Tablas Sueldos",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Casos Éxito",
+      "nombre": "Actualidad",
       "ruta": "/blog"
     },
     {
-      "nombre": "WhatsApp",
+      "nombre": "Hablar Asesor",
       "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Acceso",
+      "nombre": "Iniciar",
       "ruta": "/login"
     }
   ],
-  "dominio": "https://enfermerasflorida.net",
-  "font_family": "Roboto",
+  "dominio": "https://enfermeraslatinas.io",
+  "nav_footer_version": "v2",
+  "font_family": "Inter",
+  "sidebar_pos": "left",
   "color_palette": {
-    "primary": "oklch(40% 0.12 150)",
-    "secondary": "oklch(55% 0.08 150)",
-    "accent": "oklch(42% 0.18 45)",
-    "text_bold": "oklch(20% 0.05 150)",
+    "primary": "oklch(38% 0.14 260)",
+    "secondary": "oklch(50% 0.10 260)",
+    "accent": "oklch(85% 0.12 190)",
+    "text_bold": "oklch(15% 0.06 260)",
     "meta": {
-      "name": "Deep Forest",
-      "system": "OKLCH Premium"
+      "name": "Midnight Ocean",
+      "system": "OKLCH Premium v2"
     }
-  },
-  "nav_footer_version": "v2"
+  }
 }

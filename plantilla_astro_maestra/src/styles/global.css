@@ -101,9 +101,9 @@
 
 /* Force high contrast when nested in dark sections */
 .ui-section-dark .ui-highlight, .ui-section-accent .ui-highlight, .ui-hero-full .ui-highlight {
-    background-color: rgba(255,255,255,0.2);
-    color: white !important;
-    border-bottom-color: white;
+    background-color: rgba(0,0,0,0.1);
+    color: var(--color-text-bold) !important;
+    border-bottom-color: var(--color-text-bold);
 }
 
 .ui-divider {
@@ -429,12 +429,25 @@ body {
   }
 }
 
+/* UI Buttons */
+.ui-button {
+  @apply inline-flex items-center justify-center px-8 py-4 rounded-full font-bold transition-all duration-300 transform hover:scale-105 shadow-lg no-underline;
+}
+
+.ui-button-primary {
+  @apply bg-zinc-900 text-white hover:bg-zinc-800;
+}
+
+.ui-button-secondary {
+  background-color: var(--color-accent);
+  color: var(--color-text-bold);
+}
+
 /* Luxury Hero with Background Image Overlay */
 .ui-hero-full {
-  @apply relative min-h-[50vh] flex items-center justify-center text-center p-8 md:p-12 rounded-3xl overflow-hidden my-12;
+  @apply relative min-h-[50vh] flex items-center justify-center text-center p-12 md:p-24 rounded-3xl overflow-hidden my-12;
   background-color: var(--color-accent);
   background-image: var(--background-image-accent_vertical_stripes);
-  /* Removed 100vw breakout to ensure it stays within Layout containers with sidebars */
 }
 
 .ui-hero-full::before {
@@ -447,12 +460,12 @@ body {
 }
 
 .ui-hero-full h1, .ui-hero-full h2 {
-  @apply text-white text-5xl md:text-7xl font-bold leading-tight mb-6 tracking-tight;
-  text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  @apply text-zinc-900 text-5xl md:text-7xl font-bold leading-tight mb-6 tracking-tight;
+  /* Dark text for light accent background */
 }
 
 .ui-hero-full p {
-  @apply text-white/90 text-xl md:text-2xl leading-relaxed max-w-2xl mx-auto;
+  @apply text-zinc-800 text-xl md:text-2xl leading-relaxed max-w-2xl mx-auto font-medium;
 }
 
 /* Multi-Column Grids */
@@ -478,13 +491,14 @@ body {
 }
 
 .ui-section-accent {
-  @apply text-white py-16 px-8 rounded-3xl my-12 border-4;
+  @apply py-16 px-12 rounded-3xl my-12 border-4;
   background-color: var(--color-accent);
-  border-color: color-mix(in oklch, var(--color-accent), black 20%);
+  border-color: color-mix(in oklch, var(--color-accent), black 10%);
+  color: var(--color-text-bold);
 }
 
 .ui-section-accent h2, .ui-section-accent h3, .ui-section-accent h4, .ui-section-accent p, .ui-section-accent li {
-  @apply text-white;
+  color: var(--color-text-bold);
 }
 
 .ui-section-sand {

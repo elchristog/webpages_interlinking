@@ -53,35 +53,35 @@
       },
       "menu_global": [
         {
-          "nombre": "Título USA",
+          "nombre": "Diploma Online",
           "ruta": "/homologacion"
         },
         {
-          "nombre": "Estudio NCLEX",
+          "nombre": "Pasar NCLEX",
           "ruta": "/nclex"
         },
         {
-          "nombre": "Bolsa Empleo",
+          "nombre": "Trabajo Hoy",
           "ruta": "/vacantes"
         },
         {
-          "nombre": "Sponsor Visa",
+          "nombre": "Migrar Legal",
           "ruta": "/visa"
         },
         {
-          "nombre": "Sueldo Promedio",
+          "nombre": "Sueldos USA",
           "ruta": "/salarios"
         },
         {
-          "nombre": "Blog Oficial",
+          "nombre": "Actualidad",
           "ruta": "/blog"
         },
         {
-          "nombre": "Escríbenos",
+          "nombre": "WhatsApp",
           "ruta": "https://wa.me/something"
         },
         {
-          "nombre": "Acceso",
+          "nombre": "Entrar",
           "ruta": "/login"
         }
       ],
@@ -90,11 +90,11 @@
       "color_palette": {
         "primary": "oklch(40% 0.12 150)",
         "secondary": "oklch(55% 0.08 150)",
-        "accent": "oklch(42% 0.18 45)",
+        "accent": "oklch(88% 0.15 80)",
         "text_bold": "oklch(20% 0.05 150)",
         "meta": {
           "name": "Deep Forest",
-          "system": "OKLCH Premium"
+          "system": "OKLCH Premium v2"
         }
       },
       "nav_footer_version": "v1"
@@ -117,11 +117,11 @@
       },
       "menu_global": [
         {
-          "nombre": "Homologar Título",
+          "nombre": "Revalidar Meta",
           "ruta": "/homologacion"
         },
         {
-          "nombre": "Examen NCLEX",
+          "nombre": "NCLEX Paso",
           "ruta": "/nclex"
         },
         {
@@ -137,15 +137,15 @@
           "ruta": "/salarios"
         },
         {
-          "nombre": "Actualidad",
+          "nombre": "Casos Éxito",
           "ruta": "/blog"
         },
         {
-          "nombre": "Chat Directo",
+          "nombre": "Consultar Ahora",
           "ruta": "https://wa.me/something"
         },
         {
-          "nombre": "Acceso",
+          "nombre": "Entrar",
           "ruta": "/login"
         }
       ],
@@ -154,11 +154,11 @@
       "color_palette": {
         "primary": "oklch(40% 0.12 150)",
         "secondary": "oklch(55% 0.08 150)",
-        "accent": "oklch(42% 0.18 45)",
+        "accent": "oklch(88% 0.15 80)",
         "text_bold": "oklch(20% 0.05 150)",
         "meta": {
           "name": "Deep Forest",
-          "system": "OKLCH Premium"
+          "system": "OKLCH Premium v2"
         }
       },
       "nav_footer_version": "v2"
@@ -181,35 +181,35 @@
       },
       "menu_global": [
         {
-          "nombre": "Validar Diploma",
+          "nombre": "Título USA",
           "ruta": "/homologacion"
         },
         {
-          "nombre": "Prep NCLEX",
+          "nombre": "Examen NCLEX",
           "ruta": "/nclex"
         },
         {
-          "nombre": "Ofertas Trabajo",
+          "nombre": "Buscar Trabajo",
           "ruta": "/vacantes"
         },
         {
-          "nombre": "Trámite EB3",
+          "nombre": "Residencia USA",
           "ruta": "/visa"
         },
         {
-          "nombre": "Sueldos USA",
+          "nombre": "Ingresos USA",
           "ruta": "/salarios"
         },
         {
-          "nombre": "Blog Oficial",
+          "nombre": "Casos Éxito",
           "ruta": "/blog"
         },
         {
-          "nombre": "Chat Directo",
+          "nombre": "Soporte",
           "ruta": "https://wa.me/something"
         },
         {
-          "nombre": "Portal RN",
+          "nombre": "Acceso",
           "ruta": "/login"
         }
       ],
@@ -219,11 +219,11 @@
       "color_palette": {
         "primary": "oklch(32% 0.05 250)",
         "secondary": "oklch(50% 0.04 250)",
-        "accent": "oklch(35% 0.15 30)",
+        "accent": "oklch(89% 0.10 40)",
         "text_bold": "oklch(15% 0.02 250)",
         "meta": {
           "name": "Elegant Slate",
-          "system": "OKLCH Premium"
+          "system": "OKLCH Premium v2"
         }
       },
       "nav_footer_version": "v1"
@@ -246,23 +246,23 @@
       },
       "menu_global": [
         {
-          "nombre": "Validar Título",
+          "nombre": "Homologar Título",
           "ruta": "/homologacion"
         },
         {
-          "nombre": "Guía NCLEX",
+          "nombre": "Superar NCLEX",
           "ruta": "/nclex"
         },
         {
-          "nombre": "Buscar Trabajo",
+          "nombre": "Ofertas Trabajo",
           "ruta": "/vacantes"
         },
         {
-          "nombre": "Migrar Legal",
+          "nombre": "Trámite EB3",
           "ruta": "/visa"
         },
         {
-          "nombre": "Salario Real",
+          "nombre": "Sueldo Promedio",
           "ruta": "/salarios"
         },
         {
@@ -270,11 +270,11 @@
           "ruta": "/blog"
         },
         {
-          "nombre": "Chat Directo",
+          "nombre": "Hablar Asesor",
           "ruta": "https://wa.me/something"
         },
         {
-          "nombre": "Portal RN",
+          "nombre": "Entrar",
           "ruta": "/login"
         }
       ],
@@ -283,11 +283,11 @@
       "color_palette": {
         "primary": "oklch(38% 0.13 210)",
         "secondary": "oklch(55% 0.09 210)",
-        "accent": "oklch(42% 0.16 140)",
+        "accent": "oklch(88% 0.10 160)",
         "text_bold": "oklch(20% 0.06 210)",
         "meta": {
           "name": "Corporate Teal",
-          "system": "OKLCH Premium"
+          "system": "OKLCH Premium v2"
         }
       },
       "nav_footer_version": "v2"
@@ -310,35 +310,35 @@
       },
       "menu_global": [
         {
-          "nombre": "Diploma Online",
+          "nombre": "Validar Diploma",
           "ruta": "/homologacion"
         },
         {
-          "nombre": "Guía NCLEX",
+          "nombre": "Estudio NCLEX",
           "ruta": "/nclex"
         },
         {
-          "nombre": "Ofertas Trabajo",
+          "nombre": "Trabajo Hoy",
           "ruta": "/vacantes"
         },
         {
-          "nombre": "Sponsor Visa",
+          "nombre": "Green Card",
           "ruta": "/visa"
         },
         {
-          "nombre": "Sueldos USA",
+          "nombre": "Tablas Sueldos",
           "ruta": "/salarios"
         },
         {
-          "nombre": "Historias",
+          "nombre": "Novedades",
           "ruta": "/blog"
         },
         {
-          "nombre": "Consultar Ahora",
+          "nombre": "Chat Directo",
           "ruta": "https://wa.me/something"
         },
         {
-          "nombre": "Acceso",
+          "nombre": "Entrar",
           "ruta": "/login"
         }
       ],
@@ -347,11 +347,11 @@
       "color_palette": {
         "primary": "oklch(38% 0.11 50)",
         "secondary": "oklch(52% 0.07 50)",
-        "accent": "oklch(42% 0.16 10)",
+        "accent": "oklch(86% 0.14 20)",
         "text_bold": "oklch(18% 0.05 50)",
         "meta": {
           "name": "Warm Professional",
-          "system": "OKLCH Premium"
+          "system": "OKLCH Premium v2"
         }
       },
       "nav_footer_version": "v2"
@@ -374,7 +374,7 @@
       },
       "menu_global": [
         {
-          "nombre": "Homologar Título",
+          "nombre": "Título USA",
           "ruta": "/homologacion"
         },
         {
@@ -382,27 +382,27 @@
           "ruta": "/nclex"
         },
         {
-          "nombre": "Ofertas Trabajo",
+          "nombre": "Puestos Libres",
           "ruta": "/vacantes"
         },
         {
-          "nombre": "Green Card",
+          "nombre": "Sponsor Visa",
           "ruta": "/visa"
         },
         {
-          "nombre": "Sueldos USA",
+          "nombre": "Sueldo Promedio",
           "ruta": "/salarios"
         },
         {
-          "nombre": "Actualidad",
+          "nombre": "Historias",
           "ruta": "/blog"
         },
         {
-          "nombre": "Soporte",
+          "nombre": "Chat Directo",
           "ruta": "https://wa.me/something"
         },
         {
-          "nombre": "Entrar",
+          "nombre": "Acceso",
           "ruta": "/login"
         }
       ],
@@ -411,11 +411,11 @@
       "color_palette": {
         "primary": "oklch(38% 0.13 210)",
         "secondary": "oklch(55% 0.09 210)",
-        "accent": "oklch(42% 0.16 140)",
+        "accent": "oklch(88% 0.10 160)",
         "text_bold": "oklch(20% 0.06 210)",
         "meta": {
           "name": "Corporate Teal",
-          "system": "OKLCH Premium"
+          "system": "OKLCH Premium v2"
         }
       },
       "nav_footer_version": "v2"
@@ -438,11 +438,11 @@
       },
       "menu_global": [
         {
-          "nombre": "Validar Título",
+          "nombre": "Homologar Título",
           "ruta": "/homologacion"
         },
         {
-          "nombre": "Estudio NCLEX",
+          "nombre": "NCLEX Paso",
           "ruta": "/nclex"
         },
         {
@@ -450,11 +450,11 @@
           "ruta": "/vacantes"
         },
         {
-          "nombre": "Sponsor Visa",
+          "nombre": "Trámite EB3",
           "ruta": "/visa"
         },
         {
-          "nombre": "Sueldos USA",
+          "nombre": "Pagos RN",
           "ruta": "/salarios"
         },
         {
@@ -462,11 +462,11 @@
           "ruta": "/blog"
         },
         {
-          "nombre": "Chat Directo",
+          "nombre": "Soporte",
           "ruta": "https://wa.me/something"
         },
         {
-          "nombre": "Entrar",
+          "nombre": "Portal RN",
           "ruta": "/login"
         }
       ],
@@ -476,11 +476,11 @@
       "color_palette": {
         "primary": "oklch(38% 0.11 50)",
         "secondary": "oklch(52% 0.07 50)",
-        "accent": "oklch(42% 0.16 10)",
+        "accent": "oklch(86% 0.14 20)",
         "text_bold": "oklch(18% 0.05 50)",
         "meta": {
           "name": "Warm Professional",
-          "system": "OKLCH Premium"
+          "system": "OKLCH Premium v2"
         }
       },
       "nav_footer_version": "v1"
@@ -503,35 +503,35 @@
       },
       "menu_global": [
         {
-          "nombre": "Diploma Online",
+          "nombre": "Homologar Título",
           "ruta": "/homologacion"
         },
         {
-          "nombre": "Pasar NCLEX",
+          "nombre": "Estudio NCLEX",
           "ruta": "/nclex"
         },
         {
-          "nombre": "Puestos Libres",
+          "nombre": "Trabajo Hoy",
           "ruta": "/vacantes"
         },
         {
-          "nombre": "Green Card",
+          "nombre": "Visa EB-3",
           "ruta": "/visa"
         },
         {
-          "nombre": "Pagos RN",
+          "nombre": "Sueldo Promedio",
           "ruta": "/salarios"
         },
         {
-          "nombre": "Guías Tips",
+          "nombre": "Noticias",
           "ruta": "/blog"
         },
         {
-          "nombre": "Hablar Asesor",
+          "nombre": "Chat Directo",
           "ruta": "https://wa.me/something"
         },
         {
-          "nombre": "Login",
+          "nombre": "Iniciar",
           "ruta": "/login"
         }
       ],
@@ -540,11 +540,11 @@
       "color_palette": {
         "primary": "oklch(38% 0.14 260)",
         "secondary": "oklch(50% 0.10 260)",
-        "accent": "oklch(40% 0.15 190)",
+        "accent": "oklch(85% 0.12 190)",
         "text_bold": "oklch(15% 0.06 260)",
         "meta": {
           "name": "Midnight Ocean",
-          "system": "OKLCH Premium"
+          "system": "OKLCH Premium v2"
         }
       },
       "nav_footer_version": "v2"
@@ -567,15 +567,15 @@
       },
       "menu_global": [
         {
-          "nombre": "Diploma Online",
+          "nombre": "Validar Diploma",
           "ruta": "/homologacion"
         },
         {
-          "nombre": "Examen NCLEX",
+          "nombre": "Prep NCLEX",
           "ruta": "/nclex"
         },
         {
-          "nombre": "Trabajo Hoy",
+          "nombre": "Buscar Trabajo",
           "ruta": "/vacantes"
         },
         {
@@ -583,11 +583,11 @@
           "ruta": "/visa"
         },
         {
-          "nombre": "Ingresos USA",
+          "nombre": "Sueldo Promedio",
           "ruta": "/salarios"
         },
         {
-          "nombre": "Blog Oficial",
+          "nombre": "Novedades",
           "ruta": "/blog"
         },
         {
@@ -595,7 +595,7 @@
           "ruta": "https://wa.me/something"
         },
         {
-          "nombre": "Mi Cuenta",
+          "nombre": "Login",
           "ruta": "/login"
         }
       ],
@@ -604,11 +604,11 @@
       "color_palette": {
         "primary": "oklch(40% 0.12 150)",
         "secondary": "oklch(55% 0.08 150)",
-        "accent": "oklch(42% 0.18 45)",
+        "accent": "oklch(88% 0.15 80)",
         "text_bold": "oklch(20% 0.05 150)",
         "meta": {
           "name": "Deep Forest",
-          "system": "OKLCH Premium"
+          "system": "OKLCH Premium v2"
         }
       },
       "nav_footer_version": "v1"
@@ -631,11 +631,11 @@
       },
       "menu_global": [
         {
-          "nombre": "Homologar Título",
+          "nombre": "Validar Diploma",
           "ruta": "/homologacion"
         },
         {
-          "nombre": "Guía NCLEX",
+          "nombre": "Prep NCLEX",
           "ruta": "/nclex"
         },
         {
@@ -643,11 +643,11 @@
           "ruta": "/vacantes"
         },
         {
-          "nombre": "Residencia USA",
+          "nombre": "Sponsor Visa",
           "ruta": "/visa"
         },
         {
-          "nombre": "Cuanto Ganan",
+          "nombre": "Salario Real",
           "ruta": "/salarios"
         },
         {
@@ -655,11 +655,11 @@
           "ruta": "/blog"
         },
         {
-          "nombre": "Consultar Ahora",
+          "nombre": "Soporte",
           "ruta": "https://wa.me/something"
         },
         {
-          "nombre": "Entrar",
+          "nombre": "Login",
           "ruta": "/login"
         }
       ],
@@ -669,11 +669,11 @@
       "color_palette": {
         "primary": "oklch(38% 0.11 50)",
         "secondary": "oklch(52% 0.07 50)",
-        "accent": "oklch(42% 0.16 10)",
+        "accent": "oklch(86% 0.14 20)",
         "text_bold": "oklch(18% 0.05 50)",
         "meta": {
           "name": "Warm Professional",
-          "system": "OKLCH Premium"
+          "system": "OKLCH Premium v2"
         }
       },
       "nav_footer_version": "v2"
@@ -696,35 +696,35 @@
       },
       "menu_global": [
         {
-          "nombre": "Diploma Online",
+          "nombre": "Validar Diploma",
           "ruta": "/homologacion"
         },
         {
-          "nombre": "Guía NCLEX",
+          "nombre": "NCLEX Paso",
           "ruta": "/nclex"
         },
         {
-          "nombre": "Vacantes USA",
+          "nombre": "Ofertas Trabajo",
           "ruta": "/vacantes"
         },
         {
-          "nombre": "Green Card",
+          "nombre": "Visa EB-3",
           "ruta": "/visa"
         },
         {
-          "nombre": "Pagos RN",
+          "nombre": "Sueldo Promedio",
           "ruta": "/salarios"
         },
         {
-          "nombre": "Actualidad",
+          "nombre": "Blog Oficial",
           "ruta": "/blog"
         },
         {
-          "nombre": "Consultar Ahora",
+          "nombre": "Soporte",
           "ruta": "https://wa.me/something"
         },
         {
-          "nombre": "Login",
+          "nombre": "Entrar",
           "ruta": "/login"
         }
       ],
@@ -734,11 +734,11 @@
       "color_palette": {
         "primary": "oklch(40% 0.12 150)",
         "secondary": "oklch(55% 0.08 150)",
-        "accent": "oklch(42% 0.18 45)",
+        "accent": "oklch(88% 0.15 80)",
         "text_bold": "oklch(20% 0.05 150)",
         "meta": {
           "name": "Deep Forest",
-          "system": "OKLCH Premium"
+          "system": "OKLCH Premium v2"
         }
       }
     },
@@ -760,31 +760,31 @@
       },
       "menu_global": [
         {
-          "nombre": "Revalidar Meta",
+          "nombre": "Título USA",
           "ruta": "/homologacion"
         },
         {
-          "nombre": "Examen NCLEX",
+          "nombre": "Prep NCLEX",
           "ruta": "/nclex"
         },
         {
-          "nombre": "Bolsa Empleo",
+          "nombre": "Puestos Libres",
           "ruta": "/vacantes"
         },
         {
-          "nombre": "Visa EB-3",
+          "nombre": "Sponsor Visa",
           "ruta": "/visa"
         },
         {
-          "nombre": "Sueldos USA",
+          "nombre": "Tablas Sueldos",
           "ruta": "/salarios"
         },
         {
-          "nombre": "Noticias",
+          "nombre": "Actualidad",
           "ruta": "/blog"
         },
         {
-          "nombre": "WhatsApp",
+          "nombre": "Chat Directo",
           "ruta": "https://wa.me/something"
         },
         {
@@ -798,11 +798,11 @@
       "color_palette": {
         "primary": "oklch(40% 0.12 150)",
         "secondary": "oklch(55% 0.08 150)",
-        "accent": "oklch(42% 0.18 45)",
+        "accent": "oklch(88% 0.15 80)",
         "text_bold": "oklch(20% 0.05 150)",
         "meta": {
           "name": "Deep Forest",
-          "system": "OKLCH Premium"
+          "system": "OKLCH Premium v2"
         }
       }
     },
@@ -828,7 +828,7 @@
           "ruta": "/homologacion"
         },
         {
-          "nombre": "Examen NCLEX",
+          "nombre": "Guía NCLEX",
           "ruta": "/nclex"
         },
         {
@@ -836,7 +836,7 @@
           "ruta": "/vacantes"
         },
         {
-          "nombre": "Sponsor Visa",
+          "nombre": "Residencia USA",
           "ruta": "/visa"
         },
         {
@@ -844,15 +844,15 @@
           "ruta": "/salarios"
         },
         {
-          "nombre": "Noticias",
+          "nombre": "Guías Tips",
           "ruta": "/blog"
         },
         {
-          "nombre": "Soporte",
+          "nombre": "Consultar Ahora",
           "ruta": "https://wa.me/something"
         },
         {
-          "nombre": "Acceso",
+          "nombre": "Mi Cuenta",
           "ruta": "/login"
         }
       ],
@@ -863,11 +863,11 @@
       "color_palette": {
         "primary": "oklch(35% 0.18 300)",
         "secondary": "oklch(50% 0.14 300)",
-        "accent": "oklch(38% 0.16 160)",
+        "accent": "oklch(87% 0.12 180)",
         "text_bold": "oklch(15% 0.08 300)",
         "meta": {
           "name": "Royal Purple",
-          "system": "OKLCH Premium"
+          "system": "OKLCH Premium v2"
         }
       }
     },
@@ -889,23 +889,23 @@
       },
       "menu_global": [
         {
-          "nombre": "Validar Diploma",
+          "nombre": "Homologar Título",
           "ruta": "/homologacion"
         },
         {
-          "nombre": "Guía NCLEX",
+          "nombre": "NCLEX Paso",
           "ruta": "/nclex"
         },
         {
-          "nombre": "Buscar Trabajo",
+          "nombre": "Vacantes USA",
           "ruta": "/vacantes"
         },
         {
-          "nombre": "Visa Trabajo",
+          "nombre": "Trámite EB3",
           "ruta": "/visa"
         },
         {
-          "nombre": "Sueldos USA",
+          "nombre": "Salario Real",
           "ruta": "/salarios"
         },
         {
@@ -917,7 +917,7 @@
           "ruta": "https://wa.me/something"
         },
         {
-          "nombre": "Acceso",
+          "nombre": "Mi Cuenta",
           "ruta": "/login"
         }
       ],
@@ -927,11 +927,11 @@
       "color_palette": {
         "primary": "oklch(38% 0.14 260)",
         "secondary": "oklch(50% 0.10 260)",
-        "accent": "oklch(40% 0.15 190)",
+        "accent": "oklch(85% 0.12 190)",
         "text_bold": "oklch(15% 0.06 260)",
         "meta": {
           "name": "Midnight Ocean",
-          "system": "OKLCH Premium"
+          "system": "OKLCH Premium v2"
         }
       }
     },
@@ -953,31 +953,31 @@
       },
       "menu_global": [
         {
-          "nombre": "Validar Diploma",
+          "nombre": "Diploma Online",
           "ruta": "/homologacion"
         },
         {
-          "nombre": "Prep NCLEX",
+          "nombre": "Pasar NCLEX",
           "ruta": "/nclex"
         },
         {
-          "nombre": "Trabajo Hoy",
+          "nombre": "Vacantes USA",
           "ruta": "/vacantes"
         },
         {
-          "nombre": "Green Card",
+          "nombre": "Residencia USA",
           "ruta": "/visa"
         },
         {
-          "nombre": "Pagos RN",
+          "nombre": "Tablas Sueldos",
           "ruta": "/salarios"
         },
         {
-          "nombre": "Guías Tips",
+          "nombre": "Casos Éxito",
           "ruta": "/blog"
         },
         {
-          "nombre": "Soporte",
+          "nombre": "Escríbenos",
           "ruta": "https://wa.me/something"
         },
         {
@@ -991,11 +991,11 @@
       "color_palette": {
         "primary": "oklch(38% 0.14 260)",
         "secondary": "oklch(50% 0.10 260)",
-        "accent": "oklch(40% 0.15 190)",
+        "accent": "oklch(85% 0.12 190)",
         "text_bold": "oklch(15% 0.06 260)",
         "meta": {
           "name": "Midnight Ocean",
-          "system": "OKLCH Premium"
+          "system": "OKLCH Premium v2"
         }
       }
     },
@@ -1021,7 +1021,7 @@
           "ruta": "/homologacion"
         },
         {
-          "nombre": "Guía NCLEX",
+          "nombre": "Examen NCLEX",
           "ruta": "/nclex"
         },
         {
@@ -1029,19 +1029,19 @@
           "ruta": "/vacantes"
         },
         {
-          "nombre": "Visa EB-3",
+          "nombre": "Trámite EB3",
           "ruta": "/visa"
         },
         {
-          "nombre": "Pagos RN",
+          "nombre": "Tablas Sueldos",
           "ruta": "/salarios"
         },
         {
-          "nombre": "Historias",
+          "nombre": "Actualidad",
           "ruta": "/blog"
         },
         {
-          "nombre": "WhatsApp",
+          "nombre": "Hablar Asesor",
           "ruta": "https://wa.me/something"
         },
         {
@@ -1056,11 +1056,11 @@
       "color_palette": {
         "primary": "oklch(38% 0.14 260)",
         "secondary": "oklch(50% 0.10 260)",
-        "accent": "oklch(40% 0.15 190)",
+        "accent": "oklch(85% 0.12 190)",
         "text_bold": "oklch(15% 0.06 260)",
         "meta": {
           "name": "Midnight Ocean",
-          "system": "OKLCH Premium"
+          "system": "OKLCH Premium v2"
         }
       }
     }
