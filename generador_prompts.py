@@ -214,7 +214,17 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
           </div>
         </div>
 
-    13. HERO SECUNDARIO (ui-hero-secondary): Úsalo solo para secciones internas de bajo impacto.
+    13. HERO PERFORMANCE (ui-hero-performance): Diseño centrado para destacar RESULTADOS y AUTORIDAD. Úsalo como alternativa al Romuald.
+        <div class="ui-hero-performance">
+          <div class="hero-content">
+            <span class="hero-badge">RESULTADOS GARANTIZADOS</span>
+            <h1>Título con <span class="ui-highlight-alt">Highlight de Impacto</span></h1>
+            <p class="hero-subtitle">Subtítulo que detalle el beneficio principal en 2 líneas...</p>
+            <a href="URL" class="btn">🚀 BOTÓN DE ACCIÓN</a>
+          </div>
+        </div>
+
+    14. HERO SECUNDARIO (ui-hero-secondary): Úsalo solo para secciones internas de bajo impacto.
         <div class="ui-hero-secondary">
           <div class="hero-content">
             <h2>TÍTULO...</h2>
