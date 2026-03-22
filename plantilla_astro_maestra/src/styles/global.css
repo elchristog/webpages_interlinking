@@ -95,7 +95,15 @@
 .ui-highlight {
     @apply font-bold px-1.5 py-0.5 rounded-sm;
     background-color: color-mix(in oklch, var(--color-primary), transparent 85%);
-    color: var(--color-primary);
+    color: var(--color-text-bold);
+    border-bottom: 2px solid color-mix(in oklch, var(--color-primary), transparent 50%);
+}
+
+/* Force high contrast when nested in dark sections */
+.ui-section-dark .ui-highlight, .ui-section-accent .ui-highlight, .ui-hero-full .ui-highlight {
+    background-color: rgba(255,255,255,0.2);
+    color: white !important;
+    border-bottom-color: white;
 }
 
 .ui-divider {
@@ -168,7 +176,7 @@
 
 /* 2-Column Grid for Text + Image */
 .ui-grid-2 {
-  @apply grid md:grid-cols-2 gap-8 items-center my-12;
+  @apply grid grid-cols-1 md:grid-cols-2 gap-8 items-center my-12;
 }
 
 .ui-grid-2 .ui-image-side {
@@ -228,7 +236,7 @@
 }
 
 .ui-callout-info {
-  background-color: color-mix(in oklch, var(--color-primary), white 95%);
+  @apply bg-zinc-50;
   border-color: var(--color-primary);
   color: var(--color-text-bold);
 }
@@ -240,9 +248,9 @@
 }
 
 .ui-callout-warning {
-  background-color: oklch(0.97 0.06 80); /* Neutral warning ok */
+  @apply bg-amber-50;
   border-color: oklch(0.7 0.12 80);
-  color: oklch(0.25 0.05 80);
+  color: oklch(0.2 0.05 80);
 }
 
 .ui-callout icon {
@@ -251,12 +259,28 @@
 
 /* Stats Grid */
 .ui-stats {
-  @apply grid grid-cols-2 md:grid-cols-4 gap-4 my-10;
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 my-10;
 }
 
 .ui-stat-item {
-  @apply text-center p-4 rounded-xl;
-  background-color: color-mix(in oklch, var(--color-secondary), white 92%);
+  @apply text-center p-6 rounded-xl border border-transparent;
+  background-color: color-mix(in oklch, var(--color-secondary), white 94%);
+  transition: transform 0.2s ease;
+}
+
+.ui-stat-item:hover {
+  @apply transform -translate-y-1;
+  border-color: var(--color-primary);
+}
+
+html {
+  @apply scroll-smooth;
+  scroll-padding-top: 6rem; /* Ensures sticky header doesn't cover targets */
+}
+
+body {
+    @apply flex flex-col min-h-screen font-sans bg-zinc-50 overflow-x-hidden;
+    color: var(--color-text);
 }
 
 .ui-stat-value {
@@ -280,7 +304,18 @@
 }
 
 .ui-accordion summary {
-  @apply p-4 bg-white cursor-pointer font-semibold flex justify-between items-center transition-colors hover:bg-base-50 list-none;
+  @apply p-4 cursor-pointer font-semibold flex justify-between items-center transition-colors list-none rounded-lg;
+  background-color: white;
+  color: var(--color-text-bold);
+}
+
+.ui-accordion summary:hover {
+  @apply bg-zinc-50;
+}
+
+/* If inside a dark section, ensure the summary is still readable */
+.ui-section-dark .ui-accordion summary, .ui-section-accent .ui-accordion summary {
+  @apply bg-neutral-800 text-white border border-neutral-700;
 }
 
 .ui-accordion summary::-webkit-details-marker {
@@ -318,18 +353,21 @@
 
 /* Hero Section Callout */
 .ui-hero-callout {
-  @apply relative overflow-hidden text-white p-12 rounded-3xl my-12 shadow-xl;
+  @apply relative overflow-hidden p-12 rounded-3xl my-12 shadow-xl border-4;
   background-color: var(--color-accent);
   background-image: var(--background-image-accent_vertical_stripes);
+  border-color: color-mix(in oklch, var(--color-accent), black 20%);
+  color: white;
 }
 
 .ui-hero-callout h2, .ui-hero-callout h3 {
-  @apply text-white border-none mt-0 mb-4;
+  @apply text-white border-none mt-0 mb-4 font-bold;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 .ui-hero-callout p {
-  @apply text-lg opacity-90;
-  color: color-mix(in oklch, var(--color-accent), white 90%);
+  @apply text-lg font-medium;
+  color: white; /* Force white for maximum contrast on accent background */
 }
 
 /* Quote Block */
@@ -373,37 +411,39 @@
 
 /* --- Phase 3: High-End Layouts & Heros --- */
 
-/* Breakout Utility: Allows a div to span the full width of the viewport even inside a container */
+/* Breakout Utility: Allows a div to span the full width of the viewport safely */
 .ui-breakout {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  overflow: hidden;
+  @apply relative w-full my-12;
+  /* Simplified breakout that doesn't conflict with sidebars as aggressively */
+  max-width: 100vw;
+}
+
+@media (min-width: 1024px) {
+  /* Only breakout on desktop and if NOT inside a layout with sidebar (which usually has a constrained parent) */
+  /* This is a heuristic: if we are inside a 'main' tag that is limited in width, this won't work perfectly, 
+     so we ensure we don't break the layout. */
+  .ui-breakout {
+    width: auto;
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 /* Luxury Hero with Background Image Overlay */
 .ui-hero-full {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  overflow: hidden;
-  @apply relative min-h-[60vh] flex items-center justify-center text-center p-12 bg-cover bg-center;
-  background-attachment: fixed; /* Parallax effect */
+  @apply relative min-h-[50vh] flex items-center justify-center text-center p-8 md:p-12 rounded-3xl overflow-hidden my-12;
+  background-color: var(--color-accent);
+  background-image: var(--background-image-accent_vertical_stripes);
+  /* Removed 100vw breakout to ensure it stays within Layout containers with sidebars */
 }
 
 .ui-hero-full::before {
   content: "";
-  @apply absolute inset-0 bg-black/50 backdrop-blur-[2px];
+  @apply absolute inset-0 bg-neutral-900/40 backdrop-blur-[1px];
 }
 
 .ui-hero-full .hero-content {
-  @apply relative z-10 max-w-4xl mx-auto;
+  @apply relative z-10 max-w-4xl mx-auto px-4;
 }
 
 .ui-hero-full h1, .ui-hero-full h2 {
@@ -421,43 +461,36 @@
 }
 
 .ui-grid-4 {
-  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 my-12;
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 my-12;
 }
 
-/* Advanced Section Backgrounds */
+/* Advanced Section Backgrounds - Removed breakout to prevent sidebar overlap */
 .ui-section-dark {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  overflow: hidden;
-  @apply bg-base-950 text-white py-20 my-16;
+  @apply bg-neutral-900 text-white py-16 px-8 rounded-3xl my-12 border border-neutral-800;
+}
+
+.ui-section-dark h2, .ui-section-dark h3, .ui-section-dark h4 {
+  @apply text-white;
+}
+
+.ui-section-dark p, .ui-section-dark li {
+  @apply text-white/90;
 }
 
 .ui-section-accent {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  overflow: hidden;
-  @apply text-white py-20 my-16;
+  @apply text-white py-16 px-8 rounded-3xl my-12 border-4;
   background-color: var(--color-accent);
+  border-color: color-mix(in oklch, var(--color-accent), black 20%);
+}
+
+.ui-section-accent h2, .ui-section-accent h3, .ui-section-accent h4, .ui-section-accent p, .ui-section-accent li {
+  @apply text-white;
 }
 
 .ui-section-sand {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  overflow: hidden;
-  @apply py-20 my-16;
+  @apply py-16 px-8 rounded-3xl my-12;
   background-color: color-mix(in oklch, var(--color-secondary), white 95%);
+  border: 1px solid color-mix(in oklch, var(--color-secondary), transparent 80%);
 }
 
 /* Glassmorphism Card */

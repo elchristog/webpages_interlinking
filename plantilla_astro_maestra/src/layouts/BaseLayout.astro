@@ -33,7 +33,7 @@ if (navFooterVersion === "v2") {
 }
 ---
 
-<html lang="es" class="scroll-smooth selection:bg-secondary/20 selection:text-accent">
+<html lang="es" class="scroll-smooth selection:bg-secondary/20 selection:text-accent overflow-x-hidden">
   <head>
     <BaseHead titulo={titulo} descripcion={descripcion} />
     <style define:vars={{ 
@@ -52,9 +52,9 @@ if (navFooterVersion === "v2") {
       }
     </style>
   </head>
-  <body class="relative flex flex-col bg-white min-h-dvh" style={`font-family: '${fontName}', sans-serif;`}>
+  <body class="relative flex flex-col bg-white min-h-dvh overflow-x-hidden" style={`font-family: '${fontName}', sans-serif;`}>
     {!hideNav && <SelectedNav />}
-    <main class="flex-grow pt-24"><slot /></main>
+    <main class="flex-grow pt-24 px-4 sm:px-6 lg:px-8"><slot /></main>
     {!hideFooter && <SelectedFooter />}
   </body>
 </html>

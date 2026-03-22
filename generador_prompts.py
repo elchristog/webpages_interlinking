@@ -131,6 +131,8 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
     - RESALTADO: Para destacar ideas clave, usa `<span class="ui-highlight">TEXTO RESALTADO</span>`.
     - ICONOS: Incluye un emoji relevante al inicio de los subtítulos principales.
     - SEPARADORES: Usa `<hr class="ui-divider">` para dividir secciones.
+    
+    ⚠️ IMPORTANTE: NUNCA envuelvas los bloques de HTML (`<div class="ui-...">`) en bloques de código de Markdown (triple backticks ```). Deben estar sueltos en el texto para que Astro los procese.
     """
 
     REQUISITOS_WORD_COUNT = config_logic["content"]["min_word_count"] if config_logic else 1300
@@ -213,7 +215,7 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
        - RITMO VISUAL: Alterna secciones de "Ancho Completo" con secciones de lectura estándar.
        - MULTI-COLUMNAS: Para mostrar beneficios o requisitos, usa un `ui-grid-3` o `ui-grid-4`.
     3. REGLA DE MARCA: El sitio web '{nombre_sitio}' pertenece a la empresa '{nombre_empresa}'. Siempre que te refieras a la organización detrás de la web, usa el nombre '{nombre_empresa}'.
-    4. REGLA DE FORMATO: Devuelve el texto en Markdown con los fragmentos HTML de los componentes UI indicados.
+    4. REGLA DE FORMATO: Devuelve el texto en Markdown mezclado con los fragmentos HTML de los componentes UI indicados. **NO USES BLOQUES DE CÓDIGO (```) PARA EL HTML**. **NO INDENTES EL HTML CON ESPACIOS NI TABS** (debe estar pegado al margen izquierdo) para evitar que Markdown lo trate como un bloque de código. Asegúrate de cerrar todas las etiquetas HTML correctamente (ej: abrir `<div>` y cerrar `</div>`).
     5. REGLA DE LONGITUD: El texto debe tener al menos {REQUISITOS_WORD_COUNT} palabras. Usa párrafos de máximo {MAX_SENTENCES} oraciones.
     6. REGLA DE AUTORIDAD: Debes incluir naturalmente un enlace hacia esta fuente oficial/gubernamental: {url_outbound}. El texto ancla debe ser natural y relevante al contexto.
     7. REGLA DE LEGIBILIDAD: Usa muchas palabras de transición. Evita la voz pasiva. NO uses colores claros para el texto general.
