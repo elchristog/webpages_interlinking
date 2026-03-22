@@ -5,6 +5,7 @@ from datetime import datetime
 import json
 import random
 import shutil
+import re
 from dotenv import load_dotenv
 from generador_prompts import generar_prompt_antidetencion, inicializar_prompts
 from generador_interlinking import decidir_si_enlazar, obtener_url_objetivo, obtener_anchor_text, inicializar_interlinking, obtener_enlace_autoridad
@@ -207,6 +208,49 @@ def guardar_markdown(ruta_proyecto, contenido_md, slug, modo="articulo"):
         f.write(contenido_md)
     print(f"[+] Archivo guardado: {ruta_destino}")
 
+def procesar_imagenes_seo(sitio_id, nicho, md_content, ruta_recursos, ruta_proyecto_astro):
+    """
+    Escanea el Markdown en busca de imágenes locales, las copia al proyecto Astro
+    con nombres optimizados para SEO y actualiza las rutas.
+    """
+    if not ruta_recursos or not os.path.isdir(ruta_recursos):
+        return md_content
+
+    # Carpeta destino en el proyecto Astro (SITIO ESPECÍFICO)
+    # Usamos public/assets/images/[sitio_id] para evitar colisiones
+    ruta_public = os.path.join(ruta_proyecto_astro, 'public', 'assets', 'images', sitio_id)
+    os.makedirs(ruta_public, exist_ok=True)
+
+    # Patrón para ![alt](src) o <img src="src">
+    patrones = [
+        r'!\[.*?\]\((.*?)\)',
+        r'<img.*?src=["\'](.*?)["\']'
+    ]
+
+    for patron in patrones:
+        matches = re.findall(patron, md_content)
+        for original_src in matches:
+            # Solo procesamos si no es una URL externa
+            if not original_src.startswith(('http', 'https', '//')):
+                nombre_archivo = os.path.basename(original_src)
+                ruta_origen = os.path.join(ruta_recursos, nombre_archivo)
+
+                if os.path.exists(ruta_origen):
+                    # Generar nombre SEO: slug-nicho + nombre-original
+                    slug_nicho = re.sub(r'[^a-z0-0]+', '-', nicho.lower()).strip('-')
+                    ext = os.path.splitext(nombre_archivo)[1]
+                    nuevo_nombre = f"{slug_nicho}-{os.path.splitext(nombre_archivo)[0]}{ext}"
+                    ruta_destino = os.path.join(ruta_public, nuevo_nombre)
+
+                    shutil.copy2(ruta_origen, ruta_destino)
+                    
+                    # Ruta relativa para la web (desde el raiz de public)
+                    web_path = f"/assets/images/{sitio_id}/{nuevo_nombre}"
+                    md_content = md_content.replace(original_src, web_path)
+                    print(f"[SEO Image] {nombre_archivo} -> {nuevo_nombre}")
+
+    return md_content
+
 def limpiar_markdowns(ruta_proyecto):
     ruta_dir = os.path.join(ruta_proyecto, 'src', 'content', 'articulos')
     if os.path.exists(ruta_dir):
@@ -350,7 +394,7 @@ def preparar_identidad_sitio(sitio_id, configuracion_actual, config_global, conf
     
     return configuracion_actual
 
-def procesar_sitio(sitio, config_global, config_menus, ruta_proyecto_config, ruta_base, nombre_proyecto, modo_propagar=None, input_base=None, slug_pestaña=None):
+def procesar_sitio(sitio, config_global, config_menus, ruta_proyecto_config, ruta_base, nombre_proyecto, modo_propagar=None, input_base=None, slug_pestaña=None, ruta_recursos=None):
     sitio_id = sitio['id']
     print(f"\n=== Procesando {sitio_id} ===")
     
@@ -385,6 +429,10 @@ def procesar_sitio(sitio, config_global, config_menus, ruta_proyecto_config, rut
             nombre_sitio=configuracion_actual["nombre_sitio"],
             nombre_empresa=nombre_empresa_global
         )
+        
+        # PROCESAR IMÁGENES SEO
+        contenido_ia = procesar_imagenes_seo(sitio_id, sitio['nicho'], contenido_ia, ruta_recursos, sitio['ruta_astro'])
+        
         guardar_markdown(sitio['ruta_astro'], contenido_ia, slug_final, modo=modo_propagar)
     else:
         # Modo generación base/bulk
@@ -393,6 +441,10 @@ def procesar_sitio(sitio, config_global, config_menus, ruta_proyecto_config, rut
         
         print(f"[*] Generando artículo inicial para {sitio_id}...")
         markdown_ia, slug_generado = generar_contenido_ia(sitio_id, sitio['nicho'], sitio['palabras_clave'], ruta_proyecto_config, modo="articulo")
+        
+        # PROCESAR IMÁGENES SEO (Incluso en base si hubiera, aunque usualmente no hay en base)
+        markdown_ia = procesar_imagenes_seo(sitio_id, sitio['nicho'], markdown_ia, ruta_recursos, sitio['ruta_astro'])
+        
         guardar_markdown(sitio['ruta_astro'], markdown_ia, slug_generado)
     
     compilar_y_persistir(sitio_id, sitio['ruta_astro'], ruta_base, nombre_proyecto)
@@ -425,35 +477,50 @@ if __name__ == "__main__":
             print("[-] Error: No existe la carpeta input_cola/")
             sys.exit(1)
             
-        archivos_disponibles = sorted([f for f in os.listdir(ruta_cola) if f.endswith(".json")])
+        # Listar archivos y CARPETAS
+        elementos_disponibles = sorted([f for f in os.listdir(ruta_cola) if not f.startswith('.')])
         
-        if not archivos_disponibles:
+        if not elementos_disponibles:
             print("[*] La cola está vacía.")
             sys.exit(0)
 
         # Si el usuario NO especificó un archivo (args.cola es 'ALL')
         if args.cola == 'ALL':
-            print("\n[*] Archivos disponibles en la cola (input_cola/):")
-            for i, f in enumerate(archivos_disponibles, 1):
-                print(f"  {i}. {f}")
-            print("\n[!] Por seguridad, debes especificar qué archivo quieres generar.")
-            print(f"Ejemplo: python orquestador_seo.py {nombre_proyecto} --cola {archivos_disponibles[0]}")
+            print("\n[*] Elementos disponibles en la cola (input_cola/):")
+            for i, f in enumerate(elementos_disponibles, 1):
+                tipo = "[DIR]" if os.path.isdir(os.path.join(ruta_cola, f)) else "[FILE]"
+                print(f"  {i}. {tipo} {f}")
+            print("\n[!] Por seguridad, debes especificar qué elemento quieres generar.")
+            print(f"Ejemplo: python orquestador_seo.py {nombre_proyecto} --cola {elementos_disponibles[0]}")
             sys.exit(0)
         else:
-            # El usuario especificó un archivo
-            archivo_buscado = args.cola
-            if not archivo_buscado.endswith(".json"):
-                archivo_buscado += ".json"
+            # El usuario especificó un archivo o carpeta
+            item_buscado = args.cola
+            ruta_item = os.path.join(ruta_cola, item_buscado)
             
-            if archivo_buscado in archivos_disponibles:
-                ruta_final = os.path.join(ruta_cola, archivo_buscado)
-                with open(ruta_final, 'r', encoding='utf-8') as jf:
-                    peticiones.append(json.load(jf))
+            # Fallback si no puso .json y no es carpeta
+            if not os.path.exists(ruta_item) and not item_buscado.endswith(".json"):
+                ruta_item += ".json"
+
+            if os.path.exists(ruta_item):
+                if os.path.isdir(ruta_item):
+                    # Es una CARPETA: buscar primer JSON dentro
+                    jsons = [f for f in os.listdir(ruta_item) if f.endswith(".json")]
+                    if not jsons:
+                        print(f"[-] Error: No hay ningun archivo .json dentro de la carpeta {item_buscado}")
+                        sys.exit(1)
+                    
+                    ruta_json = os.path.join(ruta_item, jsons[0])
+                    with open(ruta_json, 'r', encoding='utf-8') as jf:
+                        data = json.load(jf)
+                        data["_ruta_recursos"] = ruta_item # Inyectar ruta para luego usarla
+                        peticiones.append(data)
+                else:
+                    # Es un ARCHIVO
+                    with open(ruta_item, 'r', encoding='utf-8') as jf:
+                        peticiones.append(json.load(jf))
             else:
-                print(f"[-] Error: No se encuentra el archivo '{args.cola}' en input_cola/")
-                print("[*] Archivos disponibles:")
-                for f in archivos_disponibles:
-                    print(f" - {f}")
+                print(f"[-] Error: No se encuentra el elemento '{args.cola}' en input_cola/")
                 sys.exit(1)
     elif args.inputfile:
         if os.path.exists(args.inputfile):
@@ -498,13 +565,15 @@ if __name__ == "__main__":
             slug_pestaña = p.get("slug")
             
             sitios_procesados = []
+            ruta_recursos = p.get("_ruta_recursos")
             for sitio in config_sitios["sitios_espejo"]:
                 resultado = procesar_sitio(
                     sitio, config_global, config_menus, 
                     ruta_proyecto_config, ruta_base, nombre_proyecto,
                     modo_propagar=modo_ejecucion,
                     input_base=input_text,
-                    slug_pestaña=slug_pestaña
+                    slug_pestaña=slug_pestaña,
+                    ruta_recursos=ruta_recursos
                 )
                 sitios_procesados.append(resultado)
             generar_index_dashboard(ruta_base, sitios_procesados, nombre_proyecto)

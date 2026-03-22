@@ -58,26 +58,35 @@ Aquí defines el alma de la IA:
 ---------------------------------------------------------
 Con tu terminal activada, hacer la magia requiere pasar el nombre del proyecto como parámetro:
 
-   python orquestador_seo.py enfermera_en_estados_unidos --cola mi_articulo.json
+    python orquestador_seo.py enfermera_en_estados_unidos --cola mi_articulo.json
+    o
+    python orquestador_seo.py enfermera_en_estados_unidos --cola mi_pestaña_con_imagenes
 
 ¿Qué pasa cuando presionas Enter?
-1. El script lee todo de `/proyectos/enfermera_en_estados_unidos/` y limpia los artículos viejos.
-2. Llama a Gemini-2.5-flash usando tus "Personas" rotativas y las instrucciones.
-3. Inserta matemáticamente tus enlaces de "Money Site" (solo 30% de las veces) y tus videos de YouTube.
-4. Sobrescribe la configuración visual de la `plantilla_astro_maestra`.
-5. Compila los sitios estáticos.
-6. (Por ahora simulado) Ejecuta los despliegues de Google Cloud (Firebase, App Engine, etc.).
-
-NOTA: Si escribes "python orquestador_seo.py" sin parámetros, te listará todos los proyectos disponibles en pantalla.
+1. El script lee el contenido de `input_cola/` (archivo o carpeta).
+2. Llama a la IA para generar **16 variantes únicas**.
+3. **Optimización de Imágenes**: Si usas una carpeta de entrada, copia y renombra automáticamente las imágenes para cada sitio con nombres optimizados para SEO.
+4. Inserta enlaces de Money Site (interlinking) y videos de YouTube.
+5. Compila los sitios estáticos y actualiza el Dashboard.
 
 ---------------------------------------------------------
- 5. REVISAR EL RESULTADO
+ 5. CÓMO EXPANDIR EL SISTEMA (NUEVOS ELEMENTOS UI)
+---------------------------------------------------------
+Si deseas agregar nuevos elementos visuales (Heros, Tarjetas, Secciones):
+1. Crea el componente Astro en `plantilla_astro_maestra/src/components/fundations/containers/`.
+2. Define los estilos en `plantilla_astro_maestra/src/styles/global.css` (usa Vanilla CSS).
+3. Registra el nuevo componente en `generador_prompts.py` para que la IA sepa cómo usarlo.
+
+Consulta `GUIA_EXPANSION_UI.md` para ver el detalle técnico paso a paso.
+
+---------------------------------------------------------
+ 6. REVISAR EL RESULTADO
 ---------------------------------------------------------
 Si quieres ver cómo quedó un sitio web antes de publicarlo:
 
 1. Entra a la carpeta de Astro:
    cd plantilla_astro_maestra
-2. Inicia el servidor de desarrollo temporal (asegurate de usar Node.js 22):
+2. Inicia el servidor de desarrollo temporal (asegurarte de usar Node.js 22):
    npm run dev
 3. Abre en tu navegador la dirección que te muestra la terminal (normalmente http://localhost:4321).
 
