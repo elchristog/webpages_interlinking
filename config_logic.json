@@ -1,0 +1,27 @@
+{
+  "interlinking": {
+    "probability_link_money_site": 0.5,
+    "money_site_home_weight": 40,
+    "money_site_deep_weight": 60,
+    "anchor_weights": {
+      "brand": 50,
+      "naked": 20,
+      "generic": 15,
+      "exact": 10,
+      "partial": 5
+    }
+  },
+  "content": {
+    "video_distraction_probability": 0.8,
+    "min_word_count": 1300,
+    "paragraph_max_sentences": 3
+  },
+  "ui": {
+    "prefer_layers": ["v1", "v2", "v3"],
+    "available_fonts": ["Inter", "Roboto", "Outfit", "Plus Jakarta Sans"],
+    "layouts": ["LayoutA", "LayoutB", "LayoutC", "LayoutD", "LayoutE", "LayoutF", "LayoutG"]
+  },
+  "ai": {
+    "model_name": "gemini-2.5-flash"
+  }
+}

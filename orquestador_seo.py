@@ -16,9 +16,32 @@ import time
 
 load_dotenv()
 
-# Configurar API de Gemini
-genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
-modelo = genai.GenerativeModel('gemini-2.5-flash')
+# Variables globales para configuración dinámica
+config_logic = None
+premium_palettes = None
+modelo = None
+
+def cargar_recursos_maestros():
+    global config_logic, premium_palettes, modelo
+    ruta_base = os.path.dirname(os.path.abspath(__file__))
+    
+    with open(os.path.join(ruta_base, 'config_logic.json'), 'r', encoding='utf-8') as f:
+        config_logic = json.load(f)
+    
+    with open(os.path.join(ruta_base, 'premium_palettes.json'), 'r', encoding='utf-8') as f:
+        premium_palettes = json.load(f)["palettes"]
+        
+    # Configurar API y modelo desde config_logic
+    api_key = os.environ.get("GEMINI_API_KEY")
+    if api_key:
+        os.environ["GOOGLE_API_KEY"] = api_key
+        genai.configure(api_key=api_key)
+    
+    nombre_modelo = config_logic.get("ai", {}).get("model_name", "gemini-2.0-flash-exp")
+    modelo = genai.GenerativeModel(nombre_modelo)
+
+# ¡IMPORTANTE! Llamar a la función de carga al inicio
+cargar_recursos_maestros()
 
 def cargar_config_global(ruta_proyecto):
     with open(os.path.join(ruta_proyecto, 'config_global.json'), 'r', encoding='utf-8') as f:
@@ -90,45 +113,27 @@ def calcular_contraste_contra_blanco(luminancia):
     """
     return 1.05 / (luminancia + 0.05)
 
-def generar_paleta_aleatoria():
-    """Genera una paleta de colores que cumpla con WCAG AA (4.5:1) contra blanco."""
-    h = random.randint(0, 360)
-    s = random.randint(50, 95)
+def generar_paleta_aleatoria(sitio_id):
+    """
+    Selecciona una paleta premium de la lista curada.
+    Usa el sitio_id como semilla para que sea determinista pero diferente por sitio.
+    """
+    seed = sum(ord(c) for c in sitio_id)
+    random.seed(seed)
     
-    # Buscamos una luminosidad (l) que pase el contraste 4.5:1 contra blanco
-    # Generalmente l <= 50-60% dependiendo del hue.
-    def ajustar_por_accesibilidad(hue, sat):
-        l_test = 50 # Empezamos en un punto medio
-        intentos = 0
-        while intentos < 50:
-            lum = hsl_to_relative_luminance(hue, sat, l_test)
-            ratio = calcular_contraste_contra_blanco(lum)
-            if ratio >= 4.55: # Sutil margen sobre 4.5
-                return l_test, ratio
-            l_test -= 2 # Oscurecer
-            if l_test < 10: break
-            intentos += 1
-        return 15, 7.0 # Fallback seguro muy oscuro
-
-    l_prim, ratio_prim = ajustar_por_accesibilidad(h, s)
+    paleta = random.choice(premium_palettes)
     
-    # Variaciones para acento (complementario o rotado)
-    h_acc = (h + random.randint(120, 240)) % 360
-    l_acc, ratio_acc = ajustar_por_accesibilidad(h_acc, s)
-
-    # Secundario: Un tono análogo o monocromático que también sea accesible
-    h_sec = (h + 30) % 360 # Tono análogo
-    l_sec, ratio_sec = ajustar_por_accesibilidad(h_sec, s - 20) # Menos saturado para ser "más suave"
-
+    # Reset random seed after selection to not affect other logic
+    random.seed(time.time()) 
+    
     return {
-        "primary": f"hsl({h}, {s}%, {l_prim}%)",
-        "secondary": f"hsl({h_sec}, {max(0, s-20)}%, {l_sec}%)",
-        "accent": f"hsl({h_acc}, {s}%, {l_acc}%)",
-        "text_bold": f"hsl({h}, {s}%, 15%)", # Siempre oscuro para máxima legibilidad
+        "primary": paleta["primary"],
+        "secondary": paleta["secondary"],
+        "accent": paleta["accent"],
+        "text_bold": paleta["text_bold"],
         "meta": {
-            "primary_contrast": f"{ratio_prim:.2f}",
-            "secondary_contrast": f"{ratio_sec:.2f}",
-            "accent_contrast": f"{ratio_acc:.2f}"
+            "name": paleta["name"],
+            "system": "OKLCH Premium"
         }
     }
 
@@ -161,8 +166,9 @@ def generar_contenido_ia(sitio_id, nicho, palabras_clave, ruta_proyecto, modo="a
         content = content[:-3]
         
     config_global = cargar_config_global(ruta_proyecto)
-    # YouTube Strategy
-    video_distraccion = random.random() <= 0.80
+    # YouTube Strategy (Cargando de config_logic)
+    prob_distraccion = config_logic["content"]["video_distraction_probability"]
+    video_distraccion = random.random() <= prob_distraccion
     if video_distraccion:
         video_url = random.choice(config_global["videos"]["distraccion"])
     else:
@@ -318,23 +324,23 @@ def preparar_identidad_sitio(sitio_id, configuracion_actual, config_global, conf
         print(f"[*] Menú dinámico generado para {sitio_id}")
     
     if "layout" not in configuracion_actual:
-        configuracion_actual["layout"] = random.choice(["LayoutA", "LayoutB", "LayoutC", "LayoutD", "LayoutE", "LayoutF", "LayoutG"])
+        configuracion_actual["layout"] = random.choice(config_logic["ui"]["layouts"])
         cambio_detectado = True
     
     if "nav_footer_version" not in configuracion_actual:
-        configuracion_actual["nav_footer_version"] = random.choice(["v1", "v2", "v3"])
+        configuracion_actual["nav_footer_version"] = random.choice(config_logic["ui"]["available_nav_versions"] if "available_nav_versions" in config_logic["ui"] else ["v1", "v2", "v3"])
         cambio_detectado = True
 
     if "font_family" not in configuracion_actual:
-        configuracion_actual["font_family"] = random.choice(["Inter", "Roboto", "Outfit", "Plus Jakarta Sans"])
+        configuracion_actual["font_family"] = random.choice(config_logic["ui"]["available_fonts"])
         cambio_detectado = True
     
     if configuracion_actual.get("layout") == "LayoutB" and "sidebar_pos" not in configuracion_actual:
         configuracion_actual["sidebar_pos"] = random.choice(["left", "right"])
         cambio_detectado = True
 
-    if "color_palette" not in configuracion_actual or "meta" not in configuracion_actual["color_palette"]:
-        configuracion_actual["color_palette"] = generar_paleta_aleatoria()
+    if "color_palette" not in configuracion_actual or "meta" not in configuracion_actual["color_palette"] or configuracion_actual["color_palette"]["meta"].get("system") != "OKLCH Premium":
+        configuracion_actual["color_palette"] = generar_paleta_aleatoria(sitio_id)
         cambio_detectado = True
     
     if cambio_detectado:

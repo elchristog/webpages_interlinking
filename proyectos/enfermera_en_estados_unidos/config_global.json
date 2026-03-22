@@ -47,55 +47,54 @@
         "idioma": "es-US"
       },
       "footer": {
-        "empresa_legal": "EnfermeraEEU Network",
+        "empresa_legal": "Enfermera en Estados Unidos",
         "direccion": "Main St, USA",
         "email_contacto": "hola@enfermeraeeu.com"
       },
       "menu_global": [
         {
-          "nombre": "Validar Título",
+          "nombre": "Título USA",
           "ruta": "/homologacion"
         },
         {
-          "nombre": "Superar NCLEX",
+          "nombre": "Estudio NCLEX",
           "ruta": "/nclex"
         },
         {
-          "nombre": "Ofertas Trabajo",
+          "nombre": "Bolsa Empleo",
           "ruta": "/vacantes"
         },
         {
-          "nombre": "Trámite EB3",
+          "nombre": "Sponsor Visa",
           "ruta": "/visa"
         },
         {
-          "nombre": "Salario Real",
+          "nombre": "Sueldo Promedio",
           "ruta": "/salarios"
         },
         {
-          "nombre": "Noticias",
+          "nombre": "Blog Oficial",
           "ruta": "/blog"
         },
         {
-          "nombre": "Ayuda Chat",
+          "nombre": "Escríbenos",
           "ruta": "https://wa.me/something"
         },
         {
-          "nombre": "Login",
+          "nombre": "Acceso",
           "ruta": "/login"
         }
       ],
       "dominio": "https://enfermeraeeu.com",
       "font_family": "Plus Jakarta Sans",
       "color_palette": {
-        "primary": "hsl(147, 61%, 32%)",
-        "secondary": "hsl(177, 41%, 34%)",
-        "accent": "hsl(26, 61%, 42%)",
-        "text_bold": "hsl(147, 61%, 15%)",
+        "primary": "oklch(40% 0.12 150)",
+        "secondary": "oklch(55% 0.08 150)",
+        "accent": "oklch(42% 0.18 45)",
+        "text_bold": "oklch(20% 0.05 150)",
         "meta": {
-          "primary_contrast": "4.74",
-          "secondary_contrast": "5.00",
-          "accent_contrast": "4.61"
+          "name": "Deep Forest",
+          "system": "OKLCH Premium"
         }
       },
       "nav_footer_version": "v1"
@@ -112,55 +111,54 @@
         "idioma": "es-US"
       },
       "footer": {
-        "empresa_legal": "Florida Nurse Network",
+        "empresa_legal": "Enfermera en Estados Unidos",
         "direccion": "Zephyrhills, FL 33541",
         "email_contacto": "info@enfermeriafloridahoy.com"
       },
       "menu_global": [
         {
-          "nombre": "Validar Título",
+          "nombre": "Homologar Título",
           "ruta": "/homologacion"
         },
         {
-          "nombre": "Superar NCLEX",
+          "nombre": "Examen NCLEX",
           "ruta": "/nclex"
         },
         {
-          "nombre": "Puestos Libres",
+          "nombre": "Bolsa Empleo",
           "ruta": "/vacantes"
         },
         {
-          "nombre": "Sponsor Visa",
+          "nombre": "Visa Trabajo",
           "ruta": "/visa"
         },
         {
-          "nombre": "Pagos RN",
+          "nombre": "Salario Real",
           "ruta": "/salarios"
         },
         {
-          "nombre": "Noticias",
+          "nombre": "Actualidad",
           "ruta": "/blog"
         },
         {
-          "nombre": "WhatsApp",
+          "nombre": "Chat Directo",
           "ruta": "https://wa.me/something"
         },
         {
-          "nombre": "Mi Cuenta",
+          "nombre": "Acceso",
           "ruta": "/login"
         }
       ],
       "dominio": "https://enfermerasflorida.net",
       "font_family": "Roboto",
       "color_palette": {
-        "primary": "hsl(188, 81%, 30%)",
-        "secondary": "hsl(218, 61%, 50%)",
-        "accent": "hsl(358, 81%, 50%)",
-        "text_bold": "hsl(188, 81%, 15%)",
+        "primary": "oklch(40% 0.12 150)",
+        "secondary": "oklch(55% 0.08 150)",
+        "accent": "oklch(42% 0.18 45)",
+        "text_bold": "oklch(20% 0.05 150)",
         "meta": {
-          "primary_contrast": "5.04",
-          "secondary_contrast": "5.11",
-          "accent_contrast": "4.62"
+          "name": "Deep Forest",
+          "system": "OKLCH Premium"
         }
       },
       "nav_footer_version": "v2"
@@ -177,29 +175,29 @@
         "idioma": "es-US"
       },
       "footer": {
-        "empresa_legal": "Georgia Health Professionals",
+        "empresa_legal": "Enfermera en Estados Unidos",
         "direccion": "Rome, GA 30161",
         "email_contacto": "contacto@red-enfermeras-ga.com"
       },
       "menu_global": [
         {
-          "nombre": "Validar Título",
+          "nombre": "Validar Diploma",
           "ruta": "/homologacion"
         },
         {
-          "nombre": "NCLEX Paso",
+          "nombre": "Prep NCLEX",
           "ruta": "/nclex"
         },
         {
-          "nombre": "Vacantes USA",
+          "nombre": "Ofertas Trabajo",
           "ruta": "/vacantes"
         },
         {
-          "nombre": "Visa EB-3",
+          "nombre": "Trámite EB3",
           "ruta": "/visa"
         },
         {
-          "nombre": "Cuanto Ganan",
+          "nombre": "Sueldos USA",
           "ruta": "/salarios"
         },
         {
@@ -207,11 +205,11 @@
           "ruta": "/blog"
         },
         {
-          "nombre": "Ayuda Chat",
+          "nombre": "Chat Directo",
           "ruta": "https://wa.me/something"
         },
         {
-          "nombre": "Mi Cuenta",
+          "nombre": "Portal RN",
           "ruta": "/login"
         }
       ],
@@ -219,14 +217,13 @@
       "font_family": "Inter",
       "sidebar_pos": "right",
       "color_palette": {
-        "primary": "hsl(133, 94%, 26%)",
-        "secondary": "hsl(163, 74%, 30%)",
-        "accent": "hsl(340, 94%, 46%)",
-        "text_bold": "hsl(133, 94%, 15%)",
+        "primary": "oklch(32% 0.05 250)",
+        "secondary": "oklch(50% 0.04 250)",
+        "accent": "oklch(35% 0.15 30)",
+        "text_bold": "oklch(15% 0.02 250)",
         "meta": {
-          "primary_contrast": "5.07",
-          "secondary_contrast": "4.59",
-          "accent_contrast": "4.74"
+          "name": "Elegant Slate",
+          "system": "OKLCH Premium"
         }
       },
       "nav_footer_version": "v1"
@@ -243,13 +240,13 @@
         "idioma": "es-US"
       },
       "footer": {
-        "empresa_legal": "Texas Prep LLC",
+        "empresa_legal": "Enfermera en Estados Unidos",
         "direccion": "Houston, TX 77002",
         "email_contacto": "info@texas-nclex-prep.com"
       },
       "menu_global": [
         {
-          "nombre": "Homologar Título",
+          "nombre": "Validar Título",
           "ruta": "/homologacion"
         },
         {
@@ -257,15 +254,15 @@
           "ruta": "/nclex"
         },
         {
-          "nombre": "Puestos Libres",
+          "nombre": "Buscar Trabajo",
           "ruta": "/vacantes"
         },
         {
-          "nombre": "Residencia USA",
+          "nombre": "Migrar Legal",
           "ruta": "/visa"
         },
         {
-          "nombre": "Ingresos USA",
+          "nombre": "Salario Real",
           "ruta": "/salarios"
         },
         {
@@ -273,25 +270,24 @@
           "ruta": "/blog"
         },
         {
-          "nombre": "Consultar Ahora",
+          "nombre": "Chat Directo",
           "ruta": "https://wa.me/something"
         },
         {
-          "nombre": "Login",
+          "nombre": "Portal RN",
           "ruta": "/login"
         }
       ],
       "dominio": "https://texas-nclex-prep.com",
       "font_family": "Roboto",
       "color_palette": {
-        "primary": "hsl(9, 81%, 48%)",
-        "secondary": "hsl(39, 61%, 36%)",
-        "accent": "hsl(161, 81%, 28%)",
-        "text_bold": "hsl(9, 81%, 15%)",
+        "primary": "oklch(38% 0.13 210)",
+        "secondary": "oklch(55% 0.09 210)",
+        "accent": "oklch(42% 0.16 140)",
+        "text_bold": "oklch(20% 0.06 210)",
         "meta": {
-          "primary_contrast": "4.55",
-          "secondary_contrast": "4.72",
-          "accent_contrast": "4.85"
+          "name": "Corporate Teal",
+          "system": "OKLCH Premium"
         }
       },
       "nav_footer_version": "v2"
@@ -308,9 +304,202 @@
         "idioma": "es-US"
       },
       "footer": {
-        "empresa_legal": "US Nursing Validations",
+        "empresa_legal": "Enfermera en Estados Unidos",
         "direccion": "Miami, FL 33101",
         "email_contacto": "admin@homologacion-enfermeria-usa.com"
+      },
+      "menu_global": [
+        {
+          "nombre": "Diploma Online",
+          "ruta": "/homologacion"
+        },
+        {
+          "nombre": "Guía NCLEX",
+          "ruta": "/nclex"
+        },
+        {
+          "nombre": "Ofertas Trabajo",
+          "ruta": "/vacantes"
+        },
+        {
+          "nombre": "Sponsor Visa",
+          "ruta": "/visa"
+        },
+        {
+          "nombre": "Sueldos USA",
+          "ruta": "/salarios"
+        },
+        {
+          "nombre": "Historias",
+          "ruta": "/blog"
+        },
+        {
+          "nombre": "Consultar Ahora",
+          "ruta": "https://wa.me/something"
+        },
+        {
+          "nombre": "Acceso",
+          "ruta": "/login"
+        }
+      ],
+      "dominio": "https://homologacion-enfermeria-usa.com",
+      "font_family": "Inter",
+      "color_palette": {
+        "primary": "oklch(38% 0.11 50)",
+        "secondary": "oklch(52% 0.07 50)",
+        "accent": "oklch(42% 0.16 10)",
+        "text_bold": "oklch(18% 0.05 50)",
+        "meta": {
+          "name": "Warm Professional",
+          "system": "OKLCH Premium"
+        }
+      },
+      "nav_footer_version": "v2"
+    },
+    "licencia_rn": {
+      "nombre_sitio": "Licencia RN Oficial",
+      "color_tema": "#1565c0",
+      "comando_deploy": "firebase deploy --only hosting",
+      "layout": "LayoutC",
+      "gcp_project_id": "rn-license-fb-002",
+      "seo": {
+        "titulo_base": "Obtener Licencia RN",
+        "descripcion_base": "Aplica oficial y correctamente a tu RN (Registered Nurse License) en todos los estados.",
+        "idioma": "es-US"
+      },
+      "footer": {
+        "empresa_legal": "Enfermera en Estados Unidos",
+        "direccion": "Atlanta, GA 30301",
+        "email_contacto": "support@licencia-enfermeria-rn.org"
+      },
+      "menu_global": [
+        {
+          "nombre": "Homologar Título",
+          "ruta": "/homologacion"
+        },
+        {
+          "nombre": "Examen NCLEX",
+          "ruta": "/nclex"
+        },
+        {
+          "nombre": "Ofertas Trabajo",
+          "ruta": "/vacantes"
+        },
+        {
+          "nombre": "Green Card",
+          "ruta": "/visa"
+        },
+        {
+          "nombre": "Sueldos USA",
+          "ruta": "/salarios"
+        },
+        {
+          "nombre": "Actualidad",
+          "ruta": "/blog"
+        },
+        {
+          "nombre": "Soporte",
+          "ruta": "https://wa.me/something"
+        },
+        {
+          "nombre": "Entrar",
+          "ruta": "/login"
+        }
+      ],
+      "dominio": "https://licencia-enfermeria-rn.org",
+      "font_family": "Plus Jakarta Sans",
+      "color_palette": {
+        "primary": "oklch(38% 0.13 210)",
+        "secondary": "oklch(55% 0.09 210)",
+        "accent": "oklch(42% 0.16 140)",
+        "text_bold": "oklch(20% 0.06 210)",
+        "meta": {
+          "name": "Corporate Teal",
+          "system": "OKLCH Premium"
+        }
+      },
+      "nav_footer_version": "v2"
+    },
+    "california_salarios": {
+      "nombre_sitio": "California Nurse Salaries",
+      "color_tema": "#ffb300",
+      "comando_deploy": "netlify deploy --prod",
+      "layout": "LayoutB",
+      "gcp_project_id": "ca-salaries-ntl-1",
+      "seo": {
+        "titulo_base": "Salarios CA 2025",
+        "descripcion_base": "Los mejores estados y especialidades para cobrar el máximo sueldo como enfermera en California.",
+        "idioma": "es-US"
+      },
+      "footer": {
+        "empresa_legal": "Enfermera en Estados Unidos",
+        "direccion": "Los Angeles, CA 90001",
+        "email_contacto": "contact@nursing-careers-california.com"
+      },
+      "menu_global": [
+        {
+          "nombre": "Validar Título",
+          "ruta": "/homologacion"
+        },
+        {
+          "nombre": "Estudio NCLEX",
+          "ruta": "/nclex"
+        },
+        {
+          "nombre": "Empleos RN",
+          "ruta": "/vacantes"
+        },
+        {
+          "nombre": "Sponsor Visa",
+          "ruta": "/visa"
+        },
+        {
+          "nombre": "Sueldos USA",
+          "ruta": "/salarios"
+        },
+        {
+          "nombre": "Noticias",
+          "ruta": "/blog"
+        },
+        {
+          "nombre": "Chat Directo",
+          "ruta": "https://wa.me/something"
+        },
+        {
+          "nombre": "Entrar",
+          "ruta": "/login"
+        }
+      ],
+      "dominio": "https://nursing-careers-california.com",
+      "font_family": "Plus Jakarta Sans",
+      "sidebar_pos": "left",
+      "color_palette": {
+        "primary": "oklch(38% 0.11 50)",
+        "secondary": "oklch(52% 0.07 50)",
+        "accent": "oklch(42% 0.16 10)",
+        "text_bold": "oklch(18% 0.05 50)",
+        "meta": {
+          "name": "Warm Professional",
+          "system": "OKLCH Premium"
+        }
+      },
+      "nav_footer_version": "v1"
+    },
+    "sueldos_especialidades": {
+      "nombre_sitio": "Sueldos de Enfermería Hub",
+      "color_tema": "#2e7d32",
+      "comando_deploy": "vercel deploy --prod",
+      "layout": "LayoutA",
+      "gcp_project_id": "salary-hub-vcl-x",
+      "seo": {
+        "titulo_base": "Estudio Sueldos USA",
+        "descripcion_base": "Estudio detallado de cuánto gana una enfermera quirúrgica vs anestesista vs emergencias.",
+        "idioma": "es-US"
+      },
+      "footer": {
+        "empresa_legal": "Enfermera en Estados Unidos",
+        "direccion": "Chicago, IL 60601",
+        "email_contacto": "data@sueldos-enfermeras-usa.com"
       },
       "menu_global": [
         {
@@ -326,7 +515,200 @@
           "ruta": "/vacantes"
         },
         {
-          "nombre": "Sponsor Visa",
+          "nombre": "Green Card",
+          "ruta": "/visa"
+        },
+        {
+          "nombre": "Pagos RN",
+          "ruta": "/salarios"
+        },
+        {
+          "nombre": "Guías Tips",
+          "ruta": "/blog"
+        },
+        {
+          "nombre": "Hablar Asesor",
+          "ruta": "https://wa.me/something"
+        },
+        {
+          "nombre": "Login",
+          "ruta": "/login"
+        }
+      ],
+      "dominio": "https://sueldos-enfermeras-usa.com",
+      "font_family": "Outfit",
+      "color_palette": {
+        "primary": "oklch(38% 0.14 260)",
+        "secondary": "oklch(50% 0.10 260)",
+        "accent": "oklch(40% 0.15 190)",
+        "text_bold": "oklch(15% 0.06 260)",
+        "meta": {
+          "name": "Midnight Ocean",
+          "system": "OKLCH Premium"
+        }
+      },
+      "nav_footer_version": "v2"
+    },
+    "travel_nurses": {
+      "nombre_sitio": "Travel Nurse Hispanas",
+      "color_tema": "#e65100",
+      "comando_deploy": "aws s3 sync ./dist s3://travel-nurses",
+      "layout": "LayoutC",
+      "gcp_project_id": "travel-nrs-aws-77",
+      "seo": {
+        "titulo_base": "Travel Nurses USA",
+        "descripcion_base": "Ofertas agresivas y sueldos astronómicos para enfermeras que viajan dentro de Estados Unidos.",
+        "idioma": "es-US"
+      },
+      "footer": {
+        "empresa_legal": "Enfermera en Estados Unidos",
+        "direccion": "Denver, CO 80201",
+        "email_contacto": "hola@travel-nurse-hispanas.org"
+      },
+      "menu_global": [
+        {
+          "nombre": "Diploma Online",
+          "ruta": "/homologacion"
+        },
+        {
+          "nombre": "Examen NCLEX",
+          "ruta": "/nclex"
+        },
+        {
+          "nombre": "Trabajo Hoy",
+          "ruta": "/vacantes"
+        },
+        {
+          "nombre": "Trámite EB3",
+          "ruta": "/visa"
+        },
+        {
+          "nombre": "Ingresos USA",
+          "ruta": "/salarios"
+        },
+        {
+          "nombre": "Blog Oficial",
+          "ruta": "/blog"
+        },
+        {
+          "nombre": "Consultar Ahora",
+          "ruta": "https://wa.me/something"
+        },
+        {
+          "nombre": "Mi Cuenta",
+          "ruta": "/login"
+        }
+      ],
+      "dominio": "https://travel-nurse-hispanas.org",
+      "font_family": "Roboto",
+      "color_palette": {
+        "primary": "oklch(40% 0.12 150)",
+        "secondary": "oklch(55% 0.08 150)",
+        "accent": "oklch(42% 0.18 45)",
+        "text_bold": "oklch(20% 0.05 150)",
+        "meta": {
+          "name": "Deep Forest",
+          "system": "OKLCH Premium"
+        }
+      },
+      "nav_footer_version": "v1"
+    },
+    "empleos_texas": {
+      "nombre_sitio": "Empleos en Hospitales TX",
+      "color_tema": "#4a148c",
+      "comando_deploy": "firebase deploy --only hosting",
+      "layout": "LayoutB",
+      "gcp_project_id": "tx-jobs-fb-909",
+      "seo": {
+        "titulo_base": "Trabajos TX",
+        "descripcion_base": "Miles de vacantes abiertas en hospitales top grade de Houston y Dallas.",
+        "idioma": "es-US"
+      },
+      "footer": {
+        "empresa_legal": "Enfermera en Estados Unidos",
+        "direccion": "Dallas, TX 75201",
+        "email_contacto": "reclutamiento@empleos-enfermeria-texas.com"
+      },
+      "menu_global": [
+        {
+          "nombre": "Homologar Título",
+          "ruta": "/homologacion"
+        },
+        {
+          "nombre": "Guía NCLEX",
+          "ruta": "/nclex"
+        },
+        {
+          "nombre": "Trabajo Hoy",
+          "ruta": "/vacantes"
+        },
+        {
+          "nombre": "Residencia USA",
+          "ruta": "/visa"
+        },
+        {
+          "nombre": "Cuanto Ganan",
+          "ruta": "/salarios"
+        },
+        {
+          "nombre": "Blog Oficial",
+          "ruta": "/blog"
+        },
+        {
+          "nombre": "Consultar Ahora",
+          "ruta": "https://wa.me/something"
+        },
+        {
+          "nombre": "Entrar",
+          "ruta": "/login"
+        }
+      ],
+      "dominio": "https://empleos-enfermeria-texas.com",
+      "font_family": "Roboto",
+      "sidebar_pos": "left",
+      "color_palette": {
+        "primary": "oklch(38% 0.11 50)",
+        "secondary": "oklch(52% 0.07 50)",
+        "accent": "oklch(42% 0.16 10)",
+        "text_bold": "oklch(18% 0.05 50)",
+        "meta": {
+          "name": "Warm Professional",
+          "system": "OKLCH Premium"
+        }
+      },
+      "nav_footer_version": "v2"
+    },
+    "vacantes_hospitales": {
+      "nombre_sitio": "Vacantes Agencias USA",
+      "color_tema": "#3e2723",
+      "comando_deploy": "gcloud app deploy app.yaml --quiet",
+      "layout": "LayoutA",
+      "gcp_project_id": "us-vacancies-app-e",
+      "seo": {
+        "titulo_base": "Directorio Vacantes",
+        "descripcion_base": "El directorio más completo de agencias reclutadoras con sponsor de visa disponibles.",
+        "idioma": "es-US"
+      },
+      "footer": {
+        "empresa_legal": "Enfermera en Estados Unidos",
+        "direccion": "New York, NY 10001",
+        "email_contacto": "apply@vacantes-hospitales-usa.org"
+      },
+      "menu_global": [
+        {
+          "nombre": "Diploma Online",
+          "ruta": "/homologacion"
+        },
+        {
+          "nombre": "Guía NCLEX",
+          "ruta": "/nclex"
+        },
+        {
+          "nombre": "Vacantes USA",
+          "ruta": "/vacantes"
+        },
+        {
+          "nombre": "Green Card",
           "ruta": "/visa"
         },
         {
@@ -346,410 +728,17 @@
           "ruta": "/login"
         }
       ],
-      "dominio": "https://homologacion-enfermeria-usa.com",
-      "font_family": "Inter",
-      "color_palette": {
-        "primary": "hsl(196, 92%, 34%)",
-        "secondary": "hsl(226, 72%, 50%)",
-        "accent": "hsl(325, 92%, 46%)",
-        "text_bold": "hsl(196, 92%, 15%)",
-        "meta": {
-          "primary_contrast": "4.73",
-          "secondary_contrast": "6.55",
-          "accent_contrast": "4.56"
-        }
-      },
-      "nav_footer_version": "v2"
-    },
-    "licencia_rn": {
-      "nombre_sitio": "Licencia RN Oficial",
-      "color_tema": "#1565c0",
-      "comando_deploy": "firebase deploy --only hosting",
-      "layout": "LayoutC",
-      "gcp_project_id": "rn-license-fb-002",
-      "seo": {
-        "titulo_base": "Obtener Licencia RN",
-        "descripcion_base": "Aplica oficial y correctamente a tu RN (Registered Nurse License) en todos los estados.",
-        "idioma": "es-US"
-      },
-      "footer": {
-        "empresa_legal": "RN Registrants Group",
-        "direccion": "Atlanta, GA 30301",
-        "email_contacto": "support@licencia-enfermeria-rn.org"
-      },
-      "menu_global": [
-        {
-          "nombre": "Validar Diploma",
-          "ruta": "/homologacion"
-        },
-        {
-          "nombre": "Pasar NCLEX",
-          "ruta": "/nclex"
-        },
-        {
-          "nombre": "Vacantes USA",
-          "ruta": "/vacantes"
-        },
-        {
-          "nombre": "Migrar Legal",
-          "ruta": "/visa"
-        },
-        {
-          "nombre": "Tablas Sueldos",
-          "ruta": "/salarios"
-        },
-        {
-          "nombre": "Historias",
-          "ruta": "/blog"
-        },
-        {
-          "nombre": "Chat Directo",
-          "ruta": "https://wa.me/something"
-        },
-        {
-          "nombre": "Acceso",
-          "ruta": "/login"
-        }
-      ],
-      "dominio": "https://licencia-enfermeria-rn.org",
-      "font_family": "Plus Jakarta Sans",
-      "color_palette": {
-        "primary": "hsl(88, 59%, 32%)",
-        "secondary": "hsl(118, 39%, 36%)",
-        "accent": "hsl(257, 59%, 50%)",
-        "text_bold": "hsl(88, 59%, 15%)",
-        "meta": {
-          "primary_contrast": "4.58",
-          "secondary_contrast": "4.88",
-          "accent_contrast": "7.39"
-        }
-      },
-      "nav_footer_version": "v2"
-    },
-    "california_salarios": {
-      "nombre_sitio": "California Nurse Salaries",
-      "color_tema": "#ffb300",
-      "comando_deploy": "netlify deploy --prod",
-      "layout": "LayoutB",
-      "gcp_project_id": "ca-salaries-ntl-1",
-      "seo": {
-        "titulo_base": "Salarios CA 2025",
-        "descripcion_base": "Los mejores estados y especialidades para cobrar el máximo sueldo como enfermera en California.",
-        "idioma": "es-US"
-      },
-      "footer": {
-        "empresa_legal": "Cali Health Salaries",
-        "direccion": "Los Angeles, CA 90001",
-        "email_contacto": "contact@nursing-careers-california.com"
-      },
-      "menu_global": [
-        {
-          "nombre": "Diploma Online",
-          "ruta": "/homologacion"
-        },
-        {
-          "nombre": "Superar NCLEX",
-          "ruta": "/nclex"
-        },
-        {
-          "nombre": "Trabajo Hoy",
-          "ruta": "/vacantes"
-        },
-        {
-          "nombre": "Sponsor Visa",
-          "ruta": "/visa"
-        },
-        {
-          "nombre": "Salario Real",
-          "ruta": "/salarios"
-        },
-        {
-          "nombre": "Noticias",
-          "ruta": "/blog"
-        },
-        {
-          "nombre": "Consultar Ahora",
-          "ruta": "https://wa.me/something"
-        },
-        {
-          "nombre": "Login",
-          "ruta": "/login"
-        }
-      ],
-      "dominio": "https://nursing-careers-california.com",
-      "font_family": "Plus Jakarta Sans",
-      "sidebar_pos": "left",
-      "color_palette": {
-        "primary": "hsl(20, 63%, 44%)",
-        "secondary": "hsl(50, 43%, 34%)",
-        "accent": "hsl(178, 63%, 30%)",
-        "text_bold": "hsl(20, 63%, 15%)",
-        "meta": {
-          "primary_contrast": "4.71",
-          "secondary_contrast": "5.00",
-          "accent_contrast": "4.94"
-        }
-      },
-      "nav_footer_version": "v1"
-    },
-    "sueldos_especialidades": {
-      "nombre_sitio": "Sueldos de Enfermería Hub",
-      "color_tema": "#2e7d32",
-      "comando_deploy": "vercel deploy --prod",
-      "layout": "LayoutA",
-      "gcp_project_id": "salary-hub-vcl-x",
-      "seo": {
-        "titulo_base": "Estudio Sueldos USA",
-        "descripcion_base": "Estudio detallado de cuánto gana una enfermera quirúrgica vs anestesista vs emergencias.",
-        "idioma": "es-US"
-      },
-      "footer": {
-        "empresa_legal": "Nurse Salary Data",
-        "direccion": "Chicago, IL 60601",
-        "email_contacto": "data@sueldos-enfermeras-usa.com"
-      },
-      "menu_global": [
-        {
-          "nombre": "Revalidar Meta",
-          "ruta": "/homologacion"
-        },
-        {
-          "nombre": "Guía NCLEX",
-          "ruta": "/nclex"
-        },
-        {
-          "nombre": "Trabajo Hoy",
-          "ruta": "/vacantes"
-        },
-        {
-          "nombre": "Migrar Legal",
-          "ruta": "/visa"
-        },
-        {
-          "nombre": "Pagos RN",
-          "ruta": "/salarios"
-        },
-        {
-          "nombre": "Novedades",
-          "ruta": "/blog"
-        },
-        {
-          "nombre": "Escríbenos",
-          "ruta": "https://wa.me/something"
-        },
-        {
-          "nombre": "Entrar",
-          "ruta": "/login"
-        }
-      ],
-      "dominio": "https://sueldos-enfermeras-usa.com",
-      "font_family": "Outfit",
-      "color_palette": {
-        "primary": "hsl(110, 85%, 28%)",
-        "secondary": "hsl(140, 65%, 32%)",
-        "accent": "hsl(307, 85%, 44%)",
-        "text_bold": "hsl(110, 85%, 15%)",
-        "meta": {
-          "primary_contrast": "4.81",
-          "secondary_contrast": "4.59",
-          "accent_contrast": "4.72"
-        }
-      },
-      "nav_footer_version": "v2"
-    },
-    "travel_nurses": {
-      "nombre_sitio": "Travel Nurse Hispanas",
-      "color_tema": "#e65100",
-      "comando_deploy": "aws s3 sync ./dist s3://travel-nurses",
-      "layout": "LayoutC",
-      "gcp_project_id": "travel-nrs-aws-77",
-      "seo": {
-        "titulo_base": "Travel Nurses USA",
-        "descripcion_base": "Ofertas agresivas y sueldos astronómicos para enfermeras que viajan dentro de Estados Unidos.",
-        "idioma": "es-US"
-      },
-      "footer": {
-        "empresa_legal": "Hispanas Travel LLC",
-        "direccion": "Denver, CO 80201",
-        "email_contacto": "hola@travel-nurse-hispanas.org"
-      },
-      "menu_global": [
-        {
-          "nombre": "Validar Diploma",
-          "ruta": "/homologacion"
-        },
-        {
-          "nombre": "Estudio NCLEX",
-          "ruta": "/nclex"
-        },
-        {
-          "nombre": "Buscar Trabajo",
-          "ruta": "/vacantes"
-        },
-        {
-          "nombre": "Green Card",
-          "ruta": "/visa"
-        },
-        {
-          "nombre": "Pagos RN",
-          "ruta": "/salarios"
-        },
-        {
-          "nombre": "Noticias",
-          "ruta": "/blog"
-        },
-        {
-          "nombre": "Chat Directo",
-          "ruta": "https://wa.me/something"
-        },
-        {
-          "nombre": "Iniciar",
-          "ruta": "/login"
-        }
-      ],
-      "dominio": "https://travel-nurse-hispanas.org",
-      "font_family": "Roboto",
-      "color_palette": {
-        "primary": "hsl(260, 92%, 50%)",
-        "secondary": "hsl(290, 72%, 50%)",
-        "accent": "hsl(80, 92%, 26%)",
-        "text_bold": "hsl(260, 92%, 15%)",
-        "meta": {
-          "primary_contrast": "7.56",
-          "secondary_contrast": "4.74",
-          "accent_contrast": "4.71"
-        }
-      },
-      "nav_footer_version": "v1"
-    },
-    "empleos_texas": {
-      "nombre_sitio": "Empleos en Hospitales TX",
-      "color_tema": "#4a148c",
-      "comando_deploy": "firebase deploy --only hosting",
-      "layout": "LayoutB",
-      "gcp_project_id": "tx-jobs-fb-909",
-      "seo": {
-        "titulo_base": "Trabajos TX",
-        "descripcion_base": "Miles de vacantes abiertas en hospitales top grade de Houston y Dallas.",
-        "idioma": "es-US"
-      },
-      "footer": {
-        "empresa_legal": "Texas Recruits",
-        "direccion": "Dallas, TX 75201",
-        "email_contacto": "reclutamiento@empleos-enfermeria-texas.com"
-      },
-      "menu_global": [
-        {
-          "nombre": "Validar Título",
-          "ruta": "/homologacion"
-        },
-        {
-          "nombre": "Guía NCLEX",
-          "ruta": "/nclex"
-        },
-        {
-          "nombre": "Trabajo Hoy",
-          "ruta": "/vacantes"
-        },
-        {
-          "nombre": "Sponsor Visa",
-          "ruta": "/visa"
-        },
-        {
-          "nombre": "Cuanto Ganan",
-          "ruta": "/salarios"
-        },
-        {
-          "nombre": "Casos Éxito",
-          "ruta": "/blog"
-        },
-        {
-          "nombre": "Consultar Ahora",
-          "ruta": "https://wa.me/something"
-        },
-        {
-          "nombre": "Login",
-          "ruta": "/login"
-        }
-      ],
-      "dominio": "https://empleos-enfermeria-texas.com",
-      "font_family": "Roboto",
-      "sidebar_pos": "left",
-      "color_palette": {
-        "primary": "hsl(358, 73%, 50%)",
-        "secondary": "hsl(28, 53%, 42%)",
-        "accent": "hsl(212, 73%, 48%)",
-        "text_bold": "hsl(358, 73%, 15%)",
-        "meta": {
-          "primary_contrast": "4.85",
-          "secondary_contrast": "4.59",
-          "accent_contrast": "4.63"
-        }
-      },
-      "nav_footer_version": "v2"
-    },
-    "vacantes_hospitales": {
-      "nombre_sitio": "Vacantes Agencias USA",
-      "color_tema": "#3e2723",
-      "comando_deploy": "gcloud app deploy app.yaml --quiet",
-      "layout": "LayoutA",
-      "gcp_project_id": "us-vacancies-app-e",
-      "seo": {
-        "titulo_base": "Directorio Vacantes",
-        "descripcion_base": "El directorio más completo de agencias reclutadoras con sponsor de visa disponibles.",
-        "idioma": "es-US"
-      },
-      "footer": {
-        "empresa_legal": "US Agency Jobs",
-        "direccion": "New York, NY 10001",
-        "email_contacto": "apply@vacantes-hospitales-usa.org"
-      },
-      "menu_global": [
-        {
-          "nombre": "Proceso Grado",
-          "ruta": "/homologacion"
-        },
-        {
-          "nombre": "Estudio NCLEX",
-          "ruta": "/nclex"
-        },
-        {
-          "nombre": "Vacantes USA",
-          "ruta": "/vacantes"
-        },
-        {
-          "nombre": "Visa EB-3",
-          "ruta": "/visa"
-        },
-        {
-          "nombre": "Pagos RN",
-          "ruta": "/salarios"
-        },
-        {
-          "nombre": "Noticias",
-          "ruta": "/blog"
-        },
-        {
-          "nombre": "Consultar Ahora",
-          "ruta": "https://wa.me/something"
-        },
-        {
-          "nombre": "Portal RN",
-          "ruta": "/login"
-        }
-      ],
       "dominio": "https://vacantes-hospitales-usa.org",
       "nav_footer_version": "v1",
       "font_family": "Outfit",
       "color_palette": {
-        "primary": "hsl(294, 74%, 48%)",
-        "secondary": "hsl(324, 54%, 50%)",
-        "accent": "hsl(59, 74%, 26%)",
-        "text_bold": "hsl(294, 74%, 15%)",
+        "primary": "oklch(40% 0.12 150)",
+        "secondary": "oklch(55% 0.08 150)",
+        "accent": "oklch(42% 0.18 45)",
+        "text_bold": "oklch(20% 0.05 150)",
         "meta": {
-          "primary_contrast": "4.69",
-          "secondary_contrast": "4.82",
-          "accent_contrast": "5.08"
+          "name": "Deep Forest",
+          "system": "OKLCH Premium"
         }
       }
     },
@@ -765,41 +754,41 @@
         "idioma": "es-US"
       },
       "footer": {
-        "empresa_legal": "Health Migration Partners",
+        "empresa_legal": "Enfermera en Estados Unidos",
         "direccion": "Washington, DC 20001",
         "email_contacto": "legal@green-card-enfermeras.com"
       },
       "menu_global": [
         {
-          "nombre": "Diploma Online",
+          "nombre": "Revalidar Meta",
           "ruta": "/homologacion"
         },
         {
-          "nombre": "NCLEX Paso",
+          "nombre": "Examen NCLEX",
           "ruta": "/nclex"
         },
         {
-          "nombre": "Ofertas Trabajo",
+          "nombre": "Bolsa Empleo",
           "ruta": "/vacantes"
         },
         {
-          "nombre": "Trámite EB3",
+          "nombre": "Visa EB-3",
           "ruta": "/visa"
         },
         {
-          "nombre": "Sueldo Promedio",
+          "nombre": "Sueldos USA",
           "ruta": "/salarios"
         },
         {
-          "nombre": "Guías Tips",
+          "nombre": "Noticias",
           "ruta": "/blog"
         },
         {
-          "nombre": "Soporte",
+          "nombre": "WhatsApp",
           "ruta": "https://wa.me/something"
         },
         {
-          "nombre": "Entrar",
+          "nombre": "Acceso",
           "ruta": "/login"
         }
       ],
@@ -807,14 +796,13 @@
       "nav_footer_version": "v2",
       "font_family": "Plus Jakarta Sans",
       "color_palette": {
-        "primary": "hsl(240, 94%, 50%)",
-        "secondary": "hsl(270, 74%, 50%)",
-        "accent": "hsl(92, 94%, 26%)",
-        "text_bold": "hsl(240, 94%, 15%)",
+        "primary": "oklch(40% 0.12 150)",
+        "secondary": "oklch(55% 0.08 150)",
+        "accent": "oklch(42% 0.18 45)",
+        "text_bold": "oklch(20% 0.05 150)",
         "meta": {
-          "primary_contrast": "8.78",
-          "secondary_contrast": "6.60",
-          "accent_contrast": "4.85"
+          "name": "Deep Forest",
+          "system": "OKLCH Premium"
         }
       }
     },
@@ -830,7 +818,7 @@
         "idioma": "es-US"
       },
       "footer": {
-        "empresa_legal": "Pro Nursing Visas",
+        "empresa_legal": "Enfermera en Estados Unidos",
         "direccion": "Seattle, WA 98101",
         "email_contacto": "tramites@visas-enfermeria-usa.net"
       },
@@ -844,15 +832,15 @@
           "ruta": "/nclex"
         },
         {
-          "nombre": "Trabajo Hoy",
+          "nombre": "Buscar Trabajo",
           "ruta": "/vacantes"
         },
         {
-          "nombre": "Residencia USA",
+          "nombre": "Sponsor Visa",
           "ruta": "/visa"
         },
         {
-          "nombre": "Sueldos USA",
+          "nombre": "Sueldo Promedio",
           "ruta": "/salarios"
         },
         {
@@ -860,11 +848,11 @@
           "ruta": "/blog"
         },
         {
-          "nombre": "Escríbenos",
+          "nombre": "Soporte",
           "ruta": "https://wa.me/something"
         },
         {
-          "nombre": "Mi Cuenta",
+          "nombre": "Acceso",
           "ruta": "/login"
         }
       ],
@@ -873,14 +861,13 @@
       "font_family": "Outfit",
       "sidebar_pos": "left",
       "color_palette": {
-        "primary": "hsl(151, 62%, 32%)",
-        "secondary": "hsl(181, 42%, 34%)",
-        "accent": "hsl(332, 62%, 50%)",
-        "text_bold": "hsl(151, 62%, 15%)",
+        "primary": "oklch(35% 0.18 300)",
+        "secondary": "oklch(50% 0.14 300)",
+        "accent": "oklch(38% 0.16 160)",
+        "text_bold": "oklch(15% 0.08 300)",
         "meta": {
-          "primary_contrast": "4.67",
-          "secondary_contrast": "5.00",
-          "accent_contrast": "4.82"
+          "name": "Royal Purple",
+          "system": "OKLCH Premium"
         }
       }
     },
@@ -896,41 +883,41 @@
         "idioma": "es-MX"
       },
       "footer": {
-        "empresa_legal": "Conexión Médica MX",
+        "empresa_legal": "Enfermera en Estados Unidos",
         "direccion": "CDMX, México 01000",
         "email_contacto": "contacto@enfermeras-mexicanas-usa.org"
       },
       "menu_global": [
         {
-          "nombre": "Validar Título",
+          "nombre": "Validar Diploma",
           "ruta": "/homologacion"
         },
         {
-          "nombre": "Pasar NCLEX",
+          "nombre": "Guía NCLEX",
           "ruta": "/nclex"
         },
         {
-          "nombre": "Puestos Libres",
+          "nombre": "Buscar Trabajo",
           "ruta": "/vacantes"
         },
         {
-          "nombre": "Migrar Legal",
+          "nombre": "Visa Trabajo",
           "ruta": "/visa"
         },
         {
-          "nombre": "Pagos RN",
+          "nombre": "Sueldos USA",
           "ruta": "/salarios"
         },
         {
-          "nombre": "Noticias",
+          "nombre": "Historias",
           "ruta": "/blog"
         },
         {
-          "nombre": "WhatsApp",
+          "nombre": "Ayuda Chat",
           "ruta": "https://wa.me/something"
         },
         {
-          "nombre": "Entrar",
+          "nombre": "Acceso",
           "ruta": "/login"
         }
       ],
@@ -938,14 +925,13 @@
       "nav_footer_version": "v1",
       "font_family": "Plus Jakarta Sans",
       "color_palette": {
-        "primary": "hsl(26, 73%, 40%)",
-        "secondary": "hsl(56, 53%, 32%)",
-        "accent": "hsl(204, 73%, 42%)",
-        "text_bold": "hsl(26, 73%, 15%)",
+        "primary": "oklch(38% 0.14 260)",
+        "secondary": "oklch(50% 0.10 260)",
+        "accent": "oklch(40% 0.15 190)",
+        "text_bold": "oklch(15% 0.06 260)",
         "meta": {
-          "primary_contrast": "4.77",
-          "secondary_contrast": "4.62",
-          "accent_contrast": "4.59"
+          "name": "Midnight Ocean",
+          "system": "OKLCH Premium"
         }
       }
     },
@@ -961,21 +947,21 @@
         "idioma": "es-CO"
       },
       "footer": {
-        "empresa_legal": "CO Nursing Link",
+        "empresa_legal": "Enfermera en Estados Unidos",
         "direccion": "Bogotá, Colombia 110111",
         "email_contacto": "asistencia@enfermeras-colombianas-usa.com"
       },
       "menu_global": [
         {
-          "nombre": "Revalidar Meta",
+          "nombre": "Validar Diploma",
           "ruta": "/homologacion"
         },
         {
-          "nombre": "NCLEX Paso",
+          "nombre": "Prep NCLEX",
           "ruta": "/nclex"
         },
         {
-          "nombre": "Ofertas Trabajo",
+          "nombre": "Trabajo Hoy",
           "ruta": "/vacantes"
         },
         {
@@ -983,19 +969,19 @@
           "ruta": "/visa"
         },
         {
-          "nombre": "Cuanto Ganan",
+          "nombre": "Pagos RN",
           "ruta": "/salarios"
         },
         {
-          "nombre": "Noticias",
+          "nombre": "Guías Tips",
           "ruta": "/blog"
         },
         {
-          "nombre": "Chat Directo",
+          "nombre": "Soporte",
           "ruta": "https://wa.me/something"
         },
         {
-          "nombre": "Iniciar",
+          "nombre": "Portal RN",
           "ruta": "/login"
         }
       ],
@@ -1003,14 +989,13 @@
       "nav_footer_version": "v3",
       "font_family": "Inter",
       "color_palette": {
-        "primary": "hsl(55, 95%, 26%)",
-        "secondary": "hsl(85, 75%, 28%)",
-        "accent": "hsl(210, 95%, 44%)",
-        "text_bold": "hsl(55, 95%, 15%)",
+        "primary": "oklch(38% 0.14 260)",
+        "secondary": "oklch(50% 0.10 260)",
+        "accent": "oklch(40% 0.15 190)",
+        "text_bold": "oklch(15% 0.06 260)",
         "meta": {
-          "primary_contrast": "4.60",
-          "secondary_contrast": "4.90",
-          "accent_contrast": "4.82"
+          "name": "Midnight Ocean",
+          "system": "OKLCH Premium"
         }
       }
     },
@@ -1036,27 +1021,27 @@
           "ruta": "/homologacion"
         },
         {
-          "nombre": "Pasar NCLEX",
+          "nombre": "Guía NCLEX",
           "ruta": "/nclex"
         },
         {
-          "nombre": "Vacantes USA",
+          "nombre": "Ofertas Trabajo",
           "ruta": "/vacantes"
         },
         {
-          "nombre": "Residencia USA",
+          "nombre": "Visa EB-3",
           "ruta": "/visa"
         },
         {
-          "nombre": "Tablas Sueldos",
+          "nombre": "Pagos RN",
           "ruta": "/salarios"
         },
         {
-          "nombre": "Actualidad",
+          "nombre": "Historias",
           "ruta": "/blog"
         },
         {
-          "nombre": "Escríbenos",
+          "nombre": "WhatsApp",
           "ruta": "https://wa.me/something"
         },
         {
@@ -1069,14 +1054,13 @@
       "font_family": "Inter",
       "sidebar_pos": "left",
       "color_palette": {
-        "primary": "hsl(88, 86%, 26%)",
-        "secondary": "hsl(118, 66%, 32%)",
-        "accent": "hsl(239, 86%, 50%)",
-        "text_bold": "hsl(88, 86%, 15%)",
+        "primary": "oklch(38% 0.14 260)",
+        "secondary": "oklch(50% 0.10 260)",
+        "accent": "oklch(40% 0.15 190)",
+        "text_bold": "oklch(15% 0.06 260)",
         "meta": {
-          "primary_contrast": "5.10",
-          "secondary_contrast": "4.60",
-          "accent_contrast": "8.89"
+          "name": "Midnight Ocean",
+          "system": "OKLCH Premium"
         }
       }
     }

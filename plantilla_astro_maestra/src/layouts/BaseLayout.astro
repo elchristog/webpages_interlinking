@@ -33,20 +33,22 @@ if (navFooterVersion === "v2") {
 }
 ---
 
-<html lang="es" class="scroll-smooth selection:bg-sand-100 selection:text-accent-500">
+<html lang="es" class="scroll-smooth selection:bg-secondary/20 selection:text-accent">
   <head>
     <BaseHead titulo={titulo} descripcion={descripcion} />
     <style define:vars={{ 
-      primary: palette.primary, 
-      secondary: palette.secondary, 
-      accent: palette.accent,
-      textBold: palette.text_bold
+      primaryRaw: palette.primary, 
+      secondaryRaw: palette.secondary, 
+      accentRaw: palette.accent,
+      textBoldRaw: palette.text_bold,
+      fontFamily: fontName
     }}>
       :root {
-        --color-primary: var(--primary);
-        --color-secondary: var(--secondary);
-        --color-accent: var(--accent);
-        --color-text-bold: var(--textBold);
+        --color-primary-raw: var(--primaryRaw);
+        --color-secondary-raw: var(--secondaryRaw);
+        --color-accent-raw: var(--accentRaw);
+        --color-text-bold-raw: var(--textBoldRaw);
+        --font-family: var(--fontFamily);
       }
     </style>
   </head>

@@ -1,65 +1,65 @@
 {
-  "nombre_sitio": "Talento Enfermería CO",
-  "color_tema": "#fbc02d",
-  "comando_deploy": "gcloud app deploy app.yaml --quiet",
-  "layout": "LayoutC",
-  "gcp_project_id": "co-talent-app-11",
+  "nombre_sitio": "Red Enfermeras Latinas",
+  "color_tema": "#c2185b",
+  "comando_deploy": "vercel deploy --prod",
+  "layout": "LayoutB",
+  "gcp_project_id": "latina-net-vcl-66",
   "seo": {
-    "titulo_base": "Desde Colombia a USA",
-    "descripcion_base": "Proceso EB-3 migratorio y reclutamiento garantizado para profesionales graduados en Colombia.",
-    "idioma": "es-CO"
+    "titulo_base": "Comunidad Latina RN",
+    "descripcion_base": "Historias de éxito, consultoría migratoria y vacantes dirigidas enteramente a latinas.",
+    "idioma": "es-US"
   },
   "footer": {
     "empresa_legal": "Enfermera en Estados Unidos",
-    "direccion": "Bogotá, Colombia 110111",
-    "email_contacto": "asistencia@enfermeras-colombianas-usa.com"
+    "direccion": "San Antonio, TX 78201",
+    "email_contacto": "unete@enfermeraslatinas.io"
   },
   "menu_global": [
     {
-      "nombre": "Revalidar Meta",
+      "nombre": "Título USA",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "NCLEX Paso",
+      "nombre": "Guía NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Bolsa Empleo",
+      "nombre": "Ofertas Trabajo",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Green Card",
+      "nombre": "Visa EB-3",
       "ruta": "/visa"
     },
     {
-      "nombre": "Ingresos USA",
+      "nombre": "Pagos RN",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Casos Éxito",
+      "nombre": "Historias",
       "ruta": "/blog"
     },
     {
-      "nombre": "Chat Directo",
+      "nombre": "WhatsApp",
       "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Mi Cuenta",
+      "nombre": "Iniciar",
       "ruta": "/login"
     }
   ],
-  "dominio": "https://enfermeras-colombianas-usa.com",
-  "nav_footer_version": "v3",
+  "dominio": "https://enfermeraslatinas.io",
+  "nav_footer_version": "v2",
   "font_family": "Inter",
+  "sidebar_pos": "left",
   "color_palette": {
-    "primary": "hsl(55, 95%, 26%)",
-    "secondary": "hsl(85, 75%, 28%)",
-    "accent": "hsl(210, 95%, 44%)",
-    "text_bold": "hsl(55, 95%, 15%)",
+    "primary": "oklch(38% 0.14 260)",
+    "secondary": "oklch(50% 0.10 260)",
+    "accent": "oklch(40% 0.15 190)",
+    "text_bold": "oklch(15% 0.06 260)",
     "meta": {
-      "primary_contrast": "4.60",
-      "secondary_contrast": "4.90",
-      "accent_contrast": "4.82"
+      "name": "Midnight Ocean",
+      "system": "OKLCH Premium"
     }
   }
 }
