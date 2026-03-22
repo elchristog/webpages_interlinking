@@ -1,0 +1,65 @@
+---
+import Text from "../elements/Text.astro";
+import Button from "../elements/Button.astro";
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  ctaText?: string;
+  ctaLink?: string;
+  backgroundImage?: string;
+  badge?: string;
+  highlightText?: string;
+  class?: string;
+}
+
+const {
+  title = "TITULO DE ALTO IMPACTO",
+  subtitle = "Subtítulo persuasivo que describe el beneficio principal.",
+  ctaText = "¡Acción Ahora!",
+  ctaLink = "#",
+  backgroundImage = "https://images.unsplash.com/photo-1551288049-bbbda536ad37?q=80&w=2070&auto=format&fit=crop",
+  badge = "RESULTADOS COMPROBADOS",
+  highlightText = "MÁS DE 20 AÑOS",
+  class: className = "",
+} = Astro.props;
+---
+
+<section class={`ui-hero-performance ${className}`} style={`background-image: url('${backgroundImage}')`}>
+  <div class="hero-content">
+    {badge && <span class="hero-badge">{badge}</span>}
+    
+    <h1 class="hero-title">
+      {title.includes(highlightText) ? (
+        title.split(highlightText).map((part, index, array) => (
+          <>
+            {part}
+            {index < array.length - 1 && <span class="ui-highlight-alt">{highlightText}</span>}
+          </>
+        ))
+      ) : (
+        title
+      )}
+    </h1>
+
+    <p class="hero-subtitle">{subtitle}</p>
+
+    <div class="hero-actions">
+      <a href={ctaLink} class="btn">
+        {ctaText}
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Use global.css for most styles, keeping this minimal for scoped tweaks if needed */
+  .ui-hero-performance {
+    background-attachment: fixed;
+  }
+  @media (max-width: 768px) {
+    .ui-hero-performance {
+      background-attachment: scroll;
+    }
+  }
+</style>

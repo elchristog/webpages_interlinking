@@ -1,18 +1,18 @@
 {
-  "nombre_sitio": "California Nurse Salaries",
-  "color_tema": "#ffb300",
-  "comando_deploy": "netlify deploy --prod",
+  "nombre_sitio": "Red Enfermeras Latinas",
+  "color_tema": "#c2185b",
+  "comando_deploy": "vercel deploy --prod",
   "layout": "LayoutB",
-  "gcp_project_id": "ca-salaries-ntl-1",
+  "gcp_project_id": "latina-net-vcl-66",
   "seo": {
-    "titulo_base": "Salarios CA 2025",
-    "descripcion_base": "Los mejores estados y especialidades para cobrar el máximo sueldo como enfermera en California.",
+    "titulo_base": "Comunidad Latina RN",
+    "descripcion_base": "Historias de éxito, consultoría migratoria y vacantes dirigidas enteramente a latinas.",
     "idioma": "es-US"
   },
   "footer": {
     "empresa_legal": "Enfermera en Estados Unidos",
-    "direccion": "Los Angeles, CA 90001",
-    "email_contacto": "contact@nursing-careers-california.com"
+    "direccion": "San Antonio, TX 78201",
+    "email_contacto": "unete@enfermeraslatinas.io"
   },
   "menu_global": [
     {
@@ -20,46 +20,46 @@
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Guía NCLEX",
+      "nombre": "Estudio NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Empleos RN",
+      "nombre": "Puestos Libres",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Migrar Legal",
+      "nombre": "Sponsor Visa",
       "ruta": "/visa"
     },
     {
-      "nombre": "Sueldos USA",
+      "nombre": "Cuanto Ganan",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Novedades",
+      "nombre": "Casos Éxito",
       "ruta": "/blog"
     },
     {
-      "nombre": "Soporte",
+      "nombre": "Consultar Ahora",
       "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Entrar",
+      "nombre": "Portal RN",
       "ruta": "/login"
     }
   ],
-  "dominio": "https://nursing-careers-california.com",
-  "font_family": "Plus Jakarta Sans",
+  "dominio": "https://enfermeraslatinas.io",
+  "nav_footer_version": "v2",
+  "font_family": "Inter",
   "sidebar_pos": "left",
   "color_palette": {
-    "primary": "oklch(38% 0.11 50)",
-    "secondary": "oklch(52% 0.07 50)",
-    "accent": "oklch(86% 0.14 20)",
-    "text_bold": "oklch(18% 0.05 50)",
+    "primary": "oklch(38% 0.14 260)",
+    "secondary": "oklch(50% 0.10 260)",
+    "accent": "oklch(85% 0.12 190)",
+    "text_bold": "oklch(15% 0.06 260)",
     "meta": {
-      "name": "Warm Professional",
+      "name": "Midnight Ocean",
       "system": "OKLCH Premium v2"
     }
-  },
-  "nav_footer_version": "v1"
+  }
 }
