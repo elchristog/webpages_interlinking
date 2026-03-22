@@ -3,21 +3,25 @@
     {
       "id": "ui-preset--emerald",
       "name": "Emerald Professional",
+      "type": "dark",
       "description": "Estilo profesional en tonos verde esmeralda/teal. Fondo oscuro, texto luz. Ideal para confianza."
     },
     {
       "id": "ui-preset--midnight",
       "name": "Midnight Luxury",
+      "type": "dark",
       "description": "Estilo lujo/premium en azul medianoche. Fondo muy oscuro, texto blanco. Ideal para exclusividad."
     },
     {
       "id": "ui-preset--sunset",
       "name": "Sunset Impact",
+      "type": "light",
       "description": "Estilo de alto impacto en naranja/ámbar. Fondo cálido, texto oscuro (Zinc-950). Ideal para CTAs y energía."
     },
     {
       "id": "ui-preset--professional",
       "name": "Slate Professional",
+      "type": "dark",
       "description": "Estilo corporativo elegante en gris pizarra/azul acero. Fondo oscuro, texto blanco."
     }
   ],
@@ -25,26 +29,36 @@
     {
       "id": "ui-hero-romuald",
       "name": "Hero Romuald (Personal Brand)",
+      "allowed_presets": ["ui-preset--emerald", "ui-preset--midnight", "ui-preset--professional"],
       "prompt": "HERO PREMIUM ROMUALD (ui-hero-romuald): DISEÑO ESTÁNDAR OBLIGATORIO PARA 2026. Úsalo SIEMPRE en el inicio del artículo o home.\n<div class=\"ui-hero-romuald {preset}\">\n  <div class=\"hero-content\">\n    <span class=\"badge\">NUEVO MÉTODO 2026</span>\n    <h1>Título de Impacto</h1>\n    <p class=\"subtitle\">Subtítulo que resuelva el dolor principal del usuario...</p>\n    <p class=\"cta-text\">¿Deseas dar el siguiente paso hoy?</p>\n    <a href=\"URL\" class=\"btn\">🚀 Sí, Cuéntame Más</a>\n  </div>\n  <div class=\"hero-image\">\n    <img src=\"URL_IMAGEN_PERSONA\" alt=\"Persona de confianza\">\n  </div>\n</div>"
     },
     {
       "id": "ui-hero-performance",
       "name": "Hero Performance (Centered)",
+      "allowed_presets": ["ui-preset--emerald", "ui-preset--midnight", "ui-preset--professional"],
       "prompt": "HERO PERFORMANCE (ui-hero-performance): Diseño centrado para destacar RESULTADOS y AUTORIDAD. Úsalo como alternativa al Romuald.\n<div class=\"ui-hero-performance {preset}\">\n  <div class=\"hero-content\">\n    <span class=\"hero-badge\">RESULTADOS GARANTIZADOS</span>\n    <h1>Título con <span class=\"ui-highlight-alt\">Highlight de Impacto</span></h1>\n    <p class=\"hero-subtitle\">Subtítulo que detalle el beneficio principal en 2 líneas...</p>\n    <a href=\"URL\" class=\"btn\">🚀 BOTÓN DE ACCIÓN</a>\n  </div>\n</div>"
     }
   ],
   "sections": [
     {
       "id": "ui-section-dark",
+      "allowed_presets": ["ui-preset--emerald", "ui-preset--midnight", "ui-preset--professional"],
       "prompt": "SECCIÓN OSCURA (ui-section-dark): <div class=\"ui-section-dark {preset}\"><div class=\"container\">...contenido...</div></div>"
     },
     {
+        "id": "ui-section-accent",
+        "allowed_presets": ["ui-preset--sunset"],
+        "prompt": "SECCIÓN ACENTO (ui-section-accent): <div class=\"ui-section-accent {preset}\"><div class=\"container\">...contenido...</div></div>"
+    },
+    {
       "id": "ui-section-sand",
+      "allowed_presets": [],
       "prompt": "SECCIÓN ARENA (ui-section-sand): <div class=\"ui-section-sand\"><div class=\"container\">...contenido...</div></div>"
     },
     {
         "id": "ui-grid-3",
-        "prompt": "GRID MULTI-COLUMNA (ui-grid-3): <div class=\"ui-grid-3\">...contenido con ui-card...</div>"
+        "allowed_presets": ["ui-preset--emerald", "ui-preset--midnight", "ui-preset--professional", "ui-preset--sunset"],
+        "prompt": "GRID MULTI-COLUMNA (ui-grid-3): <div class=\"ui-grid-3 {preset}\">...contenido con ui-card...</div>"
     }
   ],
   "utilities": [
