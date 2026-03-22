@@ -140,7 +140,25 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
     REQUISITOS_WORD_COUNT = config_logic["content"]["min_word_count"] if config_logic else 1300
     MAX_SENTENCES = config_logic["content"]["paragraph_max_sentences"] if config_logic else 3
 
-    REGLAS_COMPONENTES_UI = """
+    REGLAS_ESTILOS_PRESET = """
+    SISTEMA DE PRESETS DE DISEÑO (DESIGN ATOMS):
+    Ahora puedes aplicar "Presets" de diseño a las secciones principales para garantizar una UI de alta calidad. 
+    Aplica estas clases ADICIONALES a componentes como `ui-hero-full`, `ui-section-*`, `ui-stats` o `ui-card`.
+
+    PRESETS DISPONIBLES:
+    1. `ui-preset--emerald`: Estilo profesional en tonos verde esmeralda/teal. Fondo oscuro, texto luz. Ideal para confianza.
+    2. `ui-preset--midnight`: Estilo lujo/premium en azul medianoche. Fondo muy oscuro, texto blanco. Ideal para exclusividad.
+    3. `ui-preset--sunset`: Estilo de alto impacto en naranja/ámbar. Fondo cálido, texto oscuro (Zinc-950). Ideal para CTAs y energía.
+    4. `ui-preset--professional`: Estilo corporativo elegante en gris pizarra/azul acero. Fondo oscuro, texto blanco.
+
+    EJEMPLO DE USO:
+    <div class="ui-hero-full ui-preset--midnight">...</div>
+    <div class="ui-stats ui-preset--emerald">...</div>
+    """
+
+    REGLAS_COMPONENTES_UI = f"""
+    {REGLAS_ESTILOS_PRESET}
+    
     REQUISITOS DE COMPONENTES VISUALES (UI):
     Para que el contenido sea dinámico y no solo texto, DEBES usar estas estructuras HTML con clases semánticas en al menos 3 secciones del artículo:
 

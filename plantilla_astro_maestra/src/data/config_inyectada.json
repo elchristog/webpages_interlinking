@@ -1,22 +1,22 @@
 {
-  "nombre_sitio": "Red Enfermeras Latinas",
-  "color_tema": "#c2185b",
-  "comando_deploy": "vercel deploy --prod",
-  "layout": "LayoutB",
-  "gcp_project_id": "latina-net-vcl-66",
+  "nombre_sitio": "Enfermeras Mexicanas Exitosas",
+  "color_tema": "#bf360c",
+  "comando_deploy": "netlify deploy --prod",
+  "layout": "LayoutA",
+  "gcp_project_id": "mx-nurses-ntl-22",
   "seo": {
-    "titulo_base": "Comunidad Latina RN",
-    "descripcion_base": "Historias de éxito, consultoría migratoria y vacantes dirigidas enteramente a latinas.",
-    "idioma": "es-US"
+    "titulo_base": "México a USA RN",
+    "descripcion_base": "Guía especializada en tramitar visa NAFTA (TN) y homologación rápida para talento de México.",
+    "idioma": "es-MX"
   },
   "footer": {
     "empresa_legal": "Enfermera en Estados Unidos",
-    "direccion": "San Antonio, TX 78201",
-    "email_contacto": "unete@enfermeraslatinas.io"
+    "direccion": "CDMX, México 01000",
+    "email_contacto": "contacto@enfermeras-mexicanas-usa.org"
   },
   "menu_global": [
     {
-      "nombre": "Título USA",
+      "nombre": "Homologar Título",
       "ruta": "/homologacion"
     },
     {
@@ -24,11 +24,11 @@
       "ruta": "/nclex"
     },
     {
-      "nombre": "Ofertas Trabajo",
+      "nombre": "Trabajo Hoy",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Trámite EB3",
+      "nombre": "Sponsor Visa",
       "ruta": "/visa"
     },
     {
@@ -40,18 +40,17 @@
       "ruta": "/blog"
     },
     {
-      "nombre": "Hablar Asesor",
+      "nombre": "WhatsApp",
       "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Iniciar",
+      "nombre": "Mi Cuenta",
       "ruta": "/login"
     }
   ],
-  "dominio": "https://enfermeraslatinas.io",
-  "nav_footer_version": "v2",
-  "font_family": "Inter",
-  "sidebar_pos": "left",
+  "dominio": "https://enfermeras-mexicanas-usa.org",
+  "nav_footer_version": "v1",
+  "font_family": "Plus Jakarta Sans",
   "color_palette": {
     "primary": "oklch(38% 0.14 260)",
     "secondary": "oklch(50% 0.10 260)",

@@ -501,6 +501,85 @@ body {
   color: var(--color-text-bold);
 }
 
+/* --- Phase 4: Component Design Atoms (Presets) --- */
+
+/* 
+   These presets allow individual components to have their own 
+   self-contained design system, overriding site-wide palettes.
+*/
+
+.ui-preset--emerald {
+  --color-primary: oklch(35% 0.12 160);
+  --color-secondary: oklch(45% 0.10 160);
+  --color-accent: oklch(92% 0.15 150);
+  --color-text-bold: oklch(15% 0.05 160);
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.ui-preset--emerald .ui-highlight {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--color-accent) !important;
+  border-bottom-color: var(--color-accent);
+}
+
+.ui-preset--midnight {
+  --color-primary: oklch(25% 0.08 260);
+  --color-secondary: oklch(35% 0.06 260);
+  --color-accent: oklch(88% 0.12 210);
+  --color-text-bold: oklch(98% 0.01 260);
+  background-color: var(--color-primary);
+  color: white;
+  backdrop-filter: blur(8px);
+}
+
+.ui-preset--midnight .ui-button-secondary {
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+}
+
+.ui-preset--sunset {
+  --color-primary: oklch(65% 0.22 45);
+  --color-secondary: oklch(55% 0.18 45);
+  --color-accent: oklch(95% 0.15 80);
+  --color-text-bold: oklch(12% 0.05 45);
+  background-color: var(--color-primary);
+  color: var(--color-text-bold);
+}
+
+.ui-preset--sunset .ui-highlight {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: var(--color-text-bold) !important;
+  border-bottom-color: var(--color-text-bold);
+}
+
+.ui-preset--professional {
+  --color-primary: oklch(30% 0.05 250);
+  --color-secondary: oklch(40% 0.03 250);
+  --color-accent: oklch(94% 0.08 220);
+  --color-text-bold: oklch(98% 0.01 250);
+  background-color: var(--color-primary);
+  color: white;
+}
+
+/* Apply preset padding and margins globally to components that use them */
+[class*="ui-preset--"] {
+  @apply rounded-3xl overflow-hidden my-12;
+}
+
+/* Ensure all text elements inside dark presets inherit the light color */
+.ui-preset--emerald h1, .ui-preset--emerald h2, .ui-preset--emerald h3, .ui-preset--emerald h4, .ui-preset--emerald p, .ui-preset--emerald li, .ui-preset--emerald span:not(.ui-stat-value) {
+  color: white !important;
+}
+
+.ui-preset--midnight h1, .ui-preset--midnight h2, .ui-preset--midnight h3, .ui-preset--midnight h4, .ui-preset--midnight p, .ui-preset--midnight li, .ui-preset--midnight span:not(.ui-stat-value) {
+  color: white !important;
+}
+
+.ui-preset--professional h1, .ui-preset--professional h2, .ui-preset--professional h3, .ui-preset--professional h4, .ui-preset--professional p, .ui-preset--professional li, .ui-preset--professional span:not(.ui-stat-value) {
+  color: white !important;
+}
+
 .ui-section-sand {
   @apply py-16 px-8 rounded-3xl my-12;
   background-color: color-mix(in oklch, var(--color-secondary), white 95%);

@@ -1,0 +1,56 @@
+{
+  "design_atoms": [
+    {
+      "id": "ui-preset--emerald",
+      "name": "Emerald Professional",
+      "vibes": ["Trust", "Growth", "Medical"],
+      "specs": {
+        "primary": "oklch(35% 0.12 160)",
+        "secondary": "oklch(45% 0.10 160)",
+        "accent": "oklch(92% 0.15 150)",
+        "text": "white",
+        "contrast_ratio": "7.5:1"
+      }
+    },
+    {
+      "id": "ui-preset--midnight",
+      "name": "Midnight Luxury",
+      "vibes": ["Premium", "Security", "High-End"],
+      "specs": {
+        "primary": "oklch(25% 0.08 260)",
+        "secondary": "oklch(35% 0.06 260)",
+        "accent": "oklch(88% 0.12 210)",
+        "text": "white",
+        "features": ["glassmorphism", "backdrop-blur"]
+      }
+    },
+    {
+      "id": "ui-preset--sunset",
+      "name": "Sunset High-Impact",
+      "vibes": ["Energy", "Action", "Urgency"],
+      "specs": {
+        "primary": "oklch(65% 0.22 45)",
+        "secondary": "oklch(55% 0.18 45)",
+        "accent": "oklch(95% 0.15 80)",
+        "text": "Zinc-950",
+        "contrast_ratio": "9:1"
+      }
+    },
+    {
+      "id": "ui-preset--professional",
+      "name": "Corporate Slate",
+      "vibes": ["Stability", "B2B", "Neutral"],
+      "specs": {
+        "primary": "oklch(30% 0.05 250)",
+        "secondary": "oklch(40% 0.03 250)",
+        "accent": "oklch(94% 0.08 220)",
+        "text": "white"
+      }
+    }
+  ],
+  "rules": {
+    "padding": "md:p-24 for heros, p-12 for standard sections",
+    "border_radius": "3xl (24px)",
+    "layering": "rounded-3xl + overflow-hidden + shadow-lg"
+  }
+}
