@@ -36,19 +36,26 @@ Para que los componentes funcionen incluso si la IA genera el HTML puro (sin pas
 }
 ```
 
-## 3. Registrar en el Generador de Prompts
-Para que la IA "sepa" que existe este nuevo componente, debes agregarlo a la lista de componentes permitidos.
+## 3. Registrar en el Sistema (ui_components.json)
+Para que el sistema "sepa" que existe este nuevo componente, debes agregarlo al registro central de componentes.
 
-- **Ubicación**: `generador_prompts.py`
-- **Función**: `generar_prompt_antidetencion` -> `REGLAS_COMPONENTES_UI`
+- **Ubicación**: `ui_components.json`
+- **Sección**: `heroes`, `sections` o `utilities`.
 
 Agrega una entrada como esta:
-```python
-    16. MI NUEVO COMPONENTE (ui-mi-componente): Úsalo para resaltar X cosa.
-        Formato: <div class="ui-mi-componente"><h2>Título</h2><p>Texto...</p><img src="URL_IMAGEN" alt="..."></div>
+```json
+{
+  "id": "ui-mi-componente",
+  "prompt": "MI NUEVO COMPONENTE (ui-mi-componente): <div class=\"ui-mi-componente {preset}\">...</div>"
+}
 ```
+*Nota: Usa `{preset}` si el componente soporta los presets de color dinámicos.*
 
-## 4. Instrucciones sobre Imágenes
+## 4. Cómo funciona la Inyección Dinámica
+El sistema ya no le da a la IA todas las opciones posibles (lo cual ensucia el prompt). Ahora:
+1. El **Orquestador/Generador** elige al azar un Hero y un Preset de `ui_components.json`.
+2. Inyecta **solo esa selección** en el prompt de la IA.
+3. La IA recibe instrucciones estricatas de usar ese diseño específico.
 Si tu componente requiere imágenes:
 1. Usa el placeholder `URL_IMAGEN` en la definición del prompt.
 2. La IA generará el código con el nombre del archivo sugerido.

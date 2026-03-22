@@ -121,6 +121,42 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
     11. Text length: El texto DEBE tener al menos 1300 palabras para una cobertura completa.
     """
 
+    # 4. CARGAR COMPONENTES UI DINÁMICOS
+    ruta_ui = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'ui_components.json')
+    with open(ruta_ui, 'r', encoding='utf-8') as f:
+        registry_ui = json.load(f)
+
+    # SELECCIÓN ESTRATÉGICA (El sistema elige, no la IA)
+    # Elegir 1 Hero, 1 Preset, y una mezcla de utilidades
+    hero_elegido = random.choice(registry_ui["heroes"])
+    preset_elegido = random.choice(registry_ui["presets"])
+    utils_elegidas = random.sample(registry_ui["utilities"], k=min(4, len(registry_ui["utilities"])))
+    sections_elegidas = registry_ui["sections"] # Usualmente todas están disponibles pero podemos filtrar
+
+    # Construir bloque de instrucciones UI para el prompt
+    prompt_componentes = f"SISTEMA DE DISEÑO SELECCIONADO PARA ESTA PÁGINA (ESTRICTO):\n\n"
+    prompt_componentes += f"PRESET DE COLOR: {preset_elegido['id']} ({preset_elegido['name']})\n"
+    prompt_componentes += f"DESCRIPCIÓN PRESET: {preset_elegido['description']}\n\n"
+    
+    prompt_componentes += "DEBES USAR LOS SIGUIENTES COMPONENTES HTML EXACTOS:\n\n"
+    
+    # Inyectar Hero con el preset ya aplicado en el ejemplo
+    hero_prompt = hero_elegido["prompt"].replace("{preset}", preset_elegido["id"])
+    prompt_componentes += f"1. {hero_prompt}\n\n"
+    
+    # Inyectar Utilidades
+    for i, util in enumerate(utils_elegidas, 2):
+        # Algunas utilidades pueden llevar preset si se desea, por ahora directo
+        prompt_componentes += f"{i}. {util['prompt']}\n\n"
+    
+    # Inyectar Secciones
+    for i, sec in enumerate(sections_elegidas, len(utils_elegidas) + 2):
+        sec_prompt = sec["prompt"].replace("{preset}", preset_elegido["id"])
+        prompt_componentes += f"{i}. {sec_prompt}\n\n"
+
+    REQUISITOS_WORD_COUNT = config_logic["content"]["min_word_count"] if config_logic else 1300
+    MAX_SENTENCES = config_logic["content"]["paragraph_max_sentences"] if config_logic else 3
+
     REGLAS_LEGIBILIDAD_ASTRO = """
 - **PROHIBIDO EL USO DE SÍMBOLOS MARKDOWN (** , _, *, #) DENTRO DE ETIQUETAS HTML**. Si necesitas negrita dentro de un H1 o P, usa <strong> o <span class="ui-highlight">.
 - **NO INDENTES EL HTML CON ESPACIOS NI TABS**. Debe estar pegado al margen izquierdo.
@@ -134,109 +170,7 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
     - ICONOS: Incluye un emoji relevante al inicio de los subtítulos principales.
     - SEPARADORES: Usa `<hr class="ui-divider">` para dividir secciones.
     
-    ⚠️ IMPORTANTE: NUNCA envuelvas los bloques de HTML (`<div class="ui-...">`) en bloques de código de Markdown (triple backticks ```). Deben estar sueltos en el texto para que Astro los procese.
-    """
-
-    REQUISITOS_WORD_COUNT = config_logic["content"]["min_word_count"] if config_logic else 1300
-    MAX_SENTENCES = config_logic["content"]["paragraph_max_sentences"] if config_logic else 3
-
-    REGLAS_ESTILOS_PRESET = """
-    SISTEMA DE PRESETS DE DISEÑO (DESIGN ATOMS):
-    Ahora puedes aplicar "Presets" de diseño a las secciones principales para garantizar una UI de alta calidad. 
-    Aplica estas clases ADICIONALES a componentes como `ui-hero-full`, `ui-section-*`, `ui-stats` o `ui-card`.
-
-    PRESETS DISPONIBLES:
-    1. `ui-preset--emerald`: Estilo profesional en tonos verde esmeralda/teal. Fondo oscuro, texto luz. Ideal para confianza.
-    2. `ui-preset--midnight`: Estilo lujo/premium en azul medianoche. Fondo muy oscuro, texto blanco. Ideal para exclusividad.
-    3. `ui-preset--sunset`: Estilo de alto impacto en naranja/ámbar. Fondo cálido, texto oscuro (Zinc-950). Ideal para CTAs y energía.
-    4. `ui-preset--professional`: Estilo corporativo elegante en gris pizarra/azul acero. Fondo oscuro, texto blanco.
-
-    EJEMPLO DE USO:
-    <div class="ui-hero-full ui-preset--midnight">...</div>
-    <div class="ui-stats ui-preset--emerald">...</div>
-    """
-
-    REGLAS_COMPONENTES_UI = f"""
-    {REGLAS_ESTILOS_PRESET}
-    
-    REQUISITOS DE COMPONENTES VISUALES (UI):
-    Para que el contenido sea dinámico y no solo texto, DEBES usar estas estructuras HTML con clases semánticas en al menos 3 secciones del artículo:
-
-    1. TARJETA PREMIUM (ui-card): Úsala para resaltar consejos clave.
-       Formato: <div class="ui-card"><h3>Título</h3><p>Contenido...</p></div>
-
-    2. RECUADROS DE LLAMADA (ui-callout):
-       - Info: <div class="ui-callout ui-callout-info"><span>ℹ️</span><p>Información útil...</p></div>
-       - Tip: <div class="ui-callout ui-callout-tip"><span>💡</span><p>Consejo experto...</p></div>
-       - Warning: <div class="ui-callout ui-callout-warning"><span>⚠️</span><p>Atención/Advertencia...</p></div>
-
-    3. TABLA DE COMPARACIÓN (ui-comparison-table): Úsala para comparar datos técnicos.
-       Formato: <table class="ui-comparison-table"><thead><tr><th>Concepto</th><th>Detalle</th></tr></thead><tbody><tr><td>Dato 1</td><td>Explicación 1</td></tr></tbody></table>
-
-    4. LISTA DE PASOS (ui-step-list): 
-       Formato: <div class="ui-step-list"><div class="ui-step-item"><h4>Paso 1</h4><p>Descripción...</p></div></div>
-
-    5. GRID DE TEXTO + IMAGEN (ui-grid-2):
-       <div class="ui-grid-2">
-         <div><h3>Título</h3><p>Texto...</p></div>
-         <div class="ui-image-side"><img src="URL_IMAGEN" alt="Descripción"></div>
-       </div>
-
-    6. ESTADÍSTICAS (ui-stats):
-       <div class="ui-stats"><div class="ui-stat-item"><span class="ui-stat-value">97%</span><span class="ui-stat-label">Éxito</span></div></div>
-
-    7. ACORDEÓN / FAQ (ui-accordion): 
-       <div class="ui-accordion"><details><summary>¿Pregunta?</summary><div class="accordion-content">Respuesta...</div></details></div>
-
-    8. LÍNEA DE TIEMPO (ui-timeline):
-       <div class="ui-timeline"><div class="ui-timeline-step"><span class="step-number">1</span><h4>Título</h4><p>Texto...</p></div></div>
-
-    9. HERO CALLOUT (ui-hero-callout): Bloque de alto impacto visual.
-       Formato: <div class="ui-hero-callout"><h2>Título Impactante</h2><p>Texto persuasivo...</p></div>
-
-    10. LISTA DE VERIFICACIÓN (ui-check-list):
-        <div class="ui-check-list"><div class="ui-check-item"><span>✅</span><p>Beneficio...</p></div></div>
-
-    11. CITA DESTACADA (ui-quote):
-        <div class="ui-quote">"Frase de autoridad."</div>
-
-    12. HERO PREMIUM ROMUALD (ui-hero-romuald): DISEÑO ESTÁNDAR OBLIGATORIO PARA 2026. Úsalo SIEMPRE en el inicio del artículo o home.
-        <div class="ui-hero-romuald">
-          <div class="hero-content">
-            <span class="badge">NUEVO MÉTODO 2026</span>
-            <h1>Título de Impacto</h1>
-            <p class="subtitle">Subtítulo que resuelva el dolor principal del usuario...</p>
-            <p class="cta-text">¿Deseas dar el siguiente paso hoy?</p>
-            <a href="URL" class="btn">🚀 Sí, Cuéntame Más</a>
-          </div>
-          <div class="hero-image">
-            <img src="URL_IMAGEN_PERSONA" alt="Persona de confianza">
-          </div>
-        </div>
-
-    13. HERO PERFORMANCE (ui-hero-performance): Diseño centrado para destacar RESULTADOS y AUTORIDAD. Úsalo como alternativa al Romuald.
-        <div class="ui-hero-performance">
-          <div class="hero-content">
-            <span class="hero-badge">RESULTADOS GARANTIZADOS</span>
-            <h1>Título con <span class="ui-highlight-alt">Highlight de Impacto</span></h1>
-            <p class="hero-subtitle">Subtítulo que detalle el beneficio principal en 2 líneas...</p>
-            <a href="URL" class="btn">🚀 BOTÓN DE ACCIÓN</a>
-          </div>
-        </div>
-
-    14. HERO SECUNDARIO (ui-hero-secondary): Úsalo solo para secciones internas de bajo impacto.
-        <div class="ui-hero-secondary">
-          <div class="hero-content">
-            <h2>TÍTULO...</h2>
-            <p>Subtítulo...</p>
-          </div>
-        </div>
-
-    14. SECCIÓN DE ANCHO COMPLETO (ui-section-dark / ui-section-accent / ui-section-sand):
-        <div class="ui-section-dark"><div class="container">...</div></div>
-
-    15. GRID MULTI-COLUMNA (ui-grid-3 / ui-grid-4):
-        <div class="ui-grid-3">...</div>
+    ⚠️ IMPORTANTE: NUNCA envuelvas los bloques de HTML (`<div class=\"ui-...\">`) en bloques de código de Markdown (triple backticks ```). Deben estar sueltos en el texto para que Astro los procese.
     """
 
     prompt = f"""
@@ -250,7 +184,7 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
     
     {REGLAS_LEGIBILIDAD_ASTRO}
     
-    {REGLAS_COMPONENTES_UI}
+    {prompt_componentes}
     
     INSTRUCCIONES DE REDACCIÓN (OBLIGATORIAS):
     1. REGLA DE UNICIDAD RADICAL: Estás generando una de las 16 variantes para una red. Es CRÍTICO que este texto sea 100% original. Cambia el orden de los conceptos, usa sinónimos poco comunes, y varía la longitud de las oraciones. Si el tema es general, aterrizalo a la realidad de '{nicho_actual}' y menciona elementos locales (hospitales, leyes estatales, clima laboral en esa zona) para que Google no vea dos textos iguales.
@@ -284,6 +218,9 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
 # PRUEBA DEL GENERADOR
 # ==========================================
 if __name__ == "__main__":
+    # Buscar carpeta de proyecto válida para el test
+    ruta_test = "proyectos/enfermera_en_estados_unidos"
+    inicializar_prompts(ruta_test) 
     nicho = "Requisitos para trabajar en hospitales de Wesley Chapel"
     keywords = ["NCLEX Florida", "homologación enfermeras Wesley Chapel", "salarios"]
     
