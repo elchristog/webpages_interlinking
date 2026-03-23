@@ -1,0 +1,49 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+  primaryCtaText?: string;
+  primaryCtaLink?: string;
+  secondaryCtaText?: string;
+  secondaryCtaLink?: string;
+  productImage?: string;
+  class?: string;
+}
+
+const {
+  title = "iPhone",
+  subtitle = "Meet the latest iPhone lineup.",
+  primaryCtaText = "Learn more",
+  primaryCtaLink = "#",
+  secondaryCtaText = "Shop iPhone",
+  secondaryCtaLink = "#",
+  productImage = "https://images.unsplash.com/photo-1510557880182-3d4d3cba3f21?q=80&w=2070&auto=format&fit=crop",
+  class: className = "",
+} = Astro.props;
+---
+
+<section class={`ui-hero-product ${className}`}>
+  <div class="product-content">
+    <h1 set:html={title} />
+    <p class="product-subtitle" set:html={subtitle} />
+    
+    <div class="hero-actions">
+      <a href={primaryCtaLink} class="btn-apple-primary">
+        {primaryCtaText}
+      </a>
+      {secondaryCtaText && (
+        <a href={secondaryCtaLink} class="btn-apple-secondary">
+          {secondaryCtaText}
+        </a>
+      )}
+    </div>
+  </div>
+
+  <div class="product-visual">
+    <img 
+      src={productImage} 
+      alt={title} 
+      class="product-image" 
+    />
+  </div>
+</section>

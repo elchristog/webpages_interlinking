@@ -16,23 +16,23 @@
   },
   "menu_global": [
     {
-      "nombre": "Validar Título",
+      "nombre": "Revalidar Meta",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Estudio NCLEX",
+      "nombre": "Guía NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Puestos Libres",
+      "nombre": "Vacantes USA",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Sponsor Visa",
+      "nombre": "Green Card",
       "ruta": "/visa"
     },
     {
-      "nombre": "Cuanto Ganan",
+      "nombre": "Pagos RN",
       "ruta": "/salarios"
     },
     {
@@ -40,11 +40,11 @@
       "ruta": "/blog"
     },
     {
-      "nombre": "Consultar Ahora",
+      "nombre": "Escríbenos",
       "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Portal RN",
+      "nombre": "Acceso",
       "ruta": "/login"
     }
   ],

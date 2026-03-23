@@ -43,6 +43,12 @@
       "name": "Hero Agency (BigSEO style)",
       "allowed_presets": ["ui-preset--midnight", "ui-preset--emerald", "ui-preset--professional"],
       "prompt": "HERO AGENCY (ui-hero-agency): Estilo corporativo de alto impacto con logos de confianza al pie. Úsalo para landing pages transaccionales.\n<div class=\"ui-hero-agency {preset}\">\n  <div class=\"hero-content\">\n    <h1>Título <span class=\"ui-highlight\">Impactante</span></h1>\n    <p class=\"subtitle\">Subtítulo que detalle el beneficio principal en 2-3 líneas...</p>\n    <div class=\"hero-cta\"><a href=\"URL\" class=\"btn-agency\">BOTÓN ACCIÓN</a></div>\n    <div class=\"trust-bar\">\n      <img src=\"https://via.placeholder.com/150x50?text=LOGO1\" alt=\"Trust 1\" class=\"trust-logo\">\n      <img src=\"https://via.placeholder.com/150x50?text=LOGO2\" alt=\"Trust 2\" class=\"trust-logo\">\n      <img src=\"https://via.placeholder.com/150x50?text=LOGO3\" alt=\"Trust 3\" class=\"trust-logo\">\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "id": "ui-hero-product",
+      "name": "Hero Product (Apple Style)",
+      "allowed_presets": ["ui-preset--sunset", "ui-preset--midnight", "ui-preset--emerald", "ui-preset--professional"],
+      "prompt": "HERO PRODUCT (ui-hero-product): Minimalismo extremo inspirado en Apple. Centrado, tipografía impoluta y doble CTA. Úsalo para lanzamientos estelares.\n<div class=\"ui-hero-product {preset}\">\n  <div class=\"product-content\">\n    <h1>NOMBRE PRODUCTO</h1>\n    <p class=\"product-subtitle\">Eslogan corto y potente en una sola línea.</p>\n    <div class=\"hero-actions\">\n      <a href=\"URL\" class=\"btn-apple-primary\">Saber más</a>\n      <a href=\"URL\" class=\"btn-apple-secondary\">Comprar ahora</a>\n    </div>\n  </div>\n  <div class=\"product-visual\">\n    <img src=\"https://via.placeholder.com/1200x600?text=IMAGEN+PRODUCTO\" alt=\"Producto\" class=\"product-image\">\n  </div>\n</div>"
     }
   ],
   "sections": [

@@ -1,0 +1,45 @@
+---
+import LayoutA from '../layouts/LayoutA.astro';
+import HeroProduct from '../components/fundations/containers/HeroProduct.astro';
+import config from '../data/config_inyectada.json';
+---
+
+<LayoutA titulo="Test Hero Product" descripcion="Verified Hero Product component">
+  <div class="space-y-20 bg-zinc-100">
+    <section>
+      <h2 class="text-2xl font-bold mb-4 p-4">Hero Product - Light (Sunset)</h2>
+      <HeroProduct 
+        class="ui-preset--sunset"
+        title="iPhone 15 Pro"
+        subtitle="Forjado en titanio. Tan ligero. Tan potente."
+        primaryCtaText="Más información"
+        secondaryCtaText="Comprar"
+        productImage="https://www.apple.com/v/iphone-15-pro/c/images/overview/welcome/hero_endframe__ov6niovv9huu_large.jpg"
+      />
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-bold mb-4 p-4 text-white bg-black">Hero Product - Dark (Midnight)</h2>
+      <HeroProduct 
+        class="ui-preset--midnight"
+        title="Apple Watch Series 9"
+        subtitle="Más brillante. Más capaz. Más tú."
+        primaryCtaText="Saber más"
+        secondaryCtaText="Comprar"
+        productImage="https://www.apple.com/v/apple-watch-series-9/a/images/overview/hero/hero_static__f9s8mx9j50m2_large.jpg"
+      />
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-bold mb-4 p-4">Hero Product - Professional Preset</h2>
+      <HeroProduct 
+        class="ui-preset--professional"
+        title="MacBook Pro"
+        subtitle="Mentes brillantes. Rendimiento salvaje."
+        primaryCtaText="Más información"
+        secondaryCtaText="Comprar"
+        productImage="https://www.apple.com/v/macbook-pro-14-and-16/aj/images/overview/welcome/hero_endframe__e9m2e3p7f3ae_large.jpg"
+      />
+    </section>
+  </div>
+</LayoutA>
