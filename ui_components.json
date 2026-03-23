@@ -50,49 +50,5 @@
       "allowed_presets": ["ui-preset--sunset", "ui-preset--midnight", "ui-preset--emerald", "ui-preset--professional"],
       "prompt": "HERO PRODUCT (ui-hero-product): Minimalismo extremo inspirado en Apple. Centrado, tipografía impoluta y doble CTA. Úsalo para lanzamientos estelares.\n<div class=\"ui-hero-product {preset}\">\n  <div class=\"product-content\">\n    <h1>NOMBRE PRODUCTO</h1>\n    <p class=\"product-subtitle\">Eslogan corto y potente en una sola línea.</p>\n    <div class=\"hero-actions\">\n      <a href=\"URL\" class=\"btn-apple-primary\">Saber más</a>\n      <a href=\"URL\" class=\"btn-apple-secondary\">Comprar ahora</a>\n    </div>\n  </div>\n  <div class=\"product-visual\">\n    <img src=\"https://via.placeholder.com/1200x600?text=IMAGEN+PRODUCTO\" alt=\"Producto\" class=\"product-image\">\n  </div>\n</div>"
     }
-  ],
-  "sections": [
-    {
-      "id": "ui-section-dark",
-      "allowed_presets": ["ui-preset--emerald", "ui-preset--midnight", "ui-preset--professional"],
-      "prompt": "SECCIÓN OSCURA (ui-section-dark): <div class=\"ui-section-dark {preset}\"><div class=\"container\">...contenido...</div></div>"
-    },
-    {
-        "id": "ui-section-accent",
-        "allowed_presets": ["ui-preset--sunset"],
-        "prompt": "SECCIÓN ACENTO (ui-section-accent): <div class=\"ui-section-accent {preset}\"><div class=\"container\">...contenido...</div></div>"
-    },
-    {
-      "id": "ui-section-sand",
-      "allowed_presets": [],
-      "prompt": "SECCIÓN ARENA (ui-section-sand): <div class=\"ui-section-sand\"><div class=\"container\">...contenido...</div></div>"
-    },
-    {
-        "id": "ui-grid-3",
-        "allowed_presets": ["ui-preset--emerald", "ui-preset--midnight", "ui-preset--professional", "ui-preset--sunset"],
-        "prompt": "GRID MULTI-COLUMNA (ui-grid-3): <div class=\"ui-grid-3 {preset}\">...contenido con ui-card...</div>"
-    }
-  ],
-  "utilities": [
-    {
-      "id": "ui-card",
-      "prompt": "TARJETA PREMIUM (ui-card): <div class=\"ui-card\"><h3>Título</h3><p>Contenido...</p></div>"
-    },
-    {
-      "id": "ui-callout-tip",
-      "prompt": "RECUADRO TIP (ui-callout-tip): <div class=\"ui-callout ui-callout-tip\"><span>💡</span><p>Consejo experto...</p></div>"
-    },
-    {
-      "id": "ui-step-list",
-      "prompt": "LISTA DE PASOS (ui-step-list): <div class=\"ui-step-list\"><div class=\"ui-step-item\"><h4>Paso 1</h4><p>Descripción...</p></div></div>"
-    },
-    {
-      "id": "ui-stats",
-      "prompt": "ESTADÍSTICAS (ui-stats): <div class=\"ui-stats\"><div class=\"ui-stat-item\"><span class=\"ui-stat-value\">97%</span><span class=\"ui-stat-label\">Éxito</span></div></div>"
-    },
-    {
-        "id": "ui-check-list",
-        "prompt": "LISTA DE VERIFICACIÓN (ui-check-list): <div class=\"ui-check-list\"><div class=\"ui-check-item\"><span>✅</span><p>Beneficio...</p></div></div>"
-    }
   ]
 }

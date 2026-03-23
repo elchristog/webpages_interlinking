@@ -138,8 +138,8 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
     else:
         preset_elegido = random.choice(registry_ui["presets"])
 
-    utils_elegidas = random.sample(registry_ui["utilities"], k=min(4, len(registry_ui["utilities"])))
-    sections_elegidas = registry_ui["sections"]
+    utils_elegidas = random.sample(registry_ui.get("utilities", []), k=min(4, len(registry_ui.get("utilities", []))))
+    sections_elegidas = registry_ui.get("sections", [])
 
     # Construir bloque de instrucciones UI para el prompt
     prompt_componentes = f"SISTEMA DE DISEÑO SELECCIONADO (ACCESIBILIDAD GARANTIZADA):\n\n"
