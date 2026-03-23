@@ -40,21 +40,21 @@ if (config.layout === 'LayoutB') {
     ) : (
       <div class="space-y-12">
         <div>
-          <Text tag="h1" variant="displayLG" class="font-bold text-zinc-950 tracking-tighter">
+          <Text tag="h1" variant="displayLG" class="font-bold text-base-950 tracking-tighter">
             Bienvenido a {config.nombre_sitio}
           </Text>
-          <Text tag="p" variant="textLG" class="text-zinc-500 mt-4 max-w-2xl">
+          <Text tag="p" variant="textLG" class="text-base-500 mt-4 max-w-2xl">
             {config.seo.descripcion_base}
           </Text>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           {articulos.map((articulo: any) => (
-            <div class="group relative flex flex-col p-8 bg-zinc-50 outline outline-base-200 transition-all hover:bg-white hover:shadow-xl">
-              <Text tag="h2" variant="textXL" class="font-bold text-zinc-950 mb-2 group-hover:text-blue-600 transition-colors">
+            <div class="group relative flex flex-col p-8 bg-base-50 outline outline-base-200 transition-all hover:bg-white hover:shadow-xl">
+              <Text tag="h2" variant="textXL" class="font-bold text-base-950 mb-2 group-hover:text-blue-600 transition-colors">
                 {articulo.frontmatter.titulo}
               </Text>
-              <Text tag="p" variant="textSM" class="text-zinc-600 mb-6 flex-grow">
+              <Text tag="p" variant="textSM" class="text-base-600 mb-6 flex-grow">
                 {articulo.frontmatter.descripcion}
               </Text>
               <Button isLink href={`/blog/${articulo.frontmatter.slug}`} variant="muted" size="md" class="w-fit">

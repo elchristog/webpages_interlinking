@@ -1,0 +1,41 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionScrollingCards from "../components/fundations/containers/SectionScrollingCards.astro";
+
+const title = "Test Scrolling Cards";
+---
+
+<Layout title={title}>
+  <main>
+    <div class="py-12 px-6">
+      <h1 class="text-4xl font-bold text-center mb-12 text-base-950">UI Component Preview</h1>
+      
+      <div class="space-y-24">
+        <!-- Default Style -->
+        <section>
+          <h2 class="text-2xl font-semibold mb-6 px-12">Default / Light Preset</h2>
+          <SectionScrollingCards 
+            title="Saber más sobre el proceso."
+          />
+        </section>
+
+        <section class="bg-base-900 py-12">
+            <h2 class="text-2xl font-semibold mb-6 px-12 text-white">Midnight Preset</h2>
+            <SectionScrollingCards 
+                preset="ui-preset--midnight"
+                title="Conoce nuestra tecnología."
+            />
+        </section>
+
+        <!-- Emerald Preset -->
+        <section class="bg-base-900 py-12">
+            <h2 class="text-2xl font-semibold mb-6 px-12 text-white">Emerald Preset</h2>
+            <SectionScrollingCards 
+                preset="ui-preset--emerald"
+                title="Expertos a tu disposición."
+            />
+        </section>
+      </div>
+    </div>
+  </main>
+</Layout>

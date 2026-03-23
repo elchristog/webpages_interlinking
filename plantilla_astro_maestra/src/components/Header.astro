@@ -49,6 +49,8 @@ import config from '../data/config_inyectada.json';
 </header>
 
 <style>
+  @reference "tailwindcss";
+  @reference "../styles/global.css";
   .navbar-apple {
     position: fixed;
     top: 0;
@@ -94,7 +96,7 @@ import config from '../data/config_inyectada.json';
   }
 
   .navbar-logo {
-    @apply flex items-center text-zinc-900 transition-opacity hover:opacity-70;
+    @apply flex items-center text-base-900 transition-opacity hover:opacity-70;
   }
   :root.dark .navbar-logo { @apply text-white; }
 
@@ -111,18 +113,18 @@ import config from '../data/config_inyectada.json';
   }
 
   .navbar-link {
-    @apply text-[12px] font-normal text-zinc-900/80 hover:text-zinc-900 transition-colors no-underline tracking-tight;
+    @apply text-[12px] font-normal text-base-900/80 hover:text-base-900 transition-colors no-underline tracking-tight;
   }
-  :root.dark .navbar-link { @apply text-zinc-400 hover:text-white; }
+  :root.dark .navbar-link { @apply text-base-400 hover:text-white; }
 
   .navbar-actions {
     @apply flex items-center space-x-4;
   }
 
   .icon-btn {
-    @apply text-zinc-900/80 hover:text-zinc-900 transition-colors;
+    @apply text-base-900/80 hover:text-base-900 transition-colors;
   }
-  :root.dark .icon-btn { @apply text-zinc-400 hover:text-white; }
+  :root.dark .icon-btn { @apply text-base-400 hover:text-white; }
 
   .mobile-menu {
     @apply fixed inset-0 top-12 bg-white z-[90] flex-col items-start px-8 py-12 hidden;
@@ -149,7 +151,7 @@ import config from '../data/config_inyectada.json';
   }
 
   .mobile-link {
-    @apply text-3xl font-semibold text-zinc-900 hover:text-blue-600 transition-colors no-underline;
+    @apply text-3xl font-semibold text-base-900 hover:text-blue-600 transition-colors no-underline;
   }
   :root.dark .mobile-link { @apply text-white hover:text-blue-400; }
 </style>

@@ -16,6 +16,9 @@
   --color-base-50: oklch(0.98 0 0);
   --color-base-100: oklch(0.95 0.01 200);
   --color-base-200: oklch(0.90 0.02 200);
+  --color-base-300: oklch(0.80 0.02 200);
+  --color-base-400: oklch(0.70 0.02 200);
+  --color-base-500: oklch(0.60 0.02 200);
   --color-base-600: oklch(0.50 0.02 200);
   --color-base-700: oklch(0.40 0.02 200);
   --color-base-800: oklch(0.25 0.02 200);
@@ -236,7 +239,7 @@
 }
 
 .ui-callout-info {
-  @apply bg-zinc-50;
+  @apply bg-base-50;
   border-color: var(--color-primary);
   color: var(--color-text-bold);
 }
@@ -279,7 +282,7 @@ html {
 }
 
 body {
-    @apply flex flex-col min-h-screen font-sans bg-zinc-50 overflow-x-hidden;
+    @apply flex flex-col min-h-screen font-sans bg-base-50 overflow-x-hidden;
     color: var(--color-text);
 }
 
@@ -310,12 +313,12 @@ body {
 }
 
 .ui-accordion summary:hover {
-  @apply bg-zinc-50;
+  @apply bg-base-50;
 }
 
 /* If inside a dark section, ensure the summary is still readable */
 .ui-section-dark .ui-accordion summary, .ui-section-accent .ui-accordion summary {
-  @apply bg-neutral-800 text-white border border-neutral-700;
+  @apply bg-base-800 text-white border border-base-700;
 }
 
 .ui-accordion summary::-webkit-details-marker {
@@ -435,7 +438,7 @@ body {
 }
 
 .ui-button-primary {
-  @apply bg-zinc-900 text-white hover:bg-zinc-800;
+  @apply bg-base-900 text-white hover:bg-base-800;
 }
 
 .ui-button-secondary {
@@ -452,7 +455,7 @@ body {
 
 .ui-hero-full::before {
   content: "";
-  @apply absolute inset-0 bg-neutral-900/40 backdrop-blur-[1px];
+  @apply absolute inset-0 bg-base-900/40 backdrop-blur-[1px];
 }
 
 .ui-hero-full .hero-content {
@@ -460,12 +463,12 @@ body {
 }
 
 .ui-hero-full h1, .ui-hero-full h2 {
-  @apply text-zinc-900 text-5xl md:text-7xl font-bold leading-tight mb-6 tracking-tight;
+  @apply text-base-900 text-5xl md:text-7xl font-bold leading-tight mb-6 tracking-tight;
   /* Dark text for light accent background */
 }
 
 .ui-hero-full p {
-  @apply text-zinc-800 text-xl md:text-2xl leading-relaxed max-w-2xl mx-auto font-medium;
+  @apply text-base-800 text-xl md:text-2xl leading-relaxed max-w-2xl mx-auto font-medium;
 }
 
 /* Multi-Column Grids */
@@ -479,7 +482,7 @@ body {
 
 /* Advanced Section Backgrounds - Removed breakout to prevent sidebar overlap */
 .ui-section-dark {
-  @apply bg-neutral-900 text-white py-16 px-8 rounded-3xl my-12 border border-neutral-800;
+  @apply bg-base-900 text-white py-16 px-8 rounded-3xl my-12 border border-base-800;
 }
 
 .ui-section-dark h2, .ui-section-dark h3, .ui-section-dark h4 {
@@ -609,7 +612,7 @@ body {
 
 /* Hero Premium Romuald Style */
 .ui-hero-romuald {
-  @apply relative min-h-[90vh] flex items-center overflow-hidden bg-zinc-950 rounded-3xl my-12;
+  @apply relative min-h-[90vh] flex items-center overflow-hidden bg-base-950 rounded-3xl my-12;
 }
 
 .ui-hero-romuald::before {
@@ -619,7 +622,7 @@ body {
 
 .ui-hero-romuald::after {
   content: "";
-  @apply absolute inset-0 bg-gradient-to-tr from-zinc-950 via-zinc-950/60 to-transparent;
+  @apply absolute inset-0 bg-gradient-to-tr from-base-950 via-base-950/60 to-transparent;
 }
 
 .ui-hero-romuald .hero-content {
@@ -635,11 +638,11 @@ body {
 }
 
 .ui-hero-romuald .subtitle {
-  @apply text-zinc-300 text-xl md:text-2xl mb-8 max-w-2xl leading-relaxed opacity-90;
+  @apply text-base-300 text-xl md:text-2xl mb-8 max-w-2xl leading-relaxed opacity-90;
 }
 
 .ui-hero-romuald .cta-text {
-  @apply text-zinc-400 text-lg mb-8 font-medium italic;
+  @apply text-base-400 text-lg mb-8 font-medium italic;
 }
 
 .ui-hero-romuald .btn {
@@ -800,8 +803,95 @@ body {
   @apply text-white text-4xl md:text-6xl font-black mb-4 leading-tight tracking-tighter;
 }
 
+/* --- Apple-Style Scrolling Cards --- */
+.ui-scrolling-cards-container {
+  @apply py-16 md:py-24 px-6 md:px-12 overflow-hidden;
+}
+
+.ui-scrolling-cards-container h2 {
+    @apply text-4xl md:text-6xl font-bold mb-12 tracking-tight max-w-7xl mx-auto;
+    color: var(--color-text-bold);
+}
+
+.ui-scrolling-cards {
+  @apply flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory;
+  /* Hide scrollbar but keep functionality */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.ui-scrolling-cards::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+/* Ensure padding on both sides for scroll snapping alignment */
+.ui-scrolling-cards::after {
+    content: '';
+    @apply flex-none w-6 md:w-12;
+}
+
+.scrolling-card {
+  @apply relative flex-none w-[300px] md:w-[420px] aspect-[4/5] md:aspect-[3/4] rounded-[2.5rem] overflow-hidden snap-start bg-base-100;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scrolling-card:hover {
+    @apply shadow-2xl;
+    transform: scale(0.98);
+}
+
+.scrolling-card .card-image {
+  @apply absolute inset-0 w-full h-full object-cover transition-transform duration-700;
+  .scrolling-card:hover & {
+    @apply scale-105;
+  }
+}
+
+.scrolling-card .card-overlay {
+  @apply absolute inset-0 p-8 flex flex-col justify-between;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, transparent 40%, transparent 100%);
+}
+
+.scrolling-card .card-content {
+    @apply z-10;
+}
+
+.scrolling-card .card-category {
+  @apply block text-sm font-bold uppercase tracking-widest text-white/70 mb-2;
+}
+
+.scrolling-card .card-title {
+  @apply text-2xl md:text-3xl font-bold leading-tight text-white m-0;
+}
+
+.scrolling-card .card-subtitle {
+  @apply text-base text-white/90 mt-2 font-medium opacity-0 transition-opacity duration-300;
+  .scrolling-card:hover & {
+    @apply opacity-100;
+  }
+}
+
+.scrolling-card .plus-button {
+  @apply absolute bottom-6 right-6 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-black shadow-lg transition-transform duration-300;
+  .scrolling-card:hover & {
+    @apply scale-110;
+  }
+}
+
+.scrolling-card .plus-button svg {
+    @apply w-6 h-6;
+}
+
+/* Preset variations for the section */
+.ui-scrolling-cards-container.ui-preset--midnight {
+    background-color: var(--color-primary);
+}
+.ui-scrolling-cards-container.ui-preset--midnight h2 {
+    color: white;
+}
+
 .ui-hero-agency .subtitle {
-  @apply text-zinc-300 text-base md:text-xl mb-10 max-w-xl leading-relaxed opacity-90;
+  @apply text-base-300 text-base md:text-xl mb-10 max-w-xl leading-relaxed opacity-90;
 }
 
 .ui-hero-agency .hero-cta {
@@ -840,11 +930,11 @@ body {
 }
 
 .ui-hero-product h1 {
-  @apply text-4xl md:text-6xl font-semibold mb-2 leading-tight tracking-tight text-zinc-900;
+  @apply text-4xl md:text-6xl font-semibold mb-2 leading-tight tracking-tight text-base-900;
 }
 
 .ui-hero-product .product-subtitle {
-  @apply text-base md:text-xl font-normal mb-8 text-zinc-800 opacity-90;
+  @apply text-base md:text-xl font-normal mb-8 text-base-800 opacity-90;
 }
 
 .ui-hero-product .hero-actions {
@@ -891,11 +981,11 @@ body {
 }
 
 .ui-hero-product.ui-preset--professional h1 {
-  color: rgb(24, 24, 27) !important; /* zinc-900 */
+  color: rgb(24, 24, 27) !important; /* base-900 */
 }
 
 .ui-hero-product.ui-preset--professional .product-subtitle {
-  color: rgb(39, 39, 42) !important; /* zinc-800 */
+  color: rgb(39, 39, 42) !important; /* base-800 */
 }
 
 /* 

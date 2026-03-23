@@ -23,7 +23,7 @@ const {
 } = Astro.props;
 ---
 
-<section class="relative w-full min-h-[90vh] flex items-center overflow-hidden bg-zinc-950">
+<section class="relative w-full min-h-[90vh] flex items-center overflow-hidden bg-base-950">
   {/* Background Image with Enhanced Overlay */}
   <div class="absolute inset-0 z-0">
     <img 
@@ -32,8 +32,8 @@ const {
       class="w-full h-full object-cover opacity-50"
     />
     {/* Dynamic overlays for premium feel */}
-    <div class="absolute inset-0 bg-gradient-to-tr from-zinc-950 via-zinc-950/60 to-transparent"></div>
-    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-zinc-950/20 to-zinc-950"></div>
+    <div class="absolute inset-0 bg-gradient-to-tr from-base-950 via-base-950/60 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-base-950/20 to-base-950"></div>
   </div>
 
   <div class="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-24 py-24 flex flex-col md:flex-row items-center gap-16">
@@ -49,14 +49,14 @@ const {
       </Text>
       
       {subtitle && (
-        <Text tag="p" variant="textLG" class="text-zinc-300 mb-10 max-w-2xl mx-auto md:mx-0 leading-relaxed opacity-90">
+        <Text tag="p" variant="textLG" class="text-base-300 mb-10 max-w-2xl mx-auto md:mx-0 leading-relaxed opacity-90">
           {subtitle}
         </Text>
       )}
 
       <div class="space-y-8">
         {ctaText && (
-          <Text tag="p" variant="textLG" class="text-zinc-400 font-medium tracking-wide">
+          <Text tag="p" variant="textLG" class="text-base-400 font-medium tracking-wide">
             {ctaText}
           </Text>
         )}
