@@ -876,7 +876,7 @@ body {
 }
 
 .ui-hero-product.ui-preset--midnight .product-subtitle {
-  @apply text-zinc-300;
+  @apply text-base-200;
 }
 
 .ui-hero-product.ui-preset--midnight h1 {
@@ -897,3 +897,69 @@ body {
 .ui-hero-product.ui-preset--professional .product-subtitle {
   color: rgb(39, 39, 42) !important; /* zinc-800 */
 }
+
+/* 
+   APPLE-STYLE CLOSER LOOK SECTION 
+   Large, high-radius card with split background and minimalist typography.
+*/
+.ui-closer-look {
+    @apply relative overflow-hidden;
+}
+
+.ui-closer-look h2.closer-look-heading {
+    @apply text-4xl md:text-6xl font-bold tracking-tight mb-8 md:mb-16;
+}
+
+.ui-closer-look .closer-look-card {
+    @apply rounded-[3rem] overflow-hidden transition-all duration-500;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+}
+
+.ui-closer-look .closer-look-content {
+    @apply flex flex-col justify-center items-center md:items-start;
+}
+
+.ui-closer-look .closer-look-media {
+    @apply min-h-[400px] md:min-h-[600px] relative overflow-hidden flex items-end justify-center bg-base-200/80;
+}
+
+.ui-closer-look .closer-look-media img {
+    @apply w-full h-[120%] object-cover object-bottom m-0;
+}
+
+/* Default Split Background (Grey/Orange inspired) */
+.ui-closer-look .closer-look-card {
+    background: linear-gradient(135deg, #f5f5f7 0%, #f5f5f7 50%, #f97316 50%, #fb923c 100%);
+}
+
+/* Preset Overrides for Section Closer Look */
+.ui-closer-look.ui-preset--emerald .closer-look-card {
+    background: linear-gradient(135deg, #022c22 0%, #022c22 50%, #059669 50%, #10b981 100%);
+}
+.ui-closer-look.ui-preset--emerald .closer-look-content h3 { color: white; }
+
+.ui-closer-look.ui-preset--midnight .closer-look-card {
+    background: linear-gradient(135deg, #09090b 0%, #09090b 50%, #1e40af 50%, #3b82f6 100%);
+}
+.ui-closer-look.ui-preset--midnight .closer-look-content h3 { color: white; }
+
+.ui-closer-look.ui-preset--sunset .closer-look-card {
+    background: linear-gradient(135deg, #fff7ed 0%, #fff7ed 50%, #f97316 50%, #fb923c 100%);
+}
+
+.ui-closer-look.ui-preset--professional .closer-look-card {
+    background: linear-gradient(135deg, #0f172a 0%, #0f172a 50%, #475569 50%, #64748b 100%);
+}
+.ui-closer-look.ui-preset--professional .closer-look-content h3 { color: white; }
+
+/* Responsive adjustments for the split background */
+@media (max-width: 768px) {
+    .ui-closer-look .closer-look-card {
+        background: #f5f5f7; /* Simple background for mobile */
+    }
+    .ui-closer-look.ui-preset--emerald .closer-look-card { background: #022c22; }
+    .ui-closer-look.ui-preset--midnight .closer-look-card { background: #09090b; }
+    .ui-closer-look.ui-preset--sunset .closer-look-card { background: #fff7ed; }
+    .ui-closer-look.ui-preset--professional .closer-look-card { background: #0f172a; }
+}
+

@@ -50,5 +50,13 @@
       "allowed_presets": ["ui-preset--sunset", "ui-preset--midnight", "ui-preset--emerald", "ui-preset--professional"],
       "prompt": "HERO PRODUCT (ui-hero-product): Minimalismo extremo inspirado en Apple. Centrado, tipografía impoluta y doble CTA. Úsalo para lanzamientos estelares.\n<div class=\"ui-hero-product {preset}\">\n  <div class=\"product-content\">\n    <h1>NOMBRE PRODUCTO</h1>\n    <p class=\"product-subtitle\">Eslogan corto y potente en una sola línea.</p>\n    <div class=\"hero-actions\">\n      <a href=\"URL\" class=\"btn-apple-primary\">Saber más</a>\n      <a href=\"URL\" class=\"btn-apple-secondary\">Comprar ahora</a>\n    </div>\n  </div>\n  <div class=\"product-visual\">\n    <img src=\"https://via.placeholder.com/1200x600?text=IMAGEN+PRODUCTO\" alt=\"Producto\" class=\"product-image\">\n  </div>\n</div>"
     }
+  ],
+  "sections": [
+    {
+      "id": "ui-closer-look",
+      "name": "Apple Closer Look",
+      "allowed_presets": ["ui-preset--emerald", "ui-preset--midnight", "ui-preset--sunset", "ui-preset--professional"],
+      "prompt": "SECCIÓN CLOSER LOOK (ui-closer-look): Diseño Apple de alto impacto con tarjeta de gran radio y fondo dividido. Úsala para secciones de 'Echa un vistazo de cerca'.\n<div class=\"ui-closer-look {preset}\">\n  <h2 class=\"closer-look-heading\">Echa un vistazo de cerca.</h2>\n  <div class=\"closer-look-card\">\n    <div class=\"closer-look-content\">\n      <h3>Título de la Tarjeta</h3>\n      <a href=\"URL\" class=\"closer-look-btn\">Botón de Acción</a>\n    </div>\n    <div class=\"closer-look-media\">\n      <img src=\"URL_IMAGEN_SECUNDARIA\" alt=\"Detalle del producto\">\n    </div>\n  </div>\n</div>"
+    }
   ]
 }
