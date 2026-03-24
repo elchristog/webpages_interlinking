@@ -39,27 +39,26 @@ const {
 ---
 
 <section class={`ui-scrolling-cards-container ${preset}`}>
-  <div class="max-w-7xl mx-auto px-0 md:px-0">
-    {title && <h2>{title}</h2>}
-    
-    <div class="ui-scrolling-cards">
-      {cards.map((card) => (
-        <div class="scrolling-card">
-          <img src={card.imageSrc} alt={card.title} class="card-image" />
-          <div class="card-overlay">
-            <div class="card-content">
-              <span class="card-category">{card.category}</span>
-              <h3 class="card-title">{card.title}</h3>
-              <p class="card-subtitle">{card.subtitle}</p>
-            </div>
+  {title && <h2>{title}</h2>}
+  
+  <div class="ui-scrolling-cards">
+    {cards.map((card) => (
+      <div class="scrolling-card">
+        <img src={card.imageSrc} alt={card.title} class="card-image" />
+        
+        <div class="card-overlay">
+          <div class="card-content">
+            <span class="card-category">{card.category}</span>
+            <h3 class="card-title">{card.title}</h3>
           </div>
-          <button class="plus-button" aria-label="Ver más">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-            </svg>
-          </button>
         </div>
-      ))}
-    </div>
+
+        <button class="plus-button" aria-label="Ver más">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+        </button>
+      </div>
+    ))}
   </div>
 </section>

@@ -804,78 +804,78 @@ body {
 }
 
 /* --- Apple-Style Scrolling Cards --- */
+/* 
+   APPLE-STYLE CARDS GRID (Formerly Scrolling Cards)
+   Responsive grid of high-contrast black cards with minimal effects.
+*/
 .ui-scrolling-cards-container {
-  @apply py-16 md:py-24 px-6 md:px-12 overflow-hidden;
+  @apply py-16 md:py-24 px-6 md:px-12 bg-white dark:bg-base-950;
 }
 
 .ui-scrolling-cards-container h2 {
-    @apply text-4xl md:text-6xl font-bold mb-12 tracking-tight max-w-7xl mx-auto;
-    color: var(--color-text-bold);
+    @apply text-4xl md:text-7xl font-bold mb-14 tracking-tighter max-w-7xl mx-auto text-base-900 dark:text-white;
 }
 
 .ui-scrolling-cards {
-  @apply flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory;
-  /* Hide scrollbar but keep functionality */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* IE and Edge */
-}
-
-.ui-scrolling-cards::-webkit-scrollbar {
-  display: none; /* Chrome, Safari and Opera */
-}
-
-/* Ensure padding on both sides for scroll snapping alignment */
-.ui-scrolling-cards::after {
-    content: '';
-    @apply flex-none w-6 md:w-12;
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto;
 }
 
 .scrolling-card {
-  @apply relative flex-none w-[300px] md:w-[420px] aspect-[4/5] md:aspect-[3/4] rounded-[2.5rem] overflow-hidden snap-start bg-base-100;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  @apply relative aspect-[3/4] rounded-[3rem] overflow-hidden bg-black flex flex-col shadow-xl transition-shadow duration-500;
 }
 
 .scrolling-card:hover {
     @apply shadow-2xl;
-    transform: scale(0.98);
 }
 
 .scrolling-card .card-image {
-  @apply absolute inset-0 w-full h-full object-cover transition-transform duration-700;
-  .scrolling-card:hover & {
-    @apply scale-105;
-  }
+  @apply absolute bottom-0 left-0 w-full h-2/3 object-contain object-bottom p-8 transition-transform duration-700 pointer-events-none;
+}
+
+/* Specific adjustment for full-height photography if needed */
+.scrolling-card.full-image .card-image {
+    @apply h-full object-cover p-0;
 }
 
 .scrolling-card .card-overlay {
-  @apply absolute inset-0 p-8 flex flex-col justify-between;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, transparent 40%, transparent 100%);
+  @apply absolute inset-0 p-10 flex flex-col justify-between z-10;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, transparent 30%);
 }
 
 .scrolling-card .card-content {
-    @apply z-10;
+    @apply text-left;
 }
 
 .scrolling-card .card-category {
-  @apply block text-sm font-bold uppercase tracking-widest text-white/70 mb-2;
+  @apply block text-sm font-semibold uppercase tracking-widest text-white/60 mb-3;
 }
 
 .scrolling-card .card-title {
-  @apply text-2xl md:text-3xl font-bold leading-tight text-white m-0;
+  @apply text-2xl md:text-4xl font-bold leading-tight text-white m-0 tracking-tight max-w-[90%];
 }
 
 .scrolling-card .card-subtitle {
-  @apply text-base text-white/90 mt-2 font-medium opacity-0 transition-opacity duration-300;
-  .scrolling-card:hover & {
-    @apply opacity-100;
-  }
+  @apply hidden; /* User requested "no effects" and clean look, subtitle complicates the Apple Grid look */
 }
 
 .scrolling-card .plus-button {
-  @apply absolute bottom-6 right-6 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-black shadow-lg transition-transform duration-300;
-  .scrolling-card:hover & {
-    @apply scale-110;
-  }
+  @apply absolute bottom-8 right-8 w-11 h-11 rounded-full bg-white flex items-center justify-center text-black shadow-lg transition-transform duration-300 hover:scale-110 border-none cursor-pointer p-0;
+}
+
+.scrolling-card .plus-button svg {
+    @apply w-6 h-6;
+}
+
+@media (max-width: 767px) {
+    .ui-scrolling-cards {
+        @apply gap-6;
+    }
+    .scrolling-card {
+        @apply aspect-[4/5];
+    }
+    .scrolling-card .card-title {
+        @apply text-3xl;
+    }
 }
 
 .scrolling-card .plus-button svg {

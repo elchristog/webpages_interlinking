@@ -1,0 +1,41 @@
+---
+import LayoutA from '../layouts/LayoutA.astro';
+import SectionScrollingCards from '../components/fundations/containers/SectionScrollingCards.astro';
+
+const testCards = [
+  {
+    category: "Innovation",
+    title: "Beautiful and durable, by design.",
+    subtitle: "Materiales de alta calidad para una resistencia excepcional.",
+    imageSrc: "https://images.unsplash.com/photo-1616348436168-de43ad0db179?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    category: "Cutting-Edge Cameras",
+    title: "Picture your best photos and videos.",
+    subtitle: "Tecnología de vanguardia para momentos profesionales.",
+    imageSrc: "https://images.unsplash.com/photo-1492724441997-5dc865305da7?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    category: "Chip and Battery Life",
+    title: "Fast that lasts.",
+    subtitle: "Procesadores de última generación para una experiencia fluida.",
+    imageSrc: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800&auto=format&fit=crop"
+  }
+];
+---
+
+<LayoutA title="Test Apple Cards Grid" description="Verification page for the redesigned SectionScrollingCards component">
+  <div class="bg-white py-20 px-6">
+    <SectionScrollingCards 
+      title="Get to know iPhone."
+      cards={testCards}
+    />
+    
+    <div class="mt-20 border-t pt-20">
+      <SectionScrollingCards 
+        title="More to explore."
+        cards={[...testCards, ...testCards]}
+      />
+    </div>
+  </div>
+</LayoutA>
