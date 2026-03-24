@@ -1,0 +1,84 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionAppleProductCards from '../components/fundations/containers/SectionAppleProductCards.astro';
+import '../styles/global.css';
+
+const customCards = [
+  {
+    category: "Educación",
+    title: "Aprende a tu ritmo con expertos.",
+    description: "Cursos diseñados por profesionales para llevarte de principiante a experto en tiempo récord.",
+    imageSrc: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=800&auto=format&fit=crop",
+    buttonType: "plus",
+    link: "#"
+  },
+  {
+    category: "Comunidad",
+    title: "Conecta con miles de estudiantes.",
+    description: "Únete a nuestro foro exclusivo y comparte experiencias con personas de todo el mundo.",
+    imageSrc: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop",
+    buttonType: "plus",
+    link: "#"
+  },
+  {
+    category: "Certificación",
+    title: "Obtén tu certificado oficial.",
+    description: "Valida tus conocimientos y mejora tu perfil profesional con nuestras certificaciones reconocidas.",
+    imageSrc: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop",
+    buttonType: "arrow",
+    link: "#"
+  }
+];
+---
+
+<Layout title="Test Page - Apple Product Cards">
+  <main>
+    <div class="ui-spacer"></div>
+    
+    <section class="text-center">
+      <h1 class="text-4xl font-bold mb-4">Prueba de Componente: Apple Product Cards</h1>
+      <p class="text-xl text-base-600">Verificando diseño responsivo y presets.</p>
+    </section>
+
+    <div class="ui-spacer"></div>
+
+    <!-- Default Light Theme -->
+    <SectionAppleProductCards 
+      title="Diseño Default (Light)" 
+    />
+
+    <div class="ui-spacer"></div>
+
+    <!-- Midnight Preset -->
+    <SectionAppleProductCards 
+      title="Preset: Midnight Luxury" 
+      preset="ui-preset--midnight"
+      cards={customCards}
+    />
+
+    <div class="ui-spacer"></div>
+
+    <!-- Emerald Preset -->
+    <SectionAppleProductCards 
+      title="Preset: Emerald Professional" 
+      preset="ui-preset--emerald"
+    />
+
+    <div class="ui-spacer"></div>
+
+    <!-- Sunset Preset -->
+    <SectionAppleProductCards 
+      title="Preset: Sunset Impact" 
+      preset="ui-preset--sunset"
+      cards={customCards}
+    />
+
+    <div class="ui-spacer"></div>
+  </main>
+</Layout>
+
+<style>
+  main {
+    padding-bottom: 100px;
+  }
+</style>

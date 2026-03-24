@@ -1,0 +1,81 @@
+---
+interface Card {
+  category: string;
+  title: string;
+  description: string;
+  imageSrc: string;
+  buttonType?: "plus" | "arrow";
+  link?: string;
+}
+
+interface Props {
+  title?: string;
+  cards?: Card[];
+  preset?: string;
+}
+
+const {
+  title = "Por qué somos la mejor opción.",
+  cards = [
+    {
+      category: "Intercambio",
+      title: "Ahorra en tu nuevo equipo con un cambio.",
+      description: "Obtén crédito directo hacia tu nueva compra al entregar tu dispositivo actual en buen estado.",
+      imageSrc: "https://images.unsplash.com/photo-1556656793-062ff987b48e?q=80&w=800&auto=format&fit=crop",
+      buttonType: "plus",
+      link: "#"
+    },
+    {
+      category: "Financiamiento",
+      title: "Paga a plazos, sin intereses.",
+      description: "Elige cuotas mensuales que se adapten a tu presupuesto al comprar con nuestras tarjetas asociadas.",
+      imageSrc: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=800&auto=format&fit=crop",
+      buttonType: "plus",
+      link: "#"
+    },
+    {
+      category: "Ofertas de Operador",
+      title: "Obtén hasta $800 en crédito con tu operador.",
+      description: "Explora las ofertas disponibles al activar tu línea con las principales operadoras del país.",
+      imageSrc: "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=800&auto=format&fit=crop",
+      buttonType: "arrow",
+      link: "#"
+    }
+  ],
+  preset = ""
+} = Astro.props;
+---
+
+<section class={`ui-apple-product-cards-container ${preset}`}>
+  <div class="container-wrapper">
+    {title && <h2 class="section-title">{title}</h2>}
+    
+    <div class="product-cards-grid">
+      {cards.map((card) => (
+        <div class="apple-product-card">
+          <div class="card-content-top">
+            <span class="product-card-category">{card.category}</span>
+            <h3 class="product-card-title">{card.title}</h3>
+            <p class="product-card-description">{card.description}</p>
+          </div>
+          
+          <div class="card-image-wrapper">
+            <img src={card.imageSrc} alt={card.title} class="product-card-image" />
+          </div>
+
+          <a href={card.link} class="product-card-btn" aria-label={card.buttonType === "plus" ? "Ver más detalles" : "Ir a la oferta"}>
+            {card.buttonType === "arrow" ? (
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+            )}
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

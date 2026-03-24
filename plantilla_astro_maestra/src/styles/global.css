@@ -1074,3 +1074,125 @@ body {
 .ui-preset--professional .ui-closer-look .closer-look-content h3 { color: white; }
 .ui-preset--professional .ui-closer-look .closer-look-btn { @apply bg-white text-base-950 hover:bg-base-100; }
 
+
+/* 
+   APPLE-STYLE PRODUCT CARDS 
+   Inspired by Apple Store 'Ways to Buy' and 'Carrier Deals'.
+   Cards with content on top and image on bottom.
+*/
+.ui-apple-product-cards-container {
+    @apply py-16 md:py-24 overflow-hidden bg-white dark:bg-base-950;
+}
+
+.ui-apple-product-cards-container .container-wrapper {
+    @apply max-w-7xl mx-auto px-6 md:px-12;
+}
+
+.ui-apple-product-cards-container h2.section-title {
+    @apply text-4xl md:text-7xl font-bold tracking-tighter mb-10 md:mb-16 text-base-900 dark:text-white;
+}
+
+.ui-apple-product-cards-container .product-cards-grid {
+    @apply flex overflow-x-auto pb-12 gap-6 snap-x snap-mandatory;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.ui-apple-product-cards-container .product-cards-grid::-webkit-scrollbar {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .ui-apple-product-cards-container .product-cards-grid {
+        @apply grid grid-cols-3 gap-8 overflow-x-visible pb-0;
+    }
+}
+
+.apple-product-card {
+    @apply relative flex-shrink-0 w-[85vw] md:w-auto aspect-[4/5] md:aspect-[3/4] rounded-[3rem] overflow-hidden bg-white flex flex-col shadow-xl transition-all duration-500 snap-center border border-base-100;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.apple-product-card:hover {
+    @apply shadow-2xl;
+    transform: translateY(-4px);
+}
+
+.apple-product-card .card-content-top {
+    @apply p-8 md:p-10 z-10;
+}
+
+.apple-product-card .product-card-category {
+    @apply block text-xs font-bold uppercase tracking-widest text-[#86868b] mb-2;
+}
+
+.apple-product-card .product-card-title {
+    @apply text-2xl md:text-3xl font-bold leading-tight text-[#1d1d1f] m-0 tracking-tight;
+}
+
+.apple-product-card .product-card-description {
+    @apply mt-4 text-sm md:text-base text-[#424245] leading-relaxed max-w-[90%];
+}
+
+.apple-product-card .card-image-wrapper {
+    @apply mt-auto w-full h-1/2 overflow-hidden;
+}
+
+.apple-product-card .product-card-image {
+    @apply w-full h-full object-contain object-bottom p-4 transition-transform duration-700;
+}
+
+.apple-product-card:hover .product-card-image {
+    @apply scale-105;
+}
+
+.apple-product-card .product-card-btn {
+    @apply absolute bottom-6 right-6 w-10 h-10 rounded-full bg-[#1d1d1f] text-white flex items-center justify-center transition-all duration-300 hover:scale-110 cursor-pointer p-0;
+}
+
+.apple-product-card .product-card-btn svg {
+    @apply w-5 h-5;
+}
+
+/* Dark Mode / Preset Adjustments */
+.dark .apple-product-card, 
+.ui-preset--midnight .apple-product-card,
+.ui-preset--emerald .apple-product-card,
+.ui-preset--professional .apple-product-card {
+    @apply bg-base-900 border-base-800;
+}
+
+.dark .product-card-title,
+.ui-preset--midnight .product-card-title,
+.ui-preset--emerald .product-card-title,
+.ui-preset--professional .product-card-title {
+    @apply text-white;
+}
+
+.dark .product-card-description,
+.ui-preset--midnight .product-card-description,
+.ui-preset--emerald .product-card-description,
+.ui-preset--professional .product-card-description {
+    @apply text-base-300;
+}
+
+.dark .product-card-btn,
+.ui-preset--midnight .product-card-btn,
+.ui-preset--emerald .product-card-btn,
+.ui-preset--professional .product-card-btn {
+    @apply bg-white text-base-900;
+}
+
+/* Preset Specific Backgrounds for the whole section if used */
+.ui-preset--midnight.ui-apple-product-cards-container { background-color: #000; }
+.ui-preset--emerald.ui-apple-product-cards-container { background-color: oklch(20% 0.05 160); }
+.ui-preset--professional.ui-apple-product-cards-container { background-color: #0f172a; }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
