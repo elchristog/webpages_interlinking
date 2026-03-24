@@ -1,45 +1,50 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import SectionCloserLook from "../components/fundations/containers/SectionCloserLook.astro";
+import LayoutA from '../layouts/LayoutA.astro';
+import SectionCloserLook from '../components/fundations/containers/SectionCloserLook.astro';
 ---
 
-<Layout title="Test Closer Look - Apple Style">
-  <main class="bg-white dark:bg-black min-h-screen pt-20">
-    
-    {/* Variant 1: Default (Inspired by Apple Image) */}
+<LayoutA title="Test Section Closer Look" description="Verification page for the redesigned SectionCloserLook component">
+  <div class="space-y-24 bg-white py-20">
+    <!-- Default / Base (Gray/Orange inspired) -->
     <SectionCloserLook 
+      title="Take a closer look."
       cardTitle="A Guided Tour of iPhone 17 Pro, iPhone Air, and iPhone 17"
       buttonText="Watch the film"
       buttonHref="#"
-      imageSrc="https://media.architecturaldigest.com/photos/576c3da7a5af9f6834deb323/16:9/w_1280,c_limit/apple-store-opening-6.jpg"
+      imageSrc="https://images.unsplash.com/photo-1616348436168-de43ad0db179?q=80&w=2000&auto=format&fit=crop"
     />
 
-    <div class="h-24"></div>
-
-    {/* Variant 2: Emerald Preset */}
-    <div class="ui-closer-look-wrapper ui-preset--emerald">
+    <!-- Sunset Preset -->
+    <div class="ui-preset--sunset">
       <SectionCloserLook 
-        title="Expert Guidance."
-        cardTitle="Navega el proceso de homologación con expertos en USA."
+        title="Impacto Visual."
+        cardTitle="Descubre la potencia del nuevo ecosistema Sunset"
+        buttonText="Ver video"
+        buttonHref="#"
+        imageSrc="https://images.unsplash.com/photo-1550009158-9ebf69173e03?q=80&w=2000&auto=format&fit=crop"
+      />
+    </div>
+
+    <!-- Midnight Preset -->
+    <div class="ui-preset--midnight">
+      <SectionCloserLook 
+        title="Lujo Absoluto."
+        cardTitle="Elegancia en cada píxel con Midnight Luxury"
+        buttonText="Explorar ahora"
+        buttonHref="#"
+        imageSrc="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=2000&auto=format&fit=crop"
+      />
+    </div>
+
+    <!-- Emerald Preset -->
+    <div class="ui-preset--emerald">
+      <SectionCloserLook 
+        title="Confianza Médica."
+        cardTitle="Tu carrera de enfermería empieza aquí"
         buttonText="Saber más"
         buttonHref="#"
-        imageSrc="https://www.apple.com/v/iphone/home/bu/images/overview/closer-look/closer_look__erf9vvjqnxue_large.jpg"
+        imageSrc="https://images.unsplash.com/photo-1576091160550-217359f42f8c?q=80&w=2000&auto=format&fit=crop"
       />
     </div>
-
-    <div class="h-24"></div>
-
-    {/* Variant 3: Midnight Preset */}
-    <div class="ui-closer-look-wrapper ui-preset--midnight">
-      <SectionCloserLook 
-        title="Premium Quality."
-        cardTitle="Descubre la excelencia en cada detalle de tu carrera."
-        buttonText="Comenzar viaje"
-        buttonHref="#"
-        imageSrc="https://www.apple.com/v/iphone/home/bu/images/overview/closer-look/closer_look__erf9vvjqnxue_large.jpg"
-      />
-    </div>
-
-  </main>
-</Layout>
-
+  </div>
+</LayoutA>

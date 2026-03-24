@@ -992,64 +992,85 @@ body {
    APPLE-STYLE CLOSER LOOK SECTION 
    Large, high-radius card with split background and minimalist typography.
 */
+/* 
+   APPLE-STYLE CLOSER LOOK SECTION 
+   Large, high-radius card with smooth gradient background and minimalist typography.
+*/
 .ui-closer-look {
-    @apply relative overflow-hidden;
+    @apply relative overflow-hidden py-12 md:py-24;
+}
+
+.ui-closer-look .container-wrapper {
+    @apply max-w-7xl mx-auto px-6 md:px-12;
 }
 
 .ui-closer-look h2.closer-look-heading {
-    @apply text-4xl md:text-6xl font-bold tracking-tight mb-8 md:mb-16;
+    @apply text-4xl md:text-7xl font-bold tracking-tighter mb-10 md:mb-16 text-base-900 dark:text-white;
 }
 
 .ui-closer-look .closer-look-card {
-    @apply rounded-[3rem] overflow-hidden transition-all duration-500;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+    @apply relative rounded-[3rem] overflow-hidden transition-all duration-700 min-h-[500px] md:min-h-[650px] flex items-center shadow-2xl;
+    box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.15);
 }
 
 .ui-closer-look .closer-look-content {
-    @apply flex flex-col justify-center items-center md:items-start;
+    @apply relative z-20 w-full md:w-1/2 p-10 md:p-20 flex flex-col items-center md:items-start text-center md:text-left;
+}
+
+.ui-closer-look .closer-look-content h3 {
+    @apply text-3xl md:text-5xl font-bold leading-[1.1] mb-8 md:mb-12 max-w-md;
+    color: var(--color-text-bold);
+}
+
+.ui-closer-look .closer-look-btn {
+    @apply inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-base-950 text-white font-semibold text-lg hover:bg-base-800 transition-all hover:scale-105 shadow-lg no-underline;
 }
 
 .ui-closer-look .closer-look-media {
-    @apply min-h-[400px] md:min-h-[600px] relative overflow-hidden flex items-end justify-center bg-base-200/80;
+    @apply absolute inset-0 md:inset-y-0 md:right-0 md:left-auto w-full md:w-2/3 h-full z-10 pointer-events-none;
 }
 
 .ui-closer-look .closer-look-media img {
-    @apply w-full h-[120%] object-cover object-bottom m-0;
+    @apply w-full h-full object-cover object-center md:object-right-bottom m-0 opacity-100;
+    mask-image: linear-gradient(to right, transparent 0%, black 40%);
 }
 
-/* Default Split Background (Grey/Orange inspired) */
-.ui-closer-look .closer-look-card {
-    background: linear-gradient(135deg, #f5f5f7 0%, #f5f5f7 50%, #f97316 50%, #fb923c 100%);
-}
-
-/* Preset Overrides for Section Closer Look */
-.ui-closer-look.ui-preset--emerald .closer-look-card {
-    background: linear-gradient(135deg, #022c22 0%, #022c22 50%, #059669 50%, #10b981 100%);
-}
-.ui-closer-look.ui-preset--emerald .closer-look-content h3 { color: white; }
-
-.ui-closer-look.ui-preset--midnight .closer-look-card {
-    background: linear-gradient(135deg, #09090b 0%, #09090b 50%, #1e40af 50%, #3b82f6 100%);
-}
-.ui-closer-look.ui-preset--midnight .closer-look-content h3 { color: white; }
-
-.ui-closer-look.ui-preset--sunset .closer-look-card {
-    background: linear-gradient(135deg, #fff7ed 0%, #fff7ed 50%, #f97316 50%, #fb923c 100%);
-}
-
-.ui-closer-look.ui-preset--professional .closer-look-card {
-    background: linear-gradient(135deg, #0f172a 0%, #0f172a 50%, #475569 50%, #64748b 100%);
-}
-.ui-closer-look.ui-preset--professional .closer-look-content h3 { color: white; }
-
-/* Responsive adjustments for the split background */
-@media (max-width: 768px) {
-    .ui-closer-look .closer-look-card {
-        background: #f5f5f7; /* Simple background for mobile */
+@media (max-width: 767px) {
+    .ui-closer-look .closer-look-media img {
+        mask-image: linear-gradient(to bottom, transparent 0%, black 50%);
+        @apply opacity-60;
     }
-    .ui-closer-look.ui-preset--emerald .closer-look-card { background: #022c22; }
-    .ui-closer-look.ui-preset--midnight .closer-look-card { background: #09090b; }
-    .ui-closer-look.ui-preset--sunset .closer-look-card { background: #fff7ed; }
-    .ui-closer-look.ui-preset--professional .closer-look-card { background: #0f172a; }
+    .ui-closer-look .closer-look-content {
+        @apply pt-40 md:pt-20;
+    }
 }
+
+/* Default Smooth Background (Apple Inspired Gray to Orange) */
+.ui-closer-look .closer-look-card {
+    background: linear-gradient(135deg, #f5f5f7 0%, #f5f5f7 30%, #fef3c7 70%, #fb923c 100%);
+}
+
+/* Preset Overrides for Section Closer Look - Soft Gradients */
+.ui-preset--emerald .ui-closer-look .closer-look-card {
+    background: linear-gradient(135deg, #022c22 0%, #064e3b 40%, #059669 80%, #10b981 100%);
+}
+.ui-preset--emerald .ui-closer-look .closer-look-content h3 { color: white; }
+.ui-preset--emerald .ui-closer-look .closer-look-btn { @apply bg-white text-base-950 hover:bg-base-100; }
+
+.ui-preset--midnight .ui-closer-look .closer-look-card {
+    background: linear-gradient(135deg, #09090b 0%, #111827 40%, #1e40af 80%, #3b82f6 100%);
+}
+.ui-preset--midnight .ui-closer-look .closer-look-content h3 { color: white; }
+.ui-preset--midnight .ui-closer-look .closer-look-btn { @apply bg-white text-base-950 hover:bg-base-100; }
+
+.ui-preset--sunset .ui-closer-look .closer-look-card {
+    background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 40%, #f97316 80%, #fb923c 100%);
+}
+.ui-preset--sunset .ui-closer-look .closer-look-content h3 { color: var(--color-text-bold); }
+
+.ui-preset--professional .ui-closer-look .closer-look-card {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #475569 80%, #64748b 100%);
+}
+.ui-preset--professional .ui-closer-look .closer-look-content h3 { color: white; }
+.ui-preset--professional .ui-closer-look .closer-look-btn { @apply bg-white text-base-950 hover:bg-base-100; }
 

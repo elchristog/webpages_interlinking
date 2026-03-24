@@ -56,7 +56,7 @@
       "id": "ui-closer-look",
       "name": "Apple Closer Look",
       "allowed_presets": ["ui-preset--emerald", "ui-preset--midnight", "ui-preset--sunset", "ui-preset--professional"],
-      "prompt": "SECCIÓN CLOSER LOOK (ui-closer-look): Diseño Apple de alto impacto con tarjeta de gran radio y fondo dividido. Úsala para secciones de 'Echa un vistazo de cerca'.\n<div class=\"ui-closer-look {preset}\">\n  <h2 class=\"closer-look-heading\">Echa un vistazo de cerca.</h2>\n  <div class=\"closer-look-card\">\n    <div class=\"closer-look-content\">\n      <h3>Título de la Tarjeta</h3>\n      <a href=\"URL\" class=\"closer-look-btn\">Botón de Acción</a>\n    </div>\n    <div class=\"closer-look-media\">\n      <img src=\"URL_IMAGEN_SECUNDARIA\" alt=\"Detalle del producto\">\n    </div>\n  </div>\n</div>"
+      "prompt": "SECCIÓN CLOSER LOOK (ui-closer-look): Diseño Apple de alto impacto con tarjeta de gran radio y fondo de degradado suave. Úsala para secciones de 'Echa un vistazo de cerca'.\n<section class=\"ui-closer-look {preset}\">\n  <div class=\"container-wrapper\">\n    <h2 class=\"closer-look-heading\">Echa un vistazo de cerca.</h2>\n    <div class=\"closer-look-card\">\n      <div class=\"closer-look-content\">\n        <h3>Título de la Tarjeta</h3>\n        <a href=\"URL\" class=\"closer-look-btn\">Botón de Acción</a>\n      </div>\n      <div class=\"closer-look-media\">\n        <img src=\"URL_IMAGEN_SECUNDARIA\" alt=\"Detalle del producto\">\n      </div>\n    </div>\n  </div>\n</section>"
     },
     {
       "id": "ui-scrolling-cards",
