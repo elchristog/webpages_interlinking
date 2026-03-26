@@ -296,10 +296,21 @@ def compilar_y_persistir(sitio_id, ruta_proyecto, ruta_base, nombre_proyecto):
     # Mover dist a la carpeta persistente
     dist_path = os.path.join(ruta_proyecto, 'dist')
     if os.path.exists(ruta_persistente):
-        shutil.rmtree(ruta_persistente)
+        # SI la carpeta existe, no la borramos completa para no perder el MD si ya estaba
+        pass
+    else:
+        os.makedirs(ruta_persistente, exist_ok=True)
+    
+    # [NUEVO] Persistir el Markdown original para revisión manual si falla el build
+    ruta_md_origen = os.path.join(ruta_proyecto, 'src', 'content', 'index.md')
+    if os.path.exists(ruta_md_origen):
+        shutil.copy2(ruta_md_origen, os.path.join(ruta_persistente, "index.md"))
+        print(f"[Backup MD] index.md guardado en {ruta_persistente}")
+
+    subprocess.run(comando_build, cwd=ruta_proyecto, shell=True)
     
     if os.path.exists(dist_path):
-        shutil.copytree(dist_path, ruta_persistente)
+        shutil.copytree(dist_path, ruta_persistente, dirs_exist_ok=True)
         post_procesar_rutas_locales(ruta_persistente)
         print(f"[+] Sitio {sitio_id} persistido y post-procesado en: {ruta_persistente}")
     else:

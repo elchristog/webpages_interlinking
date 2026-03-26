@@ -1196,3 +1196,86 @@ body {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
+/* UI Apple Experience Section (Bento Grid) */
+.ui-apple-experience-container {
+    @apply py-16 md:py-24 bg-[#f5f5f7] dark:bg-black overflow-hidden;
+}
+
+.ui-apple-experience-container .container-wrapper {
+    @apply max-w-7xl mx-auto px-6 md:px-12;
+}
+
+.ui-apple-experience-container .section-header {
+    @apply mb-10 md:mb-16;
+}
+
+.ui-apple-experience-container .section-title {
+    @apply text-3xl md:text-5xl font-bold tracking-tight text-[#1d1d1f] dark:text-white m-0;
+}
+
+.ui-apple-experience-container .section-subtitle {
+    @apply text-[#86868b] dark:text-[#a1a1a6] font-medium;
+}
+
+.ui-apple-experience-container .apple-experience-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8;
+}
+
+.apple-experience-card {
+    @apply relative bg-white dark:bg-[#1d1d1f] rounded-[2.5rem] p-8 md:p-12 overflow-hidden flex flex-col min-h-[500px] md:min-h-[600px] shadow-sm transition-all duration-500 border border-base-100 dark:border-base-800;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+}
+
+.apple-experience-card:hover {
+    @apply shadow-xl;
+    transform: translateY(-4px);
+}
+
+.apple-experience-card .card-content {
+    @apply z-10;
+}
+
+.apple-experience-card .card-category {
+    @apply block text-xs font-bold uppercase tracking-widest text-[#86868b] dark:text-[#a1a1a6] mb-3;
+}
+
+.apple-experience-card .card-title {
+    @apply text-3xl md:text-5xl font-bold leading-tight text-[#1d1d1f] dark:text-white m-0 tracking-tight;
+}
+
+.apple-experience-card .card-description {
+    @apply mt-2 text-xl md:text-3xl font-semibold leading-tight text-[#1d1d1f] dark:text-[#f5f5f7] opacity-90;
+}
+
+.apple-experience-card .card-image-wrapper {
+    @apply mt-auto w-full flex justify-center items-end h-[350px] md:h-[400px];
+}
+
+.apple-experience-card .experience-image {
+    @apply w-full h-full object-contain object-bottom transition-transform duration-700;
+}
+
+.apple-experience-card:hover .experience-image {
+    @apply scale-105;
+}
+
+.card-link-overlay {
+    @apply absolute inset-0 z-20 cursor-pointer;
+}
+
+/* Preset Overrides for Apple Experience */
+.ui-preset--midnight.ui-apple-experience-container { background-color: #000; }
+.ui-preset--emerald.ui-apple-experience-container { background-color: oklch(20% 0.05 160); }
+.ui-preset--professional.ui-apple-experience-container { background-color: #0f172a; }
+
+.ui-preset--midnight .apple-experience-card,
+.ui-preset--emerald .apple-experience-card,
+.ui-preset--professional .apple-experience-card {
+    @apply bg-base-900 border-base-800;
+}
+
+.ui-preset--midnight .card-title, .ui-preset--midnight .card-description,
+.ui-preset--emerald .card-title, .ui-preset--emerald .card-description,
+.ui-preset--professional .card-title, .ui-preset--professional .card-description {
+    @apply text-white;
+}
