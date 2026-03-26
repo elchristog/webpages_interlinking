@@ -1,0 +1,47 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  links?: { text: string; href: string }[];
+  products?: { imageSrc: string; alt?: string }[];
+}
+
+const { 
+  title = "Meet your match.", 
+  description = "Find the perfect combination for your journey.", 
+  links = [], 
+  products = [] 
+} = Astro.props;
+---
+
+<section class="ui-apple-closer-look-container ui-preset--professional">
+  <div class="container-wrapper">
+    <div class="closer-look-grid">
+      <div class="closer-look-content">
+        <h2 class="closer-look-title">{title}</h2>
+        <p class="closer-look-description">{description}</p>
+        {links.length > 0 && (
+          <div class="closer-look-links">
+            {links.map((link) => (
+              <a href={link.href} class="closer-look-link">
+                {link.text}
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="link-chevron">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+      <div class="closer-look-gallery">
+        <div class="gallery-wrapper">
+          {products.map((product) => (
+            <div class="product-item">
+              <img src={product.imageSrc} alt={product.alt || "Product"} loading="lazy" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

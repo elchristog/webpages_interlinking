@@ -1,0 +1,57 @@
+---
+interface Props {
+  introText?: string;
+  items?: { name: string; label: string; color: string }[];
+  filters?: string[];
+  chartImageSrc?: string;
+  bottomText?: string;
+}
+
+const { 
+  introText = "Este gráfico muestra la comparación de interés a lo largo del tiempo.", 
+  items = [], 
+  filters = ["Todo el mundo", "Últimos 12 meses", "Todas las categorías", "Búsqueda web"], 
+  chartImageSrc = "https://via.placeholder.com/1200x500?text=Gráfico+de+Interés",
+  bottomText
+} = Astro.props;
+---
+
+<section class="ui-data-comparison-container ui-preset--professional">
+  <div class="container-wrapper">
+    {introText && <p class="comparison-intro">{introText}</p>}
+    
+    <div class="comparison-dashboard">
+      <div class="legend-cards">
+        {items.map((item) => (
+          <div class="legend-card">
+            <div class="legend-header">
+              <span class="legend-marker" style={`background-color: ${item.color}`}></span>
+              <span class="legend-name">{item.name}</span>
+            </div>
+            <span class="legend-label">{item.label}</span>
+          </div>
+        ))}
+      </div>
+      
+      <div class="dashboard-filters">
+        {filters.map((filter) => (
+          <div class="filter-item">
+            <span class="filter-label">{filter}</span>
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </div>
+        ))}
+      </div>
+      
+      <div class="chart-area shadow-sm">
+        <h3 class="chart-title">Interés a lo largo del tiempo <span class="info-icon">?</span></h3>
+        <div class="chart-wrapper">
+           <img src={chartImageSrc} alt="Gráfico de comparación" loading="lazy" />
+        </div>
+      </div>
+    </div>
+    
+    {bottomText && <p class="comparison-footer">{bottomText}</p>}
+  </div>
+</section>
