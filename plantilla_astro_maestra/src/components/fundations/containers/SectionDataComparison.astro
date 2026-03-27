@@ -5,6 +5,7 @@ interface Props {
   filters?: string[];
   chartImageSrc?: string;
   bottomText?: string;
+  preset?: string;
 }
 
 const { 
@@ -12,11 +13,12 @@ const {
   items = [], 
   filters = ["Todo el mundo", "Últimos 12 meses", "Todas las categorías", "Búsqueda web"], 
   chartImageSrc = "https://via.placeholder.com/1200x500?text=Gráfico+de+Interés",
-  bottomText
+  bottomText,
+  preset = ""
 } = Astro.props;
 ---
 
-<section class="ui-data-comparison-container ui-preset--professional">
+<section class={`ui-data-comparison-container ${preset}`}>
   <div class="container-wrapper">
     {introText && <p class="comparison-intro">{introText}</p>}
     

@@ -1410,8 +1410,30 @@ body {
   }
   
   .product-item {
-    width: 220px;
   }
+}
+
+/* Preset Overrides for Apple Closer Look */
+.ui-preset--midnight.ui-apple-closer-look-container { background-color: #000; }
+.ui-preset--emerald.ui-apple-closer-look-container { background-color: oklch(20% 0.05 160); }
+.ui-preset--professional.ui-apple-closer-look-container { background-color: #0f172a; }
+
+.ui-preset--midnight .closer-look-title,
+.ui-preset--emerald .closer-look-title,
+.ui-preset--professional .closer-look-title {
+    color: white;
+}
+
+.ui-preset--midnight .closer-look-description,
+.ui-preset--emerald .closer-look-description,
+.ui-preset--professional .closer-look-description {
+    color: var(--color-base-300);
+}
+
+.ui-preset--midnight .closer-look-link,
+.ui-preset--emerald .closer-look-link,
+.ui-preset--professional .closer-look-link {
+    color: #4facff;
 }
 
 /* UI Section: Data Comparison (Google Trends style) */
@@ -1559,6 +1581,37 @@ body {
   .legend-card {
     min-width: 100%;
   }
+}
+
+/* Preset Overrides for Data Comparison */
+.ui-preset--midnight.ui-data-comparison-container { background-color: #000; }
+.ui-preset--emerald.ui-data-comparison-container { background-color: oklch(20% 0.05 160); }
+.ui-preset--professional.ui-data-comparison-container { background-color: #0f172a; }
+
+.ui-preset--midnight .comparison-dashboard,
+.ui-preset--emerald .comparison-dashboard,
+.ui-preset--professional .comparison-dashboard {
+    background: var(--color-base-900);
+    border-color: var(--color-base-800);
+    color: white;
+}
+
+.ui-preset--midnight .comparison-intro, .ui-preset--midnight .comparison-footer, .ui-preset--midnight .legend-name, .ui-preset--midnight .chart-title, .ui-preset--midnight .filter-item,
+.ui-preset--emerald .comparison-intro, .ui-preset--emerald .comparison-footer, .ui-preset--emerald .legend-name, .ui-preset--emerald .chart-title, .ui-preset--emerald .filter-item,
+.ui-preset--professional .comparison-intro, .ui-preset--professional .comparison-footer, .ui-preset--professional .legend-name, .ui-preset--professional .chart-title, .ui-preset--professional .filter-item {
+    color: white !important;
+}
+
+.ui-preset--midnight .legend-card, .ui-preset--midnight .chart-area, .ui-preset--midnight .dashboard-filters,
+.ui-preset--emerald .legend-card, .ui-preset--emerald .chart-area, .ui-preset--emerald .dashboard-filters,
+.ui-preset--professional .legend-card, .ui-preset--professional .chart-area, .ui-preset--professional .dashboard-filters {
+    border-color: var(--color-base-800);
+}
+
+.ui-preset--midnight .legend-label, .ui-preset--midnight .filter-item,
+.ui-preset--emerald .legend-label, .ui-preset--emerald .filter-item,
+.ui-preset--professional .legend-label, .ui-preset--professional .filter-item {
+    color: var(--color-base-300) !important;
 }
 
 /* Feature Cards (How We Help) - Added 2026-03-26 */

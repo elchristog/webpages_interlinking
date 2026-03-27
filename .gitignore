@@ -24,7 +24,4 @@ Thumbs.db
 
 # Contenido generado y archivos de prueba
 contenido_base_test.md
-list_models.py
-sitios_generados/
-plantilla_astro_maestra/src/data/config_inyectada.json
-plantilla_astro_maestra/src/content/index.md
+

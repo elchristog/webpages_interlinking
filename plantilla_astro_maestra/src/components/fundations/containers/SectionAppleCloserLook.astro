@@ -4,17 +4,19 @@ interface Props {
   description: string;
   links?: { text: string; href: string }[];
   products?: { imageSrc: string; alt?: string }[];
+  preset?: string;
 }
 
 const { 
   title = "Meet your match.", 
   description = "Find the perfect combination for your journey.", 
   links = [], 
-  products = [] 
+  products = [],
+  preset = ""
 } = Astro.props;
 ---
 
-<section class="ui-apple-closer-look-container ui-preset--professional">
+<section class={`ui-apple-closer-look-container ${preset}`}>
   <div class="container-wrapper">
     <div class="closer-look-grid">
       <div class="closer-look-content">

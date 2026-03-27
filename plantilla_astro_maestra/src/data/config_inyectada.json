@@ -1,0 +1,65 @@
+{
+  "nombre_sitio": "California Nurse Salaries",
+  "color_tema": "#ffb300",
+  "comando_deploy": "netlify deploy --prod",
+  "layout": "LayoutB",
+  "gcp_project_id": "ca-salaries-ntl-1",
+  "seo": {
+    "titulo_base": "Salarios CA 2025",
+    "descripcion_base": "Los mejores estados y especialidades para cobrar el máximo sueldo como enfermera en California.",
+    "idioma": "es-US"
+  },
+  "footer": {
+    "empresa_legal": "Enfermera en Estados Unidos",
+    "direccion": "Los Angeles, CA 90001",
+    "email_contacto": "contact@nursing-careers-california.com"
+  },
+  "menu_global": [
+    {
+      "nombre": "Validar Diploma",
+      "ruta": "/homologacion"
+    },
+    {
+      "nombre": "Guía NCLEX",
+      "ruta": "/nclex"
+    },
+    {
+      "nombre": "Vacantes USA",
+      "ruta": "/vacantes"
+    },
+    {
+      "nombre": "Green Card",
+      "ruta": "/visa"
+    },
+    {
+      "nombre": "Sueldo Promedio",
+      "ruta": "/salarios"
+    },
+    {
+      "nombre": "Blog Oficial",
+      "ruta": "/blog"
+    },
+    {
+      "nombre": "Escríbenos",
+      "ruta": "https://wa.me/something"
+    },
+    {
+      "nombre": "Acceso",
+      "ruta": "/login"
+    }
+  ],
+  "dominio": "https://nursing-careers-california.com",
+  "font_family": "Plus Jakarta Sans",
+  "sidebar_pos": "left",
+  "color_palette": {
+    "primary": "oklch(38% 0.11 50)",
+    "secondary": "oklch(52% 0.07 50)",
+    "accent": "oklch(86% 0.14 20)",
+    "text_bold": "oklch(18% 0.05 50)",
+    "meta": {
+      "name": "Warm Professional",
+      "system": "OKLCH Premium v2"
+    }
+  },
+  "nav_footer_version": "v1"
+}
