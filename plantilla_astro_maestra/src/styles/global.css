@@ -1560,3 +1560,126 @@ body {
     min-width: 100%;
   }
 }
+
+/* Feature Cards (How We Help) - Added 2026-03-26 */
+.ui-feature-cards {
+  padding: 6rem 2rem;
+  background-color: var(--color-base-50);
+}
+
+.ui-feature-cards-container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.ui-feature-cards .section-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 4rem;
+  color: var(--color-base-950);
+  letter-spacing: -0.02em;
+}
+
+.ui-feature-cards .cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .ui-feature-cards .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.ui-feature-cards .feature-card {
+  background-color: #f8faff; /* Slightly tinted white */
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid var(--color-base-100);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.ui-feature-cards .feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  border-color: var(--color-accent);
+}
+
+.ui-feature-cards .card-icon {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 6rem; /* Large space for icon as per design */
+}
+
+.ui-feature-cards .card-icon img, 
+.ui-feature-cards .card-icon svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ui-feature-cards .card-description {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  color: var(--color-base-900);
+  font-weight: 500;
+  margin-bottom: 4rem;
+  flex-grow: 1;
+}
+
+.ui-feature-cards .card-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1a1a1c;
+  color: white;
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.85rem;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.ui-feature-cards .card-btn:hover {
+  background-color: var(--color-base-950);
+  filter: brightness(1.2);
+}
+
+.ui-feature-cards .icon-arrow {
+  width: 20px;
+  height: 20px;
+  margin-left: 1rem;
+  opacity: 0.8;
+}
+
+/* Preset compatibility for feature cards */
+.ui-preset--midnight.ui-feature-cards,
+.ui-preset--midnight .ui-feature-cards {
+  background-color: var(--color-base-950);
+}
+.ui-preset--midnight.ui-feature-cards .feature-card,
+.ui-preset--midnight .ui-feature-cards .feature-card {
+  background-color: var(--color-base-900);
+  border-color: var(--color-base-800);
+}
+
+.ui-preset--emerald.ui-feature-cards,
+.ui-preset--emerald .ui-feature-cards {
+  background-color: var(--color-primary);
+}
+.ui-preset--emerald.ui-feature-cards .feature-card,
+.ui-preset--emerald .ui-feature-cards .feature-card {
+  background-color: color-mix(in oklch, var(--color-primary), white 5%);
+  border-color: color-mix(in oklch, var(--color-primary), white 10%);
+}
+.ui-preset--midnight.ui-feature-cards .section-title,
+.ui-preset--midnight .ui-feature-cards .section-title,
+.ui-preset--midnight.ui-feature-cards .card-description,
+.ui-preset--midnight .ui-feature-cards .card-description {
+  color: white;
+}

@@ -1,0 +1,63 @@
+---
+import Wrapper from "./Wrapper.astro";
+
+interface Feature {
+  icon_url: string;
+  description: string;
+  btn_text: string;
+  btn_url: string;
+}
+
+interface Props {
+  title?: string;
+  features?: Feature[];
+  preset?: string;
+}
+
+const { 
+  title = "How We Help", 
+  features = [
+    {
+      icon_url: "https://via.placeholder.com/60",
+      description: "Digital experiences that drive growth and build lasting customer loyalty.",
+      btn_text: "Digital Experience and Websites",
+      btn_url: "#"
+    },
+    {
+      icon_url: "https://via.placeholder.com/60",
+      description: "Custom solutions that make technology work for you, not the other way around.",
+      btn_text: "Technology Solutions",
+      btn_url: "#"
+    },
+    {
+      icon_url: "https://via.placeholder.com/60",
+      description: "Automate workflows & secure your digital foundation",
+      btn_text: "AI Agents and Automation",
+      btn_url: "#"
+    }
+  ],
+  preset = ""
+} = Astro.props;
+---
+
+<section class={`ui-feature-cards ${preset}`}>
+  <Wrapper variant="standard" class="ui-feature-cards-container">
+    <h2 class="section-title">{title}</h2>
+    <div class="cards-grid">
+      {features.map((feature) => (
+        <div class="feature-card">
+          <div class="card-icon">
+            <img src={feature.icon_url} alt={feature.btn_text} />
+          </div>
+          <p class="card-description">{feature.description}</p>
+          <a href={feature.btn_url} class="card-btn">
+            <span>{feature.btn_text}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="icon-arrow">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+            </svg>
+          </a>
+        </div>
+      ))}
+    </div>
+  </Wrapper>
+</section>
