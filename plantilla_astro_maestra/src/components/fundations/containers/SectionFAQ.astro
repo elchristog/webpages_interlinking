@@ -1,0 +1,71 @@
+---
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  title?: string;
+  description?: string;
+  supportText?: string;
+  supportLink?: string;
+  faqs?: FAQItem[];
+  preset?: string;
+}
+
+const {
+  title = "Frequently Asked Questions",
+  description = "Clear answers to common questions about implementation, integrations, and how our solution fits your business. Still have questions? Feel free to",
+  supportText = "contact our support",
+  supportLink = "#",
+  faqs = [
+    {
+      question: "How do we know if our website needs a redesign?",
+      answer: "If your website is not generating the leads it should, feels misaligned with how your business has evolved, or is difficult for your team to manage, it may be time for a redesign.\n\nOther indicators include declining conversion rates, confusing navigation, inconsistent messaging, poor usability, or systems that do not connect properly.\n\nWe look at both performance data and structural limitations before recommending a rebuild. In some cases targeted improvements are enough. In others, the foundation itself needs to change."
+    },
+    {
+      question: "How long does a typical website redesign take?",
+      answer: "Timing varies based on complexity, but a typical high-performance project takes between 8 to 12 weeks from strategy to launch."
+    },
+    {
+      question: "How do you ensure the website improves customer experience?",
+      answer: "We use user-centric design principles, heatmaps, and performance data to ensure every element serves a clear purpose for the user."
+    },
+    {
+      question: "Can you help with messaging and positioning?",
+      answer: "Yes, our strategy phase includes deep dives into your brand voice, target audience, and market positioning to ensure your message resonates."
+    }
+  ],
+  preset = ""
+} = Astro.props;
+---
+
+<section class={`ui-faq-section ${preset}`}>
+  <div class="container-wrapper">
+    <div class="faq-grid">
+      <div class="faq-info">
+        <h2 class="section-title">{title}</h2>
+        <p class="section-description">
+          {description} <a href={supportLink} class="support-link">{supportText}</a>
+        </p>
+      </div>
+      <div class="faq-accordion-list">
+        {faqs.map((faq) => (
+          <details class="faq-item">
+            <summary class="faq-question">
+              {faq.question}
+              <span class="faq-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                </svg>
+              </span>
+            </summary>
+            <div class="faq-answer">
+              {faq.answer.split('\n\n').map(p => <p>{p}</p>)}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
