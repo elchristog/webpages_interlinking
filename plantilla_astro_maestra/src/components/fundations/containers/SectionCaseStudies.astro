@@ -1,0 +1,76 @@
+---
+interface CaseStudy {
+  logo?: string;
+  image: string;
+  text: string;
+  link: string;
+}
+
+interface Props {
+  title?: string;
+  highlightedTitle?: string;
+  viewAllText?: string;
+  viewAllLink?: string;
+  cases?: CaseStudy[];
+  preset?: string;
+}
+
+const {
+  title = "20+ Years of Helping",
+  highlightedTitle = "Businesses Transform",
+  viewAllText = "View All Case Studies",
+  viewAllLink = "#",
+  cases = [
+    {
+      logo: "https://upload.wikimedia.org/wikipedia/commons/3/36/McDonald%27s_Golden_Arches.svg",
+      image: "https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=1200",
+      text: "Elevating McDonald's Digital Presence in Asia to Highlight Local Menus and Brand Impact",
+      link: "#"
+    },
+    {
+      logo: "https://upload.wikimedia.org/wikipedia/commons/b/b1/Unilever.svg",
+      image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200",
+      text: "Communicating Unilever's Scalp Care Expertise Through Digital Transformation",
+      link: "#"
+    }
+  ],
+  preset = ""
+} = Astro.props;
+---
+
+<section class={`ui-case-studies ${preset}`}>
+  <div class="container-wrapper">
+    <div class="case-studies-header">
+      <h2 class="section-title">
+        {title} <br />
+        <span class="ui-highlight-text">{highlightedTitle}</span>
+      </h2>
+      <a href={viewAllLink} class="view-all-link">
+        {viewAllText}
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="icon-arrow">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+        </svg>
+      </a>
+    </div>
+
+    <div class="cases-grid">
+      {cases.map((item) => (
+        <a href={item.link} class="case-card">
+          <div class="case-image-wrapper">
+            <img src={item.image} alt={item.text} class="case-bg-image" />
+          </div>
+          <div class="case-overlay">
+            {item.logo && (
+              <div class="case-logo">
+                <img src={item.logo} alt="Logo" class="logo-img" />
+              </div>
+            )}
+            <div class="case-content">
+              <p class="case-text">{item.text}</p>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
