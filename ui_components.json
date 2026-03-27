@@ -105,6 +105,12 @@
       "name": "Impact CTA Section",
       "allowed_presets": ["ui-preset--emerald", "ui-preset--midnight", "ui-preset--professional"],
       "prompt": "SECCIÓN IMPACT CTA (ui-impact-cta): Diseño de alto impacto con imagen de fondo completa, texto grande y botón tipo pill. Úsala para llamadas a la acción potentes al final de una página o como hero secundario.\n<section class=\"ui-impact-cta {preset}\" style=\"background-image: url('URL_IMAGEN_FONDO');\">\n  <div class=\"ui-impact-overlay\"></div>\n  <div class=\"container-wrapper\">\n    <div class=\"impact-content\">\n      <h2 class=\"impact-title\">Título de Gran Impacto</h2>\n      <p class=\"impact-description\">Descripción persuasiva que refuerce el mensaje principal en 2-3 líneas.</p>\n      <div class=\"impact-actions\">\n        <a href=\"URL\" class=\"impact-btn\">HABLAR CON UN ASESOR</a>\n      </div>\n    </div>\n  </div>\n</section>"
+    },
+    {
+      "id": "ui-expert-insights",
+      "name": "Expert Insights Grid",
+      "allowed_presets": ["ui-preset--emerald", "ui-preset--midnight", "ui-preset--professional"],
+      "prompt": "SECCIÓN EXPERT INSIGHTS (ui-expert-insights): Diseño de cuadrícula de 3 columnas para recursos o artículos. Cada tarjeta tiene Categoría, Título borld e Imagen redondeada al pie. Úsala para secciones de 'Recursos', 'Blog' o 'Insights'.\n<section class=\"ui-expert-insights {preset}\">\n  <div class=\"container-wrapper\">\n    <div class=\"insights-header\">\n      <h2 class=\"section-title\">Expert Insights</h2>\n      <a href=\"URL\" class=\"view-all-link\">View All Resources <svg ...></svg></a>\n    </div>\n    <div class=\"insights-grid\">\n      <div class=\"insight-card\">\n        <div class=\"card-content\">\n          <span class=\"insight-category\">CATEGORÍA</span>\n          <h3 class=\"insight-title\">Título del artículo o recurso...</h3>\n        </div>\n        <div class=\"insight-image-wrapper\"><img src=\"URL_IMAGEN_1\" alt=\"Insight 1\" class=\"insight-image\"></div>\n      </div>\n      <div class=\"insight-card\">\n        <div class=\"card-content\">\n          <span class=\"insight-category\">CATEGORÍA 2</span>\n          <h3 class=\"insight-title\">Otro título impactante en 2-3 líneas...</h3>\n        </div>\n        <div class=\"insight-image-wrapper\"><img src=\"URL_IMAGEN_2\" alt=\"Insight 2\" class=\"insight-image\"></div>\n      </div>\n    </div>\n  </div>\n</section>"
     }
   ]
 }

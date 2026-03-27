@@ -1,0 +1,68 @@
+---
+interface Insight {
+  category: string;
+  title: string;
+  image: string;
+  link: string;
+}
+
+interface Props {
+  sectionTitle?: string;
+  viewAllText?: string;
+  viewAllLink?: string;
+  insights?: Insight[];
+  preset?: string;
+}
+
+const {
+  sectionTitle = "Expert Insights",
+  viewAllText = "View All Resources",
+  viewAllLink = "#",
+  insights = [
+    {
+      category: "Smarter Automations",
+      title: "Fix Your CRM Before It Costs You in 2026: 8 Proven B2B Dat...",
+      image: "https://images.unsplash.com/photo-1551288049-bbbda536639a?q=80&w=800",
+      link: "#"
+    },
+    {
+      category: "Everything Ecommerce",
+      title: "10 Shopify Checkout Hacks That Will Boost 2026...",
+      image: "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=800",
+      link: "#"
+    },
+    {
+      category: "Smarter Automations",
+      title: "How to Cut 15+ Hours a Week on Reporting: 2026 Automatio...",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800",
+      link: "#"
+    }
+  ],
+  preset = ""
+} = Astro.props;
+---
+
+<section class={`ui-expert-insights ${preset}`}>
+  <div class="container-wrapper">
+    <div class="insights-header">
+      <h2 class="section-title">{sectionTitle}</h2>
+      <a href={viewAllLink} class="view-all-link">
+        {viewAllText}
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="icon-arrow"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
+      </a>
+    </div>
+    <div class="insights-grid">
+      {insights.map((insight) => (
+        <a href={insight.link} class="insight-card">
+          <div class="card-content">
+            <span class="insight-category">{insight.category}</span>
+            <h3 class="insight-title">{insight.title}</h3>
+          </div>
+          <div class="insight-image-wrapper">
+            <img src={insight.image} alt={insight.title} class="insight-image" />
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
