@@ -1,0 +1,34 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  buttonText?: string;
+  buttonLink?: string;
+  bgImage?: string;
+  preset?: string;
+}
+
+const {
+  title = "Let's Create Real Digital Impact",
+  description = "Replace complexity with clarity so your teams move faster, your systems are seamlessly connected, and your growth becomes easier to measure.",
+  buttonText = "Speak With a Digital Advisor",
+  buttonLink = "#",
+  bgImage = "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600",
+  preset = ""
+} = Astro.props;
+---
+
+<section class={`ui-impact-cta ${preset}`} style={`background-image: url('${bgImage}');`}>
+  <div class="ui-impact-overlay"></div>
+  <div class="container-wrapper">
+    <div class="impact-content">
+      <h2 class="impact-title">{title}</h2>
+      <p class="impact-description">{description}</p>
+      <div class="impact-actions">
+        <a href={buttonLink} class="impact-btn">
+          {buttonText}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1896,3 +1896,100 @@ body {
     align-items: flex-start;
   }
 }
+
+/* UI Section: Impact CTA - Added 2026-03-26 */
+.ui-impact-cta {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  padding: 6rem 2rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  overflow: hidden;
+}
+
+.ui-impact-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+.ui-impact-cta .container-wrapper {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.impact-content {
+  max-width: 700px;
+}
+
+.impact-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.05;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.03em;
+}
+
+.impact-description {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  line-height: 1.5;
+  margin-bottom: 2.5rem;
+  opacity: 0.95;
+  max-width: 600px;
+}
+
+.impact-btn {
+  display: inline-block;
+  padding: 1.25rem 2.5rem;
+  background-color: white;
+  color: black;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-radius: 99rem;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), background-color 0.3s ease;
+}
+
+.impact-btn:hover {
+  transform: scale(1.05);
+  background-color: #f0f0f0;
+}
+
+/* Preset Overrides: Impact CTA */
+.ui-impact-cta.midnight .impact-title {
+  color: #fff;
+}
+.ui-impact-cta.midnight .impact-btn {
+  background-color: #0fbcf9;
+  color: white;
+}
+
+.ui-impact-cta.emerald .impact-title {
+  color: #fff;
+}
+.ui-impact-cta.emerald .impact-btn {
+  background-color: #00d2d3;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .ui-impact-cta {
+    min-height: 50vh;
+    padding: 4rem 1.5rem;
+    text-align: center;
+  }
+  .impact-content {
+    margin: 0 auto;
+  }
+}
