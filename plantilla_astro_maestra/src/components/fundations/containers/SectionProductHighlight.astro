@@ -1,0 +1,36 @@
+---
+interface Props {
+  badge?: string;
+  title?: string;
+  description?: string;
+  image?: string;
+  preset?: string;
+}
+
+const {
+  badge = "Subscribe",
+  title = "for even more of what you love.",
+  description = "Unlock ad-free listening, bonus content, unreleased episodes, and more subscriber-only benefits from your favorite shows and creators. You can also connect your subscriptions from select apps on the App Store — as well as Apple News+ and Apple Music — to access all your premium audio content in one place.",
+  image = "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1200",
+  preset = ""
+} = Astro.props;
+---
+
+<section class={`ui-product-highlight ${preset}`}>
+  <div class="container-wrapper">
+    <div class="highlight-container">
+      <div class="highlight-grid">
+        <div class="highlight-visual">
+          <div class="device-mockup">
+            <img src={image} alt="Product Mockup" class="mockup-img" />
+          </div>
+        </div>
+        <div class="highlight-content">
+          <span class="highlight-badge">{badge}</span>
+          <h2 class="highlight-title">{title}</h2>
+          <p class="highlight-description">{description}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

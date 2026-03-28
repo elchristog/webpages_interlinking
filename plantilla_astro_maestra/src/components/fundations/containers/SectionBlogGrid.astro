@@ -1,0 +1,104 @@
+---
+interface BlogPost {
+  image: string;
+  date: string;
+  author: string;
+  readTime: string;
+  title: string;
+  excerpt: string;
+  tags: string[];
+  link: string;
+}
+
+interface Props {
+  posts?: BlogPost[];
+  preset?: string;
+}
+
+const {
+  posts = [
+    {
+      image: "https://images.unsplash.com/photo-1551288049-bbbda536639a?q=80&w=800",
+      date: "March 2nd, 2026",
+      author: "Olga Pechnikova",
+      readTime: "17 min read",
+      title: "Top 10 Best Financial Website Designs [March 2026 Update]",
+      excerpt: "Key Takeaways The best financial website designs use an intuitive flow and a stellar UI/UX experience to capture site visitors' business. Digital payments reached $6.6 trillion [...]",
+      tags: ["Branding", "Design", "Technology", "Web Development"],
+      link: "#"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800",
+      date: "March 2nd, 2026",
+      author: "Sharon Sexton",
+      readTime: "20 min read",
+      title: "TOP Digital Marketing Agencies in 2026 [March 2026 Update]",
+      excerpt: "Compare the Best Digital Marketing Agencies in the Business Today! To drive your marketing strategy in 2026, use our research guide and choose from the top [...]",
+      tags: ["Business", "Email", "Guides", "Interactive Marketing", "Marketing", "SEO", "Social Media"],
+      link: "#"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1542744094-24638eff58bb?q=80&w=800",
+      date: "March 2nd, 2026",
+      author: "Frank Falco",
+      readTime: "19 min read",
+      title: "Best Web Design Companies in 2026 [March 2026 Update]",
+      excerpt: "Whether you're building a new website or revamping an existing one, partnering with a top web design company is crucial to ensuring a site that is [...]",
+      tags: ["Business", "Design", "Guides"],
+      link: "#"
+    }
+  ],
+  preset = ""
+} = Astro.props;
+---
+
+<section class={`ui-blog-grid ${preset}`}>
+  <div class="container-wrapper">
+    <div class="blog-grid">
+      {posts.map((post) => (
+        <article class="blog-card">
+          <a href={post.link} class="card-link">
+            <div class="card-image-wrapper">
+              <img src={post.image} alt={post.title} class="card-image" />
+            </div>
+            <div class="card-content">
+              <div class="card-meta">
+                <span class="meta-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="meta-icon">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                  </svg>
+                  {post.date}
+                </span>
+                <span class="meta-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="meta-icon">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                  </svg>
+                  By <span class="author-name">{post.author}</span>
+                </span>
+                <span class="meta-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="meta-icon">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  {post.readTime}
+                </span>
+              </div>
+              <h3 class="card-title">{post.title}</h3>
+              <p class="card-excerpt">{post.excerpt}</p>
+              <div class="card-tags">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="tag-icon">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581a2.25 2.25 0 003.182 0l4.318-4.318a2.25 2.25 0 000-3.182L11.16 3.659A2.25 2.25 0 009.568 3z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6z" />
+                </svg>
+                {post.tags.map((tag, index) => (
+                  <span class="tag-item">
+                    {tag}{index < post.tags.length - 1 ? ", " : ""}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

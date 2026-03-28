@@ -123,6 +123,18 @@
       "name": "Services Split Section",
       "allowed_presets": ["ui-preset--emerald", "ui-preset--midnight", "ui-preset--professional"],
       "prompt": "SECCIÓN SERVICES SPLIT (ui-services-split): Diseño de 2 columnas con una imagen o ilustración a la izquierda y una lista estructurada de servicios a la derecha. Cada categoría de servicio tiene un icono de check y una sub-lista de ítems.\n<section class=\"ui-services-split {preset}\">\n  <div class=\"container-wrapper\">\n    <div class=\"services-split-grid\">\n      <div class=\"services-visual\"><img src=\"URL_IMAGEN\" alt=\"Services\" class=\"main-visual-img\"></div>\n      <div class=\"services-content\">\n        <div class=\"services-list\">\n          <div class=\"service-category\">\n            <div class=\"category-header\">\n              <div class=\"category-icon\"><svg>...</svg></div>\n              <h3 class=\"category-title\">NOMBRE CATEGORÍA</h3>\n            </div>\n            <ul class=\"sub-services\">\n              <li>Sub-servicio 1</li>\n              <li>Sub-servicio 2</li>\n            </ul>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>"
+    },
+    {
+      "id": "ui-blog-grid",
+      "name": "Blog Grid Section",
+      "allowed_presets": ["ui-preset--emerald", "ui-preset--midnight", "ui-preset--professional"],
+      "prompt": "SECCIÓN BLOG GRID (ui-blog-grid): Diseño de cuadrícula de 3 columnas para artículos de blog o noticias. Cada tarjeta incluye imagen, fecha, autor, tiempo de lectura, extracto y tags resaltados.\n<section class=\"ui-blog-grid {preset}\">\n  <div class=\"container-wrapper\">\n    <div class=\"blog-grid\">\n      <article class=\"blog-card\">\n        <a href=\"URL\" class=\"card-link\">\n          <div class=\"card-image-wrapper\"><img src=\"URL_IMAGEN_1\" alt=\"Blog 1\" class=\"card-image\"></div>\n          <div class=\"card-content\">\n            <div class=\"card-meta\"><span class=\"meta-item\">FECHA</span><span class=\"meta-item\">By <span class=\"author-name\">AUTOR</span></span><span class=\"meta-item\">TIEMPO_LECTURA</span></div>\n            <h3 class=\"card-title\">Título del artículo...</h3>\n            <p class=\"card-excerpt\">Extracto persuasivo del contenido...</p>\n            <div class=\"card-tags\">TAG 1, TAG 2</div>\n          </div>\n        </a>\n      </article>\n    </div>\n  </div>\n</section>"
+    },
+    {
+      "id": "ui-product-highlight",
+      "name": "Product Highlight Split",
+      "allowed_presets": ["ui-preset--emerald", "ui-preset--midnight", "ui-preset--professional"],
+      "prompt": "SECCIÓN PRODUCT HIGHLIGHT (ui-product-highlight): Diseño premium de 2 columnas con un mockup de dispositivo (móvil) a la izquierda y tipografía de alto impacto a la derecha. Ideal para promocionar apps, suscripciones o características clave.\n<section class=\"ui-product-highlight {preset}\">\n  <div class=\"container-wrapper\">\n    <div class=\"highlight-container\">\n      <div class=\"highlight-grid\">\n        <div class=\"highlight-visual\"><div class=\"device-mockup\"><img src=\"URL_MOCKUP_MOVIL\" alt=\"Mockup\" class=\"mockup-img\"></div></div>\n        <div class=\"highlight-content\">\n          <span class=\"highlight-badge\">TEXTO_BADGE</span>\n          <h2 class=\"highlight-title\">Título de impacto...</h2>\n          <p class=\"highlight-description\">Descripción detallada de los beneficios o características...</p>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>"
     }
   ]
 }
