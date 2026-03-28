@@ -1,0 +1,102 @@
+---
+interface Product {
+  image: string;
+  badge?: string;
+  name: string;
+  price: string;
+  link: string;
+}
+
+interface Props {
+  sectionTitle?: string;
+  footerLinkText?: string;
+  footerLinkUrl?: string;
+  products?: Product[];
+  preset?: string;
+}
+
+const {
+  sectionTitle = "Featured Mac Accessories",
+  footerLinkText = "Shop all Mac Accessories",
+  footerLinkUrl = "#",
+  products = [
+    {
+      image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?q=80&w=800",
+      badge: "New",
+      name: "Studio Display",
+      price: "$1,599.00",
+      link: "#"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1547115941-95454121c390?q=80&w=800",
+      badge: "New",
+      name: "Studio Display XDR",
+      price: "$3,299.00",
+      link: "#"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1527443154391-507e9dc6c5cc?q=80&w=800",
+      name: "Magic Mouse",
+      price: "$99.00",
+      link: "#"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?q=80&w=800",
+      name: "Magic Keyboard",
+      price: "$149.00",
+      link: "#"
+    }
+  ],
+  preset = ""
+} = Astro.props;
+---
+
+<section class={`ui-product-slider ${preset}`}>
+  <div class="container-wrapper">
+    <h2 class="slider-title">{sectionTitle}</h2>
+    
+    <div class="slider-container">
+      <div class="slider-wrapper">
+        {products.map((product) => (
+          <div class="product-card">
+            <a href={product.link} class="card-link">
+              <div class="card-image-wrapper">
+                <img src={product.image} alt={product.name} class="product-img" />
+              </div>
+              <div class="card-content">
+                {product.badge && <span class="product-badge">{product.badge}</span>}
+                <h3 class="product-name">{product.name}</h3>
+                <p class="product-price">{product.price}</p>
+              </div>
+            </a>
+          </div>
+        ))}
+      </div>
+      
+      <!-- Decorative Slider Navigation (Visual only) -->
+      <div class="slider-nav">
+        <div class="nav-dot active"></div>
+        <div class="nav-dot"></div>
+        <div class="nav-dot"></div>
+        <div class="nav-dot"></div>
+      </div>
+      
+      <div class="slider-arrows">
+        <button class="arrow-btn next" aria-label="Next">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="arrow-icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    
+    <div class="slider-footer">
+      <a href={footerLinkUrl} class="footer-link">
+        {footerLinkText}
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="footer-icon">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
