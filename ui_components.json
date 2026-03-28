@@ -141,6 +141,12 @@
       "name": "Product slider / Featured Accessories",
       "allowed_presets": ["ui-preset--emerald", "ui-preset--midnight", "ui-preset--professional"],
       "prompt": "SECCIÓN PRODUCT SLIDER (ui-product-slider): Carrusel o cuadrícula de productos con estética Apple. Incluye tarjetas de productos con fondo gris claro, imagen central, distintivo 'New' opcional, nombre del producto, precio y puntitos de navegación.\n<section class=\"ui-product-slider {preset}\">\n  <div class=\"container-wrapper\">\n    <h2 class=\"slider-title\">TÍTULO_SECCIÓN</h2>\n    <div class=\"slider-container\">\n      <div class=\"slider-wrapper\">\n        <div class=\"product-card\">\n          <a href=\"URL\" class=\"card-link\">\n            <div class=\"card-image-wrapper\"><img src=\"URL_PRODUCTO\" alt=\"Producto 1\" class=\"product-img\"></div>\n            <div class=\"card-content\">\n              <span class=\"product-badge\">New</span>\n              <h3 class=\"product-name\">Nombre Producto</h3>\n              <p class=\"product-price\">$99.00</p>\n            </div>\n          </a>\n        </div>\n      </div>\n    </div>\n    <div class=\"slider-footer\"><a href=\"URL\" class=\"footer-link\">Ver todos los productos <svg>...</svg></a></div>\n  </div>\n</section>"
+    },
+    {
+      "id": "ui-lifestyle-grid",
+      "name": "Lifestyle Feature Grid",
+      "allowed_presets": ["ui-preset--emerald", "ui-preset--midnight", "ui-preset--professional"],
+      "prompt": "SECCIÓN LIFESTYLE GRID (ui-lifestyle-grid): Cuadrícula de 3 columnas con imágenes extra redondeadas (estilo Google Nest) y texto centrado debajo. Ideal para destacar funcionalidades, beneficios o anuncios de estilo de vida.\n<section class=\"ui-lifestyle-grid {preset}\">\n  <div class=\"container-wrapper\">\n    <div class=\"lifestyle-grid\">\n      <div class=\"lifestyle-item\">\n        <div class=\"image-container\"><img src=\"URL_IMAGEN\" alt=\"Feature\" class=\"lifestyle-img\"></div>\n        <div class=\"content-container\">\n          <h3 class=\"lifestyle-title\">Título Característica</h3>\n          <p class=\"lifestyle-description\">Descripción breve y centrada de la característica...</p>\n          <a href=\"URL\" class=\"lifestyle-link\">Learn more</a>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>"
     }
   ]
 }

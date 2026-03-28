@@ -1,0 +1,60 @@
+---
+interface LifestyleFeature {
+  image: string;
+  title: string;
+  description: string;
+  linkText?: string;
+  linkUrl?: string;
+}
+
+interface Props {
+  features?: LifestyleFeature[];
+  preset?: string;
+}
+
+const {
+  features = [
+    {
+      image: "https://images.unsplash.com/photo-1593305841991-05c297ba4575?q=80&w=800",
+      title: "Best performance in a TV role.",
+      description: "With a 22% faster processor, enjoy smooth navigation and quick switching between apps.⁴",
+    },
+    {
+      image: "https://images.unsplash.com/photo-1593784991095-a2050594a2b6?q=80&w=800",
+      title: "Chat naturally with Gemini for TV.",
+      description: "Ask Gemini¹¹ to help you easily find what to watch, get answers to questions beyond entertainment, and simplify everyday tasks.",
+      linkText: "Learn more",
+      linkUrl: "#"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=800",
+      title: "Designed to feel right at home.",
+      description: "The sleek design blends beautifully with any decor. And it's made with at least 65% recycled plastic.⁶",
+    }
+  ],
+  preset = ""
+} = Astro.props;
+---
+
+<section class={`ui-lifestyle-grid ${preset}`}>
+  <div class="container-wrapper">
+    <div class="lifestyle-grid">
+      {features.map((feature) => (
+        <div class="lifestyle-item">
+          <div class="image-container">
+            <img src={feature.image} alt={feature.title} class="lifestyle-img" />
+          </div>
+          <div class="content-container">
+            <h3 class="lifestyle-title">{feature.title}</h3>
+            <p class="lifestyle-description">{feature.description}</p>
+            {feature.linkText && (
+              <a href={feature.linkUrl} class="lifestyle-link">
+                {feature.linkText}
+              </a>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
