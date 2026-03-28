@@ -1,0 +1,85 @@
+---
+interface ServiceItem {
+  title: string;
+  items: string[];
+}
+
+interface Props {
+  mainImage?: string;
+  services?: ServiceItem[];
+  preset?: string;
+}
+
+const {
+  mainImage = "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200",
+  services = [
+    {
+      title: "CUSTOM WEBSITE DESIGN",
+      items: [
+        "Custom WordPress Website Design",
+        "Responsive Website Design & Development",
+        "UI/UX Website Design",
+        "Content Strategy & Management",
+        "Website Maintenance"
+      ]
+    },
+    {
+      title: "WEBSITE REDESIGN SERVICES",
+      items: [
+        "Landing Page Design",
+        "Rebrand Existing Websites",
+        "Corporate Blog Design Services"
+      ]
+    },
+    {
+      title: "ECOMMERCE WEBSITE DEVELOPMENT",
+      items: [
+        "Shopify Web Design",
+        "Magento Web Design",
+        "Amazon SEO Optimization Services"
+      ]
+    },
+    {
+      title: "DIGITAL MARKETING",
+      items: [
+        "Lead Generation Campaigns",
+        "SEO Optimization"
+      ]
+    }
+  ],
+  preset = ""
+} = Astro.props;
+---
+
+<section class={`ui-services-split ${preset}`}>
+  <div class="container-wrapper">
+    <div class="services-split-grid">
+      <div class="services-visual">
+        <div class="visual-container">
+          <img src={mainImage} alt="Services Visualization" class="main-visual-img" />
+        </div>
+      </div>
+      <div class="services-content">
+        <div class="services-list">
+          {services.map((service) => (
+            <div class="service-category">
+              <div class="category-header">
+                <div class="category-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-check">
+                    <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+                <h3 class="category-title">{service.title}</h3>
+              </div>
+              <ul class="sub-services">
+                {service.items.map((item) => (
+                  <li class="sub-service-item">{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

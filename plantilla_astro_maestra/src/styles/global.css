@@ -2297,3 +2297,121 @@ body {
     gap: 3rem;
   }
 }
+
+/* UI Section: Services Split - Added 2026-03-27 */
+.ui-services-split {
+  padding: 6rem 2rem;
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
+
+.ui-services-split .container-wrapper {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.services-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.services-visual .visual-container {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 2rem;
+  overflow: hidden;
+  background-color: #f0f0f0;
+}
+
+.main-visual-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.services-content .services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.service-category .category-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.category-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: #ff4d4d; /* High-contrast accent from image */
+  flex-shrink: 0;
+}
+
+.category-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.sub-services {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0 3.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sub-service-item {
+  font-size: 1.2rem;
+  color: #444;
+  line-height: 1.4;
+}
+
+/* Preset Overrides: Services Split */
+.ui-services-split.midnight, .ui-preset--midnight .ui-services-split {
+  background-color: #121212;
+  color: #ffffff;
+}
+.ui-services-split.midnight .sub-service-item, .ui-preset--midnight .ui-services-split .sub-service-item {
+  color: #ccc;
+}
+.ui-services-split.midnight .category-icon, .ui-preset--midnight .ui-services-split .category-icon {
+  color: #0fbcf9;
+}
+
+.ui-services-split.emerald, .ui-preset--emerald .ui-services-split {
+  background-color: #032115;
+  color: #ffffff;
+}
+.ui-services-split.emerald .sub-service-item, .ui-preset--emerald .ui-services-split .sub-service-item {
+  color: #ccc;
+}
+.ui-services-split.emerald .category-icon, .ui-preset--emerald .ui-services-split .category-icon {
+  color: #00d2d3;
+}
+
+@media (max-width: 1024px) {
+  .services-split-grid {
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-split-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  .services-visual {
+    order: -1;
+  }
+  .category-title {
+    font-size: 1.2rem;
+  }
+}

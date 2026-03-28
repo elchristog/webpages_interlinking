@@ -117,6 +117,12 @@
       "name": "FAQ Accordion",
       "allowed_presets": ["ui-preset--emerald", "ui-preset--midnight", "ui-preset--professional"],
       "prompt": "SECCIÓN FAQ ACCORDION (ui-faq-accordion): Diseño de 2 columnas con título/descripción a la izquierda y lista de preguntas frecuentes desplegables (acordeón) a la derecha. Úsala para resolver dudas comunes al final de una página.\n<section class=\"ui-faq-section {preset}\">\n  <div class=\"container-wrapper\">\n    <div class=\"faq-grid\">\n      <div class=\"faq-info\">\n        <h2 class=\"section-title\">Frequently Asked Questions</h2>\n        <p class=\"section-description\">Descripción corta. <a href=\"URL\" class=\"support-link\">contact our support</a></p>\n      </div>\n      <div class=\"faq-accordion-list\">\n        <details class=\"faq-item\">\n          <summary class=\"faq-question\">¿Pregunta frecuente 1? <span class=\"faq-icon\">...</span></summary>\n          <div class=\"faq-answer\"><p>Respuesta detallada 1...</p></div>\n        </details>\n        <details class=\"faq-item\">\n          <summary class=\"faq-question\">¿Pregunta frecuente 2? <span class=\"faq-icon\">...</span></summary>\n          <div class=\"faq-answer\"><p>Respuesta detallada 2...</p></div>\n        </details>\n      </div>\n    </div>\n  </div>\n</section>"
+    },
+    {
+      "id": "ui-services-split",
+      "name": "Services Split Section",
+      "allowed_presets": ["ui-preset--emerald", "ui-preset--midnight", "ui-preset--professional"],
+      "prompt": "SECCIÓN SERVICES SPLIT (ui-services-split): Diseño de 2 columnas con una imagen o ilustración a la izquierda y una lista estructurada de servicios a la derecha. Cada categoría de servicio tiene un icono de check y una sub-lista de ítems.\n<section class=\"ui-services-split {preset}\">\n  <div class=\"container-wrapper\">\n    <div class=\"services-split-grid\">\n      <div class=\"services-visual\"><img src=\"URL_IMAGEN\" alt=\"Services\" class=\"main-visual-img\"></div>\n      <div class=\"services-content\">\n        <div class=\"services-list\">\n          <div class=\"service-category\">\n            <div class=\"category-header\">\n              <div class=\"category-icon\"><svg>...</svg></div>\n              <h3 class=\"category-title\">NOMBRE CATEGORÍA</h3>\n            </div>\n            <ul class=\"sub-services\">\n              <li>Sub-servicio 1</li>\n              <li>Sub-servicio 2</li>\n            </ul>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>"
     }
   ]
 }
