@@ -1,38 +1,38 @@
 {
-  "nombre_sitio": "California Nurse Salaries",
-  "color_tema": "#ffb300",
-  "comando_deploy": "netlify deploy --prod",
-  "layout": "LayoutB",
-  "gcp_project_id": "ca-salaries-ntl-1",
+  "nombre_sitio": "Enfermera en Estados Unidos (Oficial)",
+  "color_tema": "#000000",
+  "comando_deploy": "echo 'Deploying Money Site'",
+  "layout": "LayoutA",
+  "gcp_project_id": "money-site-main-pbn",
   "seo": {
-    "titulo_base": "Salarios CA 2025",
-    "descripcion_base": "Los mejores estados y especialidades para cobrar el máximo sueldo como enfermera en California.",
+    "titulo_base": "Guía Maestra de Enfermería USA",
+    "descripcion_base": "El recurso número uno para enfermeras hispanas que buscan trabajar en Estados Unidos de forma legal y segura.",
     "idioma": "es-US"
   },
   "footer": {
     "empresa_legal": "Enfermera en Estados Unidos",
-    "direccion": "Los Angeles, CA 90001",
-    "email_contacto": "contact@nursing-careers-california.com"
+    "direccion": "Main St, USA",
+    "email_contacto": "hola@enfermeraeeu.com"
   },
   "menu_global": [
     {
-      "nombre": "Validar Diploma",
+      "nombre": "Título USA",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Guía NCLEX",
+      "nombre": "Pasar NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Vacantes USA",
+      "nombre": "Bolsa Empleo",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Green Card",
+      "nombre": "Sponsor Visa",
       "ruta": "/visa"
     },
     {
-      "nombre": "Sueldo Promedio",
+      "nombre": "Cuanto Ganan",
       "ruta": "/salarios"
     },
     {
@@ -40,24 +40,23 @@
       "ruta": "/blog"
     },
     {
-      "nombre": "Escríbenos",
+      "nombre": "WhatsApp",
       "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Acceso",
+      "nombre": "Iniciar",
       "ruta": "/login"
     }
   ],
-  "dominio": "https://nursing-careers-california.com",
+  "dominio": "https://enfermeraeeu.com",
   "font_family": "Plus Jakarta Sans",
-  "sidebar_pos": "left",
   "color_palette": {
-    "primary": "oklch(38% 0.11 50)",
-    "secondary": "oklch(52% 0.07 50)",
-    "accent": "oklch(86% 0.14 20)",
-    "text_bold": "oklch(18% 0.05 50)",
+    "primary": "oklch(40% 0.12 150)",
+    "secondary": "oklch(55% 0.08 150)",
+    "accent": "oklch(88% 0.15 80)",
+    "text_bold": "oklch(20% 0.05 150)",
     "meta": {
-      "name": "Warm Professional",
+      "name": "Deep Forest",
       "system": "OKLCH Premium v2"
     }
   },

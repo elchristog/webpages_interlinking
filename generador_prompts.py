@@ -158,7 +158,12 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
     
     # Inyectar Secciones (Filtrar por compatibilidad con el preset elegido si aplica)
     contador_item = len(utils_elegidas) + 2
-    for sec in sections_elegidas:
+    
+    # SHUFFLE SECTIONS to ensure all have a chance (Diversity in the PBN)
+    sections_randomized = list(sections_elegidas)
+    random.shuffle(sections_randomized)
+    
+    for sec in sections_randomized:
         allowed = sec.get("allowed_presets", [])
         # Si la sección tiene restricción de presets y el elegido NO está, saltamos 
         # (o usamos el preset por defecto de la sección si es 'ui-section-sand' que no lleva)
@@ -175,7 +180,7 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
     REGLAS_LEGIBILIDAD_ASTRO = """
 - **PROHIBIDO EL USO DE SÍMBOLOS MARKDOWN (** , _, *, #) DENTRO DE ETIQUETAS HTML**. Si necesitas negrita dentro de un H1 o P, usa <strong> o <span class="ui-highlight">.
 - **NO INDENTES EL HTML CON ESPACIOS NI TABS**. Debe estar pegado al margen izquierdo.
-- **NO ENVUELVAS EL HTML EN BLOQUES DE CÓDIGO (```html ... ```)**. Escribe el HTML directamente.
+- **NO ENVUELVAS EL HTML EN BLOQUES DE CÓDIGO (```html ... ```)**. Escriba el HTML directamente.
     Genera el contenido usando Markdown y HTML estándar con clases semánticas. 
     
     - ACCESIBILIDAD: El texto debe ser fácil de leer. Usa párrafos cortos.
@@ -206,7 +211,7 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
     2. DISEÑO NIVEL PRO: Tu objetivo es crear una LANDING PAGE DE LUJO. NO generes un bloque de texto plano. Debes jugar con la distribución del contenido usando los componentes UI indicados (class="ui-...").
        - INICIO: Empieza OBLIGATORIAMENTE con un `ui-hero-full` con un título H1 gigante.
        - RITMO VISUAL: Alterna secciones de "Ancho Completo" con secciones de lectura estándar.
-       - MULTI-COLUMNAS: Para mostrar beneficios o requisitos, usa un `ui-grid-3` o `ui-grid-4`.
+       - MULTI-COLUMNAS: Usa `ui-lifestyle-grid` (3 col con imágenes circulares) o `ui-value-props` (2 col minimalistas) para mostrar beneficios de forma premium. También puedes usar `ui-grid-3` o `ui-grid-4`.
     3. REGLA DE MARCA: El sitio web '{nombre_sitio}' pertenece a la empresa '{nombre_empresa}'. Siempre que te refieras a la organización detrás de la web, usa el nombre '{nombre_empresa}'.
     **REGLA DE FORMATO**: 
     1. Escribe el contenido en español de alta calidad.
