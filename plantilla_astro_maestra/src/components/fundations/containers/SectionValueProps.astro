@@ -1,0 +1,58 @@
+---
+interface ValueProp {
+  icon: string; // URL or SVG
+  text: string;
+  linkText?: string;
+  linkUrl?: string;
+}
+
+interface Props {
+  sectionTitle?: string;
+  props?: ValueProp[];
+  preset?: string;
+}
+
+const {
+  sectionTitle = "Why buy on the Google Store.",
+  props = [
+    {
+      icon: "https://www.gstatic.com/images/branding/product/1x/shipping_24dp.png", // Placeholder icon
+      text: "Free shipping and returns.¹",
+      linkText: "Learn more",
+      linkUrl: "#"
+    },
+    {
+      icon: "https://www.gstatic.com/images/branding/product/1x/recycling_24dp.png", // Placeholder icon
+      text: "Device recycling.",
+      linkText: "Learn more",
+      linkUrl: "#"
+    }
+  ],
+  preset = ""
+} = Astro.props;
+---
+
+<section class={`ui-value-props ${preset}`}>
+  <div class="container-wrapper">
+    <h2 class="section-title">{sectionTitle}</h2>
+    
+    <div class="props-grid">
+      {props.map((prop) => (
+        <div class="prop-card">
+          <div class="prop-icon-wrapper">
+            <img src={prop.icon} alt="Icon" class="prop-icon" />
+          </div>
+          <p class="prop-text">{prop.text}</p>
+          {prop.linkText && (
+            <a href={prop.linkUrl} class="prop-link">
+              {prop.linkText}
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="link-icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </a>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

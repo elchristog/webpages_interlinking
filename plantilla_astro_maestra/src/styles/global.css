@@ -3074,3 +3074,128 @@ body {
     max-width: 500px;
   }
 }
+
+/* UI Section: Value Props Grid - Added 2026-03-27 */
+.ui-value-props {
+  padding: 6rem 2rem;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  text-align: center;
+}
+
+.ui-value-props .container-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.ui-value-props .section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3.5rem;
+  letter-spacing: -0.02em;
+}
+
+.props-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.prop-card {
+  background-color: #f8f9fa;
+  border-radius: 2rem;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.prop-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.prop-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prop-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.prop-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #1a1a1a;
+}
+
+.prop-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #1a73e8;
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.prop-link:hover {
+  text-decoration: underline;
+}
+
+.link-icon {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+/* Preset Overrides: Value Props */
+.ui-value-props.midnight, .ui-preset--midnight .ui-value-props {
+  background-color: #000;
+  color: #fff;
+}
+.ui-value-props.midnight .prop-card, .ui-preset--midnight .ui-value-props .prop-card {
+  background-color: #111;
+}
+.ui-value-props.midnight .prop-text, .ui-preset--midnight .ui-value-props .prop-text {
+  color: #fff;
+}
+.ui-value-props.midnight .prop-link, .ui-preset--midnight .ui-value-props .prop-link {
+  color: #8ab4f8;
+}
+
+.ui-value-props.emerald, .ui-preset--emerald .ui-value-props {
+  background-color: #01160e;
+  color: #fff;
+}
+.ui-value-props.emerald .prop-card, .ui-preset--emerald .ui-value-props .prop-card {
+  background-color: #022b1d;
+}
+.ui-value-props.emerald .prop-text, .ui-preset--emerald .ui-value-props .prop-text {
+  color: #fff;
+}
+.ui-value-props.emerald .prop-link, .ui-preset--emerald .ui-value-props .prop-link {
+  color: #34d399;
+}
+
+@media (max-width: 768px) {
+  .props-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .ui-value-props .section-title {
+    font-size: 2rem;
+  }
+  .prop-card {
+    padding: 2.5rem 1.5rem;
+  }
+}

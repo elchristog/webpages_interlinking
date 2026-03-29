@@ -147,6 +147,12 @@
       "name": "Lifestyle Feature Grid",
       "allowed_presets": ["ui-preset--emerald", "ui-preset--midnight", "ui-preset--professional"],
       "prompt": "SECCIÓN LIFESTYLE GRID (ui-lifestyle-grid): Cuadrícula de 3 columnas con imágenes extra redondeadas (estilo Google Nest) y texto centrado debajo. Ideal para destacar funcionalidades, beneficios o anuncios de estilo de vida.\n<section class=\"ui-lifestyle-grid {preset}\">\n  <div class=\"container-wrapper\">\n    <div class=\"lifestyle-grid\">\n      <div class=\"lifestyle-item\">\n        <div class=\"image-container\"><img src=\"URL_IMAGEN\" alt=\"Feature\" class=\"lifestyle-img\"></div>\n        <div class=\"content-container\">\n          <h3 class=\"lifestyle-title\">Título Característica</h3>\n          <p class=\"lifestyle-description\">Descripción breve y centrada de la característica...</p>\n          <a href=\"URL\" class=\"lifestyle-link\">Learn more</a>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>"
+    },
+    {
+      "id": "ui-value-props",
+      "name": "Value Propositions Grid",
+      "allowed_presets": ["ui-preset--emerald", "ui-preset--midnight", "ui-preset--professional"],
+      "prompt": "SECCIÓN VALUE PROPS (ui-value-props): Cuadrícula de 2 columnas con tarjetas minimalistas (estilo Google Store). Incluye fondo gris muy claro, icono centrado, texto de valor y enlace 'Learn more'.\n<section class=\"ui-value-props {preset}\">\n  <div class=\"container-wrapper\">\n    <h2 class=\"section-title\">¿Por qué elegirnos?</h2>\n    <div class=\"props-grid\">\n      <div class=\"prop-card\">\n        <div class=\"prop-icon-wrapper\"><img src=\"URL_ICONO\" alt=\"Icon\" class=\"prop-icon\"></div>\n        <p class=\"prop-text\">Texto de valor corto y directo.</p>\n        <a href=\"URL\" class=\"prop-link\">Learn more <svg>...</svg></a>\n      </div>\n    </div>\n  </div>\n</section>"
     }
   ]
 }
