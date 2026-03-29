@@ -1,0 +1,132 @@
+{
+  "sitios_espejo": [
+    {
+        "id": "money_site",
+        "nicho": "Enfermera en Estados Unidos - Guía Principal",
+        "palabras_clave": ["trabajar como enfermera en usa", "enfermeria estados unidos", "nclex para latinas"],
+        "dominio": "https://enfermeraeeu.com",
+        "ruta_astro": "./plantilla_astro_maestra",
+        "comando_deploy": "echo 'Simulando deploy principal'"
+    },
+    {
+        "id": "florida",
+        "nicho": "Ofertas de empleo y salarios promedios para enfermeras extranjeras en Miami y Tampa, Florida",
+        "palabras_clave": ["vacantes enfermera miami", "salario enfermera florida", "trabajo enfermera quirurgica florida"],
+        "dominio": "https://enfermerasflorida.net",
+        "ruta_astro": "./plantilla_astro_maestra",
+        "comando_deploy": "echo 'Simulando firebase deploy --only hosting'"
+    },
+    {
+        "id": "georgia",
+        "nicho": "Proceso migratorio, requisitos de licencia y búsqueda de sponsor para enfermeras en Georgia",
+        "palabras_clave": ["visa eb-3 para enfermeras", "homologar titulo de enfermeria georgia", "trabajo para enfermera con sponsor atlanta"],
+        "dominio": "https://georgia-nurses-network.org",
+        "ruta_astro": "./plantilla_astro_maestra",
+        "comando_deploy": "echo 'Simulando gcloud app deploy app.yaml --quiet'"
+    },
+    {
+        "id": "texas_nclex",
+        "nicho": "Guía táctica para pasar el NCLEX, trámites CGFNS y requisitos del Board of Nursing en Texas",
+        "palabras_clave": ["requisitos cgfns para enfermeras", "como pasar el examen nclex", "revalidar titulo de enfermera para usa"],
+        "dominio": "https://texas-nclex-prep.com",
+        "ruta_astro": "./plantilla_astro_maestra",
+        "comando_deploy": "echo 'Simulando aws s3 sync ./dist s3://texas-nclex'"
+    },
+    {
+        "id": "homologacion",
+        "nicho": "Pasos y requisitos legales para que las enfermeras extrajeras puedan homologar o validar su título de enfermería en Estados Unidos",
+        "palabras_clave": ["como homologar titulo de enfermeria en estados unidos", "validacion de titulo de enfermeria extranjero", "pasos para trabajar como enfermero en usa"],
+        "dominio": "https://homologacion-enfermeria-usa.com",
+        "ruta_astro": "./plantilla_astro_maestra",
+        "comando_deploy": "echo 'Simulando netlify deploy --dir=dist'"
+    },
+    {
+        "id": "licencia_rn",
+        "nicho": "Guía oficial para obtener la licencia de Registered Nurse (RN) en Estados Unidos",
+        "palabras_clave": ["como obtener la licencia de enfermera en estados unidos", "registered nurse license usa", "ser enfermera registrada en estados unidos"],
+        "dominio": "https://licencia-enfermeria-rn.org",
+        "ruta_astro": "./plantilla_astro_maestra",
+        "comando_deploy": "echo 'Simulando firebase deploy --only hosting'"
+    },
+    {
+        "id": "california_salarios",
+        "nicho": "Análisis de salarios por especialidad, ingresos de Travel Nurses y finanzas para enfermeras en California",
+        "palabras_clave": ["salario enfermera por especialidad usa", "cuanto gana una enfermera en california", "salario de travel nurse en estados unidos"],
+        "dominio": "https://nursing-careers-california.com",
+        "ruta_astro": "./plantilla_astro_maestra",
+        "comando_deploy": "echo 'Simulando netlify deploy --prod'"
+    },
+    {
+        "id": "sueldos_especialidades",
+        "nicho": "Análisis comparativo de salarios de enfermería por especialidad (quirúrgica, anestesista, neonatal) en Estados Unidos",
+        "palabras_clave": ["salario enfermera anestesista usa", "cuanto gana una enfermera de emergencias", "sueldo enfermera neonatal"],
+        "dominio": "https://sueldos-enfermeras-usa.com",
+        "ruta_astro": "./plantilla_astro_maestra",
+        "comando_deploy": "echo 'Simulando vercel deploy --prod'"
+    },
+    {
+        "id": "travel_nurses",
+        "nicho": "Guía salarial y de ofertas laborales exclusivas para Travel Nurses en Estados Unidos",
+        "palabras_clave": ["cuanto cobra una enfermera viajera", "trabajo de travel nurse", "salarios y bonos para travel nurses"],
+        "dominio": "https://travel-nurse-hispanas.org",
+        "ruta_astro": "./plantilla_astro_maestra",
+        "comando_deploy": "echo 'Simulando aws s3 sync ./dist s3://travel-nurses'"
+    },
+    {
+        "id": "empleos_texas",
+        "nicho": "Ofertas de trabajo y vacantes en hospitales top de Houston, Dallas y el resto de Texas",
+        "palabras_clave": ["vacantes enfermeria houston", "trabajo en hospital de texas", "empleo enfermera quirurgica estados unidos"],
+        "dominio": "https://empleos-enfermeria-texas.com",
+        "ruta_astro": "./plantilla_astro_maestra",
+        "comando_deploy": "echo 'Simulando firebase deploy --only hosting'"
+    },
+    {
+        "id": "vacantes_hospitales",
+        "nicho": "Directorio de agencias y hospitales reclutando enfermeras extranjeras en Estado Unidos",
+        "palabras_clave": ["ofertas de trabajo para enfermeras en estados unidos", "agencias reclutadoras de enfermeras para usa", "vacantes de enfermeria en usa"],
+        "dominio": "https://vacantes-hospitales-usa.org",
+        "ruta_astro": "./plantilla_astro_maestra",
+        "comando_deploy": "echo 'Simulando gcloud app deploy app.yaml --quiet'"
+    },
+    {
+        "id": "green_card",
+        "nicho": "Requisitos y proceso legal detallado para obtener la Green Card (Residencia Permanente) siendo enfermera",
+        "palabras_clave": ["como obtener la green card siendo enfermera", "residencia permanente para enfermeras", "requisitos green card enfermeria"],
+        "dominio": "https://green-card-enfermeras.com",
+        "ruta_astro": "./plantilla_astro_maestra",
+        "comando_deploy": "echo 'Simulando vercel deploy --prod'"
+    },
+    {
+        "id": "visas_trabajo",
+        "nicho": "Análisis legal de los tipos de visa (H-1B, TN, EB-3) para trabajar de enfermera extranjera en USA",
+        "palabras_clave": ["tipos de visa para trabajar como enfermera en usa", "visa h-1b enfermeria", "requisitos visa dn para enfermeras mexicanas"],
+        "dominio": "https://visas-enfermeria-usa.net",
+        "ruta_astro": "./plantilla_astro_maestra",
+        "comando_deploy": "echo 'Simulando firebase deploy --only hosting'"
+    },
+    {
+        "id": "enfermeras_mexicanas",
+        "nicho": "Requisitos específicos, equivalencias y trámites consulares para enfermeras mexicanas queriendo cruzar a USA",
+        "palabras_clave": ["requisitos para enfermera mexicana en usa", "como trabajar en estados unidos siendo enfermera de mexico", "homologar titulo de enfermeria de mexico en usa"],
+        "dominio": "https://enfermeras-mexicanas-usa.org",
+        "ruta_astro": "./plantilla_astro_maestra",
+        "comando_deploy": "echo 'Simulando netlify deploy --prod'"
+    },
+    {
+        "id": "enfermeras_colombianas",
+        "nicho": "Guía exclusiva para revalidar título desde Colombia y agencias especializadas en reclutar talento colombiano",
+        "palabras_clave": ["que necesita una enfermera colombiana para trabajar en estados unidos", "revalidar titulo de enfermera de colombia en usa", "agencias para enfermeras colombianas"],
+        "dominio": "https://enfermeras-colombianas-usa.com",
+        "ruta_astro": "./plantilla_astro_maestra",
+        "comando_deploy": "echo 'Simulando gcloud app deploy app.yaml --quiet'"
+    },
+    {
+        "id": "latinas",
+        "nicho": "Proceso paso a paso y agencias de enfermería en USA para enfermeras latinas de toda latinoamérica",
+        "palabras_clave": ["como trabajar en usa siendo enfermero de peru", "requisitos para enfermeras hispanas en usa", "agencias para enfermeras latinas"],
+        "dominio": "https://enfermeraslatinas.io",
+        "ruta_astro": "./plantilla_astro_maestra",
+        "comando_deploy": "echo 'Simulando vercel deploy --prod'"
+    }
+  ]
+}

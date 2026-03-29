@@ -1,0 +1,23 @@
+[
+  {
+    "slug": "money_site",
+    "nicho": "Enfermera en Estados Unidos - Principal",
+    "keywords": ["trabajar como enfermera en usa", "nclex"],
+    "anchor_text": "Enfermera en USA",
+    "url_outbound": "https://www.ncsbn.org/"
+  },
+  {
+    "slug": "florida",
+    "nicho": "Enfermeras en Florida - Vacantes y Salarios",
+    "keywords": ["vacantes enfermera miami", "enfermeras tampa"],
+    "anchor_text": "Hospitales en Florida",
+    "url_outbound": "https://www.floridanurse.org/"
+  },
+  {
+    "slug": "texas_nclex",
+    "nicho": "Texas NCLEX - Guía de Certificación en Texas",
+    "keywords": ["nclex texas board of nursing", "texas nurse license"],
+    "anchor_text": "Texas Board of Nursing",
+    "url_outbound": "https://www.bon.texas.gov/"
+  }
+]

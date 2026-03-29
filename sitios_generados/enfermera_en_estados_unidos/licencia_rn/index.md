@@ -1,223 +1,147 @@
 ---
-titulo: "Guía Oficial Para Obtener La Licencia De Registered Nurse (Rn) En Estados Unidos"
-descripcion: "Bienvenidos a Guía oficial para obtener la licencia de Registered Nurse (RN) en Estados Unidos."
+titulo: "Enfermera En Estados Unidos - Guía Principal"
+descripcion: "Bienvenidos a Enfermera en Estados Unidos - Guía Principal."
 slug: "index"
 ---
 
-<div class="ui-hero-performance ui-preset--emerald">
+<div class="ui-hero-agency ui-preset--emerald">
   <div class="hero-content">
-    <span class="hero-badge">RESULTADOS COMPROBADOS</span>
-    <h1>Descubre <span class="ui-highlight-alt">cómo obtener la licencia de enfermera en Estados Unidos</span> y transforma tu futuro profesional</h1>
-    <p class="hero-subtitle">Soy Alejandra Martínez, RN, BSN, IBCLC. He guiado a cientos de enfermeros a alcanzar su sueño americano. Ahora es tu turno de asegurar tu éxito.</p>
-    <a href="https://wa.me/something" class="btn">🚀 RESERVA TU ASESORÍA GRATUITA</a>
+    <h1>Tu Camino Definido para <span class="ui-highlight">trabajar como enfermera en USA</span></h1>
+    <p class="subtitle">Soy Alejandra Martínez, RN, BSN, IBCLC. He liderado a cientos de enfermeros hispanos hacia el éxito en Estados Unidos. Con nuestro sistema comprobado, tu sueño de una carrera profesional y una vida mejor es totalmente alcanzable.</p>
+    <div class="hero-cta"><a href="#comienza-tu-transformacion" class="btn-agency">INICIA TU TRANSFORMACIÓN HOY</a></div>
+    <div class="trust-bar">
+      <img src="https://via.placeholder.com/150x50?text=Aprobado+por+CNES" alt="Certificación del Consejo Nacional de Enfermería" class="trust-logo">
+      <img src="https://via.placeholder.com/150x50?text=Exito+Comprobado" alt="Éxito Comprobado en Estados Unidos" class="trust-logo">
+      <img src="https://via.placeholder.com/150x50?text=Comunidad+Activa" alt="Comunidad de Apoyo Activa" class="trust-logo">
+    </div>
   </div>
 </div>
 
 <div class="ui-spacer"></div>
 
-<section class="ui-closer-look ui-preset--emerald">
-  <div class="container-wrapper">
-    <h2 class="closer-look-heading text-center">Tu Futuro Profesional en EE. UU. Empieza Aquí.</h2>
-    <div class="closer-look-card">
-      <div class="closer-look-content">
-        <h3>Soy Alejandra Martínez, tu guía experta en la homologación y migración de enfermeras.</h3>
-        <p>Como fundadora de rnnclex.com y líder de Enfermera en Estados Unidos, entiendo profundamente las aspiraciones y los desafíos que enfrentas. Por consiguiente, nuestro equipo ha perfeccionado un sistema probado. Este sistema garantiza que tu meta de trabajar como Registered Nurse (RN) en Estados Unidos se convierta en una realidad tangible. Te ofrezco la certeza y la autoridad de quien ha estado en tu lugar y ha ayudado a cientos a trascender. La transformación profesional es nuestra promesa.</p>
-        <a href="https://wa.me/something" class="closer-look-btn">Empieza Tu Transformación</a>
-      </div>
-      <div class="closer-look-media">
-        <img src="https://example.com/images/alejandra-martinez-rn.webp" alt="Alejandra Martínez, RN, BSN, IBCLC" loading="lazy">
-      </div>
-    </div>
-  </div>
-</section>
+<h2 class="text-center">✨ La Visión: Tu Futuro Brillante como Enfermera en Estados Unidos</h2>
 
-<hr class="ui-divider">
+<p>Estimados colegas, soy Alejandra Martínez, fundadora de rnnclex.com y líder de esta gran comunidad. Como ustedes, anhelo una vida de mayores oportunidades y reconocimiento profesional. He caminado este sendero y conozco cada paso, cada desafío, y lo más importante: cada solución. Queremos que tu proceso para <span class="ui-highlight">trabajar como enfermera en usa</span> sea no solo claro, sino también eminentemente exitoso.</p>
+
+<p>Aquí, en Enfermera en Estados Unidos (Oficial), no solo proporcionamos información vital; ofrecemos una ruta directa y mentoría personalizada. Nuestra misión consiste en transformar sus aspiraciones en realidades tangibles y prósperas. Por consiguiente, cientos de profesionales ya disfrutan de la estabilidad económica, salarios justos y el desarrollo profesional que merecen en el robusto sistema de salud estadounidense.</p>
+
+<p>Además, entendemos que este camino puede parecer inicialmente complejo desde la distancia. La homologación de tu título, la preparación intensiva para el NCLEX y la búsqueda estratégica de ofertas laborales con patrocinio son fases críticas. No obstante, con nuestra guía experta y un compromiso inquebrantable, cada etapa se convierte en un peldaño firme y seguro hacia tu éxito definitivo.</p>
 
 <div class="ui-spacer"></div>
-
-<section class="ui-apple-product-cards-container ui-preset--emerald">
-  <h2 class="section-title text-center">✨ Tu Ruta Simplificada hacia el Éxito RN en EE. UU.</h2>
-  <p class="text-center">El camino para <strong>como obtener la licencia de enfermera en Estados Unidos</strong> puede parecer abrumador. Sin embargo, en Enfermera en Estados Unidos, hemos desglosado este proceso complejo en cuatro etapas claras y manejables. Además, te ofrecemos un acompañamiento integral en cada una de ellas, eliminando la burocracia y la incertidumbre.</p>
-  <div class="product-cards-grid">
-    <div class="apple-product-card">
-      <div class="card-content-top">
-        <span class="product-card-category">PASO 1</span>
-        <h3 class="product-card-title">Evaluación y Homologación de Título</h3>
-        <p class="product-card-description">Analizamos meticulosamente tu perfil académico y profesional. Posteriormente, te guiamos en cada documento para revalidar tu título y credenciales ante instituciones clave como CGFNS y TruMerit. Este es el cimiento de tu proceso.</p>
-      </div>
-      <div class="card-image-wrapper">
-        <img src="https://example.com/images/evaluation-icon.webp" alt="Icono de Evaluación de Título" class="product-card-image" loading="lazy">
-      </div>
-      <a href="/evaluacion" class="product-card-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path></svg></a>
-    </div>
-
-    <div class="apple-product-card">
-      <div class="card-content-top">
-        <span class="product-card-category">PASO 2</span>
-        <h3 class="product-card-title">Preparación para el NCLEX y Licenciamiento RN</h3>
-        <p class="product-card-description">Te preparamos con los recursos educativos más avanzados. Estos están diseñados para que apruebes el examen NCLEX-RN al primer intento. De este modo, obtendrás tu codiciada licencia de Registered Nurse (RN) en Estados Unidos. Nuestro método es tu ventaja decisiva.</p>
-      </div>
-      <div class="card-image-wrapper">
-        <img src="https://example.com/images/nclex-icon.webp" alt="Icono de Preparación NCLEX" class="product-card-image" loading="lazy">
-      </div>
-      <a href="/nclex" class="product-card-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path></svg></a>
-    </div>
-
-    <div class="apple-product-card">
-      <div class="card-content-top">
-        <span class="product-card-category">PASO 3</span>
-        <h3 class="product-card-title">Oferta Laboral con Patrocinio de Visa</h3>
-        <p class="product-card-description">Una vez que tienes tu licencia, te conectamos directamente con nuestra exclusiva red de hospitales líderes en EE. UU. Estos empleadores están buscando activamente talento como el tuyo y ofrecen patrocinio de visa. Es decir, te garantizamos una oportunidad real.</p>
-      </div>
-      <div class="card-image-wrapper">
-        <img src="https://example.com/images/job-offer-icon.webp" alt="Icono de Oferta Laboral" class="product-card-image" loading="lazy">
-      </div>
-      <a href="/vacantes" class="product-card-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path></svg></a>
-    </div>
-
-    <div class="apple-product-card">
-      <div class="card-content-top">
-        <span class="product-card-category">PASO 4</span>
-        <h3 class="product-card-title">Gestión de Visa y Relocalización Completa</h3>
-        <p class="product-card-description">Nuestro equipo de expertos migratorios gestiona todo el proceso de tu visa de trabajo, incluyendo la Green Card. Además, te asesoramos en tu llegada, desde la búsqueda de vivienda hasta tu adaptación cultural. Tu bienestar es nuestra prioridad. Para más información sobre los requisitos de las visas de empleo, puedes visitar el sitio oficial del Departamento de Estado de EE. UU. sobre visas de trabajo.</p>
-        <p>Puedes encontrar detalles esenciales sobre los diferentes tipos de visas y sus procesos en esta fuente oficial: <a href="https://travel.state.gov/content/travel/en/us-visas/employment.html" target="_blank" rel="noopener noreferrer">Visas de Empleo del Gobierno de EE. UU.</a>.</p>
-      </div>
-      <div class="card-image-wrapper">
-        <img src="https://example.com/images/visa-icon.webp" alt="Icono de Visa y Relocalización" class="product-card-image" loading="lazy">
-      </div>
-      <a href="/visa" class="product-card-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path></svg></a>
-    </div>
-  </div>
-</section>
-
+<hr class="ui-divider">
 <div class="ui-spacer"></div>
 
-<hr class="ui-divider">
-
-<section class="ui-data-comparison-container ui-preset--emerald">
-  <div class="container-wrapper">
-    <h2 class="section-title text-center">📈 La Demanda Histórica de Enfermeras en EE. UU. Es Real.</h2>
-    <p class="comparison-intro">¿Te preguntas si realmente hay oportunidades laborales para ti en Estados Unidos? Como líder de Enfermera en Estados Unidos, te confirmo con datos irrefutables: la demanda de profesionales de enfermería hispanos es más alta que nunca. Hemos analizado una década de estadísticas para ofrecerte una visión clara y estratégica. Por consiguiente, no te basamos en suposiciones, sino en hechos concretos.</p>
-    <div class="comparison-dashboard">
-      <div class="legend-cards">
-        <div class="legend-card">
-          <div class="legend-header"><span class="legend-marker" style="background-color: #4285f4"></span><span class="legend-name">Demanda Hospitalaria RN</span></div>
-          <span class="legend-label">Ofertas anuales crecientes</span>
+<section class="ui-feature-cards ui-preset--emerald">
+  <div class="ui-feature-cards-container">
+    <h2 class="section-title">🏆 Nuestra Propuesta de Valor Inigualable: <span class="ui-highlight">Liderazgo y Resultados Garantizados</span></h2>
+    <div class="cards-grid">
+      <div class="feature-card">
+        <div class="card-icon">
+          <img src="https://via.placeholder.com/60x60?text=Expertise" alt="Icono de Experiencia Comprobada">
         </div>
-        <div class="legend-card">
-          <div class="legend-header"><span class="legend-marker" style="background-color: #db4437"></span><span class="legend-name">Capacidad de Procesamiento USCIS</span></div>
-          <span class="legend-label">Volumen de visas procesadas</span>
+        <p class="card-description">Nuestra <span class="ui-highlight">experiencia comprobada</span> garantiza que cada paso, desde la homologación de tu título hasta la obtención de tu visa, está respaldado por el éxito de cientos de enfermeros. No solo navegamos; dirigimos con maestría y precisión.</p>
+        <a href="#nuestros-exitos" class="card-btn">
+          <span>Conoce Nuestros Casos de Éxito</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="icon-arrow"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path></svg>
+        </a>
+      </div>
+      <div class="feature-card">
+        <div class="card-icon">
+          <img src="https://via.placeholder.com/60x60?text=Community" alt="Icono de Comunidad de Apoyo">
+        </div>
+        <p class="card-description">La <span class="ui-highlight">comunidad más sólida y activa</span> de enfermeros hispanos te espera. Aquí encontrarás apoyo incondicional, recursos exclusivos y conexiones vitales que te permitirán avanzar con total confianza. Nunca estarás solo en tu viaje para <span class="ui-highlight">trabajar como enfermera en usa</span>.</p>
+        <a href="#comunidad" class="card-btn">
+          <span>Únete a Nuestra Comunidad Vibrante</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="icon-arrow"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path></svg>
+        </a>
+      </div>
+      <div class="feature-card">
+        <div class="card-icon">
+          <img src="https://via.placeholder.com/60x60?text=Opportunities" alt="Icono de Oportunidades Exclusivas">
+        </div>
+        <p class="card-description">Acceso privilegiado a <span class="ui-highlight">oportunidades laborales exclusivas</span>. Colaboramos directamente con empleadores top que buscan talento internacional y ofrecen patrocinio de visa, abriendo puertas que otros no pueden. Esto facilita increíblemente tu meta de <span class="ui-highlight">trabajar como enfermera en usa</span>.</p>
+        <a href="#ofertas-laborales" class="card-btn">
+          <span>Explora Ofertas con Patrocinio Ahora</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="icon-arrow"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ui-spacer"></div>
+<hr class="ui-divider">
+<div class="ui-spacer"></div>
+
+<section class="ui-lifestyle-grid ui-preset--emerald">
+  <div class="container-wrapper">
+    <h2 class="text-center">🎯 Los Pilares Irrenunciables de tu Éxito: Desglosando Cada Fase del Proceso</h2>
+    <p class="text-center">Nuestro enfoque se basa en una estrategia clara, eficiente y replicable, construida meticulosamente sobre tres pilares fundamentales que garantizan tu transición profesional y migratoria a Estados Unidos.</p>
+    <div class="lifestyle-grid">
+      <div class="lifestyle-item">
+        <div class="image-container"><img src="https://via.placeholder.com/300x200?text=Homologacion+RN" alt="Proceso de Homologación de Título RN" class="lifestyle-img"></div>
+        <div class="content-container">
+          <h3 class="lifestyle-title">✅ La Homologación de tu Título: Tu Primer Gran Paso Estratégico</h3>
+          <p class="lifestyle-description">La homologación representa la validación oficial de tu formación académica de enfermería en los Estados Unidos. Este paso es absolutamente indispensable, ya que certifica que tu educación cumple con los rigurosos estándares exigidos para la práctica de enfermería en el país. Nosotros te guiamos en cada documento, cada formulario, cada requisito legal, asegurando un proceso sin contratiempos ni demoras innecesarias.</p>
+          <p class="lifestyle-description">Muchas enfermeras se sienten justificadamente abrumadas por la aparente complejidad de este trámite inicial. Sin embargo, en Enfermera en Estados Unidos, transformamos esta fase inicial en un camino predecible y manejable. Nuestro equipo experto revisa minuciosamente tu historial académico y profesional, identificando la mejor y más rápida ruta para la equivalencia de tu título. Este reconocimiento es fundamental para poder <span class="ui-highlight">trabajar como enfermera en usa</span> legalmente y con plena validez.</p>
+          <a href="#homologacion-guia" class="lifestyle-link">Conoce Nuestra Guía Detallada de Homologación</a>
         </div>
       </div>
-      <div class="chart-area">
-        <h3 class="chart-title">Interés y Ofertas Laborales para Enfermeras Internacionales (2014-2024)</h3>
-        <p>La creciente necesidad de atención médica en Estados Unidos, exacerbada por una población envejecida y el retiro de miles de enfermeras, ha creado una brecha crítica en el sector. Además, el sistema de inmigración lucha por mantenerse al día con esta explosiva demanda, generando un cuello de botella. Es crucial entender que iniciar tu proceso de <strong>como obtener la licencia de enfermera en Estados Unidos</strong> hoy no solo es una ventaja, sino una necesidad imperante para asegurar tu lugar en esta carrera.</p>
-        <div class="chart-wrapper">
-          <img src="https://example.com/images/demand-chart-placeholder.webp" alt="Gráfico de demanda de enfermeras vs. capacidad de visas" loading="lazy">
+      <div class="lifestyle-item">
+        <div class="image-container"><img src="https://via.placeholder.com/300x200?text=NCLEX+Preparacion" alt="Preparación Efectiva para el NCLEX" class="lifestyle-img"></div>
+        <div class="content-container">
+          <h3 class="lifestyle-title">📚 Dominio del NCLEX: Tu Licencia para Practicar con Confianza</h3>
+          <p class="lifestyle-description">El examen NCLEX-RN es la prueba definitiva y decisiva para obtener tu licencia como enfermera registrada en Estados Unidos. Su aprobación es un requisito ineludible y universal. Por fortuna, en Enfermera en Estados Unidos, hemos desarrollado una metodología de preparación exhaustiva, innovadora y excepcionalmente eficaz que ha catapultado a incontables enfermeros de nuestra comunidad hacia la aprobación exitosa en su primer intento.</p>
+          <p class="lifestyle-description">Nuestros cursos están meticulosamente diseñados con contenido completamente actualizado, simulacros de examen realistas que replican la experiencia real, y el apoyo constante de instructores altamente experimentados y dedicados. Es más, comprendemos profundamente la relevancia crítica de este examen; por eso, nos dedicamos con pasión a ofrecerte no solo las herramientas, sino también la confianza inquebrantable necesarias para superar esta barrera con creces. Puedes obtener información más detallada y verificar la autenticidad de este examen crucial visitando la fuente oficial, el <a href="https://www.ncsbn.org/nclex.page" target="_blank" rel="noopener noreferrer">Consejo Nacional de Juntas Estatales de Enfermería (NCSBN)</a>.</p>
+          <a href="#preparacion-nclex" class="lifestyle-link">Inscríbete a Nuestros Cursos Premium NCLEX</a>
         </div>
-        <p class="chart-footnote">Fuente: Análisis de datos de USCIS, CGFNS y AHA (Asociación Americana de Hospitales).</p>
       </div>
-    </div>
-    <p class="text-center mt-4">La ventana de oportunidad es ahora. No permitas que la burocracia te detenga. Nuestro proceso optimizado te permite adelantarte a la fila y asegurar tu futuro.</p>
-  </div>
-</section>
-
-<div class="ui-spacer"></div>
-
-<section class="ui-value-props ui-preset--emerald">
-  <div class="container-wrapper">
-    <h2 class="section-title text-center">💎 ¿Por qué Alejandra Martínez y Enfermera en Estados Unidos son tu mejor aliado?</h2>
-    <p class="text-center">Elegir el camino correcto para <strong>como obtener la licencia de enfermera en Estados Unidos</strong> es una decisión trascendental. En Enfermera en Estados Unidos, no solo somos una agencia; somos tus socios estratégicos. Por consiguiente, nuestra propuesta de valor se cimienta en una experiencia inigualable y un compromiso absoluto con tu éxito. Descubre lo que nos distingue:</p>
-    <div class="props-grid">
-      <div class="prop-card">
-        <div class="prop-icon-wrapper"><img src="https://example.com/images/icon-experience.webp" alt="Icono de Experiencia" class="prop-icon" loading="lazy"></div>
-        <p class="prop-text">Más de una década de experiencia comprobada, transformando vidas profesionales.</p>
-        <a href="/nuestra-historia" class="prop-link">Conoce nuestra trayectoria <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path></svg></a>
-      </div>
-      <div class="prop-card">
-        <div class="prop-icon-wrapper"><img src="https://example.com/images/icon-guide.webp" alt="Icono de Guía Integral" class="prop-icon" loading="lazy"></div>
-        <p class="prop-text">Guía integral y paso a paso, desde la homologación hasta tu relocalización.</p>
-        <a href="/nuestro-metodo" class="prop-link">Descubre nuestro método <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path></svg></a>
-      </div>
-      <div class="prop-card">
-        <div class="prop-icon-wrapper"><img src="https://example.com/images/icon-network.webp" alt="Icono de Red de Contactos" class="prop-icon" loading="lazy"></div>
-        <p class="prop-text">Acceso exclusivo a una vasta red de hospitales que buscan enfermeras hispanas.</p>
-        <a href="/red-hospitales" class="prop-link">Explora nuestra red <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path></svg></a>
-      </div>
-      <div class="prop-card">
-        <div class="prop-icon-wrapper"><img src="https://example.com/images/icon-support.webp" alt="Icono de Soporte Personalizado" class="prop-icon" loading="lazy"></div>
-        <p class="prop-text">Atención personalizada y seguimiento constante por parte de expertos dedicados.</p>
-        <a href="/contacto" class="prop-link">Habla con un experto <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path></svg></a>
-      </div>
-      <div class="prop-card">
-        <div class="prop-icon-wrapper"><img src="https://example.com/images/icon-results.webp" alt="Icono de Resultados Garantizados" class="prop-icon" loading="lazy"></div>
-        <p class="prop-text">Resultados tangibles que avalan nuestro compromiso y eficacia en cada proceso.</p>
-        <a href="/testimonios" class="prop-link">Mira nuestros resultados <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path></svg></a>
-      </div>
-      <div class="prop-card">
-        <div class="prop-icon-wrapper"><img src="https://example.com/images/icon-migration.webp" alt="Icono de Expertos en Migración" class="prop-icon" loading="lazy"></div>
-        <p class="prop-text">Equipo legal especializado en migración, simplificando tu proceso de visa.</p>
-        <a href="/asesoria-legal" class="prop-link">Conoce a nuestros abogados <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path></svg></a>
+      <div class="lifestyle-item">
+        <div class="image-container"><img src="https://via.placeholder.com/300x200?text=Ofertas+Laborales" alt="Ofertas Laborales con Patrocinio de Visa" class="lifestyle-img"></div>
+        <div class="content-container">
+          <h3 class="lifestyle-title">🌟 Ofertas Laborales con Patrocinio: Tu Entrada Directa al Mercado</h3>
+          <p class="lifestyle-description">Encontrar una oferta de trabajo que incluya el patrocinio de visa es, sin duda, uno de los mayores desafíos y anhelos para el enfermero internacional. Afortunadamente, nuestra vasta y sólida red de contactos con hospitales, clínicas y agencias de salud en todo Estados Unidos nos permite conectar a nuestros miembros con empleadores prestigiosos. Estos están activamente dispuestos a patrocinar su visa, lo cual representa una ventaja competitiva incomparable y transformadora.</p>
+          <p class="lifestyle-description">Nos ocupamos de cada detalle, desde la optimización estratégica de tu currículum hasta la preparación personalizada para las entrevistas, incrementando drásticamente tus posibilidades de éxito. Con Enfermera en Estados Unidos, no solo buscas un empleo; encuentras una carrera próspera con futuro y seguridad laboral. Esto te posiciona de manera ideal para finalmente y con total respaldo, <span class="ui-highlight">trabajar como enfermera en usa</span> con todas las garantías y beneficios que mereces.</p>
+          <a href="#explora-ofertas" class="lifestyle-link">Accede a Oportunidades Laborales Exclusivas</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <div class="ui-spacer"></div>
-
 <hr class="ui-divider">
+<div class="ui-spacer"></div>
 
 <section class="ui-case-studies ui-preset--emerald">
   <div class="container-wrapper">
     <div class="case-studies-header">
-      <h2 class="section-title">🌟 Testimonios Reales: Vidas Transformadas por Enfermera en Estados Unidos</h2>
-      <p>La mejor prueba de nuestra autoridad y compromiso son las historias de éxito de nuestros estudiantes. Cientos de enfermeras hispanas han confiado en nuestro método y ahora están viviendo su sueño en Estados Unidos. Sus voces validan la eficacia de nuestra guía para <strong>como obtener la licencia de enfermera en Estados Unidos</strong> y asegurar un futuro próspero. Por consiguiente, te invitamos a inspirarte con sus logros.</p>
-      <a href="/testimonios" class="view-all-link">
+      <h2 class="section-title">💯 Más de Una Década de Éxito: <br /><span class="ui-highlight-text">Historias de Transformación Reales de Nuestros Alumnos</span></h2>
+      <a href="#historias" class="view-all-link">
         Ver Todas las Historias
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="icon-arrow"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
       </a>
     </div>
     <div class="cases-grid">
       <div class="case-card">
-        <div class="case-image-wrapper"><img src="https://example.com/images/irene-sanchez.webp" alt="Irene Sánchez" class="case-bg-image" loading="lazy"></div>
+        <div class="case-image-wrapper"><img src="https://via.placeholder.com/600x400?text=Caso+Exito+Maria" alt="María G. enfermera en hospital de Texas" class="case-bg-image"></div>
         <div class="case-overlay">
-          <div class="case-logo"><img src="https://example.com/images/logo-rnnclex-small.webp" alt="Logo rnnclex.com" class="logo-img" loading="lazy"></div>
-          <div class="case-content"><p class="case-text">"La guía paso a paso de Enfermera en Estados Unidos fue clave para aprobar el NCLEX y trabajar en USA. ¡Mil gracias!" - Irene Sánchez, RN.</p></div>
+          <div class="case-logo"><img src="https://via.placeholder.com/100x50?text=HOSPITAL+TEXAS" alt="Logo Hospital de Texas" class="logo-img"></div>
+          <div class="case-content"><p class="case-text">María G., de México, logró homologar su título en un tiempo récord y ahora brilla como enfermera de UCI en un prestigioso hospital de Texas. "El apoyo y la claridad de Alejandra fueron absolutamente fundamentales para mi éxito", afirma con gratitud.</p></div>
         </div>
       </div>
       <div class="case-card">
-        <div class="case-image-wrapper"><img src="https://example.com/images/tania-lizarazo.webp" alt="Tania Camila Lizarazo" class="case-bg-image" loading="lazy"></div>
+        <div class="case-image-wrapper"><img src="https://via.placeholder.com/600x400?text=Caso+Exito+Carlos" alt="Carlos R. enfermero en clínica de Florida" class="case-bg-image"></div>
         <div class="case-overlay">
-          <div class="case-logo"><img src="https://example.com/images/logo-rnnclex-small.webp" alt="Logo rnnclex.com" class="logo-img" loading="lazy"></div>
-          <div class="case-content"><p class="case-text">"Califico a la agencia con un 10/10. El plan de estudios para el NCLEX y la asesoría fueron excelentes." - Tania Camila Lizarazo, RN.</p></div>
+          <div class="case-logo"><img src="https://via.placeholder.com/100x50?text=CLINICA+FLORIDA" alt="Logo Clínica de Florida" class="logo-img"></div>
+          <div class="case-content"><p class="case-text">Carlos R., de Colombia, superó el desafiante NCLEX al primer intento y obtuvo una atractiva oferta con patrocinio de visa en una dinámica clínica de Florida. "Enfermera en Estados Unidos no solo me cambió la carrera, sino mi vida entera".</p></div>
         </div>
       </div>
       <div class="case-card">
-        <div class="case-image-wrapper"><img src="https://example.com/images/mariza-herrera.webp" alt="Mariza Herrera" class="case-bg-image" loading="lazy"></div>
+        <div class="case-image-wrapper"><img src="https://via.placeholder.com/600x400?text=Caso+Exito+Ana" alt="Ana S. enfermera en centro médico de California" class="case-bg-image"></div>
         <div class="case-overlay">
-          <div class="case-logo"><img src="https://example.com/images/logo-rnnclex-small.webp" alt="Logo rnnclex.com" class="logo-img" loading="lazy"></div>
-          <div class="case-content"><p class="case-text">"La calidad de la plataforma de aprendizaje y el seguimiento constante del equipo me dieron la confianza para seguir." - Mariza Herrera, RN.</p></div>
-        </div>
-      </div>
-      <div class="case-card">
-        <div class="case-image-wrapper"><img src="https://example.com/images/luis-yaotecatl.webp" alt="Luis Erik Yaotecatl" class="case-bg-image" loading="lazy"></div>
-        <div class="case-overlay">
-          <div class="case-logo"><img src="https://example.com/images/logo-rnnclex-small.webp" alt="Logo rnnclex.com" class="logo-img" loading="lazy"></div>
-          <div class="case-content"><p class="case-text">"La atención personalizada de Alejandra en cada caso particular es inigualable. Sentí su apoyo en todo momento." - Luis Erik Yaotecatl, RN.</p></div>
-        </div>
-      </div>
-      <div class="case-card">
-        <div class="case-image-wrapper"><img src="https://example.com/images/yerimel-mendez.webp" alt="Yerimel Méndez Mejia" class="case-bg-image" loading="lazy"></div>
-        <div class="case-overlay">
-          <div class="case-logo"><img src="https://example.com/images/logo-rnnclex-small.webp" alt="Logo rnnclex.com" class="logo-img" loading="lazy"></div>
-          <div class="case-content"><p class="case-text">"Un programa bien organizado que cubrió el NCLEX, inglés y búsqueda de empleo. ¡Una inversión que valió la pena!" - Yerimel Méndez Mejia, RN.</p></div>
-        </div>
-      </div>
-      <div class="case-card">
-        <div class="case-image-wrapper"><img src="https://example.com/images/lady-noguera.webp" alt="Lady Noguera Bravo" class="case-bg-image" loading="lazy"></div>
-        <div class="case-overlay">
-          <div class="case-logo"><img src="https://example.com/images/logo-rnnclex-small.webp" alt="Logo rnnclex.com" class="logo-img" loading="lazy"></div>
-          <div class="case-content"><p class="case-text">"Agradezco el apoyo incondicional y el profesionalismo de todo el grupo. Me sentí acompañada hasta el final." - Lady Noguera Bravo, RN.</p></div>
+          <div class="case-logo"><img src="https://via.placeholder.com/100x50?text=CENTRO+SALUD+CA" alt="Logo Centro de Salud de California" class="logo-img"></div>
+          <div class="case-content"><p class="case-text">Ana S., de Venezuela, ahora trabaja con orgullo en un reconocido centro médico en California, disfrutando de una excelente remuneración y condiciones laborales. Su proceso para <span class="ui-highlight">trabajar como enfermera en usa</span> fue excepcionalmente fluido gracias a la mentoría experta.</p></div>
         </div>
       </div>
     </div>
@@ -225,97 +149,99 @@ slug: "index"
 </section>
 
 <div class="ui-spacer"></div>
-
 <hr class="ui-divider">
+<div class="ui-spacer"></div>
 
-<section class="ui-expert-insights ui-preset--emerald">
+<section class="ui-apple-experience-container ui-preset--emerald">
   <div class="container-wrapper">
-    <div class="insights-header">
-      <h2 class="section-title">📚 Recursos Esenciales para tu Viaje RN.</h2>
-      <p>En mi experiencia, la información precisa es poder. Por ello, hemos compilado una serie de recursos fundamentales. Estos te prepararán para cada etapa de tu aventura para <strong>como obtener la licencia de enfermera en Estados Unidos</strong>. Asegúrate de explorarlos para estar siempre un paso adelante.</p>
-      <a href="/recursos" class="view-all-link">Ver Todos los Recursos <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path></svg></a>
+    <div class="section-header">
+      <h2 class="section-title">🚀 Nuestra Metodología Exclusiva: <span class="section-subtitle">Tu Ventaja Competitiva Decisiva</span></h2>
     </div>
-    <div class="insights-grid">
-      <div class="insight-card">
+    <div class="apple-experience-grid">
+      <div class="apple-experience-card">
         <div class="card-content">
-          <span class="insight-category">GUÍA PRÁCTICA</span>
-          <h3 class="insight-title">La Guía Definitiva: Requisitos y Pasos para ser RN en EE. UU.</h3>
-          <p>Descubre el mapa completo para trabajar como enfermera en Estados Unidos. Desde los requisitos iniciales hasta los exámenes finales, todo lo que necesitas saber está aquí. Asimismo, te ofrecemos una perspectiva clara de los desafíos y las recompensas de este proceso.</p>
+          <span class="card-category">GUÍA INTEGRAL</span>
+          <h3 class="card-title">Acompañamiento 360° Personalizado</h3>
+          <p class="card-description">Desde la evaluación inicial de tu perfil hasta tu exitoso primer día de trabajo en EE. UU., te ofrecemos un soporte sin igual. Abordamos cada detalle crítico para que tu transición sea impecable y sin estrés. Así, tu objetivo de <span class="ui-highlight">trabajar como enfermera en usa</span> se vuelve una realidad tangible y bien planificada.</p>
         </div>
-        <div class="insight-image-wrapper"><img src="https://example.com/images/guide-rn.webp" alt="Guía para ser RN" class="insight-image" loading="lazy"></div>
+        <div class="card-image-wrapper">
+          <img src="https://via.placeholder.com/400x300?text=Guia+Integral+RN" alt="Guía integral del proceso de enfermería" class="experience-image">
+        </div>
+        <a href="#guia-integral" class="card-link-overlay"></a>
       </div>
-      <div class="insight-card">
+      <div class="apple-experience-card">
         <div class="card-content">
-          <span class="insight-category">PERSPECTIVA LABORAL</span>
-          <h3 class="insight-title">Salarios RN en EE. UU.: ¿Cuánto Puedes Ganar Realmente?</h3>
-          <p>Analizamos los salarios actuales y proyectados para enfermeras por especialidad y estado en 2026. Con esta información, podrás planificar tu futuro financiero con total confianza. Además, podrás identificar las áreas con mayor potencial de crecimiento económico. Si buscas oportunidades de empleo específicas, te recomiendo visitar las ofertas en <a href="https://enfermeraenestadosunidos.com/ofertas-de-empleo-para-enfermeras-en-usa/" target="_blank">EnfermeraEnEstadosUnidos</a>.</p>
+          <span class="card-category">RECURSOS EXCLUSIVOS</span>
+          <h3 class="card-title">Plataforma de Éxito NCLEX Premium</h3>
+          <p class="card-description">Accede a nuestra plataforma de vanguardia con miles de preguntas de práctica, explicaciones detalladas y estrategias de estudio probadas y actualizadas para el NCLEX-RN. Está diseñada específicamente para maximizar tu puntaje y asegurar tu aprobación con confianza.</p>
         </div>
-        <div class="insight-image-wrapper"><img src="https://example.com/images/salary-rn.webp" alt="Salarios RN en USA" class="insight-image" loading="lazy"></div>
+        <div class="card-image-wrapper">
+          <img src="https://via.placeholder.com/400x300?text=Plataforma+NCLEX+Exito" alt="Plataforma de estudio para el NCLEX" class="experience-image">
+        </div>
+        <a href="#plataforma-nclex" class="card-link-overlay"></a>
       </div>
-      <div class="insight-card">
+      <div class="apple-experience-card">
         <div class="card-content">
-          <span class="insight-category">PROCESO MIGRATORIO</span>
-          <h3 class="insight-title">Visas y Green Card: Entiende tu Camino a la Residencia</h3>
-          <p>La complejidad de las visas de trabajo y la Green Card puede ser un desafío. Te explicamos los tipos de visa, los tiempos de espera y cómo optimizar tu aplicación. De este modo, evitarás errores comunes que pueden retrasar tu llegada. Nuestra expertise te brinda tranquilidad en este crucial aspecto.</p>
+          <span class="card-category">NETWORKING DE ÉLITE</span>
+          <h3 class="card-title">Conexión con Empleadores VIP</h3>
+          <p class="card-description">Te conectamos directamente con los hospitales y clínicas líderes que confían plenamente en la calidad de los enfermeros de Enfermera en Estados Unidos. Estos empleadores están proactivamente dispuestos a patrocinar visas, reduciendo drásticamente los tiempos de espera y multiplicando tus opciones laborales.</p>
         </div>
-        <div class="insight-image-wrapper"><img src="https://example.com/images/visa-process.webp" alt="Proceso de Visa" class="insight-image" loading="lazy"></div>
+        <div class="card-image-wrapper">
+          <img src="https://via.placeholder.com/400x300?text=Networking+Profesional" alt="Red de contactos laborales profesionales" class="experience-image">
+        </div>
+        <a href="#networking-vip" class="card-link-overlay"></a>
+      </div>
+      <div class="apple-experience-card">
+        <div class="card-content">
+          <span class="card-category">SOPORTE LEGAL MIGRATORIO</span>
+          <h3 class="card-title">Asesoría Migratoria y Legal Profesional</h3>
+          <p class="card-description">Nuestro equipo de expertos aliados te orienta en absolutamente todos los aspectos legales y migratorios. Esto incluye desde la preparación meticulosa de documentos hasta la crucial entrevista consular. Garantizamos un proceso claro, transparente y sin sobresaltos para tu tranquilidad.</p></div>
+        <div class="card-image-wrapper">
+          <img src="https://via.placeholder.com/400x300?text=Asesoria+Legal+Migratoria" alt="Asesoría legal migratoria especializada" class="experience-image">
+        </div>
+        <a href="#asesoria-legal" class="card-link-overlay"></a>
       </div>
     </div>
   </div>
 </section>
 
 <div class="ui-spacer"></div>
-
 <hr class="ui-divider">
-
-<section class="ui-impact-cta ui-preset--emerald" style="background-image: url('https://example.com/images/nurse-working-cta.webp');">
-  <div class="ui-impact-overlay"></div>
-  <div class="container-wrapper">
-    <div class="impact-content">
-      <h2 class="impact-title">Tu Sueño Americano como RN te Espera: ¡Actúa Ahora!</h2>
-      <p class="impact-description">No pospongas más tu futuro. Miles de enfermeras necesitan tu talento en Estados Unidos. Estoy aquí, junto a mi equipo de Enfermera en Estados Unidos, para hacer que tu sueño se haga realidad. Además, con nuestra guía experta, el camino es más claro y seguro.</p>
-      <div class="impact-actions">
-        <a href="https://wa.me/something" class="impact-btn">¡AGENDA TU CONSULTA GRATUITA HOY!</a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <div class="ui-spacer"></div>
 
-<hr class="ui-divider">
+<h2 class="text-center">💡 Preguntas Frecuentes Cruciales sobre <span class="ui-highlight">Trabajar como Enfermera en USA</span></h2>
 
 <section class="ui-faq-section ui-preset--emerald">
   <div class="container-wrapper">
     <div class="faq-grid">
       <div class="faq-info">
-        <h2 class="section-title">❓ Preguntas Frecuentes sobre la Licencia RN y Migración.</h2>
-        <p class="section-description">Entendemos que tienes muchas dudas sobre <strong>como obtener la licencia de enfermera en Estados Unidos</strong>. Por lo tanto, hemos recopilado las preguntas más comunes y sus respuestas. Si tu pregunta no está aquí, no dudes en <a href="/contacto" class="support-link">contactar a nuestro equipo de soporte</a>.</p>
+        <h2 class="section-title">Tus Dudas Resueltas, Nuestras Respuestas Claras.</h2>
+        <p class="section-description">Hemos compilado las preguntas más comunes que surgen en este emocionante viaje, para que tengas la claridad y seguridad que necesitas. Si aún persisten tus inquietudes, no dudes en <a href="#contacto" class="support-link">contactar a nuestro equipo de soporte especializado</a>.</p>
       </div>
       <div class="faq-accordion-list">
         <details class="faq-item">
-          <summary class="faq-question">¿Cuál es el mejor sitio para reclutar enfermeras hispanas en EE. UU.? <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path></svg></span></summary>
-          <div class="faq-answer"><p>Más que un simple portal de empleos, el mejor lugar es una agencia especializada que funcione como tu socio estratégico. Enfermera en Estados Unidos es un ecosistema de éxito comprobado, dirigido por mí, Alejandra Martínez. Aquí, ofrecemos una guía completa y personalizada, no solo listados de trabajo. Por consiguiente, somos el aliado que necesitas para navegar todo el proceso con confianza.</p></div>
+          <summary class="faq-question">¿Qué es exactamente la homologación de título y por qué es tan importante para un enfermero? <span class="faq-icon"></span></summary>
+          <div class="faq-answer"><p>La homologación es el reconocimiento oficial y la convalidación de tus estudios de enfermería realizados en tu país de origen, para que sean válidos y plenamente aceptados en Estados Unidos. Este es un paso absolutamente fundamental. Sin ella, lamentablemente, no puedes presentarte al NCLEX ni obtener una licencia para ejercer. Garantiza que tu formación cumpla con los estándares educativos estadounidenses, abriendo el camino para que puedas oficialmente y con total respaldo <span class="ui-highlight">trabajar como enfermera en usa</span>. En Enfermera en Estados Unidos, agilizamos y simplificamos significativamente este complejo proceso para ti.</p></div>
         </details>
         <details class="faq-item">
-          <summary class="faq-question">¿Cuánto cobra una agencia de enfermería para ayudarme a migrar a EE. UU.? <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path></svg></span></summary>
-          <div class="faq-answer"><p>Los costos varían significativamente entre agencias. Sin embargo, en Enfermera en Estados Unidos, creemos en la transparencia total. Nuestras tarifas son una inversión integral en tu futuro, cubriendo asesoría, preparación para el NCLEX, homologación y gestión migratoria. Además, estamos comprometidos a ofrecerte un valor excepcional por tu inversión. Te invitamos a una consulta gratuita para discutir tu caso sin compromiso.</p></div>
+          <summary class="faq-question">¿Cómo me prepara Enfermera en Estados Unidos para el exigente examen NCLEX-RN? <span class="faq-icon"></span></summary>
+          <div class="faq-answer"><p>Nuestra preparación para el NCLEX es de una exhaustividad inigualable. Incluye acceso ilimitado a una plataforma robusta con miles de preguntas prácticas, simulacros de examen ultrarrealistas, y material de estudio completamente actualizado y enfocado. Además, ofrecemos clases en vivo impartidas por enfermeros con amplia experiencia en el examen y mentorías personalizadas. Nos enfocamos intensamente en las estrategias de examen más efectivas y en el dominio absoluto de los contenidos clínicos cruciales. Así, maximizamos drásticamente tus posibilidades de aprobar en el primer y único intento.</p></div>
         </details>
         <details class="faq-item">
-          <summary class="faq-question">¿Cuáles son las reclutadoras más confiables para enfermeras internacionales? <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path></svg></span></summary>
-          <div class="faq-answer"><p>Una reclutadora confiable se distingue por su transparencia, testimonios reales, y una experiencia demostrada en todos los procesos: desde la homologación y el NCLEX hasta la obtención de visas de trabajo. Enfermera en Estados Unidos cumple con todos estos criterios y va más allá, ofreciendo un soporte integral y una comunidad activa. Mi liderazgo personal asegura un estándar de calidad y ética inquebrantable en cada paso. Es crucial elegir una organización con un historial de éxito comprobado.</p></div>
+          <summary class="faq-question">¿Es realmente posible conseguir una oferta laboral con patrocinio de visa para enfermeros? <span class="faq-icon"></span></summary>
+          <div class="faq-answer"><p>Absolutamente sí, es una de nuestras especialidades y pilares fundamentales. Trabajamos con una extensa y confiable red de empleadores en Estados Unidos que están buscando activamente enfermeros internacionales. Estos empleadores ofrecen patrocinio de visa (generalmente H-1B o EB-3). Te ayudamos a preparar tu perfil, optimizar tu currículum y a manejar el proceso de entrevista para conectarte directamente con estas oportunidades exclusivas. De esta manera, hacemos realidad tu meta de <span class="ui-highlight">trabajar como enfermera en usa</span> con seguridad y estabilidad.</p></div>
         </details>
         <details class="faq-item">
-          <summary class="faq-question">¿Cuánto tiempo toma el proceso completo para obtener la licencia de enfermera en Estados Unidos? <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path></svg></span></summary>
-          <div class="faq-answer"><p>El tiempo total puede variar, generalmente entre 18 y 36 meses, dependiendo de tu perfil académico, la velocidad en la recopilación de documentos, el estado al que aplicas y los tiempos de procesamiento de visa. No obstante, nuestro equipo trabaja para agilizar cada etapa al máximo, minimizando esperas y gestionando eficientemente tu expediente. Iniciar pronto es fundamental para optimizar este cronograma.</p></div>
+          <summary class="faq-question">¿Cuánto tiempo promedio toma todo el proceso desde el inicio hasta comenzar a trabajar en USA? <span class="faq-icon"></span></summary>
+          <div class="faq-answer"><p>El tiempo total puede variar significativamente según tu perfil individual, la rapidez con la que logres reunir los documentos necesarios y los tiempos de procesamiento de las distintas agencias gubernamentales. Generalmente, este proceso puede oscilar entre 12 y 24 meses. Sin embargo, con nuestra guía experta y asistencia proactiva en cada fase, buscamos optimizar al máximo cada etapa para minimizar los posibles retrasos y avanzar con la mayor celeridad posible en tu prometedor camino hacia Estados Unidos.</p></div>
         </details>
         <details class="faq-item">
-          <summary class="faq-question">¿Necesito hablar inglés con fluidez para empezar el proceso con Enfermera en Estados Unidos? <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path></svg></span></summary>
-          <div class="faq-answer"><p>Aunque un buen nivel de inglés es eventualmente necesario para el examen NCLEX y para ejercer, no necesitas ser completamente fluido para <span class="ui-highlight">empezar tu proceso de homologación y preparación</span>. De hecho, ofrecemos recursos y programas de refuerzo de inglés integrados en nuestra capacitación. Por consiguiente, te acompañamos en el desarrollo de tus habilidades lingüísticas mientras avanzas en las otras etapas del proceso para <strong>como obtener la licencia de enfermera en Estados Unidos</strong>. Mi recomendación es empezar ahora y mejorar tu inglés en paralelo.</p></div>
+          <summary class="faq-question">¿Qué tipo de soporte migratorio completo ofrece Enfermera en Estados Unidos a sus miembros? <span class="faq-icon"></span></summary>
+          <div class="faq-answer"><p>Ofrecemos una asesoría migratoria integral y de primer nivel a través de nuestros expertos aliados en leyes de inmigración. Te asistimos en la recopilación minuciosa y revisión exhaustiva de toda la documentación necesaria para la solicitud de visa, te preparamos a conciencia para las entrevistas consulares, y te guiamos paso a paso en cada etapa del complejo proceso legal. Nuestro objetivo primordial consiste en asegurar una transición migratoria fluida, exitosa y, sobre todo, completamente transparente, despejando cualquier incertidumbre o preocupación. Este soporte es absolutamente clave para quien desea <span class="ui-highlight">trabajar como enfermera en usa</span> legalmente y sin contratiempos.</p></div>
         </details>
         <details class="faq-item">
-          <summary class="faq-question">¿Puedo llevar a mi familia a EE. UU. si obtengo la visa de trabajo como RN? <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path></svg></span></summary>
-          <div class="faq-answer"><p>Absolutamente. Una de las grandes ventajas de obtener una visa de trabajo para RN (especialmente la Green Card patrocinada) es la posibilidad de incluir a tu cónyuge e hijos menores de 21 años en tu solicitud migratoria. Nuestro equipo legal se especializa en gestionar estos casos familiares, asegurando un proceso fluido para que toda tu familia pueda reunirse contigo en tu nuevo hogar en Estados Unidos. Este es un beneficio fundamental que muchas enfermeras buscan.</p></div>
+          <summary class="faq-question">¿Cuál es la diferencia crucial entre un BSN y un ADN para la práctica de enfermería en Estados Unidos? <span class="faq-icon"></span></summary>
+          <div class="faq-answer"><p>Un BSN (Bachelor of Science in Nursing) es un título de licenciatura en enfermería, mientras que un ADN (Associate's Degree in Nursing) es un título de asociado. Ambos pueden, bajo ciertas circunstancias, ser elegibles para presentarse al NCLEX-RN. Sin embargo, es crucial entender que cada vez más hospitales y sistemas de salud en EE. UU. prefieren, e incluso exigen, enfermeros con BSN debido a la mayor profundidad de su formación académica y clínica. El BSN a menudo abre más puertas para roles avanzados, oportunidades de liderazgo y una mejor progresión de carrera a largo plazo. En Enfermera en Estados Unidos, te ayudamos a entender cuál es la mejor opción para tu perfil y cómo potenciar al máximo tus credenciales.</p></div>
         </details>
       </div>
     </div>
@@ -323,6 +249,21 @@ slug: "index"
 </section>
 
 <div class="ui-spacer"></div>
+<hr class="ui-divider">
+<div class="ui-spacer"></div>
+
+<section class="ui-impact-cta ui-preset--emerald" style="background-image: url('https://via.placeholder.com/1920x1080?text=Enfermera+en+USA+Final');">
+  <div class="ui-impact-overlay"></div>
+  <div class="container-wrapper">
+    <div class="impact-content">
+      <h2 class="impact-title">Es Hora de Tomar la Decisión que <span class="ui-highlight">Transformará tu Vida Profesional y Personal</span></h2>
+      <p class="impact-description">No permitas que la incertidumbre, la falta de información o el miedo te detengan un segundo más. Cientos de colegas, con sueños similares a los tuyos, ya están viviendo su sueño americano. Tú también puedes ser, y serás, uno de ellos con nuestra guía.</p>
+      <div class="impact-actions">
+        <a href="#contacto-asesor" class="impact-btn">QUIERO HABLAR CON UN ASESOR AHORA MISMO</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 ### Recomendación en Video
 <iframe width='560' height='315' src='https://www.youtube.com/embed/T6uALoR-k8o' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>

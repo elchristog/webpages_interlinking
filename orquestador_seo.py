@@ -204,8 +204,23 @@ def guardar_markdown(ruta_proyecto, contenido_md, slug, modo="articulo"):
         os.makedirs(ruta_dir, exist_ok=True)
         ruta_destino = os.path.join(ruta_dir, f"{slug}.md")
     
+    # Post-procesamiento agresivo para evitar fugas de HTML (raw code blocks)
+    lineas_limpias = []
+    for linea in contenido_md.split('\n'):
+        linea_strip = linea.strip()
+        # Si la línea empieza con una etiqueta HTML, removemos todos los espacios al inicio
+        if linea_strip.startswith('<') or linea_strip.startswith('</'):
+            lineas_limpias.append(linea_strip)
+        elif linea_strip.startswith('```'):
+             # Evitar que la IA envuelva secciones UI en backticks
+             continue 
+        else:
+            lineas_limpias.append(linea)
+    
+    contenido_limpio = '\n'.join(lineas_limpias)
+
     with open(ruta_destino, 'w', encoding='utf-8') as f:
-        f.write(contenido_md)
+        f.write(contenido_limpio)
     print(f"[+] Archivo guardado: {ruta_destino}")
 
 def procesar_imagenes_seo(sitio_id, nicho, md_content, ruta_recursos, ruta_proyecto_astro):
@@ -320,44 +335,91 @@ def generar_index_dashboard(ruta_base, sitios, nombre_proyecto):
     """Genera un archivo index.html central para navegar entre los sitios del proyecto."""
     ruta_dashboard = os.path.join(ruta_base, 'sitios_generados', nombre_proyecto, 'index.html')
     
+    # [FIX] Asegurar que usamos todos los sitios disponibles en la carpeta si 'sitios' viene incompleto
+    ruta_sitios_folder = os.path.dirname(ruta_dashboard)
+    sitios_en_disco = [d for d in os.listdir(ruta_sitios_folder) if os.path.isdir(os.path.join(ruta_sitios_folder, d))]
+    
+    # Re-mapear para tener la información mínima necesaria para el dashboard
+    sitios_finales = []
+    for s_id in sitios_en_disco:
+        es_money = (s_id == 'money_site')
+        # Intentar buscar el dominio en el objeto 'sitios' original si existe
+        dominio = next((s['dominio'] for s in sitios if s['id'] == s_id), "Previsualización local")
+        sitios_finales.append({"id": s_id, "dominio": dominio, "is_money": es_money})
+
+    # Sort: money_site first, then alphabetical
+    sitios_finales.sort(key=lambda x: (not x["is_money"], x["id"]))
+
     html = f"""<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PBN Dashboard - Previsualización Local</title>
+    <title>PBN Control Center - {nombre_proyecto}</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <style>body {{ font-family: 'Inter', sans-serif; }}</style>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {{ font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcfcfd; }}
+        .glass {{ background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(229, 231, 235, 0.5); }}
+        .card-money {{ background: linear-gradient(135deg, #000 0%, #1a1a1a 100%); }}
+    </style>
 </head>
-<body class="bg-zinc-50 p-8 md:p-20">
-    <div class="max-w-6xl mx-auto">
-        <header class="mb-12 border-b border-zinc-200 pb-8">
-            <h1 class="text-4xl font-extrabold text-black tracking-tight">PBN Dashboard: {nombre_proyecto.replace('_', ' ').title()}</h1>
-            <p class="text-zinc-500 mt-2">Navega y verifica los sitios generados para este proyecto.</p>
+<body class="p-6 md:p-12 lg:p-20 text-zinc-900">
+    <div class="max-w-7xl mx-auto">
+        <header class="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-zinc-200 pb-12">
+            <div>
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></span>
+                    <span class="text-xs font-bold tracking-widest uppercase text-zinc-400">Network Live Preview</span>
+                </div>
+                <h1 class="text-5xl font-extrabold tracking-tight text-black">{nombre_proyecto.replace('_', ' ').title()}</h1>
+                <p class="text-zinc-500 mt-3 text-lg">PBN Management Dashboard & Site Auditor</p>
+            </div>
+            <div class="flex gap-4">
+                <div class="glass px-6 py-4 rounded-2xl text-center">
+                    <span class="block text-2xl font-bold">{len(sitios_en_disco)}</span>
+                    <span class="text-[10px] uppercase tracking-wider font-bold text-zinc-400">Sitios Totales</span>
+                </div>
+            </div>
         </header>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
     """
     
-    for s in sitios:
-        estilo = "bg-black text-white" if s['id'] == 'money_site' else "bg-white text-black outline outline-zinc-200"
-        badge = "<span class='text-[10px] uppercase font-bold bg-blue-600 text-white px-2 py-0.5 rounded ml-2'>Main</span>" if s['id'] == 'money_site' else ""
-        
+    for s in sitios_finales:
+        if s['is_money']:
+            card_classes = "card-money text-white shadow-2xl ring-offset-2 ring-2 ring-blue-600"
+            badge = "<span class='bg-blue-600 text-[10px] px-2 py-1 rounded-full font-black uppercase tracking-tighter'>Money Site</span>"
+            text_muted = "text-zinc-400"
+        else:
+            card_classes = "glass hover:bg-white hover:shadow-xl transition-all duration-300"
+            badge = "<span class='bg-zinc-100 text-zinc-500 text-[10px] px-2 py-1 rounded-full font-bold uppercase tracking-tighter'>Mirror</span>"
+            text_muted = "text-zinc-500"
+
         html += f"""
-            <a href="./{s['id']}/index.html" target="_blank" class="{estilo} p-6 h-40 flex flex-col justify-between hover:scale-105 transition-transform shadow-sm">
+            <a href="./{s['id']}/index.html" target="_blank" class="{card_classes} group p-8 min-h-[18rem] flex flex-col justify-between rounded-[2rem] border border-zinc-100">
                 <div>
-                   <h2 class="font-bold text-lg">{s['id'].replace('_', ' ').title()}{badge}</h2>
-                   <p class="text-xs opacity-70 mt-1 line-clamp-2">{s.get('dominio', '')}</p>
+                   <div class="flex justify-between items-start mb-6">
+                       <div class="w-10 h-10 bg-zinc-100 dark:bg-zinc-800 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9h18"/></svg>
+                       </div>
+                       {badge}
+                   </div>
+                   <h2 class="font-bold text-xl leading-tight group-hover:text-blue-600 transition-colors uppercase tracking-tight">{s['id'].replace('_', ' ').replace('-', ' ')}</h2>
+                   <p class="{text_muted} text-xs mt-3 font-medium truncate">{s['dominio']}</p>
                 </div>
-                <span class="text-xs font-mono">Abrir sitio →</span>
+                <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest group-hover:translate-x-1 transition-transform">
+                    Explorar Sitio 
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </div>
             </a>
         """
         
     html += """
         </div>
-        <footer class="mt-20 text-center text-zinc-400 text-xs">
-            Orquestador SEO PBN - Generado el """ + datetime.now().strftime('%Y-%m-%d %H:%M') + """
+        <footer class="mt-32 pt-8 border-t border-zinc-100 flex justify-between items-center text-zinc-400 text-[10px] font-bold uppercase tracking-widest">
+            <span>PBN Control Center v2.0</span>
+            <span>Generado: """ + datetime.now().strftime('%Y-%m-%d %H:%M') + """</span>
         </footer>
     </div>
 </body>
@@ -527,9 +589,13 @@ if __name__ == "__main__":
                         data["_ruta_recursos"] = ruta_item # Inyectar ruta para luego usarla
                         peticiones.append(data)
                 else:
-                    # Es un ARCHIVO
+                    # Es un ARCHIVO con una o más peticiones
                     with open(ruta_item, 'r', encoding='utf-8') as jf:
-                        peticiones.append(json.load(jf))
+                        data = json.load(jf)
+                        if isinstance(data, list):
+                            peticiones.extend(data)
+                        else:
+                            peticiones.append(data)
             else:
                 print(f"[-] Error: No se encuentra el elemento '{args.cola}' en input_cola/")
                 sys.exit(1)
@@ -569,13 +635,13 @@ if __name__ == "__main__":
             sitios_procesados.append(resultado)
         generar_index_dashboard(ruta_base, sitios_procesados, nombre_proyecto)
     else:
+        sitios_procesados = []
         for p in peticiones:
             print(f"\n[*] Procesando petición: {p.get('tema', p.get('slug', 'sin nombre'))}")
             modo_ejecucion = p.get("modo", "articulo")
             input_text = p.get("contenido") or p.get("tema") or p.get("input_base") or p.get("contenido_base")
             slug_pestaña = p.get("slug")
             
-            sitios_procesados = []
             ruta_recursos = p.get("_ruta_recursos")
             for sitio in config_sitios["sitios_espejo"]:
                 resultado = procesar_sitio(

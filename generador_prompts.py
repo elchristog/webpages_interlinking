@@ -178,20 +178,15 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
     MAX_SENTENCES = config_logic["content"]["paragraph_max_sentences"] if config_logic else 3
 
     REGLAS_LEGIBILIDAD_ASTRO = """
+- **MARGEN IZQUIERDO ABSOLUTO**: Todo el código HTML debe empezar en la columna 0. **PROHIBIDO INDENTAR CON ESPACIOS O TABS**. La indentación rompe el renderizado en Astro y lo muestra como código raw.
 - **PROHIBIDO EL USO DE SÍMBOLOS MARKDOWN (** , _, *, #) DENTRO DE ETIQUETAS HTML**. Si necesitas negrita dentro de un H1 o P, usa <strong> o <span class="ui-highlight">.
-- **NO INDENTES EL HTML CON ESPACIOS NI TABS**. Debe estar pegado al margen izquierdo.
-- **NO ENVUELVAS EL HTML EN BLOQUES DE CÓDIGO (```html ... ```)**. Escriba el HTML directamente.
-    Genera el contenido usando Markdown y HTML estándar con clases semánticas. 
-    
-    - ACCESIBILIDAD: El texto debe ser fácil de leer. Usa párrafos cortos.
-    - ESPACIADO: Usa `<div class="ui-spacer"></div>` para separar las secciones principales.
-    - TÍTULOS: Usa encabezados H1 (solo uno al inicio), H2 (centrados con clase `text-center`), H3 estándar.
-    - RESALTADO: Para destacar ideas clave, usa `<span class="ui-highlight">TEXTO RESALTADO</span>`.
-    - ICONOS: Incluye un emoji relevante al inicio de los subtítulos principales.
-    - SEPARADORES: Usa `<hr class="ui-divider">` para dividir secciones.
-    
-    ⚠️ IMPORTANTE: NUNCA envuelvas los bloques de HTML (`<div class=\"ui-...\">`) en bloques de código de Markdown (triple backticks ```). Deben estar sueltos en el texto para que Astro los procese.
-    """
+- **NO ENVUELVAS EL HTML EN BLOQUES DE CÓDIGO (```html ... ```)**. Escribe el HTML directamente.
+- **ACCESIBILIDAD**: El texto debe ser fácil de leer. Usa párrafos cortos y lenguaje claro.
+- **ESPACIADO**: Usa `<div class="ui-spacer"></div>` para separar las secciones principales.
+- **TÍTULOS**: Usa encabezados H1 (solo uno al inicio), H2 (centrados con clase `text-center`), H3 estándar.
+- **RESALTADO**: Para destacar ideas clave, usa `<span class="ui-highlight">TEXTO RESALTADO</span>`.
+- **MANTÉN ETIQUETAS ABIERTAS**: Asegúrate de cerrar todos los <section>, <div> y <a>.
+"""
 
     prompt = f"""
     {persona_elegida}

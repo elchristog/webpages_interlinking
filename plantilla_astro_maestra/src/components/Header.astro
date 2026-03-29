@@ -59,12 +59,14 @@ import config from '../data/config_inyectada.json';
     z-index: 100;
     transition: all 0.3s ease;
     backdrop-filter: blur(20px);
-    background-color: rgba(255, 255, 255, 0.8);
+    /* [FIX] Use a more neutral/adaptive background */
+    background-color: var(--navbar-bg, rgba(255, 255, 255, 0.8));
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   }
 
-  /* Version oscura si el preset es oscuro o la pagina lo requiere */
-  :root.dark .navbar-apple {
+  /* Support for dark presets by inheritance or explicit class */
+  :root.dark .navbar-apple, 
+  [data-theme="dark"] .navbar-apple {
     background-color: rgba(0, 0, 0, 0.8);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
