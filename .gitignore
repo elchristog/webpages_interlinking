@@ -24,4 +24,8 @@ Thumbs.db
 
 # Contenido generado y archivos de prueba
 contenido_base_test.md
+sitios_generados/
+proyectos/**/*.bak*
+tmp_config.json
+verification.json
 

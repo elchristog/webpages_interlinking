@@ -1,22 +1,22 @@
 {
-  "nombre_sitio": "Prep NCLEX Texas",
-  "color_tema": "#b71c1c",
-  "comando_deploy": "aws s3 sync ./dist s3://texas-nclex",
-  "layout": "LayoutC",
-  "gcp_project_id": "tx-nclex-prep-aws",
+  "nombre_sitio": "Vacantes Agencias USA",
+  "color_tema": "#3e2723",
+  "comando_deploy": "gcloud app deploy app.yaml --quiet",
+  "layout": "LayoutA",
+  "gcp_project_id": "us-vacancies-app-e",
   "seo": {
-    "titulo_base": "Guía NCLEX TX",
-    "descripcion_base": "Paso a paso para superar el NCLEX y requisitos del CGFNS en Texas.",
+    "titulo_base": "Directorio Vacantes",
+    "descripcion_base": "El directorio más completo de agencias reclutadoras con sponsor de visa disponibles.",
     "idioma": "es-US"
   },
   "footer": {
     "empresa_legal": "Enfermera en Estados Unidos",
-    "direccion": "Houston, TX 77002",
-    "email_contacto": "info@texas-nclex-prep.com"
+    "direccion": "New York, NY 10001",
+    "email_contacto": "apply@vacantes-hospitales-usa.org"
   },
   "menu_global": [
     {
-      "nombre": "Validar Título",
+      "nombre": "Revalidar Meta",
       "ruta": "/homologacion"
     },
     {
@@ -24,41 +24,41 @@
       "ruta": "/nclex"
     },
     {
-      "nombre": "Buscar Trabajo",
+      "nombre": "Vacantes USA",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Green Card",
+      "nombre": "Visa Trabajo",
       "ruta": "/visa"
     },
     {
-      "nombre": "Cuanto Ganan",
+      "nombre": "Salario Real",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Guías Tips",
+      "nombre": "Noticias",
       "ruta": "/blog"
     },
     {
-      "nombre": "Consultar Ahora",
+      "nombre": "WhatsApp",
       "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Mi Cuenta",
+      "nombre": "Login",
       "ruta": "/login"
     }
   ],
-  "dominio": "https://texas-nclex-prep.com",
-  "font_family": "Roboto",
+  "dominio": "https://vacantes-hospitales-usa.org",
+  "nav_footer_version": "v1",
+  "font_family": "Outfit",
   "color_palette": {
-    "primary": "oklch(38% 0.13 210)",
-    "secondary": "oklch(55% 0.09 210)",
-    "accent": "oklch(88% 0.10 160)",
-    "text_bold": "oklch(20% 0.06 210)",
+    "primary": "oklch(40% 0.12 150)",
+    "secondary": "oklch(55% 0.08 150)",
+    "accent": "oklch(88% 0.15 80)",
+    "text_bold": "oklch(20% 0.05 150)",
     "meta": {
-      "name": "Corporate Teal",
+      "name": "Deep Forest",
       "system": "OKLCH Premium v2"
     }
-  },
-  "nav_footer_version": "v2"
+  }
 }
