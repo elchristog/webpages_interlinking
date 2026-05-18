@@ -1,18 +1,18 @@
 {
-  "nombre_sitio": "Vacantes Agencias USA",
-  "color_tema": "#3e2723",
-  "comando_deploy": "gcloud app deploy app.yaml --quiet",
-  "layout": "LayoutA",
-  "gcp_project_id": "us-vacancies-app-e",
+  "nombre_sitio": "Visado Enfermeras Pro",
+  "color_tema": "#880e4f",
+  "comando_deploy": "firebase deploy --only hosting",
+  "layout": "LayoutB",
+  "gcp_project_id": "work-visa-fb-551",
   "seo": {
-    "titulo_base": "Directorio Vacantes",
-    "descripcion_base": "El directorio más completo de agencias reclutadoras con sponsor de visa disponibles.",
+    "titulo_base": "Visas de Trabajo EB",
+    "descripcion_base": "H-1B, TN y EB-3. Todo sobre peticiones migratorias de hospitales hacia extranjeras.",
     "idioma": "es-US"
   },
   "footer": {
     "empresa_legal": "Enfermera en Estados Unidos",
-    "direccion": "New York, NY 10001",
-    "email_contacto": "apply@vacantes-hospitales-usa.org"
+    "direccion": "Seattle, WA 98101",
+    "email_contacto": "tramites@visas-enfermeria-usa.net"
   },
   "menu_global": [
     {
@@ -20,11 +20,11 @@
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Estudio NCLEX",
+      "nombre": "Prep NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Vacantes USA",
+      "nombre": "Ofertas Trabajo",
       "ruta": "/vacantes"
     },
     {
@@ -32,32 +32,33 @@
       "ruta": "/visa"
     },
     {
-      "nombre": "Salario Real",
+      "nombre": "Sueldo Promedio",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Noticias",
+      "nombre": "Historias",
       "ruta": "/blog"
     },
     {
-      "nombre": "WhatsApp",
+      "nombre": "Soporte",
       "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Login",
+      "nombre": "Entrar",
       "ruta": "/login"
     }
   ],
-  "dominio": "https://vacantes-hospitales-usa.org",
-  "nav_footer_version": "v1",
+  "dominio": "https://visas-enfermeria-usa.net",
+  "nav_footer_version": "v2",
   "font_family": "Outfit",
+  "sidebar_pos": "left",
   "color_palette": {
-    "primary": "oklch(40% 0.12 150)",
-    "secondary": "oklch(55% 0.08 150)",
-    "accent": "oklch(88% 0.15 80)",
-    "text_bold": "oklch(20% 0.05 150)",
+    "primary": "oklch(35% 0.18 300)",
+    "secondary": "oklch(50% 0.14 300)",
+    "accent": "oklch(87% 0.12 180)",
+    "text_bold": "oklch(15% 0.08 300)",
     "meta": {
-      "name": "Deep Forest",
+      "name": "Royal Purple",
       "system": "OKLCH Premium v2"
     }
   }
