@@ -70,3 +70,10 @@ Antes de darlo por terminado:
 1. Crea una página de prueba (ej: `src/pages/test-nuevo.astro`).
 2. Verifica el diseño en desktop y mobile.
 3. Ejecuta una generación pequeña con `--cola` para ver si la IA lo elige correctamente.
+
+## 6. Reglas de Oro Anti-Rotura (Anti-Break Rules)
+Al crear nuevos componentes UI que serán alimentados por texto generado por IA, ten en cuenta:
+- **Resaltados de Texto**: Si usas estilos para resaltar texto (como un background de color), siempre aplica `box-decoration-break: clone;` y un `line-height` adecuado. La IA puede generar textos largos que se dividirán en varias líneas y esto evitará que el diseño colapse.
+- **Tamaño de Íconos SVG**: La IA a menudo inyecta íconos `<svg>` sin atributos `width` o `height`. Asegúrate de que el contenedor del SVG o una regla global en CSS limite su tamaño máximo (por ejemplo, `max-width: 24px`).
+- **Texto Impredecible**: Nunca asumas una longitud fija para los títulos o descripciones. Usa flexbox o añade paddings protectores (por ejemplo, `padding-bottom`) si usas posicionamiento absoluto dentro de las tarjetas para asegurar que el texto nunca cubra los botones o íconos importantes.
+- **Scroll Horizontal Seguros**: Si utilizas `overflow-x-auto` para carruseles o grids, siempre añade un `padding-right` para evitar que el último elemento quede cortado en los bordes de la pantalla (especialmente en móviles).

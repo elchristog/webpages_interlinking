@@ -77,7 +77,7 @@ Si deseas agregar nuevos elementos visuales (Heros, Tarjetas, Secciones):
 2. Define los estilos en `plantilla_astro_maestra/src/styles/global.css` (usa Vanilla CSS).
 3. Registra el nuevo componente en `generador_prompts.py` para que la IA sepa cómo usarlo.
 
-Consulta `GUIA_EXPANSION_UI.md` para ver el detalle técnico paso a paso.
+¡IMPORTANTE! Dado que la IA genera textos de longitudes variables, los diseños deben ser altamente adaptables. Consulta `GUIA_EXPANSION_UI.md` para ver el detalle técnico paso a paso y la sección "Reglas de Oro Anti-Rotura" para evitar desbordamientos y problemas en dispositivos móviles.
 
 ---------------------------------------------------------
  6. REVISAR EL RESULTADO

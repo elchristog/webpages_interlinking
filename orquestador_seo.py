@@ -138,11 +138,43 @@ def generar_paleta_aleatoria(sitio_id):
         }
     }
 
-def limpiar_indices(ruta_proyecto):
-    ruta_index = os.path.join(ruta_proyecto, 'src', 'content', 'index.md')
-    if os.path.exists(ruta_index):
-        os.remove(ruta_index)
-        print(f"[*] Index anterior eliminado en {ruta_proyecto}")
+def gestionar_estado_contenido(sitio_id, ruta_proyecto, ruta_base, nombre_proyecto, modo_propagar):
+    """
+    Restaura el estado de src/content/ desde el backup de este sitio específico,
+    o lo limpia completamente si es una generación desde cero.
+    """
+    ruta_src_content = os.path.join(ruta_proyecto, 'src', 'content')
+    ruta_backup = os.path.join(ruta_base, 'sitios_generados', nombre_proyecto, sitio_id, 'md_backup')
+    
+    # Siempre limpiar la carpeta template src/content para que no haya cruces entre sitios
+    if os.path.exists(ruta_src_content):
+        shutil.rmtree(ruta_src_content)
+    os.makedirs(ruta_src_content, exist_ok=True)
+    
+    if modo_propagar:
+        # Si estamos propagando (añadiendo pagina), restaurar el backup
+        if os.path.exists(ruta_backup):
+            shutil.copytree(ruta_backup, ruta_src_content, dirs_exist_ok=True)
+            print(f"[+] Estado de contenido restaurado para {sitio_id}")
+    else:
+        # Si es generación base, borrar el backup si existe para empezar limpio
+        if os.path.exists(ruta_backup):
+            shutil.rmtree(ruta_backup)
+
+def respaldar_estado_contenido(sitio_id, ruta_proyecto, ruta_base, nombre_proyecto):
+    """
+    Guarda todo src/content/ actual en la carpeta de backup del sitio específico
+    antes de la compilación.
+    """
+    ruta_src_content = os.path.join(ruta_proyecto, 'src', 'content')
+    ruta_backup = os.path.join(ruta_base, 'sitios_generados', nombre_proyecto, sitio_id, 'md_backup')
+    
+    if os.path.exists(ruta_src_content):
+        if os.path.exists(ruta_backup):
+            shutil.rmtree(ruta_backup)
+        shutil.copytree(ruta_src_content, ruta_backup, dirs_exist_ok=True)
+        print(f"[+] Estado de contenido respaldado para {sitio_id}")
+
 
 def generar_contenido_ia(sitio_id, nicho, palabras_clave, ruta_proyecto, modo="articulo", contenido_base=None, slug_override=None, nombre_sitio="este sitio", nombre_empresa="Enfermera en Estados Unidos"):
     """Llama a Gemini para generar el artículo o la home en formato Markdown."""
@@ -266,12 +298,7 @@ def procesar_imagenes_seo(sitio_id, nicho, md_content, ruta_recursos, ruta_proye
 
     return md_content
 
-def limpiar_markdowns(ruta_proyecto):
-    ruta_dir = os.path.join(ruta_proyecto, 'src', 'content', 'articulos')
-    if os.path.exists(ruta_dir):
-        for f in os.listdir(ruta_dir):
-            if f.endswith(".md"):
-                os.remove(os.path.join(ruta_dir, f))
+# Función de limpiar_markdowns eliminada porque gestionar_estado_contenido maneja la limpieza.
 
 def post_procesar_rutas_locales(ruta_persistente):
     """Convierte rutas absolutas en relativas para previsualización local."""
@@ -310,19 +337,8 @@ def compilar_y_persistir(sitio_id, ruta_proyecto, ruta_base, nombre_proyecto):
     
     # Mover dist a la carpeta persistente
     dist_path = os.path.join(ruta_proyecto, 'dist')
-    if os.path.exists(ruta_persistente):
-        # SI la carpeta existe, no la borramos completa para no perder el MD si ya estaba
-        pass
-    else:
+    if not os.path.exists(ruta_persistente):
         os.makedirs(ruta_persistente, exist_ok=True)
-    
-    # [NUEVO] Persistir el Markdown original para revisión manual si falla el build
-    ruta_md_origen = os.path.join(ruta_proyecto, 'src', 'content', 'index.md')
-    if os.path.exists(ruta_md_origen):
-        shutil.copy2(ruta_md_origen, os.path.join(ruta_persistente, "index.md"))
-        print(f"[Backup MD] index.md guardado en {ruta_persistente}")
-
-    subprocess.run(comando_build, cwd=ruta_proyecto, shell=True)
     
     if os.path.exists(dist_path):
         shutil.copytree(dist_path, ruta_persistente, dirs_exist_ok=True)
@@ -488,6 +504,9 @@ def procesar_sitio(sitio, config_global, config_menus, ruta_proyecto_config, rut
     
     escribir_config_inyectada(sitio['ruta_astro'], configuracion_actual)
 
+    # NUEVO: Gestionar estado
+    gestionar_estado_contenido(sitio_id, sitio['ruta_astro'], ruta_base, nombre_proyecto, modo_propagar)
+
     if modo_propagar:
         # Modo propagación dirigida
         print(f"[*] Propagando {modo_propagar} para {sitio_id}...")
@@ -509,16 +528,16 @@ def procesar_sitio(sitio, config_global, config_menus, ruta_proyecto_config, rut
         guardar_markdown(sitio['ruta_astro'], contenido_ia, slug_final, modo=modo_propagar)
     else:
         # Modo generación base/bulk
-        limpiar_markdowns(sitio['ruta_astro'])
-        limpiar_indices(sitio['ruta_astro'])
-        
         print(f"[*] Generando artículo inicial para {sitio_id}...")
         markdown_ia, slug_generado = generar_contenido_ia(sitio_id, sitio['nicho'], sitio['palabras_clave'], ruta_proyecto_config, modo="articulo")
         
         # PROCESAR IMÁGENES SEO (Incluso en base si hubiera, aunque usualmente no hay en base)
         markdown_ia = procesar_imagenes_seo(sitio_id, sitio['nicho'], markdown_ia, ruta_recursos, sitio['ruta_astro'])
         
-        guardar_markdown(sitio['ruta_astro'], markdown_ia, slug_generado)
+        guardar_markdown(sitio['ruta_astro'], markdown_ia, slug_generado, modo="articulo")
+    
+    # NUEVO: Respaldar estado antes de compilar
+    respaldar_estado_contenido(sitio_id, sitio['ruta_astro'], ruta_base, nombre_proyecto)
     
     compilar_y_persistir(sitio_id, sitio['ruta_astro'], ruta_base, nombre_proyecto)
     return {"id": sitio_id, "dominio": configuracion_actual["dominio"]}

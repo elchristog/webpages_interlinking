@@ -100,6 +100,10 @@
     background-color: color-mix(in oklch, var(--color-primary), transparent 85%);
     color: var(--color-text-bold);
     border-bottom: 2px solid color-mix(in oklch, var(--color-primary), transparent 50%);
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    line-height: 1.6;
+    display: inline;
 }
 
 /* Force high contrast when nested in dark sections */
@@ -166,6 +170,13 @@
    These classes are used by the AI-generated content to create modern, 
    dynamic, and visually appealing sections beyond simple text.
 */
+
+/* Restrict oversized SVGs from AI generation */
+[class^="ui-"] svg:not([class*="w-"]):not([class*="icon-arrow"]) { 
+    max-width: 24px; 
+    max-height: 24px; 
+    display: inline-block; 
+}
 
 /* Premium Card */
 .ui-card {
@@ -854,6 +865,7 @@ body {
 
 .scrolling-card .card-content {
     @apply text-left;
+    padding-bottom: 3.5rem; /* Ensure text doesn't overlap with the absolute positioned plus button */
 }
 
 .scrolling-card .card-category {
@@ -1106,6 +1118,7 @@ body {
     @apply flex overflow-x-auto pb-12 gap-6 snap-x snap-mandatory;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+    padding-right: 1.5rem; /* Ensure last item is not cut off */
 }
 .ui-apple-product-cards-container .product-cards-grid::-webkit-scrollbar {
     display: none;
