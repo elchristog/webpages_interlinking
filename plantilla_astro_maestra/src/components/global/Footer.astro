@@ -1,7 +1,6 @@
 ---
 import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
-import Button from "@/components/fundations/elements/Button.astro";
 import config from "@/data/config_inyectada.json";
 
 const footerLinks = [
@@ -14,27 +13,40 @@ const footerLinks = [
 const anioActual = new Date().getFullYear();
 ---
 
-<footer class="relative mt-20">
-  <Wrapper variant="standard" class="py-8">
-    <div
-      class="items-start pt-12 mt-12 tracking-tight border-t grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-24 border-base-200"
-    >
-      <div class="items-start tracking-tight grid grid-cols-2 gap-x-8 gap-y-12">
+<footer class="relative mt-32 border-t border-base-200 bg-white">
+  <Wrapper variant="standard" class="py-16 md:py-24">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8">
+      {/* Brand Column */}
+      <div class="md:col-span-5 lg:col-span-4 flex flex-col items-start">
+        <Text
+          tag="h2"
+          variant="displaySM"
+          class="text-base-900 font-bold tracking-tight"
+        >
+          {config.nombre_sitio}
+        </Text>
+        <Text tag="p" variant="textSM" class="text-base-500 mt-4 max-w-sm leading-relaxed">
+          {config.seo.descripcion_base}
+        </Text>
+      </div>
+
+      {/* Navigation Columns */}
+      <div class="md:col-span-7 lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-8">
         {
           footerLinks.map((section) => (
             <div>
               <Text
                 tag="h3"
-                variant="textBase"
-                class="font-medium text-base-600"
+                variant="textSM"
+                class="font-semibold text-base-900 uppercase tracking-wider"
               >
                 {section.title}
               </Text>
-              <ul role="list" class="mt-4 space-y-2">
+              <ul role="list" class="mt-6 space-y-4">
                 {section.links.map((link) => (
                   <li>
                     <a
-                      class="text-base-500  hover:text-base-800"
+                      class="text-sm text-base-500 hover:text-[var(--color-primary)] transition-colors font-medium"
                       href={link.ruta}
                     >
                       {link.nombre}
@@ -46,39 +58,43 @@ const anioActual = new Date().getFullYear();
           ))
         }
         <div>
-           <Text
-                tag="h3"
-                variant="textBase"
-                class="font-medium text-base-600"
-              >
-                Legal
-              </Text>
-              <ul role="list" class="mt-4 space-y-2">
-                 <li><a class="text-base-500 hover:text-base-800" href="/politica-de-privacidad">Privacidad</a></li>
-                 <li><a class="text-base-500 hover:text-base-800" href="/terminos">Términos</a></li>
-              </ul>
+          <Text
+            tag="h3"
+            variant="textSM"
+            class="font-semibold text-base-900 uppercase tracking-wider"
+          >
+            Legal
+          </Text>
+          <ul role="list" class="mt-6 space-y-4">
+             <li><a class="text-sm text-base-500 hover:text-[var(--color-primary)] transition-colors font-medium" href="/politica-de-privacidad">Privacidad</a></li>
+             <li><a class="text-sm text-base-500 hover:text-[var(--color-primary)] transition-colors font-medium" href="/terminos">Términos</a></li>
+          </ul>
+        </div>
+        <div>
+          <Text
+            tag="h3"
+            variant="textSM"
+            class="font-semibold text-base-900 uppercase tracking-wider"
+          >
+            Contacto
+          </Text>
+          <ul role="list" class="mt-6 space-y-4">
+             <li><span class="text-sm text-base-500">{config.footer.email_contacto}</span></li>
+             <li><span class="text-sm text-base-500">{config.footer.direccion}</span></li>
+          </ul>
         </div>
       </div>
-      <div class="flex flex-col justify-between h-full p-8 bg-base-50">
-        <Text
-          tag="p"
-          variant="displaySM"
-          class="md:max-w-sm text-base-800 text-balance font-medium"
-          >{config.nombre_sitio}</Text
-        >
-        <Text tag="p" variant="textSM" class="text-base-500 mt-2">
-          {config.seo.descripcion_base}
-        </Text>
-
-        <div class="mt-8">
-           <Text tag="p" variant="textXS" class="text-base-500">
-             © {anioActual} {config.footer.empresa_legal}. {config.footer.direccion}
-           </Text>
-           <Text tag="p" variant="textXS" class="text-base-500 mt-1">
-             {config.footer.email_contacto}
-           </Text>
-        </div>
+    </div>
+    
+    {/* Bottom Bar */}
+    <div class="mt-16 pt-8 border-t border-base-100 flex flex-col md:flex-row items-center justify-between gap-4">
+      <Text tag="p" variant="textSM" class="text-base-400">
+        &copy; {anioActual} {config.footer.empresa_legal}. Todos los derechos reservados.
+      </Text>
+      <div class="flex items-center gap-4 text-base-400 text-sm">
+        <span>Construido con excelencia.</span>
       </div>
     </div>
   </Wrapper>
 </footer>
+

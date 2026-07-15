@@ -11,73 +11,98 @@ import config from "@/data/config_inyectada.json";
 const menuItems = config.menu_global || [];
 ---
 
-<header class="fixed z-50 w-full top-4 md:px-12">
-  <div class="px-8 md:px-0 mx-auto 2xl:px-12 max-w-screen 2xl:max-w-[1440px]">
-    <div
-      class="flex flex-col w-full bg-white md:items-center md:justify-between md:flex-row outline outline-base-200"
-    >
-      <div class="flex flex-row items-center justify-between w-full md:w-auto">
+<header class="fixed z-50 w-full top-0 left-0 bg-white/80 backdrop-blur-md border-b border-base-200 shadow-sm transition-all duration-300">
+  <div class="px-4 md:px-8 mx-auto max-w-7xl">
+    <div class="flex items-center justify-between h-16 md:h-20">
+      <!-- Logo Area -->
+      <div class="flex-shrink-0 flex items-center">
         <a
           href="/"
-          class="font-mono text-base font-bold uppercase bg-[var(--color-primary)]"
+          class="flex items-center gap-2 group transition-opacity hover:opacity-80"
           aria-label="Home"
         >
-          <Logo class="h-full p-2 text-white size-11" />
+          <div class="bg-[var(--color-primary)] rounded-lg p-2 flex items-center justify-center">
+            <Logo class="w-6 h-6 text-white" />
+          </div>
+          <span class="font-bold text-lg tracking-tight text-base-900 hidden xl:block truncate max-w-[250px]">
+            {config.nombre_sitio || "Enfermera EE.UU."}
+          </span>
         </a>
-        <button
-          class="relative z-50 text-white bg-[var(--color-primary)] md:hidden focus:outline-none focus:shadow-outline size-11"
-          aria-label="Toggle navigation menu"
-          id="navToggle"
-        >
-          <span class="sr-only">Toggle navigation</span>
-          <svg
-            class="mx-auto size-7"
-            stroke="currentColor"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <path id="menuIcon" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"
-            ></path>
-            <path
-              id="closeIcon"
-              class="hidden"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
       </div>
-      <!-- Fullscreen nav on mobile -->
-      <nav
-        id="navMenu"
-        class="fixed inset-0 z-40 flex-col hidden w-full p-8 mt-20 bg-white md:mt-0 md:p-0 md:border-l md:border-base-200 md:items-center md:justify-end gap-2 md:gap-px sm:relative md:flex md:flex-row md:bg-transparent md:static"
-        role="navigation"
-        aria-label="Main navigation"
-      >
-        <div class="flex flex-col md:flex-row items-center gap-4 md:gap-6 w-full md:w-auto">
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center justify-center gap-4 xl:gap-8 flex-1 px-4 overflow-hidden" aria-label="Main navigation">
         {
           menuItems.map((item) => (
             <a
               href={item.ruta}
-              class="text-sm font-medium text-base-600 hover:text-[var(--color-primary)] transition-colors py-2 md:py-0 w-full md:w-auto text-center"
+              class="text-sm font-medium text-base-600 hover:text-[var(--color-primary)] transition-colors whitespace-nowrap"
             >
               {item.nombre}
             </a>
           ))
         }
-        </div>
+      </nav>
 
+      <!-- CTA & Mobile Toggle -->
+      <div class="flex items-center gap-4 flex-shrink-0">
+        <div class="hidden sm:block">
+          <Button
+            isLink
+            href="/"
+            size="md"
+            variant="default"
+            class="bg-black text-white px-5 xl:px-6 rounded-full font-medium tracking-tight shadow-md hover:shadow-lg transition-all hover:scale-105 whitespace-nowrap"
+          >
+            Contactar
+          </Button>
+        </div>
+        
+        <button
+          class="lg:hidden relative z-50 p-2 text-base-600 hover:text-[var(--color-primary)] focus:outline-none transition-colors rounded-md hover:bg-base-100"
+          aria-label="Toggle navigation menu"
+          id="navToggle"
+        >
+          <span class="sr-only">Toggle navigation</span>
+          <svg class="w-6 h-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+            <path id="menuIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            <path id="closeIcon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div
+    id="navMenu"
+    class="fixed inset-0 top-[64px] z-40 hidden flex-col w-full bg-white/95 backdrop-blur-xl h-[calc(100vh-64px)] overflow-y-auto px-6 py-8 border-t border-base-200"
+  >
+    <div class="flex flex-col gap-6 w-full">
+      {
+        menuItems.map((item) => (
+          <a
+            href={item.ruta}
+            class="text-xl font-semibold text-base-900 hover:text-[var(--color-primary)] transition-colors pb-4 border-b border-base-100 w-full"
+          >
+            {item.nombre}
+          </a>
+        ))
+      }
+      <div class="pt-4">
         <Button
           isLink
           href="/"
-          size="md"
+          size="lg"
           variant="default"
-          class="bg-black text-white px-6"
+          class="w-full bg-[var(--color-primary)] text-white rounded-xl shadow-md text-center py-4 text-lg font-semibold"
         >
-          Contactar
+          Contactar Ahora
         </Button>
-      </nav>
+      </div>
     </div>
   </div>
+
   <script type="module">
     document.addEventListener("DOMContentLoaded", function () {
       const toggle = document.getElementById("navToggle");
@@ -85,13 +110,33 @@ const menuItems = config.menu_global || [];
       const menuIcon = document.getElementById("menuIcon");
       const closeIcon = document.getElementById("closeIcon");
 
-      // Mobile menu toggle
-      toggle.addEventListener("click", () => {
-        const isOpen = nav.classList.contains("flex");
-        nav.classList.toggle("hidden", isOpen);
-        nav.classList.toggle("flex", !isOpen);
-        menuIcon.classList.toggle("hidden", !isOpen);
-        closeIcon.classList.toggle("hidden", isOpen);
+      if(toggle && nav) {
+        toggle.addEventListener("click", () => {
+          const isHidden = nav.classList.contains("hidden");
+          nav.classList.toggle("hidden", !isHidden);
+          nav.classList.toggle("flex", isHidden);
+          menuIcon.classList.toggle("hidden", isHidden);
+          closeIcon.classList.toggle("hidden", !isHidden);
+          document.body.style.overflow = isHidden ? "hidden" : "";
+        });
+      }
+
+      // Auto-fix raw markdown links that AI might have injected in plain text
+      const walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+      let n;
+      const nodesToReplace = [];
+      while ((n = walk.nextNode())) {
+        if (n.nodeValue.includes("[") && n.nodeValue.includes("](")) {
+          nodesToReplace.push(n);
+        }
+      }
+      nodesToReplace.forEach(node => {
+        const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
+        if(regex.test(node.nodeValue)) {
+          const span = document.createElement('span');
+          span.innerHTML = node.nodeValue.replace(regex, '<a href="$2" class="text-[var(--color-primary)] underline hover:text-[var(--color-accent)]">$1</a>');
+          node.parentNode.replaceChild(span, node);
+        }
       });
     });
   </script>

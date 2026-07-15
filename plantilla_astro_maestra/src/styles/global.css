@@ -96,21 +96,26 @@
 }
 
 .ui-highlight {
-    @apply font-bold px-1.5 py-0.5 rounded-sm;
-    background-color: color-mix(in oklch, var(--color-primary), transparent 85%);
+    @apply font-bold px-2 py-0.5 rounded-md relative z-10;
     color: var(--color-text-bold);
-    border-bottom: 2px solid color-mix(in oklch, var(--color-primary), transparent 50%);
+    background-color: color-mix(in oklch, var(--color-primary), transparent 85%);
+    box-shadow: inset 0 -4px 0 color-mix(in oklch, var(--color-primary), transparent 60%);
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
     line-height: 1.6;
     display: inline;
 }
 
-/* Force high contrast when nested in dark sections */
-.ui-section-dark .ui-highlight, .ui-section-accent .ui-highlight, .ui-hero-full .ui-highlight {
-    background-color: rgba(0,0,0,0.1);
-    color: var(--color-text-bold) !important;
-    border-bottom-color: var(--color-text-bold);
+/* Force high contrast when nested in dark sections or dark presets */
+.ui-section-dark .ui-highlight, 
+.ui-section-accent .ui-highlight, 
+.ui-hero-full .ui-highlight,
+.ui-preset--emerald .ui-highlight,
+.ui-preset--midnight .ui-highlight,
+.ui-preset--professional .ui-highlight {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff !important;
+    box-shadow: inset 0 -4px 0 rgba(255, 255, 255, 0.3);
 }
 
 .ui-divider {
@@ -180,25 +185,25 @@
 
 /* Premium Card */
 .ui-card {
-  @apply bg-white border border-base-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 my-8;
+  @apply bg-white border border-base-200 rounded-3xl p-8 shadow-xl shadow-base-900/5 hover:shadow-2xl transition-all duration-300 my-8;
 }
 
 .ui-card h3, .ui-card h4 {
-  @apply mt-0 font-serif;
+  @apply mt-0 font-bold tracking-tight;
   color: var(--color-accent);
 }
 
 /* 2-Column Grid for Text + Image */
 .ui-grid-2 {
-  @apply grid grid-cols-1 md:grid-cols-2 gap-8 items-center my-12;
+  @apply grid grid-cols-1 md:grid-cols-2 gap-12 items-center my-16;
 }
 
 .ui-grid-2 .ui-image-side {
-  @apply rounded-xl overflow-hidden shadow-lg;
+  @apply rounded-3xl overflow-hidden shadow-2xl shadow-base-900/10 min-h-[300px] bg-base-100 flex items-center justify-center;
 }
 
 .ui-grid-2 .ui-image-side img {
-  @apply w-full h-auto object-cover m-0;
+  @apply w-full h-auto object-cover m-0 min-h-[300px];
 }
 
 /* Styled Comparison Table */
@@ -2221,11 +2226,11 @@ body {
 }
 
 .faq-item {
-  background-color: #fff;
-  border-radius: 1rem;
+  background-color: var(--ui-bg-card, #ffffff);
+  border-radius: 1.5rem;
   overflow: hidden;
   border: 1px solid rgba(0,0,0,0.05);
-  transition: box-shadow 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .faq-item[open] {
@@ -2243,6 +2248,7 @@ body {
   justify-content: space-between;
   align-items: center;
   user-select: none;
+  color: var(--ui-text-main);
 }
 
 .faq-question::-webkit-details-marker {
@@ -2272,46 +2278,42 @@ body {
 }
 
 /* Preset Overrides: FAQ Accordion */
-.ui-faq-section.midnight, .ui-preset--midnight .ui-faq-section {
-  background-color: #121212;
+.ui-faq-section.midnight, .ui-preset--midnight .ui-faq-section,
+.ui-faq-section.emerald, .ui-preset--emerald .ui-faq-section,
+.ui-faq-section.professional, .ui-preset--professional .ui-faq-section {
   color: #fff;
 }
-.ui-faq-section.midnight .section-description, .ui-preset--midnight .ui-faq-section .section-description {
+.ui-preset--midnight .ui-faq-section .section-description,
+.ui-preset--emerald .ui-faq-section .section-description,
+.ui-preset--professional .ui-faq-section .section-description {
   color: #aaa;
 }
-.ui-faq-section.midnight .faq-item, .ui-preset--midnight .ui-faq-section .faq-item {
-  background-color: #1c1c1c;
-  border-color: rgba(255,255,255,0.05);
-}
-.ui-faq-section.midnight .faq-icon, .ui-preset--midnight .ui-faq-section .faq-icon {
-  color: #0fbcf9;
-}
-.ui-faq-section.midnight .faq-item[open], .ui-preset--midnight .ui-faq-section .faq-item[open] {
-  border-color: rgba(15, 188, 249, 0.3);
-}
-.ui-faq-section.midnight .faq-answer, .ui-preset--midnight .ui-faq-section .faq-answer {
-  color: #ccc;
-}
-
-.ui-faq-section.emerald, .ui-preset--emerald .ui-faq-section {
-  background-color: #032115;
+.ui-preset--midnight .ui-faq-section .faq-item,
+.ui-preset--emerald .ui-faq-section .faq-item,
+.ui-preset--professional .ui-faq-section .faq-item {
+  background-color: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.1);
   color: #fff;
 }
-.ui-faq-section.emerald .section-description, .ui-preset--emerald .ui-faq-section .section-description {
-  color: #aaa;
+.ui-preset--midnight .ui-faq-section .faq-item .faq-question,
+.ui-preset--emerald .ui-faq-section .faq-item .faq-question,
+.ui-preset--professional .ui-faq-section .faq-item .faq-question {
+  color: #fff;
 }
-.ui-faq-section.emerald .faq-item, .ui-preset--emerald .ui-faq-section .faq-item {
-  background-color: #053b27;
-  border-color: rgba(255,255,255,0.05);
+.ui-preset--midnight .ui-faq-section .faq-icon,
+.ui-preset--emerald .ui-faq-section .faq-icon,
+.ui-preset--professional .ui-faq-section .faq-icon {
+  color: #fff;
 }
-.ui-faq-section.emerald .faq-icon, .ui-preset--emerald .ui-faq-section .faq-icon {
-  color: #00d2d3;
+.ui-preset--midnight .ui-faq-section .faq-item[open],
+.ui-preset--emerald .ui-faq-section .faq-item[open],
+.ui-preset--professional .ui-faq-section .faq-item[open] {
+  border-color: rgba(255, 255, 255, 0.3);
 }
-.ui-faq-section.emerald .faq-item[open], .ui-preset--emerald .ui-faq-section .faq-item[open] {
-  border-color: rgba(0, 210, 211, 0.3);
-}
-.ui-faq-section.emerald .faq-answer, .ui-preset--emerald .ui-faq-section .faq-answer {
-  color: #ccc;
+.ui-preset--midnight .ui-faq-section .faq-answer,
+.ui-preset--emerald .ui-faq-section .faq-answer,
+.ui-preset--professional .ui-faq-section .faq-answer {
+  color: #e2e8f0;
 }
 
 @media (max-width: 900px) {
@@ -3167,4 +3169,43 @@ body {
   .prop-card {
     padding: 2.5rem 1.5rem;
   }
+}
+
+/* GLOBAL DARK PRESET OVERRIDES FOR CARDS */
+.ui-preset--midnight .apple-product-card, .ui-preset--emerald .apple-product-card, .ui-preset--professional .apple-product-card,
+.ui-preset--midnight .insight-card, .ui-preset--emerald .insight-card, .ui-preset--professional .insight-card,
+.ui-preset--midnight .feature-card, .ui-preset--emerald .feature-card, .ui-preset--professional .feature-card,
+.ui-preset--midnight .case-card, .ui-preset--emerald .case-card, .ui-preset--professional .case-card {
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+}
+
+.ui-preset--midnight .apple-product-card *, .ui-preset--emerald .apple-product-card *, .ui-preset--professional .apple-product-card *,
+.ui-preset--midnight .insight-card *, .ui-preset--emerald .insight-card *, .ui-preset--professional .insight-card *,
+.ui-preset--midnight .feature-card *, .ui-preset--emerald .feature-card *, .ui-preset--professional .feature-card *,
+.ui-preset--midnight .case-card *, .ui-preset--emerald .case-card *, .ui-preset--professional .case-card * {
+  color: #ffffff !important;
+}
+
+.ui-preset--midnight .apple-product-card .product-card-btn *, .ui-preset--emerald .apple-product-card .product-card-btn *, .ui-preset--professional .apple-product-card .product-card-btn *,
+.ui-preset--midnight .feature-card .card-btn *, .ui-preset--emerald .feature-card .card-btn *, .ui-preset--professional .feature-card .card-btn * {
+  color: inherit !important; 
+}
+
+/* FAQ answers fix for dark presets */
+.ui-preset--midnight .faq-answer, .ui-preset--emerald .faq-answer, .ui-preset--professional .faq-answer,
+.ui-preset--midnight .faq-answer *, .ui-preset--emerald .faq-answer *, .ui-preset--professional .faq-answer * {
+  color: #e2e8f0 !important;
+}
+
+/* Markdown inline links generated by AI */
+.ui-inline-link {
+  text-decoration: underline;
+  color: var(--color-primary, #0fbcf9);
+  font-weight: 500;
+}
+.ui-inline-link:hover {
+  text-decoration: none;
+  opacity: 0.8;
 }

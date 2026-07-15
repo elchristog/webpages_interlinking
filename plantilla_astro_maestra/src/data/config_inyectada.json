@@ -1,42 +1,42 @@
 {
-  "nombre_sitio": "Visado Enfermeras Pro",
-  "color_tema": "#880e4f",
+  "nombre_sitio": "Enfermería Florida Hoy",
+  "color_tema": "#FF5733",
   "comando_deploy": "firebase deploy --only hosting",
-  "layout": "LayoutB",
-  "gcp_project_id": "work-visa-fb-551",
+  "layout": "LayoutA",
+  "gcp_project_id": "fl-nurses-proj-rtx",
   "seo": {
-    "titulo_base": "Visas de Trabajo EB",
-    "descripcion_base": "H-1B, TN y EB-3. Todo sobre peticiones migratorias de hospitales hacia extranjeras.",
+    "titulo_base": "Ofertas Médicas FL",
+    "descripcion_base": "Encuentra salarios, empleos y oportunidades con sponsor para enfermeras extranjeras en Miami, Tampa y Florida.",
     "idioma": "es-US"
   },
   "footer": {
     "empresa_legal": "Enfermera en Estados Unidos",
-    "direccion": "Seattle, WA 98101",
-    "email_contacto": "tramites@visas-enfermeria-usa.net"
+    "direccion": "Zephyrhills, FL 33541",
+    "email_contacto": "info@enfermeriafloridahoy.com"
   },
   "menu_global": [
     {
-      "nombre": "Revalidar Meta",
+      "nombre": "Validar Título",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Prep NCLEX",
+      "nombre": "Superar NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Ofertas Trabajo",
+      "nombre": "Bolsa Empleo",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Visa Trabajo",
+      "nombre": "Trámite EB3",
       "ruta": "/visa"
     },
     {
-      "nombre": "Sueldo Promedio",
+      "nombre": "Sueldos USA",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Historias",
+      "nombre": "Casos Éxito",
       "ruta": "/blog"
     },
     {
@@ -48,18 +48,17 @@
       "ruta": "/login"
     }
   ],
-  "dominio": "https://visas-enfermeria-usa.net",
-  "nav_footer_version": "v2",
-  "font_family": "Outfit",
-  "sidebar_pos": "left",
+  "dominio": "https://enfermerasflorida.net",
+  "font_family": "Roboto",
   "color_palette": {
-    "primary": "oklch(35% 0.18 300)",
-    "secondary": "oklch(50% 0.14 300)",
-    "accent": "oklch(87% 0.12 180)",
-    "text_bold": "oklch(15% 0.08 300)",
+    "primary": "oklch(40% 0.12 150)",
+    "secondary": "oklch(55% 0.08 150)",
+    "accent": "oklch(88% 0.15 80)",
+    "text_bold": "oklch(20% 0.05 150)",
     "meta": {
-      "name": "Royal Purple",
+      "name": "Deep Forest",
       "system": "OKLCH Premium v2"
     }
-  }
+  },
+  "nav_footer_version": "v2"
 }

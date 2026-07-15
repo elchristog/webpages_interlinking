@@ -249,7 +249,9 @@ def guardar_markdown(ruta_proyecto, contenido_md, slug, modo="articulo"):
         else:
             lineas_limpias.append(linea)
     
+    import re
     contenido_limpio = '\n'.join(lineas_limpias)
+    contenido_limpio = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2" target="_blank" rel="noopener noreferrer" class="ui-inline-link">\1</a>', contenido_limpio)
 
     with open(ruta_destino, 'w', encoding='utf-8') as f:
         f.write(contenido_limpio)
