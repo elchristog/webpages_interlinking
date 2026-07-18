@@ -12,6 +12,7 @@ from generador_interlinking import decidir_si_enlazar, obtener_url_objetivo, obt
 import sys
 import argparse
 import urllib.request
+from PIL import Image
 import colorsys
 import time
 
@@ -194,7 +195,8 @@ def generar_contenido_ia(sitio_id, nicho, palabras_clave, ruta_proyecto, modo="a
     if os.path.exists(ruta_imagenes):
         for img in os.listdir(ruta_imagenes):
             if img.lower().endswith(('.png', '.jpg', '.jpeg', '.webp', '.svg')):
-                imagenes_proyecto.append(f"/imagenes_proyecto/{img}")
+                base_name = os.path.splitext(img)[0]
+                imagenes_proyecto.append(f"/imagenes_proyecto/{base_name}.webp")
                 
     prompt = generar_prompt_antidetencion(nicho, palabras_clave, url_destino, anchor, url_outbound=url_outbound, modo=modo, contenido_base=contenido_base, nombre_sitio=nombre_sitio, nombre_empresa=nombre_empresa, imagenes_proyecto=imagenes_proyecto)
     
@@ -342,11 +344,29 @@ def compilar_y_persistir(sitio_id, ruta_proyecto, ruta_base, nombre_proyecto):
     os.makedirs(ruta_sitios, exist_ok=True)
     ruta_persistente = os.path.join(ruta_sitios, sitio_id)
     
-    # Copiar imágenes del proyecto a la carpeta public de Astro
+    # Copiar e intentar convertir imágenes del proyecto a la carpeta public de Astro
     ruta_imagenes = os.path.join(ruta_base, 'proyectos', nombre_proyecto, 'imagenes')
     ruta_public_imagenes = os.path.join(ruta_proyecto, 'public', 'imagenes_proyecto')
+    
+    if os.path.exists(ruta_public_imagenes):
+        shutil.rmtree(ruta_public_imagenes)
+        
     if os.path.exists(ruta_imagenes):
-        shutil.copytree(ruta_imagenes, ruta_public_imagenes, dirs_exist_ok=True)
+        os.makedirs(ruta_public_imagenes, exist_ok=True)
+        for img in os.listdir(ruta_imagenes):
+            if img.lower().endswith(('.png', '.jpg', '.jpeg', '.webp', '.svg')):
+                src_path = os.path.join(ruta_imagenes, img)
+                base_name = os.path.splitext(img)[0]
+                dst_path = os.path.join(ruta_public_imagenes, f"{base_name}.webp")
+                
+                try:
+                    with Image.open(src_path) as im:
+                        if im.mode in ("RGBA", "P"):
+                            im = im.convert("RGB")
+                        im.save(dst_path, "webp", quality=85)
+                except Exception as e:
+                    print(f"[-] Error al convertir {img} a webp: {e}")
+                    shutil.copy2(src_path, dst_path)
     
     print(f"[*] Compilando Astro para {sitio_id}...")
     comando_build = "npm run build"
