@@ -16,7 +16,7 @@
   },
   "menu_global": [
     {
-      "nombre": "Validar Título",
+      "nombre": "Validar Diploma",
       "ruta": "/homologacion"
     },
     {
@@ -24,7 +24,7 @@
       "ruta": "/nclex"
     },
     {
-      "nombre": "Bolsa Empleo",
+      "nombre": "Vacantes USA",
       "ruta": "/vacantes"
     },
     {
@@ -32,19 +32,19 @@
       "ruta": "/visa"
     },
     {
-      "nombre": "Sueldos USA",
+      "nombre": "Tablas Sueldos",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Casos Éxito",
+      "nombre": "Novedades",
       "ruta": "/blog"
     },
     {
-      "nombre": "Soporte",
+      "nombre": "Ayuda Chat",
       "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Entrar",
+      "nombre": "Iniciar",
       "ruta": "/login"
     }
   ],
