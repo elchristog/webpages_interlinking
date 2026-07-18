@@ -16,19 +16,19 @@
   },
   "menu_global": [
     {
-      "nombre": "Homologar Título",
+      "nombre": "Proceso Grado",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Examen NCLEX",
+      "nombre": "Prep NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Puestos Libres",
+      "nombre": "Trabajo Hoy",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Green Card",
+      "nombre": "Visa Trabajo",
       "ruta": "/visa"
     },
     {
@@ -36,15 +36,15 @@
       "ruta": "/salarios"
     },
     {
-      "nombre": "Casos Éxito",
+      "nombre": "Blog Oficial",
       "ruta": "/blog"
     },
     {
-      "nombre": "Escríbenos",
+      "nombre": "Chat Directo",
       "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Mi Cuenta",
+      "nombre": "Portal RN",
       "ruta": "/login"
     }
   ],

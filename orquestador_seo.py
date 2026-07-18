@@ -18,6 +18,9 @@ import time
 
 load_dotenv()
 
+def generar_slug_nicho(nicho):
+    return re.sub(r'[^a-z0-9]+', '-', str(nicho).lower()).strip('-')
+
 # Variables globales para configuración dinámica
 config_logic = None
 premium_palettes = None
@@ -193,10 +196,10 @@ def generar_contenido_ia(sitio_id, nicho, palabras_clave, ruta_proyecto, modo="a
     ruta_imagenes = os.path.join(ruta_proyecto, 'imagenes')
     imagenes_proyecto = []
     if os.path.exists(ruta_imagenes):
-        for img in os.listdir(ruta_imagenes):
-            if img.lower().endswith(('.png', '.jpg', '.jpeg', '.webp', '.svg')):
-                base_name = os.path.splitext(img)[0]
-                imagenes_proyecto.append(f"/imagenes_proyecto/{base_name}.webp")
+        slug_nicho = generar_slug_nicho(nicho) if nicho else "imagen-seo"
+        archivos_img = sorted([f for f in os.listdir(ruta_imagenes) if f.lower().endswith(('.png', '.jpg', '.jpeg', '.webp', '.svg'))])
+        for i, img in enumerate(archivos_img):
+            imagenes_proyecto.append(f"/imagenes_proyecto/{slug_nicho}-{i+1}.webp")
                 
     prompt = generar_prompt_antidetencion(nicho, palabras_clave, url_destino, anchor, url_outbound=url_outbound, modo=modo, contenido_base=contenido_base, nombre_sitio=nombre_sitio, nombre_empresa=nombre_empresa, imagenes_proyecto=imagenes_proyecto)
     
@@ -338,7 +341,7 @@ def post_procesar_rutas_locales(ruta_persistente):
                 with open(ruta_archivo, 'w', encoding='utf-8') as f:
                     f.write(contenido)
 
-def compilar_y_persistir(sitio_id, ruta_proyecto, ruta_base, nombre_proyecto):
+def compilar_y_persistir(sitio_id, ruta_proyecto, ruta_base, nombre_proyecto, nicho=""):
     """Construye el sitio y lo mueve a una carpeta persistente para su visualización."""
     ruta_sitios = os.path.join(ruta_base, 'sitios_generados', nombre_proyecto)
     os.makedirs(ruta_sitios, exist_ok=True)
@@ -353,20 +356,20 @@ def compilar_y_persistir(sitio_id, ruta_proyecto, ruta_base, nombre_proyecto):
         
     if os.path.exists(ruta_imagenes):
         os.makedirs(ruta_public_imagenes, exist_ok=True)
-        for img in os.listdir(ruta_imagenes):
-            if img.lower().endswith(('.png', '.jpg', '.jpeg', '.webp', '.svg')):
-                src_path = os.path.join(ruta_imagenes, img)
-                base_name = os.path.splitext(img)[0]
-                dst_path = os.path.join(ruta_public_imagenes, f"{base_name}.webp")
-                
-                try:
-                    with Image.open(src_path) as im:
-                        if im.mode in ("RGBA", "P"):
-                            im = im.convert("RGB")
-                        im.save(dst_path, "webp", quality=85)
-                except Exception as e:
-                    print(f"[-] Error al convertir {img} a webp: {e}")
-                    shutil.copy2(src_path, dst_path)
+        slug_nicho = generar_slug_nicho(nicho) if nicho else "imagen-seo"
+        archivos_img = sorted([f for f in os.listdir(ruta_imagenes) if f.lower().endswith(('.png', '.jpg', '.jpeg', '.webp', '.svg'))])
+        for i, img in enumerate(archivos_img):
+            src_path = os.path.join(ruta_imagenes, img)
+            dst_path = os.path.join(ruta_public_imagenes, f"{slug_nicho}-{i+1}.webp")
+            
+            try:
+                with Image.open(src_path) as im:
+                    if im.mode in ("RGBA", "P"):
+                        im = im.convert("RGB")
+                    im.save(dst_path, "webp", quality=85)
+            except Exception as e:
+                print(f"[-] Error al convertir {img} a webp: {e}")
+                shutil.copy2(src_path, dst_path)
     
     print(f"[*] Compilando Astro para {sitio_id}...")
     comando_build = "npm run build"
@@ -576,7 +579,7 @@ def procesar_sitio(sitio, config_global, config_menus, ruta_proyecto_config, rut
     # NUEVO: Respaldar estado antes de compilar
     respaldar_estado_contenido(sitio_id, sitio['ruta_astro'], ruta_base, nombre_proyecto)
     
-    compilar_y_persistir(sitio_id, sitio['ruta_astro'], ruta_base, nombre_proyecto)
+    compilar_y_persistir(sitio_id, sitio['ruta_astro'], ruta_base, nombre_proyecto, sitio.get('nicho', ''))
     return {"id": sitio_id, "dominio": configuracion_actual["dominio"]}
 
 if __name__ == "__main__":
