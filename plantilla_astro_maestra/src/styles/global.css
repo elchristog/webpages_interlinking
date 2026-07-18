@@ -664,11 +664,11 @@ body {
 }
 
 .ui-hero-romuald .subtitle {
-  @apply text-base-300 text-xl md:text-2xl mb-8 max-w-2xl leading-relaxed opacity-90;
+  @apply text-white text-xl md:text-2xl mb-8 max-w-2xl leading-relaxed opacity-95 drop-shadow-sm;
 }
 
 .ui-hero-romuald .cta-text {
-  @apply text-base-400 text-lg mb-8 font-medium italic;
+  @apply text-white text-lg mb-8 font-medium italic opacity-95;
 }
 
 .ui-hero-romuald .btn {
