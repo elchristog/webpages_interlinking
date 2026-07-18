@@ -25,7 +25,7 @@ def inicializar_prompts(ruta_proyecto="."):
     else:
         raise FileNotFoundError(f"No se encontró config_prompts.json en {ruta_proyecto}")
 
-def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, anchor_text, url_outbound="https://wikipedia.org", modo="articulo", contenido_base=None, nombre_sitio="este sitio", nombre_empresa="Enfermera en Estados Unidos"):
+def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, anchor_text, url_outbound="https://wikipedia.org", modo="articulo", contenido_base=None, nombre_sitio="este sitio", nombre_empresa="Enfermera en Estados Unidos", imagenes_proyecto=None):
     """
     Construye un prompt hiper-específico rotando identidades y formatos estructurales
     para evadir la detección de contenido programático (AI Spam).
@@ -188,6 +188,20 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
 - **MANTÉN ETIQUETAS ABIERTAS**: Asegúrate de cerrar todos los <section>, <div> y <a>.
 """
 
+    if imagenes_proyecto and len(imagenes_proyecto) > 0:
+        lista_imgs_str = "\n".join([f"       - {img}" for img in imagenes_proyecto])
+        regla_imagenes = f"""    4. REGLA DE IMÁGENES LOCALES OBLIGATORIAS (PROYECTO PRIVADO): Tienes estrictamente PROHIBIDO usar imágenes de Unsplash, placeholder genéricos, inventar URLs o dejar etiquetas vacías. SIEMPRE que un componente UI requiera una imagen, DEBES usar EXCLUSIVAMENTE una de estas rutas (elige al azar entre ellas):
+{lista_imgs_str}
+       Si necesitas un ícono pequeño o un logo, usa: `https://via.placeholder.com/150/3d5a80/ffffff?text=Icono`"""
+    else:
+        regla_imagenes = """    4. REGLA DE IMÁGENES OBLIGATORIAS: SIEMPRE que un componente de UI o sección requiera una imagen (etiqueta <img>), es OBLIGATORIO que incluyas una. NUNCA inventes URLs y NUNCA la dejes vacía o sin imagen. DEBES usar EXCLUSIVAMENTE una de estas URLs estándar de la web pública (elige la que quieras):
+       - https://images.unsplash.com/photo-1584820927508-0138ffbc74e8?auto=format&fit=crop&w=800&q=80
+       - https://images.unsplash.com/photo-1551076805-e1869043e661?auto=format&fit=crop&w=800&q=80
+       - https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80
+       - https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=800&q=80
+       Si necesitas un ícono pequeño o un logo, usa: `https://via.placeholder.com/150/3d5a80/ffffff?text=Icono`"""
+
+
     prompt = f"""
     {persona_elegida}
     
@@ -208,6 +222,7 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
        - RITMO VISUAL: Alterna secciones de "Ancho Completo" con secciones de lectura estándar.
        - MULTI-COLUMNAS: Usa `ui-lifestyle-grid` (3 col con imágenes circulares) o `ui-value-props` (2 col minimalistas) para mostrar beneficios de forma premium. También puedes usar `ui-grid-3` o `ui-grid-4`.
     3. REGLA DE MARCA: El sitio web '{nombre_sitio}' pertenece a la empresa '{nombre_empresa}'. Siempre que te refieras a la organización detrás de la web, usa el nombre '{nombre_empresa}'.
+{regla_imagenes}
     **REGLA DE FORMATO**: 
     1. Escribe el contenido en español de alta calidad.
     2. Usa los componentes UI indicados (Hero, Accordion, etc.) con sus clases `ui-*`.

@@ -187,7 +187,16 @@ def generar_contenido_ia(sitio_id, nicho, palabras_clave, ruta_proyecto, modo="a
     anchor = obtener_anchor_text() if poner_enlace else "N/A"
 
     url_outbound = obtener_enlace_autoridad()
-    prompt = generar_prompt_antidetencion(nicho, palabras_clave, url_destino, anchor, url_outbound=url_outbound, modo=modo, contenido_base=contenido_base, nombre_sitio=nombre_sitio, nombre_empresa=nombre_empresa)
+    
+    # Check for local project images
+    ruta_imagenes = os.path.join(ruta_proyecto, 'imagenes')
+    imagenes_proyecto = []
+    if os.path.exists(ruta_imagenes):
+        for img in os.listdir(ruta_imagenes):
+            if img.lower().endswith(('.png', '.jpg', '.jpeg', '.webp', '.svg')):
+                imagenes_proyecto.append(f"/imagenes_proyecto/{img}")
+                
+    prompt = generar_prompt_antidetencion(nicho, palabras_clave, url_destino, anchor, url_outbound=url_outbound, modo=modo, contenido_base=contenido_base, nombre_sitio=nombre_sitio, nombre_empresa=nombre_empresa, imagenes_proyecto=imagenes_proyecto)
     
     respuesta = modelo.generate_content(prompt)
     content = respuesta.text
@@ -332,6 +341,12 @@ def compilar_y_persistir(sitio_id, ruta_proyecto, ruta_base, nombre_proyecto):
     ruta_sitios = os.path.join(ruta_base, 'sitios_generados', nombre_proyecto)
     os.makedirs(ruta_sitios, exist_ok=True)
     ruta_persistente = os.path.join(ruta_sitios, sitio_id)
+    
+    # Copiar imágenes del proyecto a la carpeta public de Astro
+    ruta_imagenes = os.path.join(ruta_base, 'proyectos', nombre_proyecto, 'imagenes')
+    ruta_public_imagenes = os.path.join(ruta_proyecto, 'public', 'imagenes_proyecto')
+    if os.path.exists(ruta_imagenes):
+        shutil.copytree(ruta_imagenes, ruta_public_imagenes, dirs_exist_ok=True)
     
     print(f"[*] Compilando Astro para {sitio_id}...")
     comando_build = "npm run build"
