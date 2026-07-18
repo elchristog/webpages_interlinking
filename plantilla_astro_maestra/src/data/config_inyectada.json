@@ -16,11 +16,11 @@
   },
   "menu_global": [
     {
-      "nombre": "Proceso Grado",
+      "nombre": "Diploma Online",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Prep NCLEX",
+      "nombre": "Estudio NCLEX",
       "ruta": "/nclex"
     },
     {
@@ -32,19 +32,19 @@
       "ruta": "/visa"
     },
     {
-      "nombre": "Tablas Sueldos",
+      "nombre": "Ingresos USA",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Blog Oficial",
+      "nombre": "Historias",
       "ruta": "/blog"
     },
     {
-      "nombre": "Chat Directo",
+      "nombre": "Hablar Asesor",
       "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Portal RN",
+      "nombre": "Mi Cuenta",
       "ruta": "/login"
     }
   ],
