@@ -129,34 +129,21 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
     # SELECCIÓN ESTRATÉGICA (El sistema elige basándose en compatibilidad)
     hero_elegido = random.choice(registry_ui["heroes"])
     
-    # El preset se elige según lo que el componente soporte para GARANTIZAR ACCESIBILIDAD
-    allowed_presets_hero = hero_elegido.get("allowed_presets", [])
-    if allowed_presets_hero:
-        preset_id = random.choice(allowed_presets_hero)
-        # Buscar el objeto preset completo
-        preset_elegido = next((p for p in registry_ui["presets"] if p["id"] == preset_id), registry_ui["presets"][0])
-    else:
-        preset_elegido = random.choice(registry_ui["presets"])
-
     utils_elegidas = random.sample(registry_ui.get("utilities", []), k=min(4, len(registry_ui.get("utilities", []))))
     sections_elegidas = registry_ui.get("sections", [])
 
     # Construir bloque de instrucciones UI para el prompt
-    prompt_componentes = f"SISTEMA DE DISEÑO SELECCIONADO (ACCESIBILIDAD GARANTIZADA):\n\n"
-    prompt_componentes += f"PRESET DE COLOR: {preset_elegido['id']} ({preset_elegido['name']})\n"
-    prompt_componentes += f"DESCRIPCIÓN PRESET: {preset_elegido['description']}\n\n"
-    
-    prompt_componentes += "DEBES USAR LOS SIGUIENTES COMPONENTES HTML EXACTOS:\n\n"
+    prompt_componentes = "DEBES USAR LOS SIGUIENTES COMPONENTES HTML EXACTOS:\n\n"
     
     # Inyectar Hero
-    hero_prompt = hero_elegido["prompt"].replace("{preset}", preset_elegido["id"])
+    hero_prompt = hero_elegido["prompt"].replace("{preset}", "").replace("  ", " ")
     prompt_componentes += f"1. {hero_prompt}\n\n"
     
     # Inyectar Utilidades
     for i, util in enumerate(utils_elegidas, 2):
         prompt_componentes += f"{i}. {util['prompt']}\n\n"
     
-    # Inyectar Secciones (Filtrar por compatibilidad con el preset elegido si aplica)
+    # Inyectar Secciones (Sin filtro de presets)
     contador_item = len(utils_elegidas) + 2
     
     # SHUFFLE SECTIONS to ensure all have a chance (Diversity in the PBN)
@@ -164,13 +151,7 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
     random.shuffle(sections_randomized)
     
     for sec in sections_randomized:
-        allowed = sec.get("allowed_presets", [])
-        # Si la sección tiene restricción de presets y el elegido NO está, saltamos 
-        # (o usamos el preset por defecto de la sección si es 'ui-section-sand' que no lleva)
-        if allowed and preset_elegido["id"] not in allowed:
-            continue
-            
-        sec_prompt = sec["prompt"].replace("{preset}", preset_elegido["id"])
+        sec_prompt = sec["prompt"].replace("{preset}", "").replace("  ", " ")
         prompt_componentes += f"{contador_item}. {sec_prompt}\n\n"
         contador_item += 1
 

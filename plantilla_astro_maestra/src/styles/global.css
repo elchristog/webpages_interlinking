@@ -638,21 +638,20 @@ body {
 
 /* Hero Premium Romuald Style */
 .ui-hero-romuald {
-  @apply relative min-h-[90vh] flex items-center overflow-hidden bg-base-950 rounded-3xl my-12;
+  @apply relative min-h-[90vh] flex items-center overflow-hidden bg-black rounded-3xl my-12 justify-center;
 }
 
 .ui-hero-romuald::before {
   content: "";
-  @apply absolute inset-0 bg-[url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-40 grayscale-[20%];
+  @apply absolute inset-0 bg-black/65 z-10;
 }
 
 .ui-hero-romuald::after {
-  content: "";
-  @apply absolute inset-0 bg-gradient-to-tr from-base-950 via-base-950/60 to-transparent;
+  display: none;
 }
 
 .ui-hero-romuald .hero-content {
-  @apply relative z-10 w-full max-w-4xl px-8 md:px-20 py-20 text-center md:text-left;
+  @apply relative z-20 w-full max-w-5xl px-8 md:px-20 py-20 text-center;
 }
 
 .ui-hero-romuald .badge {
@@ -664,7 +663,7 @@ body {
 }
 
 .ui-hero-romuald .subtitle {
-  @apply text-white text-xl md:text-2xl mb-8 max-w-2xl leading-relaxed opacity-95 drop-shadow-sm;
+  @apply text-white text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed opacity-95 drop-shadow-sm;
 }
 
 .ui-hero-romuald .cta-text {
@@ -676,11 +675,11 @@ body {
 }
 
 .ui-hero-romuald .hero-image {
-  @apply hidden lg:flex flex-1 justify-end pr-20 relative z-10;
+  @apply absolute inset-0 w-full h-full z-0 p-0 m-0 max-w-none flex-none block;
 }
 
 .ui-hero-romuald .hero-image img {
-  @apply w-full max-w-md object-contain drop-shadow-[0_35px_60px_rgba(0,0,0,0.8)] m-0;
+  @apply w-full h-full object-cover rounded-none drop-shadow-none m-0 max-w-none transition-transform duration-[2s] hover:scale-105;
 }
 
 /* Hero Performance Style (AMD Inspired) */
@@ -2684,7 +2683,7 @@ body {
 .highlight-title {
   font-size: 3rem;
   font-weight: 800;
-  color: var(--ui-text-main);
+  color: #111827 !important;
   line-height: 1.1;
   margin: 0;
   letter-spacing: -0.02em;
@@ -2693,43 +2692,11 @@ body {
 .highlight-description {
   font-size: 1.15rem;
   line-height: 1.6;
-  color: var(--ui-text-muted);
+  color: #4b5563 !important;
   margin-top: 1rem;
 }
 
-/* Preset Overrides: Product Highlight */
-.ui-product-highlight.midnight, .ui-preset--midnight .ui-product-highlight {
-  background-color: #000;
-}
-.ui-product-highlight.midnight .highlight-container, .ui-preset--midnight .ui-product-highlight .highlight-container {
-  background-color: #121212;
-  box-shadow: 0 10px 30px rgba(255,255,255,0.01);
-}
-.ui-product-highlight.midnight .highlight-title, .ui-preset--midnight .ui-product-highlight .highlight-title {
-  color: #fff;
-}
-.ui-product-highlight.midnight .highlight-description, .ui-preset--midnight .ui-product-highlight .highlight-description {
-  color: #9ca3af;
-}
-.ui-product-highlight.midnight .highlight-badge, .ui-preset--midnight .ui-product-highlight .highlight-badge {
-  color: #3b82f6; /* Blue for midnight */
-}
-
-.ui-product-highlight.emerald, .ui-preset--emerald .ui-product-highlight {
-  background-color: #01160e;
-}
-.ui-product-highlight.emerald .highlight-container, .ui-preset--emerald .ui-product-highlight .highlight-container {
-  background-color: #032115;
-}
-.ui-product-highlight.emerald .highlight-title, .ui-preset--emerald .ui-product-highlight .highlight-title {
-  color: #fff;
-}
-.ui-product-highlight.emerald .highlight-description, .ui-preset--emerald .ui-product-highlight .highlight-description {
-  color: #9ca3af;
-}
-.ui-product-highlight.emerald .highlight-badge, .ui-preset--emerald .ui-product-highlight .highlight-badge {
-  color: #10b981; /* Green for emerald */
-}
+/* Preset Overrides removed for Product Highlight to force light theme always */
 
 @media (max-width: 1024px) {
   .highlight-grid {
