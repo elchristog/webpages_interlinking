@@ -16,19 +16,19 @@
   },
   "menu_global": [
     {
-      "nombre": "Proceso Grado",
+      "nombre": "Título USA",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Estudio NCLEX",
+      "nombre": "Guía NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Buscar Trabajo",
+      "nombre": "Empleos RN",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Migrar Legal",
+      "nombre": "Trámite EB3",
       "ruta": "/visa"
     },
     {
@@ -36,11 +36,11 @@
       "ruta": "/salarios"
     },
     {
-      "nombre": "Noticias",
+      "nombre": "Casos Éxito",
       "ruta": "/blog"
     },
     {
-      "nombre": "Hablar Asesor",
+      "nombre": "Ayuda Chat",
       "ruta": "https://wa.me/something"
     },
     {
