@@ -16,27 +16,27 @@
   },
   "menu_global": [
     {
-      "nombre": "Diploma Online",
+      "nombre": "Título USA",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Estudio NCLEX",
+      "nombre": "Guía NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Trabajo Hoy",
+      "nombre": "Bolsa Empleo",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Visa Trabajo",
+      "nombre": "Migrar Legal",
       "ruta": "/visa"
     },
     {
-      "nombre": "Ingresos USA",
+      "nombre": "Sueldo Promedio",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Historias",
+      "nombre": "Actualidad",
       "ruta": "/blog"
     },
     {
@@ -44,7 +44,7 @@
       "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Mi Cuenta",
+      "nombre": "Entrar",
       "ruta": "/login"
     }
   ],
