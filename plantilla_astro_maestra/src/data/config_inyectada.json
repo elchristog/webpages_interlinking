@@ -16,15 +16,15 @@
   },
   "menu_global": [
     {
-      "nombre": "Título USA",
+      "nombre": "Proceso Grado",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Guía NCLEX",
+      "nombre": "Estudio NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Bolsa Empleo",
+      "nombre": "Buscar Trabajo",
       "ruta": "/vacantes"
     },
     {
@@ -32,11 +32,11 @@
       "ruta": "/visa"
     },
     {
-      "nombre": "Sueldo Promedio",
+      "nombre": "Cuanto Ganan",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Actualidad",
+      "nombre": "Noticias",
       "ruta": "/blog"
     },
     {
@@ -44,7 +44,7 @@
       "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Entrar",
+      "nombre": "Login",
       "ruta": "/login"
     }
   ],
