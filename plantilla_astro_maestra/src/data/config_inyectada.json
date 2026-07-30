@@ -16,15 +16,15 @@
   },
   "menu_global": [
     {
-      "nombre": "Diploma Online",
+      "nombre": "Proceso Grado",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Examen NCLEX",
+      "nombre": "Prep NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Vacantes USA",
+      "nombre": "Bolsa Empleo",
       "ruta": "/vacantes"
     },
     {
@@ -32,15 +32,15 @@
       "ruta": "/visa"
     },
     {
-      "nombre": "Salario Real",
+      "nombre": "Cuanto Ganan",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Historias",
+      "nombre": "Blog Oficial",
       "ruta": "/blog"
     },
     {
-      "nombre": "Consultar Ahora",
+      "nombre": "Soporte",
       "ruta": "https://wa.me/something"
     },
     {
