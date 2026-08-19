@@ -328,15 +328,21 @@ def post_procesar_rutas_locales(ruta_persistente):
                 # Reemplazar rutas absolutas de activos y enlaces
                 contenido = contenido.replace('href="/', 'href="./')
                 contenido = contenido.replace('src="/', 'src="./')
+                contenido = contenido.replace("url(&#x27;/", "url('./")
+                contenido = contenido.replace("url(&#x27;", "url('")
+                contenido = contenido.replace("&#x27;)", "')")
+                contenido = contenido.replace("url('/", "url('./")
+                contenido = contenido.replace('url("/', 'url("./')
                 
                 # Caso especial para sitemaps y otros si es necesario
-                # (Ajustar según sea necesario si hay niveles de profundidad)
                 # Si estamos en blog/slug/index.html, necesitamos ../../
                 depth = root.replace(ruta_persistente, "").count(os.sep)
                 if depth > 0:
                     prefix = "../" * depth
                     contenido = contenido.replace('href="./', f'href="{prefix}')
                     contenido = contenido.replace('src="./', f'src="{prefix}')
+                    contenido = contenido.replace('url("./', f'url("{prefix}')
+                    contenido = contenido.replace("url('./", f"url('{prefix}")
 
                 with open(ruta_archivo, 'w', encoding='utf-8') as f:
                     f.write(contenido)

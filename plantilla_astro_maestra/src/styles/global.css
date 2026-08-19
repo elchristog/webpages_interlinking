@@ -1238,53 +1238,57 @@ body {
 }
 
 .ui-apple-experience-container .section-header {
-    @apply mb-12 md:mb-20 max-w-4xl mx-auto;
+    @apply mb-8 md:mb-12 max-w-4xl mx-auto text-center;
 }
 
 .ui-apple-experience-container .section-title {
-    @apply text-4xl md:text-6xl font-bold tracking-tight text-white m-0;
+    @apply text-4xl md:text-6xl font-bold tracking-tight text-white m-0 leading-tight block;
 }
 
 .ui-apple-experience-container .section-subtitle {
-    @apply text-lg md:text-xl mt-6 text-gray-300 font-medium leading-relaxed;
+    @apply block text-xl md:text-3xl mt-4 text-gray-200 font-normal leading-relaxed opacity-95;
+}
+
+.ui-apple-experience-container .container-wrapper > p {
+    @apply text-lg md:text-2xl text-gray-200 dark:text-gray-200 max-w-3xl mx-auto mb-14 text-center leading-relaxed font-normal;
 }
 
 .ui-apple-experience-container .apple-experience-grid {
-    @apply grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8;
+    @apply grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10;
 }
 
 .apple-experience-card {
-    @apply relative bg-[#1d1d1f] rounded-[3rem] overflow-hidden flex flex-col min-h-[550px] shadow-2xl transition-all duration-500 border border-[#333];
+    @apply relative bg-[#18181b] rounded-[2.5rem] md:rounded-[3rem] overflow-hidden flex flex-col min-h-[520px] md:min-h-[580px] shadow-2xl transition-all duration-500 border border-white/10;
 }
 
 .apple-experience-card:hover {
     @apply shadow-2xl;
-    transform: translateY(-8px);
-    border-color: #555;
+    transform: translateY(-6px);
+    border-color: rgba(255, 255, 255, 0.25);
 }
 
 .apple-experience-card .card-content {
-    @apply p-8 md:p-12 z-10 flex-grow relative bg-gradient-to-b from-[#1d1d1f] via-[#1d1d1f] to-transparent;
+    @apply p-8 md:p-12 z-10 flex-grow relative bg-gradient-to-b from-[#18181b] via-[#18181b]/90 to-transparent pb-32;
 }
 
 .apple-experience-card .card-category {
-    @apply block text-xs font-bold uppercase tracking-widest text-[#a1a1a6] mb-4;
+    @apply block text-xs md:text-sm font-bold uppercase tracking-widest text-gray-300 mb-3 opacity-90;
 }
 
 .apple-experience-card .card-title {
-    @apply text-3xl md:text-5xl font-bold leading-tight text-white m-0 tracking-tight;
+    @apply text-3xl md:text-4xl font-bold leading-tight text-white m-0 tracking-tight;
 }
 
 .apple-experience-card .card-description {
-    @apply mt-6 text-lg md:text-2xl font-medium leading-relaxed text-gray-300;
+    @apply mt-4 text-base md:text-xl font-normal leading-relaxed text-gray-200 opacity-95;
 }
 
 .apple-experience-card .card-image-wrapper {
-    @apply absolute bottom-0 left-0 right-0 h-1/2 md:h-[350px] overflow-hidden z-0;
+    @apply absolute bottom-0 left-0 right-0 w-full h-[55%] md:h-[60%] overflow-hidden z-0 rounded-b-[2.5rem] md:rounded-b-[3rem];
 }
 
 .apple-experience-card .experience-image {
-    @apply w-full h-full object-cover object-top transition-transform duration-700;
+    @apply w-full h-full object-cover object-center transition-transform duration-700;
 }
 
 .apple-experience-card:hover .experience-image {
@@ -1941,6 +1945,15 @@ body {
   background-repeat: no-repeat;
   color: white;
   overflow: hidden;
+  border-radius: 2.5rem;
+}
+
+.ui-impact-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.85) 100%);
+  z-index: 1;
 }
 
 .ui-impact-overlay {
