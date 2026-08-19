@@ -1984,14 +1984,18 @@ body {
   font-weight: 700;
   margin-bottom: 1.5rem;
   letter-spacing: -0.03em;
+  color: #ffffff !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
 }
 
 .impact-description {
   font-size: clamp(1.1rem, 2vw, 1.4rem);
   line-height: 1.5;
   margin-bottom: 2.5rem;
-  opacity: 0.95;
+  opacity: 1;
   max-width: 600px;
+  color: #f3f4f6 !important;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.7);
 }
 
 .impact-btn {
@@ -2011,21 +2015,13 @@ body {
   background-color: #f0f0f0;
 }
 
-/* Preset Overrides: Impact CTA */
-.ui-impact-cta.midnight .impact-title {
-  color: #fff;
-}
-.ui-impact-cta.midnight .impact-btn {
-  background-color: #0fbcf9;
-  color: white;
-}
-
-.ui-impact-cta.emerald .impact-title {
-  color: #fff;
-}
-.ui-impact-cta.emerald .impact-btn {
-  background-color: #00d2d3;
-  color: white;
+/* Forzar blanco total en ui-impact-cta */
+.ui-impact-cta h1, 
+.ui-impact-cta h2, 
+.ui-impact-cta h3, 
+.ui-impact-cta p, 
+.ui-impact-cta span {
+  color: #ffffff !important;
 }
 
 @media (max-width: 768px) {
