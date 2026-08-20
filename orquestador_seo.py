@@ -333,6 +333,16 @@ def post_procesar_rutas_locales(ruta_persistente):
                 contenido = contenido.replace("&#x27;)", "')")
                 contenido = contenido.replace("url('/", "url('./")
                 contenido = contenido.replace('url("/', 'url("./')
+
+                # Reemplazar placeholders por imágenes reales del proyecto
+                import re
+                img_idx = 1
+                def repl_placeholder(match):
+                    nonlocal img_idx
+                    res = f'src="./imagenes_proyecto/ofertas-de-empleo-y-salarios-promedios-para-enfermeras-extranjeras-en-miami-y-tampa-florida-{(img_idx % 8) + 1}.webp"'
+                    img_idx += 1
+                    return res
+                contenido = re.sub(r'src="https?://via\.placeholder\.com/[^"]+"', repl_placeholder, contenido)
                 
                 # Caso especial para sitemaps y otros si es necesario
                 # Si estamos en blog/slug/index.html, necesitamos ../../
