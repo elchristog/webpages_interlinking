@@ -14,6 +14,8 @@ __pycache__/
 plantilla_astro_maestra/node_modules/
 plantilla_astro_maestra/dist/
 plantilla_astro_maestra/.astro/
+plantilla_astro_maestra/public/imagenes_proyecto/
+plantilla_astro_maestra/src/content/
 node_modules/
 dist/
 .astro/

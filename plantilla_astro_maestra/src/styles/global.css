@@ -96,14 +96,14 @@
 }
 
 .ui-highlight {
-    @apply font-semibold px-2.5 py-0.5 rounded-lg relative z-10 inline-block;
+    @apply font-extrabold px-3 py-1 rounded-lg relative z-10 inline-block;
     color: #ffffff !important;
-    background: linear-gradient(135deg, rgba(249, 115, 22, 0.25) 0%, rgba(245, 158, 11, 0.25) 100%);
-    border: 1px solid rgba(249, 115, 22, 0.4);
-    box-shadow: 0 0 12px rgba(249, 115, 22, 0.15);
+    background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%) !important;
+    border: 1px solid #9a3412 !important;
+    box-shadow: 0 2px 8px rgba(234, 88, 12, 0.4) !important;
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
-    line-height: 1.5;
+    line-height: 1.4;
 }
 
 /* Force extreme high contrast when nested in dark sections or dark presets */
@@ -122,9 +122,16 @@ section.container-wrapper:not([class*="ui-"]) .ui-highlight,
 [class*="bg-[#0a0a0a]"] .ui-highlight,
 [class*="bg-[#18181b]"] .ui-highlight {
     color: #ffffff !important;
-    background: linear-gradient(135deg, rgba(249, 115, 22, 0.3) 0%, rgba(245, 158, 11, 0.3) 100%);
-    border: 1px solid rgba(249, 115, 22, 0.5);
-    box-shadow: 0 0 15px rgba(249, 115, 22, 0.2);
+    background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%) !important;
+    border: 1px solid #9a3412 !important;
+    box-shadow: 0 2px 10px rgba(234, 88, 12, 0.4) !important;
+}
+
+/* Reglas de texto blanco obligatorio sobre fondos con imagen u overlays oscuros */
+.bg-slate-950 p, .bg-slate-900 p, .bg-black p, 
+[class*="from-slate-950"] p, [class*="from-slate-900"] p,
+[style*="background-image"] p, [style*="background-image"] h1, [style*="background-image"] h2, [style*="background-image"] p * {
+    color: #ffffff !important;
 }
 
 .ui-divider {
@@ -612,6 +619,22 @@ body {
     background: linear-gradient(135deg, rgba(249, 115, 22, 0.3) 0%, rgba(245, 158, 11, 0.3) 100%) !important;
     border: 1px solid rgba(249, 115, 22, 0.5) !important;
     color: #ffffff !important;
+}
+
+.ui-preset--light {
+    background-color: #ffffff;
+    color: #020617 !important;
+}
+
+.ui-preset--light p, .ui-preset--light span:not(.ui-highlight), .ui-preset--light li, .ui-preset--light h1, .ui-preset--light h2, .ui-preset--light h3 {
+    color: #020617 !important;
+}
+
+.ui-preset--light .ui-highlight {
+    background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%) !important;
+    border: 1px solid #9a3412 !important;
+    color: #ffffff !important;
+    font-weight: 800 !important;
 }
 
 .ui-section-sand {

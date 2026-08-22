@@ -197,7 +197,7 @@ def generar_contenido_ia(sitio_id, nicho, palabras_clave, ruta_proyecto, modo="a
     imagenes_proyecto = []
     if os.path.exists(ruta_imagenes):
         slug_nicho = generar_slug_nicho(nicho) if nicho else "imagen-seo"
-        archivos_img = sorted([f for f in os.listdir(ruta_imagenes) if f.lower().endswith(('.png', '.jpg', '.jpeg', '.webp', '.svg'))])
+        archivos_img = sorted([f for f in os.listdir(ruta_imagenes) if f.lower().endswith(('.png', '.jpg', '.jpeg', '.webp', '.svg')) and 'logo' not in f.lower()])
         for i, img in enumerate(archivos_img):
             imagenes_proyecto.append(f"/imagenes_proyecto/{slug_nicho}-{i+1}.webp")
                 
@@ -373,7 +373,20 @@ def compilar_y_persistir(sitio_id, ruta_proyecto, ruta_base, nombre_proyecto, ni
     if os.path.exists(ruta_imagenes):
         os.makedirs(ruta_public_imagenes, exist_ok=True)
         slug_nicho = generar_slug_nicho(nicho) if nicho else "imagen-seo"
-        archivos_img = sorted([f for f in os.listdir(ruta_imagenes) if f.lower().endswith(('.png', '.jpg', '.jpeg', '.webp', '.svg'))])
+        todos_archivos = sorted([f for f in os.listdir(ruta_imagenes) if f.lower().endswith(('.png', '.jpg', '.jpeg', '.webp', '.svg'))])
+        archivos_img = [f for f in todos_archivos if 'logo' not in f.lower()]
+        archivos_logo = [f for f in todos_archivos if 'logo' in f.lower()]
+
+        # Procesar logo exclusivo si existe
+        if archivos_logo:
+            logo_src = os.path.join(ruta_imagenes, archivos_logo[0])
+            logo_dst = os.path.join(ruta_public_imagenes, "logo.webp")
+            try:
+                with Image.open(logo_src) as im:
+                    im.save(logo_dst, "webp", quality=90)
+            except Exception as e:
+                shutil.copy2(logo_src, logo_dst)
+
         for i, img in enumerate(archivos_img):
             src_path = os.path.join(ruta_imagenes, img)
             dst_path = os.path.join(ruta_public_imagenes, f"{slug_nicho}-{i+1}.webp")
@@ -606,6 +619,7 @@ if __name__ == "__main__":
     parser.add_argument("--slug", help="Slug para la pestaña o artículo (obligatorio para --modo pestaña)")
     parser.add_argument("--inputfile", help="Archivo .txt con el contenido base o tema a propagar")
     parser.add_argument("--cola", nargs='?', const='ALL', help="Procesa archivos en input_cola/. Especifica un archivo (ej: mi_articulo.json) o deja vacío para listar disponibles.")
+    parser.add_argument("--sitio_id", help="Filtra la generación/propagación únicamente para el sitio especificado (ej: money_site)")
     
     args = parser.parse_args()
     
@@ -719,6 +733,8 @@ if __name__ == "__main__":
             
             ruta_recursos = p.get("_ruta_recursos")
             for sitio in config_sitios["sitios_espejo"]:
+                if args.sitio_id and sitio["id"] != args.sitio_id:
+                    continue
                 resultado = procesar_sitio(
                     sitio, config_global, config_menus, 
                     ruta_proyecto_config, ruta_base, nombre_proyecto,

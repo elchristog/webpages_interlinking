@@ -159,28 +159,28 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
     MAX_SENTENCES = config_logic["content"]["paragraph_max_sentences"] if config_logic else 3
 
     REGLAS_LEGIBILIDAD_ASTRO = """
+- **DISEÑO DE FONDO CLARO Y TEXTO NEGRO DE ALTO CONTRASTE**: Prioriza el fondo blanco (`bg-white` o `bg-slate-50`) con texto negro puro (`text-slate-950` o `text-black`). **ESTÁ ESTRICTAMENTE PROHIBIDO USAR TEXTO GRIS O DE BAJO CONTRASTE EN FONDOS CLAROS**. Todo el texto explicativo y párrafos deben ser oscuros y totalmente legibles.
+- **HERO SECCIONES CON FONDO OSCURO O IMAGEN**: Si una sección Hero tiene imagen de fondo o una capa/overlay oscuro (`bg-slate-950`, `bg-black`, `bg-gradient-to-r from-slate-950/90`), **TODO EL TEXTO INTERNO (TÍTULOS H1, SUBTÍTULOS, PÁRRAFOS P) DEBE SER ESTRICTAMENTE BLANCO (`text-white`)**. NUNCA USES TEXTO NEGRO O VERDE OSCURO SOBRE FONDOS U OVERLAYS OSCUROS.
 - **MARGEN IZQUIERDO ABSOLUTO**: Todo el código HTML debe empezar en la columna 0. **PROHIBIDO INDENTAR CON ESPACIOS O TABS**. La indentación rompe el renderizado en Astro y lo muestra como código raw.
 - **PROHIBIDO EL USO DE SÍMBOLOS MARKDOWN (** , _, *, #) DENTRO DE ETIQUETAS HTML**. Si necesitas negrita dentro de un H1 o P, usa <strong> o <span class="ui-highlight">.
 - **NO ENVUELVAS EL HTML EN BLOQUES DE CÓDIGO (```html ... ```)**. Escribe el HTML directamente.
-- **ACCESIBILIDAD**: El texto debe ser fácil de leer. Usa párrafos cortos y lenguaje claro.
+- **ACCESIBILIDAD Y CONTRASTE**: El texto debe ser fácil de leer. Usa párrafos cortos y lenguaje claro.
 - **ESPACIADO**: Usa `<div class="ui-spacer"></div>` para separar las secciones principales.
 - **TÍTULOS**: Usa encabezados H1 (solo uno al inicio), H2 (centrados con clase `text-center`), H3 estándar.
-- **RESALTADO**: Para destacar ideas clave, usa `<span class="ui-highlight">TEXTO RESALTADO</span>`.
+- **RESALTADO**: Para destacar palabras o frases clave, usa `<span class="ui-highlight">TEXTO RESALTADO</span>` (se mostrará como una píldora naranja fuerte con texto blanco puro de máximo contraste).
 - **MANTÉN ETIQUETAS ABIERTAS**: Asegúrate de cerrar todos los <section>, <div> y <a>.
 """
 
     if imagenes_proyecto and len(imagenes_proyecto) > 0:
         lista_imgs_str = "\n".join([f"       - {img}" for img in imagenes_proyecto])
-        regla_imagenes = f"""    4. REGLA DE IMÁGENES LOCALES OBLIGATORIAS (PROYECTO PRIVADO): Tienes estrictamente PROHIBIDO usar imágenes de Unsplash, placeholder genéricos, inventar URLs o dejar etiquetas vacías. SIEMPRE que un componente UI requiera una imagen, DEBES usar EXCLUSIVAMENTE una de estas rutas (elige al azar entre ellas):
-{lista_imgs_str}
-       Si necesitas un ícono pequeño o un logo, usa: `https://via.placeholder.com/150/3d5a80/ffffff?text=Icono`"""
+        regla_imagenes = f"""    4. REGLA DE IMÁGENES LOCALES OBLIGATORIAS (PROYECTO PRIVADO): Tienes estrictamente PROHIBIDO usar imágenes de Unsplash, placeholders (via.placeholder.com), íconos SVG vacíos, inventar URLs o dejar etiquetas vacías. SIEMPRE que un componente UI, tarjeta o ícono requiera un elemento visual, DEBES usar EXCLUSIVAMENTE una de estas rutas (elige al azar entre ellas) recortada como círculo (`w-24 h-24 rounded-full object-cover`):
+{lista_imgs_str}"""
     else:
-        regla_imagenes = """    4. REGLA DE IMÁGENES OBLIGATORIAS: SIEMPRE que un componente de UI o sección requiera una imagen (etiqueta <img>), es OBLIGATORIO que incluyas una. NUNCA inventes URLs y NUNCA la dejes vacía o sin imagen. DEBES usar EXCLUSIVAMENTE una de estas URLs estándar de la web pública (elige la que quieras):
+        regla_imagenes = """    4. REGLA DE IMÁGENES OBLIGATORIAS: SIEMPRE que un componente de UI, sección o tarjeta requiera una imagen o ícono (etiqueta <img>), es OBLIGATORIO que incluyas una. NUNCA inventes URLs, NUNCA uses placeholders genéricos y NUNCA la dejes vacía. DEBES usar EXCLUSIVAMENTE una de estas URLs estándar recortada como círculo (`w-24 h-24 rounded-full object-cover`):
        - https://images.unsplash.com/photo-1584820927508-0138ffbc74e8?auto=format&fit=crop&w=800&q=80
        - https://images.unsplash.com/photo-1551076805-e1869043e661?auto=format&fit=crop&w=800&q=80
        - https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80
-       - https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=800&q=80
-       Si necesitas un ícono pequeño o un logo, usa: `https://via.placeholder.com/150/3d5a80/ffffff?text=Icono`"""
+       - https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=800&q=80"""
 
 
     prompt = f"""
