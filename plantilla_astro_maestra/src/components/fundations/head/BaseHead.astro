@@ -7,9 +7,10 @@ import Favicons from "@/components/fundations/head/Favicons.astro";
 import AosHead from "@/components/fundations/scripts/AosHead.astro";
 import FuseJs from "@/components/fundations/scripts/FuseJS.astro";
 import KeenSlider from "@/components/fundations/scripts/KeenSlider.astro";
+const { titulo, descripcion } = Astro.props;
 ---
 
-<Seo />
+<Seo titulo={titulo} descripcion={descripcion} />
 <Meta />
 <Fonts />
 <Favicons />

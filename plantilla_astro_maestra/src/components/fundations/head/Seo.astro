@@ -1,63 +1,43 @@
 ---
 import { AstroSeo } from "@lexingtonthemes/seo";
+import config from "@/data/config_inyectada.json";
+
+const { titulo, descripcion } = Astro.props;
+
+const nombreSitio = config.nombre_sitio || "Enfermera en Estados Unidos";
+const tituloPagina = titulo || config.titulo_sitio || `${nombreSitio} - Guía Principal y Homologación`;
+const descripcionPagina = descripcion || config.descripcion_sitio || "Información completa sobre el proceso migratorio, homologación de título y licencias de enfermería en Estados Unidos.";
 ---
 
+<title>{tituloPagina}</title>
+<meta name="description" content={descripcionPagina} />
+
 <AstroSeo
-  title="Your Page Title"
-  description="A detailed description of your page content."
-  canonical="https://yoursite.com/current-page"
+  title={tituloPagina}
+  description={descripcionPagina}
   openGraph={{
-    url: "https://yoursite.com/current-page",
-    title: "Your Page Title",
-    description: "A detailed description of your page content.",
-    images: [
-      {
-        url: "https://yoursite.com/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Open Graph Image Alt",
-        type: "image/jpeg",
-      },
-    ],
-    site_name: "Your Site Name",
+    title: tituloPagina,
+    description: descripcionPagina,
+    site_name: nombreSitio,
     type: "website",
-    locale: "en_US",
+    locale: "es_ES",
   }}
   twitter={{
-    handle: "@yourhandle",
-    site: "@yoursite",
     cardType: "summary_large_image",
   }}
 />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://www.yourwebsite.com/" />
-<meta property="og:title" content="Your Website Title" />
-<meta
-  property="og:description"
-  content="A brief description of your website content."
-/>
-<meta
-  property="og:image"
-  content="https://www.yourwebsite.com/path/to/image.jpg"
-/>
+<meta property="og:title" content={tituloPagina} />
+<meta property="og:description" content={descripcionPagina} />
+<meta property="og:image" content="/imagenes_proyecto/logo.webp" />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content="https://www.yourwebsite.com/" />
-<meta property="twitter:title" content="Your Website Title" />
-<meta
-  property="twitter:description"
-  content="A brief description of your website content."
-/>
-<meta
-  property="twitter:image"
-  content="https://www.yourwebsite.com/path/to/image.jpg"
-/>
-
-<!-- Canonical URL -->
-<link rel="canonical" href="https://www.yourwebsite.com/" />
+<meta property="twitter:title" content={tituloPagina} />
+<meta property="twitter:description" content={descripcionPagina} />
+<meta property="twitter:image" content="/imagenes_proyecto/logo.webp" />
 
 <!-- Additional SEO -->
 <meta name="robots" content="index, follow" />

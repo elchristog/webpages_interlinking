@@ -377,15 +377,22 @@ def compilar_y_persistir(sitio_id, ruta_proyecto, ruta_base, nombre_proyecto, ni
         archivos_img = [f for f in todos_archivos if 'logo' not in f.lower()]
         archivos_logo = [f for f in todos_archivos if 'logo' in f.lower()]
 
-        # Procesar logo exclusivo si existe
+        # Procesar logo exclusivo si existe y sobrescribir favicon.ico
         if archivos_logo:
             logo_src = os.path.join(ruta_imagenes, archivos_logo[0])
             logo_dst = os.path.join(ruta_public_imagenes, "logo.webp")
+            favicon_dst = os.path.join(ruta_proyecto, "public", "favicon.ico")
             try:
                 with Image.open(logo_src) as im:
                     im.save(logo_dst, "webp", quality=90)
+                    if im.mode != "RGBA":
+                        im_ico = im.convert("RGBA")
+                    else:
+                        im_ico = im
+                    im_ico.save(favicon_dst, "ICO", sizes=[(32, 32), (48, 48)])
             except Exception as e:
                 shutil.copy2(logo_src, logo_dst)
+                shutil.copy2(logo_src, favicon_dst)
 
         for i, img in enumerate(archivos_img):
             src_path = os.path.join(ruta_imagenes, img)
