@@ -96,17 +96,17 @@
 }
 
 .ui-highlight {
-    @apply font-bold px-2 py-0.5 rounded-md relative z-10;
-    color: var(--color-text-bold);
-    background-color: color-mix(in oklch, var(--color-primary), transparent 85%);
-    box-shadow: inset 0 -4px 0 color-mix(in oklch, var(--color-primary), transparent 60%);
+    @apply font-semibold px-2.5 py-0.5 rounded-lg relative z-10 inline-block;
+    color: #ffffff !important;
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.25) 0%, rgba(245, 158, 11, 0.25) 100%);
+    border: 1px solid rgba(249, 115, 22, 0.4);
+    box-shadow: 0 0 12px rgba(249, 115, 22, 0.15);
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
-    line-height: 1.6;
-    display: inline;
+    line-height: 1.5;
 }
 
-/* Force high contrast when nested in dark sections or dark presets */
+/* Force extreme high contrast when nested in dark sections or dark presets */
 .ui-section-dark .ui-highlight, 
 .ui-section-accent .ui-highlight, 
 .ui-hero-full .ui-highlight,
@@ -118,10 +118,13 @@
 section.container-wrapper:not([class*="ui-"]) .ui-highlight,
 .ui-preset--emerald .ui-highlight,
 .ui-preset--midnight .ui-highlight,
-.ui-preset--professional .ui-highlight {
-    background-color: rgba(255, 255, 255, 0.15);
+.ui-preset--professional .ui-highlight,
+[class*="bg-[#0a0a0a]"] .ui-highlight,
+[class*="bg-[#18181b]"] .ui-highlight {
     color: #ffffff !important;
-    box-shadow: inset 0 -4px 0 rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.3) 0%, rgba(245, 158, 11, 0.3) 100%);
+    border: 1px solid rgba(249, 115, 22, 0.5);
+    box-shadow: 0 0 15px rgba(249, 115, 22, 0.2);
 }
 
 .ui-divider {
@@ -606,13 +609,9 @@ body {
 
 /* Force specific contrast for highlights */
 .ui-preset--emerald .ui-highlight, .ui-preset--midnight .ui-highlight {
-    background-color: rgba(255, 255, 255, 0.15);
-    color: #fff !important;
-}
-
-.ui-preset--sunset .ui-highlight, .ui-preset--professional .ui-highlight {
-    background-color: rgba(0, 0, 0, 0.05);
-    color: var(--color-text-bold) !important;
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.3) 0%, rgba(245, 158, 11, 0.3) 100%) !important;
+    border: 1px solid rgba(249, 115, 22, 0.5) !important;
+    color: #ffffff !important;
 }
 
 .ui-section-sand {
