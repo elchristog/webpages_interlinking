@@ -1,0 +1,58 @@
+---
+interface LegendItem {
+  name: string;
+  label: string;
+  color?: string;
+}
+
+interface Props {
+  introText?: string;
+  highlightText?: string;
+  chartTitle?: string;
+  chartDescription?: string;
+  chartImageUrl?: string;
+  legends?: LegendItem[];
+}
+
+const {
+  introText = "Hemos realizado un análisis exhaustivo del mercado laboral.",
+  highlightText = "Explosión de demanda en EE. UU.",
+  chartTitle = "Demanda Anual de RNs Internacionales con Patrocinio de Green Card",
+  chartDescription = "La demanda actual supera con creces la capacidad de procesamiento migratorio.",
+  chartImageUrl = "/imagenes_proyecto/ofertas-de-empleo-y-salarios-promedios-para-enfermeras-extranjeras-en-miami-y-tampa-florida-2.webp",
+  legends = [
+    { name: "Vacantes Enfermera RN", label: "Demanda en aumento", color: "#4285f4" },
+    { name: "Procesamiento de Visas", label: "Cuello de botella", color: "#db4437" }
+  ]
+} = Astro.props;
+---
+
+<section class="ui-data-comparison-container py-20 md:py-28 bg-[#0a0a0a] text-white overflow-hidden" id="analisis-mercado">
+  <div class="max-w-7xl mx-auto px-6 md:px-12">
+    <p class="text-lg md:text-2xl text-gray-200 font-normal leading-relaxed max-w-4xl mx-auto mb-14 text-center opacity-95">
+      {introText} <span class="bg-gradient-to-r from-orange-400 to-amber-500 bg-clip-text text-transparent font-semibold">{highlightText}</span>
+    </p>
+
+    <div class="bg-[#18181b] rounded-[2.5rem] md:rounded-[3rem] p-6 md:p-12 border border-white/10 shadow-2xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+        {legends.map(leg => (
+          <div class="bg-[#27272a] p-6 rounded-2xl border border-white/10 shadow-lg transition-all duration-300 hover:border-white/20">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="w-4 h-4 rounded-full shadow-sm flex-shrink-0" style={`background-color: ${leg.color || '#3b82f6'};`}></span>
+              <span class="text-xl font-bold text-white tracking-tight">{leg.name}</span>
+            </div>
+            <span class="text-sm text-gray-300 font-medium ml-7 block">{leg.label}</span>
+          </div>
+        ))}
+      </div>
+
+      <div class="bg-[#09090b] p-6 md:p-10 rounded-2xl border border-white/10 shadow-inner text-center">
+        <h3 class="text-2xl md:text-4xl font-bold text-white mb-4 tracking-tight">{chartTitle}</h3>
+        <p class="text-base md:text-xl text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed">{chartDescription}</p>
+        <div class="relative w-full overflow-hidden rounded-xl border border-white/10 bg-black/40 max-h-[480px] shadow-2xl">
+          <img src={chartImageUrl} alt={chartTitle} class="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -34,9 +34,7 @@ if (config.layout === 'LayoutB') {
 <SelectedLayout titulo={`Inicio | ${config.nombre_sitio}`} descripcion={config.seo.descripcion_base}>
   {
     indexContent ? (
-      <div class="prose prose-zinc max-w-none">
-        <indexContent.Content />
-      </div>
+      <indexContent.Content />
     ) : (
       <div class="space-y-12">
         <div>

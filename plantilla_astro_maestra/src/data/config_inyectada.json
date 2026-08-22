@@ -16,23 +16,23 @@
   },
   "menu_global": [
     {
-      "nombre": "Diploma Online",
+      "nombre": "Homologar Título",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Superar NCLEX",
+      "nombre": "Prep NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Buscar Trabajo",
+      "nombre": "Vacantes USA",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Green Card",
+      "nombre": "Residencia USA",
       "ruta": "/visa"
     },
     {
-      "nombre": "Pagos RN",
+      "nombre": "Cuanto Ganan",
       "ruta": "/salarios"
     },
     {
@@ -40,11 +40,11 @@
       "ruta": "/blog"
     },
     {
-      "nombre": "Escríbenos",
+      "nombre": "Soporte",
       "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Entrar",
+      "nombre": "Mi Cuenta",
       "ruta": "/login"
     }
   ],

@@ -1,0 +1,53 @@
+---
+interface PropItem {
+  title: string;
+  description: string;
+  imageUrl?: string;
+  linkText?: string;
+  linkUrl?: string;
+}
+
+interface Props {
+  title?: string;
+  highlightText?: string;
+  items?: PropItem[];
+}
+
+const {
+  title = "Nuestra Propuesta de Valor",
+  highlightText = "Tu Éxito es Nuestra Misión",
+  items = []
+} = Astro.props;
+---
+
+<section class="ui-value-props py-20 md:py-28 bg-[#0a0a0a] text-white overflow-hidden text-center">
+  <div class="max-w-7xl mx-auto px-6 md:px-12">
+    <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-white mb-16 leading-tight">
+      {title} <br /><span class="bg-gradient-to-r from-orange-400 to-amber-500 bg-clip-text text-transparent">{highlightText}</span>
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+      {items.map((item, idx) => (
+        <div class="relative bg-[#18181b] rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-12 border border-white/10 shadow-2xl flex flex-col items-center text-center transition-all duration-500 hover:-translate-y-2 hover:border-white/20">
+          {item.imageUrl && (
+            <div class="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden mb-6 border-4 border-white/20 shadow-2xl bg-[#27272a] flex items-center justify-center flex-shrink-0 transition-transform duration-500 hover:scale-105">
+              <img src={item.imageUrl} alt={item.title} class="w-full h-full object-cover object-center rounded-full" />
+            </div>
+          )}
+          <h3 class="text-xl md:text-2xl font-bold text-white mb-4">{item.title}</h3>
+          <p class="text-base md:text-lg text-gray-300 leading-relaxed mb-6 opacity-95">
+            {item.description}
+          </p>
+          {item.linkText && item.linkUrl && (
+            <a href={item.linkUrl} class="inline-flex items-center gap-2 text-orange-400 hover:text-orange-300 font-bold text-base md:text-lg transition-colors no-underline mt-auto">
+              {item.linkText}
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+              </svg>
+            </a>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

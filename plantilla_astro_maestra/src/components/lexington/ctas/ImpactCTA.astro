@@ -1,0 +1,34 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  buttonText?: string;
+  buttonUrl?: string;
+  bgImageUrl?: string;
+}
+
+const {
+  title = "¿Preparada para Transformar tu Vida?",
+  description = "No dejes tu futuro al azar. Permítenos guiarte hacia tu empleo soñado.",
+  buttonText = "HABLAR CON UN ASESOR AHORA",
+  buttonUrl = "https://wa.me/XXXXXXXXXXX",
+  bgImageUrl = "/imagenes_proyecto/ofertas-de-empleo-y-salarios-promedios-para-enfermeras-extranjeras-en-miami-y-tampa-florida-1.webp"
+} = Astro.props;
+---
+
+<section class="ui-impact-cta relative py-24 md:py-36 bg-cover bg-center rounded-[3rem] my-16 overflow-hidden max-w-7xl mx-auto shadow-2xl border border-white/10" style={`background-image: url('${bgImageUrl}');`} id="contacto-directo">
+  <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/80 to-black/90 z-0"></div>
+  <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+    <h2 class="text-3xl md:text-6xl font-bold tracking-tight text-white mb-6 leading-tight drop-shadow-lg">
+      {title}
+    </h2>
+    <p class="text-lg md:text-2xl text-gray-200 mb-10 leading-relaxed max-w-2xl mx-auto font-normal">
+      {description}
+    </p>
+    <div class="flex justify-center">
+      <a href={buttonUrl} class="inline-block px-10 py-5 bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 text-white font-bold text-lg md:text-xl rounded-full shadow-2xl transition-all duration-300 transform hover:-translate-y-1 no-underline">
+        {buttonText}
+      </a>
+    </div>
+  </div>
+</section>

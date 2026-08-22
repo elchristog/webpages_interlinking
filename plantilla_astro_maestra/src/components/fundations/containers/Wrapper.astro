@@ -1,6 +1,6 @@
 ---
 interface Props {
-  variant?: "standard" | "narrow" | "paddinglessDesktop" | "prose"; // Define any variants you need
+  variant?: "standard" | "narrow" | "prose"; // Define any variants you need
   class?: string; // Optional prop for additional classes
   id?: string; // Optional prop for additional classes
 }
@@ -10,13 +10,12 @@ const variantClasses = {
   // Narrow
   narrow: "max-w-2xl  mx-auto px-4",
   // Standard wrapper
-  standard: "px-8 mx-auto md:px-12 max-w-screen 2xl:max-w-[1440px]",
-  // Paddingless Desktop
-  paddinglessDesktop: "mx-auto max-w-6xl px-4 xl:px-0 overflow-hidden xl:overflow-visible",
+  standard:
+    "mx-auto  max-w-7xl px-4 ",
 
   // Prose styles
   prose:
-    "prose text-base-900 prose-blockquote:border-l-accent prose-a:border-white prose-a:border-b prose-a:no-underline prose-a:text-white prose-a:transition-colors prose-a:duration-200 prose-a:hover:border-solid prose-a:hover:text-accent-500 prose-headings:font-medium prose-headings:text-white prose-pre:border prose-li:marker:text-accent-400 max-w-none prose-pre:rounded-xl w-full prose-blockquote:text-base-500 prose-pre:border-base-300 prose-ul:[list-style-type:'///'] prose-pre:scrollbar-hide prose-tr:border-base-800 prose-thead:border-base-800 prose-strong:text-white",
+    "prose-p:text-base-400 prose-hr:bg-base-500 prose-code:text-white prose-ol:text-base-400 prose-li:text-base-400 prose-strong:text-white prose-a:!text-white prose pt-0  prose-pre:rounded-none prose-code:text-white prose-strong:text-white prose-headings:text-white prose-headings:font-light prose-h1:font-display prose-pre:border prose-pre:border-base-900 prose-pre:scrollbar-hide",
 };
 // Combine the classes for the specified variant with any extra classes
 const classes = `${variantClasses[variant]} ${extraClass}`.trim();

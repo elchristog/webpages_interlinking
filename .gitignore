@@ -1,31 +1,42 @@
-# Ambientes Virtuales Python
+# Ambientes Virtuales Python y Caché
 venv/
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
+.pytest_cache/
 
 # Variables de entorno y credenciales
 .env
+.env.local
 
-# Astro SPA y Node.js
+# Astro, Node.js y Builds
 plantilla_astro_maestra/node_modules/
 plantilla_astro_maestra/dist/
 plantilla_astro_maestra/.astro/
+node_modules/
+dist/
+.astro/
+
+# Plantillas raw descargadas y archivos temporales pesados
+plantillas_astro/
+temp_templates/
+*.zip
+*.tar.gz
+*.rar
+
+# Salidas de sitios generados y respaldos temporales
+sitios_generados/
+contenido_base_test.md
+proyectos/**/*.bak*
+tmp_config.json
+verification.json
 
 # Logs y SO
 *.log
 .DS_Store
 Thumbs.db
 
-# Editores
+# Editores IDE
 .vscode/
 .idea/
-
-# Contenido generado y archivos de prueba
-contenido_base_test.md
-sitios_generados/
-proyectos/**/*.bak*
-tmp_config.json
-verification.json
-
