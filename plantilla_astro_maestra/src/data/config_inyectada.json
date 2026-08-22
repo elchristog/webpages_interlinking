@@ -1,34 +1,34 @@
 {
-  "nombre_sitio": "Enfermería Florida Hoy",
-  "color_tema": "#FF5733",
-  "comando_deploy": "firebase deploy --only hosting",
-  "layout": "LayoutA",
-  "gcp_project_id": "fl-nurses-proj-rtx",
+  "nombre_sitio": "Prep NCLEX Texas",
+  "color_tema": "#b71c1c",
+  "comando_deploy": "aws s3 sync ./dist s3://texas-nclex",
+  "layout": "LayoutC",
+  "gcp_project_id": "tx-nclex-prep-aws",
   "seo": {
-    "titulo_base": "Ofertas Médicas FL",
-    "descripcion_base": "Encuentra salarios, empleos y oportunidades con sponsor para enfermeras extranjeras en Miami, Tampa y Florida.",
+    "titulo_base": "Guía NCLEX TX",
+    "descripcion_base": "Paso a paso para superar el NCLEX y requisitos del CGFNS en Texas.",
     "idioma": "es-US"
   },
   "footer": {
     "empresa_legal": "Enfermera en Estados Unidos",
-    "direccion": "Zephyrhills, FL 33541",
-    "email_contacto": "info@enfermeriafloridahoy.com"
+    "direccion": "Houston, TX 77002",
+    "email_contacto": "info@texas-nclex-prep.com"
   },
   "menu_global": [
     {
-      "nombre": "Homologar Título",
+      "nombre": "Revalidar Meta",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Prep NCLEX",
+      "nombre": "Superar NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Vacantes USA",
+      "nombre": "Trabajo Hoy",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Residencia USA",
+      "nombre": "Visa EB-3",
       "ruta": "/visa"
     },
     {
@@ -36,27 +36,27 @@
       "ruta": "/salarios"
     },
     {
-      "nombre": "Guías Tips",
+      "nombre": "Noticias",
       "ruta": "/blog"
     },
     {
-      "nombre": "Soporte",
+      "nombre": "Ayuda Chat",
       "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Mi Cuenta",
+      "nombre": "Entrar",
       "ruta": "/login"
     }
   ],
-  "dominio": "https://enfermerasflorida.net",
+  "dominio": "https://texas-nclex-prep.com",
   "font_family": "Roboto",
   "color_palette": {
-    "primary": "oklch(40% 0.12 150)",
-    "secondary": "oklch(55% 0.08 150)",
-    "accent": "oklch(88% 0.15 80)",
-    "text_bold": "oklch(20% 0.05 150)",
+    "primary": "oklch(38% 0.13 210)",
+    "secondary": "oklch(55% 0.09 210)",
+    "accent": "oklch(88% 0.10 160)",
+    "text_bold": "oklch(20% 0.06 210)",
     "meta": {
-      "name": "Deep Forest",
+      "name": "Corporate Teal",
       "system": "OKLCH Premium v2"
     }
   },
