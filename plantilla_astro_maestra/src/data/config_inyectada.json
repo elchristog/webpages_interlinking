@@ -1,56 +1,57 @@
 {
-  "nombre_sitio": "Talento Enfermería CO",
-  "color_tema": "#fbc02d",
-  "comando_deploy": "gcloud app deploy app.yaml --quiet",
-  "layout": "LayoutC",
-  "gcp_project_id": "co-talent-app-11",
+  "nombre_sitio": "Red Enfermeras Latinas",
+  "color_tema": "#c2185b",
+  "comando_deploy": "vercel deploy --prod",
+  "layout": "LayoutB",
+  "gcp_project_id": "latina-net-vcl-66",
   "seo": {
-    "titulo_base": "Desde Colombia a USA",
-    "descripcion_base": "Proceso EB-3 migratorio y reclutamiento garantizado para profesionales graduados en Colombia.",
-    "idioma": "es-CO"
+    "titulo_base": "Comunidad Latina RN",
+    "descripcion_base": "Historias de éxito, consultoría migratoria y vacantes dirigidas enteramente a latinas.",
+    "idioma": "es-US"
   },
   "footer": {
     "empresa_legal": "Enfermera en Estados Unidos",
-    "direccion": "Bogotá, Colombia 110111",
-    "email_contacto": "asistencia@enfermeras-colombianas-usa.com"
+    "direccion": "San Antonio, TX 78201",
+    "email_contacto": "unete@enfermeraslatinas.io"
   },
   "menu_global": [
     {
-      "nombre": "Homologar Título",
+      "nombre": "Validar Diploma",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Examen NCLEX",
+      "nombre": "Superar NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Puestos Libres",
+      "nombre": "Trabajo Hoy",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Visa EB-3",
+      "nombre": "Migrar Legal",
       "ruta": "/visa"
     },
     {
-      "nombre": "Pagos RN",
+      "nombre": "Cuanto Ganan",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Noticias",
+      "nombre": "Actualidad",
       "ruta": "/blog"
     },
     {
-      "nombre": "WhatsApp",
+      "nombre": "Escríbenos",
       "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Portal RN",
+      "nombre": "Iniciar",
       "ruta": "/login"
     }
   ],
-  "dominio": "https://enfermeras-colombianas-usa.com",
-  "nav_footer_version": "v3",
+  "dominio": "https://enfermeraslatinas.io",
+  "nav_footer_version": "v2",
   "font_family": "Inter",
+  "sidebar_pos": "left",
   "color_palette": {
     "primary": "oklch(38% 0.14 260)",
     "secondary": "oklch(50% 0.10 260)",
