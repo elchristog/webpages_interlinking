@@ -11,20 +11,11 @@ import Categories from "@/components/landing/Categories.astro";
 import Candidates from "@/components/landing/Candidates.astro";
 import FeaturedJobs from "@/components/landing/FeaturedJobs.astro";
 
-const paginas = Object.values(import.meta.glob('../content/*.md', { eager: true }));
-const indexContent: any = paginas.find((p: any) => p.frontmatter?.slug === 'index' || p.file?.endsWith('index.md'));
 ---
 
-<BaseLayout title={indexContent?.frontmatter?.titulo} description={indexContent?.frontmatter?.descripcion}>
+<BaseLayout >
   {
-    indexContent ? (
-      <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <indexContent.Content />
-      </main>
-    ) : (
-      <>
-
-  <section>
+    <section>
     <Wrapper variant="standard" class="py-24">
       <Hero />
       <div class="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
@@ -41,5 +32,4 @@ const indexContent: any = paginas.find((p: any) => p.frontmatter?.slug === 'inde
 
       </>
     )
-  }
 </BaseLayout>

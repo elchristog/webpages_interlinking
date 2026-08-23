@@ -11,30 +11,17 @@ import Feature4 from "@/components/features/Feature4.astro";
 import Cta1 from "@/components/ctas/Cta1.astro";
 import Pricing1 from "@/components/pricing/Pricing1.astro";
 import Testimonial1 from "@/components/testimonials/Testimonial1.astro";
-
-const paginas = Object.values(import.meta.glob('../content/*.md', { eager: true }));
-const indexContent: any = paginas.find((p: any) => p.frontmatter?.slug === 'index' || p.file?.endsWith('index.md'));
 ---
 
-<BaseLayout title={indexContent?.frontmatter?.titulo} description={indexContent?.frontmatter?.descripcion}>
-  {
-    indexContent ? (
-      <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <indexContent.Content />
-      </main>
-    ) : (
-      <>
-        <Hero1 />
-        <LogoCloud1 />
-        <Feature1 />
-        <Feature2 />
-        <Feature3 />
-        <Feature4 />
-        <Cta1 />
-        <Pricing1 />
-        <Testimonial1 />
-        <LogoCloud1 />
-      </>
-    )
-  }
+<BaseLayout title="Enfermera en Estados Unidos - Agencia de Reclutamiento" description="Te guiamos paso a paso en la homologación de tu título, preparación NCLEX-RN y patrocinio de visa para trabajar como enfermera en EE. UU.">
+  <Hero1 />
+  <LogoCloud1 />
+  <Feature1 />
+  <Feature2 />
+  <Feature3 />
+  <Feature4 />
+  <Cta1 />
+  <Pricing1 />
+  <Testimonial1 />
+  <LogoCloud1 />
 </BaseLayout>

@@ -7,23 +7,14 @@ import SitesPreview from "@/components/landing/SitesPreview.astro";
 import StorePreview from "@/components/landing/StorePreview.astro";
 import BlogPreview from "@/components/landing/BlogPreview.astro";
 
-const paginas = Object.values(import.meta.glob('../content/*.md', { eager: true }));
-const indexContent: any = paginas.find((p: any) => p.frontmatter?.slug === 'index' || p.file?.endsWith('index.md'));
 ---
 
 <BaseLayout showSearch={true}>
   {
-    indexContent ? (
-      <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <indexContent.Content />
-      </main>
-    ) : (
-      <>
-        <Hero />
+    <Hero />
         <SitesPreview />
         <BlogPreview />
         <StorePreview />
       </>
     )
-  }
 </BaseLayout>

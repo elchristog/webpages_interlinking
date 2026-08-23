@@ -24,20 +24,11 @@ allPosts.sort((a, b) => {
   return dateB - dateA; // Compare timestamps
 });
 
-const paginas = Object.values(import.meta.glob('../content/*.md', { eager: true }));
-const indexContent: any = paginas.find((p: any) => p.frontmatter?.slug === 'index' || p.file?.endsWith('index.md'));
 ---
 
-<BaseLayout title={indexContent?.frontmatter?.titulo} description={indexContent?.frontmatter?.descripcion}>
+<BaseLayout >
   {
-    indexContent ? (
-      <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <indexContent.Content />
-      </main>
-    ) : (
-      <>
-
-  <Hero />
+    <Hero />
   <LogoCloud />
   <Services />
   <section>
@@ -121,5 +112,4 @@ const indexContent: any = paginas.find((p: any) => p.frontmatter?.slug === 'inde
 
       </>
     )
-  }
 </BaseLayout>
