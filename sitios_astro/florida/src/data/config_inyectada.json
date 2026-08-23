@@ -1,0 +1,64 @@
+{
+  "nombre_sitio": "Enfermería Florida Hoy",
+  "color_tema": "#FF5733",
+  "comando_deploy": "firebase deploy --only hosting",
+  "layout": "LayoutA",
+  "gcp_project_id": "fl-nurses-proj-rtx",
+  "seo": {
+    "titulo_base": "Ofertas Médicas FL",
+    "descripcion_base": "Encuentra salarios, empleos y oportunidades con sponsor para enfermeras extranjeras en Miami, Tampa y Florida.",
+    "idioma": "es-US"
+  },
+  "footer": {
+    "empresa_legal": "Enfermera en Estados Unidos",
+    "direccion": "Zephyrhills, FL 33541",
+    "email_contacto": "info@enfermeriafloridahoy.com"
+  },
+  "menu_global": [
+    {
+      "nombre": "Validar Diploma",
+      "ruta": "/homologacion"
+    },
+    {
+      "nombre": "NCLEX Paso",
+      "ruta": "/nclex"
+    },
+    {
+      "nombre": "Trabajo Hoy",
+      "ruta": "/vacantes"
+    },
+    {
+      "nombre": "Visa Trabajo",
+      "ruta": "/visa"
+    },
+    {
+      "nombre": "Cuanto Ganan",
+      "ruta": "/salarios"
+    },
+    {
+      "nombre": "Guías Tips",
+      "ruta": "/blog"
+    },
+    {
+      "nombre": "WhatsApp",
+      "ruta": "https://wa.me/something"
+    },
+    {
+      "nombre": "Iniciar",
+      "ruta": "/login"
+    }
+  ],
+  "dominio": "https://enfermerasflorida.net",
+  "font_family": "Roboto",
+  "color_palette": {
+    "primary": "oklch(40% 0.12 150)",
+    "secondary": "oklch(55% 0.08 150)",
+    "accent": "oklch(88% 0.15 80)",
+    "text_bold": "oklch(20% 0.05 150)",
+    "meta": {
+      "name": "Deep Forest",
+      "system": "OKLCH Premium v2"
+    }
+  },
+  "nav_footer_version": "v2"
+}

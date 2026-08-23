@@ -12,80 +12,73 @@ import X from "@/components/fundations/icons/X.astro";
 import Minus from "@/components/fundations/icons/Minus.astro";
 const pricingOptions = [
   {
-    id: "Pro",
+    id: "Fase1",
     cardClass: "bg-sand-50 ",
     primaryTextColor: "text-base-900",
     secondaryTextColor: "text-base-500",
     featuresBorderColor: "border-base-200",
-    title: "Pro",
-    monthly: "$29.00",
-    annual: "$19.00",
+    title: "Convalidación de Título",
+    monthly: "Fase 1",
+    annual: "Fase 1",
     description:
-      "For solo devs who just want their emails to work (without rage-quitting).",
+      "Para enfermeras que inician la traducción y revisión de credenciales universitarias.",
     button: {
-      text: "Get Started",
+      text: "Iniciar Convalidación",
       variant: "accent",
     },
     features: [
-      { text: "10,000 emails/mo" },
-      { text: "1 custom domain" },
-      { text: "Basic analytics (open & click)" },
-      { text: "API access, no SDK required" },
-      { text: "Developer-friendly docs" },
-      { text: "Basic support (yes, from humans)" },
-      { text: "Markdown, HTML, and MJML" },
+      { text: "Evaluación CGFNS / WES" },
+      { text: "Traducción oficial de notas" },
+      { text: "Apertura de expediente en Board" },
+      { text: "Verificación de horas prácticas" },
+      { text: "Asesoría paso a paso 1 a 1" },
     ],
   },
   {
-    id: "Scale",
+    id: "Fase2",
     cardClass: "bg-sand-100",
     primaryTextColor: "text-base-900",
     secondaryTextColor: "text-base-500",
     featuresBorderColor: "border-base-200",
-    title: "Scale",
-    monthly: "$49.00",
-    annual: "$39.00",
-    description: "For teams tired of email platforms that require PhDs to use.",
+    title: "Preparación NCLEX-RN",
+    monthly: "Fase 2",
+    annual: "Fase 2",
+    description: "Para enfermeras listas para estudiar y aprobar el examen de licencia estadounidense.",
     button: {
-      text: "Get Started",
+      text: "Inscribirse al Curso",
       variant: "accent",
     },
     features: [
-      { text: "50,000 emails/mo" },
-      { text: "Multiple custom domains" },
-      { text: "Custom DKIM & SPF" },
-      { text: "Webhook support " },
-      { text: "Inbox previews (even Outlook )" },
-      { text: "Email templating engine" },
-      { text: "Click, open, and bounce tracking" },
-      { text: "Team access + roles" },
-      { text: "Light automation workflows" },
-      { text: "Chat support" },
+      { text: "Clases en vivo + Grabaciones" },
+      { text: "Banco con +3,000 preguntas NGN" },
+      { text: "Simuladores de examen computarizado" },
+      { text: "Tutorías de inglés médico iBT" },
+      { text: "Estrategias de razonamiento clínico" },
+      { text: "Garantía de repetición sin costo" },
     ],
   },
   {
-    id: "Enterprise",
+    id: "Fase3",
     cardClass: "bg-sand-50 ",
     primaryTextColor: "text-base-900",
     secondaryTextColor: "text-base-500",
     featuresBorderColor: "border-base-200",
-    title: "Enterprise",
-    monthly: "$99.00",
-    annual: "$79.00",
+    title: "Programa VIP Completo",
+    monthly: "Fase 3",
+    annual: "Fase 3",
     description:
-      "For startups and teams that treat email as a core product, not an afterthought.",
+      "Acompañamiento total: Convalidación + NCLEX + Visa EB-3 + Empleo Hospitalario Directo.",
     button: {
-      text: "Upgrade Now",
+      text: "Aplicar al Programa VIP",
       variant: "default",
     },
     features: [
-      { text: "100,000+ emails/mo" },
-      { text: "Dedicated IPs (no sharing)" },
-      { text: "SSO & enterprise auth" },
-      { text: "Live log stream + debugging" },
-      { text: "Blocklist monitoring & auto-removal" },
-      { text: "Premium SLA & uptime guarantees" },
-      { text: "VIP onboarding + migration" },
+      { text: "Todo lo incluido en Fase 1 y 2" },
+      { text: "Patrocinio directo de Visa EB-3" },
+      { text: "Residencia permanente (Green Card)" },
+      { text: "Contrato laboral de 3 años en EE. UU." },
+      { text: "Bono de bienvenida e instalación" },
+      { text: "Asistencia en vivienda y relocalización" },
     ],
   },
 ];
@@ -93,70 +86,29 @@ const pricingOptions = [
 // TAble
 export const pricingFeatures = [
   {
-    category: "Email Sending",
+    category: "Proceso de Homologación",
     features: [
-      {
-        label: "Daily Limit",
-        values: ["No limit", "No limit", "No limit"],
-      },
-      { label: "RESTful API", values: ["yes"] },
-      { label: "SMTP Relay", values: ["yes"] },
-      { label: "Official SDKs", values: ["yes"] },
-      { label: "Schedule Emails", values: ["yes"] },
-      { label: "Batch Sending", values: ["yes"] },
-      { label: "Open Tracking", values: ["yes"] },
-      { label: "Link Tracking", values: ["yes"] },
-      { label: "React Email", values: ["yes"] },
+      { label: "Revisión de Kárdex y Sílabus", values: ["yes", "yes", "yes"] },
+      { label: "Traducción Certificada de Documentos", values: ["yes", "yes", "yes"] },
+      { label: "Reporte CGFNS / Credentials Evaluation", values: ["yes", "yes", "yes"] },
+      { label: "Licencia Provisional de Enfermería", values: ["no", "yes", "yes"] },
     ],
   },
   {
-    category: "Deliverability & Reliability",
+    category: "Preparación NCLEX & Inglés",
     features: [
-      { label: "Custom Domains", values: ["10", "1,000", "Flexible"] },
-      {
-        label: "Dedicated IPs",
-        values: ["no", "With Add-on", "With Add-on"],
-      },
-      { label: "Dedicated IP Warming", values: ["no", "yes", "yes"] },
-      { label: "Pristine Shared IPs", values: ["yes"] },
-      { label: "Automatic Suppression List", values: ["yes"] },
-      { label: "Bounce Details", values: ["yes"] },
-      { label: "Multi-Region", values: ["yes"] },
-      {
-        label: "Data Retention",
-        values: ["3 days", "7 days", "Flexible"],
-      },
-      { label: "Deliverability Insights", values: ["yes"] },
-      { label: "DKIM, SPF, DMARC", values: ["yes"] },
-      { label: "Webhook Endpoints", values: ["10", "10", "Flexible"] },
-      { label: "Webhook Events", values: ["All Events"] },
+      { label: "Simuladores Adaptativos NGN", values: ["no", "yes", "yes"] },
+      { label: "Curso Intensivo TOEFL / IELTS Academic", values: ["no", "yes", "yes"] },
+      { label: "Talleres de Farmacología y Priorización", values: ["no", "yes", "yes"] },
     ],
   },
   {
-    category: "Security & Privacy",
+    category: "Patrocinio Laboral & Visados",
     features: [
-      { label: "Single Sign-On", values: ["no", "yes", "yes"] },
-      { label: "Social Login", values: ["yes"] },
-      { label: "Team Members", values: ["5", "100", "Flexible"] },
-      { label: "GDPR Compliance", values: ["yes"] },
-      { label: "SOC 2 Type II", values: ["yes"] },
-      { label: "Penetration Testing", values: ["yes"] },
-      { label: "DDoS Protection", values: ["yes"] },
-      { label: "Automated Backups", values: ["yes"] },
-      { label: "Multi-factor Auth", values: ["yes"] },
-      { label: "API Key Permissions", values: ["yes"] },
-      { label: "Signed Webhooks", values: ["yes"] },
-    ],
-  },
-  {
-    category: "Customer Support",
-    features: [
-      { label: "Ticket Support", values: ["yes"] },
-      { label: "Slack Support", values: ["no", "yes", "yes"] },
-      { label: "Urgent Response SLA", values: ["no", "yes", "yes"] },
-      { label: "Deliverability Expertise", values: ["no", "yes", "yes"] },
-      { label: "In-App Docs", values: ["yes"] },
-      { label: "AI Assistant", values: ["yes"] },
+      { label: "Petición Inmigratoria Form I-140", values: ["no", "no", "yes"] },
+      { label: "Inclusión de Cónyuge e Hijos menores de 21", values: ["no", "no", "yes"] },
+      { label: "Entrevistas Directas con Hospitales en EE. UU.", values: ["no", "no", "yes"] },
+      { label: "Bono para Tiquetes Aéreos y Vivienda Inicial", values: ["no", "no", "yes"] },
     ],
   },
 ];
@@ -173,15 +125,14 @@ export const pricingFeatures = [
         variant="displayMD"
         class="font-serif font-medium tracking-tight text-black"
       >
-        Plans that grow with your ambition (or chaos)
+        Programas Diseñados para Tu Éxito Profesional
       </Text>
       <Text
         tag="p"
         variant="textBase"
         class="max-w-xl mx-auto mt-4 text-base-500"
       >
-        Start free. Pay when your side project accidentally turns into a
-        business.
+        Elige el programa que mejor se adapte a tu etapa actual o realiza la ruta completa con nuestro acompañamiento integral.
       </Text>
 
       <!-- Pricing Toggle -->

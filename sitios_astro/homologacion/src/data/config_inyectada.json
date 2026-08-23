@@ -1,0 +1,64 @@
+{
+  "nombre_sitio": "Homologa tu Título",
+  "color_tema": "#004d40",
+  "comando_deploy": "netlify deploy --dir=dist",
+  "layout": "LayoutA",
+  "gcp_project_id": "us-valid-ntlify-88",
+  "seo": {
+    "titulo_base": "Valida tu Título",
+    "descripcion_base": "Instrucciones legales completas para homologar títulos de enfermería en USA.",
+    "idioma": "es-US"
+  },
+  "footer": {
+    "empresa_legal": "Enfermera en Estados Unidos",
+    "direccion": "Miami, FL 33101",
+    "email_contacto": "admin@homologacion-enfermeria-usa.com"
+  },
+  "menu_global": [
+    {
+      "nombre": "Título USA",
+      "ruta": "/homologacion"
+    },
+    {
+      "nombre": "Superar NCLEX",
+      "ruta": "/nclex"
+    },
+    {
+      "nombre": "Buscar Trabajo",
+      "ruta": "/vacantes"
+    },
+    {
+      "nombre": "Migrar Legal",
+      "ruta": "/visa"
+    },
+    {
+      "nombre": "Salario Real",
+      "ruta": "/salarios"
+    },
+    {
+      "nombre": "Guías Tips",
+      "ruta": "/blog"
+    },
+    {
+      "nombre": "Hablar Asesor",
+      "ruta": "https://wa.me/something"
+    },
+    {
+      "nombre": "Acceso",
+      "ruta": "/login"
+    }
+  ],
+  "dominio": "https://homologacion-enfermeria-usa.com",
+  "font_family": "Inter",
+  "color_palette": {
+    "primary": "oklch(38% 0.11 50)",
+    "secondary": "oklch(52% 0.07 50)",
+    "accent": "oklch(86% 0.14 20)",
+    "text_bold": "oklch(18% 0.05 50)",
+    "meta": {
+      "name": "Warm Professional",
+      "system": "OKLCH Premium v2"
+    }
+  },
+  "nav_footer_version": "v2"
+}

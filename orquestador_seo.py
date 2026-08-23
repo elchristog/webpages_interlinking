@@ -229,7 +229,21 @@ def generar_contenido_ia(sitio_id, nicho, palabras_clave, ruta_proyecto, modo="a
         frontmatter = f"---\ntitulo: \"{nicho.title()}\"\ndescripcion: \"Información oficial sobre {nicho}.\"\nslug: \"{slug_generado}\"\n---\n\n"
     else:
         slug_generado = f"{sitio_id}-guia-oficial-{int(datetime.now().timestamp())}"
-        frontmatter = f"---\ntitulo: \"{nicho.title()}\"\ndescripcion: \"Guía definitiva sobre {nicho}.\"\nslug: \"{slug_generado}\"\nfecha: \"{datetime.now().strftime('%Y-%m-%d')}\"\n---\n\n"
+        fecha_str = datetime.now().strftime('%Y-%m-%d')
+        frontmatter = f"""---
+title: "{nicho.title()}"
+pubDate: {fecha_str}
+description: "Guía definitiva sobre {nicho}."
+team: "david-lee"
+image:
+  url: "/src/images/blog/1.jpg"
+  alt: "{nicho.title()}"
+tags:
+  - enfermeria
+  - empleos
+---
+
+"""
     
     content = frontmatter + content.strip() + video_iframe
     return content, slug_generado
