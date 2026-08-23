@@ -137,6 +137,25 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
     
     # Inyectar Hero
     hero_prompt = hero_elegido["prompt"].replace("{preset}", "").replace("  ", " ")
+    # Helper para reemplazar {IMAGEN_1}, {IMAGEN_2}, etc. por imágenes reales del proyecto
+    if imagenes_proyecto and len(imagenes_proyecto) > 0:
+        imgs = list(imagenes_proyecto)
+        random.shuffle(imgs)
+        def replace_img_placeholders(text):
+            for idx in range(1, 10):
+                tag = f"{{IMAGEN_{idx}}}"
+                if tag in text:
+                    img_choice = imgs[(idx - 1) % len(imgs)]
+                    text = text.replace(tag, img_choice)
+            return text
+    else:
+        def replace_img_placeholders(text):
+            for idx in range(1, 10):
+                tag = f"{{IMAGEN_{idx}}}"
+                text = text.replace(tag, "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80")
+            return text
+
+    hero_prompt = replace_img_placeholders(hero_elegido["prompt"].replace("{preset}", "").replace("  ", " "))
     prompt_componentes += f"1. {hero_prompt}\n\n"
     
     # Inyectar Utilidades
@@ -151,7 +170,7 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
     random.shuffle(sections_randomized)
     
     for sec in sections_randomized:
-        sec_prompt = sec["prompt"].replace("{preset}", "").replace("  ", " ")
+        sec_prompt = replace_img_placeholders(sec["prompt"].replace("{preset}", "").replace("  ", " "))
         prompt_componentes += f"{contador_item}. {sec_prompt}\n\n"
         contador_item += 1
 
@@ -173,7 +192,7 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
 
     if imagenes_proyecto and len(imagenes_proyecto) > 0:
         lista_imgs_str = "\n".join([f"       - {img}" for img in imagenes_proyecto])
-        regla_imagenes = f"""    4. REGLA DE IMÁGENES LOCALES OBLIGATORIAS (PROYECTO PRIVADO): Tienes estrictamente PROHIBIDO usar imágenes de Unsplash, placeholders (via.placeholder.com), íconos SVG vacíos, inventar URLs o dejar etiquetas vacías. SIEMPRE que un componente UI, tarjeta o ícono requiera un elemento visual, DEBES usar EXCLUSIVAMENTE una de estas rutas (elige al azar entre ellas) recortada como círculo (`w-24 h-24 rounded-full object-cover`):
+        regla_imagenes = f"""    4. REGLA DE IMÁGENES LOCALES OBLIGATORIAS (PROYECTO PRIVADO): Tienes strictly PROHIBIDO usar imágenes de Unsplash, placeholders (via.placeholder.com), íconos SVG vacíos, inventar URLs o dejar etiquetas vacías. SIEMPRE que un componente UI, tarjeta o ícono requiera un elemento visual, DEBES usar EXCLUSIVAMENTE una de estas rutas (elige al azar entre ellas) recortada como círculo (`w-24 h-24 rounded-full object-cover`):
 {lista_imgs_str}"""
     else:
         regla_imagenes = """    4. REGLA DE IMÁGENES OBLIGATORIAS: SIEMPRE que un componente de UI, sección o tarjeta requiera una imagen o ícono (etiqueta <img>), es OBLIGATORIO que incluyas una. NUNCA inventes URLs, NUNCA uses placeholders genéricos y NUNCA la dejes vacía. DEBES usar EXCLUSIVAMENTE una de estas URLs estándar recortada como círculo (`w-24 h-24 rounded-full object-cover`):
@@ -198,10 +217,10 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
     
     INSTRUCCIONES DE REDACCIÓN (OBLIGATORIAS):
     1. REGLA DE UNICIDAD RADICAL: Estás generando una de las 16 variantes para una red. Es CRÍTICO que este texto sea 100% original. Cambia el orden de los conceptos, usa sinónimos poco comunes, y varía la longitud de las oraciones. Si el tema es general, aterrizalo a la realidad de '{nicho_actual}' y menciona elementos locales (hospitales, leyes estatales, clima laboral en esa zona) para que Google no vea dos textos iguales.
-    2. DISEÑO NIVEL PRO: Tu objetivo es crear una LANDING PAGE DE LUJO. NO generes un bloque de texto plano. Debes jugar con la distribución del contenido usando los componentes UI indicados (class="ui-...").
-       - INICIO: Empieza OBLIGATORIAMENTE con un `ui-hero-full` con un título H1 gigante.
+    2. DISEÑO NIVEL PRO: Tu objetivo es crear una LANDING PAGE DE LUJO aprovechando al máximo las plantillas de Astro Lexington Themes. NO generes un bloque de texto plano. Debes jugar con la distribución del contenido usando los componentes UI indicados (class="ui-...").
+       - INICIO: Empieza OBLIGATORIAMENTE con un `ui-hero-agency` o `ui-hero-product` con un título H1 gigante.
        - RITMO VISUAL: Alterna secciones de "Ancho Completo" con secciones de lectura estándar.
-       - MULTI-COLUMNAS: Usa `ui-lifestyle-grid` (3 col con imágenes circulares) o `ui-value-props` (2 col minimalistas) para mostrar beneficios de forma premium. También puedes usar `ui-grid-3` o `ui-grid-4`.
+       - MULTI-COLUMNAS: Usa `ui-lifestyle-grid` (3 col testimonios), `ui-value-props` (2 col bento), `ui-feature-cards` (3 col servicios), `ui-apple-product-cards-container` (tarjetas showcase estilo Apple) o `ui-services-split` (análisis dividido).
     3. REGLA DE MARCA: El sitio web '{nombre_sitio}' pertenece a la empresa '{nombre_empresa}'. Siempre que te refieras a la organización detrás de la web, usa el nombre '{nombre_empresa}'.
 {regla_imagenes}
     **REGLA DE FORMATO**: 
