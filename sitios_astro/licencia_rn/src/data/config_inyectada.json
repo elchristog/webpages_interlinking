@@ -1,0 +1,64 @@
+{
+  "nombre_sitio": "Licencia RN Oficial",
+  "color_tema": "#1565c0",
+  "comando_deploy": "firebase deploy --only hosting",
+  "layout": "LayoutC",
+  "gcp_project_id": "rn-license-fb-002",
+  "seo": {
+    "titulo_base": "Obtener Licencia RN",
+    "descripcion_base": "Aplica oficial y correctamente a tu RN (Registered Nurse License) en todos los estados.",
+    "idioma": "es-US"
+  },
+  "footer": {
+    "empresa_legal": "Enfermera en Estados Unidos",
+    "direccion": "Atlanta, GA 30301",
+    "email_contacto": "support@licencia-enfermeria-rn.org"
+  },
+  "menu_global": [
+    {
+      "nombre": "Validar Diploma",
+      "ruta": "/homologacion"
+    },
+    {
+      "nombre": "Prep NCLEX",
+      "ruta": "/nclex"
+    },
+    {
+      "nombre": "Trabajo Hoy",
+      "ruta": "/vacantes"
+    },
+    {
+      "nombre": "Trámite EB3",
+      "ruta": "/visa"
+    },
+    {
+      "nombre": "Salario Real",
+      "ruta": "/salarios"
+    },
+    {
+      "nombre": "Blog Oficial",
+      "ruta": "/blog"
+    },
+    {
+      "nombre": "Escríbenos",
+      "ruta": "https://wa.me/something"
+    },
+    {
+      "nombre": "Iniciar",
+      "ruta": "/login"
+    }
+  ],
+  "dominio": "https://licencia-enfermeria-rn.org",
+  "font_family": "Plus Jakarta Sans",
+  "color_palette": {
+    "primary": "oklch(38% 0.13 210)",
+    "secondary": "oklch(55% 0.09 210)",
+    "accent": "oklch(88% 0.10 160)",
+    "text_bold": "oklch(20% 0.06 210)",
+    "meta": {
+      "name": "Corporate Teal",
+      "system": "OKLCH Premium v2"
+    }
+  },
+  "nav_footer_version": "v2"
+}

@@ -575,6 +575,102 @@ def preparar_identidad_sitio(sitio_id, configuracion_actual, config_global, conf
     
     return configuracion_actual
 
+def personalizar_componentes_plantilla(ruta_astro, nicho, palabras_clave):
+    """
+    Escanea la carpeta src/components/, src/pages/ y src/content/ del proyecto Astro
+    y reemplaza automáticamente cualquier texto de relleno en inglés por contenido en español
+    adaptado al nicho del sitio.
+    """
+    if not os.path.exists(ruta_astro):
+        return
+
+    nicho_title = nicho.strip()
+    kw_str = ", ".join(palabras_clave[:3]) if palabras_clave else "enfermería en USA"
+
+    reemplazos_directos = [
+        # Heros & Headers principales
+        ("Plug it in before your coffee gets cold", f"Todo lo que necesitas para ejercer como Enfermera en EE. UU."),
+        ("Clean, no-BS interface. Set it up in minutes, send emails even faster.", f"Un programa estructurado para acompañarte desde la convalidación hasta tu trabajo hospitalario."),
+        ("Built by developers who were sick of broken email APIs", f"Ventajas Exclusivas de Nuestro Programa de Reclutamiento"),
+        ("We got tired of wrestling with clunky tools, so we built the email platform we always wanted — fast, clean, and actually works without swearing at your terminal.", f"Diseñamos un proceso transparente e integral, respaldado por expertos en inmigración y docentes de enfermería."),
+        ("Write Like a Human, Not a Hacker", f"Asesoría Personalizada y Acompañamiento Continuo"),
+        ("Finally, an editor that doesn’t fight you. Format, style, and send emails without touching a single . Build visually, tweak freely, and leave the HTML rage-quits behind.", f"Te acompañamos en cada etapa: evaluación de credenciales CGFNS, preparación de examen y trámite consular."),
+        ("Contact Management That Doesn’t Suck", f"Gestión Consular y Patrocinio Visa EB-3"),
+        ("Import your entire list in minutes — whether it’s 50 or 50,000. See every contact’s details without clicking through 12 tabs. It’s like a CRM, but without the bloat (or the monthly breakdown).", f"Un equipo legal de inmigración gestiona tu petición I-140 y visa de residencia permanente (Green Card)."),
+        ("Broadcast Analytics (Because Guesswork Is for Amateurs)", f"Preparación del Examen NCLEX-RN con Métodos Probados"),
+        ("See who opened, clicked, ignored, or rage-deleted your email. Real insights, no fluff — so you actually know what’s working (and what’s not).", f"Nuestros docentes capacitados te guían con simuladores reales NGN para aprobar en tu primer intento."),
+        ("Email, But Actually Good", f"Tu Futuro como Enfermera en EE. UU. Empieza Hoy"),
+        ("No setup rituals. No DNS sorcery. Just emails that send, land, and look damn good doing it. — Available now. Because why wait?", f"Evaluamos tu perfil profesional sin costo y trazamos la ruta directa hacia tu empleo en EE. UU."),
+        ("Plans that grow with your ambition (or chaos)", f"Programas Diseñados para Tu Éxito Profesional"),
+        ("Start free. Pay when your side project accidentally turns into a business.", f"Elige la fase en la que te encuentras o realiza la ruta completa con nuestro acompañamiento."),
+        ("No concepts. Just real websites.", f"Licencia de Enfermería & Oportunidades Laborales"),
+        ("A curated collection of production websites worth studying — layout, hierarchy, interaction, and execution. Use them to benchmark your own work, not to copy it.", f"Guía actualizada sobre homologación de títulos, visados de residencia EB-3 y salarios de enfermería."),
+        ("Design Smarter. Build Better.", f"Guía Oficial: {nicho_title}"),
+        ("A course for developers who care about design. Learn to craft beautiful, responsive UIs with precision — from layout to component polish.", f"Información estratégica sobre revalidación de credenciales, cursos NCLEX-RN y patrocinio hospitalario."),
+        ("What will you sharpen next?", f"Recursos Destacados y Guías de Estudio"),
+        ("New lessons and UI patterns released regularly. Stay sharp, stay current — and keep building with confidence.", f"Explora nuestros artículos detallados sobre trámites de enfermería, visas laborales y consejos de examen."),
+
+        # Botones y enlaces de navegación
+        ("Get full access", "Solicitar Evaluación Gratuita"),
+        ("Get Started", "Iniciar Proceso"),
+        ("Get pro access", "Conocer Requisitos"),
+        ("Upgrade Now", "Aplicar al Programa"),
+        ("Learn more", "Ver Guías"),
+        ("Buy Brightlight", "Contacto"),
+        ("Buy ", "Contacto "),
+        ("Sign in", "Asesoría"),
+        ("Overview", "Inicio"),
+
+        # Tarjetas de características
+        ("Test Mode (aka Safe Chaos)", "Homologación Directa"),
+        ("Blow things up without consequences. Simulate everything, send nothing. Perfect for testing, debugging, and not losing your job.", "Evaluamos tus credenciales universitarias para cumplir los requisitos del Board de Enfermería."),
+        ("Webhooks That Actually Work", "Preparación NCLEX-RN"),
+        ("We ping your server the second something happens — delivery, open, click, bounce, interpretive dance. You’ll know.", "Clases en vivo y simuladores adaptativos NGN con más de 3,000 preguntas preparatorias."),
+        ("Live Logs (Bring Popcorn)", "Patrocinio Visa EB-3"),
+        ("Every request, every response, every oops — logged in real time. It's like tailing your server logs, but less painful.", "Petición de Residencia Permanente (Green Card) para ti, tu cónyuge e hijos menores de 21 años."),
+        ("Retry Logic That Babysits for You", "Contratos Hospitalarios"),
+        ("Flaky internet? Broken SMTP? We’ve got auto-retries so you don’t have to watch your queue like a hawk on Red Bull.", "Ofertas laborales directas con sistemas de salud acreditados en Estados Unidos."),
+        ("Open & Click Tracking (Legally Not Creepy)", "Salarios Competitivos"),
+        ("Want to know who opened what and clicked where? So do we. Welcome to legally acceptable email surveillance.", "Ingresos promedio desde $75,000 hasta $110,000 USD anuales según tu especialidad."),
+        ("Markup Freedom (Build It Your Way)", "Bono de Reubicación"),
+        ("Whatever you write, we’ll render it without crying over inline styles.", "Asistencia para tiquetes aéreos, alojamiento inicial y trámites de llegada."),
+        ("Inbox Previews (For the Control Freak in You)", "Inglés Clínico Especializado"),
+        ("Preview your masterpiece before it hits the inbox. Yes, even in Outlook. Especially in Outlook.", "Entrenamiento enfocado en vocabulario médico para certificar TOEFL iBT o IELTS Academic."),
+        ("Custom Domains (Stop Using Sketchy Emails)", "Acompañamiento VIP 1 a 1"),
+        ("Send from your own domain and stop looking like a scammer. Nobody trusts ‘noreply@fakedomain.biz’.", "Asesoría personalizada en cada etapa del proceso hasta tu incorporación hospitalaria.")
+    ]
+
+    rutas_a_escanear = [
+        os.path.join(ruta_astro, 'src', 'components'),
+        os.path.join(ruta_astro, 'src', 'pages'),
+        os.path.join(ruta_astro, 'src', 'content')
+    ]
+
+    for carpeta in rutas_a_escanear:
+        if not os.path.exists(carpeta):
+            continue
+        for root, dirs, files in os.walk(carpeta):
+            for file in files:
+                if file.endswith(('.astro', '.md', '.tsx', '.jsx')):
+                    filepath = os.path.join(root, file)
+                    try:
+                        with open(filepath, 'r', encoding='utf-8') as f:
+                            content = f.read()
+                        
+                        modificado = False
+                        for orig, reemp in reemplazos_directos:
+                            if orig in content:
+                                content = content.replace(orig, reemp)
+                                modificado = True
+                        
+                        if modificado:
+                            with open(filepath, 'w', encoding='utf-8') as f:
+                                f.write(content)
+                            print(f"[Text Injector] Personalizado {file} -> {nicho[:30]}...")
+                    except Exception as e:
+                        pass
+
+
 def procesar_sitio(sitio, config_global, config_menus, ruta_proyecto_config, ruta_base, nombre_proyecto, modo_propagar=None, input_base=None, slug_pestaña=None, ruta_recursos=None):
     sitio_id = sitio['id']
     print(f"\n=== Procesando {sitio_id} ===")
@@ -595,6 +691,9 @@ def procesar_sitio(sitio, config_global, config_menus, ruta_proyecto_config, rut
         configuracion_actual["footer"]["empresa_legal"] = nombre_empresa_global
     
     escribir_config_inyectada(sitio['ruta_astro'], configuracion_actual)
+
+    # NUEVO: Personalizar automáticamente textos de componentes de la plantilla en español según el nicho
+    personalizar_componentes_plantilla(sitio['ruta_astro'], sitio.get('nicho', 'Enfermera en Estados Unidos'), sitio.get('palabras_clave', []))
 
     # NUEVO: Gestionar estado
     gestionar_estado_contenido(sitio_id, sitio['ruta_astro'], ruta_base, nombre_proyecto, modo_propagar)

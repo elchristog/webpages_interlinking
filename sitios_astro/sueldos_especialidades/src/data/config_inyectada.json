@@ -1,0 +1,64 @@
+{
+  "nombre_sitio": "Sueldos de Enfermería Hub",
+  "color_tema": "#2e7d32",
+  "comando_deploy": "vercel deploy --prod",
+  "layout": "LayoutA",
+  "gcp_project_id": "salary-hub-vcl-x",
+  "seo": {
+    "titulo_base": "Estudio Sueldos USA",
+    "descripcion_base": "Estudio detallado de cuánto gana una enfermera quirúrgica vs anestesista vs emergencias.",
+    "idioma": "es-US"
+  },
+  "footer": {
+    "empresa_legal": "Enfermera en Estados Unidos",
+    "direccion": "Chicago, IL 60601",
+    "email_contacto": "data@sueldos-enfermeras-usa.com"
+  },
+  "menu_global": [
+    {
+      "nombre": "Diploma Online",
+      "ruta": "/homologacion"
+    },
+    {
+      "nombre": "Pasar NCLEX",
+      "ruta": "/nclex"
+    },
+    {
+      "nombre": "Trabajo Hoy",
+      "ruta": "/vacantes"
+    },
+    {
+      "nombre": "Sponsor Visa",
+      "ruta": "/visa"
+    },
+    {
+      "nombre": "Pagos RN",
+      "ruta": "/salarios"
+    },
+    {
+      "nombre": "Actualidad",
+      "ruta": "/blog"
+    },
+    {
+      "nombre": "Soporte",
+      "ruta": "https://wa.me/something"
+    },
+    {
+      "nombre": "Mi Cuenta",
+      "ruta": "/login"
+    }
+  ],
+  "dominio": "https://sueldos-enfermeras-usa.com",
+  "font_family": "Outfit",
+  "color_palette": {
+    "primary": "oklch(38% 0.14 260)",
+    "secondary": "oklch(50% 0.10 260)",
+    "accent": "oklch(85% 0.12 190)",
+    "text_bold": "oklch(15% 0.06 260)",
+    "meta": {
+      "name": "Midnight Ocean",
+      "system": "OKLCH Premium v2"
+    }
+  },
+  "nav_footer_version": "v2"
+}
