@@ -1,11 +1,15 @@
 ---
+const { title = "Enfermera en Estados Unidos", description = "Guía oficial para trabajar como enfermera en Estados Unidos." } = Astro.props;
+
 // @ts-expect-error - AstroSeo is exported from .astro; package types are partial
 import { AstroSeo } from "@lexingtonthemes/seo";
 ---
+const { title = "Enfermera en Estados Unidos", description = "Guía oficial para trabajar como enfermera en Estados Unidos." } = Astro.props;
+
 
 <AstroSeo
-  title="Your Page Title"
-  description="A detailed description of your page content."
+  title={title}
+  description={description}
   canonical="https://yoursite.com/current-page"
   openGraph={{
     url: "https://yoursite.com/current-page",

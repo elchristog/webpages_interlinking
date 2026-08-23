@@ -10,9 +10,20 @@ import Companies from "@/components/landing/Companies.astro";
 import Categories from "@/components/landing/Categories.astro";
 import Candidates from "@/components/landing/Candidates.astro";
 import FeaturedJobs from "@/components/landing/FeaturedJobs.astro";
+
+const paginas = Object.values(import.meta.glob('../content/*.md', { eager: true }));
+const indexContent: any = paginas.find((p: any) => p.frontmatter?.slug === 'index' || p.file?.endsWith('index.md'));
 ---
 
-<BaseLayout>
+<BaseLayout title={indexContent?.frontmatter?.titulo} description={indexContent?.frontmatter?.descripcion}>
+  {
+    indexContent ? (
+      <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <indexContent.Content />
+      </main>
+    ) : (
+      <>
+
   <section>
     <Wrapper variant="standard" class="py-24">
       <Hero />
@@ -27,4 +38,8 @@ import FeaturedJobs from "@/components/landing/FeaturedJobs.astro";
       </div>
     </Wrapper>
   </section>
+
+      </>
+    )
+  }
 </BaseLayout>

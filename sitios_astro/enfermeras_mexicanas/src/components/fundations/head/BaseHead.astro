@@ -1,4 +1,6 @@
 ---
+const { title, description } = Astro.props;
+
 import Seo from "@/components/fundations/head/Seo.astro";
 import Meta from "@/components/fundations/head/Meta.astro";
 import Fonts from "@/components/fundations/head/Fonts.astro";
@@ -8,7 +10,9 @@ import AOS from "@/components/fundations/scripts/AOS.astro";
 import FuseJs from "@/components/fundations/scripts/FuseJs.astro";
 
 ---
-<Seo />
+const { title, description } = Astro.props;
+
+<Seo title={title} description={description} />
 <Meta />
 <Fonts />
 <Favicons />

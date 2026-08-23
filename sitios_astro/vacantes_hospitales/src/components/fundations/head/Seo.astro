@@ -1,11 +1,15 @@
 ---
+const { title = "Enfermera en Estados Unidos", description = "Guía oficial para trabajar como enfermera en Estados Unidos." } = Astro.props;
+
 // @ts-expect-error - package types omit .astro default export
 import { AstroSeo } from "@lexingtonthemes/seo";
 ---
+const { title = "Enfermera en Estados Unidos", description = "Guía oficial para trabajar como enfermera en Estados Unidos." } = Astro.props;
+
 
 <AstroSeo
-  title="Your Page Title"
-  description="A detailed description of your page content."
+  title={title}
+  description={description}
   canonical="https://yourwebsite.com/current-page"
   openGraph={{
     url: "https://yourwebsite.com/current-page",

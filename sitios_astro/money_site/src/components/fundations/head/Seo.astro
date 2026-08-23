@@ -1,31 +1,30 @@
 ---
 import { AstroSeo } from "@lexingtonthemes/seo";
+const { 
+  title = "Enfermera en Estados Unidos - Guía Oficial", 
+  description = "Guía completa y oficial para trabajar como enfermera en Estados Unidos con patrocinio de visa." 
+} = Astro.props;
 ---
 
 <AstroSeo
-  title="Your Page Title"
-  description="A detailed description of your page content."
-  canonical="https://yourwebsite.com/current-page"
+  title={title}
+  description={description}
+  canonical="https://enfermeraeeu.com"
   openGraph={{
-    url: "https://yourwebsite.com/current-page",
-    title: "Your Page Title",
-    description: "A detailed description of your page content.",
+    url: "https://enfermeraeeu.com",
+    title: title,
+    description: description,
     images: [
       {
-        url: "https://yourwebsite.com/og-image.jpg",
+        url: "/imagenes_proyecto/logo.webp",
         width: 1200,
         height: 630,
-        alt: "Open Graph Image Alt",
-        type: "image/jpeg",
+        alt: title,
+        type: "image/webp",
       },
     ],
-    site_name: "Your Site Name",
+    site_name: title,
     type: "website",
-    locale: "en_US",
-  }}
-  twitter={{
-    handle: "@yourhandle",
-    site: "@yourwebsite",
-    cardType: "summary_large_image",
+    locale: "es_ES",
   }}
 />

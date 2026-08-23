@@ -9,12 +9,12 @@ import AudioPlayerScript from "@/components/fundations/scripts/AudioPlayerScript
 // Hides nav and footer on selected screens by passing
 // the hideNav and hideFooter props
 // <BaseLayout hideNav={true} hideFooter={true}>
-const { hideNav = false, hideFooter = false } = Astro.props;
+const { title, description,  hideNav = false, hideFooter = false } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="es">
   <head>
-    <BaseHead />
+    <BaseHead title={title} description={description} />
   </head>
   <body class="flex flex-col bg-base-50 min-h-svh">
     {!hideNav && <Navigation />}

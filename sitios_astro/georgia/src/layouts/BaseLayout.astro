@@ -9,7 +9,7 @@ import Navigation from "@/components/navigation/Navigation.astro";
 import Search from "@/components/sites/Search.astro";
 // Hides the navigation, search or footer on selected screens by passing props:
 // <BaseLayout hideNavigation={true} hideFooter={true}   />
-const {
+const { title, description, 
   hideNavigation = false,
   hideFooter = false,
   hideSearch, // legacy flag
@@ -19,11 +19,11 @@ const renderSearch = showSearch || hideSearch === false;
 ---
 
 <html
-  lang="en"
+  lang="es"
   class="scroll-smooth selection:bg-accent-50 selection:text-accent-500"
 >
   <head>
-    <BaseHead />
+    <BaseHead title={title} description={description} />
   </head>
   <body class="bg-white flex flex-col lg:min-h-svh">
     {!hideNavigation && <Navigation />}

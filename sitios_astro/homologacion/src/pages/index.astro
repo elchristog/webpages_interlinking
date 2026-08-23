@@ -7,11 +7,26 @@ import Intro from "@/components/landing/Intro.astro";
 import FeaturedSessions from "@/components/landing/FeaturedSessions.astro";
 import FeaturedSpeakers from "@/components/landing/FeaturedSpeakers.astro";
 import Cta from "@/components/ctas/MainCta.astro";
+
+const paginas = Object.values(import.meta.glob('../content/*.md', { eager: true }));
+const indexContent: any = paginas.find((p: any) => p.frontmatter?.slug === 'index' || p.file?.endsWith('index.md'));
 ---
-<BaseLayout>
+<BaseLayout title={indexContent?.frontmatter?.titulo} description={indexContent?.frontmatter?.descripcion}>
+  {
+    indexContent ? (
+      <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <indexContent.Content />
+      </main>
+    ) : (
+      <>
+
   <Hero />
   <Intro />
   <FeaturedSessions />
   <FeaturedSpeakers />
   <Cta />
+
+      </>
+    )
+  }
 </BaseLayout>

@@ -1,4 +1,6 @@
 ---
+const { title, description } = Astro.props;
+
 import Seo from "@/components/fundations/head/Seo.astro";
 import Meta from "@/components/fundations/head/Meta.astro";
 import Fonts from "@/components/fundations/head/Fonts.astro";
@@ -9,8 +11,10 @@ import ClockScript from "@/components/fundations/scripts/ClockScript.astro";
 import TickerHideScript from "@/components/fundations/scripts/TickerHideScript.astro";
 import NavigationScript from "@/components/fundations/scripts/NavigationScript.astro";
 ---
+const { title, description } = Astro.props;
 
-<Seo />
+
+<Seo title={title} description={description} />
 <Meta />
 <Fonts />
 <Favicons />

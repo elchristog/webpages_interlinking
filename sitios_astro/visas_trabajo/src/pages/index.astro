@@ -13,9 +13,20 @@ import Categories1 from "@/components/blog/landingPages/index1/Categories1.astro
 // Adverts
 import AdvertAside from "@/components/advert/AdvertAside.astro";
 import AdvertInline from "@/components/advert/AdvertInline.astro";
+
+const paginas = Object.values(import.meta.glob('../content/*.md', { eager: true }));
+const indexContent: any = paginas.find((p: any) => p.frontmatter?.slug === 'index' || p.file?.endsWith('index.md'));
 ---
 
-<BaseLayout>
+<BaseLayout title={indexContent?.frontmatter?.titulo} description={indexContent?.frontmatter?.descripcion}>
+  {
+    indexContent ? (
+      <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <indexContent.Content />
+      </main>
+    ) : (
+      <>
+
   <section>
     <Wrapper variant="standard" class="py-12">
       <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-0">
@@ -43,4 +54,8 @@ import AdvertInline from "@/components/advert/AdvertInline.astro";
     </Wrapper>
   </section>
   <Categories1 />
+
+      </>
+    )
+  }
 </BaseLayout>

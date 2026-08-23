@@ -10,17 +10,17 @@ import Search from "@/components/global/Search.astro";
 // Hides nav and footer on selected screens by passing
 // the hideNav and hideFooter props
 // <BaseLayout hideNav={true} hideFooter={true}>
-const { hideNav = false, hideFooter = false } = Astro.props;
+const { title, description,  hideNav = false, hideFooter = false } = Astro.props;
 // Scripts
 import ToggleScript from "@/components/fundations/scripts/ToggleScript.astro";
 ---
 
 <html
-  lang="en"
+  lang="es"
   class="scroll-smooth selection:bg-accent selection:text-secondary"
 >
   <head>
-    <BaseHead />
+    <BaseHead title={title} description={description} />
   </head>
   <body class="relative flex flex-col bg-secondary min-h-svh">
     {!hideNav && <Navigation />}

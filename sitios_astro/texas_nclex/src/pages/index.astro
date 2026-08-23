@@ -11,9 +11,20 @@ import Testimonial1 from "@/components/testimonials/Testimonial1.astro";
 import Pricing1 from "@/components/pricing/Pricing1.astro";
 import Faq1 from "@/components/faqs/Faq1.astro";
 import Cta1 from "@/components/ctas/Cta1.astro";
+
+const paginas = Object.values(import.meta.glob('../content/*.md', { eager: true }));
+const indexContent: any = paginas.find((p: any) => p.frontmatter?.slug === 'index' || p.file?.endsWith('index.md'));
 ---
 
-<BaseLayout>
+<BaseLayout title={indexContent?.frontmatter?.titulo} description={indexContent?.frontmatter?.descripcion}>
+  {
+    indexContent ? (
+      <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <indexContent.Content />
+      </main>
+    ) : (
+      <>
+
   <Hero1 />
   <Feature1 />
   <Feature2 />
@@ -23,4 +34,8 @@ import Cta1 from "@/components/ctas/Cta1.astro";
   <Pricing1 />
   <Faq1 />
   <Cta1 />
+
+      </>
+    )
+  }
 </BaseLayout>

@@ -13,8 +13,19 @@ import Feature2 from "@/components/features/Feature2.astro";
 import Feature3 from "@/components/features/Feature3.astro";
 import Feature4 from "@/components/features/Feature4.astro";
 import Cta from "@/components/ctas/Cta.astro";
+
+const paginas = Object.values(import.meta.glob('../content/*.md', { eager: true }));
+const indexContent: any = paginas.find((p: any) => p.frontmatter?.slug === 'index' || p.file?.endsWith('index.md'));
 ---
-<BaseLayout>
+<BaseLayout title={indexContent?.frontmatter?.titulo} description={indexContent?.frontmatter?.descripcion}>
+  {
+    indexContent ? (
+      <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <indexContent.Content />
+      </main>
+    ) : (
+      <>
+
   <section>
     <Wrapper variant="standard" class="pt-48 pb-8 overflow-hidden lg:pt-82">
       <Text
@@ -43,4 +54,8 @@ import Cta from "@/components/ctas/Cta.astro";
   <Feature3 />
   <Feature4 />
   <Cta />
+
+      </>
+    )
+  }
 </BaseLayout>
