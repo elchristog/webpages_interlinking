@@ -1,0 +1,40 @@
+---
+//
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+const { integration, description, url } = {
+  url: "/integrations/" + Astro.props.post.id,
+  integration: Astro.props.post.data.integration,
+  description: Astro.props.post.data.description,
+};
+---
+
+<li
+  class="flex flex-col justify-between h-full border-dashed lg:pl-8 lg:border-l lg:border-white/20"
+>
+  <div>
+    <Text
+      tag="h3"
+      variant="displaySM"
+      class="font-medium tracking-tight text-white text-balance"
+    >
+      {integration}
+    </Text>
+    <Text tag="p" variant="textLG" class="mt-4 font-medium text-white lg:mt-48"
+      >{description}</Text
+    >
+  </div>
+  <div class="mt-12">
+    <Button
+      size="xl"
+      variant="default"
+      href={url}
+      isLink
+      title={integration}
+      class="w-fulll"
+    >
+      Learn more
+    </Button>
+  </div>
+</li>

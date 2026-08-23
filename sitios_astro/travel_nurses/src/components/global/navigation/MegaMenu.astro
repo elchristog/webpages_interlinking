@@ -1,0 +1,143 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+// Components
+import BlogCard1 from "@/components/blog/BlogCard1.astro";
+import PodcastCardText from "@/components/podcast/PodcastCardText.astro";
+// Content
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("posts");
+allPosts.sort((a, b) => {
+  const dateA = new Date(a.data.pubDate).getTime();
+  const dateB = new Date(b.data.pubDate).getTime();
+  return dateB - dateA;
+});
+const allPodcasts = await getCollection("podcast");
+allPodcasts.sort((a, b) => {
+  const dateA = new Date(a.data.pubDate).getTime();
+  const dateB = new Date(b.data.pubDate).getTime();
+  return dateB - dateA;
+});
+const podcastPlatforms = [
+  { name: "Spotify", link: "#_" },
+  { name: "Apple Podcasts", link: "#_" },
+  { name: "YouTube", link: "#_" },
+  { name: "Overcast", link: "#_" },
+  { name: "Pocket Casts", link: "#_" },
+  { name: "Castbox", link: "#_" },
+  { name: "Stitcher", link: "#_" },
+  { name: "iHeartRadio", link: "#_" },
+  { name: "Google Podcasts", link: "#_" },
+  { name: "Amazon Music", link: "#_" },
+];
+---
+
+<nav
+  id="menu"
+  role="navigation"
+  aria-linkledby="menubutton"
+  class="relative mt-8 overflow-hidden"
+>
+  <div class="pb-8 grid grid-cols-1 md:grid-cols-5 gap-8 border-b">
+    <div class="lg:col-span-3">
+      <Text
+        tag="a"
+        href="/blog/"
+        variant="textXL"
+        class="font-serif font-light"
+      >
+        From the blog
+      </Text>
+      <div class="mt-1 md:grid grid-cols-1 gap-2 lg:grid-cols-2">
+        {allPosts.slice(0, 2).map((post) => <BlogCard1 post={post} />)}
+      </div>
+    </div>
+    <div>
+      <Text
+        tag="a"
+        href="/interviews/home"
+        variant="textXL"
+        class="font-serif font-light"
+      >
+        Latest Interviews
+      </Text>
+      <div class="flex flex-col gap-2 mt-1">
+        {allPodcasts.slice(0, 3).map((post) => <PodcastCardText post={post} />)}
+      </div>
+    </div>
+    <div>
+      <Text
+        tag="p"
+        href="/blog/"
+        variant="textXL"
+        class="font-serif font-light"
+      >
+        Listen on
+      </Text>
+      <nav class="flex flex-col mt-1 gap-1">
+        {
+          podcastPlatforms.map((platform) => (
+            <Text
+              tag="a"
+              variant="textXS"
+              class="font-serif font-medium text-base-600 hover:underline"
+              href={platform.link}
+            >
+              {platform.name}
+            </Text>
+          ))
+        }
+      </nav>
+    </div>
+  </div>
+</nav>
+<style>
+  #menu {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition:
+      max-height 0.5s ease-out,
+      opacity 0.5s ease-out;
+  }
+  #menu.expanded {
+    max-height: 1000px; /* Adjust this value based on your content */
+    opacity: 1;
+  }
+</style>
+<script type="module">
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuButton = document.getElementById("menubutton");
+    const menu = document.getElementById("menu");
+    const menuIcon = document.getElementById("menuIcon");
+    const tabsList = document.getElementById("tabsList");
+    const tabPanels = document.getElementById("tabPanels");
+    if (!menuButton || !menu) return;
+    let expanded = false;
+    menuButton.addEventListener("click", () => {
+      expanded = !expanded;
+      menuButton.setAttribute("aria-expanded", expanded);
+      menu.classList.toggle("expanded", expanded);
+      if (menuIcon) {
+        menuIcon.style.opacity = expanded ? "0" : "1";
+      }
+    });
+    if (tabsList && tabPanels) {
+      tabsList.addEventListener("click", (e) => {
+        if (e.target.tagName === "BUTTON") {
+          const selectedCategory = e.target.getAttribute("data-category");
+          tabsList.querySelectorAll("button").forEach((tab) => {
+            tab.classList.toggle("border-accent-500", tab === e.target);
+            tab.classList.toggle("border-transparent", tab !== e.target);
+          });
+          tabPanels.querySelectorAll("div[data-category]").forEach((panel) => {
+            panel.classList.toggle(
+              "hidden",
+              panel.getAttribute("data-category") !== selectedCategory
+            );
+          });
+        }
+      });
+    }
+  });
+</script>

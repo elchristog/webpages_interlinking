@@ -1,0 +1,128 @@
+---
+// Assets
+import Logo from "@/components/assets/Logo.astro";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import SubsCta from "@/components/ctas/SubsCta.astro";
+const footerSections = [
+  {
+    title: "Programme",
+    links: [
+      { label: "Sessions", href: "/sessions" },
+      { label: "Speakers", href: "/speakers" },
+      { label: "Schedule", href: "/schedule" },
+      { label: "Tickets", href: "/tickets" },
+      { label: "Journal", href: "/blog" },
+    ],
+  },
+  {
+    title: "Essentials",
+    links: [
+      { label: "FAQ", href: "/faq" },
+      { label: "Venue", href: "/venue" },
+      { label: "Partners", href: "/partners" },
+      { label: "Register", href: "/register" },
+      { label: "Contact", href: "/contact" },
+    ],
+  },
+];
+---
+
+
+
+    <div
+      aria-hidden="true"
+      class="grid grid-cols-12 *:p-8 *:aspect-square *:bg-accent-500 *:flex *:size-full w-full px-8"
+    >
+      <div class="col-start-2"></div>
+      <div class="col-start-6"></div>
+      <div class="col-start-8"></div>
+      <div></div>
+      <div></div>
+    </div>
+
+
+<footer class="bg-accent-500">
+  <Wrapper variant="standard" class="pt-24 pb-8">
+    <SubsCta />
+    <div
+      class="grid lg:grid-cols-4 border-t border-dashed border-black/10 mt-8 pt-8"
+    >
+      <div class="lg:col-span-2">
+        <a href="/" class="inline-flex items-center gap-3 text-white">
+          <Logo class="h-6 w-auto" />
+          <span class="sr-only">Dusk Swiss Design Week</span>
+        </a>
+        <Text
+          tag="p"
+          variant="textSM"
+          class="max-w-xl text-base-200 mt-2 text-balance"
+        >
+          Swiss Design Week in Montreal. A week-long programme of talks,
+          ateliers, and residencies exploring the precision and poetry of
+          Swiss-inspired product design.
+        </Text>
+        <div
+          class="flex flex-wrap items-center gap-4 text-xs uppercase text-white mt-4"
+        >
+          <span>November 10 – 16, 2025</span>
+          <span aria-hidden="true">•</span>
+          <span>Montreal Design Centre</span>
+        </div>
+      </div>
+      <div class="grid gap-y-10 grid-cols-2 lg:col-span-2">
+        {
+          footerSections.map((section) => (
+            <div class="space-y-4">
+              <Text
+                tag="h2"
+                variant="textXS"
+                class="text-white font-display uppercase"
+              >
+                {section.title}
+              </Text>
+              <ul class="space-y-1">
+                {section.links.map((link) => (
+                  <li>
+                    <a
+                      href={link.href}
+                      class="text-base-200 hover:text-white text-xs"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div
+      class="flex flex-col gap-6 border-t border-dashed border-black/10 pt-8 mt-8 uppercase md:flex-row md:items-center md:justify-between"
+    >
+      <div class="flex flex-wrap items-center gap-3 text-xs text-white">
+        <span>© {new Date().getFullYear()} Dusk Swiss Design Week</span>
+        <span aria-hidden="true">•</span>
+        <a href="mailto:hello@dusk.design" class="transition hover:text-white"
+          >hello@dusk.design</a
+        >
+      </div>
+      <div class="flex flex-wrap items-center gap-3 text-xs text-white">
+        <a href="/infopages/terms" class="transition hover:text-white">Terms</a>
+        <span aria-hidden="true">•</span>
+        <a href="/infopages/privacy" class="transition hover:text-white"
+          >Privacy</a
+        >
+        <span aria-hidden="true">•</span>
+        <a href="/infopages/code-of-conduct" class="transition hover:text-white"
+          >Code of conduct</a
+        >
+      </div>
+    </div>
+  </Wrapper>
+</footer>

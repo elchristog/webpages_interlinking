@@ -1,0 +1,47 @@
+---
+// Assets
+import DecorativeCode from "../assets/DecorativeCode.astro";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<section class="bg-gradient-up overflow-hidden relative">
+  <DecorativeCode class="absolute inset-0 opacity-20 pointer-events-none" />
+  <Wrapper
+    variant="standard"
+    class="pb-12 pt-42 relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
+  >
+    <div class="sm:col-span-2 lg:col-start-2 lg:text-center">
+      <Text tag="span" variant="textSM" class="text-white">
+        Ultimate solutions
+      </Text>
+      <Text
+        tag="h1"
+        variant="display2XL"
+        class="mt-12 text-white text-balance font-display"
+      >
+        Own the web.
+        <span class="text-base-400 block"> Build without limits.</span>
+      </Text>
+      <Text tag="p" variant="textBase" class="text-white mt-2 text-balance">
+        Decentralized. Trustless. Borderless. Create the future of the internet
+        with cutting-edge Web3 technology—where you’re in control.
+      </Text>
+      <div class="flex mt-8 lg:justify-center">
+        <Button
+          isLink
+          href="#_"
+          size="base"
+          variant="accent"
+          title="#_"
+          aria-label="#_"
+          class="w-auto"
+        >
+          Get started</Button
+        >
+      </div>
+    </div>
+  </Wrapper>
+</section>

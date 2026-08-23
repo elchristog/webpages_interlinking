@@ -1,0 +1,138 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<BaseLayout>
+  <section class="overflow-hidden relative bggradient-up">
+    <Wrapper
+      variant="standard"
+      class="py-24 relative grid grid-cols-1 md:grid-cols-4"
+    >
+      <div class="md:col-span-2 lg:col-span-1">
+        <Text
+          tag="h1"
+          variant="displayXL"
+          class="mt-12 text-white text-balance font-display"
+        >
+          Contact us
+        </Text>
+        <Text tag="p" variant="textBase" class="text-white mt-2 text-balance"
+          >Get in and manage your dashboard</Text
+        >
+        <form class="mt-12">
+          <div class="flex flex-col gap-y-4">
+            <div class="grid grid-cols-1 gap-y-4 md:grid-cols-2">
+              <div class="flex flex-col-reverse relative">
+                <input
+                  type="text"
+                  id="first_name"
+                  name="first_name"
+                  placeholder="First name..."
+                  autocomplete="given-name"
+                  required
+                  class="peer relative placeholder:duration-500 placeholder:absolute focus:placeholder:pt-10 tblock w-full px-3 py-3 border-l border-l-white border-transparent appearance-none text-white bg-base-900 focus:border-white focus:bg-base-950 focus:outline-none duration-300 focus:ring-white sm:text-sm h-14 borde-white focus:placeholder:text-transparent z-10"
+                />
+                <label
+                  for="first_name"
+                  class="duration-500 opacity-0 mb-1 peer-focus:opacity-100 text-base-500 text-xs -translate-y-12 peer-focus:translate-y-0 after:ml-0.5 after:text-red-500 after:content-['*'] z-0"
+                  >First name</label
+                >
+              </div>
+              <div class="flex flex-col-reverse relative">
+                <input
+                  type="text"
+                  id="last_name"
+                  name="last_name"
+                  placeholder="Last name..."
+                  autocomplete="family-name"
+                  required
+                  class="peer relative placeholder:duration-500 placeholder:absolute focus:placeholder:pt-10 tblock w-full px-3 py-3 border-l border-l-white border-transparent appearance-none text-white bg-base-900 focus:border-white focus:bg-base-950 focus:outline-none duration-300 focus:ring-white sm:text-sm h-14 borde-white focus:placeholder:text-transparent z-10"
+                />
+                <label
+                  for="last_name"
+                  class="duration-500 opacity-0 mb-1 peer-focus:opacity-100 text-base-500 text-xs -translate-y-12 peer-focus:translate-y-0 after:ml-0.5 after:text-red-500 after:content-['*'] z-0"
+                  >Last name</label
+                >
+              </div>
+            </div>
+            <div class="flex flex-col-reverse relative">
+              <input
+                type="text"
+                id="company"
+                name="company"
+                placeholder="Your Company..."
+                class="peer relative placeholder:duration-500 placeholder:absolute focus:placeholder:pt-10 tblock w-full px-3 py-3 border-l border-l-white border-transparent appearance-none text-white bg-base-900 focus:border-white focus:bg-base-950 focus:outline-none duration-300 focus:ring-white sm:text-sm h-14 borde-white focus:placeholder:text-transparent z-10"
+              />
+              <label
+                for="company"
+                class="duration-500 opacity-0 mb-1 peer-focus:opacity-100 text-base-500 text-xs -translate-y-12 peer-focus:translate-y-0 after:ml-0.5 after:text-red-500 after:content-['*'] z-0"
+                >Company</label
+              >
+            </div>
+            <div class="flex flex-col-reverse relative">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Your Email..."
+                class="peer relative placeholder:duration-500 placeholder:absolute focus:placeholder:pt-10 tblock w-full px-3 py-3 border-l border-l-white border-transparent appearance-none text-white bg-base-900 focus:border-white focus:bg-base-950 focus:outline-none duration-300 focus:ring-white sm:text-sm h-14 borde-white focus:placeholder:text-transparent z-10"
+              />
+              <label
+                for="email"
+                class="duration-500 opacity-0 mb-1 peer-focus:opacity-100 text-base-500 text-xs -translate-y-12 peer-focus:translate-y-0 after:ml-0.5 after:text-red-500 after:content-['*'] z-0"
+                >Email</label
+              >
+            </div>
+            <div class="flex flex-col-reverse relative">
+              <select
+                id="country"
+                name="country"
+                class="peer relative block w-full px-3 py-3 border-l border-l-white border-transparent appearance-none text-white bg-base-900 focus:border-white focus:bg-base-950 focus:outline-none duration-300 focus:ring-white sm:text-sm h-14 foucs:border-white z-10"
+              >
+                <option value="" disabled selected>Select your country</option>
+                <option value="US">United States</option>
+                <option value="CA">Canada</option>
+                <option value="UK">United Kingdom</option>
+                <option value="AU">Australia</option>
+                <option value="DE">Germany</option>
+                <!-- Add more countries as needed -->
+              </select>
+              <label
+                for="country"
+                class="duration-500 opacity-0 mb-1 peer-focus:opacity-100 text-base-500 text-xs -translate-y-12 peer-focus:translate-y-0 after:ml-0.5 after:text-red-500 after:content-['*'] z-0"
+                >Country</label
+              >
+            </div>
+
+            <div class="flex flex-col-reverse relative">
+              <textarea
+                id="comments"
+                name="comments"
+                placeholder="Your Comments..."
+                rows="4"
+                class="peer relative placeholder:duration-500 placeholder:absolute focus:placeholder:pt-10 block w-full px-3 py-3 border-l border-l-white border-transparent appearance-none text-white bg-base-900 focus:border-white focus:bg-base-950 focus:outline-none duration-300 focus:ring-white sm:text-sm focus:placeholder:text-transparent resize-vertical"
+                aria-describedby="comments-desc"></textarea>
+              <label
+                for="comments"
+                class="duration-500 opacity-0 mb-1 peer-focus:opacity-100 text-base-500 text-xs -translate-y-12 peer-focus:translate-y-0 after:ml-0.5 after:text-red-500 after:content-['*'] z-0"
+                >Comments (optional)</label
+              >
+            </div>
+            <Button
+              size="base"
+              variant="default"
+              type="Button"
+              class="w-auto justify-center"
+            >
+              Submit
+            </Button>
+          </div>
+        </form>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

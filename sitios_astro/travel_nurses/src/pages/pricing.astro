@@ -1,0 +1,127 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const pricingPlans = [
+  {
+    title: "Listener Plan",
+    price: "$8",
+    period: "Per month",
+    features: [
+      "Access to the full podcast library",
+      "Exclusive interviews with industry leaders",
+      "Weekly editorial highlights",
+      "Ad-supported content experience",
+      "Basic progress tracking for articles and podcasts",
+    ],
+    buttonText: "Get Started",
+    buttonVariant: "muted",
+  },
+  {
+    title: "Engager Plan",
+    price: "$20",
+    period: "Per month",
+    popular: true,
+    features: [
+      "Everything in Listener Plan",
+      "Early access to new interviews and articles",
+      "Ad-free reading and listening experience",
+      "Interactive Q&A with podcast guests",
+      "Enhanced analytics to track your content consumption",
+      "Access to members-only discussion groups",
+    ],
+    buttonText: "Go Engager",
+    buttonVariant: "muted",
+  },
+  {
+    title: "Collaborator Plan",
+    price: "$40",
+    period: "Per month",
+    features: [
+      "Everything in Engager Plan",
+      "Exclusive access to behind-the-scenes content",
+      "Collaboration tools for co-hosted podcasts and blogs",
+      "Customizable profile and branding for content creators",
+      "Priority support for content issues",
+      "Revenue-sharing options for your own content",
+    ],
+    buttonText: "Upgrade to Collaborator",
+    buttonVariant: "default",
+  },
+  {
+    title: "Enterprise Plan",
+    price: "Custom ",
+    period: "Contact us for details",
+    features: [
+      "Tailored solutions for media organizations",
+      "Bulk access for teams and companies",
+      "Advanced analytics and custom reporting",
+      "White-label platform options",
+      "API access for custom integrations",
+      "Dedicated account manager",
+    ],
+    buttonText: "Request a Demo",
+    buttonVariant: "muted",
+  },
+];
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-24">
+      <div class="max-w-3xl">
+        <Text
+          tag="h1"
+          variant="displayMD"
+          class="font-serif font-light leading-6 md:leading-8 text-base-600"
+          ><span class="text-base-900">Pricing:</span> Explore flexible plans designed
+          to enhance your experience with exclusive blogs, podcasts, and interviews</Text
+        >
+      </div>
+
+      <div
+        class="pt-12 mt-2 border-t border-black grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-32"
+      >
+        {
+          pricingPlans.map((plan) => (
+            <div class="flex flex-col justify-between h-full gap-12">
+              <div>
+                <Text
+                  tag="p"
+                  variant="display2XL"
+                  class="font-serif font-light "
+                >
+                  {plan.price}
+                </Text>
+                <Text tag="p" variant="textXS" class="font-serif text-base-600">
+                  {plan.period}
+                </Text>
+                <Text
+                  tag="h3"
+                  variant="textXS"
+                  class="mt-8 font-medium text-base-900 uppercase"
+                >
+                  {plan.title}
+                </Text>
+                <ul class="mt-4 text-sm space-y-3">
+                  {plan.features.map((feature, i) => (
+                    <li class="font-serif list-disc  text-base-600">
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <Button size="sm" variant={plan.buttonVariant}>
+                  {plan.buttonText}
+                </Button>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

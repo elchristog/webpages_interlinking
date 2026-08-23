@@ -1,0 +1,43 @@
+<script type="module">
+  document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(() => {
+      const chatBubble = document.getElementById("chat-bubble");
+      const chatToggle = document.getElementById("chat-toggle");
+
+      if (!chatBubble || !chatToggle) {
+        console.error("Chat elements not found!");
+        return;
+      }
+
+      // Toggle chat on click
+      chatToggle.addEventListener("click", function () {
+        chatBubble.classList.toggle("opacity-0");
+        chatBubble.classList.toggle("pointer-events-none");
+      });
+
+      // Prevent bubble from closing when clicked inside
+      chatBubble.addEventListener("click", function (event) {
+        event.stopPropagation();
+      });
+
+      // Click outside to close
+      document.addEventListener("click", function (event) {
+        if (
+          !chatBubble.contains(event.target) &&
+          !chatToggle.contains(event.target)
+        ) {
+          chatBubble.classList.add("opacity-0");
+          chatBubble.classList.add("pointer-events-none");
+        }
+      });
+
+      // ESC key to close
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          chatBubble.classList.add("opacity-0");
+          chatBubble.classList.add("pointer-events-none");
+        }
+      });
+    }, 500);
+  });
+</script>

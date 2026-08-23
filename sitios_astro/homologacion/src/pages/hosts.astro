@@ -1,0 +1,136 @@
+---
+// Assets
+import { Image } from "astro:assets";
+import annaHost from "@/images/hosts/anna-wintour.png";
+import jonasHost from "@/images/hosts/jonas-ledin.png";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const hosts = [
+  {
+    name: "Anna Wintour",
+    role: "Programme Chair",
+    description:
+      "Anna curates the Swiss Design Week narrative, threading together keynotes, ateliers, and residencies. With a background in typography and cultural programming, she ensures every moment resonates with clarity and intent.",
+    focus:
+      "Focuses on crafting the macro arc of the week—balancing foundational theory with hands-on practice and ensuring each day unfolds with Swiss precision.",
+    headshot: annaHost,
+  },
+  {
+    name: "Jonas Ledin",
+    role: "Residency Director",
+    description:
+      "Jonas leads the Team Residency experience, supporting product teams as they research, iterate, and ship prototypes inspired by Swiss methodology.",
+    focus:
+      "Guides residency cohorts, orchestrates critique rituals, and connects teams with mentors from the Gridline Labs network.",
+    headshot: jonasHost,
+  },
+];
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-32">
+      <div>
+        <Text
+          tag="h1"
+          variant="displayMD"
+          class="text-balance text-accent-500 font-display uppercase leading-tight"
+        >
+          Meet the hosts guiding Dusk
+        </Text>
+        <Text
+          tag="p"
+          variant="textBase"
+          class="text-base-600 font-medium max-w-2xl mt-2 text-balance"
+        >
+          Two curators orchestrate the cadence of Swiss Design Week. They frame
+          each session, keep the discourse precise, and ensure every attendee
+          feels welcomed into the Dusk community.
+        </Text>
+      </div>
+      <div class="grid md:grid-cols-2 mt-24">
+        {
+          hosts.map((host) => (
+            <article class="flex h-full flex-col  justify-between  bg-accent-500">
+              <div>
+                <Image
+                  src={host.headshot}
+                  alt={`${host.name} portrait`}
+                  width={640}
+                  height={800}
+                  class="h-100 w-full object-cover object-top"
+                  loading="lazy"
+                />
+                <div class="p-8">
+                  <Text
+                    tag="h2"
+                    variant="textXL"
+                    class="font-display uppercase text-white"
+                  >
+                    {host.name}
+                  </Text>
+                  <Text
+                    tag="p"
+                    variant="textXS"
+                    class="uppercase text-base-200 mt-2"
+                  >
+                    {host.role}
+                  </Text>
+                  <Text tag="p" variant="textBase" class="text-base-200 mt-8">
+                    {host.description}
+                  </Text>
+                </div>
+              </div>
+              <div class="mt-4 p-8">
+                <Text
+                  tag="p"
+                  variant="textSM"
+                  class="border-l border-white pl-4 text-base-200 lg:text-balance mt-8"
+                >
+                  {host.focus}
+                </Text>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+      <section
+        class="gap-x-12 gap-y-8 border border-white/10 bg-accent-500 p-8 md:flex md:items-center md:justify-between mt-24"
+      >
+        <div class="max-w-2xl space-y-4">
+          <Text
+            tag="h2"
+            variant="displaySM"
+            class="font-display uppercase text-white"
+          >
+            Join the programme
+          </Text>
+          <Text tag="p" variant="textSM" class="text-base-200 lg:text-balance">
+            Interested in hosting a salon or moderating a session alongside our
+            curators? Email <a class="underline" href="mailto:hello@dusk.design"
+              >hello@dusk.design</a
+            > with your pitch.
+          </Text>
+        </div>
+        <div
+          class="flex flex-wrap items-center justify-center gap-2 md:justify-end"
+        >
+          <Button
+            size="sm"
+            variant="default"
+            class="w-fit"
+            href="/forms/register"
+          >
+            Register now
+          </Button>
+          <Button size="sm" variant="muted" class="w-fit" href="/forms/contact">
+            Contact Dusk
+          </Button>
+        </div>
+      </section>
+    </Wrapper>
+  </section>
+</BaseLayout>

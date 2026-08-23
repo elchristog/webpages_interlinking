@@ -1,0 +1,44 @@
+---
+// Logo1 This component renders a component and accepts props for customization.
+// Props: - class: A string of additional classes to style the component.
+// - ...rest: Any other valid attributes for an div element (e.g., id, style, role, aria-label, etc.).
+// Example Usage: <Logo1 class="my-custom-class" /> or <Logo1 id="Logo1-id" style="width: 50px; height: 50px;" />
+const { class: className = "", ...rest } = Astro.props;
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+// Images
+import { Image } from "astro:assets";
+// import the logos
+import logo1 from "@/images/brands/6.svg";
+import logo2 from "@/images/brands/5.svg";
+import logo3 from "@/images/brands/9.svg";
+import logo4 from "@/images/brands/4.svg";
+const logos = [
+  { src: logo1, alt: "b1 Logo" },
+  { src: logo2, alt: "b2 Logo" },
+  { src: logo3, alt: "b3 Logo" },
+  { src: logo4, alt: "b4 Logo" },
+];
+---
+
+<div class={className} {...rest}>
+  <Text tag="h2" variant="textSM" class="text-white">
+    Trusted by industry leaders and our families
+    <span class="text-base-400">— because bribery is our love language.</span>
+  </Text>
+  <div
+    class="grid md:grid-cols-4 grid-cols-2 mt-4 md:col-span-full md:row-start-2"
+  >
+    {
+      logos.map((logo) => (
+        <Image
+          width={2000}
+          height={100}
+          class=" max-w-32 opacity-50"
+          src={logo.src}
+          alt={logo.alt}
+        />
+      ))
+    }
+  </div>
+</div>

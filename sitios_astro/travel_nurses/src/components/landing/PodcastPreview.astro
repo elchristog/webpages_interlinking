@@ -1,0 +1,47 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import PodcastCardWide from "@/components/podcast/PodcastCardWide.astro";
+// Content
+import { getCollection } from "astro:content";
+// Get all podcasts
+const allPodcasts = await getCollection("podcast");
+allPodcasts.sort((a, b) => {
+  const dateA = new Date(a.data.pubDate).getTime(); // Convert to timestamp
+  const dateB = new Date(b.data.pubDate).getTime(); // Convert to timestamp
+  return dateB - dateA; // Compare timestamps
+});
+---
+
+<section>
+  <Wrapper variant="standard" class="pt-32 pb-12">
+    <div class="flex flex-wrap items-center justify-between w-full gap-4">
+      <Text tag="p" variant="textSM" class="font-medium uppercase">
+        Recent podcast interviews
+      </Text>
+      <Button
+        isLink
+        size="xs"
+        variant="default"
+        class="w-auto text-center"
+        href="/podcast/"
+        aria-label="Listen to all podcast episodes"
+        title="Listen to all podcast episodes"
+      >
+        Listen to them all
+      </Button>
+    </div>
+    <div
+      class="flex flex-col items-start pt-4 mt-4 border-t border-black divide-y"
+    >
+      {
+        allPodcasts
+          .filter((post) => post.data.isPopular)
+          .map((post) => <PodcastCardWide post={post} />)
+      }
+    </div>
+  </Wrapper>
+</section>

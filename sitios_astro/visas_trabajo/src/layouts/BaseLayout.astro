@@ -1,0 +1,30 @@
+---
+// Fundations
+import "@/styles/global.css";
+import BaseHead from "@/components/fundations/head/BaseHead.astro";
+import Navigation from "@/components/global/Navigation.astro";
+import Footer from "@/components/global/Footer.astro";
+// Scripts
+import FuseJS from "@/components/fundations/scripts/FuseJS.astro";
+import TabsScript from "@/components/fundations/scripts/TabsScript.astro";
+import AudioPlayerScript from "@/components/fundations/scripts/AudioPlayerScript.astro";
+// Hides nav and footer on selected screens by passing
+// the hideNav and hideFooter props
+// <BaseLayout hideNav={true} hideFooter={true}>
+const { hideNav = false, hideFooter = false } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <BaseHead />
+  </head>
+  <body class="bg-base-50 flex flex-col min-h-svh">
+    {!hideNav && <Navigation />}
+    <main class="grow"><slot /></main>
+    {!hideFooter && <Footer />}
+    <FuseJS />
+    <!-- Scripts -->
+    <TabsScript />
+    <AudioPlayerScript />
+  </body>
+</html>

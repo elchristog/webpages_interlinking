@@ -1,0 +1,58 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import ServiceCard2 from "@/components/services/ServiceCard2.astro";
+// Content
+import { getCollection } from "astro:content";
+const allServices = await getCollection("services");
+---
+
+<section class="bg-white overflow-hidden relative">
+  <Wrapper variant="standard" class="py-24">
+    <div class="w-full max-w-xl">
+      <div class="relative max-w-xs">
+        <div class="absolute inset-0 flex items-center" aria-hidden="true">
+          <div class="w-full border-t border-accent-300"></div>
+        </div>
+        <div class="relative flex justify-start">
+          <span class="bg-white pr-2 text-sm text-accent-500 font-medium"
+            >Services</span
+          >
+        </div>
+      </div>
+      <Text
+        tag="h2"
+        variant="displayMD"
+        class="tracking-tighter text-accent-800 text-balance mt-12"
+      >
+        Every project our studio undertakes is crafted with innovation and a
+        sprinkle of creative imagination.
+      </Text>
+      <Text tag="p" variant="textXL" class="text-accent-500 mt-8 text-balance">
+        Our enthusiasm is focused on deepening our comprehension and expertise
+        in the realm of creativity. We have acquired a range of skills, which we
+        continuously hone.
+      </Text>
+    </div>
+    <div
+      class="flex flex-col flex-shrink-0 gap-8 md:flex-row md:gap-12 mt-12 md:items-center"
+    >
+      <ul role="list" class="flex flex-col gap-y-2 max-w-xl w-full">
+        {
+          allServices.map((post) => (
+            <ServiceCard2 service={post.data.service} />
+          ))
+        }
+      </ul>
+      <a
+        href="/services"
+        class="flex flex-col size-32 text-sm md:text-base lg:text-2xl xl:text-3xl text-center md:size-32 shrink-0 lg:size-52 2xl:size-64 text-white hover:bg-base-900 hover:text-base-200 duration-300 items-center justify-center rounded-full bg-accent-600"
+      >
+        <span>Learn</span>
+        <span>more</span>
+      </a>
+    </div>
+  </Wrapper>
+</section>

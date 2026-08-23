@@ -1,0 +1,279 @@
+---
+import { getCollection } from "astro:content";
+
+const posts = await Promise.all(
+  (await getCollection("posts")).map(async (post) => ({
+    title: post.data.title,
+    description: post.data.description,
+    slug: post.id,
+    url: `/blog/posts/${post.id}`,
+    type: "post",
+  }))
+);
+
+const speakers = await Promise.all(
+  (await getCollection("speakers")).map(async (speaker) => ({
+    title: speaker.data.name,
+    description: speaker.data.summary || speaker.data.bio || "",
+    slug: speaker.id,
+    url: `/speakers/profile/${speaker.id}`,
+    type: "speaker",
+  }))
+);
+
+const sessions = await Promise.all(
+  (await getCollection("sessions")).map(async (session) => ({
+    title: session.data.title,
+    description: session.data.abstract,
+    slug: session.id,
+    url: `/sessions/workshop/${session.id}`,
+    type: "session",
+  }))
+);
+
+const sponsors = await Promise.all(
+  (await getCollection("sponsors")).map(async (sponsor) => ({
+    title: sponsor.data.name,
+    description: sponsor.data.description || "",
+    slug: sponsor.id,
+    url: `/sponsors/details/${sponsor.id}`,
+    type: "sponsor",
+  }))
+);
+
+const staticPages = [
+  {
+    title: "Tickets",
+    description: "Purchase tickets for Dusk Design Week events",
+    url: "/tickets",
+    type: "page",
+  },
+  {
+    title: "FAQ",
+    description: "Frequently asked questions about the event",
+    url: "/faq",
+    type: "page",
+  },
+  {
+    title: "Gallery",
+    description: "Photo gallery from Dusk Design Week",
+    url: "/gallery",
+    type: "page",
+  },
+  {
+    title: "Venue",
+    description: "Event venue information and location details",
+    url: "/venue",
+    type: "page",
+  },
+  {
+    title: "Recap",
+    description: "Highlights and recap of the design week",
+    url: "/recap",
+    type: "page",
+  },
+  {
+    title: "Partners",
+    description: "Event partners and sponsors",
+    url: "/partners",
+    type: "page",
+  },
+  {
+    title: "Contact",
+    description: "Get in touch with the organizers",
+    url: "/contact",
+    type: "page",
+  },
+  {
+    title: "Register",
+    description: "Register for Dusk Design Week",
+    url: "/register",
+    type: "page",
+  },
+];
+
+const allContent = [
+  ...posts,
+  ...speakers,
+  ...sessions,
+  ...sponsors,
+  ...staticPages,
+];
+---
+
+<div class="relative hidden lg:inline">
+  <button
+    type="button"
+    id="searchButton"
+    aria-label="Search all content"
+    class="text-sm uppercase text-accent-500 hover:text-accent-500 transition font-medium text-center flex items-center mx-auto"
+  >
+    Search
+  </button>
+  <div
+    id="searchModal"
+    class="fixed inset-0 z-50 overflow-y-auto hidden"
+    role="dialog"
+    aria-modal="true"
+  >
+    <div class="min-h-screen px-4 text-center">
+      <div
+        class="fixed inset-0 bg-white/10 backdrop-blur transition-opacity"
+        id="modalOverlay"
+      >
+      </div>
+      <div
+        class="inline-block bg-accent-950 w-full max-w-2xl px-8 mb-8 mt-12 lg:mt-48 p-8 bg-background text-left align-middle transition-all transform border border-white/10 relative"
+      >
+        <div class="hidden">
+          <button
+            type="button"
+            id="closeSearch"
+            class="text-white hover:text-white cursor-pointer ml-auto"
+            aria-label="Close search"
+          >
+            close
+          </button>
+        </div>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search all content..."
+          class="w-full bg-black/15 border-transparent px-4 py-3 h-11 text-xs text-white placeholder:text-base-50 focus:border-white/60 focus:outline-none"
+        />
+        <div
+          id="searchResults"
+          class="max-h-100 overflow-y-auto bg-background overflow-hidden w-full divide-y divide-white/10 border border-white/10"
+        >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script is:inline define:vars={{ allContent }}>
+  // Wait for the entire page to load before running the script
+  window.addEventListener("load", () => {
+    // Get references to various elements in the search UI
+    const searchButton = document.getElementById("searchButton"); // Button that opens search modal
+    const searchModal = document.getElementById("searchModal"); // Search modal container
+    const modalOverlay = document.getElementById("modalOverlay"); // Overlay that closes modal on click
+    const searchInput = document.getElementById("searchInput"); // Input field for searching
+    const searchResults = document.getElementById("searchResults"); // Container for search results
+    const closeSearch = document.getElementById("closeSearch"); // Button to close search modal
+    // Initialize Fuse.js for fuzzy searching with posts data
+    const fuse = new Fuse(allContent, {
+      keys: ["title", "description"], // Fields to search within
+      threshold: 0.3, // Controls search sensitivity (lower = more strict)
+      includeMatches: true, // Includes matching results for highlighting
+    });
+    // Hide search results by default
+    searchResults.classList.add("hidden");
+    // Function to open the search modal
+    function openSearch(e) {
+      e.preventDefault(); // Prevent default action (e.g., form submission)
+      e.stopPropagation(); // Stop event from bubbling up the DOM
+      searchModal.classList.remove("hidden"); // Show modal
+      document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
+      setTimeout(() => searchInput.focus(), 100); // Focus input field after a short delay
+    }
+    // Function to close the search modal
+    function closeSearchModal(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      searchModal.classList.add("hidden"); // Hide modal
+      document.body.style.overflow = ""; // Restore scrolling
+      searchInput.value = ""; // Clear search input
+      searchResults.innerHTML = ""; // Clear search results
+      searchResults.classList.add("hidden"); // Ensure results remain hidden
+    }
+    // Function to display search results
+    function renderResults(results) {
+      // If input is empty, hide results
+      if (!searchInput.value.trim()) {
+        searchResults.innerHTML = "";
+        searchResults.classList.add("hidden");
+        return;
+      }
+      // If no results are found, display a message
+      if (results.length === 0) {
+        searchResults.innerHTML = `
+        <div>
+            <h3 class="font-medium text-base text-white font-medium">
+              There's nothing here,...
+            </h3>
+        </div>
+        `;
+        searchResults.classList.remove("hidden");
+        return;
+      }
+
+      // Group results by type
+      const groupedResults = results.reduce((acc, result) => {
+        const type = result.item.type;
+        if (!acc[type]) acc[type] = [];
+        acc[type].push(result);
+        return acc;
+      }, {});
+
+      // Define type labels
+      const typeLabels = {
+        post: "Blog Posts",
+        speaker: "Speakers",
+        session: "Sessions",
+        sponsor: "Sponsors",
+        page: "Pages",
+      };
+
+      // Generate HTML for grouped results
+      searchResults.innerHTML = Object.keys(groupedResults)
+        .map(
+          (type) => `
+        <div class="py-4">
+          <h4 class="text-sm uppercase text-white font-medium mb-3 px-4">${typeLabels[type] || type}</h4>
+          ${groupedResults[type]
+            .map(
+              (result) => `
+            <a href="${result.item.url}" class="block p-4 duration-300 hover:bg-white/10 border-b border-white/5 last:border-b-0">
+              <h3 class="font-medium text-base text-white block">
+                ${result.item.title}
+              </h3>
+              <p class="text-white text-sm block mt-1">
+                ${result.item.description}
+              </p>
+            </a>
+          `
+            )
+            .join("")}
+        </div>
+      `
+        )
+        .join("");
+
+      // Make the search results visible
+      searchResults.classList.remove("hidden");
+    }
+    // Add event listeners to open the search modal
+    searchButton.addEventListener("click", openSearch);
+    searchButton.addEventListener("touchend", openSearch); // For mobile devices
+    // Add event listeners to close the search modal
+    closeSearch.addEventListener("click", closeSearchModal);
+    closeSearch.addEventListener("touchend", closeSearchModal);
+    // Close modal when clicking on the overlay (outside the modal)
+    modalOverlay.addEventListener("click", closeSearchModal);
+    modalOverlay.addEventListener("touchend", closeSearchModal);
+    // Listen for user input and perform a search
+    searchInput.addEventListener("input", (e) => {
+      const value = e.target.value.trim(); // Get search input value
+      const results = value ? fuse.search(value) : []; // Perform search only if input isn't empty
+      renderResults(results); // Display search results
+    });
+    // Close search modal when the Escape key is pressed
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !searchModal.classList.contains("hidden")) {
+        closeSearchModal();
+      }
+    });
+  });
+</script>

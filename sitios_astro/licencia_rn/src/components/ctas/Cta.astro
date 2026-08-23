@@ -1,0 +1,48 @@
+---
+// Assets
+import { Image } from "astro:assets";
+import Glass from "@/images/assets/glass1.jpg";
+import LogoCloud from "@/components/assets/LogoCloud.astro";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<section>
+  <Wrapper variant="standard" class="relative py-12">
+    <div class="relative overflow-hidden min-h-200">
+      <Image
+        src={Glass}
+        alt="Background Glass Image"
+        width={800}
+        height={800}
+        loading="eager"
+        decoding="async"
+        class="absolute inset-0 object-cover object-center w-full max-h-200"
+      />
+      <div
+        class="absolute inset-0 z-10 flex flex-col items-center justify-center p-8"
+      >
+        <Text
+          tag="h2"
+          variant="textXL"
+          class="font-medium text-center text-white md:text-black"
+        >
+          Experience Alfred in action — discover how our platform helps you move
+          faster, work smarter, and stay ahead.
+        </Text>
+        <LogoCloud class="mt-12 invert md:invert-0" />
+      </div>
+    </div>
+    <Button
+      isLink
+      href="/forms/book-demo"
+      size="xl"
+      variant="default"
+      class="mt-auto"
+    >
+      Book a demo
+    </Button>
+  </Wrapper>
+</section>

@@ -1,0 +1,16 @@
+---
+// Layout
+import BaseLayout from "@/layouts/BaseLayout.astro";
+// Sections
+import Hero from "@/components/landing/Hero.astro";
+import SitesPreview from "@/components/landing/SitesPreview.astro";
+import StorePreview from "@/components/landing/StorePreview.astro";
+import BlogPreview from "@/components/landing/BlogPreview.astro";
+---
+
+<BaseLayout showSearch={true}>
+  <Hero />
+  <SitesPreview />
+  <BlogPreview />
+  <StorePreview />
+</BaseLayout>

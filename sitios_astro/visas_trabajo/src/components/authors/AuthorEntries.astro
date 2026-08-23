@@ -1,0 +1,35 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+const { url, name, image, role } = {
+  url: "/authors/" + Astro.props.post.id,
+  name: Astro.props.post.data.name,
+  role: Astro.props.post.data.role,
+  image: Astro.props.post.data.image.url,
+};
+---
+
+<div class="relative">
+  <a href={url} name={name} aria-label={name} class="absolute inset-0 z-10">
+  </a>
+  <Image
+    width="800"
+    height="800"
+    src={image}
+    alt={name}
+    class="object-cover w-full aspect-12/8 rounded-xl"
+  />
+
+  <div class="mt-2">
+    <Text
+      tag="h3"
+      variant="textBase"
+      class="text-base-900 font-display group-hover:underline">{name}</Text
+    >
+    <Text tag="p" variant="textSM" class="tracking-tight text-base-600"
+      >{role}</Text
+    >
+  </div>
+</div>

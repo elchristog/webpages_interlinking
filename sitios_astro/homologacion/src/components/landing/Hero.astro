@@ -1,0 +1,49 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<section>
+  <Wrapper variant="standard" class="pt-32 pb-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 items-end">
+      <div class="lg:col-span-8 pb-8">
+        <Text
+          tag="h1"
+          variant="displayMD"
+          class="text-balance text-accent-500 font-display uppercase leading-tight"
+        >
+          Swiss Design week 10th-17th of 2025 event, Montreal
+        </Text>
+        <Text
+          tag="p"
+          variant="textBase"
+          class="text-accent-600 font-medium max-w-2xl mt-2 text-balance"
+        >
+          As day meets night, design meets purpose. Dusk invites product
+          designers to reflect on clarity, function, and the quiet power of form
+          — the essence of Swiss design in the digital age.
+        </Text>
+        <Button size="sm" variant="accent" href="/tickets" class="w-fit mt-8">
+          Buy Tickets
+        </Button>
+      </div>
+      <div
+        aria-hidden="true"
+        class="hidden lg:grid grid-cols-2 lg:grid-cols-4 *:p-8 *:aspect-square *:bg-accent-500 *:flex lg:col-span-4 *:size-full"
+      >
+        <div class="lg:col-start-2"></div>
+        <div class="lg:col-start-4"></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      class="w-full h-full relative lg:col-span-5 bg-accent-500 h-full p-20 p-4 aspect-16/4"
+    >
+    
+    </div>
+  </Wrapper>
+</section>

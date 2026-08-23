@@ -1,0 +1,81 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import Bars from "@/components/assets/Bars.astro";
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pb-2 pt-50">
+      <Text
+        tag="h1"
+        variant="display4XL"
+        class="font-bold tracking-tighter text-black text-balance"
+      >
+        {frontmatter.title}</Text
+      >
+      <Bars class="mt-2">
+        <time
+          datetime={new Date(frontmatter.pubDate).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "2-digit",
+          })}
+        >
+          {
+            new Date(frontmatter.pubDate).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "2-digit",
+            })
+          }</time
+        >
+        <span aria-hidden="true" class="pointer-events-none">/</span>
+        {
+          frontmatter.tags.map((tag) => (
+            <a
+              class="w-full font-bold text-white capitalize border-b border-dashed hover:text-base-400 border-white/20"
+              href={`/blog/tags/${tag}`}
+            >
+              {tag}
+            </a>
+          ))
+        }
+      </Bars>
+    </Wrapper>
+    <Wrapper variant="standard" class="py-2">
+      <div
+        class="relative px-8 py-48 overflow-hidden text-center text-balance bg-cyan"
+      >
+        <Image
+          width={1000}
+          height={1000}
+          src={frontmatter.image.url}
+          alt={frontmatter.image.alt}
+          class="absolute inset-0 object-cover object-center size-full"
+        />
+        <div class="absolute inset-0 bg-cyan/90"></div>
+        <div class="relative max-w-5xl mx-auto">
+          <Text
+            tag="h2"
+            variant="displayXL"
+            class="font-bold tracking-tighter text-white underline text-balance"
+          >
+            <em>{frontmatter.description}</em>
+          </Text>
+        </div>
+      </div>
+    </Wrapper>
+    <Wrapper variant="standard" class="py-2">
+      <div class="px-8 py-24 bg-orange">
+        <Wrapper variant="prose" class="max-w-xl mx-auto"><slot /></Wrapper>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

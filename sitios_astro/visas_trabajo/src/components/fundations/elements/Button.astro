@@ -1,0 +1,130 @@
+---
+const {
+  variant,
+  size,
+  onlyIconSize,
+  iconOnly = false,
+  gap,
+  isLink = false,
+  href,
+  class: className,
+  ...rest
+} = Astro.props;
+const defaultClass = [
+  "text-white",
+  "bg-accent-950",
+  "hover:bg-accent-900",
+  "focus:outline-accent-400",
+];
+const accentClass = [
+  "text-white",
+  "bg-accent-600",
+  "hover:bg-accent-500",
+  "focus:outline-accent-200",
+];
+const mutedClass = [
+  "text-base-900",
+  "bg-base-100",
+  "hover:bg-base-200",
+  "focus:outline-base-100",
+];
+
+// Size
+const sizes = {
+  xxs: ["h-7.5", "px-4", "py-2", "text-xs", "rounded-md"],
+  xs: ["h-8", "px-4", "py-3", "text-xs", "rounded-md"],
+  sm: ["h-9", "px-4", "py-3", "text-sm", "rounded-lg"],
+  base: ["h-10", "px-5", "py-4", "text-sm", "rounded-lg"],
+  md: ["h-11", "px-5", "py-4", "text-base", "rounded-lg"],
+  lg: ["h-12", "px-5", "py-4", "text-lg", "rounded-lg"],
+  xl: ["h-13", "px-5", "py-4", "text-lg", "rounded-lg"],
+};
+// Icon size
+const iconSizes = {
+  xxs: ["size-7.5", "py-2", "text-xs", "rounded-md"],
+  xs: ["size-8", "text-xs", "rounded-md"],
+  sm: ["size-9", "text-sm", "rounded-lg"],
+  base: ["size-10", "text-sm", "rounded-lg"],
+  md: ["size-11", "text-base", "rounded-lg"],
+  lg: ["size-12", "text-lg", "rounded-lg"],
+  xl: ["size-13", "text-lg", "rounded-lg"],
+};
+// Gaps
+const gapMap = {
+  xs: ["gap-2"],
+  sm: ["gap-4"],
+  base: ["gap-8"],
+  md: ["gap-10"],
+  lg: ["gap-12"],
+};
+const variantClass = {
+  default: defaultClass,
+  accent: accentClass,
+  muted: mutedClass,
+  none: [],
+};
+const resolvedSize = iconOnly ? onlyIconSize || size : size;
+const sizeClass = iconOnly
+  ? iconSizes[resolvedSize] || []
+  : sizes[resolvedSize] || [];
+const gapClass = !iconOnly && gap ? gapMap[gap] || [] : [];
+const additionalClasses = className ? className.split(" ") : [];
+const baseClass = [
+  "flex",
+  "justify-center",
+  "text-center",
+  "font-medium",
+  "items-center",
+  "duration-500",
+  "ease-in-out",
+  "transition-colors",
+  "focus:outline-2",
+];
+---
+
+{
+  isLink ? (
+    <a
+      href={href}
+      class:list={[
+        ...baseClass,
+        ...(variantClass[variant] || []),
+        ...sizeClass,
+        ...gapClass,
+        ...additionalClasses,
+      ]}
+      {...rest}
+    >
+      {iconOnly ? (
+        <slot name="icon" />
+      ) : (
+        <>
+          <slot name="left-icon" />
+          <slot />
+          <slot name="right-icon" />
+        </>
+      )}
+    </a>
+  ) : (
+    <button
+      class:list={[
+        ...baseClass,
+        ...(variantClass[variant] || []),
+        ...sizeClass,
+        ...gapClass,
+        ...additionalClasses,
+      ]}
+      {...rest}
+    >
+      {iconOnly ? (
+        <slot name="icon" />
+      ) : (
+        <>
+          <slot name="left-icon" />
+          <slot />
+          <slot name="right-icon" />
+        </>
+      )}
+    </button>
+  )
+}

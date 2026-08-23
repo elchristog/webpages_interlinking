@@ -1,0 +1,135 @@
+---
+import Text from "@/components/fundations/elements/Text.astro";
+import BlogCard1 from "@/components/blog/BlogCard1.astro";
+import PodcastCard4 from "@/components/podcast/PodcastCard4.astro";
+import { getCollection } from "astro:content";
+
+// Fetch collections for mega menu content
+const allPodcasts = await getCollection("podcast");
+allPodcasts.sort(
+  (a, b) =>
+    new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
+
+const allPosts = await getCollection("posts");
+allPosts.sort(
+  (a, b) =>
+    new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
+
+const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
+
+const sections = [
+  {
+    title: "Company",
+    links: [
+      { name: "About", url: "/about" },
+      { name: "Podcast", url: "/podcast" },
+      { name: "Carriers", url: "/jobs" },
+      { name: "Authors", url: "/authors" },
+      { name: "Advertise", url: "/pricing/advertise" },
+    ],
+  },
+  {
+    title: "Categories",
+    links: tags.map((tag) => ({
+      name: tag.replace(/-/g, " "),
+      url: `/blog/tags/${tag}`,
+    })),
+  },
+];
+
+const topStories = allPosts.filter((post) => post.data.isTopStory).slice(0, 3);
+const featuredPodcasts = allPodcasts
+  .filter((post) => post.data.isFeatured)
+  .slice(0, 3);
+---
+
+<style>
+  #menu {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition:
+      max-height 0.5s ease-out,
+      opacity 0.5s ease-out;
+  }
+  #menu.expanded {
+    max-height: 1000px; /* Adjust this value based on your content */
+    opacity: 1;
+  }
+</style>
+
+<nav
+  id="menu"
+  role="navigation"
+  aria-labelledby="menubutton"
+  class="bg-base-50 rounded-xl shadow mt-4 overflow-hidden relative"
+>
+  <div>
+    <div
+      class="grid grid-cols-1 gap-8 md:grid-cols-3 lg:grid-cols-5 p-8 lg:p-8 pb-0"
+    >
+      <div class="grid gap-4 lg:gap-8 grid-cols-2 lg:grid-cols-1">
+        {
+          sections.map((section) => (
+            <div>
+              <Text
+                tag="h3"
+                variant="textXS"
+                class="flex gap-x-2 text-base-900 justify-between uppercase font-medium"
+              >
+                {section.title}
+              </Text>
+              <ul
+                role="list"
+                class="mt-2 relative before:absolute after:absolute before:bg-base-950 after:bg-base-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px pt-4"
+              >
+                {section.links.map((link) => (
+                  <li>
+                    <Text
+                      tag="a"
+                      variant="textXS"
+                      class="text-base-600 hover:underline capitalize"
+                      href={link.url}
+                    >
+                      {link.name}
+                    </Text>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+      <div class="lg:col-span-2">
+        <Text
+          tag="h2"
+          variant="textXS"
+          class="text-base-900 uppercase font-medium"
+        >
+          Top Stories
+        </Text>
+        <div
+          class="flex flex-col gap-4 mt-2 relative before:absolute after:absolute before:bg-base-950 after:bg-base-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px pt-4"
+        >
+          {topStories.map((post) => <BlogCard1 post={post} />)}
+        </div>
+      </div>
+      <div class="lg:col-span-2">
+        <Text
+          tag="h2"
+          variant="textXS"
+          class="text-base-900 uppercase font-medium"
+        >
+          Latest episodes
+        </Text>
+        <div
+          class="flex flex-col gap-4 mt-2 relative before:absolute after:absolute before:bg-base-950 after:bg-base-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px pt-4"
+        >
+          {featuredPodcasts.map((post) => <PodcastCard4 post={post} />)}
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

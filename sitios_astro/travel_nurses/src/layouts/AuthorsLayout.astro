@@ -1,0 +1,166 @@
+---
+// Images
+import { Image } from "astro:assets";
+// Fundations
+import BaseLayout from "./BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import BlogCard2 from "@/components/blog/BlogCard2.astro";
+// Load all posts
+import { getCollection } from "astro:content";
+// Props
+const { frontmatter } = Astro.props;
+
+// Extract the author slug from the current URL
+const authorSlug = Astro.url.pathname.split("/").filter(Boolean).pop();
+// Format slug to human-friendly name
+const authorName = authorSlug
+  .split("-")
+  .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+  .join(" ");
+
+// Get all content
+const allPosts = await getCollection("posts");
+const allPodcasts = await getCollection("podcast");
+
+// Filter by author slug
+const relatedPosts = allPosts.filter((post) => post.data.author === authorSlug);
+
+const relatedPodcasts = allPodcasts.filter(
+  (episode) => episode.data.author === authorSlug
+);
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <Image
+          width={800}
+          height={800}
+          src={frontmatter.image.url}
+          alt={frontmatter.image.alt}
+          loading="lazy"
+          decoding="async"
+          class="w-full bg-base-50 object-cover sticky top-12 aspect-square grayscale"
+        />
+        <div class="lg:py-32">
+          <div>
+            <Text
+              tag="h1"
+              variant="display3XL"
+              class="font-serif font-light tracking-tight text-base-900"
+            >
+              {frontmatter.name}
+            </Text>
+            <Text
+              tag="p"
+              variant="textXS"
+              class="mt-1 font-medium uppercase text-base-600"
+            >
+              {frontmatter.role}
+            </Text>
+
+            <div class="flex flex-col justify-between h-full mt-4">
+              {
+                frontmatter.bio && (
+                  <div class="flex flex-col gap-2">
+                    {frontmatter.bio.split("\n").map((paragraph) => (
+                      <Text
+                        tag="p"
+                        variant="textSM"
+                        class="font-serif text-base-600"
+                      >
+                        {paragraph}
+                      </Text>
+                    ))}
+                  </div>
+                )
+              }
+              {/* Social Media Links */}
+              {
+                frontmatter.socials && (
+                  <div class="flex items-center mt-12 gap-4">
+                    <a
+                      href={frontmatter.socials.twitter}
+                      aria-label="Twitter"
+                      class="text-base-600 hover:text-base-900"
+                    >
+                      Twitter
+                    </a>
+                    <a
+                      href={frontmatter.socials.linkedin}
+                      aria-label="LinkedIn"
+                      class="text-base-600 hover:text-base-900"
+                    >
+                      Linkedin
+                    </a>
+                    <a
+                      href={frontmatter.socials.email}
+                      aria-label="Email"
+                      class="text-base-600 hover:text-base-900"
+                    >
+                      Email
+                    </a>
+                    <a
+                      href={frontmatter.socials.website}
+                      aria-label="Website"
+                      class="text-base-600 hover:text-base-900"
+                    >
+                      Website
+                    </a>
+                  </div>
+                )
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+  <section>
+    <Wrapper variant="standard" class="pt-32 pb-12">
+      {
+        relatedPosts.length > 0 && (
+          <div>
+            <Text
+              tag="h2"
+              variant="displayMD"
+              class="font-serif font-light text-base-600"
+            >
+              More articles from {authorName}
+            </Text>
+            <div class="items-start pt-2 mt-2 border-t border-black grid grid-cols-1 md:grid-cols-2  gap-2 gap-y-8">
+              {relatedPosts.map((post) => (
+                <BlogCard2 post={post} />
+              ))}
+            </div>
+          </div>
+        )
+      }
+    </Wrapper>
+  </section>
+  <section>
+    <Wrapper variant="standard" class="pt-32 pb-12">
+      {
+        relatedPodcasts.length > 0 && (
+          <div>
+            <Text
+              tag="h2"
+              variant="displayMD"
+              class="font-serif font-light text-base-600"
+            >
+              Interviews with {authorName}
+            </Text>
+            <div class="items-start pt-2 mt-2 border-t border-black grid grid-cols-1 md:grid-cols-2  gap-2 gap-y-8">
+              {relatedPodcasts.map((episode) => (
+                <BlogCard2 post={episode} />
+              ))}
+            </div>
+          </div>
+        )
+      }
+    </Wrapper>
+  </section>
+</BaseLayout>

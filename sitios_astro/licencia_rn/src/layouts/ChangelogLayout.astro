@@ -1,0 +1,92 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+const { frontmatter } = Astro.props;
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import ChevronRight from "@/components/fundations/icons/ChevronRight.astro";
+// Breadcrumbs Data
+const breadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: frontmatter.page, href: "#" },
+];
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="fixed z-40 top-[3.8rem] inset-x-0">
+      <nav
+        aria-label="Breadcrumb"
+        class="w-full py-4 pr-4 bg-white border-b border-base-200"
+      >
+        <ol class="flex items-center text-xs gap-2 text-base-500">
+          {
+            breadcrumbs.map((item, index) => (
+              <>
+                <li>
+                  {index === 0 ? (
+                    <a
+                      href={item.href}
+                      class="flex items-center justify-center font-medium  hover:text-base-500"
+                    >
+                      {item.label}
+                    </a>
+                  ) : index < breadcrumbs.length - 1 ? (
+                    <a
+                      href={item.href}
+                      class="font-medium text-base-500 hover:text-accent-500 "
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <span class="font-medium text-green-500 ">
+                      {item.label}
+                    </span>
+                  )}
+                </li>
+                {index < breadcrumbs.length - 1 && (
+                  <li class="flex items-center justify-center font-medium hover:text-accent-50">
+                    <ChevronRight size="sm" />
+                  </li>
+                )}
+              </>
+            ))
+          }
+        </ol>
+      </nav>
+    </Wrapper>
+    <Wrapper variant="standard" class="pt-48 pb-8 overflow-hidden lg:pt-82">
+      <Text tag="h1" variant="displayLG" class="text-base-800 text-balance">
+        {frontmatter.page}
+      </Text>
+      <Text
+        tag="p"
+        variant="textSM"
+        class="mt-4 text-base-600 lg:text-balance lg:ml-auto"
+      >
+        Published on <span>
+          <time
+            datetime={new Date(frontmatter.pubDate).toLocaleDateString(
+              "en-US",
+              {
+                year: "numeric",
+                month: "long",
+              }
+            )}
+          >
+            {
+              new Date(frontmatter.pubDate).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+              })
+            }</time
+          ></span
+        >
+      </Text>
+      <Wrapper variant="prose" class="max-w-xl mt-12">
+        <slot />
+      </Wrapper>
+    </Wrapper>
+  </section>
+</BaseLayout>

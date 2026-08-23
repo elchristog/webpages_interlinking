@@ -1,0 +1,63 @@
+---
+// Assets
+import { Image } from "astro:assets";
+import logo1 from "@/images/integrations/1.svg";
+import logo2 from "@/images/integrations/2.svg";
+import logo3 from "@/images/integrations/3.svg";
+import logo4 from "@/images/integrations/4.svg";
+import logo5 from "@/images/integrations/5.svg";
+import logo6 from "@/images/integrations/6.svg";
+import logo7 from "@/images/integrations/7.svg";
+import logo8 from "@/images/integrations/8.svg";
+import logo9 from "@/images/integrations/9.svg";
+import logo10 from "@/images/integrations/10.svg";
+import logo11 from "@/images/integrations/11.svg";
+import logo12 from "@/images/integrations/12.svg";
+import logo13 from "@/images/integrations/13.svg";
+import logo14 from "@/images/integrations/14.svg";
+import logo15 from "@/images/integrations/15.svg";
+import logo16 from "@/images/integrations/16.svg";
+import logo17 from "@/images/integrations/17.svg";
+import logo18 from "@/images/integrations/18.svg";
+import logo19 from "@/images/integrations/19.svg";
+import logo20 from "@/images/integrations/20.svg";
+const logos = [
+  { src: logo1, alt: "b1 Logo" },
+  { src: logo2, alt: "b2 Logo" },
+  { src: logo3, alt: "b3 Logo" },
+  { src: logo4, alt: "b4 Logo" },
+  { src: logo5, alt: "b5 Logo" },
+  { src: logo6, alt: "b6 Logo" },
+  { src: logo7, alt: "b7 Logo" },
+  { src: logo8, alt: "b8 Logo" },
+  { src: logo9, alt: "b9 Logo" },
+  { src: logo10, alt: "b10 Logo" },
+  { src: logo11, alt: "b11 Logo" },
+  { src: logo12, alt: "b12 Logo" },
+  { src: logo13, alt: "b13 Logo" },
+  { src: logo14, alt: "b14 Logo" },
+  { src: logo15, alt: "b15 Logo" },
+  { src: logo16, alt: "b16 Logo" },
+  { src: logo17, alt: "b17 Logo" },
+  { src: logo18, alt: "b18 Logo" },
+  { src: logo19, alt: "b19 Logo" },
+  { src: logo20, alt: "b20 Logo" },
+];
+---
+<div
+  class="grid grid-cols-5 gap-1"
+>
+  {
+    logos.map((logo) => (
+      <Image
+        width={200}
+        height={100}
+        src={logo.src}
+        alt={logo.alt}
+        loading="eager"
+        decoding="async"
+        class="p-6 bg-white rounded aspect-square size-full"
+      />
+    ))
+  }
+</div>

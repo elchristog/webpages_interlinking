@@ -1,0 +1,52 @@
+---
+// Fundations
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import ChevronLeft from "@/components/fundations/icons/ChevronLeft.astro";
+import ChevronRight from "@/components/fundations/icons/ChevronRight.astro";
+// Components
+import PodcastCard3 from "@/components/podcast/PodcastCard3.astro";
+// Get all posts
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("podcast");
+allPosts.sort((a, b) => {
+  const dateA = new Date(a.data.pubDate).getTime(); // Convert to timestamp
+  const dateB = new Date(b.data.pubDate).getTime(); // Convert to timestamp
+  return dateB - dateA; // Compare timestamps
+});
+---
+
+<section class="overflow-x-hidden">
+  <Wrapper variant="standard" class="pt-12">
+    <div class="relative">
+      <div
+        id="keen-slider"
+        class="keen-slider relative rounded-2xl overflow-hidden"
+      >
+        {
+          allPosts
+            .filter((post) => post.data.isSeries)
+            .map((post) => <PodcastCard3 post={post} />)
+        }
+      </div>
+      <div class="flex mt-4">
+        <div class="ml-auto">
+          <button
+            aria-label="Previous slide"
+            id="keen-slider-previous"
+            class="rounded-lg bg-base-100 p-1 text-base-600 shadow-xs hover:bg-base-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus:outline-base-400 cursor-pointer focus:outline-2 focus:outline-inset"
+          >
+            <ChevronLeft class="size-5" />
+          </button>
+          <button
+            aria-label="Next slide"
+            id="keen-slider-next"
+            class="rounded-lg bg-base-100 p-1 text-base-600 shadow-xs hover:bg-base-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus:outline-base-400 cursor-pointer focus:outline-2 focus:outline-inset"
+          >
+            <ChevronRight class="size-5" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </Wrapper>
+</section>

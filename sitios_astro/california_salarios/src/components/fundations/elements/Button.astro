@@ -1,0 +1,107 @@
+---
+const {
+  variant,
+  size,
+  onlyIconSize,
+  iconOnly = false,
+  gap,
+  isLink = false,
+  class: className,
+  ...rest
+} = Astro.props;
+// Default button styles
+const defaultClass = [
+  "text-white",
+  "bg-black ",
+  "hover:bg-black/80",
+  "focus:ring-black",
+];
+const mutedClass = [
+  "text-black ",
+  "bg-white",
+  "hover:bg-white/80",
+  "focus:ring-white",
+];
+const variantClass = {
+  default: defaultClass,
+  muted: mutedClass,
+  none: [],
+};
+// Size
+const sizes = {
+  xs: ["h-8", "px-4", "py-2", "text-xs"],
+  sm: ["h-9", "px-4", "py-2", "text-sm"],
+  base: ["h-10", "px-6", "py-3", "text-base"],
+  md: ["h-11", "px-6", "py-3", "text-base"],
+  lg: ["h-12", "px-6", "py-3", "text-lg"],
+  xl: ["h-14", "px-6", "py-3", "text-xl"],
+};
+// Icon size
+const iconSizes = {
+  xs: ["size-8", "text-xs"],
+  sm: ["size-9", "text-sm"],
+  base: ["size-10", "text-base"],
+  md: ["size-11", "text-base"],
+  lg: ["size-12", "text-lg"],
+  xl: ["size-14", "text-xl"],
+};
+// Gap
+const gapMap = {
+  xs: ["gap-2"],
+  sm: ["gap-4"],
+  base: ["gap-8"],
+  md: ["gap-10"],
+  lg: ["gap-12"],
+};
+const baseClass = [
+  "flex",
+  "rounded",
+  "transition",
+  "font-medium",
+  "duration-300",
+  "focus:ring-2",
+  "items-center",
+  "justify-center",
+  "focus:outline-none",
+  "focus:ring-offset-2",
+  "focus:ring-offset-transparent",
+  "focus:outline-none",
+];
+const additionalClasses = className ? className.split(" ") : [];
+const sizeKey = iconOnly && onlyIconSize ? onlyIconSize : size;
+const sizeClass = iconOnly ? iconSizes[sizeKey] || [] : sizes[sizeKey] || [];
+const gapClass = !iconOnly && gap ? gapMap[gap] || [] : [];
+const classList = [
+  ...baseClass,
+  ...(variantClass[variant] || []),
+  ...sizeClass,
+  ...gapClass,
+  ...additionalClasses,
+];
+---
+
+{isLink ? (
+  <a class:list={classList} {...rest}>
+    {iconOnly ? (
+      <slot name="icon" />
+    ) : (
+      <>
+        <slot name="left-icon" />
+        <slot />
+        <slot name="right-icon" />
+      </>
+    )}
+  </a>
+) : (
+  <button class:list={classList} {...rest}>
+    {iconOnly ? (
+      <slot name="icon" />
+    ) : (
+      <>
+        <slot name="left-icon" />
+        <slot />
+        <slot name="right-icon" />
+      </>
+    )}
+  </button>
+)}

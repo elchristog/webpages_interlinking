@@ -1,0 +1,36 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Sections
+import PodcastHero1 from "@/components/podcast/landingPages/index1/PodcastHero1.astro";
+import EpisodeGuests from "@/components/podcast/landingPages/index1/EpisodeGuests.astro";
+import EpisodeSeries from "@/components/podcast/landingPages/index1/EpisodeSeries.astro";
+import EpisodeCategories1 from "@/components/podcast/landingPages/index1/EpisodeCategories1.astro";
+//Adverts
+import AdvertAside from "@/components/advert/AdvertAside.astro";
+---
+<BaseLayout>
+  <PodcastHero1 />
+  <section>
+    <Wrapper variant="standard" class="py-12">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-0">
+        <div class="lg:pr-8 lg:col-span-3">
+          <EpisodeGuests />
+        </div>
+        <div
+          class="lg:pl-8 lg:relative lg:before:absolute lg:after:absolute
+        lg:before:bg-base-950 lg:after:bg-base-950/10 lg:before:top-0
+        lg:before:left-0 lg:before:h-6 lg:before:w-px lg:after:top-8
+        lg:after:bottom-0 lg:after:left-0 after:w-px"
+        >
+          <div class="lg:sticky lg:top-10 lg:z-20">
+            <EpisodeSeries />
+            <AdvertAside />
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+  <EpisodeCategories1 />
+</BaseLayout>

@@ -1,0 +1,33 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<section>
+  <Wrapper variant="standard" class="py-2">
+    <div class="px-8 py-24 bg-cyan">
+      <Text
+        tag="h2"
+        variant="display6XL"
+        class="font-bold tracking-tighter text-black text-balance"
+        >Integrations
+      </Text>
+      <Text
+        tag="p"
+        variant="textLG"
+        class="max-w-md mt-8 font-semibold text-black"
+      >
+        Connect Ælen to LinkedIn, Zapier, and More — Easily plug into your
+        existing workflow with integrations like API, Webhooks, Zapier, Pabbly,
+        and others.
+      </Text>
+      <div class="flex mt-8">
+        <Button href="/integrations" size="xl" variant="muted" isLink>
+          Get started
+        </Button>
+      </div>
+    </div>
+  </Wrapper>
+</section>

@@ -1,0 +1,71 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+const data = [
+  {
+    title: "Build beautiful UIs, not just wireframes",
+    subtitle:
+      "Each project focuses on polish — spacing, typography, color, and real-world layout challenges. You’ll finish with work that looks ready for a portfolio.",
+  },
+  {
+    title: "Learn through real components",
+    subtitle:
+      "We’ll build buttons, cards, forms, and layouts — and explain the design decisions behind them. No theory without code.",
+  },
+  {
+    title: "Go beyond 'just dev' or 'just design'",
+    subtitle:
+      "This course is built for hybrid thinkers — you'll work across both sides to create thoughtful, scalable interfaces.",
+  },
+  {
+    title: "Lifetime access, zero deadlines",
+    subtitle:
+      "Take it at your own pace. Whether you binge it or take one component a week, your access never expires.",
+  },
+  {
+    title: "Get a certificate that actually means something",
+    subtitle:
+      "Earn proof of your skill — not just completion. You'll finish with real, portfolio-worthy projects and confidence to back them up.",
+  },
+];
+---
+
+<section>
+  <Wrapper variant="standard" class="py-12">
+    <Text tag="h2" variant="textBase" class="font-medium text-primary">
+      What you’ll actually walk away with
+    </Text>
+
+    <Text
+      tag="p"
+      variant="textBase"
+      class="font-serif text-primary/60 text-balance"
+    >
+      From reusable UI components to visual systems thinking — this course gives
+      you more than code. It gives you taste, clarity, and tools.
+    </Text>
+
+    <div
+      class="pt-2 mt-2 border-t border-dotted grid gap-8 md:grid-cols-2 border-primary/10 text-balance"
+    >
+      {
+        data.map((item) => (
+          <div>
+            <Text tag="h3" variant="textSM" class="text-primary">
+              {item.title}
+            </Text>
+            <Text
+              tag="p"
+              variant="textSM"
+              class="mt-1 font-serif text-primary/60"
+            >
+              {item.subtitle}
+            </Text>
+          </div>
+        ))
+      }
+    </div>
+  </Wrapper>
+</section>

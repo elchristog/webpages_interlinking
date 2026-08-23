@@ -1,0 +1,196 @@
+---
+import SearchIcon from "@/components/fundations/icons/Search.astro";
+import { getCollection } from "astro:content";
+const [posts, work, store] = await Promise.all([
+  getCollection("posts"),
+  getCollection("work"),
+  getCollection("store"),
+]);
+const formatDate = (date) =>
+  new Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "2-digit",
+  }).format(date);
+const items = [
+  ...posts.map((post) => ({
+    type: "Blog",
+    title: post.data.title,
+    description: post.data.description,
+    meta: formatDate(post.data.pubDate),
+    url: `/blog/posts/${post.id}`,
+  })),
+  ...work.map((entry) => ({
+    type: "Work",
+    title: entry.data.title,
+    description: entry.data.description,
+    meta: entry.data.work || "",
+    url: `/work/${entry.id}`,
+  })),
+  ...store.map((product) => ({
+    type: "Store",
+    title: product.data.title,
+    description: product.data.description,
+    meta: product.data.price ? `$${product.data.price}` : "",
+    url: `/store/${product.id}`,
+  })),
+];
+---
+
+<div class="relative">
+  <button
+    type="button"
+    id="searchButton"
+    class="px-2 py-1 size-14 flex items-center bg-base-800 dark:bg-base-50 outline outline-base-900 dark:outline-base-100 dark:text-base-900 hover:bg-base-950 duration-300 rounded-[calc(var(--card-radius)-var(--card-padding))] text-white dark:hover:bg-base-30"
+    aria-label="Search content"
+  >
+    <SearchIcon size="base" class="mx-auto" />
+  </button>
+  <div
+    id="searchModal"
+    class="fixed inset-0 z-50 overflow-y-auto hidden"
+    role="dialog"
+    aria-modal="true"
+  >
+    <div class="min-h-screen px-4 text-center">
+      <div
+        class="fixed inset-0 bg-base-950/50 backdrop-blur transition-opacity"
+        id="modalOverlay"
+      >
+      </div>
+      <div
+        class="inline-block w-full max-w-2xl px-8 mb-8 mt-12 lg:mt-48 text-left align-middle transition-all transform relative"
+      >
+        <div class="hidden">
+          <button
+            type="button"
+            id="closeSearch"
+            class="text-base-400 hover:text-base-500 cursor-pointer ml-auto"
+            aria-label="Close search"
+          >
+            close
+          </button>
+        </div>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search across content..."
+          class="w-full flex-auto appearance-none rounded-md dark:text-white text-base-900 outline-inset border-transparent px-3 py-2 shadow-base-800/5 dark:placeholder:text-base-400 dark:place-holder-text-base-700 duration-300 h-9 focus:border-base-500 focus:outline-none focus:outline-4 focus:outline-base-500/10 sm:text-sm bg-base-50 dark:bg-base-800"
+        />
+        <div
+          id="searchResults"
+          class="max-h-100 mt-2 overflow-y-auto bg-white dark:bg-black overflow-hidden w-full divide-y divide-base-200 border-y border-base-200 dark:border-y-black dark:divide-base-900 scrollbar-hide"
+        >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script is:inline define:vars={{ items }}>
+  // Wait for the entire page to load before running the script
+  window.addEventListener("load", () => {
+    // Get references to various elements in the search UI
+    const searchButton = document.getElementById("searchButton"); // Button that opens search modal
+    const searchModal = document.getElementById("searchModal"); // Search modal container
+    const modalOverlay = document.getElementById("modalOverlay"); // Overlay that closes modal on click
+    const searchInput = document.getElementById("searchInput"); // Input field for searching
+    const searchResults = document.getElementById("searchResults"); // Container for search results
+    const closeSearch = document.getElementById("closeSearch"); // Button to close search modal
+    // Initialize Fuse.js for fuzzy searching with all content entries
+    const fuse = new Fuse(items, {
+      keys: ["title", "description", "type", "meta"], // Fields to search within
+      threshold: 0.3, // Controls search sensitivity (lower = more strict)
+      includeMatches: true, // Includes matching results for highlighting
+    });
+    // Hide search results by default
+    searchResults.classList.add("hidden");
+    // Function to open the search modal
+    function openSearch(e) {
+      e.preventDefault(); // Prevent default action (e.g., form submission)
+      e.stopPropagation(); // Stop event from bubbling up the DOM
+      searchModal.classList.remove("hidden"); // Show modal
+      document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
+      setTimeout(() => searchInput.focus(), 100); // Focus input field after a short delay
+    }
+    // Function to close the search modal
+    function closeSearchModal(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      searchModal.classList.add("hidden"); // Hide modal
+      document.body.style.overflow = ""; // Restore scrolling
+      searchInput.value = ""; // Clear search input
+      searchResults.innerHTML = ""; // Clear search results
+      searchResults.classList.add("hidden"); // Ensure results remain hidden
+    }
+    // Function to display search results
+    function renderResults(results) {
+      // If input is empty, hide results
+      if (!searchInput.value.trim()) {
+        searchResults.innerHTML = "";
+        searchResults.classList.add("hidden");
+        return;
+      }
+      // If no results are found, display a message
+      if (results.length === 0) {
+        searchResults.innerHTML = `
+        <div class="p-8">
+            <p class="font-medium text-base-700 dark:text-base-300">
+              There's nothing here,...
+            </p>
+        </div>
+        `;
+        searchResults.classList.remove("hidden");
+        return;
+      }
+      // Generate HTML for each search result
+      searchResults.innerHTML = results
+        .map((result) => {
+          const item = result.item;
+          const meta =
+            item.meta && item.meta.trim()
+              ? `<span class="text-base-400">• ${item.meta}</span>`
+              : "";
+          return `
+              <a href="${item.url}" class="block p-8 hover:bg-base-50 duration-300 dark:hover:bg-base-950">
+                  <div class="flex items-center gap-2 text-xs uppercase tracking-wide text-base-500">
+                    <span>${item.type}</span>
+                    ${meta}
+                  </div>
+                  <h3  class="font-medium text-base mt-2 text-base-900 dark:text-white block lg:text-balance">
+                    ${item.title}
+                  </h3>
+                  <p  class="text-base-500 text-base mt-2 block lg:text-balance">
+                    ${item.description}
+                  </p>
+              </a>
+            `;
+        })
+        .join(""); // Join all results into a single string of HTML
+      // Make the search results visible
+      searchResults.classList.remove("hidden");
+    }
+    // Add event listeners to open the search modal
+    searchButton.addEventListener("click", openSearch);
+    searchButton.addEventListener("touchend", openSearch); // For mobile devices
+    // Add event listeners to close the search modal
+    closeSearch.addEventListener("click", closeSearchModal);
+    closeSearch.addEventListener("touchend", closeSearchModal);
+    // Close modal when clicking on the overlay (outside the modal)
+    modalOverlay.addEventListener("click", closeSearchModal);
+    modalOverlay.addEventListener("touchend", closeSearchModal);
+    // Listen for user input and perform a search
+    searchInput.addEventListener("input", (e) => {
+      const value = e.target.value.trim(); // Get search input value
+      const results = value ? fuse.search(value) : []; // Perform search only if input isn't empty
+      renderResults(results); // Display search results
+    });
+    // Close search modal when the Escape key is pressed
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !searchModal.classList.contains("hidden")) {
+        closeSearchModal();
+      }
+    });
+  });
+</script>

@@ -1,0 +1,30 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import LogoCloud1 from "@/components/testimonials/LogoCloud1.astro";
+---
+
+<section class="bg-gradient-up overflow-hidden relative">
+  <Wrapper variant="standard" class="pt-42 pb-8 relative">
+    <div class="max-w-xl">
+      <Text tag="span" variant="textSM" class="text-white">
+        Ultimate solutions
+      </Text>
+      <Text
+        tag="h1"
+        variant="display2XL"
+        class="mt-12 text-white text-balance font-display"
+      >
+        Own the web.
+        <span class="text-base-400 block"> Build without limits.</span>
+      </Text>
+      <Text tag="p" variant="textBase" class="text-white mt-2 text-balance">
+        Decentralized. Trustless. Borderless. Create the future of the internet
+        with cutting-edge Web3 technology—where you’re in control.
+      </Text>
+    </div>
+    <LogoCloud1 class="mt-12 lg:mt-24" />
+  </Wrapper>
+</section>

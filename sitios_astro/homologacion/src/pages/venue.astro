@@ -1,0 +1,232 @@
+---
+// Assets
+import { Image } from "astro:assets";
+import venue from "@/images/assets/venue.jpg";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const spaces = [
+  {
+    title: "Helvetica Hall",
+    description:
+      "Main stage for keynotes and evening salons. Seating for 600 with theatre-grade acoustics, dual projection, and real-time captioning in English and French.",
+  },
+  {
+    title: "Modulor Studio",
+    description:
+      "Hands-on workshop floor with modular stations, tactile prototyping materials, and dedicated critique walls sized for Swiss poster formats.",
+  },
+  {
+    title: "Ratio Lab",
+    description:
+      "Residency wing for teams. Includes private breakout rooms, A/V-equipped boardrooms, and a materials library curated by Gridline Labs.",
+  },
+];
+const transit = [
+  "Orange Line metro — Place-d'Armes station (5-minute walk)",
+  "STM bus routes 55 and 361 stop at Saint-Paul / Saint-Sulpice",
+  "747 Airport Shuttle connects YUL to downtown Montreal",
+];
+const accessibility = [
+  "Step-free access and elevators across all levels",
+  "Reserved seating zones and low-vision guides in keynotes",
+  "Assistive listening devices and speech-to-text upon request",
+];
+const nearbyStays = [
+  "Hotel Monochrome (design-forward boutique, 3-minute walk)",
+  "Gridline Suites (serviced apartments for teams, 5-minute walk)",
+  "Old Port Residences (extended stay, 8-minute walk)",
+];
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-32">
+      <header class="max-w-4xl space-y-4">
+        <Text tag="p" variant="textXS" class="uppercase text-base-600">
+          Location
+        </Text>
+        <Text
+          tag="h1"
+          variant="displayMD"
+          class="text-balance text-accent-500 font-display uppercase leading-tight mt-8"
+        >
+          Montreal Design Centre
+        </Text>
+        <Text
+          tag="p"
+          variant="textBase"
+          class="text-base-600 font-medium max-w-2xl mt-2 text-balance"
+        >
+          Dusk inhabits the Montreal Design Centre, a brutalist landmark in Old
+          Montreal. Concrete, glass, and measured light make it the ideal canvas
+          for Swiss-inspired layouts, installations, and day-to-night
+          programming.
+        </Text>
+      </header>
+      <section>
+        <div class="grid lg:grid-cols-12 mt-12">
+          <div class="lg:col-span-6">
+            <Image
+              src={venue}
+              alt="Venue"
+              width={1200}
+              height={800}
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+          <aside class="flex flex-col gap-8 lg:col-span-5 lg:col-start-8">
+            <div class="space-y-3">
+              <Text
+                tag="h3"
+                variant="textBase"
+                class="font-display uppercase text-accent-500"
+              >
+                Address
+              </Text>
+              <address
+                aria-label="Montreal Design Centre address"
+                class="not-italic space-y-1"
+              >
+                <Text tag="p" variant="textSM" class="text-base-600">
+                  417 Rue Saint-Paul Ouest
+                </Text>
+                <Text tag="p" variant="textSM" class="text-base-600">
+                  Montreal, QC H2Y 2A1
+                </Text>
+                <Text tag="p" variant="textSM" class="text-base-600">
+                  Canada
+                </Text>
+              </address>
+            </div>
+            <div class="space-y-3">
+              <Text
+                tag="h3"
+                variant="textBase"
+                class="font-display uppercase text-accent-500"
+              >
+                Transit
+              </Text>
+              <ul
+                class="text-base-600 text-sm divide-y divide-dashed divide-black/10"
+              >
+                {transit.map((item) => <li class="py-2">{item}</li>)}
+              </ul>
+            </div>
+            <div class="space-y-3">
+              <Text
+                tag="h3"
+                variant="textBase"
+                class="font-display uppercase text-accent-500"
+              >
+                Accessibility
+              </Text>
+              <ul
+                class="text-base-600 text-sm divide-y divide-dashed divide-black/10"
+              >
+                {accessibility.map((item) => <li class="py-2">{item}</li>)}
+              </ul>
+            </div>
+            <div class="space-y-3">
+              <Text
+                tag="h3"
+                variant="textBase"
+                class="font-display uppercase text-accent-500"
+              >
+                Nearby stays
+              </Text>
+              <ul
+                class="text-base-600 text-sm divide-y divide-dashed divide-black/10"
+              >
+                {nearbyStays.map((item) => <li class="py-2">{item}</li>)}
+              </ul>
+            </div>
+          </aside>
+        </div>
+        <div class="mt-8">
+          <Text
+            tag="h2"
+            variant="displaySM"
+            class="text-balance text-accent-500 font-display uppercase leading-tight"
+          >
+            A campus designed for focus
+          </Text>
+          <Text
+            tag="p"
+            variant="textSM"
+            class="text-base-600 font-medium max-w-2xl mt-2 text-balance"
+          >
+            The centre spans three connected wings. Each is scaled for different
+            cadences—from keynote theatre to intimate critiques. Expect
+            thoughtful signage, quiet lounges, and generous circulation to keep
+            every session punctual.
+          </Text>
+        </div>
+        <div
+          class="grid grid-cols-1 items-start gap-y-12 xl:grid-cols-12 mt-12"
+        >
+          {
+            spaces.map((space) => (
+              <article class="[&:nth-child(1)]:lg:col-start-3 [&:nth-child(2)]:lg:col-start-6 relative  lg:col-span-3 ">
+                <Text
+                  tag="h3"
+                  variant="textXL"
+                  class="text-accent-500  font-display uppercase"
+                >
+                  {space.title}
+                </Text>
+                <Text tag="p" variant="textBase" class="text-base-500 ">
+                  {space.description}
+                </Text>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+      <section
+        class="gap-x-12 gap-y-8 border border-white/10 bg-accent-500 p-8 md:flex md:items-center md:justify-between mt-24"
+      >
+        <div class="max-w-2xl space-y-4">
+          <Text
+            tag="h2"
+            variant="displaySM"
+            class="font-display uppercase text-white"
+          >
+            Plan your visit
+          </Text>
+          <Text tag="p" variant="textSM" class="text-base-200 lg:text-balance">
+            Download the venue map, explore travel tips, and review the 2025
+            residency handbook before you arrive. Need a bespoke itinerary for
+            your studio? Email <a
+              class="underline"
+              href="mailto:care@dusk.design">care@dusk.design</a
+            >.
+          </Text>
+        </div>
+        <div
+          class="flex flex-wrap items-center justify-center gap-2 md:justify-end"
+        >
+          <Button
+            size="sm"
+            variant="default"
+            class="w-fit"
+            href="/downloads/venue-map.pdf"
+          >
+            Venue map
+          </Button>
+          <Button
+            size="sm"
+            variant="muted"
+            class="w-fit"
+            href="/downloads/residency-handbook.pdf"
+          >
+            Residency handbook
+          </Button>
+        </div>
+      </section>
+    </Wrapper>
+  </section>
+</BaseLayout>

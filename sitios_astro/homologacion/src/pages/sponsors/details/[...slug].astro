@@ -1,0 +1,17 @@
+---
+import SponsorsLayout from "@/layouts/SponsorsLayout.astro";
+import { getCollection, render } from "astro:content";
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("sponsors");
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry, sponsors: blogEntries },
+  }));
+}
+const { entry, sponsors } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<SponsorsLayout frontmatter={entry.data} sponsors={sponsors} slug={entry.id}>
+  <Content />
+</SponsorsLayout>

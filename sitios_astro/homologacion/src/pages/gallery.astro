@@ -1,0 +1,178 @@
+---
+// Assets
+import { Image } from "astro:assets";
+import one from "@/images/gallery/1.png";
+import two from "@/images/gallery/2.png";
+import three from "@/images/gallery/3.png";
+import four from "@/images/gallery/4.png";
+import five from "@/images/gallery/5.png";
+import six from "@/images/gallery/6.png";
+import seven from "@/images/gallery/7.png";
+import eight from "@/images/gallery/8.png";
+import nine from "@/images/gallery/9.png";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const gallerySections = [
+  {
+    title: "Day 1 — Systems & Structure",
+    description:
+      "Opening keynotes and workshops that explored grids, modular design systems, and the craft of Swiss-inspired product foundations.",
+    images: [
+      {
+        src: one,
+        alt: "Keynote presenter speaking in Helvetica Hall",
+      },
+      {
+        src: two,
+        alt: "Designers collaborating during a grid systems workshop",
+      },
+      {
+        src: three,
+        alt: "Swiss design installation featuring modular typography",
+      },
+    ],
+  },
+  {
+    title: "Day 3 — Typography & Motion",
+    description:
+      "Night salons and motion labs translating traditional Swiss letterforms into kinetic interfaces and interactive storytelling.",
+    images: [
+      {
+        src: four,
+        alt: "Salon session discussing kinetic typography",
+      },
+      {
+        src: five,
+        alt: "Attendees testing motion prototypes on tablets",
+      },
+      {
+        src: six,
+        alt: "Atelier space with illuminated typographic posters",
+      },
+    ],
+  },
+  {
+    title: "Residency Highlights",
+    description:
+      "Team Residency showcases featuring prototypes, critiques, and closing reflections with nonprofit partners.",
+    images: [
+      {
+        src: seven,
+        alt: "Residency team presenting to mentors",
+      },
+      {
+        src: eight,
+        alt: "Critique wall covered in wireframes and typography studies",
+      },
+      {
+        src: nine,
+        alt: "Attendees during the closing celebration",
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-32">
+      <div class="grid grid-cols-1 lg:grid-cols-12 items-end">
+        <div class="lg:col-span-8">
+          <Text
+            tag="h1"
+            variant="displayMD"
+            class="text-balance text-accent-500 font-display uppercase leading-tight"
+          >
+            Moments from Dusk 2024
+          </Text>
+          <Text
+            tag="p"
+            variant="textBase"
+            class="text-base-600 font-medium max-w-2xl mt-2 text-balance"
+          >
+            Explore the installations, workshops, and salons that defined Swiss
+            Design Week at Dusk. Download full-resolution photography and media
+            assets for editorial use.
+          </Text>
+        </div>
+      </div>
+      <div class="space-y-32 mt-24">
+        {
+          gallerySections.map((section) => (
+            <div class="grid grid-cols-1 lg:grid-cols-12 items-start">
+              <div class="lg:col-span-2">
+                <Text
+                  tag="h2"
+                  variant="textXL"
+                  class="font-display uppercase text-accent-500"
+                >
+                  {section.title}
+                </Text>
+                <Text tag="p" variant="textSM" class=" text-base-600">
+                  {section.description}
+                </Text>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-3 lg:col-span-9 lg:col-start-4">
+                {section.images.map((image) => (
+                  <figure class="group relative">
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      height={1200}
+                      width={800}
+                      loading="lazy"
+                      decoding="async"
+                      class="size-full object-cover aspect-12/8"
+                    />
+                    <figcaption class="mt-2">
+                      <Text tag="p" variant="textXS" class=" text-base-500">
+                        {image.alt}
+                      </Text>
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+      <section
+        class="gap-x-12 gap-y-8 border border-white/10 bg-accent-500 p-8 md:flex md:items-center md:justify-between mt-24"
+      >
+        <div class="max-w-xl space-y-4">
+          <Text
+            tag="h2"
+            variant="displaySM"
+            class="font-display uppercase text-white"
+          >
+            Media requests
+          </Text>
+          <Text tag="p" variant="textSM" class="text-base-200 lg:text-balance">
+            Need additional photography, b-roll, or speaker assets? Email
+            <a class="underline" href="mailto:press@dusk.design">
+              press@dusk.design</a
+            >. We provide media kits and editorial support within 24 hours.
+          </Text>
+        </div>
+        <div
+          class="flex flex-wrap items-center justify-center gap-2 md:justify-end"
+        >
+          <Button
+            size="sm"
+            variant="default"
+            class="w-fit"
+            href="/downloads/gallery-pack.zip"
+          >
+            Download gallery pack
+          </Button>
+          <Button size="sm" variant="muted" class="w-fit" href="/press">
+            Visit press desk
+          </Button>
+        </div>
+      </section>
+    </Wrapper>
+  </section>
+</BaseLayout>

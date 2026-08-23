@@ -1,0 +1,56 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<section>
+  <Wrapper variant="standard" class="py-24 overflow-hidden">
+    <div
+      class="bg-gradient-down text-center p-8 lg:pt-20 pb-12 border-base-900 border-x relative overflow-hidden"
+    >
+      <div class="relative">
+        <Text
+          tag="h2"
+          variant="displayLG"
+          class="text-white lg:text-balance font-display"
+        >
+          Build & Launch with Ease
+        </Text>
+        <Text
+          tag="p"
+          variant="textBase"
+          class="mt-4 text-white lg:text-balance max-w-xl mx-auto"
+        >
+          Empower your project with seamless integration, smart contract tools,
+          and lightning-fast deployment.
+        </Text>
+        <div class="mt-10 flex items-center justify-center gap-2">
+          <Button
+            isLink
+            size="sm"
+            variant="default"
+            href="#_"
+            title="#_"
+            aria-label="#_"
+            class="w-auto"
+          >
+            Get started
+          </Button>
+          <Button
+            isLink
+            size="sm"
+            variant="muted"
+            href="#_"
+            title="#_"
+            aria-label="#_"
+            class="w-auto"
+          >
+            Explore Features
+          </Button>
+        </div>
+      </div>
+    </div>
+  </Wrapper>
+</section>

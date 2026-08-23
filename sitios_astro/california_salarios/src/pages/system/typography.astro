@@ -1,0 +1,70 @@
+---
+// Assets
+import Bars from "@/components/assets/Bars.astro";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<BaseLayout>
+  <Wrapper variant="standard" class="pb-2 pt-50">
+    <Text
+      tag="h1"
+      variant="display6XL"
+      class="font-bold tracking-tighter text-black text-balance"
+    >
+      Typography</Text
+    >
+    <Bars class="mt-2">Font in use: Geist + Geist Mono</Bars>
+  </Wrapper>
+  <Wrapper variant="standard" class="py-2">
+    <div class="flex flex-col px-8 py-8 font-medium text-white bg-orange">
+      <div class="py-4 border-b border-dashed border-white/20">
+        <Text tag="p" variant="textXS"> Text XS </Text>
+      </div>
+      <div class="py-4 border-b border-dashed border-white/20">
+        <Text tag="p" variant="textSM"> Text SM </Text>
+      </div>
+      <div class="py-4 border-b border-dashed border-white/20">
+        <Text tag="p" variant="textBase"> Text Base </Text>
+      </div>
+      <div class="py-4 border-b border-dashed border-white/20">
+        <Text tag="p" variant="textLG"> Text LG </Text>
+      </div>
+      <div class="py-4 border-b border-dashed border-white/20">
+        <Text tag="p" variant="textXL"> Text XL </Text>
+      </div>
+      <div class="py-4 border-b border-dashed border-white/20">
+        <Text tag="p" variant="displayXS"> Display XS </Text>
+      </div>
+      <div class="py-4 border-b border-dashed border-white/20">
+        <Text tag="p" variant="displaySM"> Display SM </Text>
+      </div>
+      <div class="py-4 border-b border-dashed border-white/20">
+        <Text tag="p" variant="displayMD"> Display MD </Text>
+      </div>
+      <div class="py-4 border-b border-dashed border-white/20">
+        <Text tag="p" variant="displayLG"> Display LG </Text>
+      </div>
+      <div class="py-4 border-b border-dashed border-white/20">
+        <Text tag="p" variant="displayXL"> Display XLnfo </Text>
+      </div>
+      <div class="py-4 border-b border-dashed border-white/20">
+        <Text tag="p" variant="display2XL"> Display 2XL </Text>
+      </div>
+      <div class="py-4 border-b border-dashed border-white/20">
+        <Text tag="p" variant="display3XL"> Display 3XL </Text>
+      </div>
+      <div class="py-4 border-b border-dashed border-white/20">
+        <Text tag="p" variant="display4XL"> Display 4XL </Text>
+      </div>
+      <div class="py-4 border-b border-dashed border-white/20">
+        <Text tag="p" variant="display5XL"> Display 5XL </Text>
+      </div>
+      <div class="py-4 border-b border-dashed border-white/20">
+        <Text tag="p" variant="display6XL"> Display 6XL </Text>
+      </div>
+    </div>
+  </Wrapper>
+</BaseLayout>

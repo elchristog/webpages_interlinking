@@ -1,0 +1,47 @@
+---
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+const faqs = [
+  {
+    question: "What payment methods do you accept?",
+    answer:
+      "We accept all major credit cards (Visa, MasterCard, Amex), PayPal, and bank transfers for Enterprise plans.",
+  },
+  {
+    question: "Is there a free trial or free tier?",
+    answer:
+      "Yes—our Starter plan is completely free forever. You can upgrade at any time with one click.",
+  },
+  {
+    question: "Can I switch plans or cancel at any time?",
+    answer:
+      "Absolutely. You can upgrade, downgrade, or cancel from your account dashboard without any penalties.",
+  },
+  {
+    question: "Do you offer volume or educational discounts?",
+    answer:
+      "We do! Schools, nonprofits, and large teams can contact us for special pricing and terms.",
+  },
+];
+---
+<section class="py-24">
+  <Wrapper variant="standard">
+    <Text tag="h2" variant="displayMD" class="text-base-800 ">
+      Frequently Asked Questions
+    </Text>
+    <div class="mt-8 space-y-4 divide-y divide-base-200">
+      {
+        faqs.map(({ question, answer }) => (
+          <details class="py-4">
+            <summary class="cursor-pointer font-medium text-base-800">
+              {question}
+            </summary>
+            <Text tag="p" variant="textBase" class="mt-2 text-base-500">
+              {answer}
+            </Text>
+          </details>
+        ))
+      }
+    </div>
+  </Wrapper>
+</section>

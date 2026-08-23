@@ -1,0 +1,64 @@
+---
+// Assets
+import { Image } from "astro:assets";
+import Avatar from "@/images/avatar.jpeg";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<section>
+  <Wrapper variant="standard" class="py-8 lg:pb-24">
+    <div class="overflow-hidden">
+      <Image
+        width={2000}
+        height={1000}
+        src={Avatar}
+        alt="#_"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        class="w-full h-96 object-cover object-right lg:object-[20%_20%]"
+      />
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 items-start gap-8 mt-2">
+      <div>
+        <div class="overflow-hidden">
+          <Text
+            tag="h1"
+            variant="textXL"
+            data-aos="fade-up"
+            data-aos-duration="1500"
+            class="dark:text-white text-base-900 text-balance"
+          >
+            Product designer from Barcelona
+          </Text>
+        </div>
+        <div class="overflow-hidden">
+          <Text
+            tag="p"
+            variant="textBase"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+            class="mt-2 text-base-500 dark:text-base-300 lg:text-balance"
+          >
+            Build innovative and scalable solutions with my expertise in
+            software development, architecture, and cutting-edge technology.
+          </Text>
+        </div>
+      </div>
+      <div class="flex lg:ml-auto">
+        <Button
+          isLink
+          size="xs"
+          variant="muted"
+          href="/contact"
+          data-aos="fade-up"
+          data-aos-duration="2000"
+        >
+          Let's talk
+        </Button>
+      </div>
+    </div>
+  </Wrapper>
+</section>

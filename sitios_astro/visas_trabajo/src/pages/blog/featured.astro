@@ -1,0 +1,71 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import BlogCard2 from "@/components/blog/BlogCard2.astro";
+import BlogCard3 from "@/components/blog/BlogCard3.astro";
+
+// Content
+const allPosts = await getCollection("posts");
+import { getCollection } from "astro:content";
+// Sections
+import AdvertAside from "@/components/advert/AdvertAside.astro";
+import Aside1 from "@/components/blog/landingPages/index1/Aside1.astro";
+// Sort posts by date
+allPosts.sort((a, b) => {
+  const dateA = new Date(a.data.pubDate).getTime();
+  const dateB = new Date(b.data.pubDate).getTime();
+  return dateB - dateA; // Compare timestamps
+});
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-12">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-0">
+        <div class="lg:col-span-3 lg:pr-8">
+          <Text
+            tag="h2"
+            variant="textXS"
+            class="text-base-900 uppercase font-medium"
+          >
+            Featured
+          </Text>
+          <div
+            class="relative before:absolute after:absolute before:bg-base-950 after:bg-base-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px pt-4 mt-2"
+          >
+            {
+              allPosts
+                .filter((post) => post.data.isFeatured)
+                .slice(0, 1)
+                .map((post) => <BlogCard2 post={post} />)
+            }
+          </div>
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12"
+          >
+            {
+              allPosts
+                .filter((post) => post.data.isFeatured)
+                .slice(1)
+                .map((post) => <BlogCard3 post={post} />)
+            }
+          </div>
+        </div>
+        <div
+          class="lg:pl-8 lg:relative lg:before:absolute lg:after:absolute
+        lg:before:bg-base-950 lg:after:bg-base-950/10 lg:before:top-0
+        lg:before:left-0 lg:before:h-6 lg:before:w-px lg:after:top-8
+        lg:after:bottom-0 lg:after:left-0 after:w-px"
+        >
+          <div class="lg:sticky lg:top-10 lg:z-50">
+            <Aside1 />
+            <AdvertAside />
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

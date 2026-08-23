@@ -1,0 +1,61 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+
+// Content
+const { title, url, description, pubDate, author, index } = {
+  url: "/blog/posts/" + Astro.props.post.id,
+  title: Astro.props.post.data.title,
+  author: Astro.props.post.data.author,
+  description: Astro.props.post.data.description,
+  pubDate: new Date(Astro.props.post.data.pubDate).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "2-digit",
+  }),
+  index: Astro.props.index,
+};
+---
+
+<article
+  class="relative py-8 border-t border-dashed border-white/20 grid grid-cols-1 gap-12 lg:gap-0 lg:grid-cols-5 bg-orange group"
+>
+  <a href={url} title={title} class="absolute inset-0 z-10"> </a>
+  <Text
+    tag="span"
+    variant="display2XL"
+    class="font-bold tracking-tight text-white group-hover:text-black duration-300"
+  >
+    0{index}
+  </Text>
+
+  <div
+    class="flex flex-col pt-4 border-dashed lg:col-span-4 gap-24 lg:pl-12 lg:border-l lg:border-white/20"
+  >
+    <div>
+      <Text
+        tag="p"
+        variant="textBase"
+        class="font-medium text-white group-hover:text-black duration-300 flex items-center gap-1"
+      >
+        {author}
+        <span aria-hidden="true">&middot;</span>
+        <time datetime={pubDate}> {pubDate}</time>
+      </Text>
+      <Text
+        tag="h3"
+        variant="display2XL"
+        class="font-medium tracking-tight text-white group-hover:text-black duration-300 mt-4"
+        >{title}</Text
+      >
+    </div>
+
+    <Text
+      tag="p"
+      variant="textLG"
+      class="max-w-xl text-white font-semibold group-hover:text-black duration-300"
+    >
+      {description}
+    </Text>
+  </div>
+</article>

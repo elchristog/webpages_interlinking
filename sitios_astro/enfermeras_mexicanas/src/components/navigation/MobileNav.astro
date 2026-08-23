@@ -1,0 +1,76 @@
+---
+// Assets
+import Logo from "@/components/assets/Logo.astro";
+import ThemeToggle from "@/components/assets/ThemeToggle.astro";
+// fudnations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import NavigationLinks from "@/components/navigation/NavigationLinks.astro";
+---
+
+<section id="navigation" class="z-10 bg-white dark:bg-base-950 lg:hidden">
+  <Wrapper variant="standard" class="py-4 wrapper-class">
+    <div class="grid grid-cols-2 gap-2 items-center w-full pb-4">
+      <!-- Header content -->
+      <a href="/">
+        <Logo class="h-8 text-black dark:text-white" />
+      </a>
+      <div class="ml-auto gap-2 flex items-center col-start-2">
+        <ThemeToggle />
+        <button
+          id="menubutton"
+          type="button"
+          class="uppercase text-black dark:text-white w-12 text-right hover:text-base-500 dark:hover:text-base-400 font-medium text-xs"
+          aria-controls="menu"
+          aria-label="Toggle menu"
+        >
+          menu
+        </button>
+      </div>
+    </div>
+    <!-- Drawer -->
+    <nav
+      id="menu"
+      role="navigation"
+      aria-labelledby="menubutton"
+      class="relative overflow-hidden w-full"
+    >
+      <NavigationLinks />
+    </nav>
+  </Wrapper>
+</section>
+<style>
+  #menu {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition:
+      max-height 0.5s ease-out,
+      opacity 0.5s ease-out;
+  }
+  #menu.expanded {
+    max-height: 100vh;
+    opacity: 1;
+  }
+</style>
+<script type="module">
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuButton = document.getElementById("menubutton");
+    const menu = document.getElementById("menu");
+    let expanded = false;
+    // Toggle menu
+    menuButton.addEventListener("click", () => {
+      expanded = !expanded;
+      menuButton.setAttribute("aria-expanded", expanded);
+      menu.classList.toggle("expanded");
+      // Change the text of the menu button
+      if (expanded) {
+        menuButton.textContent = "Close";
+      } else {
+        menuButton.textContent = "Menu";
+      }
+    });
+  });
+</script>
+

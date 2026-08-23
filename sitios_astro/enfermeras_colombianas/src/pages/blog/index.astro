@@ -1,0 +1,60 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import Entries1 from "@/components/blog/Entries1.astro";
+import BlogSearch from "@/components/blog/BlogSearch.astro";
+// Sections
+import Subscribe from "@/components/ctas/Subscribe.astro";
+// Content
+const allPosts = await getCollection("posts");
+import { getCollection } from "astro:content";
+// Sort posts by date
+allPosts.sort((a, b) => {
+  const dateA = new Date(a.data.pubDate).getTime();
+  const dateB = new Date(b.data.pubDate).getTime();
+  return dateB - dateA; // Compare timestamps
+});
+---
+
+<BaseLayout>
+  <section class="overflow-hidden">
+    <Wrapper class="pb-12 lg:pt-32">
+      <Text
+        tag="h1"
+        variant="displayXL"
+        data-aos="fade-up"
+        data-aos-duration="1500"
+        class="font-medium tracking-tighter text-base-900"
+      >
+        News
+      </Text>
+      <div class="mt-12"><BlogSearch /></div>
+      <div class="grid lg:grid-cols-3 pt-8 mt-8">
+        <div
+          class="lg:col-span-2 lg:col-start-2"
+          data-aos="fade-up"
+          data-aos-duration="2000"
+        >
+          <Text tag="h3" variant="displaySM" class="font-medium text-base-900">
+            Welcome to our magazine.
+          </Text>
+          <Text tag="p" variant="textBase" class="mt-6 text-base-500">
+            On our blog you will discover our newest listings, articles, deco
+            inspirations, lifestyle tips and more.
+          </Text>
+        </div>
+        <div
+          data-aos="fade-up"
+          data-aos-duration="2500"
+          class="col-span-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8"
+        >
+          {allPosts.map((post) => <Entries1 post={post} />)}
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+  <Subscribe />
+</BaseLayout>

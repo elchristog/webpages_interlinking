@@ -1,0 +1,59 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import ChevronRight from "@/components/fundations/icons/ChevronRight.astro";
+// Components
+import BlogCard5 from "@/components/blog/BlogCard5.astro";
+// Get all posts
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("posts");
+allPosts.sort((a, b) => {
+  const dateA = new Date(a.data.pubDate).getTime(); // Convert to timestamp
+  const dateB = new Date(b.data.pubDate).getTime(); // Convert to timestamp
+  return dateB - dateA; // Compare timestamps
+});
+
+// Define categories dynamically
+const categories = [
+  { name: "Business", tag: "business" },
+  { name: "Finance", tag: "finance" },
+  { name: "Tech", tag: "tech" },
+  { name: "Health", tag: "health" },
+  { name: "Sports", tag: "sports" },
+];
+---
+
+<section>
+  <Wrapper variant="standard" class="py-8">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-24"
+    >
+      {
+        categories.map((category) => (
+          <div>
+            <Text
+              tag="a"
+              variant="textXS"
+              href={`/blog/tags/${category.tag}`}
+              class="flex gap-x-2 text-base-900 justify-between uppercase font-medium"
+            >
+              {category.name}
+              <span class="text-base-600 hover:text-base-900 flex items-center gap-2">
+                More stories <ChevronRight class="size-4" />
+              </span>
+            </Text>
+            <div class="flex flex-col mt-2 relative before:absolute after:absolute before:bg-base-950 after:bg-base-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px pt-4">
+              {allPosts
+                .filter((post) => post.data.tags.includes(category.tag))
+                .map((post) => (
+                  <BlogCard5 post={post} />
+                ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Wrapper>
+</section>

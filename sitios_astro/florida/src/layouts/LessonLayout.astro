@@ -1,0 +1,169 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import ChevronLeft from "@/components/fundations/icons/ChevronLeft.astro";
+// Conteent
+import { getEntry } from "astro:content";
+const { course, lesson } = Astro.props;
+const teacher = await getEntry("teachers", course.data.teacher);
+// Flatten sections for sidebar
+const sections = course.data.sections.map((section) => ({
+  ...section,
+  lessons: section.lessons.map((slug) => ({
+    slug,
+    isActive: slug === lesson.id,
+  })),
+}));
+import { getCollection } from "astro:content";
+const allLessons = await getCollection("lessons");
+---
+
+<BaseLayout>
+  <Wrapper variant="standard" class="pt-24 pb-12 lg:pt-48">
+    <a
+      href="/"
+      class="flex items-center text-xs text-primary hover:text-primary/60 gap-2"
+    >
+      <ChevronLeft slot="icon" size="sm" />
+      Go back home</a
+    >
+    <div class="mt-12">
+      <div class="text-balance">
+        <Text tag="h1" variant="textBase" class="text-primary">
+          {lesson.data.title}
+        </Text>
+        <Text
+          tag="p"
+          variant="textSM"
+          class="font-serif text-primary/60 text-balance"
+        >
+          {lesson.data.section}
+        </Text>
+      </div>
+      {
+        lesson.data.isLocked ? (
+          <div class="border-t border-dotted border-primary/10 pt-2 mt-2">
+            <div class="relative p-4 bg-primary/2  rounded-xl flex flex-col gap-2">
+              <Text
+                tag="h3"
+                variant="textXS"
+                class="text-primary/60 lg:col-span-2"
+              >
+                This lesson is part of our
+                <span class="font-medium text-accent">Pro plan</span>, which
+                gives you full access to premium content, advanced lessons, and
+                exclusive bonus materials. Upgrade now to unlock everything and
+                continue your learning journey without limits.
+              </Text>
+              <a
+                href="/pricing"
+                class="flex items-center text-xs text-primary hover:text-primary/60 gap-2"
+              >
+                Unlock with Pro Access
+              </a>
+            </div>
+          </div>
+        ) : (
+          <>
+            <video controls class="w-full mt-4" src={lesson.data.videoUrl} />
+            <div class="mt-8 divide-y divide-primary/10">
+              <div class="pb-4">
+                <Text
+                  tag="h2"
+                  variant="textSM"
+                  class="font-medium text-primary"
+                >
+                  Course information
+                </Text>
+                <div class="mt-2 space-y-1">
+                  <div>
+                    <Text
+                      tag="p"
+                      variant="textXS"
+                      class="flex items-baseline text-primary/60 lg:justify-between"
+                    >
+                      Section
+                      <span class="flex-1 mx-2 border-b border-dotted border-primary/10" />
+                      <span class="font-serif font-medium">
+                        {lesson.data.duration}
+                      </span>
+                    </Text>
+                  </div>
+                  <div>
+                    <Text
+                      tag="p"
+                      variant="textXS"
+                      class="flex items-baseline text-primary/60 lg:justify-between"
+                    >
+                      Teacher
+                      <span class="flex-1 mx-2 border-b border-dotted border-primary/10" />
+                      <span class="font-serif font-medium">
+                        {teacher?.data.name} — {teacher?.data.role}
+                      </span>
+                    </Text>
+                  </div>
+                </div>
+              </div>
+              <div class="py-4">
+                <ul class="mt-2 space-y-4">
+                  {sections.map((section) => (
+                    <li>
+                      <Text
+                        tag="h2"
+                        variant="textSM"
+                        class="font-medium text-primary"
+                      >
+                        {section.title}
+                      </Text>
+                      <ul class="mt-2 space-y-1">
+                        {section.lessons.map((l) => {
+                          const lessonSlug = (typeof l === "string" ? l : l.slug).split("/").pop();
+                          const matched = allLessons.find(
+                            (lesson) => lesson.id === (typeof l === "string" ? l : l.slug)
+                          );
+                          const isLocked = matched?.data.isLocked;
+                          return (
+                            <li class="relative flex items-baseline ">
+                              {l.isActive ? (
+                                <Text class="flex items-center justify-between text-xs capitalize text-primary/60 gap-2 w-full">
+                                  <span>{lessonSlug.replace(/-/g, " ")}</span>
+                                  <span class="flex-1 mx-2 border-b border-dotted border-primary/10" />
+                                  <span class="text-xs font-normal text-primary/50">
+                                    {matched?.data.isLocked ? "Closed" : "Open"}
+                                  </span>
+                                </Text>
+                              ) : (
+                                <a
+                                  href={`/courses/${course.id}/${lessonSlug}`}
+                                  class="flex items-center justify-between text-xs font-medium capitalize text-primary/60 hover:underline gap-2 w-full"
+                                >
+                                  <span>{lessonSlug.replace(/-/g, " ")}</span>
+                                  <span class="text-xs font-normal text-primary/50">
+                                    {matched?.data.isLocked ? "Closed" : "Open"}
+                                  </span>
+                                </a>
+                              )}
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <Wrapper
+              variant="prose"
+              class="border-t border-dotted border-primary/10 pt-2 mt-"
+            >
+              <slot />
+            </Wrapper>
+          </>
+        )
+      }
+    </div>
+  </Wrapper>
+</BaseLayout>

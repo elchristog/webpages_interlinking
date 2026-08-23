@@ -1,0 +1,50 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+---
+
+<section>
+  <Wrapper variant="standard" class="py-8">
+    <div class="text-balance bg-primary/2 rounded-xl p-6">
+      <div class="lg:col-span-2">
+        <Text tag="h2" variant="textBase" class="text-primary">
+          Get design engineering insights in your inbox
+        </Text>
+        <Text
+          tag="p"
+          variant="textBase"
+          class="mt-2 text-primary/60 font-serif"
+        >
+          Sign up for updates on new lessons, design/dev workflows, and tools we
+          actually use. No fluff—just practical tips.
+        </Text>
+      </div>
+
+      <form class="space-y-2 flex flex-col gap-1 mt-4">
+        <div class="w-fit">
+          <div class="flex items-baseline justify-between">
+            <label for="email" class="text-xs font-medium text-primary/60"
+              >Email Address</label
+            >
+          </div>
+          <div class="relative z-0 focus-within:z-10 mt-1">
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="you@example.com"
+              class="block w-full px-4 py-2 text-xs leading-tight align-middle bg-secondary border border-transparent transition duration-300 ease-in-out focus:z-10 h-9 rounded-md text-primary/60 ring-1 ring-primary/10 placeholder-primary/30 focus:border-accent focus:ring-accent/10 focus:ring-2 focus:outline-none shadow-sm"
+              inputmode="email"
+            />
+          </div>
+        </div>
+
+        <Button size="xs" variant="accent" type="submit" class="w-fit">
+          Send Message
+        </Button>
+      </form>
+    </div>
+  </Wrapper>
+</section>

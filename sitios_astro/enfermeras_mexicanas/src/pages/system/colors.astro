@@ -1,0 +1,172 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-8">
+      <Text tag="h1" variant="textXL" class="dark:text-white text-base-900">
+        Colors
+      </Text>
+
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-2 relative before:absolute after:absolute before:bg-black after:bg-base-200 dark:before:bg-base-50 dark:after:bg-base-50/10 before:top-0 before:left-0 before:h-px pt-2 before:w-18 after:top-0 after:right-0 after:left-20 after:h-px"
+      >
+        <div class="flex flex-col gap-2">
+          <Text
+            tag="h3"
+            variant="textXS"
+            class="font-medium dark:text-white text-base-900 uppercase"
+            >Accent</Text
+          >
+          <div class="grid grid-cols-4 gap-1 gap-y-8 mt-2">
+            <div class="flex flex-col gap-2">
+              <div class="size-full aspect-square bg-accent-50"></div>
+              <span class="text-xs dark:text-base-400 text-base-600"
+                >Accent 50
+              </span>
+            </div>
+            <div class="flex flex-col gap-2">
+              <div class="size-full aspect-square bg-accent-100"></div>
+              <span class="text-xs dark:text-base-400 text-base-600"
+                >Accent 100
+              </span>
+            </div>
+            <div class="flex flex-col gap-2">
+              <div class="size-full aspect-square bg-accent-200"></div>
+              <span class="text-xs dark:text-base-400 text-base-600"
+                >Accent 200
+              </span>
+            </div>
+            <div class="flex flex-col gap-2">
+              <div class="size-full aspect-square bg-accent-300"></div>
+              <span class="text-xs dark:text-base-400 text-base-600"
+                >Accent 300
+              </span>
+            </div>
+            <div class="flex flex-col gap-2">
+              <div class="size-full aspect-square bg-accent-400"></div>
+              <span class="text-xs dark:text-base-400 text-base-600"
+                >Accent 400
+              </span>
+            </div>
+            <div class="flex flex-col gap-2">
+              <div class="size-full aspect-square bg-accent-500"></div>
+              <span class="text-xs dark:text-base-400 text-base-600"
+                >Accent 500
+              </span>
+            </div>
+            <div class="flex flex-col gap-2">
+              <div class="size-full aspect-square bg-accent-600"></div>
+              <span class="text-xs dark:text-base-400 text-base-600"
+                >Accent 600
+              </span>
+            </div>
+            <div class="flex flex-col gap-2">
+              <div class="size-full aspect-square bg-accent-700"></div>
+              <span class="text-xs dark:text-base-400 text-base-600"
+                >Accent 700
+              </span>
+            </div>
+            <div class="flex flex-col gap-2">
+              <div class="size-full aspect-square bg-accent-800"></div>
+              <span class="text-xs dark:text-base-400 text-base-600"
+                >Accent 800
+              </span>
+            </div>
+            <div class="flex flex-col gap-2">
+              <div class="size-full aspect-square bg-accent-900"></div>
+              <span class="text-xs dark:text-base-400 text-base-600"
+                >Accent 900
+              </span>
+            </div>
+            <div class="flex flex-col gap-2">
+              <div
+                class="size-full aspect-square bg-accent-950 outline outline-accent-900"
+              >
+              </div>
+              <span class="text-xs dark:text-base-400 text-base-600"
+                >Accent 950
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <Text
+            tag="h3"
+            variant="textXS"
+            class="font-medium dark:text-white text-base-900 uppercase"
+            >Base</Text
+          >
+          <div class="grid grid-cols-4 gap-1 gap-y-8 mt-2">
+            <div class="flex flex-col gap-2">
+              <div class="size-full aspect-square bg-base-50"></div>
+              <span class="text-xs dark:text-base-400 text-base-600"
+                >Base 50
+              </span>
+            </div>
+            <div class="flex flex-col gap-2">
+              <div class="size-full aspect-square bg-base-100"></div>
+              <span class="text-xs dark:text-base-400 text-base-600"
+                >Base 100
+              </span>
+            </div>
+            <div class="flex flex-col gap-2">
+              <div class="size-full aspect-square bg-base-200"></div>
+              <span class="text-xs dark:text-base-400 text-base-600"
+                >Base 200
+              </span>
+            </div><div class="flex flex-col gap-2">
+              <div class="size-full aspect-square bg-base-300"></div>
+              <span class="text-xs dark:text-base-400 text-base-600"
+                >Base 300
+              </span>
+            </div><div class="flex flex-col gap-2">
+              <div class="size-full aspect-square bg-base-400"></div>
+              <span class="text-xs dark:text-base-400 text-base-600"
+                >Base 400
+              </span>
+            </div><div class="flex flex-col gap-2">
+              <div class="size-full aspect-square bg-base-500"></div>
+              <span class="text-xs dark:text-base-400 text-base-600"
+                >Base 500
+              </span>
+            </div><div class="flex flex-col gap-2">
+              <div class="size-full aspect-square bg-base-600"></div>
+              <span class="text-xs dark:text-base-400 text-base-600"
+                >Base 600
+              </span>
+            </div><div class="flex flex-col gap-2">
+              <div class="size-full aspect-square bg-base-700"></div>
+              <span class="text-xs dark:text-base-400 text-base-600"
+                >Base 700
+              </span>
+            </div><div class="flex flex-col gap-2">
+              <div class="size-full aspect-square bg-base-800"></div>
+              <span class="text-xs dark:text-base-400 text-base-600"
+                >Base 800
+              </span>
+            </div><div class="flex flex-col gap-2">
+              <div class="size-full aspect-square bg-base-900"></div>
+              <span class="text-xs dark:text-base-400 text-base-600"
+                >Base 900
+              </span>
+            </div><div class="flex flex-col gap-2">
+              <div
+                class="size-full aspect-square bg-base-950 outline outline-base-900"
+              >
+              </div>
+              <span class="text-xs dark:text-base-400 text-base-600"
+                >Base 950
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

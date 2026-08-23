@@ -1,0 +1,86 @@
+---
+import { Image } from "astro:assets";
+import Ceo from "@/images/assets/ceo.jpeg";
+import Glass from "@/images/assets/glass4.jpg";
+import LogoCloud from "@/components/assets/LogoCloud.astro";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pt-48 pb-8 lg:pt-82">
+      <Text
+        tag="h1"
+        variant="displayLG"
+        class="max-w-xl mt-8 text-base-800 text-balance"
+      >
+        Built for focus. <br /> Designed for momentum.
+      </Text>
+      <Text
+        tag="p"
+        variant="textBase"
+        class="max-w-xl mt-4 text-base-500 text-balance"
+      >
+        A new kind of productivity platform — combining powerful scheduling,
+        smart insights, and effortless collaboration into one beautifully simple
+        workspace.
+      </Text>
+      <div
+        class="grid grid-cols-1 gap-8 md:grid-cols-2 pt-8 mt-8 border-t items-end border-base-200"
+      >
+        <Image
+          src={Ceo}
+          alt="ceo"
+          width={1200}
+          height={1200}
+          class="mt-8 w-full max-h-150 object-cover object-center"
+        />
+        <Text
+          tag="p"
+          variant="displayMD"
+          class="mt-8 text-base-800 text-balance"
+        >
+          Our mission is to make productivity feel natural, not forced. Whether
+          you're organizing your calendar, tracking your goals, or analyzing
+          your performance, our tools stay out of your way — so you can focus on
+          what matters most. Designed for teams and individuals who want to move
+          faster, stay aligned, and achieve more with less friction.
+        </Text>
+      </div>
+    </Wrapper>
+  </section>
+  <section class="overflow-x-hidden">
+    <Wrapper variant="standard" class="relative py-12">
+      <div class="relative py-32 lg:py-72">
+        {/* Clip only the background image */}
+        <div class="absolute inset-0 overflow-hidden">
+          <Image
+            src={Glass}
+            alt="Background Glass Image"
+            width={800}
+            height={800}
+            loading="eager"
+            decoding="async"
+            class="w-full h-full object-cover object-center"
+          />
+        </div>
+
+        <div class="relative z-10 mx-auto px-4 text-center">
+          <Text tag="h2" variant="displaySM" class="text-white text-balance">
+            We started with a simple idea: productivity shouldn't feel
+            overwhelming. Built by a small team of designers, engineers, and
+            makers, our platform was created to help people organize their time,
+            gain meaningful insights, and stay focused on what truly matters —
+            without the noise. Today, we're proud to support thousands of teams
+            and individuals on their journey to working smarter, not harder.
+          </Text>
+        </div>
+      </div>
+
+      <LogoCloud class="mt-12" />
+    </Wrapper>
+  </section>
+</BaseLayout>

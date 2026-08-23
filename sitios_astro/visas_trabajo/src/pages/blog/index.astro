@@ -1,0 +1,62 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Sections
+import BlogHero2 from "@/components/blog/landingPages/index2/BlogHero2.astro";
+import Briefs2 from "@/components/blog/landingPages/index2/Briefs2.astro";
+import TopStories2 from "@/components/blog/landingPages/index2/TopStories2.astro";
+import Aside2 from "@/components/blog/landingPages/index2/Aside2.astro";
+import Categories2 from "@/components/blog/landingPages/index2/Category2.astro";
+import Aside3 from "@/components/blog/landingPages/index2/Aside3.astro";
+//Adverts
+import AdvertAside from "@/components/advert/AdvertAside.astro";
+import AdvertInline from "@/components/advert/AdvertInline.astro";
+---
+
+<BaseLayout>
+  <BlogHero2 />
+  <sections>
+    <Wrapper variant="standard" class="py-12"> <Briefs2 /></Wrapper>
+  </sections>
+  <section>
+    <Wrapper variant="standard" class="py-12">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+        <div class="lg:col-span-2 lg:pr-8">
+          <TopStories2 />
+          <AdvertInline />
+        </div>
+        <div
+          class="lg:pl-8 lg:relative lg:before:absolute lg:after:absolute
+      lg:before:bg-base-950 lg:after:bg-base-950/10 lg:before:top-0
+      lg:before:left-0 lg:before:h-6 lg:before:w-px lg:after:top-8
+      lg:after:bottom-0 lg:after:left-0 after:w-px"
+        >
+          <div class="lg:sticky lg:top-10 lg:z-20">
+            <Aside2 />
+            <AdvertAside />
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+  <section>
+    <Wrapper variant="standard">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+        <div class="lg:col-span-2 lg:pr-8">
+          <Categories2 />
+        </div>
+        <div
+          class="lg:pl-8 lg:relative lg:before:absolute lg:after:absolute
+      lg:before:bg-base-950 lg:after:bg-base-950/10 lg:before:top-0
+      lg:before:left-0 lg:before:h-6 lg:before:w-px lg:after:top-8
+      lg:after:bottom-0 lg:after:left-0 after:w-px"
+        >
+          <div class="lg:sticky lg:top-10 lg:z-20">
+            <Aside3 />
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

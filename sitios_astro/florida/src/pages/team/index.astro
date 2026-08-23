@@ -1,0 +1,42 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import TeamCard from "@/components/team/TeamCard.astro";
+// Content
+import { getCollection } from "astro:content";
+const allAuthors = await getCollection("team");
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pt-24 pb-12 lg:pt-48">
+      <Text tag="h1" variant="textBase" class="text-primary">
+        Meet the Humans Behind the HTML
+      </Text>
+      <Text
+        tag="p"
+        variant="textBase"
+        class="font-serif text-primary/60 text-balance mt-2"
+      >
+        Designers, developers, and builders — this is the team that makes the
+        pixels click.
+      </Text>
+      <div
+        class="pt-2 mt-4 border-t border-dotted border-primary/10 flex flex-col gap-2"
+      >
+        {
+          allAuthors
+            .sort((a, b) => {
+              const nameA = a.data.name.toLowerCase();
+              const nameB = b.data.name.toLowerCase();
+              return nameA < nameB ? -1 : nameA > nameB ? 1 : 0;
+            })
+            .map((post) => <TeamCard post={post} />)
+        }
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

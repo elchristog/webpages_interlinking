@@ -1,0 +1,28 @@
+---
+// Assets
+import Bars from "@/components/assets/Bars.astro";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pb-2 pt-50">
+      <Text
+        tag="h1"
+        variant="display6XL"
+        class="font-bold tracking-tighter text-black text-balance"
+        >404 Error</Text
+      >
+      <Bars class="mt-2"
+        >This is awkward...threre's nothing here, go <a
+          href="/"
+          class="w-full font-bold text-white border-b border-dashed hover:text-base-400 border-white/20"
+          >back</a
+        ></Bars
+      >
+    </Wrapper>
+  </section>
+</BaseLayout>

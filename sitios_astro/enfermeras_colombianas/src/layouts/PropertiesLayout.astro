@@ -1,0 +1,310 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Content
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout>
+  <section class="overflow-hidden">
+    <Wrapper class="py-12 lg:pt-32">
+      <div>
+        <Text
+          tag="h1"
+          variant="displayXL"
+          class="text-balance font-medium tracking-tighter text-base-900"
+        >
+          <span class="lg:block">{frontmatter.projectName}</span>
+        </Text>
+        <Text
+          tag="p"
+          variant="textBase"
+          data-aos="fade-up"
+          data-aos-duration="2000"
+          class="text-2xl text-base-500"
+        >
+          {frontmatter.address}
+          —
+          {frontmatter.price}
+        </Text>
+      </div>
+      <div class="relative">
+        <Image
+          width={800}
+          height={1000}
+          data-aos="zoom-out"
+          data-aos-duration="1500"
+          class="w-full h-[60vh] 2xl:h-[75vh] object-cover mt-12 relative"
+          src={frontmatter.image.url}
+          alt={frontmatter.image.alt}
+        />
+        <a
+          href="#details"
+          class="absolute bg-white top-0 right-0 p-8 w-full md:max-w-xs flex items-center gap-2"
+        >
+          <span> &darr; </span>
+          <span> Learn more</span>
+        </a>
+      </div>
+      <div
+        class="divide-y divide-base-200 space-y-40 scroll-mt-24"
+        id="details"
+      >
+        <div class="grid lg:grid-cols-3 pt-8">
+          <Text tag="h3" variant="textXL" class="font-medium text-base-900"
+            >Details</Text
+          >
+          <dl
+            class="lg:col-span-2 divide-y divide-base-200 border-t border-base-200"
+          >
+            {
+              frontmatter.details.map((detail) => (
+                <div class="grid lg:grid-cols-3 py-2 2xl:text-lg">
+                  <dt class="text-base-900 ">{detail.key}</dt>
+                  <dd class="text-base-500 lg:col-span-2">{detail.value}</dd>
+                </div>
+              ))
+            }
+            {
+              frontmatter.specs.map((specs) => (
+                <>
+                  <div class="grid lg:grid-cols-3 py-2 2xl:text-lg">
+                    <>
+                      <dt class="text-base-900 ">{specs.key}</dt>
+                      <dd class="text-base-500 lg:col-span-2">{specs.value}</dd>
+                    </>
+                  </div>
+                </>
+              ))
+            }
+          </dl>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 py-8">
+          <Text tag="h3" variant="textXL" class="font-medium text-base-900"
+            >About</Text
+          >
+          <div class="lg:col-span-2">
+            <div class="lg:w-1/2 gap-8">
+              {
+                frontmatter.about.map((about) => (
+                  <div>
+                    <dd
+                      data-aos="fade-up"
+                      data-aos-duration="1000"
+                      class="text-3xl font-medium text-base-900 "
+                    >
+                      {about.key}
+                    </dd>
+                    <dd
+                      data-aos="fade-up"
+                      data-aos-duration="1500"
+                      class="mt-6 text-pretty text-base-500 2xl:text-lg"
+                    >
+                      {about.value}
+                    </dd>
+                  </div>
+                ))
+              }
+            </div>
+            <div class="mt-8" data-aos="fade-up" data-aos-duration="2000">
+              <div id="keen-slider" class="keen-slider">
+                {
+                  frontmatter.aboutImages.map((image) => (
+                    <div class="keen-slider__slide overflow-hidden group">
+                      <Image
+                        width={400}
+                        height={400}
+                        class="aspect-[4/3] group-hover:scale-110 transition-transform duration-500 object-cover object-center"
+                        src={image.url}
+                        alt={image.alt}
+                      />
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+            <div class="mt-8 flex gap-4">
+              <button
+                aria-label="Previous slide"
+                id="keen-slider-previous"
+                class="transition text-base-900 hover:text-base-800 focus:text-base-500"
+              >
+                <svg
+                  width="71"
+                  height="16"
+                  viewBox="0 0 71 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M69.0705 7C69.6228 7 70.0705 7.44772 70.0705 8C70.0705 8.55228 69.6228 9 69.0705 9V7ZM0.292901 8.70711C-0.0976234 8.31658 -0.0976234 7.68342 0.292901 7.29289L6.65686 0.928932C7.04739 0.538408 7.68055 0.538408 8.07108 0.928932C8.4616 1.31946 8.4616 1.95262 8.07108 2.34315L2.41422 8L8.07108 13.6569C8.4616 14.0474 8.4616 14.6805 8.07108 15.0711C7.68055 15.4616 7.04739 15.4616 6.65686 15.0711L0.292901 8.70711ZM69.0705 9H1.00001V7H69.0705V9Z"
+                    fill="currentColor"></path>
+                </svg>
+              </button>
+              <button
+                aria-label="Next slide"
+                id="keen-slider-next"
+                class="transition text-base-900 hover:text-base-800 focus:text-base-500"
+              >
+                <svg
+                  width="71"
+                  height="16"
+                  viewBox="0 0 71 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0.996338 6.5C0.444053 6.5 -0.00366211 6.94772 -0.00366211 7.5C-0.00366211 8.05228 0.444053 8.5 0.996338 8.5V6.5ZM69.7739 8.20711C70.1645 7.81658 70.1645 7.18342 69.7739 6.79289L63.41 0.428932C63.0194 0.0384079 62.3863 0.0384079 61.9958 0.428932C61.6052 0.819456 61.6052 1.45262 61.9958 1.84315L67.6526 7.5L61.9958 13.1569C61.6052 13.5474 61.6052 14.1805 61.9958 14.5711C62.3863 14.9616 63.0194 14.9616 63.41 14.5711L69.7739 8.20711ZM0.996338 8.5H69.0668V6.5H0.996338V8.5Z"
+                    fill="currentColor"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="grid lg:grid-cols-3 pt-8">
+          <Text tag="h3" variant="textXL" class="font-medium text-base-900"
+            >Surrounding</Text
+          >
+          <div class="lg:col-span-2">
+            <Text tag="h3" variant="textXL" class="font-medium text-base-900">
+              The way of life.
+            </Text>
+          </div>
+          <div class="col-span-full mt-8">
+            <div
+              data-aos="zoom-in"
+              data-aos-duration="1500"
+              class="aspect-video"
+            >
+              <video autoplay muted loop class="lg:w-full h-full">
+                <source src={frontmatter.video.url} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 pt-8">
+          <Text tag="h3" variant="textXL" class="font-medium text-base-900"
+            >Amenities</Text
+          >
+          <div class="lg:col-span-2">
+            {
+              frontmatter.amenities.map((amenities) => (
+                <div class="lg:col-span-2">
+                  <dt
+                    data-aos="fade-up"
+                    data-aos-duration="1000"
+                    class="text-3xl font-medium text-base-900 "
+                  >
+                    {amenities.key}
+                  </dt>
+                  <dd
+                    data-aos="fade-up"
+                    data-aos-duration="1500"
+                    class="mt-6 text-pretty text-base-500 2xl:text-lg"
+                  >
+                    {amenities.value}
+                  </dd>
+                </div>
+              ))
+            }
+            <div
+              data-aos="fade-up"
+              data-aos-duration="2500"
+              class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8"
+            >
+              {
+                frontmatter.amenitiesImages.map((image) => (
+                  <div class="group overflow-hidden">
+                    <Image
+                      width={400}
+                      height={400}
+                      class="aspect-[4/3] group-hover:scale-110 transition-transform duration-500"
+                      src={image.url}
+                      alt={image.alt}
+                    />
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+        <div class="pt-8 grid grid-cols-1 lg:grid-cols-3">
+          <Text tag="h3" variant="textXL" class="font-medium text-base-900"
+            >Location</Text
+          >
+          <div class="lg:col-span-2">
+            {
+              frontmatter.location.map((location) => (
+                <div class="lg:col-span-2">
+                  <dt
+                    data-aos="fade-up"
+                    data-aos-duration="1000"
+                    class="text-3xl font-medium text-base-900 "
+                  >
+                    {location.key}
+                  </dt>
+                  <dd
+                    data-aos="fade-up"
+                    data-aos-duration="1500"
+                    class="mt-6 text-pretty text-base-500 2xl:text-lg"
+                  >
+                    {location.value}
+                  </dd>
+                </div>
+              ))
+            }
+            <div class="flex w-full pt-8 mt-8 border-t border-base-200">
+              <Button isLink size="xxl" variant="default" href="/bookings">
+                Book a visit
+              </Button>
+            </div>
+          </div>
+          <div class="col-span-full mt-8">
+            <div class="h-full w-full grayscale">
+              <iframe
+                width="100%"
+                height="100%"
+                class="h-screen"
+                src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=Stockholm,%20Sweden&ie=UTF8&t=&z=14&iwloc=B&output=embed"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+  <script type="module">
+    import KeenSlider from "https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/+esm";
+    const keenSlider = new KeenSlider(
+      "#keen-slider",
+      {
+        loop: true,
+        slides: {
+          origin: "center",
+          perView: 1,
+          spacing: 16,
+        },
+        breakpoints: {
+          "(min-width: 1024px)": {
+            slides: {
+              origin: "auto",
+              perView: 2,
+              spacing: 40,
+            },
+          },
+        },
+      },
+      []
+    );
+    const keenSliderPrevious = document.getElementById("keen-slider-previous");
+    const keenSliderNext = document.getElementById("keen-slider-next");
+    keenSliderPrevious.addEventListener("click", () => keenSlider.prev());
+    keenSliderNext.addEventListener("click", () => keenSlider.next());
+  </script>
+</BaseLayout>

@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <section class="overflow-hidden">
+    <div class="px-8 pb-12">
+      <div class="relative">
+        <img
+          class="w-full h-[75vh] 2xl:h-[80vh] object-cover relative"
+          src="https://images.unsplash.com/photo-1469964062538-06fad433a132?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt=""
+        />
+        <div
+          class="absolute bg-white bottom-0 right-0 p-8 w-full md:max-w-xs flex flex-col"
+        >
+          <p class="text-sm">Quartiere / Real Estate</p>
+          <p>
+            <a class="text-xs" href="tel:+1-202-555-0123">Tel: (202) 555-0123</a
+            >
+          </p>
+        </div>
+      </div>
+      <div class="mt-12">
+        <h1
+          class="text-balance text-3xl md:text-5xl lg:text-6xl 2xl:text-7xl text-base-900"
+        >
+          404 - Page not found
+        </h1>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

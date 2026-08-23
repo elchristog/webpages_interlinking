@@ -1,0 +1,102 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Sections
+import Subscribe from "@/components/ctas/Subscribe.astro";
+// Content
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper class="pb-12 lg:pt-32">
+      <Text
+        data-aos="fade-up"
+        data-aos-duration="1500"
+        tag="h1"
+        variant="displayXL"
+        class="text-balance font-medium tracking-tighter text-base-900"
+      >
+        {frontmatter.title}
+      </Text>
+      <div class="grid lg:grid-cols-3 pt-8 mt-8 border-t border-base-200">
+        <Image
+          width={1000}
+          height={800}
+          src={frontmatter.image.url}
+          alt={frontmatter.image.url}
+          class="w-full h-[55vh] object-cover col-span-full"
+        />
+        <div class="lg:col-span-2 lg:col-start-2 mt-8">
+          <Text
+            tag="h3"
+            variant="textXL"
+            class="font-medium text-base-900 lg:text-pretty"
+          >
+            {frontmatter.description}
+          </Text>
+          <div
+            class="flex items-center gap-3 mt-8 border-t border-base-200 pt-8"
+          >
+            <Image
+              width={100}
+              height={100}
+              class="inline-block size-9 object-cover rounded-full"
+              src={frontmatter.avatar.url}
+              alt={frontmatter.avatar.url}
+            />
+            <div class="gap-4 py-4">
+              <Text tag="p" variant="textBase" class="text-base-900">
+                <time
+                  datetime={new Date(frontmatter.pubDate).toLocaleDateString(
+                    "en-US",
+                    {
+                      year: "numeric",
+                      month: "long",
+                      day: "2-digit",
+                    }
+                  )}
+                >
+                  {
+                    new Date(frontmatter.pubDate).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "2-digit",
+                    })
+                  }</time
+                >
+              </Text>
+              <Text tag="p" variant="textBase" class="text-base-500"
+                >{frontmatter.author}</Text
+              >
+            </div>
+          </div>
+          <div class="flex gap-2">
+            {
+              frontmatter.tags.map((tag) => (
+                <Text
+                  tag="a"
+                  variant="textXS"
+                  title={tag}
+                  aria-label={tag}
+                  class="hover:text-base-900  text-base-500"
+                  href={`/blog/tags/${tag}`}
+                >
+                  {tag}
+                </Text>
+              ))
+            }
+          </div>
+          <Wrapper variant="prose" class="mt-8 border-t border-base-200"
+            ><slot /></Wrapper
+          >
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+  <Subscribe />
+</BaseLayout>

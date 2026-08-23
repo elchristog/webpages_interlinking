@@ -1,0 +1,38 @@
+---
+// Assets
+import Bars from "@/components/assets/Bars.astro";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import ChangelogCard from "@/components/changelog/ChangelogCard.astro";
+// Content
+import { getCollection } from "astro:content";
+const allUpdatesUnsorted = await getCollection("changelog");
+// Sort the posts in descending order by publication date (newest to oldest)
+const allUpdates = allUpdatesUnsorted.sort(
+  (a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate)
+);
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pb-2 pt-50">
+      <Text
+        tag="h1"
+        variant="display6XL"
+        class="font-bold tracking-tighter text-black text-balance"
+        >Changelog.</Text
+      >
+      <Bars class="mt-2"> Stay updated.</Bars>
+    </Wrapper>
+  </section>
+  <section>
+    <Wrapper variant="standard" class="py-8">
+      <div class="flex flex-col gap-8">
+        {allUpdates.map((post) => <ChangelogCard post={post} />)}
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

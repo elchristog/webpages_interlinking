@@ -1,0 +1,48 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import TeamEntries from "@/components/team/TeamEntries.astro";
+// Content
+import { getCollection } from "astro:content";
+const allAuthors = await getCollection("team");
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pt-48 pb-8 lg:pt-82">
+      <Text
+        tag="h1"
+        variant="displayLG"
+        class="max-w-xl text-base-800 text-balance"
+      >
+        The team
+      </Text>
+      <Text
+        tag="p"
+        variant="textBase"
+        class="mt-4 text-balance text-base-500 dark:text-base-400"
+      >
+        Our dedicated job board team is committed to connecting talented
+        professionals with leading companies across various industries.
+      </Text>
+
+      <div
+        class="mt-8 pt-8 border-t border-base-200 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4"
+      >
+        {
+          // Sorting authors alphabetically inline
+          allAuthors
+            .sort((a, b) => {
+              const nameA = a.data.name.toLowerCase();
+              const nameB = b.data.name.toLowerCase();
+              return nameA < nameB ? -1 : nameA > nameB ? 1 : 0;
+            })
+            .map((post) => <TeamEntries post={post} />)
+        }
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

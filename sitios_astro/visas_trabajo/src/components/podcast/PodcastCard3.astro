@@ -1,0 +1,180 @@
+---
+import { Image } from "astro:assets";
+import Text from "@/components/fundations/elements/Text.astro";
+const {
+  url,
+  title,
+  description,
+  pubDate,
+  image,
+  author,
+  tags,
+  duration,
+  episodeNumber,
+} = {
+  url: "/podcast/episodes/" + Astro.props.post.id,
+  tags: Astro.props.post.data.tags,
+  title: Astro.props.post.data.title,
+  author: Astro.props.post.data.author,
+  image: Astro.props.post.data.image.url,
+  duration: Astro.props.post.data.duration,
+  description: Astro.props.post.data.description,
+  episodeNumber: Astro.props.post.data.episodeNumber,
+  pubDate: new Date(Astro.props.post.data.pubDate).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "2-digit",
+  }),
+};
+const formatAuthorName = (slug) => {
+  return slug
+    .replace(/-/g, " ") // Replace hyphens with spaces
+    .split(" ") // Split the string into words
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
+    .join(" "); // Join the words back with spaces
+};
+const formattedAuthor = formatAuthorName(author);
+---
+
+<article
+  class="relative flex flex-col p-8 pt-40 lg:p-12 gap-8 w-full keen-slider__slide group rounded-2xl overflow-hidden"
+>
+  <Image
+    src={image}
+    alt={title}
+    width={800}
+    height={800}
+    loading="eager"
+    decoding="async"
+    class="absolute inset-0 w-full h-full object-cover z-0"
+  />
+  <a href={url} title={title} class="absolute inset-0 z-30"> </a>
+  <div
+    class="absolute inset-0 bg-linear-45 from-accent-950 via-accent-900/80 to-transparent z-10"
+  >
+  </div>
+  <div class="relative flex flex-col h-full justify-between gap-2 z-20">
+    <div>
+      <Text
+        tag="h3"
+        variant="displaySM"
+        class="gap-4 font-medium font-display text-white group-hover:underline text-balance"
+      >
+        {title}
+      </Text>
+      <Text
+        tag="p"
+        variant="textBase"
+        class="mt-2 tracking-tight text-base-300"
+      >
+        {description}
+      </Text>
+    </div>
+    <div
+      class="flex flex-col gap-2 text-base-200 mt-2 relative before:absolute after:absolute before:bg-white after:bg-white/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px pt-4"
+    >
+      <div class="flex flex-wrap items-center gap-2 text-white">
+        {
+          tags.map((tag) => {
+            const formattedTag = tag.replace(/-/g, " ");
+            return (
+              <Text
+                tag="p"
+                variant="textXS"
+                title={tag}
+                aria-label={tag}
+                class="text-white capitalize font-medium"
+              >
+                {formattedTag}
+              </Text>
+            );
+          })
+        }
+        <span>·</span>
+        <Text tag="p" variant="textXS" class="font-medium"
+          >Episdoe: {episodeNumber}</Text
+        >
+        <span>·</span>
+
+        <Text tag="p" variant="textXS" class="font-medium"
+          >Duration: {duration}</Text
+        >
+        <span>·</span>
+
+        <Text tag="p" variant="textXS" class="font-medium"
+          >{formattedAuthor}</Text
+        >
+        <span>·</span>
+
+        <Text tag="p" variant="textXS" class="font-medium">
+          <time datetime={pubDate}>{pubDate}</time>
+        </Text>
+      </div>
+    </div>
+  </div>
+</article>
+<script type="module">
+  import KeenSlider from "https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/+esm";
+  // Autoplay plugin
+  const autoplay = (slider) => {
+    let timeout;
+    let mouseOver = false;
+    function clearNextTimeout() {
+      clearTimeout(timeout);
+    }
+    function nextTimeout() {
+      clearTimeout(timeout);
+      if (mouseOver) return;
+      timeout = setTimeout(() => {
+        slider.next();
+      }, 3000); // Adjust time if needed
+    }
+    slider.on("created", () => {
+      slider.container.addEventListener("mouseover", () => {
+        mouseOver = true;
+        clearNextTimeout();
+      });
+      slider.container.addEventListener("mouseout", () => {
+        mouseOver = false;
+        nextTimeout();
+      });
+      nextTimeout();
+    });
+    slider.on("dragStarted", clearNextTimeout);
+    slider.on("animationEnded", nextTimeout);
+    slider.on("updated", nextTimeout);
+  };
+  const keenSlider = new KeenSlider(
+    "#keen-slider",
+    {
+      loop: true,
+      defaultAnimation: {
+        duration: 1500,
+      },
+      detailsChanged: (s) => {
+        s.slides.forEach((element, idx) => {
+          element.style.opacity = s.track.details.slides[idx].portion;
+        });
+      },
+      slides: {
+        origin: "center",
+        perView: 1,
+        spacing: 12,
+      },
+      breakpoints: {
+        "(min-width: 1024px)": {
+          slides: {
+            origin: "auto",
+            perView: 2.2,
+            spacing: 24,
+          },
+        },
+      },
+    },
+    [autoplay] //  Add autoplay plugin here
+  );
+  const keenSliderPrevious = document.getElementById("keen-slider-previous");
+  const keenSliderNext = document.getElementById("keen-slider-next");
+  keenSliderPrevious.addEventListener("click", () => keenSlider.prev());
+  keenSliderNext.addEventListener("click", () => keenSlider.next());
+</script>

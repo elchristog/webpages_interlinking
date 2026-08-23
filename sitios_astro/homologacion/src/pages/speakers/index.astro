@@ -1,0 +1,101 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import SpeakerCard from "@/components/speakers/SpeakerCard.astro";
+// Content
+import { getCollection } from "astro:content";
+const speakers = await getCollection("speakers");
+
+const allSpeakers = speakers
+  .filter((speaker) => !speaker.data.featured)
+  .sort((a, b) => a.data.name.localeCompare(b.data.name));
+const totalSpeakers = speakers.length;
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-32">
+      <div>
+        <Text tag="p" variant="textXS" class="uppercase text-base-600">
+          Voices of Dusk
+        </Text>
+        <Text
+          tag="h1"
+          variant="displayMD"
+          class="text-balance text-accent-500 font-display uppercase leading-tight mt-8"
+        >
+          Speakers & facilitators
+        </Text>
+        <Text
+          tag="p"
+          variant="textBase"
+          class="text-base-600 font-medium max-w-2xl mt-2 text-balance"
+        >
+          {totalSpeakers} practitioners spanning typography, interaction, research,
+          and systems design. Explore the voices shaping Swiss Design Week at Dusk.
+        </Text>
+      </div>
+
+      <div class="grid grid-cols-1 mt-12 lg:grid-cols-12">
+        <div class="space-y-2 lg:col-span-3">
+          <Text
+            tag="h2"
+            variant="displaySM"
+            class="font-display uppercase text-accent-500"
+          >
+            Full roster
+          </Text>
+          <Text tag="p" variant="textSM" class="text-base-600 text-balance">
+            Workshop leads, resident mentors, and panelists across the week.
+          </Text>
+        </div>
+        <div class="grid sm:grid-cols-2 xl:grid-cols-3 lg:col-span-9 gap-y-12">
+          {allSpeakers.map((speaker) => <SpeakerCard speaker={speaker} />)}
+        </div>
+      </div>
+      <section
+        class="gap-x-12 gap-y-8 border border-white/10 bg-accent-500 p-8 md:flex md:items-center md:justify-between mt-24"
+      >
+        <div class="max-w-2xl space-y-4">
+          <Text
+            tag="h2"
+            variant="displaySM"
+            class="font-display uppercase text-white"
+          >
+            Bring your voice
+          </Text>
+          <Text tag="p" variant="textSM" class="text-base-200 lg:text-balance">
+            Interested in speaking or hosting an atelier in 2025? Email <a
+              class="underline"
+              href="mailto:hello@dusk.design">hello@dusk.design</a
+            > with your topic and links to previous talks.
+          </Text>
+        </div>
+        <div
+          class="flex flex-wrap items-center justify-center gap-2 md:justify-end"
+        >
+          <Button
+            size="sm"
+            variant="default"
+            class="w-fit"
+            href="/forms/register"
+          >
+            Attend live
+          </Button>
+          <Button
+            size="sm"
+            variant="muted"
+            class="w-fit"
+            href="mailto:hello@dusk.design"
+          >
+            Pitch a session
+          </Button>
+        </div>
+      </section>
+    </Wrapper>
+  </section>
+</BaseLayout>

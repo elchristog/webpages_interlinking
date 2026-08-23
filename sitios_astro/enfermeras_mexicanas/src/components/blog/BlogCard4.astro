@@ -1,0 +1,58 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+const { url, title, description, pubDate, image, author } = {
+  url: "/blog/posts/" + Astro.props.post.id,
+  title: Astro.props.post.data.title,
+  author: Astro.props.post.data.author,
+  image: Astro.props.post.data.image.url,
+  description: Astro.props.post.data.description,
+  pubDate: new Date(Astro.props.post.data.pubDate).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "2-digit",
+  }),
+};
+// Integrations: calculate reading time
+import readingTime from "reading-time";
+const timeToRead = readingTime(Astro.props.post.body);
+---
+
+<div class="relative group">
+  <a class="absolute inset-0 z-10" href={url} title={title}></a>
+  <div class="relative">
+    <Image
+      src={image}
+      alt={title}
+      width={1000}
+      height={100}
+      class="w-full aspect-8/9 lg:aspect-12/4 object-cover object-center"
+    />
+    <div class="absolute inset-0 bg-base-950/80"></div>
+    <div
+      class="lg:absolute lg:inset-x-0 lg:p-8 lg:bottom-0 mt-2 lg:mt-0 lg:max-w-xs"
+    >
+      <div class="overflow-hidden">
+        <Text tag="p" variant="textXS" class="text-base-400"
+          >{author} — <time date={pubDate}>{pubDate}</time>
+          <span>·</span>
+          <span>{timeToRead.text}</span>
+        </Text>
+        <Text
+          tag="h3"
+          variant="textLG"
+          class="leading-6 mt-4 text-white lg:text-2xl"
+        >
+          {title}
+        </Text>
+      </div>
+      <div class="overflow-hidden">
+        <Text tag="p" variant="textBase" class="mt-2 text-base-400 lg:text-lg">
+          {description}
+        </Text>
+      </div>
+    </div>
+  </div>
+</div>

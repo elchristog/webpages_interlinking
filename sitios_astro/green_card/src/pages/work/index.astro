@@ -1,0 +1,37 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import CtaHire from "@/components/ctas/CtaHire.astro";
+import WorkCard1 from "@/components/work/WorkCard1.astro";
+// Content
+import { getCollection } from "astro:content";
+const allwork = await getCollection("work");
+---
+
+<BaseLayout>
+  <section class="bg-white overflow-hidden relative">
+    <Wrapper variant="standard" class="py-12 lg:pt-24">
+      <div class="grid items-end gap-4 lg:grid-cols-3 max-w-5xl mx-auto">
+        <div class="lg:col-span-2">
+          <Text
+            tag="h1"
+            variant="displayLG"
+            class="tracking-tighter text-accent-800 text-balance"
+          >
+            Our latest projects
+          </Text>
+        </div>
+        <p class="text-base font-medium text-accent-500 text-balance">
+          We partner with founders to visualise their purpose.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
+        {allwork.map((post) => <WorkCard1 post={post} />)}
+      </div>
+    </Wrapper>
+  </section>
+  <CtaHire />
+</BaseLayout>

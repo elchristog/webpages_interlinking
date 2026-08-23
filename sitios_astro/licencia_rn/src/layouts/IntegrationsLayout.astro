@@ -1,0 +1,278 @@
+---
+// Assets
+import { Image } from "astro:assets";
+import Kicker from "@/components/assets/Kicker.astro";
+// Fundations
+import BaseLayout from "./BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import Check from "@/components/fundations/icons/Check.astro";
+// Content
+const { frontmatter } = Astro.props;
+// Icons
+import ChevronRight from "@/components/fundations/icons/ChevronRight.astro";
+// Breadcrumbs Data
+const breadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: "Integrations", href: "/integrations/home" },
+  { label: frontmatter.integration, href: "#" },
+];
+---
+
+<BaseLayout>
+  <!-- Modal -->
+  <div
+    id="modal"
+    style="display: none"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+    class="fixed inset-0 z-50 overflow-y-auto"
+  >
+    <!-- Overlay -->
+    <div id="modal-overlay" class="fixed inset-0"></div>
+    <!-- Panel -->
+    <Wrapper
+      variant="standard"
+      class="relative flex items-center justify-start min-h-screen flex-cll"
+    >
+      <div
+        id="modal-content"
+        class="relative w-full p-8 overflow-y-auto bg-white outline outline-base-200 lg:p-26"
+      >
+        <div class="h-full">
+          <div class="relative flex flex-col justify-between h-full">
+            <div>
+              <div class="flex items-center gap-2">
+                <Image
+                  width={300}
+                  height={300}
+                  src={frontmatter.logo.url}
+                  alt={frontmatter.logo.alt}
+                  class="inline-block size-12"
+                />
+                <Text
+                  tag="h3"
+                  variant="displaySM"
+                  id="modal-title"
+                  class="font-semibold text-base-800"
+                >
+                  Connect {frontmatter.integration} to Alfred
+                </Text>
+              </div>
+              <Text tag="p" variant="textBase" class="mt-2 text-base-500">
+                Stop guessing what your customers want — prioritize their needs
+                and actually listen for once.
+              </Text>
+            </div>
+            <hr class="my-6 border-t border-base-200" />
+
+            <Text
+              tag="p"
+              variant="textLG"
+              class="font-medium text-left text-base-800"
+            >
+              Alfred would like to
+            </Text>
+            <ul
+              role="list"
+              class="mt-2 text-base text-left list-none text-base-500"
+            >
+              {
+                frontmatter.permissions.map((permission) => (
+                  <li class="flex items-center gap-2">
+                    <Check size="sm" />
+                    {permission}
+                  </li>
+                ))
+              }
+            </ul>
+            <hr class="my-6 border-t border-base-200" />
+            <Text
+              tag="p"
+              variant="textXS"
+              class="max-w-sm text-left text-base-500"
+            >
+              *Don't worry, your secrets are safe with us (seriously). Read our <a
+                class="text-base-500 hover:text-base-800"
+                href="/infopages/privacy">Privacy Policy</a
+              >. By clicking "Allow access," you're officially trusting us not
+              to be shady.
+            </Text>
+
+            <div class="flex flex-wrap mt-12 ml-auto gap-2">
+              <Button size="xl" variant="muted" type="button" id="close-modal">
+                Cancel
+              </Button>
+              <Button size="xl" variant="accent" type="submit">
+                Allow access
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  </div>
+  <section>
+    <Wrapper variant="standard" class="fixed z-40 top-[3.8rem] inset-x-0">
+      <nav
+        aria-label="Breadcrumb"
+        class="w-full py-4 pr-4 bg-white border-b border-base-200"
+      >
+        <ol class="flex items-center text-xs gap-2 text-base-500">
+          {
+            breadcrumbs.map((item, index) => (
+              <>
+                <li>
+                  {index === 0 ? (
+                    <a
+                      href={item.href}
+                      class="flex items-center justify-center font-medium  hover:text-base-500"
+                    >
+                      {item.label}
+                    </a>
+                  ) : index < breadcrumbs.length - 1 ? (
+                    <a
+                      href={item.href}
+                      class="font-medium text-base-500 hover:text-accent-500 "
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <span class="font-medium text-rose-500 ">{item.label}</span>
+                  )}
+                </li>
+                {index < breadcrumbs.length - 1 && (
+                  <li class="flex items-center justify-center font-medium hover:text-accent-50">
+                    <ChevronRight size="sm" />
+                  </li>
+                )}
+              </>
+            ))
+          }
+        </ol>
+      </nav>
+      <Button size="xl" variant="accent" id="open-modal" class="w-full">
+        Connect {frontmatter.integration}
+      </Button>
+    </Wrapper>
+    <Wrapper variant="standard" class="pt-48 pb-8 overflow-hidden lg:pt-82">
+      <div class="pt-12 mt-2">
+        <div class="max-w-xl">
+          <Kicker class="bg-base-50">
+            {frontmatter.integration.charAt(0)}
+          </Kicker>
+          <Text
+            tag="h1"
+            variant="displayLG"
+            class="mt-8 text-base-800 text-balance"
+          >
+            {frontmatter.integration}
+          </Text>
+          <Text tag="p" variant="textBase" class="mt-4 text-base-500">
+            {frontmatter.description}
+          </Text>
+        </div>
+        <div
+          class="pt-8 mt-8 border-t border-base-200 grid grid-cols-1 gap-8 lg:grid-cols-5"
+        >
+          <dl class="flex flex-col gap-4">
+            {
+              frontmatter.details.map((detail) => (
+                <div>
+                  <dt>
+                    <Text
+                      tag="h4"
+                      variant="textBase"
+                      class="font-medium text-base-800"
+                    >
+                      {detail.title}
+                    </Text>
+                  </dt>
+                  <dd>
+                    <Text
+                      tag="p"
+                      variant="textSM"
+                      class="capitalize text-base-500 lg:text-balance"
+                    >
+                      {detail.url ? (
+                        <a
+                          class="text-base-800 hover:text-base-500 duration-300 "
+                          href={detail.url}
+                        >
+                          {detail.value}
+                        </a>
+                      ) : (
+                        detail.value
+                      )}
+                    </Text>
+                  </dd>
+                </div>
+              ))
+            }
+          </dl>
+          <Wrapper variant="prose" class="max-w-xl mx-auto lg:col-span-3"
+            ><slot /></Wrapper
+          >
+        </div>
+      </div>
+    </Wrapper>
+    <script type="module">
+      //
+      // Modal Component Script
+      //
+      // This script handles the functionality of a modal dialog with the following features:
+      // Opens/closes modal with animation
+      // Prevents background scrolling when modal is open
+      // Closes on outside click, escape key, or close button
+      // Handles scrollbar width to prevent layout shift
+      document.addEventListener("DOMContentLoaded", () => {
+        // Store all modal-related DOM elements in a single object for better organization
+        const modal = {
+          element: document.getElementById("modal"), // Main modal container
+          openButton: document.getElementById("open-modal"), // Button to open modal
+          closeButton: document.getElementById("close-modal"), // Button to close modal
+          content: document.getElementById("modal-content"), // Modal content container
+        };
+        // Toggles the modal visibility and handles body scroll
+        // @param {boolean} show - True to show modal, false to hide
+        const toggleModal = (show) => {
+          // Calculate scrollbar width to prevent layout shift when body scroll is disabled
+          const scrollbarWidth =
+            window.innerWidth - document.documentElement.clientWidth;
+          // Toggle body scroll and compensate for scrollbar removal
+          document.body.style.overflow = show ? "hidden" : "";
+          document.body.style.paddingRight = show ? `${scrollbarWidth}px` : "";
+          // Show/hide modal
+          modal.element.style.display = show ? "block" : "none";
+        };
+        // Event Listeners
+        // Opens modal when trigger button is clicked
+        modal.openButton.addEventListener("click", () => toggleModal(true));
+        // Closes modal when close button is clicked
+        modal.closeButton.addEventListener("click", () => toggleModal(false));
+        // Handles clicks on the modal backdrop
+        // Closes modal when clicking outside the modal content area
+        modal.element.addEventListener("click", (event) => {
+          // Check if click occurred outside modal content
+          // contains() checks if the clicked element is inside the modal content
+          if (!modal.content.contains(event.target)) {
+            toggleModal(false);
+          }
+        });
+        // Global keyboard event handler
+        // Closes modal when Escape key is pressed and modal is visible
+        document.addEventListener("keydown", (event) => {
+          if (
+            event.key === "Escape" &&
+            modal.element.style.display === "block"
+          ) {
+            toggleModal(false);
+          }
+        });
+      });
+    </script>
+  </section>
+</BaseLayout>

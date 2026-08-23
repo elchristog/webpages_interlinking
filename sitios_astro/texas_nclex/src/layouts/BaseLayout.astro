@@ -1,0 +1,32 @@
+---
+// Fundations
+import "../styles/global.css";
+import BaseHead from "@/components/fundations/head/BaseHead.astro"; // Assets
+import BottomBlurLine from "@/components/assets/BottomBlurLine.astro";
+import GuidelinesGrid from "@/components/assets/GuidelinesGrid.astro";
+// Components
+import Search from "@/components/global/Search.astro";
+// Sections
+import Footer from "@/components/global/Footer.astro";
+import Navigation from "@/components/global/Navigation.astro";
+// Scripts
+import AosBody from "@/components/fundations/scripts/AosBody.astro";
+---
+
+<html
+  lang="en"
+  class="selection:text-white selection:bg-base-500 scroll-smooth"
+>
+  <head>
+    <BaseHead />
+  </head>
+  <body class="bg-base-950 flex flex-col min-h-svh">
+    <Search />
+    <Navigation />
+    <main class="grow relative z-10"><slot /></main>
+    <Footer />
+    <GuidelinesGrid />
+    <BottomBlurLine />
+    <AosBody />
+  </body>
+</html>

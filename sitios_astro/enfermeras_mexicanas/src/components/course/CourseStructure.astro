@@ -1,0 +1,145 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Structure
+const lessons = [
+  {
+    title: "Introduction",
+    description:
+      "Learn the basics of product design, the importance of user-centered design, and an overview of the course.",
+  },
+  {
+    title: "Design Thinking",
+    description:
+      "Explore the design thinking process, focusing on empathy, ideation, and prototyping.",
+  },
+  {
+    title: "Foundation",
+    description:
+      "Understand the core principles of user experience (UX) and user interface (UI) design, including research methods and wireframing.",
+  },
+  {
+    title: "Prototyping & Usability Testing",
+    description:
+      "Dive into creating prototypes, gathering user feedback, and iterating on designs for optimal usability.",
+  },
+  {
+    title: "Creation",
+    description:
+      "Develop the final product design, integrating feedback and refining visuals and interactions.",
+  },
+  {
+    title: "Strategies",
+    description:
+      "Learn how to collaborate with developers, stakeholders, and design teams to bring the product to market and ensure success.",
+  },
+];
+const whatYouWillLearn = [
+  {
+    title: "Product Design Fundamentals",
+    description:
+      "Gain a solid understanding of the core principles of product design, including how to approach design problems, define user needs, and create user-centered solutions.",
+  },
+  {
+    title: "Design Thinking Process",
+    description:
+      "Learn how to apply the design thinking methodology—empathy, ideation, prototyping, and testing—to create innovative solutions that solve real user problems.",
+  },
+  {
+    title: "User Research & Market Analysis",
+    description:
+      "Master techniques for conducting effective user research, including surveys, interviews, and persona creation. Learn how to analyze market trends to inform design decisions.",
+  },
+  {
+    title: "Wireframing & Prototyping",
+    description:
+      "Develop wireframes and prototypes to visualize and test ideas before they become full-fledged designs. Understand the importance of iteration in the design process.",
+  },
+];
+---
+
+<section>
+  <Wrapper variant="standard" class="py-12">
+    <div class="module">
+      <Text
+        tag="h3"
+        variant="textLG"
+        class="dark:text-white text-base-900 text-balance"
+      >
+        Course structure
+      </Text>
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 pt-2 lg:gap-8 mt-1 relative before:absolute after:absolute before:bg-black after:bg-base-200 dark:before:bg-base-50 dark:after:bg-base-50/10 before:top-0 before:left-0 before:h-px before:w-18 after:top-0 after:right-0 after:left-20 after:h-px lg:col-span-2"
+      >
+        <div class="p-8 bg-base-100 dark:bg-base-900">
+          <Text
+            tag="h3"
+            variant="textBase"
+            class="dark:text-white text-base-900"
+          >
+            What you'll learn
+          </Text>
+
+          <Wrapper variant="prose" class="mt-2 lg:mt-4">
+            <ul role="list" class="text-xs">
+              {
+                whatYouWillLearn.map((item, index) => (
+                  <li>
+                    <Text
+                      tag="h3"
+                      variant="textSM"
+                      class="dark:text-white text-base-900"
+                    >
+                      {item.title}
+                    </Text>
+                    <Text
+                      tag="p"
+                      variant="textXS"
+                      class="text-base-500 dark:text-base-500"
+                    >
+                      {item.description}
+                    </Text>
+                  </li>
+                ))
+              }
+            </ul>
+          </Wrapper>
+        </div>
+        <ul
+          class="flex flex-col gap-1 lg:col-span- divide-y last-of-type:border-b last-of-type:border-base-200 dark:last-of-type:border-base-900 divide-base-200 dark:divide-base-900"
+        >
+          {
+            lessons.map(({ title, description }, index) => (
+              <li class="grid grid-cols-1 md:grid-cols-4 items-baseline lg:grid-cols-2 py-2">
+                <div>
+                  <Text
+                    tag="h3"
+                    variant="textBase"
+                    class="text-base-900  dark:text-white font-medium"
+                  >
+                    Lesson {index + 1}:
+                  </Text>
+                  <Text
+                    tag="p"
+                    variant="textSM"
+                    class="text-base-500 dark:text-base-400"
+                  >
+                    {title}
+                  </Text>
+                </div>
+                <Text
+                  tag="p"
+                  variant="textSM"
+                  class="text-base-500 dark:text-base-500"
+                >
+                  {description}
+                </Text>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </Wrapper>
+</section>

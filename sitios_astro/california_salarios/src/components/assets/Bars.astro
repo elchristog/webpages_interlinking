@@ -1,0 +1,21 @@
+---
+import Text from "@/components/fundations/elements/Text.astro";
+const { class: className = "", ...rest } = Astro.props;
+---
+
+<div {...rest} class={`flex flex-col gap-2 w-full ${className}`}>
+  <div class="h-0.5 bg-black"></div>
+  <div class="h-1 bg-black"></div>
+  <div class="h-2 bg-black"></div>
+  <div class="h-3 bg-black"></div>
+
+  <div class="flex items-center p-8 bg-black ">
+    <Text
+      tag="span"
+      variant="displayLG"
+      class="font-bold tracking-tighter text-white"
+    >
+      <slot />
+    </Text>
+  </div>
+</div>

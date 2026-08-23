@@ -1,0 +1,155 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Data array
+const features = [
+  {
+    text: "24/7 decentralized support",
+  },
+  {
+    text: "Access to token-gated communities",
+  },
+  {
+    text: "Full access to all smart contract features",
+  },
+  {
+    text: "Exclusive NFT rewards",
+  },
+  {
+    text: "Early access to protocol upgrades",
+  },
+  {
+    text: "On-chain data storage",
+  },
+  {
+    text: "Customizable DAO governance settings",
+  },
+  {
+    text: "Real-time blockchain analytics",
+  },
+  {
+    text: "Private access to beta dApps",
+  },
+  {
+    text: "Staking rewards & yield farming perks",
+  },
+  {
+  text: "Multi-chain interoperability",
+},
+{
+  text: "Gas fee optimization tools",
+},
+{
+  text: "Secure multi-signature transactions",
+},
+{
+  text: "Decentralized identity management",
+},
+{
+  text: "Automated smart contract auditing",
+},
+];
+---
+
+<section class="bg-gradient-up">
+  <Wrapper
+    variant="standard"
+    class="py-24 grid grid-cols-1 gap-y-8 lg:grid-cols-4"
+  >
+    <div class="lg:col-span-3">
+      <Text tag="span" variant="textSM" class="text-white">
+        Pricing
+      </Text>
+      <Text
+        tag="h2"
+        variant="displayXL"
+        class="tracking-tight mt-6 text-white lg:text-balance font-display"
+      >
+        Easy pricing. <span class="text-base-400 block">No gas wars required.</span>
+      </Text>
+      <Text tag="p" variant="textBase" class="mt-4 text-white lg:text-balance">
+       
+      
+        Lifetime access to Buio Web3—Own it, forever on-chain Unlimited access
+        to all Buio dApps, smart contracts, and exclusive NFT perks with a
+        single membership.
+      </Text>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 lg:col-span-4 items-end lg:row-start-2">
+      <div class="lg:col-span-3 before:bg-white">
+        <div
+          class="px-4 relative before:absolute after:absolute before:bg-white before:top-0 before:left-0 before:h-6 before:w-px after:top-8 after:bottom-0 after:left-0 after:w-px"
+        >
+          <Text
+            tag="h4"
+            variant="textBase"
+            class="flex-none font-medium text-white"
+          >
+            We include
+          </Text>
+
+          <ul
+            role="list"
+            class="mt-8 grid grid-cols-1 gap-y-4 text-sm text-white sm:grid-cols-2 lg:grid-cols-3"
+          >
+            {
+              features.map((feature) => (
+                <li class="flex gap-x-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-check"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M5 12l5 5l10 -10" />
+                  </svg>
+                  {feature.text}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+
+      <div
+        class="bg-white/5 flex flex-col p-8 aspect-square items-center justify-center"
+      >
+      
+      <Text
+        tag="p"
+        variant="displayXL"
+        class="tracking-tight text-white font-display"
+      >
+        $899
+      </Text>
+
+      <Button
+        type="button"
+        size="sm"
+        variant="accent"
+        class="w-full justify-center mt-4"
+      >
+        Get started
+      </Button>
+      <Text
+        tag="p"
+        variant="textSM"
+        class="text-white text-center mt-4 text-balance"
+      >
+        Streamline on-chain transactions with transparent and verifiable smart
+        contract receipts.
+      </Text>
+      </div>
+    </div>
+  </Wrapper>
+</section>

@@ -1,0 +1,53 @@
+---
+import { Image } from "astro:assets";
+import Text from "@/components/fundations/elements/Text.astro";
+import readingTime from "reading-time";
+
+const { url, title, pubDate, image } = {
+  url: "/blog/posts/" + Astro.props.post.id,
+  title: Astro.props.post.data.title,
+  image: Astro.props.post.data.image.url,
+  pubDate: new Date(Astro.props.post.data.pubDate).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "2-digit",
+  }),
+};
+
+// Calculate reading time
+const stats = readingTime(Astro.props.post.body);
+---
+
+<article class="relative flex flex-col group overflow-hidden rounded-xl">
+  <a href={url} title={title} class="absolute inset-0 z-30"></a>
+
+  <Image
+    src={image}
+    alt={title}
+    width={800}
+    height={800}
+    loading="eager"
+    decoding="async"
+    class="object-cover w-full aspect-12/8"
+  />
+
+  <div
+    class="absolute inset-0 bg-gradient-to-t from-base-950/80 to-transparent z-10"
+  >
+  </div>
+
+  <div class="absolute bottom-0 left-0 right-0 z-20 p-4">
+    <Text tag="p" variant="textXS" class="text-base-200">
+      <time datetime={pubDate}>{pubDate}</time>
+      <span aria-hidden="true">·</span>
+      {stats.text}
+    </Text>
+    <Text
+      tag="h3"
+      variant="textXL"
+      class="mt-1 text-base-50 group-hover:underline font-display text-balance"
+    >
+      {title}
+    </Text>
+  </div>
+</article>

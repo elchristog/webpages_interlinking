@@ -1,0 +1,234 @@
+---
+import Button from "@/components/fundations/elements/Button.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import CancelX from "@/components/fundations/icons/CancelX.astro";
+import MenuDeep from "@/components/fundations/icons/MenuDeep.astro";
+
+const navLinks = [
+  {
+    text: "Overview",
+    href: "/system/overview",
+    classes: "hover:text-black duration-300",
+  },
+  {
+    text: "Buy Aelen",
+    href: "https://lexingtonthemes.com/templates/aelen",
+  },
+  {
+    text: "Colors",
+    href: "/system/colors",
+  },
+  {
+    text: "Buttons",
+    href: "/system/buttons",
+  },
+  {
+    text: "Typography",
+    href: "/system/typography",
+  },
+  {
+    text: "Blog",
+    href: "/blog-two",
+  },
+  {
+    text: "Changelog",
+    href: "/changelog",
+  },
+  {
+    text: "Pricing",
+    href: "/pricing",
+  },
+];
+
+const menuId = Astro.props.id ?? "megaMenu";
+const toggleId = `${menuId}-toggle`;
+const contentId = `${menuId}-content`;
+const closeId = `${menuId}-close`;
+---
+
+<style>
+  .mega-menu .mega-link {
+    opacity: 0;
+    transform: translateY(6px);
+    transition:
+      opacity 250ms ease,
+      transform 250ms ease;
+  }
+  .mega-menu.is-open .mega-link {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .mega-menu.is-open .mega-link:nth-child(1) {
+    transition-delay: 40ms;
+  }
+  .mega-menu.is-open .mega-link:nth-child(2) {
+    transition-delay: 70ms;
+  }
+  .mega-menu.is-open .mega-link:nth-child(3) {
+    transition-delay: 100ms;
+  }
+  .mega-menu.is-open .mega-link:nth-child(4) {
+    transition-delay: 130ms;
+  }
+  .mega-menu.is-open .mega-link:nth-child(5) {
+    transition-delay: 160ms;
+  }
+  .mega-menu.is-open .mega-link:nth-child(6) {
+    transition-delay: 190ms;
+  }
+  .mega-menu.is-open .mega-link:nth-child(7) {
+    transition-delay: 220ms;
+  }
+</style>
+
+<div class="relative">
+  <Button
+    iconOnly
+    size="xs"
+    variant="default"
+    type="button"
+    id={toggleId}
+    aria-controls={contentId}
+    aria-expanded="false"
+    aria-label="Toggle menu"
+    class="flex items-center justify-center p-2 text-white bg-black rounded outline-none focus-visible"
+  >
+    <MenuDeep slot="icon" class="size-6" />
+  </Button>
+  <div
+    id={contentId}
+    class="mega-menu fixed inset-0 opacity-0 pointer-events-none hidden transition-opacity duration-300 ease-in-out z-[9998] bg-yellow backdrop-blur-xl"
+  >
+    <div class="relative h-full px-4 py-1">
+      <button
+        id={closeId}
+        class="flex items-center justify-center p-2 ml-auto text-black bg-white rounded outline-none focus-visible"
+      >
+        <CancelX class="size-6" />
+      </button>
+      <nav role="navigation" class="flex flex-col mt-8 gap-4">
+        {
+          navLinks.map((link) => (
+            <Text
+              href={link.href}
+              title={link.text}
+              aria-label={link.text}
+              tag="a"
+              variant="displayXL"
+              class="mega-link flex w-full font-bold text-white border-b border-dashed hover:text-black/50 border-black/20"
+            >
+              {link.text}
+            </Text>
+          ))
+        }
+        <div class="flex mt-8">
+          <Button
+            href="forms/sign-up"
+            size="base"
+            variant="default"
+            isLink
+            class="md:hidden"
+          >
+            Sign up
+          </Button>
+        </div>
+      </nav>
+      <div class="flex flex-col w-full mt-12 gap-2">
+        <div class="h-0.5 bg-black"></div>
+        <div class="h-1 bg-black"></div>
+        <div class="h-2 bg-black"></div>
+        <div class="h-3 bg-black"></div>
+
+        <div class="flex items-center h-24 px-8 bg-black">
+          <Text
+            tag="span"
+            variant="displayLG"
+            class="font-bold tracking-tighter text-white"
+          >
+            Ælen CRM — Copyright Lexington Themes 2023
+          </Text>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script is:inline define:vars={{ toggleId, contentId, closeId }}>
+  (() => {
+    const initMenu = () => {
+      const toggle = document.getElementById(toggleId);
+      const menu = document.getElementById(contentId);
+      const close = document.getElementById(closeId);
+      if (!toggle || !menu) return;
+
+      let hideTimeout = null;
+
+      const resetAndAnimateLinks = () => {
+        const links = menu.querySelectorAll("nav a");
+        links.forEach((link, index) => {
+          link.style.opacity = "0";
+          link.style.transform = "translateY(20px)";
+          link.style.transition = "none";
+          setTimeout(() => {
+            link.style.transition = `opacity 0.3s ease-out ${index * 0.1}s, transform 0.3s ease-out ${index * 0.1}s`;
+            link.style.opacity = "1";
+            link.style.transform = "translateY(0)";
+          }, 50);
+        });
+      };
+
+      const openMenu = () => {
+        if (hideTimeout) {
+          clearTimeout(hideTimeout);
+          hideTimeout = null;
+        }
+        menu.classList.remove("hidden", "opacity-0", "pointer-events-none");
+        menu.classList.add("opacity-100", "is-open");
+        toggle.setAttribute("aria-expanded", "true");
+        document.body.classList.add("overflow-hidden-no-shift");
+        setTimeout(() => resetAndAnimateLinks(), 10);
+      };
+
+      const closeMenu = () => {
+        menu.classList.add("opacity-0", "pointer-events-none");
+        menu.classList.remove("opacity-100", "is-open");
+        toggle.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("overflow-hidden-no-shift");
+        hideTimeout = window.setTimeout(() => {
+          menu.classList.add("hidden");
+        }, 300);
+      };
+
+      toggle.addEventListener("click", (e) => {
+        e.preventDefault();
+        const isOpen = menu.classList.contains("opacity-100");
+        isOpen ? closeMenu() : openMenu();
+      });
+
+      close?.addEventListener("click", (e) => {
+        e.preventDefault();
+        closeMenu();
+      });
+
+      menu.addEventListener("click", (e) => {
+        if (e.target === menu) {
+          closeMenu();
+        }
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          closeMenu();
+        }
+      });
+    };
+
+    if (
+      document.readyState === "complete" ||
+      document.readyState === "interactive"
+    ) {
+      initMenu();
+    } else {
+      window.addEventListener("DOMContentLoaded", initMenu);
+    }
+  })();
+</script>

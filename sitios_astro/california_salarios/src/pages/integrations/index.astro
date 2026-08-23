@@ -1,0 +1,35 @@
+---
+// Assets
+import Bars from "@/components/assets/Bars.astro";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import IntegrationCard from "@/components/integrations/IntegrationCard.astro";
+
+// Content
+import { getCollection } from "astro:content";
+const allIntegrations = await getCollection("integrations");
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pb-2 pt-50">
+      <Text
+        tag="h1"
+        variant="display6XL"
+        class="font-bold tracking-tighter text-black text-balance"
+        >Integrations</Text
+      >
+      <Bars class="mt-2"> Powering Ælen with leading integrations</Bars>
+    </Wrapper>
+    <Wrapper variant="standard" class="py-2">
+      <ul
+        class="px-8 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-24 bg-orange"
+      >
+        {allIntegrations.map((post) => <IntegrationCard post={post} />)}
+      </ul>
+    </Wrapper>
+  </section>
+</BaseLayout>

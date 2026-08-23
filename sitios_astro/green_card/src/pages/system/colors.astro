@@ -1,0 +1,117 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Array
+const colorGroups = [
+  {
+    title: "Black and white",
+    colors: [
+      { label: "White", class: "bg-white border border-base-300" },
+      { label: "Black", class: "bg-black" },
+    ],
+  },
+  {
+    title: "Base",
+    colors: [
+      { label: "Base 50", class: "bg-base-50" },
+      { label: "Base 100", class: "bg-base-100" },
+      { label: "Base 200", class: "bg-base-200" },
+      { label: "Base 300", class: "bg-base-300" },
+      { label: "Base 400", class: "bg-base-400" },
+      { label: "Base 500", class: "bg-base-500" },
+      { label: "Base 600", class: "bg-base-600" },
+      { label: "Base 700", class: "bg-base-700" },
+      { label: "Base 800", class: "bg-base-800" },
+      { label: "Base 900", class: "bg-base-900" },
+      { label: "Base 950", class: "bg-base-950" },
+    ],
+  },
+  {
+    title: "Accent",
+    colors: [
+      { label: "Accent 50", class: "bg-accent-50" },
+      { label: "Accent 100", class: "bg-accent-100" },
+      { label: "Accent 200", class: "bg-accent-200" },
+      { label: "Accent 300", class: "bg-accent-300" },
+      { label: "Accent 400", class: "bg-accent-400" },
+      { label: "Accent 500", class: "bg-accent-500" },
+      { label: "Accent 600", class: "bg-accent-600" },
+      { label: "Accent 700", class: "bg-accent-700" },
+      { label: "Accent 800", class: "bg-accent-800" },
+      { label: "Accent 900", class: "bg-accent-900" },
+      { label: "Accent 950", class: "bg-accent-950" },
+    ],
+  },
+  {
+    title: "Yellow",
+    colors: [
+      { label: "Yellow 50", class: "bg-yellow-50" },
+      { label: "Yellow 100", class: "bg-yellow-100" },
+      { label: "Yellow 200", class: "bg-yellow-200" },
+      { label: "Yellow 300", class: "bg-yellow-300" },
+      { label: "Yellow 400", class: "bg-yellow-400" },
+      { label: "Yellow 500", class: "bg-yellow-500" },
+      { label: "Yellow 600", class: "bg-yellow-600" },
+      { label: "Yellow 700", class: "bg-yellow-700" },
+      { label: "Yellow 800", class: "bg-yellow-800" },
+      { label: "Yellow 900", class: "bg-yellow-900" },
+      { label: "Yellow 950", class: "bg-yellow-950" },
+    ],
+  },
+  {
+    title: "Pink",
+    colors: [
+      { label: "Pink 50", class: "bg-pink-50" },
+      { label: "Pink 100", class: "bg-pink-100" },
+      { label: "Pink 200", class: "bg-pink-200" },
+      { label: "Pink 300", class: "bg-pink-300" },
+      { label: "Pink 400", class: "bg-pink-400" },
+      { label: "Pink 500", class: "bg-pink-500" },
+      { label: "Pink 600", class: "bg-pink-600" },
+      { label: "Pink 700", class: "bg-pink-700" },
+      { label: "Pink 800", class: "bg-pink-800" },
+      { label: "Pink 900", class: "bg-pink-900" },
+      { label: "Pink 950", class: "bg-pink-950" },
+    ],
+  },
+];
+---
+
+<BaseLayout>
+  <section class="bg-white overflow-hidden relative">
+    <Wrapper variant="standard" class="py-12 lg:pt-24">
+      <Text
+        tag="h1"
+        variant="displayMD"
+        class="tracking-tighter text-accent-800 text-balance"
+      >
+        Colors
+      </Text>
+      <div class="flex flex-col divide-y divide-accent-100 mt-12 text-base-400">
+        {
+          colorGroups.map((group) => (
+            <div class="py-6">
+              <Text
+                tag="h3"
+                variant="textXS"
+                class="font-medium text-accent-600 uppercase"
+              >
+                {group.title}
+              </Text>
+              <div class="flex flex-wrap gap-4 mt-4">
+                {group.colors.map((color) => (
+                  <div class="flex flex-col items-center gap-4">
+                    <div class={`p-4 size-12 rounded-full  ${color.class}`} />
+                    <span class="text-xs text-base-500">{color.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

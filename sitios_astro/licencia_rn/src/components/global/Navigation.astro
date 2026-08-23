@@ -1,0 +1,347 @@
+---
+// Icons
+import ChevronRight from "@/components/fundations/icons/ChevronRight.astro";
+// Assets
+import Logo from "@/components/assets/Logo.astro";
+// Fundations
+import Button from "@/components/fundations/elements/Button.astro";
+// Dropdowns link
+const dropdowns = [
+  {
+    label: "Overview",
+    id: "menu-overview",
+    items: [
+      { label: "All pages", href: "/system/overview", shortcut: "A" },
+      { label: "Colors", href: "/system/colors", shortcut: "C" },
+      { label: "Links", href: "/system/links", shortcut: "L" },
+      { label: "Buttons", href: "/system/buttons", shortcut: "B" },
+      { label: "Typography", href: "/system/typography", shortcut: "T" },
+    ],
+    flyout: {
+      label: "Resources",
+      items: [
+        {
+          label: "License",
+          href: "https://lexingtonthemes.com/legal/license/",
+          shortcut: "L",
+        },
+        {
+          label: "Documentation",
+          href: "https://lexingtonthemes.com/documentation/",
+          shortcut: "D",
+        },
+      ],
+    },
+  },
+  {
+    label: "Company",
+    id: "menu-company",
+    items: [
+      { label: "About", href: "/about", shortcut: "A" },
+      { label: "Pricing", href: "/pricing", shortcut: "P" },
+      { label: "Customers", href: "/customers/home", shortcut: "C" },
+      { label: "Changelog", href: "/changelog/home", shortcut: "C" },
+      { label: "Integrations", href: "/integrations/home", shortcut: "I" },
+      { label: "Help Center", href: "/helpcenter/home", shortcut: "H" },
+    ],
+  },
+];
+---
+
+<header class="fixed z-50 w-full top-4 md:px-12">
+  <div class="px-8 md:px-0 mx-auto 2xl:px-12 max-w-screen 2xl:max-w-[1440px]">
+    <div
+      class="flex flex-col w-full bg-white md:items-center md:justify-between md:flex-row outline outline-base-200"
+    >
+      <div class="flex flex-row items-center justify-between w-full md:w-auto">
+        <a
+          href="/"
+          class="font-mono text-base font-bold uppercase bg-black"
+          aria-label="Alfred home"
+        >
+          <Logo class="h-full p-2 text-white size-11" />
+        </a>
+        <button
+          class="relative z-50 text-white bg-black md:hidden focus:outline-none focus:shadow-outline size-11"
+          aria-label="Toggle navigation menu"
+          id="navToggle"
+        >
+          <span class="sr-only">Toggle navigation</span>
+          <svg
+            class="mx-auto size-7"
+            stroke="currentColor"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path id="menuIcon" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+            <path
+              id="closeIcon"
+              class="hidden"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <!-- Fullscreen nav on mobile -->
+      <nav
+        id="navMenu"
+        class="fixed inset-0 z-40 flex-col hidden w-full p-8 mt-20 bg-white md:mt-0 md:p-0 md:border-l md:border-base-200 md:items-center md:justify-end gap-2 md:gap-px sm:relative md:flex md:flex-row md:bg-transparent md:static"
+        role="navigation"
+        aria-label="Main navigation"
+      >
+        {
+          dropdowns.map((dropdown) => (
+            <div class="relative w-full group/menu md:w-auto">
+              <Button
+                size="md"
+                variant="muted"
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-controls={dropdown.id}
+                data-menu-button={dropdown.id}
+                class="w-full h-full text-sm font-medium dropdown-toggle focus:outline-none md:w-fit "
+              >
+                {dropdown.label}
+              </Button>
+              <div
+                id={dropdown.id}
+                class="dropdown-menu absolute mt-2 z-50 top-full w-50 md:w-78.5 bg-white outline outline-base-200 opacity-0 invisible transform transition-all duration-300"
+              >
+                <ul class="divide-y divide-base-200" role="menu">
+                  {dropdown.items.map((item) => (
+                    <li role="none">
+                      <a
+                        role="menuitem"
+                        href={item.href}
+                        aria-label={`Go to ${item.label} page`}
+                        class="flex items-center text-sm font-medium hover:text-base-600 focus:outline-none gap-2 group divide-x divide-base-200"
+                      >
+                        <div class="p-2.5 group group-hover:bg-black duration-300">
+                          <span class="flex items-center justify-center text-sm  size-6 group-hover:border-black ring-transparent group-hover:text-white duration-300">
+                            {item.shortcut}
+                          </span>
+                        </div>
+                        <span>{item.label}</span>
+                      </a>
+                    </li>
+                  ))}
+
+                  {dropdown.flyout && (
+                    <li role="none" class="relative group/secondflyout">
+                      <button
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        aria-controls="second-flyout-submenu"
+                        aria-label="Toggle second-level submenu"
+                        class="flex items-center justify-between w-full pl-2 text-sm font-medium hover:text-base-600 focus:outline-none group"
+                      >
+                        <span>{dropdown.flyout.label}</span>
+                        <div class="p-2.5">
+                          <span class="flex items-center justify-center text-sm border rounded-full size-6 group-hover:border-black ring-transparent group-hover:text-white group-hover:bg-black duration-300">
+                            <ChevronRight class="size-4" />
+                          </span>
+                        </div>
+                      </button>
+                      <div
+                        id="second-flyout-submenu"
+                        class="flyout-menu absolute top-0 z-50 ml-[0.122rem] invisible w-50 opacity-0 left-full transform transition-all duration-300"
+                      >
+                        <ul
+                          class="bg-white divide-y divide-base-200 outline outline-base-200"
+                          role="menu"
+                        >
+                          {dropdown.flyout.items.map((item) => (
+                            <li role="none">
+                              <a
+                                role="menuitem"
+                                href={item.href}
+                                aria-label={`View ${item.label}`}
+                                class="flex items-center text-sm font-medium hover:text-base-600 focus:outline-none gap-2 group divide-x divide-base-200"
+                              >
+                                <div class="p-2.5 group">
+                                  <span class="flex items-center justify-center text-sm border rounded-full size-6 group-hover:border-black ring-transparent group-hover:text-white group-hover:bg-black duration-300">
+                                    {item.shortcut}
+                                  </span>
+                                </div>
+                                <span>{item.label}</span>
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </li>
+                  )}
+                </ul>
+              </div>
+            </div>
+          ))
+        }
+
+        <Button
+          isLink
+          size="md"
+          variant="muted"
+          href="/blog/home"
+          aria-label="Go to news page"
+          class="md:mr-auto"
+        >
+          News
+        </Button>
+        <Button
+          isLink
+          href="/forms/sign-in"
+          size="md"
+          variant="muted"
+          aria-label="Buy Alfred"
+        >
+          Log in
+        </Button>
+        <Button
+          isLink
+          size="md"
+          variant="default"
+          aria-label="Buy Alfred"
+          href="https://buy.polar.sh/polar_cl_If6pmsfFZUt7F1mjsfQjWC1EHxZDN3_u6HhhcEzUBm8"
+        >
+          Buy Alfred
+        </Button>
+      </nav>
+    </div>
+  </div>
+  <script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggle = document.getElementById("navToggle");
+      const nav = document.getElementById("navMenu");
+      const menuIcon = document.getElementById("menuIcon");
+      const closeIcon = document.getElementById("closeIcon");
+
+      // Mobile menu toggle
+      toggle.addEventListener("click", () => {
+        const isOpen = nav.classList.contains("flex");
+        nav.classList.toggle("hidden", isOpen);
+        nav.classList.toggle("flex", !isOpen);
+        menuIcon.classList.toggle("hidden", !isOpen);
+        closeIcon.classList.toggle("hidden", isOpen);
+      });
+
+      // Close nav on Escape key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && nav.classList.contains("flex")) {
+          nav.classList.add("hidden");
+          nav.classList.remove("flex");
+          menuIcon.classList.remove("hidden");
+          closeIcon.classList.add("hidden");
+        }
+      });
+
+      // Keyboard navigation inside menus
+      const menus = document.querySelectorAll('nav [role="menu"]');
+      menus.forEach((menu) => {
+        const items = menu.querySelectorAll('[role="menuitem"]');
+
+        menu.addEventListener("keydown", (e) => {
+          const currentIndex = Array.from(items).indexOf(
+            document.activeElement
+          );
+
+          if (e.key === "ArrowDown") {
+            e.preventDefault();
+            const nextIndex = (currentIndex + 1) % items.length;
+            items[nextIndex].focus();
+          }
+
+          if (e.key === "ArrowUp") {
+            e.preventDefault();
+            const prevIndex = (currentIndex - 1 + items.length) % items.length;
+            items[prevIndex].focus();
+          }
+        });
+      });
+
+      // -----------------------------------------
+      // Dropdowns (first-level) open/close on click
+      // -----------------------------------------
+
+      const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+
+      dropdownToggles.forEach((toggle) => {
+        const menuId = toggle.dataset.menuButton;
+        const dropdown = document.getElementById(menuId);
+
+        toggle.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+
+          const isOpen = dropdown.classList.contains("opacity-100");
+
+          // Close all dropdowns
+          document.querySelectorAll(".dropdown-menu").forEach((menu) => {
+            menu.classList.add("opacity-0", "invisible");
+            menu.classList.remove("opacity-100", "visible");
+          });
+
+          // Close all flyouts too
+          document.querySelectorAll(".flyout-menu").forEach((menu) => {
+            menu.classList.add("opacity-0", "invisible");
+            menu.classList.remove("opacity-100", "visible");
+          });
+
+          // Toggle this dropdown
+          if (!isOpen) {
+            dropdown.classList.remove("opacity-0", "invisible");
+            dropdown.classList.add("opacity-100", "visible");
+          }
+        });
+      });
+
+      // -----------------------------------------
+      // Flyouts (second-level) open/close on click
+      // -----------------------------------------
+
+      const flyoutToggles = document.querySelectorAll(
+        '[aria-controls="second-flyout-submenu"]'
+      );
+
+      flyoutToggles.forEach((toggle) => {
+        const flyout = document.getElementById("second-flyout-submenu");
+
+        toggle.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+
+          const isOpen = flyout.classList.contains("opacity-100");
+
+          // Close all flyouts
+          document.querySelectorAll(".flyout-menu").forEach((menu) => {
+            menu.classList.add("opacity-0", "invisible");
+            menu.classList.remove("opacity-100", "visible");
+          });
+
+          // Toggle this flyout
+          if (!isOpen) {
+            flyout.classList.remove("opacity-0", "invisible");
+            flyout.classList.add("opacity-100", "visible");
+          }
+        });
+      });
+
+      // Close everything on outside click
+      document.addEventListener("click", (e) => {
+        if (
+          !e.target.closest(".dropdown-toggle") &&
+          !e.target.closest(".dropdown-menu") &&
+          !e.target.closest('[aria-controls="second-flyout-submenu"]') &&
+          !e.target.closest("#second-flyout-submenu")
+        ) {
+          document
+            .querySelectorAll(".dropdown-menu, .flyout-menu")
+            .forEach((menu) => {
+              menu.classList.add("opacity-0", "invisible");
+              menu.classList.remove("opacity-100", "visible");
+            });
+        }
+      });
+    });
+  </script>
+</header>

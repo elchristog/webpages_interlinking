@@ -1,0 +1,109 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+const ctaOptions = [
+  {
+    href: "/register",
+    cardClass: "bg-base-900/40",
+    label: "Remote access",
+    labelClass: "text-base-600",
+    title: "Join the virtual programme for free",
+    description:
+      "Register to receive the livestream, on-demand archive, and live Q&A threads connecting designers across time zones.",
+    actionLabel: "Begin registration ",
+  },
+  {
+    href: "/tickets",
+    cardClass: "bg-base-950/60",
+    label: "On-site experience",
+    labelClass: "text-accent-400",
+    title: "Secure your seat in Montreal",
+    description:
+      "Choose from day, studio, or team passes to access every stage, atelier, and curated gathering at Swiss Design Week.",
+    actionLabel: "Explore ticket options ",
+  },
+];
+---
+
+<section>
+  <Wrapper variant="standard" class="py-24">
+    <div class="grid grid-cols-1 gap-y-8 lg:grid-cols-12">
+      <div class="lg:col-span-8">
+        <Text
+          tag="h2"
+          variant="displayXL"
+          class="font-display uppercase leading-tight text-accent-500"
+        >
+          Attend on site or online
+        </Text>
+        <Text
+          tag="p"
+          variant="textSM"
+          class="text-base-600 max-w-2xl mt-2 mix-blend-difference text-balance"
+        >
+          Join us in Montreal for the tactile Swiss design experience, or stream
+          the programme from your studio. Pick the format that keeps your
+          practice in rhythm.
+        </Text>
+      </div>
+      <div
+        class="flex flex-wrap items-center justify-between gap-4 lg:col-span-2"
+      >
+        <Text tag="p" variant="textXS" class="uppercase text-base-600">
+          Need a custom package?
+        </Text>
+        <Text tag="p" variant="textXS" class="text-base-600">
+          Email the Dusk team at <a
+            class="underline"
+            href="mailto:email@example.com">tickets@dusk.design</a
+          >
+        </Text>
+      </div>
+    </div>
+
+    <div
+      class="grid grid-cols1-1 mt-12 lg:grid-cols-2 border-y border-dashed border-black/10 py-4 divide-y divide-white/5 divide-dashed"
+    >
+      {
+        ctaOptions.map((option) => (
+          <div class="group  flex h-full flex-col justify-between  transition duration-200 ">
+            <div>
+              <Text
+                tag="span"
+                variant="textXS"
+                class={`inline-block font-medium  uppercase ${option.labelClass}`}
+              >
+                {option.label}
+              </Text>
+              <Text
+                tag="h3"
+                variant="displaySM"
+                class="font-display uppercase text-accent-500 text-balance mt-12 lg:mt-24"
+              >
+                {option.title}
+              </Text>
+              <Text
+                tag="p"
+                variant="textLG"
+                class="text-base-700 text-balance mt-2"
+              >
+                {option.description}
+              </Text>
+            </div>
+            <Button
+              href={option.href}
+              variant="outline"
+              size="base"
+              class="w-fit mt-8"
+            >
+              {option.actionLabel}
+            </Button>
+          </div>
+        ))
+      }
+    </div>
+  </Wrapper>
+</section>

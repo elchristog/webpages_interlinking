@@ -1,0 +1,269 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Content
+import { getCollection } from "astro:content";
+const { getEntry } = await import("astro:content");
+const sessions = await getCollection("sessions");
+const augmentedSessions = await Promise.all(
+  sessions.map(async (session) => {
+    const startDate = new Date(session.data.start);
+    const endDate = new Date(session.data.end);
+    const speakerEntries = await Promise.all(
+      (session.data.speakers ?? []).map(async (slug) => {
+        try {
+          return await getEntry("speakers", slug);
+        } catch (error) {
+          return null;
+        }
+      })
+    );
+    const speakers = speakerEntries
+      .filter(Boolean)
+      .map((entry: any) => entry?.data?.name)
+      .filter(Boolean);
+    return {
+      slug: session.id,
+      title: session.data.title,
+      abstract: session.data.abstract,
+      track: session.data.track,
+      level: session.data.level,
+      room: session.data.room,
+      dayKey: session.data.day || startDate.toISOString().slice(0, 10),
+      startDate,
+      endDate,
+      speakers,
+    };
+  })
+);
+augmentedSessions.sort((a, b) => a.startDate.getTime() - b.startDate.getTime());
+const dayGroupsMap = new Map();
+for (const session of augmentedSessions) {
+  const group = dayGroupsMap.get(session.dayKey);
+  if (!group) {
+    dayGroupsMap.set(session.dayKey, {
+      key: session.dayKey,
+      firstStart: session.startDate,
+      sessions: [session],
+    });
+  } else {
+    group.sessions.push(session);
+    if (session.startDate.getTime() < group.firstStart.getTime()) {
+      group.firstStart = session.startDate;
+    }
+  }
+}
+const dayGroups = Array.from(dayGroupsMap.values())
+  .map((group) => {
+    group.sessions.sort(
+      (a, b) => a.startDate.getTime() - b.startDate.getTime()
+    );
+    const dayNumberMatch = group.key.match(/day-(\d+)/);
+    const dayNumber = dayNumberMatch
+      ? Number.parseInt(dayNumberMatch[1], 10)
+      : undefined;
+    const dateLabel = group.firstStart
+      ? group.firstStart.toLocaleDateString("en-US", {
+          weekday: "long",
+          month: "long",
+          day: "numeric",
+        })
+      : undefined;
+    return {
+      ...group,
+      dayNumber,
+      dateLabel,
+    };
+  })
+  .sort((a, b) => {
+    const aNumber =
+      typeof a.dayNumber === "number" ? a.dayNumber : Number.MAX_SAFE_INTEGER;
+    const bNumber =
+      typeof b.dayNumber === "number" ? b.dayNumber : Number.MAX_SAFE_INTEGER;
+    if (aNumber !== bNumber) {
+      return aNumber - bNumber;
+    }
+    const timeDiff = a.firstStart.getTime() - b.firstStart.getTime();
+    if (timeDiff !== 0) {
+      return timeDiff;
+    }
+    return a.key.localeCompare(b.key);
+  });
+for (let index = 0; index < dayGroups.length; index += 1) {
+  const group = dayGroups[index];
+  if (!group.dayNumber) {
+    group.dayNumber = index + 1;
+  }
+  group.dayLabel = `Day ${group.dayNumber}`;
+  group.fullLabel = group.dateLabel
+    ? `${group.dayLabel} — ${group.dateLabel}`
+    : group.dayLabel;
+}
+const formatTimeRange = (startDate: Date, endDate: Date) =>
+  `${startDate.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" })} – ${endDate.toLocaleTimeString(
+    "en-US",
+    { hour: "2-digit", minute: "2-digit" }
+  )}`;
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-32">
+      <div>
+        <Text
+          tag="h1"
+          variant="displayMD"
+          class="text-balance text-accent-500 font-display uppercase leading-tight"
+        >
+          Programme schedule
+        </Text>
+        <Text
+          tag="p"
+          variant="textBase"
+          class="text-base-600 font-medium max-w-2xl mt-2 text-balance"
+        >
+          Every session is sequenced to move from foundational principles to
+          applied practice. Plan your path through Swiss Design Week and
+          bookmark the conversations that matter to your studio.
+        </Text>
+      </div>
+      <div class="space-y-12 mt-12">
+        {
+          dayGroups.length === 0 ? (
+            <Text tag="p" variant="textSM" class="text-base-600">
+              Schedule details are coming soon. Check back for the full
+              programme.
+            </Text>
+          ) : (
+            dayGroups.map((day) => (
+              <section class="border-y border-black/10 border-dashed divide-y divide-black/10 divide-dashed">
+                <div class="px-8 py-4 bg-accent-500">
+                  <Text
+                    tag="h2"
+                    variant="displaySM"
+                    class="font-display uppercase text-accent-50"
+                  >
+                    {day.fullLabel}
+                  </Text>
+                  {day.dateLabel && (
+                    <Text
+                      tag="p"
+                      variant="textSM"
+                      class=" uppercase text-base-50 mt-1"
+                    >
+                      Doors open 45 minutes before the first session
+                    </Text>
+                  )}
+                </div>
+                <ul class="divide-y divide-black/10 divide-dashed space-y-12 lg:space-y-0">
+                  {day.sessions.map((session) => (
+                    <li class=" grid grid-cols-1 md:grid-cols-4 py-8">
+                      <div class="text-balance">
+                        <Text
+                          tag="h3"
+                          variant="textLG"
+                          class="font-display uppercase text-accent-500"
+                        >
+                          {session.title}
+                        </Text>
+
+                        <Text tag="p" variant="textSM" class="text-base-600 ">
+                          {session.abstract}
+                        </Text>
+                      </div>
+                      <div class="divide-y divide-black/10 divide-dashed lg:col-start-3">
+                        <div class="flex items-center justify-between pb-3">
+                          <Text
+                            tag="p"
+                            variant="textXS"
+                            class="text-accent-500 uppercase font-display"
+                          >
+                            Speaker
+                          </Text>
+                          <Text tag="p" variant="textXS" class="text-base-600">
+                            {session.speakers.join(" • ")}
+                          </Text>
+                        </div>
+                        <div class="flex items-center justify-between py-3">
+                          <Text
+                            tag="p"
+                            variant="textXS"
+                            class="text-accent-500 uppercase font-display"
+                          >
+                            Time
+                          </Text>
+                          <Text tag="p" variant="textXS" class="text-base-600">
+                            <time
+                              datetime={formatTimeRange(
+                                session.startDate,
+                                session.endDate
+                              )}
+                            >
+                              {formatTimeRange(
+                                session.startDate,
+                                session.endDate
+                              )}
+                            </time>
+                          </Text>
+                        </div>
+                        <div class="flex items-center justify-between py-3">
+                          <Text
+                            tag="p"
+                            variant="textXS"
+                            class="text-accent-500 uppercase font-display"
+                          >
+                            Room
+                          </Text>
+                          <Text tag="p" variant="textXS" class="text-base-600">
+                            {session.room}
+                          </Text>
+                        </div>
+
+                        <div class="flex items-center justify-between py-3">
+                          <Text
+                            tag="p"
+                            variant="textXS"
+                            class="text-accent-500 uppercase font-display"
+                          >
+                            Track
+                          </Text>
+                          <Text tag="p" variant="textXS" class="text-base-600">
+                            {session.track}
+                          </Text>
+                        </div>
+
+                        <div class="flex items-center justify-between pt-3">
+                          <Text
+                            tag="p"
+                            variant="textXS"
+                            class="text-accent-500 uppercase font-display"
+                          >
+                            Level
+                          </Text>
+                          <Text tag="p" variant="textXS" class="text-base-600">
+                            {session.level}
+                          </Text>
+                        </div>
+                      </div>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        href={`/sessions/workshop/${session.id}`}
+                        class=" mt-auto lg:ml-auto"
+                      >
+                        View session details
+                      </Button>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ))
+          )
+        }
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

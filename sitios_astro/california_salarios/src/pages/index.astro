@@ -1,0 +1,36 @@
+---
+// Assets
+import Bars from "@/components/assets/Bars.astro";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Sctions
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Feature1 from "@/components/features/Feature1.astro";
+import Feature2 from "@/components/features/Feature2.astro";
+import Feature3 from "@/components/features/Feature3.astro";
+import Feature4 from "@/components/features/Feature4.astro";
+import Cta from "@/components/cta/Cta.astro";
+import IntegrationsCta from "@/components/integrations/IntegrationsCta.astro";
+import Testimonial from "@/components/testimonials/Testimonial.astro";
+---
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pb-2 pt-50">
+      <Text
+        tag="h1"
+        variant="display6XL"
+        class="font-bold tracking-tighter text-black text-balance"
+        >Ælen's CRM</Text
+      >
+      <Bars class="mt-2">A next generation CRM</Bars>
+    </Wrapper>
+  </section>
+  <Feature1 />
+  <Feature2 />
+  <Feature3 />
+  <Feature4 />
+  <Cta />
+  <IntegrationsCta />
+  <Testimonial />
+</BaseLayout>

@@ -1,0 +1,81 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import Entries from "@/components/blog/BlogCard.astro";
+// Content
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("posts");
+// Tags
+const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
+export async function getStaticPaths() {
+  const allPosts = await getCollection("posts");
+  const uniqueTags = [
+    ...new Set(allPosts.map((post) => post.data.tags).flat()),
+  ];
+  return uniqueTags.map((tag) => {
+    const filteredPosts = allPosts.filter((post) =>
+      post.data.tags.includes(tag)
+    );
+    return {
+      params: { tag },
+      props: { posts: filteredPosts },
+    };
+  });
+}
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<BaseLayout pageTitle={tag}>
+  <section class="bg-gradient-up">
+    <Wrapper
+      variant="standard"
+      class="grid grid-cols-1 py-42 gap-y-12 lg:gap-y-24 lg:grid-cols-4"
+    >
+      <div class="lg:pr-8">
+        <Text tag="a" variant="textSM" class="text-white" href="/blog">
+          Go back</Text
+        >
+
+        <Text
+          tag="h1"
+          variant="displayMD"
+          class="text-white mt-12 text-balance font-display capitalize"
+        >
+          {tag}
+        </Text>
+        <div class="mt-12 before:bg-white">
+          <div
+            class="relative px-4 before:absolute after:absolute before:bg-white before:top-0 before:left-0 before:h-6 before:w-px after:top-8 after:bottom-0 after:left-0 after:w-px"
+          >
+            <Text tag="h4" variant="textLG" class="font-medium text-white"
+              >All tags</Text
+            >
+          </div>
+          <div class="flex flex-wrap gap-2 mt-4 lg:flex-col">
+            {
+              tags.map((tag) => (
+                <Text
+                  tag="a"
+                  variant="textSM"
+                  class="w-auto text-white capitalize hover:text-base-400"
+                  href={`/blog/tags/${tag}`}
+                >
+                  {tag}
+                </Text>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:col-span-3 gap-y-12 lg:gap-y-24 lg:grid-cols-3"
+      >
+        {posts.map((post) => <Entries post={post} />)}
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

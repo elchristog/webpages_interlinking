@@ -1,0 +1,90 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import BlogCard1 from "@/components/blog/BlogCard1.astro";
+import BlogCard3 from "@/components/blog/BlogCard3.astro";
+import ShowMoreButton from "@/components/fundations/elements/ShowMoreButton.astro";
+import SubscribeCta from "@/components/blog/SubscribeCta.astro";
+// Get all posts
+import { getCollection } from "astro:content";
+// Fetch posts and sort
+const allPosts = (await getCollection("posts"))
+  .filter((post) => post.data?.pubDate)
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+const posts = allPosts;
+const VISIBLE_POSTS = 3;
+const LIST_ID = "blog-list-secondary";
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-8">
+      <div class="overflow-hidden">
+        <Text
+          tag="h1"
+          variant="textXL"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          class="dark:text-white text-base-900 text-balance"
+        >
+          Reflexions
+        </Text>
+      </div>
+      <div
+        id={LIST_ID}
+        class="grid grid-cols-1 md:grid-cols-3 gap-y-12 gap-x-1 mt-4"
+      >
+        {posts.map((post, index) => (
+          <div data-showmore-item class={index >= VISIBLE_POSTS ? "hidden" : ""}>
+            <BlogCard3 post={post} />
+          </div>
+        ))}
+      </div>
+      <div class="mt-6 flex justify-center">
+        <ShowMoreButton
+          target={`#${LIST_ID}`}
+          initialCount={VISIBLE_POSTS}
+          step={3}
+          label="Show more posts"
+          class="w-full sm:w-auto"
+        />
+      </div>
+    </Wrapper>
+  </section>
+  <SubscribeCta />
+  <section>
+    <Wrapper class="py-8">
+      <div class="overflow-hidden">
+        <Text
+          tag="h3"
+          variant="textLG"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          class="dark:text-white text-base-900 text-balance"
+        >
+          Latest relfexions
+        </Text>
+      </div>
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-12 lg:gap-1 mt-1 pt-4 relative before:absolute after:absolute before:bg-black after:bg-base-200 dark:before:bg-base-50 dark:after:bg-base-50/10 before:top-0 before:left-0 before:h-px before:w-18 after:top-0 after:right-0 after:left-20 after:h-px"
+      >
+        {allPosts.slice(0, 4).map((post) => <BlogCard1 post={post} />)}
+      </div>
+      <div
+        class="flex justify-end mt-4 pt-2 relative before:absolute after:absolute before:bg-black after:bg-base-200 dark:before:bg-base-50 dark:after:bg-base-50/10 before:top-0 before:left-0 before:h-px before:w-18 after:top-0 after:right-0 after:left-20 after:h-px"
+      >
+        <Text
+          tag="a"
+          href="/blog"
+          variant="textBase"
+          class="dark:text-base-400 text-base-500 text-balance"
+        >
+          All relfexions
+        </Text>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

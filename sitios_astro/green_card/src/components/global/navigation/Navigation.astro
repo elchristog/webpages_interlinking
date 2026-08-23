@@ -1,0 +1,143 @@
+---
+// Assets
+import BigLogo from "@/components/assets/BigLogo.astro";
+// Fundations
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import Search from "@/components/global/Search.astro";
+// Icons
+import Menu from "@/components/fundations/icons/Menu.astro";
+import Close from "@/components/fundations/icons/Close.astro";
+const navLinks = [
+  { label: "Overview", href: "/system/overview" },
+
+  { label: "Services", href: "/services" },
+  { label: "Work", href: "/work" },
+  { label: "Team", href: "/team" },
+  { label: "Pricing", href: "/pricing-simple" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
+  { label: "System", href: "/system/overview" },
+];
+---
+
+<nav class="bg-white overflow-hidden relative">
+  <Wrapper variant="standard" class="py-4">
+    <div class="flex items-center gap-4">
+      <a href="/" class="font-bold tracking-tighter text-accent-500 uppercase">
+        <BigLogo class="h-6 text-accent-700" />
+      </a>
+      <div class="ml-auto flex items-center gap-2">
+        <Search />
+        <div class="relative" data-mobile-nav-root>
+          <Button
+            iconOnly
+            size="sm"
+            variant="muted"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobile-nav-drawer"
+            data-mobile-nav-toggle
+          >
+            <Menu slot="icon" size="sm" />
+          </Button>
+
+          <div
+            data-mobile-nav-panel
+            aria-hidden="true"
+            class="fixed inset-0 z-40 pointer-events-none duration-300"
+          >
+            <div
+              id="mobile-nav-drawer"
+              data-mobile-nav-drawer
+              class="ml-auto flex h-full w-[min(22rem,90vw)] flex-col gap-8 translate-x-full bg-white px-6 py-8 shadow-2xl transition-transform duration-300"
+            >
+              <div class="flex items-center justify-between">
+                <a href="/">
+                  <span class="sr-only">Home</span>
+                  <BigLogo class="h-6 text-accent-700" />
+                </a>
+
+                <Button
+                  iconOnly
+                  size="xs"
+                  variant="muted"
+                  type="button"
+                  data-mobile-nav-close
+                >
+                  <Close slot="icon" size="xs" />
+                </Button>
+              </div>
+
+              <div class="flex flex-col gap-2">
+                {
+                  navLinks.map((link) => (
+                    <a
+                      data-mobile-nav-link
+                      href={link.href}
+                      class="text-base font-medium text-accent-800 transition-colors duration-200 hover:text-pink-500"
+                    >
+                      {link.label}
+                    </a>
+                  ))
+                }
+              </div>
+
+              <div class="mt-auto flex flex-col gap-3">
+                <Button
+                  isLink
+                  size="base"
+                  variant="accent"
+                  href="https://lexingtonthemes.com/templates/outkast"
+                >
+                  Buy outkast
+                </Button>
+                <Button isLink size="base" variant="muted" href="/contact">
+                  Book a call
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Wrapper>
+</nav>
+<script is:inline>
+  const navRoot =
+    document.currentScript?.closest("[data-mobile-nav-root]") ||
+    document.querySelector("[data-mobile-nav-root]");
+  const toggle = navRoot?.querySelector("[data-mobile-nav-toggle]");
+  const panel = navRoot?.querySelector("[data-mobile-nav-panel]");
+  const drawer = navRoot?.querySelector("[data-mobile-nav-drawer]");
+  const closeButtons = navRoot?.querySelectorAll("[data-mobile-nav-close]");
+  const links = navRoot?.querySelectorAll("[data-mobile-nav-link]");
+  if (navRoot && toggle && panel && drawer) {
+    let isOpen = false;
+    const setOpen = (open) => {
+      isOpen = open;
+      toggle.setAttribute("aria-expanded", String(open));
+      panel.setAttribute("aria-hidden", String(!open));
+      panel.classList.toggle("opacity-100", open);
+      panel.classList.toggle("opacity-0", !open);
+      panel.classList.toggle("pointer-events-none", !open);
+      drawer.classList.toggle("translate-x-0", open);
+      drawer.classList.toggle("translate-x-full", !open);
+      document.body.classList.toggle("overflow-hidden", open);
+    };
+    toggle.addEventListener("click", () => setOpen(!isOpen));
+    closeButtons?.forEach((button) =>
+      button.addEventListener("click", () => setOpen(false))
+    );
+    links?.forEach((link) =>
+      link.addEventListener("click", () => setOpen(false))
+    );
+    panel.addEventListener("click", (event) => {
+      if (event.target === panel) setOpen(false);
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && isOpen) setOpen(false);
+    });
+  }
+</script>

@@ -1,0 +1,56 @@
+---
+// Logo2 This component renders a component and accepts props for customization.
+// Props: - class: A string of additional classes to style the component.
+// - ...rest: Any other valid attributes for an div element (e.g., id, style, role, aria-label, etc.).
+// Example Usage: <Logo2 class="my-custom-class" /> or <Logo2 id="Logo2-id" style="width: 50px; height: 50px;" />
+const { class: className = "", ...rest } = Astro.props;
+// Images
+import { Image } from "astro:assets";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+// import the logos
+import logo1 from "@/images/brands/6.svg";
+import logo2 from "@/images/brands/5.svg";
+import logo3 from "@/images/brands/9.svg";
+import logo4 from "@/images/brands/4.svg";
+import logo5 from "@/images/brands/1.svg";
+import logo6 from "@/images/brands/2.svg";
+import logo7 from "@/images/brands/3.svg";
+import logo8 from "@/images/brands/8.svg";
+const logosOne = [
+  { src: logo1, alt: "b1 Logo" },
+  { src: logo2, alt: "b2 Logo" },
+  { src: logo3, alt: "b3 Logo" },
+  { src: logo4, alt: "b4 Logo" },
+  { src: logo5, alt: "b5Logo" },
+  { src: logo6, alt: "b6Logo" },
+  { src: logo7, alt: "b7Logo" },
+  { src: logo8, alt: "b8Logo" },
+];
+---
+
+<div class={className} {...rest}>
+  <div class="grid md:grid-cols-4 grid-cols-2">
+    {
+      logosOne.map((logo) => (
+        <Image
+          width={2000}
+          height={100}
+          class=" max-w-32 opacity-50 lg:mx-auto"
+          src={logo.src}
+          alt={logo.alt}
+        />
+      ))
+    }
+  </div>
+  <div class="grid grid-cols-2 md:grid-cols-4 mt-8">
+    <Text
+      tag="h2"
+      variant="textSM"
+      class="text-white lg:col-start-2 lg:text-center lg:col-span-2"
+    >
+      Trusted by industry leaders and our families
+      <span class="text-base-400">— because bribery is our love language.</span>
+    </Text>
+  </div>
+</div>

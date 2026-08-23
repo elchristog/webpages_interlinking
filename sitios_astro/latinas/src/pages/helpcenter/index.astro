@@ -1,0 +1,41 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Entries
+import HelpCenterCard from "@/components/helpCenter/HelpCenterCard.astro";
+//  Get all help center content
+import { getCollection } from "astro:content";
+const allCenter = await getCollection("helpCenter");
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pt-12">
+      <div
+        class="p-10 rounded-4xl lg:rounded-[4rem] bg-base-900 lg:pt-80 lg:px-20"
+      >
+        <span class="font-display text-xs text-base-400">Help Center</span>
+        <Text
+          tag="h1"
+          variant="displaySM"
+          class="font-display text-white md:w-1/3 mt-8 text-balance"
+        >
+          Welcome to the Help Center You Probably Didn't Want to Visit
+        </Text>
+        <Text
+          tag="p"
+          variant="textSM"
+          class="pl-8 mt-4 text-base-200 md:w-2/4 text-balance"
+        >
+          Something broke? Confused? Or just curious? Either way, here’s where
+          we try to make it your problem a little less annoying.
+        </Text>
+      </div>
+      <div class="mt-2 grid grid-cols-1 lg:grid-cols-5 gap-2">
+        {allCenter.map((post) => <HelpCenterCard post={post} />)}
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

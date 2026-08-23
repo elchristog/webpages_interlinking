@@ -1,0 +1,84 @@
+---
+// Assets
+import Kicker from "@/components/assets/Kicker.astro";
+import { Image } from "astro:assets";
+import teamDashboard from "@/images/assets/teamDashboard.jpg";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const features = [
+  {
+    features: {
+      title: "Invite your chaos crew",
+      subtitle:
+        "Wrangle your team into one place and pretend it’s organized. Real-time updates keep everyone from screaming.",
+    },
+  },
+  {
+    features: {
+      title: "Edit together (without fighting)",
+      subtitle:
+        "No more endless file versions like 'final-FINAL-v3'. Everyone edits the same thing. Like magic. Or witchcraft.",
+    },
+  },
+  {
+    features: {
+      title: "Feedback without the awkward",
+      subtitle:
+        "Drop comments, ask questions, and critique stuff—without the passive-aggressive email chains.",
+    },
+  },
+];
+---
+
+<section>
+  <Wrapper variant="standard" class="py-8">
+    <div class="p-8 bg-blue-50 lg:p-12">
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-4 md:items-end">
+        <div>
+          <Kicker class="text-white bg-blue-800">M</Kicker>
+          <Text
+            tag="h2"
+            variant="displaySM"
+            class="mt-8 font-medium tracking-tight text-blue-800 text-balance"
+          >
+            Making teamwork slightly less painful
+          </Text>
+        </div>
+        <Text
+          tag="p"
+          variant="textLG"
+          class="mt-4 text-base-600 lg:text-balance md:col-span-2 md:col-start-3"
+        >
+          No more “who edited this?” panic. Just smooth, drama-free workflows
+          that actually help your team get stuff done—for once.
+        </Text>
+      </div>
+      <div class="mt-12">
+        <Image
+          width={1800}
+          height={800}
+          src={teamDashboard}
+          alt="#_"
+          loading="eager"
+          decoding="async"
+          class="w-full"
+        />
+      </div>
+      <div class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {
+          features.map(({ features }) => (
+            <div>
+              <Text tag="h3" variant="textXL" class="font-medium text-blue-800">
+                {features.title}
+              </Text>
+              <Text tag="p" variant="textLG" class="mt-2  text-base-600">
+                {features.subtitle}
+              </Text>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </Wrapper>
+</section>

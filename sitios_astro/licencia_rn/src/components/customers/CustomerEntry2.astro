@@ -1,0 +1,53 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+// Icons
+const { customer, logo, url, partnership, bgColor } = {
+  url: "/customers/" + Astro.props.post.id,
+  logo: Astro.props.post.data.logo.url,
+  customer: Astro.props.post.data.customer,
+  partnership: Astro.props.post.data.partnership,
+  // Pass different  background color to the cards
+  bgColor: Astro.props.post.data.bgColor || "bg-base-50",
+};
+---
+
+<article class={`${bgColor} p-8 relative`}>
+  <a
+    href={url}
+    title={`Read more about ${customer}`}
+    aria-label={`Read more about ${customer}`}
+    class="absolute inset-0 z-20"
+  >
+    <span class="sr-only">Read more about {customer}</span>
+  </a>
+
+  <div class="p-12 bg-white lg:p-24">
+    <Image
+      src={logo}
+      alt={customer}
+      width={500}
+      height={500}
+      loading="eager"
+      decoding="async"
+      class="w-32 mx-auto"
+    />
+  </div>
+
+  <div class="z-10 flex flex-col justify-between h-full mt-4">
+    <div>
+      <Text
+        tag="h3"
+        variant="textBase"
+        class="font-medium  text-base-800"
+      >
+        {customer}
+      </Text>
+      <Text tag="p" variant="textSM" class="mt-2 text-base-500">
+        {partnership}
+      </Text>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,31 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+// Content
+const { integration, description, url, logo } = {
+  url: "/integrations/" + Astro.props.post.id,
+  integration: Astro.props.post.data.integration,
+  description: Astro.props.post.data.description,
+  logo: Astro.props.post.data.logo.url,
+};
+---
+
+<div class="relative p-8 bg-base-50 hover:bg-white hover:outline-base-200 outline outline-transparent duration-300">
+  <a
+    class="absolute inset-0 z-10"
+    href={url}
+    title={`View details for ${integration}`}
+    aria-label={`View details for ${integration}`}
+  ></a>
+  <div class="flex items-center gap-4">
+    <Image src={logo} alt={integration} width={300} height={300} class="w-8" />
+    <Text tag="p" variant="textBase" class="text-base-800">
+      {integration}
+    </Text>
+  </div>
+  <Text tag="p" variant="textSM" class="mt-4 text-base-500">
+    {description}
+  </Text>
+</div>

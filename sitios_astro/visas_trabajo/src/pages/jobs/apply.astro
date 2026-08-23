@@ -1,0 +1,170 @@
+---
+// Funadtions
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper
+      variant="standard"
+      class="lg:h-[90dvh] flex flex-col h-full items-center justify-center py-24"
+    >
+      <div class="max-w-sm mx-auto">
+        <div>
+          <Text
+            tag="h1"
+            variant="textBase"
+            class="text-base-900 font-display font-medium"
+          >
+            Apply
+          </Text>
+          <Text
+            tag="p"
+            variant="textSM"
+            class="tracking-tight text-base-600 text-balance"
+          >
+            Welcome back! Please enter your email and password to sign in.
+          </Text>
+        </div>
+        <form
+          action="#"
+          method="POST"
+          class="relative before:absolute after:absolute before:bg-base-950 after:bg-base-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px pt-4 mt-2"
+        >
+          <div class="flex flex-col gap-y-2 mt-2">
+            <!-- Full Name Field -->
+            <div>
+              <label for="fullName" class="text-sm text-base-600 font-medium"
+                >Full Name</label
+              >
+              <div class="mt-1">
+                <input
+                  type="text"
+                  name="fullName"
+                  id="fullName"
+                  required
+                  aria-required="true"
+                  aria-describedby="fullName-error"
+                  class="block w-full h-10 px-4 py-2 text-sm text-accent-700 border border-transparent rounded-lg appearance-none duration-300 bg-base-100 focus:bg-transparent focus:outline-none focus:ring-accent-500 focus:ring-offset-2 focus:ring-2 focus:ring-offset-base-200"
+                />
+                <span id="fullName-error" class="text-red-600 text-sm hidden"
+                  >Please enter your full name.</span
+                >
+              </div>
+            </div>
+
+            <!-- Email Field -->
+            <div>
+              <label for="email" class="text-sm text-base-600 font-medium"
+                >Email</label
+              >
+              <div class="mt-1">
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  required
+                  aria-required="true"
+                  aria-describedby="email-error"
+                  class="block w-full h-10 px-4 py-2 text-sm text-accent-700 border border-transparent rounded-lg appearance-none duration-300 bg-base-100 focus:bg-transparent focus:outline-none focus:ring-accent-500 focus:ring-offset-2 focus:ring-2 focus:ring-offset-base-200"
+                />
+                <span id="email-error" class="text-red-600 text-sm hidden"
+                  >Please enter a valid email address.</span
+                >
+              </div>
+            </div>
+
+            <!-- Phone Field -->
+            <div>
+              <label for="phone" class="text-sm text-base-600 font-medium"
+                >Phone Number</label
+              >
+              <div class="mt-1">
+                <input
+                  type="tel"
+                  name="phone"
+                  id="phone"
+                  required
+                  aria-required="true"
+                  aria-describedby="phone-error"
+                  class="block w-full h-10 px-4 py-2 text-sm text-accent-700 border border-transparent rounded-lg appearance-none duration-300 bg-base-100 focus:bg-transparent focus:outline-none focus:ring-accent-500 focus:ring-offset-2 focus:ring-2 focus:ring-offset-base-200"
+                />
+                <span id="phone-error" class="text-red-600 text-sm hidden"
+                  >Please enter a valid phone number.</span
+                >
+              </div>
+            </div>
+
+            <!-- Job Title (Hidden) -->
+            <div>
+              <label for="jobTitle" class="text-sm text-base-600 font-medium"
+                >Job Title</label
+              >
+              <div class="mt-1">
+                <input
+                  type="text"
+                  name="jobTitle"
+                  id="jobTitle"
+                  readonly
+                  class="block w-full h-10 px-4 py-2 text-sm text-accent-700
+                border border-transparent rounded-lg appearance-none duration-300
+                bg-base-100 focus:bg-transparent focus:outline-none focus:ring-accent-500
+                focus:ring-offset-2 focus:ring-2 focus:ring-offset-base-200"
+                />
+              </div>
+            </div>
+
+            <!-- Resume Upload -->
+            <div>
+              <label for="resume" class="text-sm text-base-600 font-medium"
+                >Upload Resume</label
+              >
+              <div class="mt-1">
+                <input
+                  type="file"
+                  name="resume"
+                  id="resume"
+                  required
+                  aria-required="true"
+                  class="block w-full h-10 px-4 py-2 text-sm text-accent-700 border border-transparent rounded-lg appearance-none duration-300 bg-base-100 focus:bg-transparent focus:outline-none focus:ring-accent-500 focus:ring-offset-2 focus:ring-2 focus:ring-offset-base-200"
+                />
+              </div>
+            </div>
+
+            <!-- Cover Letter Field -->
+            <div>
+              <label for="coverLetter" class="text-sm text-base-600 font-medium"
+                >Cover Letter</label
+              >
+              <div class="mt-1">
+                <textarea
+                  name="coverLetter"
+                  id="coverLetter"
+                  required
+                  aria-required="true"
+                  aria-describedby="coverLetter-error"
+                  placeholder="Write a brief cover letter"
+                  rows="4"
+                  class="block w-full px-4 py-2 text-sm text-accent-700 border border-transparent rounded-lg appearance-none duration-300 bg-base-100 focus:bg-transparent focus:outline-none focus:ring-accent-500 focus:ring-offset-2 focus:ring-2 focus:ring-offset-base-200"
+                ></textarea>
+                <span id="coverLetter-error" class="text-red-600 text-sm hidden"
+                  >Please enter a cover letter.</span
+                >
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="mt-2 flex">
+              <Button type="submit" size="sm" variant="accent">
+                Apply Now
+              </Button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

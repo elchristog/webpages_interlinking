@@ -1,0 +1,65 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+const { url, title, description, pubDate, guestAvatar, image, author } = {
+  url: "/podcast/interviews/" + Astro.props.post.id,
+  title: Astro.props.post.data.title,
+  author: Astro.props.post.data.author,
+  guestAvatar: Astro.props.post.data.guestAvatar.url,
+  image: Astro.props.post.data.image.url,
+  description: Astro.props.post.data.description,
+  pubDate: new Date(Astro.props.post.data.pubDate).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "2-digit",
+  }),
+};
+// Format the author name by replacing hyphens with spaces.
+const formatAuthorName = (slug) => {
+  return slug
+    .replace(/-/g, " ")
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+};
+const formattedAuthor = formatAuthorName(author);
+---
+
+<article
+  class="relative w-full py-2 overflow-hidden group grid grid-cols-2 gap-y-8 lg:grid-cols-3 md:col-span-full"
+>
+  <a
+    href={url}
+    title={title}
+    aria-label={`Listen more about ${title}`}
+    class="absolute inset-0"></a>
+  <Image
+    src={image}
+    alt={title}
+    width="1000"
+    height="1000"
+    class="object-cover object-center aspect-square"
+  />
+  <Image
+    src={guestAvatar}
+    alt={title}
+    width="800"
+    height="800"
+    class="object-cover object-center aspect-square lg:order-last"
+  />
+  <div class="flex flex-col order-first col-span-full lg:col-span-1 lg:h-full">
+    <div class="w-2/3">
+      <Text tag="p" variant="textXS" class="uppercase text-base-400">
+        <time datetime={pubDate}>{pubDate}</time>
+      </Text>
+      <Text tag="h2" variant="textSM" class="mt-1 font-medium">
+        {formattedAuthor} —{title}
+      </Text>
+      <Text tag="p" variant="textSM" class="mt-1 text-base-600">
+        {description}
+      </Text>
+    </div>
+  </div>
+</article>

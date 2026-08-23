@@ -1,0 +1,50 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import BlogCard2 from "@/components/blog/BlogCard2.astro";
+// Content
+import { getCollection } from "astro:content";
+export async function getStaticPaths() {
+  const allPosts = await getCollection("posts");
+  const uniqueTags = [
+    ...new Set(allPosts.map((post) => post.data.tags).flat()),
+  ];
+  return uniqueTags.map((tag) => {
+    const filteredPosts = allPosts.filter((post) =>
+      post.data.tags.includes(tag)
+    );
+    return {
+      params: { tag },
+      props: { posts: filteredPosts },
+    };
+  });
+}
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<BaseLayout pageTitle={tag}>
+  <section>
+    <Wrapper variant="standard" class="py-8">
+      <div class="overflow-hidden">
+        <Text
+          tag="h1"
+          variant="textXL"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          class="dark:text-white text-base-900 text-balance"
+        >
+          All blog posts tagged with <span class="capitalize">{tag}</span>
+        </Text>
+      </div>
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 gap-y-12 lg:gap-1 mt-1 pt-4 relative before:absolute after:absolute before:bg-black after:bg-base-200 dark:before:bg-base-50 dark:after:bg-base-50/10 before:top-0 before:left-0 before:h-px before:w-18 after:top-0 after:right-0 after:left-20 after:h-px"
+      >
+        {posts.map((post) => <BlogCard2 post={post} />)}
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

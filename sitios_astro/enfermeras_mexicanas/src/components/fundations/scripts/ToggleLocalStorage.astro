@@ -1,0 +1,14 @@
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const theme =
+      localStorage.getItem("theme") ||
+      (window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light");
+    document.documentElement.classList.toggle("dark", theme === "dark");
+    const toggle = document.getElementById("theme-toggle");
+    if (toggle) {
+      toggle.setAttribute("aria-checked", theme === "dark");
+    }
+  });
+</script>

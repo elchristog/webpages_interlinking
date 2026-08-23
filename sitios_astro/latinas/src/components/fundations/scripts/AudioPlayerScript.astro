@@ -1,0 +1,74 @@
+<script type="module">
+  document.addEventListener("DOMContentLoaded", () => {
+    const playPauseBtn = document.getElementById("playPauseBtn");
+    const audioElement = document.getElementById("audioElement");
+    const seekBar = document.getElementById("seekBar");
+    const muteBtn = document.getElementById("muteBtn");
+    const backwardBtn = document.getElementById("backwardBtn");
+    const forwardBtn = document.getElementById("forwardBtn");
+    const currentTimeDisplay = document.getElementById("currentTime");
+    const durationDisplay = document.getElementById("duration");
+
+    // Icons inside the buttons
+    const playIcon = document.getElementById("playIcon");
+    const pauseIcon = document.getElementById("pauseIcon");
+    const speakerIcon = document.getElementById("speakerIcon");
+    const muteIcon = document.getElementById("muteIcon");
+
+    // Play/Pause toggle
+    playPauseBtn.addEventListener("click", () => {
+      if (audioElement.paused) {
+        audioElement.play();
+        playIcon.classList.add("hidden");
+        pauseIcon.classList.remove("hidden");
+      } else {
+        audioElement.pause();
+        pauseIcon.classList.add("hidden");
+        playIcon.classList.remove("hidden");
+      }
+    });
+
+    // Mute/Unmute toggle
+    muteBtn.addEventListener("click", () => {
+      audioElement.muted = !audioElement.muted;
+      speakerIcon.classList.toggle("hidden", audioElement.muted);
+      muteIcon.classList.toggle("hidden", !audioElement.muted);
+    });
+
+    // Backward 10s
+    backwardBtn.addEventListener("click", () => {
+      audioElement.currentTime = Math.max(0, audioElement.currentTime - 10);
+    });
+
+    // Forward 10s
+    forwardBtn.addEventListener("click", () => {
+      audioElement.currentTime = Math.min(
+        audioElement.duration,
+        audioElement.currentTime + 10
+      );
+    });
+
+    // Update time and seek bar
+    audioElement.addEventListener("timeupdate", () => {
+      const progress = (audioElement.currentTime / audioElement.duration) * 100;
+      seekBar.value = progress;
+
+      const minutes = Math.floor(audioElement.currentTime / 60);
+      const seconds = Math.floor(audioElement.currentTime % 60);
+      currentTimeDisplay.textContent = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+    });
+
+    // Update duration
+    audioElement.addEventListener("loadedmetadata", () => {
+      const minutes = Math.floor(audioElement.duration / 60);
+      const seconds = Math.floor(audioElement.duration % 60);
+      durationDisplay.textContent = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+    });
+
+    // Seek bar interaction
+    seekBar.addEventListener("input", () => {
+      const seekTo = (seekBar.value / 100) * audioElement.duration;
+      audioElement.currentTime = seekTo;
+    });
+  });
+</script>

@@ -1,0 +1,22 @@
+---
+import Text from "../fundations/elements/Text.astro";
+const { url, service, description } = {
+  url: "/services/" + Astro.props.post.id,
+  service: Astro.props.post.data.service,
+  description: Astro.props.post.data.description,
+};
+---
+
+<div class="group relative flex flex-col items-start">
+  <a href={url} title={service} class="absolute inset-0 z-10"></a>
+  <h2 class="text-accent-500 text-2xl group-hover:text-pink-500">
+    {service}
+  </h2>
+  <Text
+    tag="p"
+    variant="textBase"
+    class="text-accent-500 mt-4 text-pretty items-center"
+  >
+    {description}
+  </Text>
+</div>

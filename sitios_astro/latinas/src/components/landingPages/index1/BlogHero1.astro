@@ -1,0 +1,24 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+// Entries
+import BlogCard2 from "@/components/blog/BlogCard2.astro";
+// Get all posts
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("posts");
+allPosts.sort((a, b) => {
+  const dateA = new Date(a.data.pubDate).getTime(); // Convert to timestamp
+  const dateB = new Date(b.data.pubDate).getTime(); // Convert to timestamp
+  return dateB - dateA; // Compare timestamps
+});
+---
+
+<span class="sr-only"> Featured </span>
+<div class="relative grid grid-cols-1 lg:grid-cols-3 gap-2">
+  {
+    allPosts
+      .filter((post) => post.data.isFeatured)
+      .slice(0, 3)
+      .map((post) => <BlogCard2 post={post} />)
+  }
+</div>

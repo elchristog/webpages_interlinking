@@ -1,0 +1,52 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import CustomersCard2 from "@/components/customers/CustomersCard2.astro";
+// Content
+import { getCollection } from "astro:content";
+const allCustomers = await getCollection("customers");
+---
+<section>
+  <Wrapper variant="standard" class="py-12">
+    <div class="text-balance lg:col-span-2">
+      <Text tag="h2" variant="textBase" class="font-medium text-primary">
+        Our alumni work where design meets engineering
+      </Text>
+      <Text
+        tag="p"
+        variant="textBase"
+        class="font-serif text-primary/60 text-balance"
+      >
+        Graduates have gone on to build thoughtful interfaces at companies like
+        Stripe, Notion, Linear, and design systems teams at world-class
+        startups.
+      </Text>
+    </div>
+    <div
+      class="w-full pt-2 mt-2 overflow-hidden border-t border-dotted border-primary/10"
+    >
+      <!-- Keen Slider -->
+      <div id="keen-slider" class="relative z-0 keen-slider w-max">
+        {allCustomers.map((post) => <CustomersCard2 post={post} />)}
+      </div>
+    </div>
+    <div class="flex mt-2 gap-2 justify-end">
+      <button
+        aria-label="Previous slide"
+        id="keen-slider-previous"
+        class="text-xs text-primary hover:text-primary/60 focus:text-primary"
+        >Previous
+      </button>
+      <button
+        aria-label="Next slide"
+        id="keen-slider-next"
+        class="text-xs text-primary hover:text-primary/60 focus:text-primary"
+      >
+        Next
+      </button>
+    </div>
+  </Wrapper>
+</section>

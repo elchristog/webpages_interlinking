@@ -1,0 +1,138 @@
+---
+import { Image } from "astro:assets";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+// Icons
+import ArrowRight from "@/components/fundations/icons/ArrowRight.astro";
+const { url, title, description, pubDate, image, author, tags } = {
+  url: "/blog/posts/" + Astro.props.post.id,
+  tags: Astro.props.post.data.tags,
+  title: Astro.props.post.data.title,
+  author: Astro.props.post.data.author,
+  image: Astro.props.post.data.image.url,
+  description: Astro.props.post.data.description,
+  pubDate: new Date(Astro.props.post.data.pubDate).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "2-digit",
+  }),
+};
+const formatAuthorName = (slug) => {
+  return slug
+    .replace(/-/g, " ") // Replace hyphens with spaces
+    .split(" ") // Split the string into words
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
+    .join(" "); // Join the words back with spaces
+};
+
+// Calculate reading time
+import readingTime from "reading-time";
+const stats = readingTime(Astro.props.post.body);
+---
+
+<article
+  class="relative keen-slider__slide grid grid-cols-1 lg:grid-cols-3 gap-2"
+>
+  <a href={url} title={title} class="absolute inset-0 z-30"> </a>
+
+  <div class="flex flex-col p-8 bg-base-100 rounded-4xl">
+    <div class="flex items-center pl-8 font-display gap-x-2 text-base-700">
+      <Text tag="p" variant="textXS">
+        <time datetime={pubDate}>{pubDate}</time>
+      </Text>
+      <span aria-hidden="true">·</span>
+      <Text tag="p" variant="textXS">{stats.text}</Text>
+    </div>
+    <Text
+      tag="h3"
+      variant="displaySM"
+      class="mt-8 font-display uppercase text-base-900 text-balance"
+    >
+      {title}
+    </Text>
+    <Button
+      isLink
+      href={url}
+      title={title}
+      size="xl"
+      variant="default"
+      iconOnly
+      class="mt-8"
+    >
+      <ArrowRight slot="icon" size="lg" />
+    </Button>
+  </div>
+  <Image
+    src={image}
+    width="800"
+    height="800"
+    alt={title}
+    class="object-cover w-full aspect-12/8 lg:col-span-2 rounded-4xl"
+  />
+</article>
+
+<script type="module">
+  import KeenSlider from "https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/+esm";
+  // Autoplay plugin
+  const autoplay = (slider) => {
+    let timeout;
+    let mouseOver = false;
+    function clearNextTimeout() {
+      clearTimeout(timeout);
+    }
+    function nextTimeout() {
+      clearTimeout(timeout);
+      if (mouseOver) return;
+      timeout = setTimeout(() => {
+        slider.next();
+      }, 3000); // Adjust time if needed
+    }
+    slider.on("created", () => {
+      slider.container.addEventListener("mouseover", () => {
+        mouseOver = true;
+        clearNextTimeout();
+      });
+      slider.container.addEventListener("mouseout", () => {
+        mouseOver = false;
+        nextTimeout();
+      });
+      nextTimeout();
+    });
+    slider.on("dragStarted", clearNextTimeout);
+    slider.on("animationEnded", nextTimeout);
+    slider.on("updated", nextTimeout);
+  };
+  const keenSlider = new KeenSlider(
+    "#keen-slider",
+    {
+      loop: true,
+      defaultAnimation: {
+        duration: 1500,
+      },
+      detailsChanged: (s) => {
+        s.slides.forEach((element, idx) => {
+          element.style.opacity = s.track.details.slides[idx].portion;
+        });
+      },
+      slides: {
+        origin: "center",
+        perView: 1,
+        //spacing: 12,
+      },
+      breakpoints: {
+        "(min-width: 1024px)": {
+          slides: {
+            origin: "auto",
+            // perView: 1,
+            //spacing: 24,
+          },
+        },
+      },
+    },
+    [autoplay] //  Add autoplay plugin here
+  );
+  const keenSliderPrevious = document.getElementById("keen-slider-previous");
+  const keenSliderNext = document.getElementById("keen-slider-next");
+  keenSliderPrevious.addEventListener("click", () => keenSlider.prev());
+  keenSliderNext.addEventListener("click", () => keenSlider.next());
+</script>

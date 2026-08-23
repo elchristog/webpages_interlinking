@@ -1,0 +1,232 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<BaseLayout pageTitle="Register">
+  <section>
+    <Wrapper variant="standard" class="py-32">
+      <div>
+        <Text
+          tag="h1"
+          variant="displayMD"
+          class="text-balance text-accent-500 font-display uppercase leading-tight"
+        >
+          Join Swiss Design Week at Dusk
+        </Text>
+        <Text
+          tag="p"
+          variant="textBase"
+          class="text-base-600 font-medium max-w-2xl mt-2 text-balance"
+        >
+          Select the pass that matches your cadence: a free Virtual Pass for
+          live streaming, the Day Pass for focused on-site sessions, the two-day
+          Studio Pass, or the Team Residency for a full week in Montreal. Submit
+          the form and we will confirm availability within two business days.
+        </Text>
+      </div>
+      <div class="grid lg:grid-cols-12 mt-8">
+        <form
+          class="bg-accent-500 p-8 lg:col-span-4 space-y-8"
+          method="post"
+          action="#_"
+          aria-labelledby="registration-title"
+        >
+          <h2 id="registration-title" class="sr-only">
+            Event registration form
+          </h2>
+
+          <!-- First + Last name -->
+          <div class="grid gap-6 sm:grid-cols-2">
+            <div class="flex flex-col gap-2">
+              <label for="firstName" class="uppercase text-white text-xs tracking-wide"
+                >First name</label
+              >
+              <input
+                id="firstName"
+                type="text"
+                name="firstName"
+                required
+                autocomplete="given-name"
+                class="w-full bg-black/15 border-transparent px-4 py-3 h-11 text-xs text-white placeholder:text-base-50 focus:border-white/60 focus:outline-none"
+              />
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <label for="lastName" class="uppercase text-white text-xs tracking-wide"
+                >Last name</label
+              >
+              <input
+                id="lastName"
+                type="text"
+                name="lastName"
+                required
+                autocomplete="family-name"
+                class="w-full bg-black/15 border-transparent px-4 py-3 h-11 text-xs text-white placeholder:text-base-50 focus:border-white/60 focus:outline-none"
+              />
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="flex flex-col gap-2">
+            <label for="email" class="uppercase text-white text-xs tracking-wide"
+              >Email</label
+            >
+            <input
+              id="email"
+              type="email"
+              name="email"
+              required
+              autocomplete="email"
+              class="w-full bg-black/15 border-transparent px-4 py-3 h-11 text-xs text-white placeholder:text-base-50 focus:border-white/60 focus:outline-none"
+            />
+          </div>
+
+          <!-- Company -->
+          <div class="flex flex-col gap-2">
+            <label for="company" class="uppercase text-white text-xs tracking-wide"
+              >Company or Studio</label
+            >
+            <input
+              id="company"
+              type="text"
+              name="company"
+              autocomplete="organization"
+              class="w-full bg-black/15 border-transparent px-4 py-3 h-11 text-xs text-white placeholder:text-base-50 focus:border-white/60 focus:outline-none"
+            />
+          </div>
+
+          <!-- Role -->
+          <div class="flex flex-col gap-2">
+            <label for="role" class="uppercase text-white text-xs tracking-wide"
+              >Role</label
+            >
+            <input
+              id="role"
+              type="text"
+              name="role"
+              autocomplete="organization-title"
+              class="w-full bg-black/15 border-transparent px-4 py-3 h-11 text-xs text-white placeholder:text-base-50 focus:border-white/60 focus:outline-none"
+            />
+          </div>
+
+          <!-- Attendance -->
+          <div class="flex flex-col gap-2">
+            <label for="attendance" class="uppercase text-white text-xs tracking-wide"
+              >Attendance preference</label
+            >
+            <select
+              id="attendance"
+              name="attendance"
+              required
+              class="w-full bg-black/15 border-transparent px-4 py-3 h-11 text-xs text-white placeholder:text-base-50 focus:border-white/60 focus:outline-none"
+            >
+              <option value="virtual">Virtual Pass — livestream access</option>
+              <option value="onsite-day">Day Pass — one on-site day</option>
+              <option value="onsite-studio">Studio Pass — two-day access</option
+              >
+              <option value="onsite-team">Team Residency — week-long</option>
+            </select>
+          </div>
+
+          <!-- Notes -->
+          <div class="flex flex-col gap-2">
+            <label for="notes" class="uppercase text-white text-xs tracking-wide"
+              >Notes (access needs, team size, questions)</label
+            >
+            <textarea
+              id="notes"
+              name="notes"
+              rows="5"
+              aria-describedby="notes-hint"
+              class="w-full bg-black/15 border-transparent px-4 py-3 h-11 text-xs text-white placeholder:text-base-50 focus:border-white/60 focus:outline-none"
+            ></textarea>
+            <p id="notes-hint" class="text-xs text-white">
+              You can include details about accessibility needs or group
+              registrations.
+            </p>
+          </div>
+
+          <!-- Consent + Submit -->
+          <div>
+            <div class="flex items-start gap-3 text-xs text-white">
+              <input
+                id="consent"
+                type="checkbox"
+                name="consent"
+                required
+                class="mt-1 border-base-400 accent-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+              />
+              <label for="consent" class="cursor-pointer">
+                I agree to receive event communications and logistics from the
+                Dusk team.
+              </label>
+            </div>
+
+            <Button
+              type="submit"
+              size="base"
+              variant="muted"
+              class="w-full mt-4 focus-visible:ring-2 focus-visible:ring-white/70"
+            >
+              Submit registration
+            </Button>
+          </div>
+        </form>
+
+        <aside class="lg:col-span-3 lg:col-start-6">
+          <div class="space-y-4">
+            <Text
+              tag="h2"
+              variant="textXL"
+              class="font-display uppercase text-accent-500"
+            >
+              What happens next
+            </Text>
+            <ul
+              role="list"
+              class="space-y-4 text-base-600 list-decimal list-inside"
+            >
+              <li>
+                We review submissions daily and confirm your registration via
+                email.
+              </li>
+              <li>
+                On-site passes receive accommodation guidance and travel tips
+                tailored to your team.
+              </li>
+              <li>
+                Virtual attendees get streaming credentials and a welcome kit
+                two weeks before the event.
+              </li>
+            </ul>
+            <div class="border-t border-white/10 pt-6">
+              <Text
+                tag="p"
+                variant="textXS"
+                class="font-display uppercase text-accent-500"
+              >
+                Need assistance?
+              </Text>
+              <Text tag="p" variant="textSM" class="text-base-600">
+                Email <a
+                  class="underline text-base-600"
+                  href="mailto:tickets@dusk.design">tickets@dusk.design</a
+                > or call +0 (000) 123-4567 for concierge support.
+              </Text>
+              <Text tag="p" variant="textXS" class="mt-4 text-base-600">
+                Prefer to compare tiers first? Explore the <a
+                  class="underline"
+                  href="/tickets">tickets page</a
+                > for pricing and inclusions.
+              </Text>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

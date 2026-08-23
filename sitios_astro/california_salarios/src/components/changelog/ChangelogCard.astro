@@ -1,0 +1,72 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+
+// Content
+const { page, description, pubDate, image, url } = {
+  url: "/changelog/" + Astro.props.post.id,
+  page: Astro.props.post.data.page,
+  image: Astro.props.post.data.image.url,
+  description: Astro.props.post.data.description,
+  pubDate: new Date(Astro.props.post.data.pubDate).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "2-digit",
+  }),
+};
+---
+
+<div class="relative pb-8 border-b border-dashed group border-black/20">
+  <div class="items-start grid grid-cols-1 gap-8 lg:grid-cols-3">
+    <Text
+      tag="span"
+      variant="display2XL"
+      class="font-bold tracking-tight text-black lg:sticky top-0 z-10"
+    >
+      {pubDate}
+    </Text>
+    <div
+      class="lg:col-span-2 lg:pl-8 lg:border-l lg:border-black/20 border-dashed"
+    >
+      <div class="relative">
+        <Image
+          src={image}
+          alt={page}
+          width={600}
+          height={600}
+          class="object-cover object-center w-full aspect-16/8"
+        />
+        <div aria-hidde="true" class="absolute inset-0 z-10 bg-cyan/80"></div>
+      </div>
+      <Text
+        tag="h3"
+        variant="display2XL"
+        class="font-bold tracking-tight text-black mt-4 text-balance"
+      >
+        {page}
+      </Text>
+      <Text
+        tag="p"
+        variant="textLG"
+        class="max-w-xl font-medium mt-2 text-black"
+      >
+        {description}
+      </Text>
+      <div class="flex mt-8">
+        <Button
+          href={url}
+          title={page}
+          aria-label={page}
+          size="xl"
+          variant="default"
+          isLink
+        >
+          Read further
+        </Button>
+      </div>
+    </div>
+  </div>
+</div>

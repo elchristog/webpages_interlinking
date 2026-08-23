@@ -1,0 +1,171 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import JobCard from "@/components/jobs/JobCard.astro";
+// Content
+import { getCollection } from "astro:content";
+const allJobs = await getCollection("jobs");
+// Benift array
+const benefits = [
+  [
+    {
+      title: "Decentralized Work Flexibility",
+      description:
+        "Work from anywhere in the world, collaborating with a global decentralized team. Embrace the freedom of digital nomadism and remote collaboration in the Web3 space.",
+    },
+    {
+      title: "Tokenized Compensation with Equity",
+      description:
+        "Join a cutting-edge Web3 project and earn tokens as part of your compensation, with the potential for real ownership in a rapidly growing decentralized network.",
+    },
+    {
+      title: "Superb Health & Wellness Benefits",
+      description:
+        "Take care of yourself and your community with health, dental, and vision benefits, ensuring peace of mind while you focus on building the decentralized future.",
+    },
+  ],
+  [
+    {
+      title: "Generous Parental Leave",
+      description:
+        "Enjoy meaningful time with your family and your new arrival, with ample paid parental leave that values personal life as much as your Web3 contributions.",
+    },
+    {
+      title: "Unlimited Time Off for Wellness",
+      description:
+        "Embrace true work-life balance with unlimited paid time off. Prioritize your well-being, with the flexibility to recharge when needed, alongside Web3 company holidays.",
+    },
+    {
+      title: "Customizable Remote Workspaces",
+      description:
+        "Tailor your workspace to suit your needs, whether you're at home or traveling. Create the perfect remote environment to foster creativity and productivity.",
+    },
+  ],
+];
+---
+<BaseLayout>
+  <section>
+    <Wrapper class="pt-42 grid grid-cols-1 gap-y-12 md:grid-cols-4">
+      <div class="md:col-span-2 md:col-start-2 md:text-enter">
+        <Text tag="span" variant="textSM" class="text-white"> Jobs </Text>
+        <Text
+          tag="h1"
+          variant="displayXL"
+          class="mt-12 text-white text-balance font-display"
+        >
+          Help revolutionize how <span class="block text-base-400"
+            >founders grow businesses</span
+          >
+        </Text>
+        <Text tag="p" variant="textBase" class="text-white mt-2 text-balance">
+          At Buio, we've created a platform to reimagine how founders finance
+          and grow their businesses. Come build with us, and help define
+          recurring revenue as an asset class.
+        </Text>
+        <div class="mt-8 flex">
+          <Button isLink href="#open-positions" size="base" variant="muted">
+            See open positions</Button
+          >
+        </div>
+      </div>
+      <div class="md:row-start-2 md:col-start-2 md:col-span-2">
+        <Text
+          tag="h4"
+          variant="displayMD"
+          class="mt-12 text-white text-balance font-display"
+        >
+          The magic of Web3 is fading. <span class="block text-base-400"
+            >We need your expertise to reignite it.</span
+          >
+        </Text>
+        <Wrapper variant="prose" class="mt-12">
+          <p>
+            Do you remember when Web3 felt revolutionary? Blockchain,
+            decentralization, and the power to truly own and control your
+            digital assets. Web3 promised to radically transform how we
+            interact, work, and build online. It felt like the future was within
+            reach.
+          </p>
+          <p>
+            NFTs, DAOs, smart contracts, decentralized finance (DeFi), Web3
+            wallets, tokenomics. These are the buzzwords that once sparked
+            excitement. But somewhere along the way, the true potential of Web3
+            got clouded by complexity and hype.
+          </p>
+          <p>
+            At [Your Company], we’re on a mission to bring back the original
+            magic of Web3 – a decentralized, open, and community-driven
+            internet. We're pushing the boundaries of technology to make Web3 a
+            place for real-world impact.
+          </p>
+          <p>
+            Smart contracts, Layer 2 scalability, governance tokens,
+            decentralized applications (dApps). These are just a few of the
+            elements we’re working with to reimagine what’s possible. We’re
+            looking for passionate people who understand the vision of Web3 and
+            who want to build the future together.
+          </p>
+          <p>
+            If you’re driven by innovation, if you believe in a truly
+            decentralized internet, if you’re excited about the next evolution
+            of blockchain technology – then you might be the perfect fit for our
+            team.
+          </p>
+          <p>Join us, and let’s reignite the magic of Web3.</p>
+        </Wrapper>
+      </div>
+      <dl
+        class="md:row-start-3 md:col-span-2 md:col-start-2 grid grid-cols-1 md:grid-cols-2"
+      >
+        {
+          benefits.map((column) => (
+            <div class="before:bg-white flex flex-col space-y-12 bg-white/5 py-8">
+              {column.map((benefit) => (
+                <div class="px-4 relative flex flex-col  justify-between before:absolute after:absolute before:bg-white before:top-0 before:left-0 before:h-6 before:w-px after:top-8 after:bottom-0 after:left-0 after:w-px">
+                  <div>
+                    <dt>
+                      <Text tag="h3" variant="textBase" class=" text-white">
+                        {benefit.title}
+                      </Text>
+                    </dt>
+                    <dd class="mt-4 text-sm text-base-400">
+                      {benefit.description}
+                    </dd>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ))
+        }
+      </dl>
+    </Wrapper>
+  </section>
+  <section id="open-positions">
+    <Wrapper
+      variant="standard"
+      class="py-12 grid grid-cols-1 gap-y-12 md:grid-cols-4"
+    >
+      <div class="md:col-span-2 md:col-start-2 md:text-enter">
+        <Text tag="span" variant="textSM" class="text-white">
+          Find somethingobs
+        </Text>
+        <Text
+          tag="h1"
+          variant="displayXL"
+          class="mt-12 text-white text-balance font-display"
+        >
+          Open positions
+        </Text>
+      </div>
+      <div
+        class="divide-y divide-white/10 border-y border-white/10 md:row-start-2 md:col-start-2 md:col-span-2"
+      >
+        {allJobs.map((post) => <JobCard post={post} />)}
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

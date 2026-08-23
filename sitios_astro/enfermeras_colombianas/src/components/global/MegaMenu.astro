@@ -1,0 +1,117 @@
+---
+import { Image } from "astro:assets";
+import House1 from "@/images/house1.png";
+import Agent1 from "@/images/agent1.png";
+import Text from "@/components/fundations/elements/Text.astro";
+import Entries2 from "@/components/blog/Entries2.astro";
+import { getCollection } from "astro:content";
+
+const allPosts = await getCollection("posts");
+const navigation = [
+  { link: { href: "/system/overview", text: "Overview" } },
+  { link: { href: "/system/style-guide", text: "Style guide" } },
+  { link: { href: "/for-sale", text: "Properties for sale" } },
+  { link: { href: "/for-rent/home", text: "Properties for rent" } },
+  { link: { href: "/sell-property", text: "Sell your property " } },
+  { link: { href: "/agents", text: "Meet our agents " } },
+  { link: { href: "/contact", text: "Contact us " } },
+];
+
+const whatweoffer = [
+  {
+    title: "Meet a local expert who can help your journey",
+    subtitle:
+      "Our network of local real estate professionals apply their local market knowledge to create a comprehensive and customized plan for your home. Find an agent who is closest you and learn their local expertise.",
+    link: { href: "/agents", text: "See all agents" },
+    image: { url: Agent1, alt: "#_" },
+  },
+  {
+    title: "Access our local expertise and exceptional service",
+    subtitle:
+      "With experts in every part of the world, we are local everywhere, With innovative technology and unrivaled service, our local brokerage offices can elevate your property and your home selling experience.",
+    link: { href: "/contact", text: "See your property" },
+    image: { url: House1, alt: "#_" },
+  },
+];
+---
+
+<nav
+  id="megamenu"
+  role="navigation"
+  aria-labelledby="menubutton"
+  data-state="closed"
+  class="grid text-sm text-base-600 grid-rows-[0fr] opacity-0 invisible w-0 overflow-hidden ml-auto transition-all duration-500 ease-[cubic-bezier(.4,.0,.20,1)] border-b border-base-200 mb-4"
+>
+  <div id="megamenu-panel" class="overflow-hidden border-none">
+    <div
+      class="grid grid-cols-1 gap-8 lg:grid-cols-3 py-8 xl:divide-x xl:divide-base-200"
+    >
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="md:col-span-2">
+          <Text tag="h2" variant="textBase" class="text-base-900 font-medium">
+            Navigation
+          </Text>
+          <ul
+            class="list-none text-base-500 mt-4 text-base gap-1 list-inside grid grid-cols-1 md:grid-cols-2 lg:col-span-2"
+          >
+            {navigation.map((navigation) => (
+              <>
+                <li>
+                  <a
+                    href={navigation.link.href}
+                    class="hover:text-base-900  text-base-500 mt-auto flex gap-3 items-center justify-between"
+                  >
+                    {navigation.link.text}
+                  </a>
+                </li>
+              </>
+            ))}
+          </ul>
+        </div>
+        <div class="hidden xl:block xl:col-span-2 xl:pr-8">
+          <Text tag="h2" variant="textBase" class="text-base-900 font-medium">
+            From the blog
+          </Text>
+          <ul
+            class="list-none text-base-500 mt-4 text-base space-y-1 list-inside"
+          >
+            {allPosts.slice(0, 1).map((post) => <Entries2 post={post} />)}
+          </ul>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:col-span-2 xl:pl-8">
+        {whatweoffer.map((whatweoffer) => (
+          <>
+            <div class="grid grid-cols-1 gap-8 2xl:grid-cols-2">
+              <div class="flex flex-col h-full justify-between">
+                <div>
+                  <Text tag="h3" variant="textBase" class="  text-base-900 ">
+                    {whatweoffer.title}
+                  </Text>
+                  <Text tag="p" variant="textSM" class="mt-2 text-pretty text-base-500">
+                    {whatweoffer.subtitle}
+                  </Text>
+                </div>
+                <div class="mt-8">
+                  <a
+                    href={whatweoffer.link.href}
+                    class="text-base-900  hover:text-base-500 mt-auto "
+                  >
+                    {whatweoffer.link.text}
+                  </a>
+                </div>
+              </div>
+              <Image
+                width={400}
+                height={400}
+                src={whatweoffer.image.url}
+                alt={whatweoffer.image.alt}
+                class="aspect-[4/3] hidden xl:block 2xl:aspect-[4/7] group-hover:scale-110 transition-transform object-cover object-top duration-500"
+              />
+            </div>
+          </>
+        ))}
+      </div>
+    </div>
+  </div>
+</nav>

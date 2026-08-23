@@ -1,0 +1,40 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+// Icons
+import ArrowRight from "@/components/fundations/icons/ArrowRight.astro";
+const { title, description, url } = {
+  url: "/helpcenter/" + Astro.props.post.id,
+  title: Astro.props.post.data.title,
+  description: Astro.props.post.data.description,
+};
+---
+
+<div
+  class="flex flex-col justify-between h-full p-8 overflow-hidden bg-base-50 group rounded-4xl"
+>
+  <div>
+    <Text
+      tag="h3"
+      variant="textLG"
+      class="font-display uppercase text-base-900"
+    >
+      {title}
+    </Text>
+    <Text tag="p" variant="textSM" class="pl-8 mt-2 font-display text-base-700">
+      {description}
+    </Text>
+  </div>
+  <Button
+    isLink
+    href={url}
+    title={title}
+    size="base"
+    variant="default"
+    iconOnly
+    class="mt-10"
+  >
+    <ArrowRight slot="icon" size="base" />
+  </Button>
+</div>

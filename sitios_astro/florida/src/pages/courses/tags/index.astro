@@ -1,0 +1,74 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Content
+import { getCollection } from "astro:content";
+// Get all courses
+const allCourses = await getCollection("courses");
+// Extract tags from all courses and count occurrences
+const tagCounts = allCourses.reduce((acc, post) => {
+  post.data.tags.forEach((tag) => {
+    acc[tag] = (acc[tag] || 0) + 1; // Count each tag per post
+  });
+  return acc;
+}, {});
+// Extract unique tags for display
+const tags = Object.keys(tagCounts);
+// Function to get the image for a specific tag
+function getTagImage(tag) {
+  const filteredCourses = allCourses.filter((post) =>
+    post.data.tags.includes(tag)
+  );
+  if (filteredCourses.length > 0) {
+    return filteredCourses[0].data.image.url; // Return the image of the first post with that tag
+  }
+}
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pt-24 pb-12 lg:pt-48">
+      <Text tag="h1" variant="textBase" class="text-primary">
+        Explore all our courses
+      </Text>
+      <Text
+        tag="p"
+        variant="textSM"
+        class="font-serif text-primary/60 text-balance"
+      >
+        Explore all our courses, from beginner to advanced topics.
+      </Text>
+      <div
+        class="flex flex-col pt-2 mt-2 border-t border-dotted gap-2 border-primary/10"
+      >
+        {
+          tags.map((tag) => (
+            <div class="relative flex items-baseline lg:justify-between">
+              <a href={`/courses/tags/${tag}`} class="absolute inset-0 z-10" />
+
+              <Text
+                tag="h3"
+                variant="textSM"
+                class="font-medium capitalize  text-primary text-balance group-hover:text-white"
+              >
+                {tag}
+              </Text>
+              <span class="flex-1 mx-2 border-b border-dotted border-primary/10" />
+              <Text
+                tag="p"
+                variant="textXS"
+                class="uppercase text-primary/60 group-hover:text-white/80"
+              >
+                {tagCounts[tag]}
+              </Text>
+            </div>
+          ))
+        }
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

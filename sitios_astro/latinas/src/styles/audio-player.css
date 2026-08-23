@@ -1,0 +1,71 @@
+
+  .audio-player input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background: black;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+  /* WebKit browsers (Chrome, Safari, Edge) */
+  .audio-player input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid black;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  .audio-player input[type="range"]::-webkit-slider-thumb:hover {
+    background: black;
+  }
+  /* Firefox */
+  .audio-player input[type="range"]::-moz-range-thumb {
+    width: 20px; /* match your working example or set to 12px for consistency */
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid black;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  .audio-player input[type="range"]::-moz-range-thumb:hover {
+    background: black;
+  }
+  /* Firefox track */
+  .audio-player input[type="range"]::-moz-range-track {
+    background: black;
+    height: 2px;
+    border-radius: 2px;
+  }
+  /* Optional: IE */
+  .audio-player input[type="range"]::-ms-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid black;
+    cursor: pointer;
+  }
+
+  /* Optional: Customize your player styles */
+.audio-player input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background: black;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  transition: background 0.3s;
+  cursor: pointer;
+}

@@ -1,0 +1,176 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+const pricingOptions = [
+  {
+    id: "individuals",
+    title: "Individuals",
+    monthly: "$19.00",
+    annual: "$15.00",
+    button: {
+      text: "Start Learning",
+      variant: "accent",
+    },
+    features: [
+      { title: "Complete Course Materials" },
+      { title: "Learn at Your Own Pace" },
+      { title: "Downloadable Design Assets" },
+      { title: "Peer Design Community" },
+      { title: "Certificate of Completion" },
+      { title: "Email Mentorship Access" },
+    ],
+  },
+  {
+    id: "teams",
+    title: "Teams",
+    monthly: "$499.00",
+    annual: "$459.00",
+    button: {
+      text: "Start Learning",
+      variant: "muted",
+    },
+    features: [
+      { title: "All Individual Features Included" },
+      { title: "Multi-Seat Team Access" },
+      { title: "Team Progress Dashboard" },
+      { title: "Priority Design Feedback" },
+      { title: "Exclusive Mini-Workshops" },
+      { title: "Early Access to New Modules" },
+    ],
+  },
+];
+---
+
+<!-- Pricing Cards -->
+<div class="mt-4 grid gap-1 sm:grid-cols-2 lg:grid-cols-2">
+  {
+    pricingOptions.map((tier) => (
+      <div>
+        <div class="flex flex-col p-4  bg-primary/2 rounded-xl">
+          <div class="flex flex-col">
+            <div>
+              <Text tag="h3" variant="textSM" class="text-primary">
+                {tier.title}
+              </Text>
+              <Text variant="textBase" class="font-medium   mt-2  text-primary">
+                <span
+                  class="pricing-amount"
+                  data-monthly={tier.monthly}
+                  data-annual={tier.annual}
+                >
+                  {tier.monthly}
+                </span>
+                <span class="text-sm font-normal tracking-normal normal-case">
+                  <span class="monthly-text">/Month</span>
+                  <span class="annual-text" style="display: none;">
+                    /Annually
+                  </span>
+                </span>
+              </Text>
+            </div>
+
+            <ul
+              class="flex flex-col gap-1 text-xs border-t border-dotted border-primary/10 mt-2 pt-2 text-primary/60"
+              role="list"
+            >
+              {tier.features.map((feature) => (
+                <li>
+                  <Text tag="p" variant="textXS" class=" text-primary/60">
+                    — {feature.title}
+                  </Text>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <Button class="mt-2 w-fit" variant={tier.button.variant} size="xs">
+          {tier.button.text}
+        </Button>
+      </div>
+    ))
+  }
+</div>
+<script type="module">
+  // Initialize vanilla JS pricing toggle functionality
+  document.addEventListener("DOMContentLoaded", function () {
+    const monthlyBtn = document.getElementById("monthly-btn");
+    const annualBtn = document.getElementById("annual-btn");
+    const toggleSlider = document.getElementById("toggle-slider");
+    const pricingAmounts = document.querySelectorAll(".pricing-amount");
+    const monthlyTexts = document.querySelectorAll(".monthly-text");
+    const annualTexts = document.querySelectorAll(".annual-text");
+
+    // accent state is monthly
+    let currentDuration = "monthly";
+
+    // Function to update slider position and size
+    function updateSliderPosition(activeBtn) {
+      const btnRect = activeBtn.getBoundingClientRect();
+      const containerRect = activeBtn.parentElement.getBoundingClientRect();
+
+      // Calculate position relative to container
+      const leftOffset = btnRect.left - containerRect.left;
+
+      // Update slider size and position to match button exactly
+      toggleSlider.style.width = `${btnRect.width}px`;
+      toggleSlider.style.transform = `translateX(${leftOffset}px)`;
+    }
+
+    // Function to update UI based on selected duration
+    function updatePricingUI(duration) {
+      // Update toggle slider position
+      if (duration === "monthly") {
+        updateSliderPosition(monthlyBtn);
+        monthlyBtn.classList.add("text-primary/60");
+        monthlyBtn.classList.remove("focus:text-primary", "hover:text-primary");
+        annualBtn.classList.remove("text-primary/60");
+        annualBtn.classList.add("focus:text-primary", "hover:text-primary");
+        monthlyBtn.setAttribute("aria-pressed", "true");
+        annualBtn.setAttribute("aria-pressed", "false");
+      } else {
+        updateSliderPosition(annualBtn);
+        annualBtn.classList.add("text-primary/60");
+        annualBtn.classList.remove("focus:text-primary", "hover:text-primary");
+        monthlyBtn.classList.remove("text-primary/60");
+        monthlyBtn.classList.add("focus:text-primary", "hover:text-primary");
+        monthlyBtn.setAttribute("aria-pressed", "false");
+        annualBtn.setAttribute("aria-pressed", "true");
+      }
+
+      // Update pricing text
+      pricingAmounts.forEach((amount) => {
+        amount.textContent = amount.dataset[duration];
+      });
+
+      // Show/hide appropriate text
+      if (duration === "monthly") {
+        monthlyTexts.forEach((text) => (text.style.display = "inline"));
+        annualTexts.forEach((text) => (text.style.display = "none"));
+      } else {
+        monthlyTexts.forEach((text) => (text.style.display = "none"));
+        annualTexts.forEach((text) => (text.style.display = "inline"));
+      }
+
+      // Update current duration
+      currentDuration = duration;
+    }
+
+    // Add event listeners to buttons
+    monthlyBtn.addEventListener("click", function () {
+      updatePricingUI("monthly");
+    });
+
+    annualBtn.addEventListener("click", function () {
+      updatePricingUI("annual");
+    });
+
+    // Handle window resize to maintain proper positioning
+    window.addEventListener("resize", function () {
+      updatePricingUI(currentDuration);
+    });
+
+    // Initialize UI
+    updatePricingUI(currentDuration);
+  });
+</script>

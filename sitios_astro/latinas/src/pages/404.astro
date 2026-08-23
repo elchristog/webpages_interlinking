@@ -1,0 +1,41 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<BaseLayout hideNav={true} hideFooter={true}>
+  <section>
+    <Wrapper variant="standard" class="py-4">
+      <div
+        class="p-10 rounded-4xl bg-base-900 lg:px-20 lg:h-[calc(100svh-2rem)] flex flex-col justify-center"
+      >
+        <div class="mt-auto">
+          <span class="text-base-400 text-xs font-display">404</span>
+
+          <Text
+            tag="h1"
+            variant="displaySM"
+            class="font-display text-white md:w-1/2 mt-8 text-balance"
+          >
+            Well, this is awkward
+          </Text>
+          <Text
+            tag="p"
+            variant="textSM"
+            class="text-base-200 pl-8 mt-4 md:w-2/4 text-balance"
+          >
+            The page you're looking for doesn’t exist. Or maybe it ran away.
+            Either way, it’s not here—but you are, and that’s what counts.
+          </Text>
+
+          <Button isLink href="/" size="sm" variant="accent" class="mt-8 w-fit">
+            Go to Homepage
+          </Button>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

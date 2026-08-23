@@ -1,0 +1,39 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+---
+
+<div class="flex flex-col bg-base-100 p-8 mt-12 rounded-xl">
+  <Text
+    tag="h1"
+    variant="displaySM"
+    class="text-base-900 text-balance font-display"
+  >
+    Subscribe to to our newsletter, get the latest news and updates straight to
+    your inbox.
+  </Text>
+  <div class="max-w-md">
+    <form class="mt-4 flex gap-2 flex-col xl:flex-row xl:items-end">
+      <div class="flex flex-col w-full">
+        <label for="email" class="text-xs text-base-600">Email address</label>
+        <div class="mt-1">
+          <input
+            type="email"
+            id="email"
+            required
+            aria-label="Email address"
+            autocomplete="email"
+            class="block w-full h-9 px-4 py-2 text-sm text-accent-700 border border-transparent rounded-lg appearance-none duration-300 bg-white placeholder-base-400 focus:bg-transparent focus:outline-none focus:ring-accent-500 focus:ring-offset-2 focus:ring-2 focus:ring-offset-base-200"
+          />
+        </div>
+      </div>
+      <Button size="xs" variant="accent" type="submit" class="flex"
+        >Subscribe</Button
+      >
+    </form>
+    <Text tag="p" variant="textXS" class="mt-1 text-base-600">
+      We won't spam you on weekdays, only on weekends.
+    </Text>
+  </div>
+</div>

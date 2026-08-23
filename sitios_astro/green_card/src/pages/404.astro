@@ -1,0 +1,50 @@
+---
+// Assets
+import Shape3 from "@/components/assets/Shape3.astro";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<BaseLayout>
+  <section class="bg-white overflow-hidden relative">
+    <Wrapper variant="standard" class="pt-24 lg:pt-32 pb-12">
+      <Shape3
+        class="absolute w-full h-full opacity-[0.2] z-0 -right-64 sm:-right-96 -bottom-96"
+      />
+      <div class="relative">
+        <div class="w-full max-w-xl">
+          <Text
+            tag="h1"
+            variant="displayLG"
+            class="tracking-tight text-accent-800 text-balance"
+          >
+            Bummer! You encountered a 404 error.
+          </Text>
+          <Text
+            tag="p"
+            variant="textXL"
+            class="text-accent-500 mt-8 text-balance"
+          >
+            You are looking for something that doesn't exist. We apologize for
+            the inconvenience. Please try again. If the problem persists, go
+            back to the homepage.
+          </Text>
+        </div>
+        <div class="flex mt-12">
+          <a
+            title="link to your page"
+            aria-label="your label"
+            href="/"
+            class="flex size-32 text-sm md:text-base lg:text-2xl xl:text-3xl text-center md:size-32 shrink-0 lg:size-52 2xl:size-64 text-white hover:bg-base-900 hover:text-base-200 duration-300 items-center justify-center rounded-full bg-accent-600"
+          >
+            <p>
+              <span class="block">Go back</span>
+            </p>
+          </a>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

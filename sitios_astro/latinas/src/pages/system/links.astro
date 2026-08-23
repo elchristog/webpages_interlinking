@@ -1,0 +1,523 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import Plus from "@/components/fundations/icons/Plus.astro";
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pt-12">
+      <Text tag="h1" variant="textBase" class="font-medium text-base-900">
+        Links
+      </Text>
+      <div class="mt-2 grid grid-cols-1 md:grid-cols-3 gap-12 text-base-400">
+        <!-- Default -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <Text
+              tag="p"
+              variant="textXS"
+              class="font-medium uppercase text-base-900"
+            >
+              Default text
+            </Text>
+            <div class="flex flex-col mt-2 gap-4">
+              <Button isLink href="#_" class="w-auto" size="xxs" variant="default"
+                >Default XXS</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="xs" variant="default"
+                >Default XS</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="sm" variant="default"
+                >Default SM</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="base" variant="default"
+                >Default Base</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="md" variant="default"
+                >Default MD</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="lg" variant="default"
+                >Default LG</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="xl" variant="default"
+                >Default XL</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="xxl" variant="default"
+                >Default XXL</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="16" variant="default"
+                >Default 16</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="17" variant="default"
+                >Default 17</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="18" variant="default"
+                >Default 18</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="19" variant="default"
+                >Default 19</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="20" variant="default"
+                >Default 20</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="21" variant="default"
+                >Default 21</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="22" variant="default"
+                >Default 22</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="23" variant="default"
+                >Default 23</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="24" variant="default"
+                >Default 24</Button
+              >
+            </div>
+          </div>
+          <div>
+            <Text
+              tag="p"
+              variant="textXS"
+              class="font-medium uppercase text-base-900"
+            >
+              Icon
+            </Text>
+            <div class="flex flex-col mt-2 gap-4">
+              <Button isLink href="#_" size="xxs" variant="default" iconOnly
+                ><Plus slot="icon" size="sm" /></Button
+              >
+              <Button isLink href="#_" size="xs" variant="default" iconOnly
+                ><Plus slot="icon" size="sm" /></Button
+              >
+              <Button isLink href="#_" size="sm" variant="default" iconOnly
+                ><Plus slot="icon" size="base" /></Button
+              >
+              <Button isLink href="#_" size="base" variant="default" iconOnly
+                ><Plus slot="icon" size="base" /></Button
+              >
+              <Button isLink href="#_" size="md" variant="default" iconOnly
+                ><Plus slot="icon" size="lg" /></Button
+              >
+              <Button isLink href="#_" size="lg" variant="default" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button isLink href="#_" size="xl" variant="default" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button isLink href="#_" size="xxl" variant="default" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button isLink href="#_" size="16" variant="default" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button isLink href="#_" size="17" variant="default" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button isLink href="#_" size="18" variant="default" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button isLink href="#_" size="19" variant="default" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button isLink href="#_" size="20" variant="default" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button isLink href="#_" size="21" variant="default" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button isLink href="#_" size="22" variant="default" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button isLink href="#_" size="23" variant="default" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button isLink href="#_" size="24" variant="default" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Accent -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <Text
+              tag="p"
+              variant="textXS"
+              class="font-medium uppercase text-base-900"
+            >
+              Accent text
+            </Text>
+            <div class="flex flex-col mt-2 gap-4">
+              <Button isLink href="#_" class="w-auto" size="xxs" variant="accent"
+                >Accent XXS</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="xs" variant="accent"
+                >Accent XS</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="sm" variant="accent"
+                >Accent SM</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="base" variant="accent"
+                >Accent Base</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="md" variant="accent"
+                >Accent MD</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="lg" variant="accent"
+                >Accent LG</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="xl" variant="accent"
+                >Accent XL</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="xxl" variant="accent"
+                >Accent XXL</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="16" variant="accent"
+                >Accent 16</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="17" variant="accent"
+                >Accent 17</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="18" variant="accent"
+                >Accent 18</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="19" variant="accent"
+                >Accent 19</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="20" variant="accent"
+                >Accent 20</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="21" variant="accent"
+                >Accent 21</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="22" variant="accent"
+                >Accent 22</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="23" variant="accent"
+                >Accent 23</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="24" variant="accent"
+                >Accent 24</Button
+              >
+            </div>
+          </div>
+          <div>
+            <Text
+              tag="p"
+              variant="textXS"
+              class="font-medium uppercase text-base-900"
+            >
+              Icon
+            </Text>
+            <div class="flex flex-col mt-2 gap-4">
+              <Button isLink href="#_" size="xxs" variant="accent" iconOnly
+                ><Plus slot="icon" size="sm" /></Button
+              >
+              <Button isLink href="#_" size="xs" variant="accent" iconOnly
+                ><Plus slot="icon" size="sm" /></Button
+              >
+              <Button isLink href="#_" size="sm" variant="accent" iconOnly
+                ><Plus slot="icon" size="base" /></Button
+              >
+              <Button isLink href="#_" size="base" variant="accent" iconOnly
+                ><Plus slot="icon" size="base" /></Button
+              >
+              <Button isLink href="#_" size="md" variant="accent" iconOnly
+                ><Plus slot="icon" size="lg" /></Button
+              >
+              <Button isLink href="#_" size="lg" variant="accent" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button isLink href="#_" size="xl" variant="accent" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button isLink href="#_" size="xxl" variant="accent" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button isLink href="#_" size="16" variant="accent" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button isLink href="#_" size="17" variant="accent" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button isLink href="#_" size="18" variant="accent" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button isLink href="#_" size="19" variant="accent" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button isLink href="#_" size="20" variant="accent" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button isLink href="#_" size="21" variant="accent" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button isLink href="#_" size="22" variant="accent" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button isLink href="#_" size="23" variant="accent" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button isLink href="#_" size="24" variant="accent" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Muted -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <Text
+              tag="p"
+              variant="textXS"
+              class="font-medium uppercase text-base-900"
+            >
+              Muted text
+            </Text>
+            <div class="flex flex-col mt-2 gap-4">
+              <Button isLink href="#_" class="w-auto" size="xxs" variant="muted"
+                >Muted XXS</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="xs" variant="muted"
+                >Muted XS</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="sm" variant="muted"
+                >Muted SM</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="base" variant="muted"
+                >Muted Base</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="md" variant="muted"
+                >Muted MD</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="lg" variant="muted"
+                >Muted LG</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="xl" variant="muted"
+                >Muted XL</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="xxl" variant="muted"
+                >Muted XXL</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="16" variant="muted"
+                >Muted 16</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="17" variant="muted"
+                >Muted 17</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="18" variant="muted"
+                >Muted 18</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="19" variant="muted"
+                >Muted 19</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="20" variant="muted"
+                >Muted 20</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="21" variant="muted"
+                >Muted 21</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="22" variant="muted"
+                >Muted 22</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="23" variant="muted"
+                >Muted 23</Button
+              >
+              <Button isLink href="#_" class="w-auto" size="24" variant="muted"
+                >Muted 24</Button
+              >
+            </div>
+          </div>
+          <div>
+            <Text
+              tag="p"
+              variant="textXS"
+              class="font-medium uppercase text-base-900"
+            >
+              Icon
+            </Text>
+            <div class="flex flex-col mt-2 gap-4">
+              <Button isLink href="#_" size="xxs" variant="muted" iconOnly
+                ><Plus slot="icon" size="sm" /></Button
+              >
+              <Button isLink href="#_" size="xs" variant="muted" iconOnly
+                ><Plus slot="icon" size="sm" /></Button
+              >
+              <Button isLink href="#_" size="sm" variant="muted" iconOnly
+                ><Plus slot="icon" size="base" /></Button
+              >
+              <Button isLink href="#_" size="base" variant="muted" iconOnly
+                ><Plus slot="icon" size="base" /></Button
+              >
+              <Button isLink href="#_" size="md" variant="muted" iconOnly
+                ><Plus slot="icon" size="lg" /></Button
+              >
+              <Button isLink href="#_" size="lg" variant="muted" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button isLink href="#_" size="xl" variant="muted" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button isLink href="#_" size="xxl" variant="muted" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button isLink href="#_" size="16" variant="muted" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button isLink href="#_" size="17" variant="muted" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button isLink href="#_" size="18" variant="muted" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button isLink href="#_" size="19" variant="muted" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button isLink href="#_" size="20" variant="muted" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button isLink href="#_" size="21" variant="muted" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button isLink href="#_" size="22" variant="muted" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button isLink href="#_" size="23" variant="muted" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button isLink href="#_" size="24" variant="muted" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+            </div>
+          </div>
+        </div>
+        <!-- Pink -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+  <div>
+    <Text
+      tag="p"
+      variant="textXS"
+      class="font-medium uppercase text-base-900"
+    >
+      Pink text
+    </Text>
+    <div class="flex flex-col mt-2 gap-4">
+      <Button isLink href="#_" class="w-auto" size="xxs" variant="pink">Pink XXS</Button>
+      <Button isLink href="#_" class="w-auto" size="xs" variant="pink">Pink XS</Button>
+      <Button isLink href="#_" class="w-auto" size="sm" variant="pink">Pink SM</Button>
+      <Button isLink href="#_" class="w-auto" size="base" variant="pink">Pink Base</Button>
+      <Button isLink href="#_" class="w-auto" size="md" variant="pink">Pink MD</Button>
+      <Button isLink href="#_" class="w-auto" size="lg" variant="pink">Pink LG</Button>
+      <Button isLink href="#_" class="w-auto" size="xl" variant="pink">Pink XL</Button>
+      <Button isLink href="#_" class="w-auto" size="xxl" variant="pink">Pink XXL</Button>
+      <Button isLink href="#_" class="w-auto" size="16" variant="pink">Pink 16</Button>
+      <Button isLink href="#_" class="w-auto" size="17" variant="pink">Pink 17</Button>
+      <Button isLink href="#_" class="w-auto" size="18" variant="pink">Pink 18</Button>
+      <Button isLink href="#_" class="w-auto" size="19" variant="pink">Pink 19</Button>
+      <Button isLink href="#_" class="w-auto" size="20" variant="pink">Pink 20</Button>
+      <Button isLink href="#_" class="w-auto" size="21" variant="pink">Pink 21</Button>
+      <Button isLink href="#_" class="w-auto" size="22" variant="pink">Pink 22</Button>
+      <Button isLink href="#_" class="w-auto" size="23" variant="pink">Pink 23</Button>
+      <Button isLink href="#_" class="w-auto" size="24" variant="pink">Pink 24</Button>
+    </div>
+  </div>
+  <div>
+    <Text
+      tag="p"
+      variant="textXS"
+      class="font-medium uppercase text-base-900"
+    >
+      Icon
+    </Text>
+    <div class="flex flex-col mt-2 gap-4">
+      <Button isLink href="#_" size="xxs" variant="pink" iconOnly><Plus slot="icon" size="sm" /></Button>
+      <Button isLink href="#_" size="xs" variant="pink" iconOnly><Plus slot="icon" size="sm" /></Button>
+      <Button isLink href="#_" size="sm" variant="pink" iconOnly><Plus slot="icon" size="base" /></Button>
+      <Button isLink href="#_" size="base" variant="pink" iconOnly><Plus slot="icon" size="base" /></Button>
+      <Button isLink href="#_" size="md" variant="pink" iconOnly><Plus slot="icon" size="lg" /></Button>
+      <Button isLink href="#_" size="lg" variant="pink" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button isLink href="#_" size="xl" variant="pink" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button isLink href="#_" size="xxl" variant="pink" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button isLink href="#_" size="16" variant="pink" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button isLink href="#_" size="17" variant="pink" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button isLink href="#_" size="18" variant="pink" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button isLink href="#_" size="19" variant="pink" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button isLink href="#_" size="20" variant="pink" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button isLink href="#_" size="21" variant="pink" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button isLink href="#_" size="22" variant="pink" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button isLink href="#_" size="23" variant="pink" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button isLink href="#_" size="24" variant="pink" iconOnly><Plus slot="icon" size="xl" /></Button>
+    </div>
+  </div>
+</div>
+<!-- Orange -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+  <div>
+    <Text
+      tag="p"
+      variant="textXS"
+      class="font-medium uppercase text-base-900"
+    >
+      Orange text
+    </Text>
+    <div class="flex flex-col mt-2 gap-4">
+      <Button isLink href="#_" class="w-auto" size="xxs" variant="orange">Orange XXS</Button>
+      <Button isLink href="#_" class="w-auto" size="xs" variant="orange">Orange XS</Button>
+      <Button isLink href="#_" class="w-auto" size="sm" variant="orange">Orange SM</Button>
+      <Button isLink href="#_" class="w-auto" size="base" variant="orange">Orange Base</Button>
+      <Button isLink href="#_" class="w-auto" size="md" variant="orange">Orange MD</Button>
+      <Button isLink href="#_" class="w-auto" size="lg" variant="orange">Orange LG</Button>
+      <Button isLink href="#_" class="w-auto" size="xl" variant="orange">Orange XL</Button>
+      <Button isLink href="#_" class="w-auto" size="xxl" variant="orange">Orange XXL</Button>
+      <Button isLink href="#_" class="w-auto" size="16" variant="orange">Orange 16</Button>
+      <Button isLink href="#_" class="w-auto" size="17" variant="orange">Orange 17</Button>
+      <Button isLink href="#_" class="w-auto" size="18" variant="orange">Orange 18</Button>
+      <Button isLink href="#_" class="w-auto" size="19" variant="orange">Orange 19</Button>
+      <Button isLink href="#_" class="w-auto" size="20" variant="orange">Orange 20</Button>
+      <Button isLink href="#_" class="w-auto" size="21" variant="orange">Orange 21</Button>
+      <Button isLink href="#_" class="w-auto" size="22" variant="orange">Orange 22</Button>
+      <Button isLink href="#_" class="w-auto" size="23" variant="orange">Orange 23</Button>
+      <Button isLink href="#_" class="w-auto" size="24" variant="orange">Orange 24</Button>
+    </div>
+  </div>
+  <div>
+    <Text
+      tag="p"
+      variant="textXS"
+      class="font-medium uppercase text-base-900"
+    >
+      Icon
+    </Text>
+    <div class="flex flex-col mt-2 gap-4">
+      <Button isLink href="#_" size="xxs" variant="orange" iconOnly><Plus slot="icon" size="sm" /></Button>
+      <Button isLink href="#_" size="xs" variant="orange" iconOnly><Plus slot="icon" size="sm" /></Button>
+      <Button isLink href="#_" size="sm" variant="orange" iconOnly><Plus slot="icon" size="base" /></Button>
+      <Button isLink href="#_" size="base" variant="orange" iconOnly><Plus slot="icon" size="base" /></Button>
+      <Button isLink href="#_" size="md" variant="orange" iconOnly><Plus slot="icon" size="lg" /></Button>
+      <Button isLink href="#_" size="lg" variant="orange" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button isLink href="#_" size="xl" variant="orange" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button isLink href="#_" size="xxl" variant="orange" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button isLink href="#_" size="16" variant="orange" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button isLink href="#_" size="17" variant="orange" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button isLink href="#_" size="18" variant="orange" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button isLink href="#_" size="19" variant="orange" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button isLink href="#_" size="20" variant="orange" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button isLink href="#_" size="21" variant="orange" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button isLink href="#_" size="22" variant="orange" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button isLink href="#_" size="23" variant="orange" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button isLink href="#_" size="24" variant="orange" iconOnly><Plus slot="icon" size="xl" /></Button>
+    </div>
+  </div>
+</div>
+
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

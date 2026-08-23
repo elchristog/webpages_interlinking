@@ -1,0 +1,161 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+const pages = [
+  {
+    title: "Content collections",
+    categories: [
+      {
+        name: "Newspaper",
+        links: [
+          { href: "/", text: "Home" },
+          { href: "/blog/index", text: "Home 2" },
+          { href: "/blog/posts/1", text: "Details paywall" },
+          { href: "/blog/posts/2", text: "Details open" },
+          { href: "/blog/top-stories", text: "Top Stories" },
+          { href: "/blog/featured", text: "Featured" },
+          { href: "/blog/breaking", text: "Breaking" },
+          { href: "/blog/subs-only", text: "Subscribers only" },
+          { href: "/blog/tags", text: "Tag index" },
+          { href: "/blog/tags/finance", text: "Tag category" },
+          { href: "/rss.xml", text: "RSS" },
+        ],
+      },
+      {
+        name: "Podcasts",
+        links: [
+          { href: "/podcast", text: "Home" },
+          { href: "/podcast/episodes/1", text: "Details paywall" },
+          { href: "/podcast/episodes/2", text: "Details open" },
+          { href: "/podcast/series", text: "Series" },
+          { href: "/podcast/featured", text: "Featured" },
+          { href: "/podcast/guests", text: "Guests" },
+          { href: "/podcast/subs-only", text: "Subscribers only" },
+          { href: "/podcast/tags", text: "Tag index" },
+          { href: "/podcast/tags/finance", text: "Tag category" },
+        ],
+      },
+      {
+        name: "Authors",
+        links: [
+          { href: "/authors", text: "Home" },
+          { href: "/authors/jordan-wells", text: "Details" },
+        ],
+      },
+      {
+        name: "Jobs",
+        links: [
+          { href: "/jobs", text: "Home" },
+          { href: "/jobs/1", text: "Details" },
+          { href: "/jobs/apply", text: "Apply" },
+        ],
+      },
+      {
+        name: "Help Center",
+        links: [
+          { href: "/helpcenter", text: "Home" },
+          { href: "/helpcenter/1", text: "Details" },
+        ],
+      },
+      {
+        name: "Legal",
+        links: [{ href: "/legal/terms", text: "Details" }],
+      },
+    ],
+  },
+  {
+    title: "Static",
+    categories: [
+      {
+        name: "Pages",
+        links: [
+          { href: "/about", text: "About" },
+          { href: "/404", text: "Error 404" },
+          { href: "/advertise", text: "Advertise" },
+          { href: "/membership", text: "Membership" },
+        ],
+      },
+      {
+        name: "Forms",
+        links: [
+          { href: "/jobs/apply", text: "Apply" },
+          { href: "/sign-in", text: "Sign In" },
+          { href: "/sign-up", text: "Sign Up" },
+          { href: "/contact", text: "Contact" },
+          { href: "/reset", text: "Password Reset" },
+        ],
+      },
+      {
+        name: "System",
+        links: [
+          { href: "/system/colors", text: "Colors" },
+          { href: "/system/links", text: "Links" },
+          { href: "/system/buttons", text: "Buttons" },
+          { href: "/system/typography", text: "Typography" },
+          {
+            href: "https://lexingtonthemes.com/legal/license",
+            text: "License",
+          },
+          {
+            href: "https://lexingtonthemes.com/documentation/",
+            text: "Documentation",
+          },
+        ],
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-12">
+      <Text tag="h1" variant="textLG" class="text-base-900 font-display">
+        Overview
+      </Text>
+      <div class="grid grid-cols-2 gap-12 mt-8">
+        {
+          pages.map((section) => (
+            <div class="flex flex-col  mt-2 relative before:absolute after:absolute before:bg-base-950 after:bg-base-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px pt-4">
+              <Text
+                tag="h3"
+                variant="textBase"
+                class=" font-medium text-base-900       "
+              >
+                {section.title}
+              </Text>
+              <div class=" gap-y-12 gap-x-6 grid grid-cols-2 xl:grid-cols-3 mt-8">
+                {section.categories.map((category) => (
+                  <div>
+                    <Text
+                      tag="h3"
+                      variant="textBase"
+                      class=" font-medium text-base-900  "
+                    >
+                      {category.name}
+                    </Text>
+                    <ul role="list" class="grid grid-cols-1  mt-2">
+                      {category.links.map((link) => (
+                        <li>
+                          <a
+                            href={link.href}
+                            class="text-base-600 hover:text-base-900  duration-200 text-xs"
+                          >
+                            {link.text}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

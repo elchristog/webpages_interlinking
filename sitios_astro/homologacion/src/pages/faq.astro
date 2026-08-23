@@ -1,0 +1,166 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+
+const faqSections = [
+  {
+    title: "General",
+    faqs: [
+      {
+        question: "What is the focus of Swiss Design Week?",
+        answer:
+          "Dusk curates a full week dedicated to Swiss design principles applied to digital products. Expect talks, ateliers, and critiques that blend precision, typography, systems thinking, and interaction craft for product teams.",
+      },
+      {
+        question: "Who should attend?",
+        answer:
+          "Product designers, design directors, UX researchers, prototypers, and engineers who collaborate closely with design systems will gain the most. We also welcome students and independent studios eager to deepen their practice.",
+      },
+      {
+        question: "Where does the event take place?",
+        answer:
+          "The on-site programme is hosted at the Montreal Design Centre. Keynotes occur in Helvetica Hall, with studios and workshops across Modulor Studio, Lucid Room, and the Ratio Lab.",
+      },
+    ],
+  },
+  {
+    title: "Tickets & Registration",
+    faqs: [
+      {
+        question: "How do I register for the virtual programme?",
+        answer:
+          "Secure a free Virtual Pass by registering through the Join Virtual Programme CTA. Once confirmed, you will receive streaming credentials and a reminder 48 hours before the event begins.",
+      },
+      {
+        question: "Can I upgrade my pass after purchase?",
+        answer:
+          "Yes. Day Passes can be upgraded to Studio Passes or Team Residency access up to 10 days before the event. Contact tickets@dusk.design with your order number and preferred tier.",
+      },
+      {
+        question: "Do you offer discounts for students or non-profits?",
+        answer:
+          "We reserve a limited number of 30% reduced-rate Day Passes for students, non-profits, and civic design labs. Submit a request via the registration form or email tickets@dusk.design with verification.",
+      },
+    ],
+  },
+  {
+    title: "Programme & Experience",
+    faqs: [
+      {
+        question: "Will sessions be recorded?",
+        answer:
+          "Yes. All keynotes and select ateliers are recorded and available on-demand for 30 days. Studio Pass and Team Residency attendees also receive extended access to workshop materials.",
+      },
+      {
+        question: "How are sessions structured?",
+        answer:
+          "Each day moves from foundational lectures to applied labs. Morning keynotes unpack theory, afternoon ateliers dive into critiques and prototyping, and evenings host salons focused on typography, interaction, and systems thinking.",
+      },
+      {
+        question: "Are sessions available in multiple languages?",
+        answer:
+          "Talks are presented in English with real-time captioning in English and French. We are exploring additional languages based on demand; let us know your needs when registering.",
+      },
+    ],
+  },
+  {
+    title: "Travel & Logistics",
+    faqs: [
+      {
+        question: "Which airports and transit options are nearby?",
+        answer:
+          "Montreal-Pierre Elliott Trudeau International Airport (YUL) is 25 minutes from the venue. The 747 shuttle and the Orange Line metro (Place-d'Armes station) provide direct connections downtown.",
+      },
+      {
+        question: "Do you have hotel partners?",
+        answer:
+          "Yes. Studio Pass and Team Residency attendees receive preferred rates at Hotel Monochrome and Gridline Suites. Details are included in your confirmation email.",
+      },
+      {
+        question: "Is the venue accessible?",
+        answer:
+          "The entire campus is wheelchair accessible with step-free routes, priority seating, and assistive listening. If you require specific accommodations, email care@dusk.design so we can prepare.",
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-32">
+      <div class="grid grid-cols-1 lg:grid-cols-12 items-start">
+        <div class="pb-8 lg:col-span-8">
+          <Text
+            tag="h1"
+            variant="displayMD"
+            class="text-balance text-accent-500 font-display uppercase leading-tight"
+          >
+            Frequently asked questions
+          </Text>
+          <Text
+            tag="p"
+            variant="textBase"
+            class="text-base-600 font-medium max-w-2xl mt-2 text-balance"
+          >
+            Planning your week at Dusk? Browse answers on access, travel, and
+            the programme. Still unsure? Email
+            <a
+              class="underline hover:text-accent-500"
+              href="mailto:hello@dusk.design">hello@dusk.design</a
+            >
+            and the team will respond within one business day.
+          </Text>
+        </div>
+        <div
+          aria-hidden="true"
+          class="hidden lg:grid grid-cols-2 lg:grid-cols-4 *:p-8 *:aspect-square *:bg-accent-500 *:flex lg:col-span-4"
+        >
+          <div></div>
+          <div class="lg:col-start-3"></div>
+          <div></div>
+          <div class="lg:col-start-3"></div>
+        </div>
+      </div>
+
+      <div class="space-y-12 bg-accent-500">
+        {
+          faqSections.map((section) => (
+            <section class="border-y border-dashed border-black/10">
+              <header class="border-b border-black/10 border-dashed px-6 py-6 sm:px-10">
+                <Text
+                  tag="h2"
+                  variant="displaySM"
+                  class="font-display uppercase text-white"
+                >
+                  {section.title}
+                </Text>
+              </header>
+
+              <ul class="divide-y divide-black/10 divide-dashed">
+                {section.faqs.map((faq) => (
+                  <li class="px-6 py-6 sm:px-10">
+                    <details class="group">
+                      <summary class="flex cursor-pointer items-center justify-between gap-6 text-left font-display text-lg uppercase text-white transition hover:text-white">
+                        <span>{faq.question}</span>
+                        <span class="text-white transition group-open:rotate-45 text-xl">
+                          +
+                        </span>
+                      </summary>
+                      <div class="mt-4 border-l border-white pl-4 text-base-200">
+                        <Text tag="p" variant="textLG" class="text-base-200">
+                          {faq.answer}
+                        </Text>
+                      </div>
+                    </details>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))
+        }
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

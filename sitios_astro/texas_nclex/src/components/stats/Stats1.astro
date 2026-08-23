@@ -1,0 +1,182 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Counters data
+const counters = [
+  { id: "counter1", label: "Empowered users", target: 20, elementId: "count1" },
+  { id: "counter2", label: "Funds recovered", target: 34, elementId: "count2" },
+  {
+    id: "counter3",
+    label: "Failures overcome",
+    target: 40,
+    elementId: "count3",
+  },
+  {
+    id: "counter4",
+    label: "System efficiency",
+    target: 20,
+    elementId: "count4",
+  },
+];
+---
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<section>
+  <Wrapper variant="standard" class="py-24">
+    <div
+      class="relative isolate overflow-hidden flex flex-col gap-y-12 lg:items-center"
+    >
+      <div class="grid grid-cols-1 gap-y-12 lg:grid-cols-2 lg:items-end">
+        <div>
+          <Text tag="span" variant="textSM" class="text-base-400">
+            Proven impact
+          </Text>
+          <Text
+            tag="h1"
+            variant="displayLG"
+            class="mt-12 text-white text-balance font-display"
+          >
+            Data that drives change, <span class="text-base-500">
+              shaping the future
+            </span>
+          </Text>
+          <Text tag="p" variant="textBase" class="text-white mt-2 text-balance">
+            Decentralized, secure, and built to transform industries worldwide.
+            See how our platform enables sustainable growth and innovation at
+            scale.
+          </Text>
+          <Text tag="p" variant="textBase" class="text-white mt-8 text-balance">
+            Our platform not only drives innovation but also empowers businesses
+            to make smarter, data-backed decisions in real time. By harnessing
+            the power of AI and machine learning, we provide actionable insights
+            that help companies stay ahead of the curve.
+          </Text>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-y-12 lg:grid-cols-2">
+          {
+            counters.map(({ label, id, elementId }) => (
+              <div class="before:bg-white" id={id}>
+                <div class="px-4 relative  before:absolute after:absolute before:bg-white before:top-0 before:left-0 before:h-6 before:w-px after:top-8 after:bottom-0 after:left-0 after:w-px">
+                  <div class="flex flex-col gap-y-1 ">
+                    <div class="text-base text-base-400">{label}</div>
+                    <Text
+                      tag="span"
+                      variant="displayLG"
+                      class="order-first  font-display text-white"
+                      id={elementId}
+                    />
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <div class="border-base-900 p-4 bg-gradient-up w-full lg:max-h-100">
+        <canvas id="dynamicChart" width="100%" height="100%"></canvas>
+      </div>
+    </div>
+  </Wrapper>
+</section>
+<script type="module">
+  // Function to start the counter animation
+  function startCounter(elementId, target) {
+    const element = document.getElementById(elementId);
+    let count = 0; // Initialize the counter value
+    // Counter function that increments the count until it reaches the target
+    function counter() {
+      const interval = setInterval(() => {
+        if (count < target) {
+          count += 1; // Increment the counter by 1
+          element.textContent = `${count}%`; // Update the displayed count
+        } else {
+          clearInterval(interval); // Stop the interval once the target is reached
+        }
+      }, 50); // Set the interval to 50ms
+    }
+    // Intersection Observer to detect when the element enters the viewport
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // If the element is in the viewport
+          counter(); // Start the counter
+          observer.unobserve(entry.target); // Stop observing once the counter has started
+        }
+      });
+    });
+    observer.observe(element); // Observe the element with the counter
+  }
+  // Start counters for each of the statistics
+  startCounter("count1", 20); // Happy customers counter, target 20%
+  startCounter("count2", 34); // Recovered money counter, target 34%
+  startCounter("count3", 40); // Lost it all counter, target 40%
+  startCounter("count4", 20); // Performance counter, target 20%
+</script>
+<script type="module">
+  const ctx = document.getElementById("dynamicChart").getContext("2d");
+  // Placeholder data
+  let chartData = {
+    labels: [
+      "100%",
+      "200%",
+      "300%",
+      "400%",
+      "500%",
+      "600%",
+      "700%",
+      "800%",
+      "900%",
+      "1000%",
+    ],
+    datasets: [
+      {
+        label: "Happy customers",
+        data: [0, 100, 300, 500, 600, 800, 900, 1000, 1100, 1200], // Replace with dynamic data later
+        borderColor: "rgba(255, 255, 255, 0.5)",
+        backgroundColor: "transparent",
+        borderWidth: 0.5,
+        fill: false,
+      },
+    ],
+  };
+  // Initialize chart
+  const dynamicChart = new Chart(ctx, {
+    type: "line",
+    data: chartData,
+    options: {
+      responsive: true,
+      aspectRatio: 4,
+      scales: {
+        x: {
+          grid: {
+            display: false, // Hide grid on x-axis
+          },
+        },
+        y: {
+          beginAtZero: true,
+          grid: {
+            display: false, // Hide grid on y-axis
+          },
+        },
+      },
+      plugins: {
+        legend: {
+          display: false, // Hide the legend completely
+        },
+      },
+    },
+  });
+  // Simulate dynamic data updates
+  setInterval(() => {
+    let newDataPoint = Math.floor(Math.random() * 500) + 100; // Generate random data
+    chartData.labels.push(`New ${chartData.labels.length + 1}`); // Add new label
+    chartData.datasets[0].data.push(newDataPoint); // Add new data point
+    // Keep only the last 6 points to maintain the chart size
+    if (chartData.labels.length > 6) {
+      chartData.labels.shift();
+      chartData.datasets[0].data.shift();
+    }
+    dynamicChart.update(); // Refresh chart
+  }, 20000); // Update every 2 seconds
+</script>

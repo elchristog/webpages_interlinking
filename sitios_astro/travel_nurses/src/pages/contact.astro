@@ -1,0 +1,135 @@
+---
+// Assets
+import Logo from "@/components/assets/Logo.astro";
+import { Image } from "astro:assets";
+import visual from "@/images/thumbnails/5.jpg";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+---
+
+<BaseLayout hideNav={true} hideFooter={true}>
+  <div class="flex h-screen">
+    <div
+      class="flex items-center justify-center w-full p-8 bg-sand-100 lg:w-2/3"
+    >
+      <div class="w-full max-w-md py-12">
+        <div>
+          <a href="/">
+            <span class="sr-only">Go back home</span>
+            <Logo class="h-8 text-base-900" /></a
+          >
+          <Text
+            tag="h1"
+            variant="displayMD"
+            class="font-serif font-light tracking-tight text-base-900 text-balance mt-12"
+          >
+            Contact us!
+          </Text>
+          <Text
+            tag="p"
+            variant="textXS"
+            class="mt-2 font-medium uppercase text-base-600"
+          >
+            If you have questions or need any general information, please
+            contact us on this points of refference. It will be an honor to help
+            you.
+          </Text>
+        </div>
+        <form action="#" method="POST" class="flex flex-col mt-8 gap-4">
+          <div class="flex flex-col gap-y-1">
+            <label class="text-base-600 text-xs" for="name">Name</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              required
+              aria-required="true"
+              aria-describedby="name-error"
+              class="w-full h-8 px-0 py-2 text-xs bg-transparent border-0 border-b border-base-300 placeholder-base-500 focus:outline-none focus:ring-0 focus:border-base-500"
+            />
+            <span id="name-error" class="hidden text-sm text-red-600">
+              Please enter your name.
+            </span>
+          </div>
+          <div>
+            <label class="text-base-600 text-xs" for="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              autocomplete="emmail"
+              required
+              aria-required="true"
+              aria-describedby="email-error"
+              class="w-full h-8 px-0 py-2 text-xs bg-transparent border-0 border-b border-base-300 placeholder-base-500 focus:outline-none focus:ring-0 focus:border-base-500"
+            />
+            <span id="email-error" class="hidden text-sm text-red-600">
+              Please enter a valid email address.
+            </span>
+          </div>
+          <div>
+            <label class="text-base-600 text-xs" for="subject">Subject</label>
+            <input
+              type="text"
+              name="subject"
+              id="subject"
+              required
+              aria-required="true"
+              aria-describedby="subject-error"
+              class="w-full h-8 px-0 py-2 text-xs bg-transparent border-0 border-b border-base-300 placeholder-base-500 focus:outline-none focus:ring-0 focus:border-base-500"
+            />
+            <span id="subject-error" class="hidden text-sm text-red-600">
+              Please enter a subject.
+            </span>
+          </div>
+          <div>
+            <label class="text-base-600 text-xs" for="message">Message</label>
+            <textarea
+              name="message"
+              id="message"
+              required
+              aria-required="true"
+              aria-describedby="message-error"
+              rows="2"
+              class="w-full px-0 py-2 text-xs bg-transparent border-0 border-b border-base-300 placeholder-base-500 focus:outline-none focus:ring-0 focus:border-base-500"
+            ></textarea>
+            <span id="message-error" class="hidden text-sm text-red-600">
+              Please enter a message.
+            </span>
+          </div>
+          <Button size="sm" type="submit" variant="default" class="w-full">
+            Send Message
+          </Button>
+          <div class="flex items-center mt-12">
+            <Text
+              tag="p"
+              variant="textXS"
+              class="mt-1 font-medium uppercase text-base-600"
+            >
+              General Inquiries
+              <a
+                href="mailto:hello@echopodcast.com"
+                class="text-base-900 hover:underline"
+              >
+                hello@example.com
+              </a>
+            </Text>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <Image
+      src={visual}
+      alt="Background"
+      aria-hidden="true"
+      width={1200}
+      height={1200}
+      loading="lazy"
+      decoding="async"
+      class="object-cover object-center w-full h-full bg-base-50 hidden overflow-hidden lg:block lg:w-1/3 lg:order-first"
+    />
+  </div>
+</BaseLayout>

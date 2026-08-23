@@ -1,0 +1,21 @@
+---
+// Fundations
+import "../styles/global.css";
+import BaseHead from "@/components/fundations/head/BaseHead.astro";
+// Assets
+import Shine from "@/components/assets/Shine.astro";
+import GuidelinesGrid from "@/components/assets/GuidelinesGrid.astro";
+---
+<html
+  lang="en"
+  class="selection:text-white selection:bg-base-500 scroll-smooth"
+>
+  <head>
+    <BaseHead />
+  </head>
+  <body class="bg-base-950 flex flex-col min-h-svh relative overflow-hidden">
+    <Shine class="absolute inset-0 opacity-5" />
+    <main class="grow relative z-10 "><slot /></main>
+    <GuidelinesGrid />
+  </body>
+</html>

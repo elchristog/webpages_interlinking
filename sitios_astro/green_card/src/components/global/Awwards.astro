@@ -1,0 +1,126 @@
+---
+// Fundations
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Define the array of awards
+const awards = [
+  {
+    title: "Awwwards Site of the Day",
+    year: "2021",
+    description:
+      "Awarded for innovative design and creativity on our flagship project.",
+  },
+  {
+    title: "CSS Design Awards Winner",
+    year: "2020",
+    description:
+      "Recognized for outstanding design and usability in our recent web projects.",
+  },
+  {
+    title: "Webby Awards Honoree",
+    year: "2019",
+    description:
+      "Honored for exceptional web design and user experience in the digital landscape.",
+  },
+  {
+    title: "FWA Site of the Day",
+    year: "2022",
+    description:
+      "Recognized for cutting-edge design and technology implementation on our website.",
+  },
+  {
+    title: "UX Design Awards Winner",
+    year: "2023",
+    description:
+      "Awarded for outstanding user experience design in our latest digital product.",
+  },
+  {
+    title: "The Lovie Awards Finalist",
+    year: "2024",
+    description:
+      "Finalist in the category of website design, acknowledging our commitment to excellence.",
+  },
+  {
+    title: "Interactive Media Awards Best in Class",
+    year: "2025",
+    description:
+      "Achieved the highest level of recognition for design and functionality in our digital projects.",
+  },
+  {
+    title: "Communicator Awards Excellence",
+    year: "2026",
+    description:
+      "Recognized for excellence in visual design and user interface across multiple platforms.",
+  },
+  {
+    title: "Horizon Interactive Awards Gold",
+    year: "2027",
+    description:
+      "Received the gold award for exceptional creativity and effectiveness in interactive media.",
+  },
+  {
+    title: "D&AD Awards Pencil",
+    year: "2028",
+    description:
+      "Earned a prestigious D&AD Pencil for design excellence and innovation in digital media.",
+  },
+  {
+    title: "Pixel Awards Best in Show",
+    year: "2029",
+    description:
+      "Awarded the Best in Show accolade for outstanding design and innovation in digital experiences.",
+  },
+];
+---
+
+<section class="bg-white overflow-hidden">
+  <Wrapper variant="standard" class="bg-white py-24 lg:py-48">
+    <div class="flex flex-col items-center justify-center">
+      <div class="relativ skew-y-12">
+        <div
+          class="bg-accent-200 text-accent-600 relative rounded-2xl z-10 py-8 px-4 bottom-0 w-full overflow-x-hidden"
+        >
+          <div
+            class="items-center relative animate-slowMarquee flex gap-4 whitespace-nowrap"
+          >
+            {
+              Array.from({ length: 3 }).map(() =>
+                awards.slice(0, 6).map((award, i) => (
+                  <div class="py-8">
+                    <p class="text-accent-900 font-semibold uppercase">
+                      {award.year}
+                    </p>
+                    <p class="text-accent-900 text-4xl mt-4  ">{award.title}</p>
+                    <p class="text-accent-900 font-xl">{award.description}</p>
+                  </div>
+                ))
+              )
+            }
+          </div>
+        </div>
+      </div>
+      <div class="relative -skew-y-12">
+        <div
+          class="bg-accent-200 text-accent-600 relative rounded-2xl mt-24 z-10 py-8 px-4 bottom-0 w-full overflow-x-hidden"
+        >
+          <div
+            class="items-center relative animate-rightMarquee flex gap-4 whitespace-nowrap"
+          >
+            {
+              Array.from({ length: 3 }).map(() =>
+                awards.slice(6, 12).map((award, i) => (
+                  <div class="py-8">
+                    <p class="text-accent-900 font-semibold uppercase">
+                      {award.year}
+                    </p>
+                    <p class="text-accent-900 text-4xl mt-4  ">{award.title}</p>
+                    <p class="text-accent-900 font-xl">{award.description}</p>
+                  </div>
+                ))
+              )
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </Wrapper>
+</section>

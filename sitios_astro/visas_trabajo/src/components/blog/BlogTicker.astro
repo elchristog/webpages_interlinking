@@ -1,0 +1,17 @@
+---
+const { post } = Astro.props;
+const url = `/blog/posts/${post.id}`;
+const fullTitle = post.data.title;
+const shortTitle =
+  fullTitle.length > 60 ? fullTitle.slice(0, 57) + "..." : fullTitle;
+---
+
+<article class="relative shrink-0 px-1 whitespace-nowrap">
+  <a
+    href={url}
+    title={fullTitle}
+    class="text-[0.60rem] text-black hover:underline uppercase font-light"
+  >
+    {shortTitle}
+  </a>
+</article>

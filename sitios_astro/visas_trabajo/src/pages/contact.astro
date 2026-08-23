@@ -1,0 +1,199 @@
+---
+// Assets
+import { Image } from "astro:assets";
+import ContactImage from "@/images/assets/contact.jpeg";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Array
+const locations = [
+  {
+    city: "Los Angeles",
+    address: "4556 Brendan Ferry, Los Angeles, CA 90210",
+    phone: "+1 (323) 123-4567",
+    email: "contact@losangeles.com",
+  },
+  {
+    city: "New York",
+    address: "886 Walter Street, New York, NY 12345",
+    phone: "+1 (212) 234-5678",
+    email: "contact@newyork.com",
+  },
+  {
+    city: "Toronto",
+    address: "7363 Cynthia Pass, Toronto, ON N3Y 4H8",
+    phone: "+1 (416) 345-6789",
+    email: "contact@toronto.com",
+  },
+  {
+    city: "London",
+    address: "114 Cobble Lane, London N1 2EF",
+    phone: "+44 (20) 1234-5678",
+    email: "contact@london.com",
+  },
+];
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-12">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-y-8">
+        <div class="lg:pr-8">
+          <div class="lg:sticky lg:top-20 lg:z-50">
+            <Text
+              tag="h1"
+              variant="textBase"
+              class="text-base-900 font-display font-medium"
+            >
+              Contact Us
+            </Text>
+            <Text tag="p" variant="textSM" class="text-base-600">
+              We would love to hear from you! Please fill out the form below to
+              get in touch.
+            </Text>
+
+            <div
+              class="relative before:absolute after:absolute before:bg-base-950 after:bg-base-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px pt-4 mt-2"
+            >
+              <Text
+                tag="h1"
+                variant="textBase"
+                class="text-base-900 font-display font-medium"
+              >
+                Our offices
+              </Text>
+              <div class="mt-8">
+                {
+                  locations.map((location) => (
+                    <div class="pb-4">
+                      <Text
+                        tag="h3"
+                        variant="textSM"
+                        class="font-medium text-base-900 font-display"
+                      >
+                        {location.city}
+                      </Text>
+                      <address class="text-base-600 mt-2 not-italic">
+                        <Text tag="p" variant="textXS" class="text-base-600">
+                          {location.address}
+                        </Text>
+                        <Text tag="p" variant="textXS" class="mt-2">
+                          <a
+                            href={`tel:${location.phone.replace(/\s/g, "")}`}
+                            class="text-base-600 hover:underline"
+                          >
+                            {location.phone}
+                          </a>
+                        </Text>
+                        <Text tag="p" variant="textXS" class="mt-2">
+                          <a
+                            href={`mailto:${location.email}`}
+                            class="text-base-600 hover:underline"
+                          >
+                            {location.email}
+                          </a>
+                        </Text>
+                      </address>
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="lg:col-span-2 lg:pl-8 lg:relative lg:before:absolute lg:after:absolute
+        lg:before:bg-base-950 lg:after:bg-base-950/10 lg:before:top-0
+        lg:before:left-0 lg:before:h-6 lg:before:w-px lg:after:top-8
+        lg:after:bottom-0 lg:after:left-0 after:w-px"
+        >
+          <Image
+            width={1000}
+            height={1000}
+            loading="lazy"
+            decoding="async"
+            src={ContactImage}
+            alt="About Phanatik"
+            class="object-cover w-full aspect-12/8 object-center rounded-xl"
+          />
+          <form action="#" method="POST">
+            <div class="flex flex-col gap-y-2 mt-2">
+              <!-- Name Field -->
+              <div>
+                <label for="name" class="text-sm text-base-600 font-medium"
+                  >Name</label
+                >
+                <div class="mt-1">
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    required
+                    aria-required="true"
+                    aria-describedby="name-error"
+                    class="block w-full h-10 px-4 py-2 text-sm text-accent-700 border border-transparent rounded-lg appearance-none duration-300 bg-base-100 focus:bg-transparent focus:outline-none focus:ring-accent-500 focus:ring-offset-2 focus:ring-2 focus:ring-offset-base-200"
+                  />
+                  <span id="name-error" class="text-red-600 text-sm hidden">
+                    Please enter your name.
+                  </span>
+                </div>
+              </div>
+
+              <!-- Email Field -->
+              <div>
+                <label for="email" class="text-sm text-base-600 font-medium"
+                  >Email</label
+                >
+                <div class="mt-1">
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    required
+                    aria-required="true"
+                    aria-describedby="email-error"
+                    class="block w-full h-10 px-4 py-2 text-sm text-accent-700 border border-transparent rounded-lg appearance-none duration-300 bg-base-100 focus:bg-transparent focus:outline-none focus:ring-accent-500 focus:ring-offset-2 focus:ring-2 focus:ring-offset-base-200"
+                  />
+                  <span id="email-error" class="text-red-600 text-sm hidden">
+                    Please enter a valid email address.
+                  </span>
+                </div>
+              </div>
+
+              <!-- Message Field -->
+              <div>
+                <label for="message" class="text-sm text-base-600 font-medium"
+                  >Message</label
+                >
+                <div class="mt-1">
+                  <textarea
+                    name="message"
+                    id="message"
+                    required
+                    aria-required="true"
+                    aria-describedby="message-error"
+                    placeholder="Your message"
+                    rows="4"
+                    class="block w-full px-4 py-2 text-sm text-accent-700 border border-transparent rounded-lg appearance-none duration-300 bg-base-100 focus:bg-transparent focus:outline-none focus:ring-accent-500 focus:ring-offset-2 focus:ring-2 focus:ring-offset-base-200"
+                  ></textarea>
+                  <span id="message-error" class="text-red-600 text-sm hidden">
+                    Please enter a valid message.
+                  </span>
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="mt-2">
+                <Button type="submit" size="sm" variant="accent" class="w-full">
+                  Send Message
+                </Button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

@@ -1,0 +1,27 @@
+{
+  "name": "@lexington/brightlight",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^5.0.0",
+    "@astrojs/rss": "^4.0.17",
+    "@astrojs/sitemap": "^3.7.0",
+    "@lexingtonthemes/seo": "^0.1.0",
+    "@tailwindcss/vite": "^4.1.18",
+    "astro": "^6.0.0",
+    "tailwind-scrollbar-hide": "^4.0.0",
+    "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.11",
+    "@tailwindcss/typography": "^0.5.19"
+  }
+}

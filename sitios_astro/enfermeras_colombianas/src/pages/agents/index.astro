@@ -1,0 +1,47 @@
+---
+// Assets
+import { Image } from "astro:assets";
+import Agents from "@/images/agents.jpeg";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import AgentEntries from "@/components/agents/AgentEntries.astro";
+import AgentSearch from "@/components/agents/AgentSearch.astro";
+// Sections
+import Sell from "@/components/ctas/Sell.astro";
+// Content
+const allAgents = await getCollection("agents");
+import { getCollection } from "astro:content";
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper class="pb-12">
+      <Image
+        src={Agents}
+        alt="#_"
+        width={1500}
+        height={1000}
+        class="w-full h-[60vh] 2xl:h-[75vh] object-cover relative"
+      />
+      <div class="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <Text
+          tag="h1"
+          variant="displaySM"
+          class="text-balance font-medium tracking-tighter text-base-900"
+        >
+          Worldwide agents
+        </Text>
+        <div class="lg:col-span-2">
+          <AgentSearch />
+          <div class="flex flex-col divide-y divide-base-200">
+            {allAgents.map((post) => <AgentEntries post={post} />)}
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+  <Sell />
+</BaseLayout>

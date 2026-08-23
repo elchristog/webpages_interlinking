@@ -1,0 +1,181 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const tiers = [
+  {
+    name: "Virtual Pass",
+    price: "$0",
+    suffix: "digital access",
+    description:
+      "Stream the keynotes from anywhere. Ideal for global teams who want the discourse without the travel footprint.",
+    features: [
+      "Live broadcast of the main stage and closing synthesis",
+      "On-demand recordings available for 30 days",
+      "Moderated chat for Q&A with speakers",
+    ],
+    action: { label: "Join Virtual Pass", variant: "muted" },
+    note: "Registration required for access links",
+  },
+  {
+    name: "Day Pass",
+    price: "$260",
+    suffix: "per attendee",
+    description:
+      "Focus on the essential conversations. Perfect for independent designers aligning with a specific program day.",
+    features: [
+      "Main stage sessions and case-study theatre",
+      "Access to the typographic poster archive installation",
+      "Breakfast, coffee rituals, and evening aperitif",
+    ],
+    action: { label: "Buy Day Pass", variant: "muted" },
+  },
+  {
+    name: "Studio Pass",
+    price: "$520",
+    suffix: "two-day access",
+    description:
+      "Immerse your practice in the full discourse. Two consecutive days of programming, critiques, and Swiss product labs.",
+    features: [
+      "All keynotes and workshop tracks for 48 hours",
+      "Priority seating in the interaction prototyping lab",
+      "Invitation to the Basel grid salon and night tour",
+    ],
+    action: { label: "Buy Studio Pass", variant: "default" },
+    highlight: true,
+    tag: "Recommended",
+  },
+  {
+    name: "Team Residency",
+    price: "$1,920",
+    suffix: "4 designers",
+    description:
+      "Bring the whole product team to Montreal. A week-long residency with space to work, reflect, and ship with intention.",
+    features: [
+      "Full-week access to every stage and atelier",
+      "Private critique session with Swiss mentors",
+      "Dedicated workspace within the design library",
+    ],
+    action: {
+      label: "Plan Your Residency",
+      variant: "muted",
+    },
+    note: "Limited to 6 teams to preserve focus",
+  },
+];
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-32">
+      <div>
+        <Text
+          tag="h1"
+          variant="displayMD"
+          class="text-balance text-accent-500 font-display uppercase leading-tight"
+        >
+          Tickets & access
+        </Text>
+        <Text
+          tag="p"
+          variant="textBase"
+          class="text-base-600 font-medium max-w-2xl mt-2 text-balance"
+        >
+          Choose the cadence that suits your practice. Each tier is designed
+          with Swiss precision—clear structure, intentional pacing, and room to
+          collaborate with peers across product, interaction, and typography.
+        </Text>
+      </div>
+      <div
+        class="grid grid-cols-1 lg:grid-cols-4 mt-12 lg:divide-x lg:divide-dashed lg:divide-black/20"
+      >
+        {
+          tiers.map((tier) => (
+            <div class="group relative flex h-full flex-col justify-between bg-accent-500 px-6 py-10 transition duration-200 hover:border-white/30 sm:px-8">
+              <div>
+                <div class="flex flex-col">
+                  <div>
+                    <Text
+                      tag="p"
+                      variant="textXL"
+                      class="font-display  text-white flex items-center justify-between gap-2"
+                    >
+                      {tier.price}
+                      {tier.tag && (
+                        <span class="text-sm uppercase   text-white">
+                          {tier.tag}
+                        </span>
+                      )}
+                    </Text>
+                    <Text
+                      tag="p"
+                      variant="textXS"
+                      class="text-base-200 uppercase"
+                    >
+                      {tier.suffix}
+                    </Text>
+                  </div>
+                  <Text
+                    tag="h3"
+                    variant="textXL"
+                    class="font-display  uppercase text-white mt-8"
+                  >
+                    {tier.name}
+                  </Text>
+                  <Text tag="p" variant="textSM" class="text-base-200 mt-1">
+                    {tier.description}
+                  </Text>
+                </div>
+                <ul
+                  class="space-y-1 mt-8 list-disc ml-4 text-white"
+                  role="list"
+                >
+                  {tier.features.map((feature) => (
+                    <li>
+                      <Text tag="span" variant="textSM" class="text-base-200">
+                        {feature}
+                      </Text>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div class="mt-10 space-y-3">
+                {tier.note && (
+                  <Text
+                    tag="p"
+                    variant="textSM"
+                    class="text-center text-white"
+                  >
+                    {tier.note}
+                  </Text>
+                )}
+                <Button
+                  size="base"
+                  variant={tier.action.variant}
+                  class="w-full"
+                >
+                  {tier.action.label}
+                </Button>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+      <div
+        class="flex flex-wrap items-center justify-between gap-4 border-t border-black/10 pt-6"
+      >
+        <Text tag="p" variant="textXS" class="uppercase text-base-600">
+          Prices include materials & refreshments
+        </Text>
+        <Text tag="p" variant="textXS" class="text-base-600">
+          Need guidance? <Button
+            variant="link"
+            href="mailto:tickets@dusk.design">Email the Dusk team</Button
+          >
+        </Text>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

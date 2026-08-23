@@ -1,0 +1,118 @@
+---
+// Shape2This component renders a component and accepts props for customization.
+// Props: - class: A string of additional classes to style the component.
+// - ...rest: Any other valid attributes for an div element (e.g., id, style, role, aria-label, etc.).
+// Example Usage: <Shape2 class="my-custom-class" /> or <Shape2 id="Shape2-id" style="width: 50px; height: 50px;" />
+const { class: className = "", ...rest } = Astro.props;
+---
+<div class={className} {...rest} class="bg-gradient-down">
+  <svg
+    class="scale-170"
+    viewBox="0 0 400 400"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <!-- Background -->
+    <!-- Rotating stars -->
+    <g class="stars-container">
+      <path
+        class="star"
+        d="M200,150 L213,187 L250,187 L220,210 L235,250 L200,225 L165,250 L180,210 L150,187 L187,187 Z"
+        stroke="#fafafa"
+        fill="none"
+        stroke-width="0.5"></path>
+      <path
+        class="star"
+        d="M200,150 L213,187 L250,187 L220,210 L235,250 L200,225 L165,250 L180,210 L150,187 L187,187 Z"
+        stroke="#444444"
+        fill="none"
+        stroke-width="0.5"></path>
+      <path
+        class="star"
+        d="M200,150 L213,187 L250,187 L220,210 L235,250 L200,225 L165,250 L180,210 L150,187 L187,187 Z"
+        stroke="#777777"
+        fill="none"
+        stroke-width="0.5"></path>
+    </g>
+    <!-- Pulsing diamonds -->
+    <g class="diamonds">
+      <rect
+        class="diamond"
+        x="175"
+        y="175"
+        width="50"
+        height="50"
+        stroke="#fafafa"
+        fill="none"
+        stroke-width="0.5"></rect>
+      <rect
+        class="diamond"
+        x="162.5"
+        y="162.5"
+        width="75"
+        height="75"
+        stroke="#444444"
+        fill="none"
+        stroke-width="0.5"></rect>
+      <rect
+        class="diamond"
+        x="150"
+        y="150"
+        width="100"
+        height="100"
+        stroke="#777777"
+        fill="none"
+        stroke-width="0.5"></rect>
+    </g>
+  </svg>
+</div>
+<style>
+  /* Rotating star animation */
+  .star {
+    transform-origin: 200px 200px; /* Sets the rotation point at (200px, 200px) */
+    animation: rotate 20s linear infinite; /* Continuously rotates the star over 20 seconds */
+    opacity: 0.6; /* Makes the shape slightly transparent */
+  }
+  /* Staggered animation delay for the second star */
+  .star:nth-child(2) {
+    animation-delay: -3.3s;
+  }
+  /* Staggered animation delay for the third star */
+  .star:nth-child(3) {
+    animation-delay: -6.6s;
+  }
+  /* Pulsing diamond animation */
+  .diamond {
+    stroke-width: 0.5; /* Sets the stroke thickness */
+    animation: pulse 25s ease-in-out infinite; /* Pulses over 25 seconds */
+    opacity: 0.6; /* Makes the shape slightly transparent */
+  }
+  /* Staggered animation delay for the second diamond */
+  .diamond:nth-child(2) {
+    animation-delay: -1.6s;
+  }
+  /* Staggered animation delay for the third diamond */
+  .diamond:nth-child(3) {
+    animation-delay: -3.3s;
+  }
+  /* Defines the rotation animation for stars */
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg); /* Starts at 0 degrees */
+    }
+    to {
+      transform: rotate(360deg); /* Rotates fully around */
+    }
+  }
+  /* Defines the pulsing effect for diamonds */
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: scale(0.8) rotate(45deg); /* Shrinks slightly and remains rotated */
+      opacity: 0.3; /* Reduces visibility */
+    }
+    50% {
+      transform: scale(1.1) rotate(45deg); /* Expands slightly while staying rotated */
+      opacity: 0.8; /* Increases visibility */
+    }
+  }
+</style>

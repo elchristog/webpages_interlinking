@@ -1,0 +1,91 @@
+---
+// Assets
+import Shape1 from "@/components/assets/Shape3.astro";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const reasons = [
+  {
+    term: "Expertise",
+    description:
+      "Our team consists of highly skilled professionals with extensive experience in web development and design.",
+  },
+  {
+    term: "Innovation",
+    description:
+      "We are committed to staying ahead of the curve by adopting the latest technologies and trends in the industry.",
+  },
+  {
+    term: "Collaboration",
+    description:
+      "We value collaboration and work closely with our clients to understand their needs and deliver customized solutions.",
+  },
+  {
+    term: "Quality",
+    description:
+      "We prioritize quality in every aspect of our work, ensuring that our clients receive top-notch solutions that exceed their expectations.",
+  },
+  {
+    term: "Customer Satisfaction",
+    description:
+      "Our primary goal is customer satisfaction, and we go above and beyond to ensure that our clients are happy with the results.",
+  },
+  {
+    term: "Support",
+    description:
+      "We provide ongoing support and assistance to our clients even after the project is completed, ensuring a seamless experience.",
+  },
+];
+---
+
+<section class="bg-accent-500 relative overflow-hidden">
+  <Wrapper variant="standard" class="py-24">
+    <Shape1
+      class="absolute w-full h-full opacity-[0.2] z-0 invert -left-64 sm:-left-96 -bottom-72 rotate-45"
+    />
+
+    <div class="px-8 py-24 mx-auto max-w-6xl md:px-16">
+      <div class="flex flex-col max-w-xl lg:ml-auto">
+        <div class="relative max-w-xs">
+          <div class="absolute inset-0 flex items-center" aria-hidden="true">
+            <div class="w-full border-t border-accent-300"></div>
+          </div>
+          <div class="relative flex justify-start">
+            <span class="bg-accent-500 pr-2 text-sm text-white font-medium">
+              Outkast</span
+            >
+          </div>
+        </div>
+        <Text
+          tag="h2"
+          variant="displayXL"
+          class="tracking-tight text-white mt-24 text-balance"
+        >
+          Why choose our web agency?
+        </Text>
+        <Text
+          tag="p"
+          variant="textXL"
+          class="text-accent-100 mt-8 text-balance"
+        >
+          Contact us to get started, we are always ready to help. You will
+          receive a quote and a proposal.
+        </Text>
+      </div>
+      <dl
+        class="grid gap-12 lg:grid-cols-2 mt-24 lg:mt-48 lg:max-w-xl lg:ml-auto"
+      >
+        {
+          reasons.map((reason, index) => (
+            <div>
+              <dt class="  text-white text-2xl">{reason.term}</dt>
+              <dd class="text-accent-100 text-base mt-4 text-pretty">
+                {reason.description}
+              </dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </Wrapper>
+</section>

@@ -1,0 +1,24 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+
+// Entries
+import BlogCard6 from "@/components/blog/BlogCard6.astro";
+// Get all posts
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("posts");
+allPosts.sort((a, b) => {
+  const dateA = new Date(a.data.pubDate).getTime(); // Convert to timestamp
+  const dateB = new Date(b.data.pubDate).getTime(); // Convert to timestamp
+  return dateB - dateA; // Compare timestamps
+});
+---
+
+<div class="lg:col-span-3 col-span-full">
+  {
+    allPosts
+      .filter((post) => post.data.tags.includes("tech"))
+      .slice(0, 1)
+      .map((post) => <BlogCard6 post={post} />)
+  }
+</div>

@@ -1,0 +1,46 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Sections: In order of use
+import BlogHero1 from "@/components/blog/landingPages/index1/BlogHero1.astro";
+import Breaking1 from "@/components/blog/landingPages/index1/Breaking1.astro";
+import TopStories1 from "@/components/blog/landingPages/index1/TopStories1.astro";
+import Aside1 from "@/components/blog/landingPages/index1/Aside1.astro";
+import Briefs1 from "@/components/blog/landingPages/index1/Briefs1.astro";
+import TechHighlights from "@/components/blog/landingPages/index1/TechHighlights.astro";
+import Categories1 from "@/components/blog/landingPages/index1/Categories1.astro";
+// Adverts
+import AdvertAside from "@/components/advert/AdvertAside.astro";
+import AdvertInline from "@/components/advert/AdvertInline.astro";
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-12">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-0">
+        <div class="lg:col-span-3 lg:pr-8">
+          <BlogHero1 />
+          <div class="flex flex-col gap-12 mt-8">
+            <Breaking1 />
+            <TopStories1 />
+            <AdvertInline />
+          </div>
+        </div>
+        <div
+          class="lg:pl-8 "
+        >
+          <div class="lg:sticky lg:top-10 lg:z-20">
+            <Aside1 />
+            <AdvertAside />
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col gap-4 mt-12">
+        <Briefs1 />
+        <div class="mt-12"><TechHighlights /></div>
+      </div>
+    </Wrapper>
+  </section>
+  <Categories1 />
+</BaseLayout>

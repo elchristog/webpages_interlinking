@@ -1,0 +1,130 @@
+---
+// Shape5 This component renders a component and accepts props for customization.
+// Props: - class: A string of additional classes to style the component.
+// - ...rest: Any other valid attributes for an div element (e.g., id, style, role, aria-label, etc.).
+// Example Usage: <Shape5 class="my-custom-class" /> or <Shape5 id="Shape5-id" style="width: 50px; height: 50px;" />
+const { class: className = "", ...rest } = Astro.props;
+---
+
+<div class={className} {...rest} class="bg-gradient-down">
+  <svg
+    class="scale-150"
+    viewBox="0 0 400 400"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <!-- Rotating squares -->
+    <g class="squares-container">
+      <rect
+        class="square"
+        x="150"
+        y="150"
+        width="100"
+        height="100"
+        stroke="#fafafa"
+        fill="none"
+        stroke-width="0.5"></rect>
+      <rect
+        class="square"
+        x="150"
+        y="150"
+        width="100"
+        height="100"
+        stroke="#444444"
+        fill="none"
+        stroke-width="0.5"></rect>
+      <rect
+        class="square"
+        x="150"
+        y="150"
+        width="100"
+        height="100"
+        stroke="#777777"
+        fill="none"
+        stroke-width="0.5"></rect>
+    </g>
+
+    <!-- Pulsing circles -->
+    <g class="circles">
+      <circle
+        cx="200"
+        cy="200"
+        r="50"
+        stroke="#fafafa"
+        fill="none"
+        class="circle"></circle>
+      <circle
+        cx="200"
+        cy="200"
+        r="75"
+        stroke="#444444"
+        fill="none"
+        class="circle"></circle>
+      <circle
+        cx="200"
+        cy="200"
+        r="100"
+        stroke="#777777"
+        fill="none"
+        class="circle"></circle>
+    </g>
+  </svg>
+</div>
+
+<style>
+  /* Rotating square animation */
+  .square {
+    transform-origin: 200px 200px; /* Sets the rotation pivot point at (200px, 200px) */
+    animation: rotate 50s linear infinite; /* Rotates continuously over 50 seconds */
+    opacity: 0.6; /* Makes the shape slightly transparent */
+  }
+
+  /* Staggered animation delay for the second square */
+  .square:nth-child(2) {
+    animation-delay: -2.6s;
+  }
+
+  /* Staggered animation delay for the third square */
+  .square:nth-child(3) {
+    animation-delay: -5.3s;
+  }
+
+  /* Pulsing circle animation */
+  .circle {
+    stroke-width: 0.5; /* Sets the stroke width of the circle */
+    animation: pulse 30s ease-in-out infinite; /* Scales the circle in and out over 30 seconds */
+    opacity: 0.6; /* Makes the shape slightly transparent */
+  }
+
+  /* Staggered animation delay for the second circle */
+  .circle:nth-child(2) {
+    animation-delay: -1.3s;
+  }
+
+  /* Staggered animation delay for the third circle */
+  .circle:nth-child(3) {
+    animation-delay: -2.6s;
+  }
+
+  /* Defines the continuous rotation animation */
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg); /* Starts at 0 degrees */
+    }
+    to {
+      transform: rotate(360deg); /* Completes a full rotation */
+    }
+  }
+
+  /* Defines the pulsing effect */
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: scale(0.8); /* Shrinks slightly */
+      opacity: 0.3; /* Reduces visibility */
+    }
+    50% {
+      transform: scale(1.1); /* Expands slightly */
+      opacity: 0.8; /* Increases visibility */
+    }
+  }
+</style>

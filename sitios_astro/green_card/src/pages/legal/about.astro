@@ -1,0 +1,335 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+// Assets
+import { Image } from "astro:assets";
+import AboutImage from "@/images/assets/about.jpeg";
+import AboutImage2 from "@/images/avatar2.jpeg";
+import Shape3 from "@/components/assets/Shape3.astro";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const operations = [
+  {
+    term: "Cash matters",
+    description:
+      "Each team member in the Funky Collective is worth a princely 2900 USD Dollars per hour. We're no fans of discounts for junior champs, though!",
+  },
+  {
+    term: "All in",
+    description:
+      "Our minimum deal kicks off at a whopping 100,000 USD Dollars. We're like relationship builders, not your everyday freelancers.",
+  },
+  {
+    term: "Time is money",
+    description:
+      "We put in the grind for four days a week, reserving the other trio for thrilling outdoor escapades and indulging in some top-notch family theatrics.",
+  },
+  {
+    term: "Jetsetters",
+    description:
+      "We're remote workers, so we can team up with you whether you're chilling in a hammock or scaling a mountain. Distance is just a number, right? Learn more",
+  },
+];
+const culture = [
+  {
+    term: "Humans",
+    description:
+      "We're all about cooking up design experiences that last longer than your average sitcom binge-watching session. If you're all about quality that stands the test of time and have a sense of purpose as sharp as a chef's knife, we're your kind of people.",
+  },
+  {
+    term: "Earth",
+    description:
+      "Yep, the internet gobbles up more energy than a famished T-Rex at an all-you-can-eat buffet. Can you believe it? Turns out, 3.8% of the world's carbon footprint is on the internet's tab. So, we're here to whip up brand and digital goodies that not only look cool but also help in giving Mother Earth a much-needed breather.",
+  },
+];
+const social = [
+  {
+    platform: "YouTube",
+    link: "#_",
+  },
+  {
+    platform: "X",
+    link: "#_",
+  },
+  {
+    platform: "Instagram",
+    link: "#_",
+  },
+  {
+    platform: "Dribbble",
+    link: "#_",
+  },
+];
+const stats = [
+  {
+    count: 100,
+    display: "100+",
+    label: "Awwwards",
+    color: "text-yellow-300",
+  },
+  {
+    count: 20,
+    display: "20 million",
+    label: "Social media followers",
+    color: "text-pink-500",
+  },
+  {
+    count: 500,
+    display: "500+",
+    label: "Global customers",
+    color: "text-base-500",
+  },
+];
+import CtaHire from "@/components/ctas/CtaHire.astro";
+---
+
+<BaseLayout>
+  <section class="bg-white overflow-hidden relative">
+    <Wrapper variant="standard" class="pt-24 lg:pt-32 pb-12">
+      <div class="grid items-end grid-cols-1 gap-4 lg:grid-cols-3">
+        <div
+          class="w-full bg-accent-500 p-10 lg:p-12 h-full rounded-2xl flex flex-col justify-end"
+        >
+          <Text
+            tag="h1"
+            variant="displayMD"
+            class="tracking-tighter text-white"
+          >
+            Who we are and what we offer
+          </Text>
+        </div>
+        <Image
+          width={800}
+          height={800}
+          src={AboutImage}
+          alt="#_"
+          class="aspect-[4/4] object-cover object-center rounded-2xl max-h-96 lg:col-span-2 w-full"
+        />
+      </div>
+      <div class="flex flex-col gap-4 mt-12">
+        {
+          stats.map((stat) => (
+            <div class="flex md:items-center md:flex-row flex-col gap-4  justify-between">
+              <Text
+                tag="p"
+                variant="textXL"
+                class={`font-medium ${stat.color}`}
+              >
+                {stat.display}
+              </Text>
+              <Text
+                tag="p"
+                variant="displaySM"
+                class="text-accent-500 font-medium"
+              >
+                {stat.label}
+              </Text>
+            </div>
+          ))
+        }
+      </div>
+    </Wrapper>
+  </section>
+  <section class="bg-white overflow-hidden relative">
+    <Wrapper variant="standard" class="py-24">
+      <div class="max-w-xl">
+        <div class="relative max-w-xs">
+          <div class="absolute inset-0 flex items-center" aria-hidden="true">
+            <div class="w-full border-t border-accent-300"></div>
+          </div>
+          <div class="relative flex justify-start">
+            <span class="bg-white pr-2 text-sm text-accent-500 font-medium"
+              >About us</span
+            >
+          </div>
+        </div>
+        <Text
+          tag="h2"
+          variant="displayLG"
+          class="tracking-tight text-accent-800 mt-12 text-balance"
+        >
+          This is who we really are as an agency.
+        </Text>
+        <Text
+          tag="p"
+          variant="textXL"
+          class="text-accent-500 mt-8 text-balance"
+        >
+          Your new partners in design crime, except without the masks and capes.
+          We’re the cool cats behind digital design and brand wizardry,
+          spreading our magic across the world.
+          <br />
+          <br />
+          Why Outkast, you ask? Well, we couldn’t resist the call of the design universe.
+          We’re not your average office crowd – more like a bunch of design rebels
+          on the loose. We’ve got this awesome network of talented folks and studios
+          we team up with whenever we need to rock the design stage.
+          <br />
+          <br />
+          Think of us as the ultimate design dream team, minus the spandex. From
+          crafting brand vibes to sprinkling digital fairy dust, we’re the jack-of-all-trades.
+          We handle everything from nifty industrial designs to vintage print charm
+          to apps that are so slick, they might just steal your heart.
+          <br />
+          <br />
+          But here’s the kicker – we’re not about quick fixes. We’re all about creating
+          designs that stand the test of time, not just one-hit wonders. So if you’re
+          ready to dive into a world of design awesomeness, give us a shout!
+        </Text>
+      </div>
+    </Wrapper>
+  </section>
+  <section class="bg-white overflow-hidden relative">
+    <Wrapper variant="standard" class="py-12">
+      <div class="w-full max-w-xl">
+        <div class="relative max-w-xs">
+          <div class="absolute inset-0 flex items-center" aria-hidden="true">
+            <div class="w-full border-t border-accent-300"></div>
+          </div>
+          <div class="relative flex justify-start">
+            <span class="bg-white pr-2 text-sm text-accent-500 font-medium"
+              >Operations</span
+            >
+          </div>
+        </div>
+        <Text
+          tag="h2"
+          variant="displayLG"
+          class="tracking-tight text-accent-800 mt-12 text-balance"
+        >
+          Operations, we're the funky collective.
+        </Text>
+        <dl class="grid gap-12 lg:grid-cols-2 mt-12">
+          {
+            operations.map((item) => (
+              <div>
+                <dt>
+                  <Text tag="h3" variant="textXL" class="  text-accent-900 ">
+                    {item.term}
+                  </Text>
+                </dt>
+                <dd>
+                  <Text
+                    tag="p"
+                    variant="textBase"
+                    class="text-accent-500 mt-4 text-pretty"
+                  >
+                    {" "}
+                    {item.description}
+                  </Text>
+                </dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+    </Wrapper>
+  </section>
+  <section class="overflow-hidden relative bg-white">
+    <Wrapper variant="standard" class="py-24">
+      <Shape3
+        class="absolute w-full h-full opacity-[0.2] top-50 z-0 -left-64 sm:-left-96"
+      />
+
+      <div class="lg:grid-cols-3 grid gap-12 lg:gap-24">
+        <div class="lg:col-span-2">
+          <div class="relative max-w-xs">
+            <div class="absolute inset-0 flex items-center" aria-hidden="true">
+              <div class="w-full border-t border-accent-300"></div>
+            </div>
+            <div class="relative flex justify-start">
+              <span class="bg-white pr-2 text-sm text-accent-500 font-medium"
+                >Culture</span
+              >
+            </div>
+          </div>
+          <Text
+            tag="h2"
+            variant="display2XL"
+            class="tracking-tight text-accent-800 mt-12 text-balance"
+          >
+            We're all about the fun.
+          </Text>
+        </div>
+        <dl class="flex flex-col gap-12">
+          {
+            culture.map((item) => (
+              <div>
+                <dt>
+                  <Text tag="h3" variant="textXL" class="  text-accent-900">
+                    {item.term}
+                  </Text>
+                </dt>
+                <dd>
+                  <Text
+                    tag="p"
+                    variant="textBase"
+                    class="text-accent-500 mt-4 text-pretty"
+                  >
+                    {item.description}
+                  </Text>
+                </dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+    </Wrapper>
+  </section>
+  <section class="overflow-hidden relative bg-white">
+    <Wrapper variant="standard" class="py-24">
+      <div class="grid items-end gap-4 lg:grid-cols-2">
+        <div class="">
+          <div class="relative max-w-xs">
+            <div class="absolute inset-0 flex items-center" aria-hidden="true">
+              <div class="w-full border-t border-accent-300"></div>
+            </div>
+            <div class="relative flex justify-start">
+              <span class="bg-white pr-2 text-sm text-accent-500 font-medium"
+                >The team</span
+              >
+            </div>
+          </div>
+          <Text
+            tag="h2"
+            variant="displayLG"
+            class="tracking-tight text-accent-800 mt-12 text-balance"
+          >
+            Get to know our team
+          </Text>
+        </div>
+        <div class="flex mt-8 ml-auto">
+          <Button isLink size="base" variant="accent" href="/team">
+            Get to know us
+          </Button>
+        </div>
+      </div>
+
+      <Image
+        width={1280}
+        height={720}
+        class="aspect-[4/4] object-cover object-center rounded-2xl max-h-120 mt-8"
+        src={AboutImage2}
+        alt="your alt"
+      />
+      <div
+        class="py-12 grid grid-cols-1 gap-0.5 text-center sm:grid-cols-2 lg:grid-cols-4"
+      >
+        {
+          social.map((item) => (
+            <a
+              href={item.link}
+              title={item.platform}
+              class="text-3xl font-semibold tracking-tight text-accent-900"
+            >
+              {item.platform}
+            </a>
+          ))
+        }
+      </div>
+    </Wrapper>
+  </section>
+
+  <CtaHire />
+</BaseLayout>

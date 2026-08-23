@@ -1,0 +1,187 @@
+---
+// Assets
+import { Image } from "astro:assets";
+import Kicker from "@/components/assets/Kicker.astro";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+const { frontmatter } = Astro.props;
+// Icons
+import ChevronRight from "@/components/fundations/icons/ChevronRight.astro";
+// Breadcrumbs Data
+const breadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: "Customers", href: "/customers/home" },
+  { label: frontmatter.customer, href: "#" },
+];
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="fixed z-40 top-[3.8rem] inset-x-0">
+      <nav
+        aria-label="Breadcrumb"
+        class="w-full py-4 pr-4 bg-white border-b border-base-200"
+      >
+        <ol class="flex items-center text-xs gap-2 text-base-500">
+          {
+            breadcrumbs.map((item, index) => (
+              <>
+                <li>
+                  {index === 0 ? (
+                    <a
+                      href={item.href}
+                      class="flex items-center justify-center font-medium  hover:text-base-500"
+                    >
+                      {item.label}
+                    </a>
+                  ) : index < breadcrumbs.length - 1 ? (
+                    <a
+                      href={item.href}
+                      class="font-medium text-base-500 hover:text-accent-500 "
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <span class="font-medium text-green-500 ">
+                      {item.label}
+                    </span>
+                  )}
+                </li>
+                {index < breadcrumbs.length - 1 && (
+                  <li class="flex items-center justify-center font-medium hover:text-accent-50">
+                    <ChevronRight size="sm" />
+                  </li>
+                )}
+              </>
+            ))
+          }
+        </ol>
+      </nav>
+    </Wrapper>
+    <Wrapper variant="standard" class="pt-48 pb-8 overflow-hidden lg:pt-82">
+      <div class="pt-12 mt-2">
+        <div class="max-w-2xl">
+          <Kicker class={`text-black/50 ${frontmatter.bgColor} `}>
+            {frontmatter.customer.charAt(0)}
+          </Kicker>
+          <Text
+            tag="h1"
+            variant="displayLG"
+            class="mt-8 text-base-800 text-balance"
+          >
+            {frontmatter.ctaTitle}
+          </Text>
+          <Text tag="p" variant="textBase" class="mt-4 text-base-500">
+            {frontmatter.about}
+          </Text>
+        </div>
+        <div class="pt-8 mt-8 border-t border-base-200">
+          <div class="grid grid-cols-1 gap-8 lg:grid-cols-5">
+            {
+              Object.entries(frontmatter.details).map(([key, value]) => (
+                <div>
+                  <Text tag="h4" variant="textBase" class="text-base-800">
+                    {key}
+                  </Text>
+                  <Text tag="p" variant="textSM" class="text-base-500">
+                    {value}
+                  </Text>
+                </div>
+              ))
+            }
+          </div>
+          <div class="relative w-full p-8 mt-8 overflow-hidden lg:py-60">
+            <Image
+              src={frontmatter.avatar.url}
+              alt={frontmatter.avatar.alt}
+              width={1200}
+              height={1200}
+              loading="eager"
+              decoding="async"
+              class="absolute inset-0 object-cover w-full h-full"
+            />
+            <div
+              aria-hidden="true"
+              class="absolute inset-0 z-10 pointer-events-none bg-base-800/80"
+            >
+            </div>
+            <div
+              class="relative z-20 flex flex-col items-center justify-center h-full text-center"
+            >
+              <Text tag="h3" variant="displayLG" class="font-medium text-white">
+                "{frontmatter.testimonial}"
+              </Text>
+            </div>
+          </div>
+          <div
+            class="pt-8 mt-8 border-t border-base-200 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4"
+          >
+            <div>
+              <div>
+                <Text
+                  tag="h3"
+                  variant="textLG"
+                  class="font-medium text-base-800"
+                >
+                  The results
+                </Text>
+                <ul
+                  role="list"
+                  class="flex flex-col mt-4 list-none list-inside gap-2"
+                >
+                  {
+                    frontmatter.results.map((result) => (
+                      <li class="flex items-start gap-2">
+                        <ChevronRight size="sm" class="shrink-0" />
+                        <Text tag="p" variant="textSM" class=" text-base-500">
+                          {result}
+                        </Text>
+                      </li>
+                    ))
+                  }
+                </ul>
+              </div>
+              <div class="mt-12">
+                <Text
+                  tag="h3"
+                  variant="textLG"
+                  class="font-medium text-base-800"
+                >
+                  The solutions
+                </Text>
+                <ul class="flex flex-col mt-4 gap-4">
+                  {
+                    frontmatter.challengesAndSolutions.map((item) => (
+                      <li>
+                        <Text
+                          tag="h3"
+                          variant="textBase"
+                          class="font-medium text-base-800"
+                        >
+                          {item.title}
+                        </Text>
+                        <Text
+                          tag="p"
+                          variant="textSM"
+                          class="mt-2  text-base-500"
+                        >
+                          {item.content}
+                        </Text>
+                      </li>
+                    ))
+                  }
+                </ul>
+              </div>
+            </div>
+            <Wrapper variant="prose" class="max-w-xl mx-auto lg:col-span-3"
+              ><slot /></Wrapper
+            >
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

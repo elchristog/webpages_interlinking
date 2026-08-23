@@ -1,0 +1,125 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import WorkCard1 from "@/components/work/WorkCard1.astro";
+// Content
+import { getCollection } from "astro:content";
+const allwork = await getCollection("work");
+---
+
+<section class="bg-white overflow-hidden relative">
+  <Wrapper variant="standard" class="pt-24 overflow-hidden">
+    <div class="grid items-end gap-4 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        <div class="relative max-w-xs">
+          <div class="absolute inset-0 flex items-center" aria-hidden="true">
+            <div class="w-full border-t border-accent-300"></div>
+          </div>
+          <div class="relative flex justify-start">
+            <span class="bg-white pr-2 text-sm text-accent-500 font-medium"
+              >Work</span
+            >
+          </div>
+        </div>
+        <Text
+          tag="h2"
+          variant="displayMD"
+          class="tracking-tighter text-accent-800 text-balance mt-12"
+        >
+          Our moset recent projects
+        </Text>
+      </div>
+      <div class="flex lg:ml-auto">
+        <Button isLink size="lg" variant="accent" href="/work" class="w-auto">
+          See all our work
+        </Button>
+      </div>
+    </div>
+    <div class="flex gap-2 mt-12">
+      <button
+        aria-label="Previous slide"
+        id="keen-slider-previous"
+        class="rounded-lg bg-accent-50 p-1.5 text-accent-600 shadow-xs hover:bg-pink-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus:outline-accent-400 cursor-pointer focus:outline-2 focus:outline-inset"
+        ><svg
+          width="15"
+          height="15"
+          viewBox="0 0 15 15"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          ><path
+            d="M8.84182 3.13514C9.04327 3.32401 9.05348 3.64042 8.86462 3.84188L5.43521 7.49991L8.86462 11.1579C9.05348 11.3594 9.04327 11.6758 8.84182 11.8647C8.64036 12.0535 8.32394 12.0433 8.13508 11.8419L4.38508 7.84188C4.20477 7.64955 4.20477 7.35027 4.38508 7.15794L8.13508 3.15794C8.32394 2.95648 8.64036 2.94628 8.84182 3.13514Z"
+            fill="currentColor"
+            fill-rule="evenodd"
+            clip-rule="evenodd"></path></svg
+        >
+      </button>
+      <button
+        aria-label="Next slide"
+        id="keen-slider-next"
+        class="rounded-lg bg-accent-50 p-1.5 text-accent-600 shadow-xs hover:bg-pink-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus:outline-accent-400 cursor-pointer focus:outline-2 focus:outline-inset"
+      >
+        <svg
+          width="15"
+          height="15"
+          viewBox="0 0 15 15"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          ><path
+            d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z"
+            fill="currentColor"
+            fill-rule="evenodd"
+            clip-rule="evenodd"></path></svg
+        >
+      </button>
+    </div>
+  </Wrapper>
+  <div
+    class="w-full mx-auto max-w-screen 2xl:max-w-400 pb-32 mt-8 overflow-hidden"
+  >
+    <div id="keen-slider" class="keen-slider">
+      {allwork.slice(0, 3).map((post) => <WorkCard1 post={post} />)}
+    </div>
+  </div>
+</section>
+
+<script type="module">
+  import KeenSlider from "https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/+esm";
+
+  const slider = new KeenSlider(
+    "#keen-slider",
+    {
+      loop: true,
+      slides: {
+        origin: "center",
+        perView: 1.15,
+        spacing: 16,
+      },
+      breakpoints: {
+        "(min-width: 768px)": {
+          slides: {
+            origin: "center",
+            perView: 2,
+            spacing: 24,
+          },
+        },
+        "(min-width: 1024px)": {
+          slides: {
+            origin: "center",
+            perView: 2.8,
+            spacing: 32,
+          },
+        },
+      },
+    },
+    []
+  );
+
+  const keenSliderPrevious = document.getElementById("keen-slider-previous");
+  const keenSliderNext = document.getElementById("keen-slider-next");
+
+  keenSliderPrevious?.addEventListener("click", () => slider.prev());
+  keenSliderNext?.addEventListener("click", () => slider.next());
+</script>

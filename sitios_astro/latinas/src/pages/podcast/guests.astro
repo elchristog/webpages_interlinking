@@ -1,0 +1,56 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import PodcastCard3 from "@/components/podcast/PodcastCard3.astro";
+import PodcastCard2 from "@/components/podcast/PodcastCard2.astro";
+// Content
+const allPodcasts = await getCollection("podcasts");
+import { getCollection } from "astro:content";
+// Sections
+import PodcastCard1 from "@/components/podcast/PodcastCard1.astro";
+import AdvertAside from "@/components/advert/AdvertAside.astro";
+// Sort posts by date
+allPodcasts.sort((a, b) => {
+  const dateA = new Date(a.data.pubDate).getTime();
+  const dateB = new Date(b.data.pubDate).getTime();
+  return dateB - dateA; // Compare timestamps
+});
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pt-12">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-2">
+        <div class="lg:col-span-3">
+          <span class="sr-only"> Podcast series </span>
+          <div>
+            {
+              allPodcasts
+                .filter((post) => post.data.isGuest)
+                .slice(0, 1)
+                .map((post) => <PodcastCard2 post={post} />)
+            }
+          </div>
+          <div
+            class="mt-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2"
+          >
+            {
+              allPodcasts
+                .filter((post) => post.data.isGuest)
+
+                .map((post) => <PodcastCard3 post={post} />)
+            }
+          </div>
+        </div>
+
+        <div class="lg:sticky lg:top-10 lg:z-50">
+          <PodcastCard1 />
+          <AdvertAside />
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

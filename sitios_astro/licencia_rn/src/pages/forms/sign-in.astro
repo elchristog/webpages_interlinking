@@ -1,0 +1,57 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import Google from "@/components/fundations/icons/Google.astro";
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pt-48 pb-8">
+      <div class="max-w-xl mx-auto">
+        <Text
+          tag="h1"
+          variant="textLG"
+          class="max-w-sm text-base-800 text-balance"
+        >
+          Welcome back to Alfred, sign in to your account
+        </Text>
+        <form class="mt-4 space-y-4" aria-label="Signin Form">
+          <div>
+            <label for="email" class="sr-only">Email address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="name@email.com"
+              required
+              class="w-full text-lg border-transparent outline-none bg-base-100 h-14 text-base-700 placeholder-base-400 focus:ring-inset focus:ring-base-800 focus:border-base-800 focus:bg-white"
+            />
+          </div>
+          <Button size="xl" variant="default" type="submit" class="w-full">
+            Sign in
+          </Button>
+          <Button
+            size="xl"
+            variant="muted"
+            type="submit"
+            gap="xs"
+            class="flex items-center w-full"
+          >
+            <Google class="size-6" />
+            Sign in with Google
+          </Button>
+        </form>
+        <Text tag="p" variant="textXS" class="mt-4 text-base-500">
+          Create and account. <a
+            href="/forms/signup"
+            class="underline hover:text-base-700">Sign up</a
+          > for a free account.
+        </Text>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

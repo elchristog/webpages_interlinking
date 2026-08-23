@@ -1,0 +1,149 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import ShareButtons from "@/components/fundations/elements/ShareButtons.astro";
+import BlogEntries1 from "@/components/blog/BlogEntries.astro";
+// Content
+const { frontmatter } = Astro.props;
+import { getEntry } from "astro:content";
+const team = await getEntry("team", frontmatter.team);
+// Get all posts and filter by tag
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("posts");
+const relatedPosts = allPosts.filter((post) =>
+  post.data.tags.some((tag) => frontmatter.tags.includes(tag))
+);
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="fixed z-40 top-[3.8rem] inset-x-0">
+      <div class="w-full py-2 bg-white border-b border-base-200">
+        {
+          team && (
+            <a
+              href={`/team/${team.id}`}
+              class="flex items-center gap-3 hover:opacity-80 transition "
+            >
+              {team?.data?.image?.url && (
+                <Image
+                  width={100}
+                  height={100}
+                  src={team.data.image.url}
+                  alt={team.data.image.alt}
+                  class="inline-block object-cover object-center size-10 "
+                />
+              )}
+              <Text tag="p" variant="textXS" class="text-base-500 ">
+                <span class="">
+                  Written in
+                  <span class="font-medium  text-base-500">
+                    <time
+                      datetime={new Date(frontmatter.pubDate).toISOString()}
+                    >
+                      {new Date(frontmatter.pubDate).toLocaleDateString(
+                        "en-US",
+                        {
+                          year: "numeric",
+                          month: "long",
+                          day: "2-digit",
+                        }
+                      )}
+                    </time>
+                  </span>
+                </span>
+                <span class="">
+                  by
+                  <span class="font-medium text-base-500 ">
+                    {team.data.name}
+                  </span>
+                </span>
+                <span class="block"> {team.data.role}</span>
+              </Text>
+            </a>
+          )
+        }
+      </div>
+    </Wrapper>
+    <Wrapper variant="standard" class="pt-48 pb-8 lg:pt-82">
+      <div class="max-w-xl">
+        <div class="flex flex-wrap items-center mt-2 gap-1">
+          {
+            frontmatter.tags.map((tag) => (
+              <>
+                <Text
+                  tag="a"
+                  variant="textSM"
+                  href={`/blog/tags/${tag}`}
+                  class="capitalize text-base-500 hover:text-blue "
+                >
+                  {tag}
+                </Text>
+              </>
+            ))
+          }
+        </div>
+        <Text
+          tag="h1"
+          variant="displayMD"
+          class="mt-8 font-medium tracking-tight text-balance text-base-800"
+        >
+          {frontmatter.title}
+        </Text>
+        <Text
+          tag="p"
+          variant="textBase"
+          class="mt-4 text-balance text-base-500"
+        >
+          {frontmatter.description}
+        </Text>
+      </div>
+
+      <div class="pt-8 mt-8 border-t border-base-200">
+        <Image
+          width={1000}
+          height={800}
+          alt={frontmatter.image.alt}
+          src={frontmatter.image.url}
+          class="object-cover object-center size-full max-h-120"
+        />
+        <div
+          class="items-start mt-12 grid grid-cols-1 gap-8 lg:gap-12 lg:grid-cols-3"
+        >
+          <Wrapper variant="prose" class="lg:col-span-2">
+            <slot />
+          </Wrapper>
+          <div
+            class="flex flex-col p-4 lg:stick lg:top-30 lg:sticky lg:z-50 lg:order-first bg-base-50 gap-2 lg:justify-between"
+          >
+            <Text tag="p" variant="textBase" class="text-base-500">
+              Share this article:
+            </Text>
+            <ShareButtons description={frontmatter.description} />
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+  {
+    relatedPosts.length > 0 && (
+      <section>
+        <Wrapper variant="standard" class="py-8">
+          <Text tag="h2" variant="displaySM" class=" text-base-800">
+            Related posts
+          </Text>
+          <div class="mt-2 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {relatedPosts.slice(0, 3).map((post) => (
+              <BlogEntries1 post={post} />
+            ))}
+          </div>
+        </Wrapper>
+      </section>
+    )
+  }
+</BaseLayout>

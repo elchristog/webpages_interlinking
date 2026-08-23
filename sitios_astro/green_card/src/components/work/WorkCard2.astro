@@ -1,0 +1,66 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+const { url, company, work, thumbnail } = {
+  url: "/work/" + Astro.props.post.id,
+  company: Astro.props.post.data.company,
+  work: Astro.props.post.data.work,
+  thumbnail: Astro.props.post.data.thumbnail.url,
+};
+---
+
+<article
+  class="relative flex flex-col justify-between overflow-hidden isolate keen-slider__slide group"
+>
+  <a href={url} title={company} class="text-white absolute inset-0 z-10"></a>
+  <Image
+    src={thumbnail}
+    width="1000"
+    height="1000"
+    alt={company}
+    class="aspect-4/6 rounded-2xl"
+  />
+
+  <div class="mt-4 text-center">
+    <Text tag="h2" variant="textLG" class="text-accent-500 font-medium">
+      {company}
+    </Text>
+    <Text
+      tag="p"
+      variant="textBase"
+      class="tracking-tight text-accent-500 text-balance"
+    >
+      {work}
+    </Text>
+  </div>
+</article>
+<script type="module">
+  import KeenSlider from "https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/+esm";
+  const keenSlider = new KeenSlider(
+    "#keen-slider",
+    {
+      loop: true,
+      slides: {
+        origin: "center",
+        perView: 1.25,
+        spacing: 16,
+      },
+      breakpoints: {
+        "(min-width: 1024px)": {
+          slides: {
+            origin: "center",
+            perView: 2.8,
+            spacing: 32,
+          },
+        },
+      },
+    },
+    []
+  );
+  const keenSliderPrevious = document.getElementById("keen-slider-previous");
+  const keenSliderNext = document.getElementById("keen-slider-next");
+  keenSliderPrevious.addEventListener("click", () => keenSlider.prev());
+  keenSliderNext.addEventListener("click", () => keenSlider.next());
+</script>

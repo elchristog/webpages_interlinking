@@ -1,0 +1,50 @@
+---
+// Assets
+import { Image } from "astro:assets";
+import SellImage from "@/images/sell.png";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<section>
+  <Wrapper variant="standard" class="py-12">
+    <div class="relative grid grid-cols-1 gap-4 md:grid-cols-2 lg:items-center">
+      <Image
+        width={800}
+        height={1000}
+        src={SellImage}
+        alt="#_"
+        class="max-h-80 md:max-h-[80dvh] w-full object-cover"
+      />
+      <div
+        class="p-8 lg:p-20 h-full flex flex-col items-center justify-center outline outline-base-200"
+      >
+        <div>
+          <Text
+            tag="h3"
+            variant="displayMD"
+            class="text-balance font-medium text-base-900"
+          >
+            Privileged access to qualified global buyers
+          </Text>
+          <div class="mt-8 pt-8 border-t border-base-200">
+            <Text tag="p" variant="textBase" class="text-base-500">
+              The Quartiere International Realty® network is an exclusive
+              association of distinguished residential luxury real estate
+              brokerage companies throughout the world. Our agents are local
+              experts, globally connected and ready to guide you on your
+              homebuying and selling journey.
+            </Text>
+          </div>
+          <div class="flex mt-8 gap-2">
+            <Button isLink size="xxl" variant="default" href="/sell-property">
+              Sell your property
+            </Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Wrapper>
+</section>

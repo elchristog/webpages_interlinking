@@ -1,0 +1,57 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Sections
+import AsidePost from "@/components/blog/AsidePost.astro";
+// Components
+import BlogCard3 from "@/components/blog/BlogCard3.astro";
+import BlogCard6 from "@/components/blog/BlogCard6.astro";
+import AdvertAside from "@/components/advert/AdvertAside.astro";
+// Content
+import { getCollection } from "astro:content";
+export async function getStaticPaths() {
+  const allPosts = await getCollection("posts");
+  const uniqueTags = [
+    ...new Set(allPosts.map((post) => post.data.tags).flat()),
+  ];
+  return uniqueTags.map((tag) => {
+    const filteredPosts = allPosts.filter((post) =>
+      post.data.tags.includes(tag)
+    );
+    return {
+      params: { tag },
+      props: { posts: filteredPosts },
+    };
+  });
+}
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<BaseLayout pageTitle={tag}>
+  <section>
+    <Wrapper variant="standard" class="pt-12">
+      <span class="sr-only">
+        All our <span>{tag}</span> news
+      </span>
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-2">
+        <div class="lg:col-span-3">
+          <div>
+            {posts.slice(0, 1).map((post) => <BlogCard6 post={post} />)}
+            <div
+              class="mt-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2"
+            >
+              {posts.slice(1).map((post) => <BlogCard3 post={post} />)}
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:sticky lg:top-10 lg:z-20">
+          <AsidePost />
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

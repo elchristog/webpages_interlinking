@@ -1,0 +1,46 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import ForSaleEntry from "@/components/properties/ForSaleEntry.astro";
+import ForSaleSearch from "@/components/properties/ForSaleSearch.astro";
+// Sections
+import Sell from "@/components/ctas/Sell.astro";
+// Content
+import { getCollection } from "astro:content";
+const forSale = await getCollection("sale");
+---
+
+<BaseLayout>
+  <section class="overflow-hidden">
+    <Wrapper class="pb-12 lg:pt-32">
+      <div class="grid lg:grid-cols-3 gap-8 items-end">
+        <Text
+          tag="h1"
+          variant="displaySM"
+          data-aos="fade-up"
+          data-aos-duration="1500"
+          class="font-medium tracking-tighter lg:col-span-2 text-base-900"
+        >
+          Available properties, from cozy apartments to spacious estates, and
+          discover the ideal property to call your own.
+        </Text>
+        <Text tag="p" variant="textBase" class="text-base-500">
+          Browse our diverse selection of homes, from cozy apartments to
+          spacious estates, and discover the ideal property to call your own.
+        </Text>
+      </div>
+      <div class="mt-8">
+        <ForSaleSearch />
+      </div>
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 [&:hover>a]:opacity-30 duration-500"
+      >
+        {forSale.map((post) => <ForSaleEntry post={post} />)}
+      </div>
+    </Wrapper>
+  </section>
+  <Sell />
+</BaseLayout>

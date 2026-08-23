@@ -1,0 +1,96 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import Plus from "@/components/fundations/icons/Plus.astro";
+const faqs = [
+  {
+    question: "How does end-to-end encryption work on a decentralized network?",
+    answer:
+      "End-to-end encryption in a Web3 environment ensures that only the sender and recipient can access messages or transactions. Your data is encrypted on your device and can only be decrypted by the intended recipient, with no central authority having access, making it truly private and censorship-resistant.",
+  },
+  {
+    question: "What happens if I lose my private key?",
+    answer:
+      "Losing your private key means losing access to your encrypted data and wallet. Since Web3 platforms are decentralized, there is no central authority to recover it. We recommend securely backing up your key using a hardware wallet or a non-custodial solution.",
+  },
+  {
+    question: "Are self-destructing messages truly permanent?",
+    answer:
+      "Self-destructing messages are removed from decentralized storage after the specified time. However, like any system, recipients may still take screenshots or record content, so always use discretion when sharing sensitive information.",
+  },
+  {
+    question: "What if I enable two-factor authentication and lose my device?",
+    answer:
+      "Web3 platforms often use decentralized identity solutions, such as multi-signature wallets or social recovery mechanisms. If you lose your device, you can regain access using your backup security phrase or designated recovery contacts.",
+  },
+  {
+    question: "Does this platform sell or share my data?",
+    answer:
+      "No. Web3 platforms are built with privacy at their core. Your data is encrypted, stored on decentralized networks, and never monetized or shared with third parties. You own your data, and only you can decide how it's used.",
+  },
+  {
+    question: "Can I use this platform on multiple devices?",
+    answer:
+      "Yes. With Web3, your encrypted data remains synchronized across multiple devices using decentralized storage, allowing seamless access to your messages, files, and transactions from anywhere.",
+  },
+  {
+    question: "Are there any storage limitations for my files?",
+    answer:
+      "Decentralized storage networks allow you to store your files securely, but limitations may depend on your chosen protocol and storage provider. We offer flexible options, including IPFS and Arweave, with scalability based on your needs.",
+  },
+  {
+    question: "Can I export my data from the platform?",
+    answer:
+      "Yes. You have full ownership of your data. You can export your messages, files, and transactions at any time, ensuring transparency and control over your digital assets.",
+  },
+];
+---
+
+<section>
+  <Wrapper class="py-12 grid grid-cols-1 gap-y-12 lg:gap-y-24 lg:grid-cols-4">
+    <div class="lg:pr-8">
+      <Text tag="span" variant="textSM" class="text-base-400"> Faq</Text>
+      <Text
+        tag="h2"
+        variant="displayMD"
+        class="tracking-tight mt-6 text-white lg:text-balance font-display"
+      >
+        Frequently Asked Questions
+      </Text>
+      <Text tag="p" variant="textBase" class="text-white mt-2 text-balance">
+        Now enough with the FAQ?
+      </Text>
+      <div class="flex mt-8">
+        <Button
+          isLink
+          size="sm"
+          variant="default"
+          href="/forms/contact"
+          title="#_"
+          aria-label="#_"
+          class="w-auto justify-center">Contact us</Button
+        >
+      </div>
+    </div>
+    <div class="lg:col-span-3 flex flex-col gap-8">
+      {
+        faqs.map((faq) => (
+          <details class="group cursor-pointer ">
+            <summary class="flex items-start justify-between w-full  text-left select-none  text-white text-lg  relative   ">
+              <span class="pr-8"> {faq.question}</span>
+              <Plus
+                slot="icon"
+                size="sm"
+                class="group-open:text-base-400 transform group-open:-rotate-45 duration-300"
+              />
+            </summary>
+            <div class="py-4 px-4 text-base-400 text-base">{faq.answer}</div>
+          </details>
+        ))
+      }
+    </div>
+  </Wrapper>
+</section>

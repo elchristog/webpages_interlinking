@@ -1,0 +1,480 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import Plus from "@/components/fundations/icons/Plus.astro";
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-12">
+      <Text tag="h1" variant="textBase" class="font-medium text-base-900">
+        Buttons
+      </Text>
+      <div class="mt-2 grid grid-cols-1 md:grid-cols-3 gap-12 text-base-400">
+        <!-- Default -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <Text
+              tag="p"
+              variant="textXS"
+              class="font-medium uppercase text-base-900"
+            >
+              Default text
+            </Text>
+            <div class="flex flex-col mt-2 gap-4">
+              <Button class="w-auto" size="xxs" variant="default"
+                >Default XXS</Button
+              >
+              <Button class="w-auto" size="xs" variant="default"
+                >Default XS</Button
+              >
+              <Button class="w-auto" size="sm" variant="default"
+                >Default SM</Button
+              >
+              <Button class="w-auto" size="base" variant="default"
+                >Default Base</Button
+              >
+              <Button class="w-auto" size="md" variant="default"
+                >Default MD</Button
+              >
+              <Button class="w-auto" size="lg" variant="default"
+                >Default LG</Button
+              >
+              <Button class="w-auto" size="xl" variant="default"
+                >Default XL</Button
+              >
+              <Button class="w-auto" size="xxl" variant="default"
+                >Default XXL</Button
+              >
+              <Button class="w-auto" size="16" variant="default"
+                >Default 16</Button
+              >
+              <Button class="w-auto" size="17" variant="default"
+                >Default 17</Button
+              >
+              <Button class="w-auto" size="18" variant="default"
+                >Default 18</Button
+              >
+              <Button class="w-auto" size="19" variant="default"
+                >Default 19</Button
+              >
+              <Button class="w-auto" size="20" variant="default"
+                >Default 20</Button
+              >
+              <Button class="w-auto" size="21" variant="default"
+                >Default 21</Button
+              >
+              <Button class="w-auto" size="22" variant="default"
+                >Default 22</Button
+              >
+              <Button class="w-auto" size="23" variant="default"
+                >Default 23</Button
+              >
+              <Button class="w-auto" size="24" variant="default"
+                >Default 24</Button
+              >
+            </div>
+          </div>
+          <div>
+            <Text
+              tag="p"
+              variant="textXS"
+              class="font-medium uppercase text-base-900"
+            >
+              Icon
+            </Text>
+            <div class="flex flex-col mt-2 gap-4">
+              <Button size="xxs" variant="default" iconOnly
+                ><Plus slot="icon" size="sm" /></Button
+              >
+              <Button size="xs" variant="default" iconOnly
+                ><Plus slot="icon" size="sm" /></Button
+              >
+              <Button size="sm" variant="default" iconOnly
+                ><Plus slot="icon" size="base" /></Button
+              >
+              <Button size="base" variant="default" iconOnly
+                ><Plus slot="icon" size="base" /></Button
+              >
+              <Button size="md" variant="default" iconOnly
+                ><Plus slot="icon" size="lg" /></Button
+              >
+              <Button size="lg" variant="default" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button size="xl" variant="default" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button size="xxl" variant="default" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button size="16" variant="default" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button size="17" variant="default" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button size="18" variant="default" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button size="19" variant="default" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button size="20" variant="default" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button size="21" variant="default" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button size="22" variant="default" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button size="23" variant="default" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button size="24" variant="default" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Accent -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <Text
+              tag="p"
+              variant="textXS"
+              class="font-medium uppercase text-base-900"
+            >
+              Accent text
+            </Text>
+            <div class="flex flex-col mt-2 gap-4">
+              <Button class="w-auto" size="xxs" variant="accent"
+                >Accent XXS</Button
+              >
+              <Button class="w-auto" size="xs" variant="accent"
+                >Accent XS</Button
+              >
+              <Button class="w-auto" size="sm" variant="accent"
+                >Accent SM</Button
+              >
+              <Button class="w-auto" size="base" variant="accent"
+                >Accent Base</Button
+              >
+              <Button class="w-auto" size="md" variant="accent"
+                >Accent MD</Button
+              >
+              <Button class="w-auto" size="lg" variant="accent"
+                >Accent LG</Button
+              >
+              <Button class="w-auto" size="xl" variant="accent"
+                >Accent XL</Button
+              >
+              <Button class="w-auto" size="xxl" variant="accent"
+                >Accent XXL</Button
+              >
+              <Button class="w-auto" size="16" variant="accent"
+                >Accent 16</Button
+              >
+              <Button class="w-auto" size="17" variant="accent"
+                >Accent 17</Button
+              >
+              <Button class="w-auto" size="18" variant="accent"
+                >Accent 18</Button
+              >
+              <Button class="w-auto" size="19" variant="accent"
+                >Accent 19</Button
+              >
+              <Button class="w-auto" size="20" variant="accent"
+                >Accent 20</Button
+              >
+              <Button class="w-auto" size="21" variant="accent"
+                >Accent 21</Button
+              >
+              <Button class="w-auto" size="22" variant="accent"
+                >Accent 22</Button
+              >
+              <Button class="w-auto" size="23" variant="accent"
+                >Accent 23</Button
+              >
+              <Button class="w-auto" size="24" variant="accent"
+                >Accent 24</Button
+              >
+            </div>
+          </div>
+          <div>
+            <Text
+              tag="p"
+              variant="textXS"
+              class="font-medium uppercase text-base-900"
+            >
+              Icon
+            </Text>
+            <div class="flex flex-col mt-2 gap-4">
+              <Button size="xxs" variant="accent" iconOnly
+                ><Plus slot="icon" size="sm" /></Button
+              >
+              <Button size="xs" variant="accent" iconOnly
+                ><Plus slot="icon" size="sm" /></Button
+              >
+              <Button size="sm" variant="accent" iconOnly
+                ><Plus slot="icon" size="base" /></Button
+              >
+              <Button size="base" variant="accent" iconOnly
+                ><Plus slot="icon" size="base" /></Button
+              >
+              <Button size="md" variant="accent" iconOnly
+                ><Plus slot="icon" size="lg" /></Button
+              >
+              <Button size="lg" variant="accent" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button size="xl" variant="accent" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button size="xxl" variant="accent" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button size="16" variant="accent" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button size="17" variant="accent" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button size="18" variant="accent" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button size="19" variant="accent" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button size="20" variant="accent" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button size="21" variant="accent" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button size="22" variant="accent" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button size="23" variant="accent" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button size="24" variant="accent" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Muted -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <Text
+              tag="p"
+              variant="textXS"
+              class="font-medium uppercase text-base-900"
+            >
+              Muted text
+            </Text>
+            <div class="flex flex-col mt-2 gap-4">
+              <Button class="w-auto" size="xxs" variant="muted"
+                >Muted XXS</Button
+              >
+              <Button class="w-auto" size="xs" variant="muted">Muted XS</Button>
+              <Button class="w-auto" size="sm" variant="muted">Muted SM</Button>
+              <Button class="w-auto" size="base" variant="muted"
+                >Muted Base</Button
+              >
+              <Button class="w-auto" size="md" variant="muted">Muted MD</Button>
+              <Button class="w-auto" size="lg" variant="muted">Muted LG</Button>
+              <Button class="w-auto" size="xl" variant="muted">Muted XL</Button>
+              <Button class="w-auto" size="xxl" variant="muted"
+                >Muted XXL</Button
+              >
+              <Button class="w-auto" size="16" variant="muted">Muted 16</Button>
+              <Button class="w-auto" size="17" variant="muted">Muted 17</Button>
+              <Button class="w-auto" size="18" variant="muted">Muted 18</Button>
+              <Button class="w-auto" size="19" variant="muted">Muted 19</Button>
+              <Button class="w-auto" size="20" variant="muted">Muted 20</Button>
+              <Button class="w-auto" size="21" variant="muted">Muted 21</Button>
+              <Button class="w-auto" size="22" variant="muted">Muted 22</Button>
+              <Button class="w-auto" size="23" variant="muted">Muted 23</Button>
+              <Button class="w-auto" size="24" variant="muted">Muted 24</Button>
+            </div>
+          </div>
+          <div>
+            <Text
+              tag="p"
+              variant="textXS"
+              class="font-medium uppercase text-base-900"
+            >
+              Icon
+            </Text>
+            <div class="flex flex-col mt-2 gap-4">
+              <Button size="xxs" variant="muted" iconOnly
+                ><Plus slot="icon" size="sm" /></Button
+              >
+              <Button size="xs" variant="muted" iconOnly
+                ><Plus slot="icon" size="sm" /></Button
+              >
+              <Button size="sm" variant="muted" iconOnly
+                ><Plus slot="icon" size="base" /></Button
+              >
+              <Button size="base" variant="muted" iconOnly
+                ><Plus slot="icon" size="base" /></Button
+              >
+              <Button size="md" variant="muted" iconOnly
+                ><Plus slot="icon" size="lg" /></Button
+              >
+              <Button size="lg" variant="muted" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button size="xl" variant="muted" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button size="xxl" variant="muted" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button size="16" variant="muted" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button size="17" variant="muted" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button size="18" variant="muted" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button size="19" variant="muted" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button size="20" variant="muted" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button size="21" variant="muted" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button size="22" variant="muted" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button size="23" variant="muted" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+              <Button size="24" variant="muted" iconOnly
+                ><Plus slot="icon" size="xl" /></Button
+              >
+            </div>
+          </div>
+        </div>
+   
+<!-- Pink -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+  <div>
+    <Text tag="p" variant="textXS" class="font-medium uppercase text-base-900">
+      Pink text
+    </Text>
+    <div class="flex flex-col mt-2 gap-4">
+      <Button variant="pink" size="xxs" class="w-auto">Pink XXS</Button>
+      <Button variant="pink" size="xs" class="w-auto">Pink XS</Button>
+      <Button variant="pink" size="sm" class="w-auto">Pink SM</Button>
+      <Button variant="pink" size="base" class="w-auto">Pink Base</Button>
+      <Button variant="pink" size="md" class="w-auto">Pink MD</Button>
+      <Button variant="pink" size="lg" class="w-auto">Pink LG</Button>
+      <Button variant="pink" size="xl" class="w-auto">Pink XL</Button>
+      <Button variant="pink" size="xxl" class="w-auto">Pink XXL</Button>
+      <Button variant="pink" size="16" class="w-auto">Pink 16</Button>
+      <Button variant="pink" size="17" class="w-auto">Pink 17</Button>
+      <Button variant="pink" size="18" class="w-auto">Pink 18</Button>
+      <Button variant="pink" size="19" class="w-auto">Pink 19</Button>
+      <Button variant="pink" size="20" class="w-auto">Pink 20</Button>
+      <Button variant="pink" size="21" class="w-auto">Pink 21</Button>
+      <Button variant="pink" size="22" class="w-auto">Pink 22</Button>
+      <Button variant="pink" size="23" class="w-auto">Pink 23</Button>
+      <Button variant="pink" size="24" class="w-auto">Pink 24</Button>
+    </div>
+  </div>
+  <div>
+    <Text tag="p" variant="textXS" class="font-medium uppercase text-base-900">
+      Icon
+    </Text>
+    <div class="flex flex-col mt-2 gap-4">
+      <Button variant="pink" size="xxs" iconOnly><Plus slot="icon" size="sm" /></Button>
+      <Button variant="pink" size="xs" iconOnly><Plus slot="icon" size="sm" /></Button>
+      <Button variant="pink" size="sm" iconOnly><Plus slot="icon" size="base" /></Button>
+      <Button variant="pink" size="base" iconOnly><Plus slot="icon" size="base" /></Button>
+      <Button variant="pink" size="md" iconOnly><Plus slot="icon" size="lg" /></Button>
+      <Button variant="pink" size="lg" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button variant="pink" size="xl" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button variant="pink" size="xxl" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button variant="pink" size="16" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button variant="pink" size="17" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button variant="pink" size="18" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button variant="pink" size="19" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button variant="pink" size="20" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button variant="pink" size="21" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button variant="pink" size="22" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button variant="pink" size="23" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button variant="pink" size="24" iconOnly><Plus slot="icon" size="xl" /></Button>
+    </div>
+  </div>
+</div>
+<!-- Orange -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+  <div>
+    <Text tag="p" variant="textXS" class="font-medium uppercase text-base-900">
+      Orange text
+    </Text>
+    <div class="flex flex-col mt-2 gap-4">
+      <Button variant="orange" size="xxs" class="w-auto">Orange XXS</Button>
+      <Button variant="orange" size="xs" class="w-auto">Orange XS</Button>
+      <Button variant="orange" size="sm" class="w-auto">Orange SM</Button>
+      <Button variant="orange" size="base" class="w-auto">Orange Base</Button>
+      <Button variant="orange" size="md" class="w-auto">Orange MD</Button>
+      <Button variant="orange" size="lg" class="w-auto">Orange LG</Button>
+      <Button variant="orange" size="xl" class="w-auto">Orange XL</Button>
+      <Button variant="orange" size="xxl" class="w-auto">Orange XXL</Button>
+      <Button variant="orange" size="16" class="w-auto">Orange 16</Button>
+      <Button variant="orange" size="17" class="w-auto">Orange 17</Button>
+      <Button variant="orange" size="18" class="w-auto">Orange 18</Button>
+      <Button variant="orange" size="19" class="w-auto">Orange 19</Button>
+      <Button variant="orange" size="20" class="w-auto">Orange 20</Button>
+      <Button variant="orange" size="21" class="w-auto">Orange 21</Button>
+      <Button variant="orange" size="22" class="w-auto">Orange 22</Button>
+      <Button variant="orange" size="23" class="w-auto">Orange 23</Button>
+      <Button variant="orange" size="24" class="w-auto">Orange 24</Button>
+    </div>
+  </div>
+  <div>
+    <Text tag="p" variant="textXS" class="font-medium uppercase text-base-900">
+      Icon
+    </Text>
+    <div class="flex flex-col mt-2 gap-4">
+      <Button variant="orange" size="xxs" iconOnly><Plus slot="icon" size="sm" /></Button>
+      <Button variant="orange" size="xs" iconOnly><Plus slot="icon" size="sm" /></Button>
+      <Button variant="orange" size="sm" iconOnly><Plus slot="icon" size="base" /></Button>
+      <Button variant="orange" size="base" iconOnly><Plus slot="icon" size="base" /></Button>
+      <Button variant="orange" size="md" iconOnly><Plus slot="icon" size="lg" /></Button>
+      <Button variant="orange" size="lg" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button variant="orange" size="xl" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button variant="orange" size="xxl" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button variant="orange" size="16" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button variant="orange" size="17" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button variant="orange" size="18" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button variant="orange" size="19" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button variant="orange" size="20" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button variant="orange" size="21" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button variant="orange" size="22" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button variant="orange" size="23" iconOnly><Plus slot="icon" size="xl" /></Button>
+      <Button variant="orange" size="24" iconOnly><Plus slot="icon" size="xl" /></Button>
+    </div>
+  </div>
+</div>
+
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

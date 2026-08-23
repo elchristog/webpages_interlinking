@@ -1,0 +1,46 @@
+---
+// Fundations
+import BaseLayout from "./BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Frontmatter
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-42 grid grid-cols-1 lg:grid-cols-4">
+      <div class="lg:col-span-2">
+        <Text
+          tag="h1"
+          variant="display2XL"
+          class="mt-12 text-white text-balance font-display"
+        >
+          {frontmatter.page}
+        </Text>
+        <Text tag="span" variant="textSM" class="text-white">
+          Last updated <time
+            datetime={new Date(frontmatter.pubDate).toLocaleDateString(
+              "en-US",
+              {
+                year: "numeric",
+                month: "long",
+                day: "2-digit",
+              }
+            )}
+          >
+            {
+              new Date(frontmatter.pubDate).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "2-digit",
+              })
+            }</time
+          >
+        </Text>
+      </div>
+
+      <Wrapper variant="prose" class="mt-12 lg:row-start-2 lg:col-span-2"><slot /></Wrapper>
+    </Wrapper>
+  </section>
+</BaseLayout>

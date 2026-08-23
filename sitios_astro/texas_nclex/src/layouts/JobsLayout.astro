@@ -1,0 +1,201 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Frontmatter
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper
+      variant="standard"
+      class="py-42 grid grid-cols-1 gap-y-12 lg:grid-cols-4 relative"
+    >
+      <div class="md:col-span-2">
+        <Text
+          tag="h1"
+          variant="displayXL"
+          class="mt-12 text-white text-balance font-display"
+        >
+          {frontmatter.page}
+        </Text>
+        <div class="grid grid-cols-1 md:grid-cols-3 mt-12">
+          {
+            Object.entries(frontmatter.details).map(([key, value]) => (
+              <div class="before:bg-white h-full">
+                <div class="px-4 relative flex flex-col h-full justify-between before:absolute after:absolute before:bg-white before:top-0 before:left-0 before:h-6 before:w-px after:top-8 after:bottom-0 after:left-0 after:w-px">
+                  <Text tag="h3" variant="textBase" class="text-white">
+                    {key}
+                  </Text>
+                  <Text tag="p" variant="textSM" class="mt-2 text-base-400">
+                    {value}
+                  </Text>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <div
+        class="md:row-start-2 md:col-span-full grid grid-cols-1 md:grid-cols-2"
+      >
+        <Wrapper variant="prose" class="md:pr-8"> <slot /></Wrapper>
+        <div>
+          <Text tag="h4" variant="textBase" class="text-white"> Apply </Text>
+          <form class="mt-2">
+            <div class="flex flex-col gap-4">
+              <div class="grid grid-cols-1 gap-y-4 md:grid-cols-2">
+                <div class="flex flex-col-reverse relative">
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    placeholder="Your name"
+                    class="peer relative placeholder:duration-500 placeholder:absolute focus:placeholder:pt-10 tblock w-full px-3 py-3 border-l border-l-white border-transparent appearance-none text-white bg-base-900 focus:border-white focus:bg-base-950 focus:outline-none duration-300 focus:ring-white sm:text-sm placeholder-base-500 h-14 focus:placeholder:text-transparent z-10"
+                  />
+                  <label
+                    for="name"
+                    class="duration-500 opacity-0 mb-1 peer-focus:opacity-100 text-base-500 text-xs -translate-y-12 peer-focus:translate-y-0 after:ml-0.5 after:text-red-500 after:content-['*'] z-0"
+                    >First name</label
+                  >
+                </div>
+                <div class="flex flex-col-reverse relative">
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autocomplete="off"
+                    placeholder="email@example.com"
+                    class="peer relative placeholder:duration-500 placeholder:absolute focus:placeholder:pt-10 tblock w-full px-3 py-3 border-l border-l-white border-transparent appearance-none text-white bg-base-900 focus:border-white focus:bg-base-950 focus:outline-none duration-300 focus:ring-white sm:text-sm placeholder-base-500 h-14 focus:placeholder:text-transparent z-10"
+                  />
+                  <label
+                    for="email"
+                    class="duration-500 opacity-0 mb-1 peer-focus:opacity-100 text-base-500 text-xs -translate-y-12 peer-focus:translate-y-0 after:ml-0.5 after:text-red-500 after:content-['*'] z-0"
+                    >Email</label
+                  >
+                </div>
+              </div>
+              <div class="flex flex-col-reverse relative">
+                <textarea
+                  id="comments"
+                  name="comments"
+                  placeholder="Your Comments..."
+                  rows="4"
+                  class="peer relative placeholder:duration-500 placeholder:absolute focus:placeholder:pt-10 block w-full px-3 py-3 border-l border-l-white border-transparent appearance-none text-white bg-base-900 focus:border-white focus:bg-base-950 focus:outline-none duration-300 focus:ring-white sm:text-sm focus:placeholder:text-transparent resize-vertical"
+                  aria-describedby="comments-desc"></textarea>
+                <label
+                  for="comments"
+                  class="duration-500 opacity-0 mb-1 peer-focus:opacity-100 text-base-500 text-xs -translate-y-12 peer-focus:translate-y-0 after:ml-0.5 after:text-red-500 after:content-['*'] z-0"
+                  >Comments (optional)</label
+                >
+              </div>
+              <div>
+                <label
+                  for="cover-photo"
+                  class="after:ml-0.5 after:text-red-500 after:content-['*'] mb-1 text-base-500 text-xs"
+                  >Cover photo</label
+                >
+                <div
+                  class="flex justify-center border border-dashed border-base-500 p-8 peer"
+                >
+                  <div class="text-center">
+                    <svg
+                      class="mx-auto size-12 text-base-300"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                    <div class="mt-4 flex text-sm leading-6 text-base-500">
+                      <label
+                        for="file-upload"
+                        class="relative cursor-pointer font-semibold text-white focus-within:outline-none focus-within:ring-2 px-2 rounded-full focus-within:ring-base-500 focus-within:ring-offset-2 hover:text-accent-400"
+                      >
+                        <span>Upload a file</span>
+                        <input
+                          id="file-upload"
+                          name="file-upload"
+                          type="file"
+                          class="sr-only"
+                        />
+                      </label>
+                      <p class="pl-1">or drag and drop</p>
+                    </div>
+                    <p class="text-xs leading-5 text-base-600">
+                      PNG, JPG, GIF up to 10MB
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="grid grid-cols-1 gap-y-4 md:grid-cols-2">
+                <div class="flex flex-col-reverse relative">
+                  <input
+                    id="portfolio"
+                    name="portfolio"
+                    type="text"
+                    autocomplete="off"
+                    placeholder="Your site"
+                    class="peer relative placeholder:duration-500 placeholder:absolute focus:placeholder:pt-10 tblock w-full px-3 py-3 border-l border-l-white border-transparent appearance-none text-white bg-base-900 focus:border-white focus:bg-base-950 focus:outline-none duration-300 focus:ring-white sm:text-sm placeholder-base-500 h-14 focus:placeholder:text-transparent z-10"
+                  />
+                  <label
+                    for="portfolio"
+                    class="duration-500 opacity-0 mb-1 peer-focus:opacity-100 text-base-500 text-xs -translate-y-12 peer-focus:translate-y-0 after:ml-0.5 after:text-red-500 after:content-['*'] z-0"
+                    >Portfolio</label
+                  >
+                </div>
+                <div class="flex flex-col-reverse relative">
+                  <input
+                    id="linkedin"
+                    name="linkedin"
+                    type="text"
+                    autocomplete="off"
+                    placeholder="your link"
+                    class="peer relative placeholder:duration-500 placeholder:absolute focus:placeholder:pt-10 tblock w-full px-3 py-3 border-l border-l-white border-transparent appearance-none text-white bg-base-900 focus:border-white focus:bg-base-950 focus:outline-none duration-300 focus:ring-white sm:text-sm placeholder-base-500 h-14 focus:placeholder:text-transparent z-10"
+                  />
+                  <label
+                    for="linkedin"
+                    class="duration-500 opacity-0 mb-1 peer-focus:opacity-100 text-base-500 text-xs -translate-y-12 peer-focus:translate-y-0 after:ml-0.5 after:text-red-500 after:content-['*'] z-0"
+                    >Linkedin</label
+                  >
+                </div>
+              </div>
+
+              <div class="flex flex-col-reverse relative">
+                <input
+                  id="country"
+                  name="country"
+                  type="text"
+                  autocomplete="off"
+                  placeholder="your country"
+                  class="peer relative placeholder:duration-500 placeholder:absolute focus:placeholder:pt-10 tblock w-full px-3 py-3 border-l border-l-white border-transparent appearance-none text-white bg-base-900 focus:border-white focus:bg-base-950 focus:outline-none duration-300 focus:ring-white sm:text-sm placeholder-base-500 h-14 focus:placeholder:text-transparent z-10"
+                />
+                <label
+                  for="country"
+                  class="duration-500 opacity-0 mb-1 peer-focus:opacity-100 text-base-500 text-xs -translate-y-12 peer-focus:translate-y-0 after:ml-0.5 after:text-red-500 after:content-['*'] z-0"
+                  >What country are you based in?</label
+                >
+              </div>
+              <div class="ml-auto">
+                <Button
+                  size="base"
+                  variant="default"
+                  type="Button"
+                  class="w-auto justify-center"
+                >
+                  Submit
+                </Button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

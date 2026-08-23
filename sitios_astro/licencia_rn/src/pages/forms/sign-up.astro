@@ -1,0 +1,82 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import Google from "@/components/fundations/icons/Google.astro";
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pt-48 pb-8">
+      <div class="max-w-xl mx-auto">
+        <Text
+          tag="h1"
+          variant="textLG"
+          class="max-w-sm text-base-800 text-balance"
+        >
+          Create your Alfred account
+        </Text>
+        <Button
+          size="xl"
+          variant="muted"
+          type="submit"
+          gap="xs"
+          class="flex items-center w-full mt-4"
+        >
+          <Google class="size-6" />
+          Sign up with Google
+        </Button>
+        <Text tag="p" variant="textXS" class="my-4 text-base-500">
+          Or sign up with your email address.
+        </Text>
+        <form class="space-y-4" aria-label="Signup Form">
+          <div>
+            <label for="name" class="sr-only">Full Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Your name"
+              required
+              class="w-full text-lg border-transparent outline-none bg-base-100 h-14 text-base-700 placeholder-base-400 focus:ring-inset focus:ring-base-800 focus:border-base-800 focus:bg-white"
+            />
+          </div>
+          <div>
+            <label for="email" class="sr-only">Email address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="name@email.com"
+              required
+              class="w-full text-lg border-transparent outline-none bg-base-100 h-14 text-base-700 placeholder-base-400 focus:ring-inset focus:ring-base-800 focus:border-base-800 focus:bg-white"
+            />
+          </div>
+          <div>
+            <label for="password" class="sr-only">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Create a password"
+              required
+              class="w-full text-lg border-transparent outline-none bg-base-100 h-14 text-base-700 placeholder-base-400 focus:ring-inset focus:ring-base-800 focus:border-base-800 focus:bg-white"
+            />
+          </div>
+          <Button size="xl" variant="default" type="submit" class="w-full">
+            Sign up
+          </Button>
+        </form>
+        <Text tag="p" variant="textXS" class="mt-4 text-base-500">
+          Already have an account? <a
+            href="/forms/signin"
+            class="underline hover:text-base-700">Sign in</a
+          > instead.
+        </Text>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

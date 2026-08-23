@@ -1,0 +1,52 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import User from "@/components/fundations/icons/User.astro";
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout>
+  <!-- Hero -->
+  <section>
+    <Wrapper variant="standard" class="pt-24 pb-12 lg:pt-48">
+      <div class="flex items-center gap-4">
+        <Image
+          width={500}
+          height={500}
+          src={frontmatter.avatar.url}
+          alt={frontmatter.avatar.alt}
+          class="object-cover object-center size-12 rounded-full"
+        />
+        <div>
+          <Text tag="h1" variant="textBase" class="text-primary">
+            {frontmatter.name}
+          </Text>
+          <Text
+            tag="p"
+            variant="textBase"
+            class="font-serif text-primary/60 text-balance"
+          >
+            {frontmatter.occupation} — {frontmatter.location}
+          </Text>
+        </div>
+      </div>
+      <div
+        class="text-balance border-t border-dotted border-primary/10 pt-2 mt-2"
+      >
+        <div class="bg-primary/2 p-4 rounded-xl">
+          <Text tag="p" variant="textSM" class="font-serif italic">
+            “{frontmatter.testimonial}”
+          </Text>
+        </div>
+        <Wrapper variant="prose" class="mt-4">
+          <slot />
+        </Wrapper>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

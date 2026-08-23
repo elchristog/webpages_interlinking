@@ -1,0 +1,195 @@
+
+# .pages.yml — Pages CMS config for: store, team, services, work, infopages, posts
+
+
+media:
+  name: images
+  label: Images
+  input: src/images
+  output: src/images
+  path: ""                          # start at src/images
+  extensions: [png, jpg, jpeg, webp, svg]
+
+settings:
+  content:
+    merge: true
+
+content:
+  # ---------------------
+  # INFO PAGES
+  # ---------------------
+  - name: infopages
+    label: Info Pages
+    type: collection
+    path: src/content/infopages
+    filename: "{primary}.md"
+    view:
+      primary: page
+      fields: [page, pubDate]
+      sort: [page]
+    fields:
+      - { name: page,    label: Page, type: string, required: true }
+      - { name: pubDate, label: Publication Date, type: date }
+      - { name: body,    label: Body, type: rich-text }
+
+  # ---------------------
+  # POSTS
+  # ---------------------
+  - name: posts
+    label: Posts
+    type: collection
+    path: src/content/posts
+    filename: "{primary}.md"
+    view:
+      primary: title
+      fields: [title, pubDate, author]
+      sort: [pubDate]
+      default: { sort: pubDate, order: desc }
+    fields:
+      - { name: title,       label: Title, type: string, required: true }
+      - { name: pubDate,     label: Publication Date, type: date }
+      - { name: description, label: Description, type: text }
+      - { name: author,      label: Author, type: string }
+      - name: image
+        label: Cover Image
+        type: object
+        fields:
+          - name: url
+            label: Image
+            type: image
+            options: { media: images, path: blog }    # src/images/blog
+          - { name: alt, label: Alt text, type: string }
+      - { name: tags, label: Tags, type: string, list: true }
+      - { name: body, label: Body, type: rich-text }
+
+  # ---------------------
+  # SPEAKERS
+  # ---------------------
+  - name: speakers
+    label: Speakers
+    type: collection
+    path: src/content/speakers
+    filename: "{primary}.md"
+    view:
+      primary: name
+      fields: [name, role]
+      sort: [name]
+    fields:
+      - { name: name,     label: Name, type: string, required: true }
+      - { name: role,     label: Role, type: string }
+      - { name: company,  label: Company, type: string }
+      - name: headshot
+        label: Headshot
+        type: object
+        fields:
+          - name: url
+            label: Image
+            type: image
+            options: { media: images, path: speakers }
+          - { name: alt, label: Alt text, type: string }
+      - { name: location, label: Location, type: string }
+      - { name: summary,  label: Summary, type: text }
+      - { name: bio,      label: Bio, type: text }
+      - { name: tags,     label: Tags, type: string, list: true }
+      - name: socials
+        label: Social Links
+        type: object
+        fields:
+          - { name: twitter,  label: Twitter,  type: string }
+          - { name: github,   label: GitHub,   type: string }
+          - { name: linkedin, label: LinkedIn, type: string }
+          - { name: website,  label: Website,  type: string }
+      - { name: talks,    label: Talks, type: string, list: true }
+      - { name: featured, label: Featured, type: boolean }
+      - { name: body,     label: Body, type: rich-text }
+
+  # ---------------------
+  # SESSIONS
+  # ---------------------
+  - name: sessions
+    label: Sessions
+    type: collection
+    path: src/content/sessions
+    filename: "{primary}.md"
+    view:
+      primary: title
+      fields: [title, day]
+      sort: [day]
+    fields:
+      - { name: title,    label: Title, type: string, required: true }
+      - { name: abstract, label: Abstract, type: text }
+      - { name: speakers, label: Speakers, type: string, list: true }
+      - name: day
+        label: Day
+        type: select
+        options: [day-1, day-2, day-3, day-4, day-5, day-6, day-7]
+      - { name: start,    label: Start Time, type: string }
+      - { name: end,      label: End Time, type: string }
+      - { name: room,     label: Room, type: string }
+      - { name: track,    label: Track, type: string }
+      - name: level
+        label: Level
+        type: select
+        options: [beginner, intermediate, advanced]
+      - { name: tags,     label: Tags, type: string, list: true }
+      - { name: body,     label: Body, type: rich-text }
+
+  # ---------------------
+  # SPONSORS
+  # ---------------------
+  - name: sponsors
+    label: Sponsors
+    type: collection
+    path: src/content/sponsors
+    filename: "{primary}.md"
+    view:
+      primary: name
+      fields: [name, tier]
+      sort: [tier]
+    fields:
+      - { name: name, label: Name, type: string, required: true }
+      - name: tier
+        label: Tier
+        type: select
+        options: [platinum, gold, silver, bronze]
+      - { name: url,  label: Website URL, type: string }
+      - name: logo
+        label: Logo
+        type: object
+        fields:
+          - name: url
+            label: Image
+            type: image
+            options: { media: images, path: sponsors }
+          - { name: alt, label: Alt text, type: string }
+      - { name: body, label: Body, type: rich-text }
+
+  # ---------------------
+  # NEWS
+  # ---------------------
+  - name: news
+    label: News
+    type: collection
+    path: src/content/news
+    filename: "{primary}.md"
+    view:
+      primary: title
+      fields: [title, pubDate]
+      sort: [pubDate]
+      default: { sort: pubDate, order: desc }
+    fields:
+      - { name: title,       label: Title, type: string, required: true }
+      - { name: pubDate,     label: Publication Date, type: date }
+      - { name: description, label: Description, type: text }
+      - { name: author,      label: Author, type: string }
+      - name: image
+        label: Cover Image
+        type: object
+        fields:
+          - name: url
+            label: Image
+            type: image
+            options: { media: images, path: news }
+          - { name: alt, label: Alt text, type: string }
+      - { name: tags, label: Tags, type: string, list: true }
+      - { name: body, label: Body, type: rich-text }

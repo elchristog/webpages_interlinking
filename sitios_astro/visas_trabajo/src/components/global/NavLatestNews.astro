@@ -1,0 +1,35 @@
+---
+import Text from "@/components/fundations/elements/Text.astro";
+import { getCollection } from "astro:content";
+
+// Collect tags from posts to display as "Latest news" topics.
+const allPosts = await getCollection("posts");
+const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
+---
+
+<div class="items-center hidden lg:flex gap-4 w-full">
+  <div class="flex gap-2 justify-start items-center w-full">
+    <Text
+      tag="p"
+      variant="textXS"
+      class="shrink-0 lg:border-r-2 lg:pr-2 lg:border-base-200 text-accen-500 uppercase font-medium"
+    >
+      Lates news
+    </Text>
+    {
+      tags.map((tag) => {
+        const formattedTag = tag.replace(/-/g, " ");
+        return (
+          <Text
+            tag="a"
+            variant="textXS"
+            href={`/blog/tags/${tag}`}
+            class="capitalize  shrink-0 font-normal inline-block text-base-600"
+          >
+            {formattedTag}
+          </Text>
+        );
+      })
+    }
+  </div>
+</div>

@@ -1,0 +1,31 @@
+---
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+---
+
+<div class="grid grid-cols-1 gap-y-8 lg:grid-cols-4 bg-accent-500 items-center">
+  <div class="lg:col-span-3 text-center lg:text-left">
+    <Text tag="p" variant="displayXL" class="uppercase text-white font-display">
+      Stay in the loop
+    </Text>
+    <Text tag="p" variant="textBase" class="text-white mt-1 text-balance">
+      Subscribe for dispatches on new speakers, residencies, and tickets.
+    </Text>
+  </div>
+  <form
+    class="flex flex-col gap-1"
+    method="post"
+    action="https://formsubmit.co/hello@dusk.design"
+  >
+    <input
+      type="email"
+      name="email"
+      required
+      placeholder="Email address"
+      class="w-full bg-black/15 border-transparent px-4 py-3 h-11 text-xs text-white placeholder:text-base-50 focus:border-white/60 focus:outline-none"
+    />
+    <Button size="base" variant="muted" type="submit" class="w-full">
+      Join list
+    </Button>
+  </form>
+</div>

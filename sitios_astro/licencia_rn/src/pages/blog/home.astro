@@ -1,0 +1,33 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Component
+import BlogEntries from "@/components/blog/BlogEntries.astro";
+// Content
+import { getCollection } from "astro:content";
+const allPostsUnsorted = await getCollection("posts");
+// Sort the posts in descending order by publication date (newest to oldest)
+const allPosts = allPostsUnsorted.sort(
+  (a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate)
+);
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pt-48 pb-8 lg:pt-82">
+      <Text
+        tag="h1"
+        variant="displayLG"
+        class="max-w-xl text-base-800 text-balance"
+      >
+        Latest news
+      </Text>
+
+      <div class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {allPosts.map((post) => <BlogEntries post={post} />)}
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

@@ -1,0 +1,90 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Content
+const { frontmatter } = Astro.props;
+const publishedAt = new Date(frontmatter.pubDate);
+const formattedDate = publishedAt.toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+const tags = Array.isArray(frontmatter.tags) ? frontmatter.tags : [];
+const author = frontmatter.author || "Dusk Team";
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-32">
+      <div class="grid grid-cols-1 lg:grid-cols-12 items-end">
+        <div class="lg:col-span-8 pb-8">
+          <Text
+            tag="p"
+            variant="textSM"
+            class="text-base-600 max-w-2xl mt-2 text-balance"
+          >
+            <span>{author}</span>
+            <span aria-hidden="true">•</span>
+            <time datetime={frontmatter.pubDate}>{formattedDate}</time>
+          </Text>
+          <Text
+            tag="h1"
+            variant="displayMD"
+            class="text-balance text-accent-500 font-display uppercase leading-tight mt-8"
+          >
+            {frontmatter.title}
+          </Text>
+          <Text tag="p" variant="textBase" class="text-base-600 mt-2">
+            {frontmatter.description}
+          </Text>
+
+          <div class="flex flex-col gap-1 mt-4">
+            {
+              tags.map((tag) => (
+                <a
+                  href={`/blog/tags/${tag}`}
+                  class="uppercase text-xs text-accent-500 transition hover:border-white/30 hover:text-white"
+                >
+                  {tag}
+                </a>
+              ))
+            }
+          </div>
+        </div>
+        <div
+          aria-hidden="true"
+          class="hidden lg:grid grid-cols-2 lg:grid-cols-4 *:p-8 *:aspect-square *:bg-[#070b25] *:flex lg:col-span-4 *:size-full"
+        >
+          <div class="lg:col-start-2"></div>
+          <div class="lg:col-start-3"></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+      {
+        frontmatter.image?.url && (
+          <figure>
+            <Image
+              width={1200}
+              height={1440}
+              src={frontmatter.image.url}
+              alt={frontmatter.image.alt || frontmatter.title}
+              class="aspect-4/3  w-full object-cover object-center"
+              loading="lazy"
+            />
+            {frontmatter.image.alt && (
+              <figcaption class="mt-4 text-xs uppercase   text-base-400">
+                {frontmatter.image.alt}
+              </figcaption>
+            )}
+          </figure>
+        )
+      }
+      <Wrapper variant="prose" class="mt-12"> <slot /></Wrapper>
+    </Wrapper>
+  </section>
+</BaseLayout>

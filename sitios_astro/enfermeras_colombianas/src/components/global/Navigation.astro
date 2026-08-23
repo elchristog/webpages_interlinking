@@ -1,0 +1,75 @@
+---
+import Logo from "@/components/assets/Logo.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Menu from "@/components/fundations/icons/Menu.astro";
+import MegaMenu from "@/components/global/MegaMenu.astro";
+---
+
+<section>
+  <Wrapper class="pt-6">
+    <div class="relative">
+      <div class="flex items-center justify-between w-full">
+        <a href="/" aria-label="Go to homepage">
+          <span class="sr-only">Go to homepage</span>
+          <Logo class="size-8 text-base-900" />
+        </a>
+        <div class="order-last">
+          <button
+            id="menubutton"
+            type="button"
+            aria-expanded="false"
+            aria-controls="megamenu"
+            aria-label="Toggle navigation menu"
+          >
+            <span class="sr-only">Toggle navigation menu</span>
+
+            <Menu slot="icon" size="base" />
+          </button>
+        </div>
+        <div
+          class="flex gap-2 lg:gap-4 text-base-900 uppercase text-xs font-medium lg:text-sm"
+        >
+          <a class="hover:text-base-500" href="/system/overview"> Overview </a>
+          <a
+            class="hover:text-base-500"
+            href="https://lexingtonthemes.com/templates/quartiere"
+          >
+            Buy Quartiere
+          </a>
+        </div>
+      </div>
+      <MegaMenu />
+    </div>
+  </Wrapper>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const menuButton = document.getElementById("menubutton");
+      const megaMenu = document.getElementById("megamenu");
+      const megaMenuPanel = document.getElementById("megamenu-panel");
+
+      if (!menuButton || !megaMenu) return;
+
+      const openClasses = ["grid-rows-[1fr]", "opacity-100", "w-full", "visible"];
+      const closedClasses = ["grid-rows-[0fr]", "opacity-0", "invisible", "w-0"];
+
+      const setState = (open) => {
+        megaMenu.dataset.state = open ? "open" : "closed";
+        menuButton.setAttribute("aria-expanded", String(open));
+
+        megaMenu.classList.remove(...(open ? closedClasses : openClasses));
+        megaMenu.classList.add(...(open ? openClasses : closedClasses));
+
+        if (megaMenuPanel) {
+          megaMenuPanel.classList.toggle("border-t", open);
+          megaMenuPanel.classList.toggle("border-base-200", open);
+          megaMenuPanel.classList.toggle("border-none", !open);
+        }
+      };
+
+      menuButton.addEventListener("click", () => {
+        const isOpen = megaMenu.dataset.state === "open";
+        setState(!isOpen);
+      });
+    });
+  </script>
+</section>

@@ -1,0 +1,192 @@
+---
+// Assets
+import { Image } from "astro:assets";
+import AboutImage from "@/images/assets/about.jpeg";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Array
+const missionVision = [
+  {
+    title: "Our Story",
+    description:
+      "Phanatik was born out of the desire to create a platform that delivers meaningful, thoughtful news. Starting from a small group of passionate writers and editors, we’ve grown into a leading digital news source, always striving to make our stories relevant and impactful.",
+  },
+  {
+    title: "Our Mission",
+    description:
+      "At Phanatik, our mission is to deliver timely, relevant, and engaging content that keeps you informed and inspired. We aim to make complex topics accessible and impactful, offering insightful perspectives on news, culture, and trends that matter.",
+  },
+  {
+    title: "Our Vision",
+    description:
+      "We envision a world where everyone has access to thought-provoking and quality information. By empowering our readers with knowledge, we aspire to shape an informed and connected global community.",
+  },
+];
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-8">
+        <div class="lg:pr-8">
+          <div class="lg:sticky lg:top-20 lg:z-50">
+            <Text
+              tag="h3"
+              variant="textBase"
+              class="text-base-900 font-display"
+            >
+              About Phanatik
+            </Text>
+            <div
+              class="relative before:absolute after:absolute before:bg-base-950 after:bg-base-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px pt-4 mt-2 flex flex-col gap-4"
+            >
+              {
+                missionVision.map((item) => (
+                  <div>
+                    <Text
+                      tag="h4"
+                      variant="textSM"
+                      class="text-base-900 font-medium"
+                    >
+                      {item.title}
+                    </Text>
+                    <Text tag="p" variant="textXS" class="text-base-600 mt-2">
+                      {item.description}
+                    </Text>
+                  </div>
+                ))
+              }
+            </div>
+            <div
+              class="relative before:absolute after:absolute before:bg-base-950 after:bg-base-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px pt-4 mt-4"
+            >
+              <Text tag="h4" variant="textSM" class="text-base-900 font-medium"
+                >Get in Touch</Text
+              >
+              <Text tag="p" variant="textXS" class="text-base-600 mt-2">
+                We'd love to hear from you! Whether it's feedback or an
+                interesting story idea, feel free to reach out to us at
+              </Text>
+              <div class="mt-4">
+                <Text
+                  tag="a"
+                  variant="textXS"
+                  href="mailto:contact@exmaple.com"
+                  class="text-base-600 hover:underline"
+                  >contact@example.com</Text
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="lg:col-span-3 lg:pl-8 lg:relative lg:before:absolute lg:after:absolute
+          lg:before:bg-base-950 lg:after:bg-base-950/10 lg:before:top-0
+          lg:before:left-0 lg:before:h-6 lg:before:w-px lg:after:top-8
+          lg:after:bottom-0 lg:after:left-0 after:w-px"
+        >
+          <Image
+            width={1000}
+            height={1000}
+            loading="lazy"
+            decoding="async"
+            src={AboutImage}
+            alt="About Phanatik"
+            class="object-cover w-full aspect-4/2 object-center rounded-xl"
+          />
+          <Wrapper
+            variant="prose"
+            class="text-sm text-base-600 max-w-xl mx-auto mt-12"
+          >
+            <div>
+              <p>
+                At Phanatik, we set out to build more than just another news
+                platform. We wanted to create a space where stories matter and
+                where the truth takes center stage. Born from a shared passion
+                for storytelling, our platform has evolved into a vibrant,
+                ever-growing community of curious minds, passionate about the
+                world around them. Our team, a diverse mix of journalists,
+                editors, and creative thinkers, works tirelessly to bring you
+                news that doesn’t just inform—it transforms the way you think
+                about the world.
+              </p>
+              <p>
+                We started small, but the heart of our mission was always clear:
+                to offer news that’s not just surface-level, but deeply
+                engaging, thought-provoking, and—most importantly—trustworthy.
+                We realized early on that in today’s world, where headlines
+                often dominate the conversation, we needed to deliver stories
+                that actually matter. We focus on the details, the background,
+                the context that often gets lost in the noise. Every piece of
+                content we create is built on the foundation of our commitment
+                to transparency, accuracy, and impartiality.
+              </p>
+              <p>
+                Over the years, Phanatik has become more than just a
+                website—it’s a hub for people who value knowledge and
+                discussion. It’s a place where we can dive deep into topics that
+                matter, from technology and innovation to politics, business,
+                and culture. Our team is constantly exploring new ways to make
+                news more accessible, relevant, and exciting. We embrace change
+                and innovation, always looking for fresh perspectives and new
+                voices to add to the conversation.
+              </p>
+              <p>
+                Our mission is simple: we aim to keep you informed, inspired,
+                and equipped with the knowledge you need to navigate the
+                complexities of today’s world. We believe that the news should
+                never be one-sided. Our team works around the clock to bring you
+                balanced, well-researched content that challenges assumptions
+                and sparks meaningful conversations. Whether we’re covering
+                breaking news, publishing in-depth reports, or sharing
+                thought-provoking editorials, we strive to provide you with news
+                that is more than just a headline—it’s an invitation to think,
+                reflect, and take action.
+              </p>
+              <p>
+                Phanatik’s vision is built on the idea that the future of news
+                is collaborative, inclusive, and powered by curiosity. We see a
+                world where every voice is heard, where diverse perspectives
+                shape the conversation, and where people don’t just consume
+                information—they participate in the conversation. As we continue
+                to grow, we aim to be the place where you turn to for the
+                stories that matter most, the stories that help you understand
+                not just what’s happening, but why it’s happening and how it
+                impacts you. We are here to connect the dots and make sense of a
+                rapidly changing world.
+              </p>
+              <p>
+                Today, Phanatik is a trusted source for millions of readers who
+                want more than just the basics—they want stories that are real,
+                raw, and relevant. Our commitment to quality journalism and our
+                passion for what we do is what sets us apart. We understand that
+                the world is messy and complicated, and we embrace that
+                challenge. Our goal is to be a platform that informs, inspires,
+                and empowers. A platform where you can find the news that
+                matters to you, told in a way that makes you see things from a
+                new perspective.
+              </p>
+              <p>
+                As we look ahead, we remain focused on our mission and vision.
+                We are excited about the future of Phanatik, and we invite you
+                to join us on this journey. Together, we’ll explore new ideas,
+                tackle tough questions, and keep pushing the boundaries of what
+                it means to be informed. Thank you for being part of this
+                story—we can’t wait to see where it goes next.
+              </p>
+              <div>
+                <p>Best regards,</p>
+                <p>
+                  <strong>Michael Andreuzza</strong><br />
+                  CEO & Founder, Phanatik
+                </p>
+              </div>
+            </div>
+          </Wrapper>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

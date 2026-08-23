@@ -1,0 +1,69 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<BaseLayout>
+  <Wrapper variant="standard" class="pt-24 pb-12 lg:pt-48">
+    <Text tag="h1" variant="textBase" class="font-medium text-primary"
+      >Typography
+    </Text>
+
+    <Text
+      tag="p"
+      variant="textBase"
+      class="font-serif text-primary/60 text-balance"
+    >
+      Newsreader, Geist &amp; Geitst Mono
+    </Text>
+    <div
+      class="flex flex-col pt-2 mt-2 border-t border-dotted text-primary/60 divide-y divide-primary/10 border-primary/10"
+    >
+      <div class="py-4">
+        <Text tag="p" variant="textXS"> Text XS </Text>
+      </div>
+      <div class="py-4">
+        <Text tag="p" variant="textSM"> Text SM </Text>
+      </div>
+      <div class="py-4">
+        <Text tag="p" variant="textBase"> Text Base </Text>
+      </div>
+      <div class="py-4">
+        <Text tag="p" variant="textLG"> Text LG </Text>
+      </div>
+      <div class="py-4">
+        <Text tag="p" variant="textXL"> Text XL </Text>
+      </div>
+
+      <div class="py-4">
+        <Text tag="p" variant="displaySM" class="upercase"> Display SM </Text>
+      </div>
+      <div class="py-4">
+        <Text tag="p" variant="displayMD" class="upercase"> Display MD </Text>
+      </div>
+      <div class="py-4">
+        <Text tag="p" variant="displayLG" class="upercase"> Display LG </Text>
+      </div>
+      <div class="py-4">
+        <Text tag="p" variant="displayXL" class="upercase"> Display XL </Text>
+      </div>
+      <div class="py-4">
+        <Text tag="p" variant="display2XL" class="upercase"> Display 2XL </Text>
+      </div>
+      <div class="py-4">
+        <Text tag="p" variant="display3XL" class="upercase"> Display 3XL </Text>
+      </div>
+      <div class="py-4">
+        <Text tag="p" variant="display4XL" class="upercase"> Display 4XL </Text>
+      </div>
+      <div class="py-4">
+        <Text tag="p" variant="display5XL" class="upercase"> Display 5XL </Text>
+      </div>
+      <div class="py-4">
+        <Text tag="p" variant="display6XL" class="upercase"> Display 6XL </Text>
+      </div>
+    </div>
+  </Wrapper>
+</BaseLayout>

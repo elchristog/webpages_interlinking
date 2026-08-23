@@ -1,0 +1,43 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pt-48 pb-8 lg:pt-82">
+      <Text
+        tag="p"
+        variant="textXS"
+        class="font-medium uppercase text-base-500"
+      >
+        Error 404
+      </Text>
+      <Text
+        tag="h1"
+        variant="displayLG"
+        class="max-w-xl mt-8 text-base-800 text-balance"
+      >
+        This page vanished into thin air
+      </Text>
+      <Text
+        tag="p"
+        variant="textBase"
+        class="max-w-md mt-4 text-base-500 text-balance"
+      >
+        Sorry about that. The page you're looking for either doesn't exist or
+        was moved. Let's get you back on track.
+      </Text>
+
+      <div class="flex flex-wrap mt-8 gap-4">
+        <Button isLink href="/" size="base" variant="default"> Back to Homepage </Button>
+        <Button isLink href="/helpcenter/home" size="base" variant="muted">
+          Visit Help Center
+        </Button>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

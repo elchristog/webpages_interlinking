@@ -1,0 +1,131 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import DownRight from "@/components/fundations/icons/DownRight.astro";
+// Structure the sections with their respective items
+const courses = [
+  {
+    title: "Starter Tier",
+    buttonVariant: "default",
+    items: [
+      {
+        name: "Intro to Product Design",
+        price: "1,000",
+        description:
+          "Get started with the fundamentals of product design. Perfect for beginners.",
+        includes: [
+          "Introduction to Product Design",
+          "Design Thinking & User Research",
+          "Basic Prototyping",
+          "Usability Testing"
+        ]
+      }
+    ]
+  },
+  {
+    title: "Professional Tier",
+    buttonVariant: "accent",
+    items: [
+      {
+        name: "Intermediate Product Design",
+        price: "2,500",
+        description:
+          "Dive deeper into design principles, collaboration, and advanced tools.",
+        includes: [
+          "UI/UX Design Systems",
+          "Prototyping with Figma & Adobe XD",
+          "Visual Design Principles",
+          "Working with Developers & Stakeholders",
+          "Intermediate Usability Testing"
+        ]
+      }
+    ]
+  },
+  {
+    title: "Premium Tier",
+    buttonVariant: "muted",
+    items: [
+      {
+        name: "Advanced Product Design",
+        price: "4,000",
+        description:
+          "Master product design with real-world case studies and advanced techniques.",
+        includes: [
+          "Full-Stack Design Workflow",
+          "Advanced Prototyping & Interaction Design",
+          "Accessibility & Inclusivity in Design",
+          "Real-World Product Design Projects",
+          "Expert Consultation & Mentorship"
+        ]
+      }
+    ]
+  }
+];
+
+
+---
+
+<section>
+  <Wrapper variant="standard" class="py-12">
+    <Text
+    tag="h3"
+    variant="textLG"
+    class="dark:text-white text-base-900 text-balance"
+  >
+    Course pricing
+  </Text>
+    <div class="relative grid grid-cols-1 gap-1 pt-4 mt-2 md:grid-cols-2 lg:grid-cols-3 before:absolute after:absolute before:bg-black after:bg-base-200 dark:before:bg-base-50 dark:after:bg-base-50/10 before:top-0 before:left-0 before:h-px before:w-18 after:top-0 after:right-0 after:left-20 after:h-px">
+        {
+          courses.map((section) => (
+            <div class="flex flex-col justify-between h-full gap-8 p-8 bg-base-100 dark:bg-base-900">
+             <div>
+                <Text tag="h3" variant="textLG" class="font-medium leading-6 text-base-900 dark:text-white group-hover:text-accent-400">
+                  {section.title}
+                </Text>
+                <div
+                  class="mt-8 ">
+                  {section.items.map((item) => (
+                    <div >
+                      <Text tag="h4" variant="textBase"  class="text-base font-medium text-base-900  dark:text-white">
+                        {item.name}
+                      </Text>
+                      <Text tag="p" variant="textSM" class="text-base-500 text dark:text-base-400">
+                        Starting at ${item.price}
+                      </Text>
+                    </div>
+                    <div class="relative pt-2 mt-2 before:absolute after:absolute before:bg-black after:bg-base-200 dark:before:bg-base-50 dark:after:bg-base-50/10 before:top-0 before:left-0 before:h-px before:w-18 after:top-0 after:right-0 after:left-20 after:h-px">
+                      <Text tag="p" variant="textSM" class="text-base-500 t dark:text-base-400">
+                        {item.description}
+                      </Text>
+                      <ul
+                        class="flex flex-col gap-2 mt-4 list-none list-inside "
+                        role="list">
+                        {item.includes.map((feature) => (
+                          <li>
+                            <Text tag="p" variant="textXS" class="flex items-center gap-2 text-base-600 dark:text-base-300">
+                           <DownRight size="sm" />
+                          {feature}</Text></li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+             </div>
+              <div class="relative ">
+                <Button
+                size="base"
+                variant={section.buttonVariant}
+               class="w-full "
+                  >
+                  Get started
+                </Button>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+  </Wrapper>
+</section>

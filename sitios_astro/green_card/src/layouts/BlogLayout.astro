@@ -1,0 +1,108 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout>
+  <section class="bg-white overflow-hidden relative">
+    <Wrapper class="py-12 lg:pt-24">
+      <div class="gap-4 flex flex-col">
+        <div class="grid items-center gap-4 lg:grid-cols-2 max-w-5xl mx-auto">
+          <div>
+            <div class="relative max-w-xs">
+              <div
+                class="absolute inset-0 flex items-center"
+                aria-hidden="true"
+              >
+                <div class="w-full border-t border-accent-300"></div>
+              </div>
+              <div class="relative flex justify-start">
+                <span class="bg-white pr-2 text-xs text-accent-500 font-medium"
+                  >Written by {frontmatter.author} on
+                  <time
+                    datetime={new Date(frontmatter.pubDate).toLocaleDateString(
+                      "en-US",
+                      {
+                        year: "numeric",
+                        month: "long",
+                        day: "2-digit",
+                      }
+                    )}
+                  >
+                    {
+                      new Date(frontmatter.pubDate).toLocaleDateString(
+                        "en-US",
+                        {
+                          year: "numeric",
+                          month: "long",
+                          day: "2-digit",
+                        }
+                      )
+                    }</time
+                  ></span
+                >
+              </div>
+            </div>
+            <Text
+              tag="h1"
+              variant="displayLG"
+              class="mt-12 tracking-tighter text-accent-800"
+            >
+              {frontmatter.title}
+            </Text>
+            <Text
+              tag="p"
+              variant="textLG"
+              class="mt-2 font-medium text-accent-500 text-balance"
+            >
+              {frontmatter.description}
+            </Text>
+          </div>
+          <Image
+            width="1200"
+            height="630"
+            src={frontmatter.image.url}
+            alt={frontmatter.image.alt}
+            class="w-full max-h-[50vh] rounded-2xl relative object-cover object-top"
+          />
+        </div>
+        <div class="relative w-full py-12">
+          <div class="absolute inset-0 flex items-center" aria-hidden="true">
+            <div class="w-full border-t border-accent-300"></div>
+          </div>
+          <div class="relative flex justify-start">
+            <div
+              class="bg-white pr-2 flex gap-2 text-sm text-accent-500 font-medium"
+            >
+              {
+                frontmatter.tags.map((tag, index) => (
+                  <>
+                    <a
+                      href={`/tags/${tag}`}
+                      class="text-sm text-accent-500 hover:text-pink-600 capitalize"
+                    >
+                      {tag}
+                    </a>
+                    {index < frontmatter.tags.length - 1 && (
+                      <span class="mx-1">—</span>
+                    )}
+                  </>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+        <Wrapper variant="prose" class="max-w-xl">
+          <div class="prose-styles">
+            <slot />
+          </div>
+        </Wrapper>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

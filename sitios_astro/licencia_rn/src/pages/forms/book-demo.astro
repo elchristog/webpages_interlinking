@@ -1,0 +1,81 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pt-48 pb-8">
+      <div class="max-w-xl mx-auto">
+        <Text
+          tag="h1"
+          variant="textLG"
+          class="max-w-sm text-base-800 text-balance"
+        >
+          Book a demo with our team
+        </Text>
+
+        <form class="mt-4 space-y-4" aria-label="Book a Demo Form">
+          <div>
+            <label for="name" class="sr-only">Full Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Your full name"
+              required
+              class="w-full text-lg border-transparent outline-none bg-base-100 h-14 text-base-700 placeholder-base-400 focus:ring-inset focus:ring-base-800 focus:border-base-800 focus:bg-white"
+            />
+          </div>
+          <div>
+            <label for="email" class="sr-only">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="your@email.com"
+              required
+              class="w-full text-lg border-transparent outline-none bg-base-100 h-14 text-base-700 placeholder-base-400 focus:ring-inset focus:ring-base-800 focus:border-base-800 focus:bg-white"
+            />
+          </div>
+          <div>
+            <label for="company" class="sr-only">Company</label>
+            <input
+              type="text"
+              id="company"
+              name="company"
+              placeholder="Company name"
+              required
+              class="w-full text-lg border-transparent outline-none bg-base-100 h-14 text-base-700 placeholder-base-400 focus:ring-inset focus:ring-base-800 focus:border-base-800 focus:bg-white"
+            />
+          </div>
+          <div>
+            <label for="message" class="sr-only">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Anything specific you’d like to cover?"
+              rows="4"
+              class="w-full text-lg border-transparent outline-none bg-base-100 text-base-700 placeholder-base-400 focus:ring-inset focus:ring-base-800 focus:border-base-800"
+            ></textarea>
+          </div>
+          <Button
+            size="xl"
+            variant="default"
+            type="submit"
+            class="flex items-center w-full gap-2"
+          >
+            Book a Demo
+          </Button>
+        </form>
+        <Text tag="p" variant="textXS" class="mt-4 text-base-500">
+          Fill out the form and we'll get back to you to schedule a personalized
+          walkthrough.
+        </Text>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

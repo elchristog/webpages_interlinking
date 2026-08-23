@@ -1,0 +1,51 @@
+---
+// Assets
+import Bars from "@/components/assets/Bars.astro";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import BlogCard from "@/components/blog/BlogCard.astro";
+// Content
+import { getCollection } from "astro:content";
+export async function getStaticPaths() {
+  const allPosts = await getCollection("posts");
+  const uniqueTags = [
+    ...new Set(allPosts.map((post) => post.data.tags).flat()),
+  ];
+  return uniqueTags.map((tag) => {
+    const filteredPosts = allPosts.filter((post) =>
+      post.data.tags.includes(tag)
+    );
+    return {
+      params: { tag },
+      props: { posts: filteredPosts },
+    };
+  });
+}
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<BaseLayout pageTitle={tag}>
+  <section>
+    <Wrapper variant="standard" class="pb-2 pt-50">
+      <Text
+        tag="h1"
+        variant="display6XL"
+        class="font-bold tracking-tighter text-black capitalize text-balance"
+      >
+        {tag}</Text
+      >
+      <Bars class="mt-2">Explore</Bars>
+    </Wrapper>
+  </section>
+  <section>
+    <Wrapper variant="standard" class="py-2">
+      <div class="flex flex-col px-8 bg-orange">
+        {posts.map((post, index) => <BlogCard post={post} index={index + 1} />)}
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

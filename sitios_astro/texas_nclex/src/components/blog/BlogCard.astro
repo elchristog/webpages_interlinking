@@ -1,0 +1,60 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+
+const { title, url, description, pubDate, author, image } = {
+  url: "/blog/posts/" + Astro.props.post.id,
+  title: Astro.props.post.data.title,
+  author: Astro.props.post.data.author,
+  image: Astro.props.post.data.image.url,
+  description: Astro.props.post.data.description,
+  pubDate: new Date(Astro.props.post.data.pubDate).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "2-digit",
+  }),
+};
+---
+
+<div class="flex flex-col h-full justify-start">
+  <div class="before:bg-white">
+    <div
+      class="px-4 relative before:absolute after:absolute before:bg-white before:top-0 before:left-0 before:h-6 before:w-px after:top-8 after:bottom-0 after:left-0 after:w-px"
+    >
+      <Image
+        width={500}
+        height={500}
+        src={image}
+        alt={description}
+        class="aspect-8/8 w-full object-center object-cover"
+      />
+    </div>
+  </div>
+  <div class="lg:pr-4 flex flex-col h-full justify-between">
+    <div>
+      <Text id={pubDate} tag="p" variant="textXS" class="text-white mt-8">
+        {author} —
+        <time datetime={pubDate}>{pubDate}</time>
+      </Text>
+      <Text tag="h3" variant="textBase" class="text-white mt-4">{title}</Text>
+      <Text tag="p" variant="textSM" class="mt-2 text-base-400">
+        {description}
+      </Text>
+    </div>
+    <div class="mt-8 flex">
+      <Button
+        isLink
+        size="xs"
+        variant="default"
+        href={url}
+        title={title}
+        aria-label={title}
+      >
+        Read further
+      </Button>
+    </div>
+  </div>
+</div>

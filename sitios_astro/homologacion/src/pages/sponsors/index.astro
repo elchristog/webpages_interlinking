@@ -1,0 +1,156 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import SponsorCard from "@/components/sponsors/SponsorCard.astro";
+// Content
+import { getCollection } from "astro:content";
+const sponsors = await getCollection("sponsors");
+const tierOrder = ["platinum", "gold", "silver", "bronze"];
+const tierMeta = {
+  platinum: {
+    label: "Platinum",
+    description:
+      "Lead partners who shape the programme, host residencies, and support accessibility for the entire week.",
+  },
+  gold: {
+    label: "Gold",
+    description:
+      "Strategic collaborators funding ateliers, installations, and special programming.",
+  },
+  silver: {
+    label: "Silver",
+    description:
+      "Tool makers and studios powering workshops, prototyping labs, and night salons.",
+  },
+  bronze: {
+    label: "Bronze",
+    description:
+      "Community supporters who enable scholarships, travel bursaries, and emerging talent access.",
+  },
+};
+const groupedTiers = tierOrder.flatMap((tier) => {
+  const tierSponsors = sponsors.filter(
+    (sponsor) => (sponsor.data.tier || "bronze") === tier
+  );
+  return tierSponsors.length > 0
+    ? [
+        {
+          key: tier,
+          label: tierMeta[tier]?.label || tier,
+          description: tierMeta[tier]?.description || "",
+          sponsors: tierSponsors,
+        },
+      ]
+    : [];
+});
+const totalSponsors = sponsors.length;
+const leadSponsor = sponsors.find(
+  (sponsor) => sponsor.data.tier === "platinum"
+);
+const leadSponsorName = leadSponsor?.data.name;
+const tierSummary = `${totalSponsors} sponsors supporting Swiss Design Week`;
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-32">
+      <div>
+        <Text tag="p" variant="textXS" class="uppercase text-base-600">
+          Partners in precision
+        </Text>
+        <Text
+          tag="h1"
+          variant="displayMD"
+          class="text-balance text-accent-500 font-display uppercase leading-tight mt-8"
+        >
+          Sponsors of Dusk
+        </Text>
+        <Text
+          tag="p"
+          variant="textBase"
+          class="text-base-600 font-medium max-w-2xl mt-2 text-balance"
+        >
+          {tierSummary}. From lead partners to community backers, these
+          organisations help us stage a week-long programme rooted in Swiss
+          design discipline and accessible to teams worldwide.
+        </Text>
+      </div>
+      <Text tag="p" variant="textXS" class="uppercase text-accent-500 mt-24">
+        Lead partner: {leadSponsorName}
+      </Text>
+      <div class="space-y-24 lg:space-y-48 mt-8">
+        {
+          groupedTiers.map((tier) => (
+            <div class="grid grid-cols-1 lg:grid-cols-12">
+              <div class="lg:col-span-3">
+                <Text
+                  tag="h2"
+                  variant="displaySM"
+                  class="font-display   uppercase text-accent-500"
+                >
+                  {tier.label}
+                </Text>
+                <Text
+                  tag="p"
+                  variant="textSM"
+                  class="text-base-600 text-balance mt-1"
+                >
+                  {tier.description}
+                </Text>
+              </div>
+              <div class="grid  md:grid-cols-2 lg:grid-cols-4 mt-4 lg:col-span-9 ">
+                {tier.sponsors.map((sponsor) => (
+                  <SponsorCard sponsor={sponsor} />
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+      <section
+        class="gap-x-12 gap-y-8 border border-white/10 bg-accent-500 p-8 md:flex md:items-center md:justify-between mt-24"
+      >
+        <div class="max-w-2xl space-y-4">
+          <Text
+            tag="h2"
+            variant="displaySM"
+            class="font-display uppercase text-white"
+          >
+            Become a sponsor
+          </Text>
+          <Text tag="p" variant="textSM" class="text-base-200 lg:text-balance">
+            Interested in supporting Swiss Design Week 2025? We craft bespoke
+            packages for toolmakers, product teams, and cultural institutions.
+            Email <a class="underline" href="mailto:partners@dusk.design"
+              >partners@dusk.design</a
+            > to start the conversation.
+          </Text>
+        </div>
+        <div
+          class="flex flex-wrap items-center justify-center gap-2 md:justify-end"
+        >
+          <Button
+            size="sm"
+            variant="default"
+            class="w-fit"
+            href="/downloads/partners.pdf"
+          >
+            Sponsorship prospectus
+          </Button>
+          <Button
+            size="sm"
+            variant="muted"
+            class="w-fit"
+            href="mailto:partners@dusk.design"
+          >
+            Book a call
+          </Button>
+        </div>
+      </section>
+    </Wrapper>
+  </section>
+</BaseLayout>

@@ -1,0 +1,51 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Sections
+import PodcastCard1 from "@/components/podcast/PodcastCard1.astro";
+// Components
+import PodcastCard2 from "@/components/podcast/PodcastCard2.astro";
+import AdvertAside from "@/components/advert/AdvertAside.astro";
+// Content
+import { getCollection } from "astro:content";
+export async function getStaticPaths() {
+  const allPodcasts = await getCollection("podcasts");
+  const uniqueTags = [
+    ...new Set(allPodcasts.map((post) => post.data.tags).flat()),
+  ];
+  return uniqueTags.map((tag) => {
+    const filteredPosts = allPodcasts.filter((post) =>
+      post.data.tags.includes(tag)
+    );
+    return {
+      params: { tag },
+      props: { posts: filteredPosts },
+    };
+  });
+}
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<BaseLayout pageTitle={tag}>
+  <section>
+    <Wrapper variant="standard" class="pt-12">
+      <span class="sr-only">
+        All our <span>{tag}</span> news
+      </span>
+      <div class="mt-2 grid grid-cols-1 lg:grid-cols-4 gap-2">
+        <div class="lg:col-span-3">
+          <div>
+            {posts.map((post) => <PodcastCard2 post={post} />)}
+          </div>
+        </div>
+
+        <div class="lg:sticky lg:top-10 lg:z-20">
+          <PodcastCard1 />
+          <AdvertAside />
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

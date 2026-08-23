@@ -1,0 +1,82 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<section>
+  <Wrapper variant="standard" class="py-12">
+    <Text
+      tag="h3"
+      variant="textLG"
+      class="dark:text-white text-base-900 text-balance"
+    >
+      Overview
+    </Text>
+    <div
+      class="grid items-start grid-cols-1 gap-8 lg:grid-cols-2 mt-1 pt-4 relative before:absolute after:absolute before:bg-black after:bg-base-200 dark:before:bg-base-50 dark:after:bg-base-50/10 before:top-0 before:left-0 before:h-px before:w-18 after:top-0 after:right-0 after:left-20 after:h-px"
+    >
+      <Text
+        tag="p"
+        variant="textBase"
+        class="text-base-500 dark:text-base-300 lg:text-balance"
+      >
+        In today’s fast-paced market, great design is the key to creating
+        products that stand out. Mastering Product Design: From Concept to
+        Creation is a comprehensive course that equips you with the skills to
+        design innovative, user-centered products. Whether you're a beginner or
+        an experienced designer looking to refine your craft, this course covers
+        everything from design thinking and prototyping to usability testing and
+        market validation.
+        <br />
+        <br />
+        Through hands-on projects, real-world case studies, and expert insights,
+        you'll learn how to transform ideas into functional, aesthetically pleasing,
+        and market-ready products. By the end of this course, you'll have the knowledge
+        and confidence to create compelling designs that solve real problems and
+        drive business success.
+      </Text>
+
+      <div class="p-8 bg-base-100 dark:bg-base-900">
+        <Text tag="h3" variant="textBase" class="dark:text-white text-base-900">
+          Course details
+        </Text>
+
+        <Wrapper variant="prose" class="mt-2">
+          <ul class="text-xs" role="list">
+            <li>
+              <span>Duration:</span> 8 weeks (Self-paced or Instructor-led)
+            </li>
+            <li><span>Level:</span> Beginner to Intermediate</li>
+            <li>
+              <span>Format:</span> Online with video lectures, assignments, and hands-on
+              projects
+            </li>
+            <li>
+              <span>Tools Covered:</span> Figma, Sketch, Adobe XD, Prototyping Tools
+            </li>
+            <li>
+              <span>Key Topics:</span>
+              <ul>
+                <li>Introduction to Product Design & Design Thinking</li>
+                <li>Understanding User Needs & Market Research</li>
+                <li>Wireframing, Prototyping, and Usability Testing</li>
+                <li>Visual & Interaction Design Principles</li>
+                <li>Collaboration with Developers and Stakeholders</li>
+                <li>Designing for Accessibility and Inclusivity</li>
+                <li>Final Project: Designing a Real-World Product</li>
+              </ul>
+            </li>
+            <li>
+              <span>Certificate:</span> Yes, upon successful completion
+            </li>
+            <li>
+              <span>Who Should Enroll?</span> UX/UI designers, product managers,
+              developers, entrepreneurs, or anyone interested in product design.
+            </li>
+          </ul>
+        </Wrapper>
+      </div>
+    </div>
+  </Wrapper>
+</section>

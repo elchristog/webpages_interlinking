@@ -13,9 +13,11 @@ __pycache__/
 # Astro, Node.js y Builds
 plantilla_astro_maestra/node_modules/
 plantilla_astro_maestra/dist/
-plantilla_astro_maestra/.astro/
 plantilla_astro_maestra/public/imagenes_proyecto/
 plantilla_astro_maestra/src/content/
+sitios_astro/**/node_modules/
+sitios_astro/**/dist/
+sitios_astro/**/.astro/
 node_modules/
 dist/
 .astro/

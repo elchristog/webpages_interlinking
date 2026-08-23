@@ -1,0 +1,63 @@
+---
+// Assets
+import Bars from "@/components/assets/Bars.astro";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const { class: className = "", ...rest } = Astro.props;
+---
+
+<!-- Move chat bubble OUTSIDE of the card to prevent layout issues -->
+<Wrapper variant="standard" class="relative">
+  <div
+    id="chat-bubble"
+    {...rest}
+    class={`${className} p-8 opacity-0 z-50  pointer-events-none transition-opacity duration-300 bg-yellow dark:bg-base-800  w-auto h-auto max-w-none fixed top-8 left-8 right-8 bottom-8 overflow-y-auto`}
+  >
+    <div class="pt-8">
+      <Text
+        tag="h1"
+        variant="display4XL"
+        class="font-bold tracking-tighter text-white text-balance"
+        >Got any questions?</Text
+      >
+      <Bars class="mt-2">We try to reply in under 1 hour</Bars>
+    </div>
+    <form action="#" class="flex flex-col mt-2 gap-1">
+      <div>
+        <label for="full_name" class="sr-only">Full Name</label>
+        <input
+          type="text"
+          id="full_name"
+          required
+          placeholder="Your Name"
+          class="block w-full text-white border-transparent appearance-none bg-black/20 h-14 placeholder-white/80 focus:outline-none focus:ring-white"
+        />
+      </div>
+      <div>
+        <label for="email" class="sr-only">Email</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="you@company.com"
+          required
+          class="block w-full text-white border-transparent appearance-none bg-black/20 h-14 placeholder-white/80 focus:outline-none focus:ring-white"
+        />
+      </div>
+      <div>
+        <label for="message" class="sr-only">Message</label>
+        <textarea
+          id="message"
+          placeholder="Your Message"
+          rows="8"
+          required
+          class="block w-full text-white border-transparent appearance-none bg-black/20 placeholder-white/80 focus:outline-none focus:ring-white"
+        ></textarea>
+      </div>
+      <Button type="submit" size="xl" variant="default" class="w-full mt-2">
+        Submit
+      </Button>
+    </form>
+  </div>
+</Wrapper>

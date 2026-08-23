@@ -1,0 +1,117 @@
+---
+// Assets
+import Bars from "@/components/assets/Bars.astro";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pb-2 pt-50">
+      <Text
+        tag="h1"
+        variant="display6XL"
+        class="font-bold tracking-tighter text-black text-balance"
+      >
+        Sign up</Text
+      >
+      <Bars class="mt-2">Welcome back</Bars>
+    </Wrapper>
+    <Wrapper variant="standard" class="py-2">
+      <div class="px-8 py-12 bg-orange">
+        <form action="#" method="POST" class="flex flex-col w-full gap-2">
+          <div>
+            <label for="name" class="block text-sm font-medium text-white"
+              >Full Name</label
+            >
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="block w-full text-white border-transparent appearance-none bg-black/20 h-14 placeholder-white/80 focus:outline-none focus:ring-white"
+            />
+          </div>
+          <div class="flex flex-col gap-1">
+            <label for="email" class="block text-sm font-medium text-white"
+              >Email Address</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="block w-full text-white border-transparent appearance-none bg-black/20 h-14 placeholder-white/80 focus:outline-none focus:ring-white"
+            />
+          </div>
+          <div class="flex flex-col gap-1">
+            <label for="password" class="block text-sm font-medium text-white"
+              >Password</label
+            >
+            <input
+              type="password"
+              id="password"
+              name="password"
+              required
+              class="block w-full text-white border-transparent appearance-none bg-black/20 h-14 placeholder-white/80 focus:outline-none focus:ring-white"
+            />
+          </div>
+          <div>
+            <label
+              for="confirmPassword"
+              class="block text-sm font-medium text-white"
+              >Confirm Password</label
+            >
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              required
+              class="block w-full text-white border-transparent appearance-none bg-black/20 h-14 placeholder-white/80 focus:outline-none focus:ring-white"
+            />
+          </div>
+
+          <div class="flex flex-wrap items-center mt-2 gap-1 lg:flex-nowrap">
+            <Button type="submit" size="xl" variant="default" class="w-full">
+              Sign in
+            </Button>
+            <Button size="xl" variant="muted" href="#_" isLink class="w-full">
+              Google
+            </Button>
+            <Button size="xl" variant="muted" href="#_" isLink class="w-full">
+              Apple
+            </Button>
+          </div>
+        </form>
+        <div class="flex items-center mt-4 gap-1">
+          <input
+            type="checkbox"
+            id="agree"
+            name="agree"
+            required
+            class="text-black bg-transparent rounded-full border-black/50 focus:ring-black focus:ring-none ring-offset-white"
+          />
+          <label for="agree" class="text-xs text-white"
+            >I agree to the <a
+              href="#_"
+              class="font-medium text-black hover:text-blue"
+              >terms and conditions</a
+            ></label
+          >
+        </div>
+        <Text tag="p" variant="displayXL" class="mt-24 font-bold text-white">
+          Go an acccount
+          <a
+            class="font-bold text-white border-b border-dashed hover:text-black border-black/20"
+            href="/sign-in"
+          >
+            Sign in
+          </a>
+        </Text>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

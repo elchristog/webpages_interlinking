@@ -1,0 +1,179 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import ChevronLeft from "../fundations/icons/ChevronLeft.astro";
+import ChevronRight from "../fundations/icons/ChevronRight.astro";
+// Images
+import { Image } from "astro:assets";
+// import the logos
+import avatar1 from "@/images/avatar/1.jpeg";
+import avatar2 from "@/images/avatar/2.jpeg";
+import avatar3 from "@/images/avatar/3.jpeg";
+import avatar4 from "@/images/avatar/4.jpeg";
+import avatar5 from "@/images/avatar/5.jpeg";
+import avatar6 from "@/images/avatar/6.jpeg";
+const testimonialsOne = [
+  {
+    name: "David Gutierrez",
+    role: "Web3 Creator & NFT Artist",
+    imageUrl: avatar1,
+    content:
+      "I couldn't be happier with the seamless integration. The team went above and beyond to ensure my smart contracts were optimized and secure.",
+  },
+  {
+    name: "Pierluigi Camomillo",
+    role: "Founder of Camomille DeFi",
+    imageUrl: avatar2,
+    content:
+      "Their expertise in DeFi solutions is unmatched. The level of transparency and efficiency they bring to on-chain transactions is game-changing.",
+  },
+  {
+    name: "Ella Svensson",
+    role: "DAO Contributor & Blockchain Advocate",
+    imageUrl: avatar3,
+    content:
+      "The decentralization-first approach made all the difference. Finally, a team that truly understands the power of Web3!",
+  },
+  {
+    name: "Alexa Rios",
+    role: "Chief Innovator at Ideatech Labs",
+    imageUrl: avatar4,
+    content:
+      "The personalized support and deep technical expertise helped our dApp scale effortlessly. Highly recommended for any Web3 startup!",
+  },
+  {
+    name: "Marco Tulio",
+    role: "CEO of CryptoBrew",
+    imageUrl: avatar5,
+    content:
+      "Security and transparency were my top concerns. Their blockchain solutions provided the trustless environment we needed for our ecosystem.",
+  },
+  {
+    name: "Samantha Lee",
+    role: "NFT Strategist at MetaPixels",
+    imageUrl: avatar6,
+    content:
+      "Absolutely thrilled with the results! Their expertise in smart contracts and NFT marketplaces took our project to the next level.",
+  },
+];
+---
+
+<section>
+  <Wrapper
+    variant="standard"
+    class="py-24 grid grid-cols-1 lg:grid-cols-4 overflow-hidden"
+  >
+    <div class="flex flex-col lg:pr-8">
+      <Text tag="span" variant="textSM" class="text-white"
+        >Trusted by the Web3 Community</Text
+      >
+      <Text
+        tag="h3"
+        variant="displayLG"
+        class="mt-12 text-white text-balance font-display"
+      >
+        Empowering , <span class="block text-base-400"> the future</span>
+      </Text>
+      <div class="mt-8 flex gap-4">
+        <Button
+          iconOnly
+          size="base"
+          variant="default"
+          aria-label="Previous slide"
+          id="keen-slider-previous"
+        >
+          <ChevronLeft slot="icon" size="sm" />
+        </Button>
+        <Button
+          iconOnly
+          size="base"
+          variant="default"
+          aria-label="Next slide"
+          id="keen-slider-next"
+        >
+          <ChevronRight slot="icon" size="sm" />
+        </Button>
+      </div>
+    </div>
+    <div class="-mx-6 col-span-3 lg:mx-0">
+      <div id="keen-slider" class="keen-slider">
+        {
+          testimonialsOne.map((testimonial) => (
+            <div class="keen-slider__slide">
+              <div class="before:bg-white border-t py-8 border-t-base-900 border-b border-b-base-900">
+                <div class="px-8  relative  before:absolute after:absolute before:bg-white before:top-0 before:left-0 before:h-6 before:w-px after:top-8 after:bottom-0 after:left-0 after:w-px">
+                  <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:items-center">
+                    <Image
+                      width={600}
+                      height={600}
+                      alt={testimonial.name}
+                      src={testimonial.imageUrl}
+                      class="object-cover size-full  aspect-square grayscale  "
+                    />
+                    <div class="lg:col-span-2">
+                      <div>
+                        <Text
+                          tag="p"
+                          variant="textSM"
+                          class=" font-medium xl:text-xl  text-white"
+                        >
+                          {testimonial.name}
+                        </Text>
+                        <Text tag="p" variant="textSM" class=" text-base-500">
+                          {testimonial.role}
+                        </Text>
+                      </div>
+                      <div class="h-full group mt-2 pt-2">
+                        <blockquote class="relative">
+                          <Text
+                            tag="p"
+                            variant="textBase"
+                            class=" text-base-400 lg:text-4xl italic  font-light text-pretty"
+                          >
+                            "{testimonial.content}"
+                          </Text>
+                        </blockquote>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </Wrapper>
+</section>
+<script type="module">
+  import KeenSlider from "https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/+esm";
+  const keenSlider = new KeenSlider(
+    "#keen-slider",
+    {
+      loop: true,
+
+      slides: {
+        origin: "center",
+        perView: 1.11,
+        spacing: 16,
+      },
+      breakpoints: {
+        "(min-width: 1024px)": {
+          slides: {
+            origin: "auto",
+            perView: 1,
+            spacing: 0,
+          },
+        },
+      },
+    },
+    []
+  );
+  const keenSliderPrevious = document.getElementById("keen-slider-previous");
+  const keenSliderNext = document.getElementById("keen-slider-next");
+  keenSliderPrevious.addEventListener("click", () => keenSlider.prev());
+  keenSliderNext.addEventListener("click", () => keenSlider.next());
+</script>

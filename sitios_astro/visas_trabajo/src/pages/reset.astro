@@ -1,0 +1,97 @@
+---
+import { Image } from "astro:assets";
+import SideImage from "@/images/assets/about.jpeg";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+---
+
+<BaseLayout hideNav={true} hideFooter={true}>
+  <div class="flex h-screen">
+    <div
+      class="flex items-center justify-center w-full p-8 bg-sand-50 lg:w-2/3"
+    >
+      <div class="w-full max-w-md py-24 lg:py-32">
+        <div>
+          <Text
+            tag="h1"
+            variant="textBase"
+            class="text-base-900 font-display font-medium"
+          >
+            Reset Your Password
+          </Text>
+          <Text
+            tag="p"
+            variant="textSM"
+            class="tracking-tight text-base-600 text-balance"
+          >
+            Enter your email to receive a link to reset your password.
+          </Text>
+        </div>
+        <form
+          action="#"
+          method="POST"
+          class="relative before:absolute after:absolute before:bg-base-950 after:bg-base-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px pt-4 mt-2"
+        >
+          <div class="flex flex-col gap-y-2">
+            <div>
+              <label for="email" class="text-sm text-base-600 font-medium"
+                >Email</label
+              >
+              <div class="mt-1">
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  autocomplete="email"
+                  required
+                  aria-required="true"
+                  aria-describedby="email-error"
+                  class="block w-full h-10 px-4 py-2 text-sm text-accent-700 border border-transparent rounded-lg appearance-none duration-300 bg-base-100 focus:bg-transparent focus:outline-none focus:ring-accent-500 focus:ring-offset-2 focus:ring-2 focus:ring-offset-base-200"
+                />
+                <span id="email-error" class="text-red-600 text-sm hidden">
+                  Please enter a valid email address.
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-2">
+            <Button type="submit" size="base" variant="accent" class="w-full">
+              Send Reset Link
+            </Button>
+          </div>
+        </form>
+
+        <Text tag="p" variant="textSM" class="text-base-600 mt-4">
+          Remembered your password?
+          <a
+            class="leading-normal text-accent-500 font-medium hover:text-base-600"
+            href="/sign-in"
+          >
+            Sign in
+          </a>
+        </Text>
+      </div>
+    </div>
+    <div
+      class="relative hidden overflow-hidden lg:block lg:w-1/3 lg:order-first"
+    >
+      <Image
+        src={SideImage}
+        alt="Background"
+        aria-hidden="true"
+        width="1200"
+        height="1200"
+        loading="lazy"
+        decoding="async"
+        class="object-cover object-center w-full h-full bg-base-50"
+      />
+      <div
+        aria-hidden="true"
+        class="absolute inset-0 pointer-events-none bg-accent-700/50"
+      >
+      </div>
+    </div>
+  </div>
+</BaseLayout>

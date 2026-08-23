@@ -1,0 +1,64 @@
+{
+  "nombre_sitio": "Enfermera en Estados Unidos (Oficial)",
+  "color_tema": "#000000",
+  "comando_deploy": "echo 'Deploying Money Site'",
+  "layout": "LayoutA",
+  "gcp_project_id": "money-site-main-pbn",
+  "seo": {
+    "titulo_base": "Guía Maestra de Enfermería USA",
+    "descripcion_base": "El recurso número uno para enfermeras hispanas que buscan trabajar en Estados Unidos de forma legal y segura.",
+    "idioma": "es-US"
+  },
+  "footer": {
+    "empresa_legal": "Enfermera en Estados Unidos",
+    "direccion": "Main St, USA",
+    "email_contacto": "hola@enfermeraeeu.com"
+  },
+  "menu_global": [
+    {
+      "nombre": "Proceso Grado",
+      "ruta": "/homologacion"
+    },
+    {
+      "nombre": "Pasar NCLEX",
+      "ruta": "/nclex"
+    },
+    {
+      "nombre": "Empleos RN",
+      "ruta": "/vacantes"
+    },
+    {
+      "nombre": "Visa EB-3",
+      "ruta": "/visa"
+    },
+    {
+      "nombre": "Cuanto Ganan",
+      "ruta": "/salarios"
+    },
+    {
+      "nombre": "Guías Tips",
+      "ruta": "/blog"
+    },
+    {
+      "nombre": "Soporte",
+      "ruta": "https://wa.me/something"
+    },
+    {
+      "nombre": "Login",
+      "ruta": "/login"
+    }
+  ],
+  "dominio": "https://enfermeraeeu.com",
+  "font_family": "Plus Jakarta Sans",
+  "color_palette": {
+    "primary": "oklch(40% 0.12 150)",
+    "secondary": "oklch(55% 0.08 150)",
+    "accent": "oklch(88% 0.15 80)",
+    "text_bold": "oklch(20% 0.05 150)",
+    "meta": {
+      "name": "Deep Forest",
+      "system": "OKLCH Premium v2"
+    }
+  },
+  "nav_footer_version": "v1"
+}

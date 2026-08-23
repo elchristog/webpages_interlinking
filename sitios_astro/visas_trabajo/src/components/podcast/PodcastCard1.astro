@@ -1,0 +1,99 @@
+---
+import { Image } from "astro:assets";
+import Text from "@/components/fundations/elements/Text.astro";
+const {
+  url,
+  title,
+  description,
+  pubDate,
+  image,
+  author,
+  tags,
+  duration,
+  episodeNumber,
+} = {
+  url: "/podcast/episodes/" + Astro.props.post.id,
+  tags: Astro.props.post.data.tags,
+  title: Astro.props.post.data.title,
+  author: Astro.props.post.data.author,
+  image: Astro.props.post.data.image.url,
+  duration: Astro.props.post.data.duration,
+  description: Astro.props.post.data.description,
+  episodeNumber: Astro.props.post.data.episodeNumber,
+  pubDate: new Date(Astro.props.post.data.pubDate).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "2-digit",
+  }),
+};
+// Format the author name by replacing hyphens with spaces.
+const formatAuthorName = (slug) => {
+  return slug
+    .replace(/-/g, " ")
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+};
+const formattedAuthor = formatAuthorName(author);
+---
+
+<article
+  class="relative grid grid-cols-1 md:grid-cols-3 gap-8 w-full group pb-8"
+>
+  <a href={url} title={title} class="absolute inset-0 z-10"> </a>
+  <div class="flex flex-col h-full justify-between gap-2 md:col-span-2">
+    <div>
+      <Text
+        tag="p"
+        variant="textXS"
+        class="text-accent-500 font-medium uppercase"
+      >
+        <span>Episdoe: {episodeNumber}</span>
+        <span>·</span>
+        <span>Duration: {duration}</span>
+      </Text>
+      <Text
+        tag="h3"
+        variant="textLG"
+        class="font-medium font-display text-base-900 group-hover:underline mt-2"
+      >
+        <span>{title}</span>
+      </Text>
+      <Text tag="p" variant="textSM" class="mt-2 tracking-tight text-base-600">
+        {description}
+      </Text>
+    </div>
+    <div class="flex items-center gap-1 text-base-600">
+      {
+        tags.map((tag) => {
+          const formattedTag = tag.replace(/-/g, " ");
+          return (
+            <Text
+              tag="p"
+              variant="textXS"
+              title={tag}
+              aria-label={tag}
+              class="capitalize"
+            >
+              {formattedTag} talk
+            </Text>
+          );
+        })
+      }
+
+      <Text tag="p" variant="textXS">with {formattedAuthor}</Text>
+      <Text tag="p" variant="textXS">
+        <time datetime={pubDate}>on {pubDate}</time>
+      </Text>
+    </div>
+  </div>
+  <Image
+    src={image}
+    alt={title}
+    width={800}
+    height={800}
+    loading="eager"
+    decoding="async"
+    class="object-cover w-full aspect-16/11 rounded-xl order-first"
+  />
+</article>

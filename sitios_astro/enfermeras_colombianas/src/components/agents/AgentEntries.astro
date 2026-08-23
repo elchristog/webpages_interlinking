@@ -1,0 +1,59 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+const { name, role, officeAddress, office, contact, avatar, url } = {
+  url: "/agents/" + Astro.props.post.id,
+  role: Astro.props.post.data.role,
+  name: Astro.props.post.data.name,
+  office: Astro.props.post.data.office,
+  contact: Astro.props.post.data.contact,
+  avatar: Astro.props.post.data.avatar.url,
+  officeAddress: Astro.props.post.data.officeAddress,
+};
+---
+
+<a
+  href={url}
+  title={name}
+  aria-label={name}
+  class="relative isolate flex flex-col gap-8 lg:flex-row text-sm 2xl:text-base
+  py-8"
+>
+  <div
+    class="relative aspect-[4/4] sm:aspect-[16/12] lg:aspect-square lg:shrink-0"
+  >
+    <Image
+      width={400}
+      height={400}
+      src={avatar}
+      alt={name}
+      class="absolute inset-0 h-full w-full object-cover"
+    />
+    <div class="absolute inset-0"></div>
+  </div>
+  <div class="flex flex-col w-full">
+    <Text tag="h3" variant="textLG" class="font-mediumtext-base-900">
+      {name}
+      <span class="mt-2 text-base-500 text-sm ml-2">
+        {role}
+      </span>
+    </Text>
+    {
+      contact.map((contact) => (
+        <Text tag="p" variant="textSM" class="text-base-500">
+          {contact.item}
+        </Text>
+      ))
+    }
+    <div class="mt-2">
+      <Text tag="p" variant="textBase" class="text-base-900 font-medium"
+        >{office}</Text
+      >
+      <Text tag="p" variant="textbase" class="text-base-500"
+        >{officeAddress}</Text
+      >
+    </div>
+  </div>
+</a>

@@ -1,0 +1,121 @@
+---
+const {
+  variant,
+  size,
+  onlyIconSize,
+  iconOnly = false,
+  gap,
+  isLink = false,
+  class: className,
+  href,
+  ...rest
+} = Astro.props;
+// Default button
+const defaultClass = [
+  "bg-base-900",
+  "text-white",
+  "focus:ring-black",
+  "hover:bg-base-800",
+  "focus:ring-base-800",
+
+];
+// Accent button
+const accentClass = [
+  "text-white",
+  "bg-accent-500",
+  "hover:bg-accent-600",
+  "focus:ring-accent-600",
+];
+// Muted button
+const mutedClass = [
+  "text-accent-500",
+  "bg-accent-50",
+  "hover:bg-accent-200",
+  "hover:text-accent-600",
+  "focus:ring-accent-200",
+];
+// Size maps
+const sizes = {
+  xxs: ["h-7", "px-3", "py-2", "text-xs", "rounded-md"],
+  xs: ["h-8", "px-4", "py-2", "text-xs", "rounded-md"],
+  sm: ["h-9", "px-4", "py-2", "text-sm", "rounded-md"],
+  base: ["h-10", "px-6", "py-3", "text-base", "rounded-lg"],
+  md: ["h-11", "px-6", "py-3", "text-md", "rounded-lg"],
+  lg: ["h-12", "px-6", "py-3", "text-lg", "rounded-lg"],
+  xl: ["h-14", "px-6", "py-3", "text-xl", "rounded-lg"],
+};
+const iconSizes = {
+  xxs: ["size-7", "text-xs", "rounded-md"],
+  xs: ["size-8", "text-xs", "rounded-md"],
+  sm: ["size-9", "text-sm", "rounded-md"],
+  base: ["size-10", "text-base", "rounded-lg"],
+  md: ["size-11", "text-md", "rounded-lg"],
+  lg: ["size-12", "text-lg", "rounded-lg"],
+  xl: ["size-14", "text-xl", "rounded-lg"],
+};
+// Gap
+const gapMap = {
+  xs: ["gap-2"],
+  sm: ["gap-4"],
+  base: ["gap-8"],
+  md: ["gap-10"],
+  lg: ["gap-12"],
+};
+const additionalClasses = className ? className.split(" ") : [];
+const variantClass = {
+  default: defaultClass,
+  accent: accentClass,
+  muted: mutedClass,
+  none: [],
+};
+const resolvedSize = iconOnly ? onlyIconSize || size || "base" : size || "base";
+const sizeClass = iconOnly
+  ? iconSizes[resolvedSize] || iconSizes.base || []
+  : sizes[resolvedSize] || sizes.base || [];
+const gapClass = !iconOnly && gap ? gapMap[gap] || [] : [];
+const baseClass = [
+  "flex",
+  "transition",
+  "text-center",
+  "justify-center",
+  "items-center",
+  "duration-300",
+  "focus:ring-2",
+  "focus:outline-none",
+  "focus:ring-offset-2",
+];
+const classList = [
+  ...baseClass,
+  ...(variantClass[variant] || []),
+  ...sizeClass,
+  ...gapClass,
+  ...additionalClasses,
+];
+---
+{
+  isLink ? (
+    <a href={href} class:list={classList} {...rest}>
+      {iconOnly ? (
+        <slot name="icon" />
+      ) : (
+        <>
+          <slot name="left-icon" />
+          <slot />
+          <slot name="right-icon" />
+        </>
+      )}
+    </a>
+  ) : (
+    <button class:list={classList} {...rest}>
+      {iconOnly ? (
+        <slot name="icon" />
+      ) : (
+        <>
+          <slot name="left-icon" />
+          <slot />
+          <slot name="right-icon" />
+        </>
+      )}
+    </button>
+  )
+}

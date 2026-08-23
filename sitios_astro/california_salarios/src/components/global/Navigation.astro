@@ -1,0 +1,44 @@
+---
+// Fundations
+import Logo from "@/components/assets/Logo.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import Search from "@/components/global/Search.astro";
+import MegaMenu from "@/components/global/MegaMenu.astro";
+---
+
+<style>
+  .overflow-hidden-no-shift {
+    overflow: hidden;
+    padding-right: calc(100vw - 100%);
+  }
+</style>
+<header>
+  <Wrapper variant="standard" class="bg-white">
+    <div class="py-2 border-b border-dashed border-black/20">
+      <div class="flex flex-row items-center justify-between w-full">
+        <a href="/" class="text-black hover:text-orange">
+          <Logo class="h-8" /></a
+        >
+        <div class="flex items-center ml-auto gap-2">
+          <a
+            class="font-semibold text-black duration-300 hover:text-black"
+            href="/system/overview"
+          >
+            Overview
+          </a>
+          <a
+            class="font-semibold text-black duration-300 hover:text-black"
+            href="/sign-up"
+          >
+            Sign up
+          </a>
+          <Search />
+
+          <MegaMenu />
+        </div>
+      </div>
+    </div>
+  </Wrapper>
+</header>

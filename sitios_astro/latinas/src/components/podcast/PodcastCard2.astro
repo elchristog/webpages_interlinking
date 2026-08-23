@@ -1,0 +1,108 @@
+---
+import { Image } from "astro:assets";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+// Icons
+import ArrowRight from "@/components/fundations/icons/ArrowRight.astro";
+const {
+  url,
+  title,
+  description,
+  pubDate,
+  image,
+  author,
+  tags,
+  duration,
+  episodeNumber,
+} = {
+  url: "/podcast/episodes/" + Astro.props.post.id,
+  tags: Astro.props.post.data.tags,
+  title: Astro.props.post.data.title,
+  author: Astro.props.post.data.author,
+  image: Astro.props.post.data.image.url,
+  duration: Astro.props.post.data.duration,
+  description: Astro.props.post.data.description,
+  episodeNumber: Astro.props.post.data.episodeNumber,
+  pubDate: new Date(Astro.props.post.data.pubDate).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "2-digit",
+  }),
+};
+// Format the author name by replacing hyphens with spaces.
+const formatAuthorName = (slug) => {
+  return slug
+    .replace(/-/g, " ")
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+};
+const formattedAuthor = formatAuthorName(author);
+---
+
+<article
+  class="relative w-full overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-8 group bg-base-100 rounded-4xl lg:min-h-svh"
+>
+  <div class="flex flex-col justify-between h-full p-8 gap-2 md:col-span-">
+    <div>
+      <div class="pl-8">
+        <Text
+          tag="p"
+          variant="textXS"
+          class="font-display capitalize text-base-700"
+        >
+          <span>Episdoe: {episodeNumber}</span>
+          <span>·</span>
+          <span>Duration: {duration}</span>
+        </Text>
+        <Text
+          tag="p"
+          variant="textXS"
+          class="mt-1 font-display capitalize text-base-700"
+        >
+          A
+          {
+            tags.map((tag) => {
+              const formattedTag = tag.replace(/-/g, " ");
+              return (
+                <span title={tag} aria-label={tag} class="capitalize">
+                  {formattedTag}
+                </span>
+              );
+            })
+          }talk with {formattedAuthor}
+          <time datetime={pubDate}> on {pubDate}</time>
+        </Text>
+      </div>
+      <Text
+        tag="h3"
+        variant="displaySM"
+        class="mt-8 font-display uppercase text-base-900"
+      >
+        {title}
+      </Text>
+      <Text tag="p" variant="textSM" class="pl-8 mt-2 text-base-700">
+        {description}
+      </Text>
+    </div>
+
+    <Button
+      isLink
+      href={url}
+      title={title}
+      size="18"
+      variant="default"
+      iconOnly
+      class="mt-8"
+    >
+      <ArrowRight slot="icon" size="xl" />
+    </Button>
+  </div>
+  <Image
+    src={image}
+    width="800"
+    height="1200"
+    alt={title}
+    class="order-first object-cover h-full"
+  />
+</article>

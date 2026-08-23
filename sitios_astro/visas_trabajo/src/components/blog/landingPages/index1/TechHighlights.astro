@@ -1,0 +1,64 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+// Icons
+import ChevronRight from "@/components/fundations/icons/ChevronRight.astro";
+import BlogCard5 from "@/components/blog/BlogCard5.astro";
+import BlogCard3 from "@/components/blog/BlogCard3.astro";
+// Entries
+import BlogCard4 from "@/components/blog/BlogCard4.astro";
+// Get all posts
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("posts");
+allPosts.sort((a, b) => {
+  const dateA = new Date(a.data.pubDate).getTime(); // Convert to timestamp
+  const dateB = new Date(b.data.pubDate).getTime(); // Convert to timestamp
+  return dateB - dateA; // Compare timestamps
+});
+---
+
+<div class="">
+  <Text
+    tag="a"
+    variant="textXS"
+    href="/blog/tags/tech"
+    class="flex gap-x-2 text-base-900 justify-between uppercase font-medium"
+  >
+    Tech<span
+      class="text-base-600 hover:text-base-900 flex items-center gap-2 normal-case"
+      >See them all <ChevronRight class="size-4" /></span
+    >
+  </Text>
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative before:absolute after:absolute before:bg-base-950 after:bg-base-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px pt-4 mt-2"
+  >
+    <div class="lg:col-span-3 col-span-full">
+      {
+        allPosts
+          .filter((post) => post.data.tags.includes("tech"))
+          .slice(0, 1)
+          .map((post) => <BlogCard4 post={post} />)
+      }
+    </div>
+    <div
+      class="mt-2 grid grid-cols-1 md:grid-cols-2 md:col-span-full lg:col-span-1 lg:grid-cols-1 gap-4 order-first"
+    >
+      <div class="flex flex-col gap-4">
+        {
+          allPosts
+            .filter((post) => post.data.tags.includes("tech"))
+            .slice(1, 4)
+            .map((post) => <BlogCard5 post={post} />)
+        }
+      </div>
+      <div class="flex flex-col gap-4">
+        {
+          allPosts
+            .filter((post) => post.data.tags.includes("tech"))
+            .slice(2, 3)
+            .map((post) => <BlogCard3 post={post} />)
+        }
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,94 @@
+---
+// Assets
+import { Image } from "astro:assets";
+import HeroImage from "@/images/hero.png";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+const whyus = [
+  {
+    title: "Easy Financing",
+    subtitle:
+      "We offer hassle-free financing options tailored to your needs. Our flexible payment plans make it easy to get the services you need without breaking the bank.",
+  },
+  {
+    title: "Free Consultations",
+    subtitle:
+      "Schedule a free consultation in thxe comfort of your own home. Our experts will assess your needs and provide personalized recommendations tailored to your space and lifestyle.",
+  },
+  {
+    title: "Award Winning Service",
+    subtitle:
+      "Our commitment to excellence has earned us numerous awards and accolades in the industry. Rest assured, you're in good hands with our team of dedicated professionals.",
+  },
+  {
+    title: "Licensed & Insured",
+    subtitle:
+      "We are fully licensed and insured, giving you peace of mind knowing that your project is in compliance with all regulations and standards. Your safety and satisfaction are our top priorities.",
+  },
+];
+---
+
+<section class="overflow-hidden">
+  <Wrapper variant="standard" class="pb-12">
+    <div class="relative">
+      <Image
+        src={HeroImage}
+        alt="#_"
+        width={1500}
+        height={1000}
+        class="w-full h-[60vh] 2xl:h-[75vh] object-cover relative"
+      />
+      <div
+        class="absolute bg-white bottom-0 right-0 p-8 w-full md:max-w-xs flex flex-col"
+      >
+        <Text tag="h3" variant="textSM">Quartiere / Real Estate</Text>
+        <div>
+          <Text tag="a" variant="textXS" href="tel:+1-202-555-0123"
+            >Tel: (202) 555-0123</Text
+          >
+        </div>
+      </div>
+    </div>
+    <Text
+      tag="h1"
+      variant="displayXL"
+      data-aos="fade-up"
+      data-aos-duration="1500"
+      class="text-balance font-medium tracking-tighter text-base-900 mt-12"
+    >
+      Discover your dream home. Explore our real estate listings today
+    </Text>
+
+    <div class="grid lg:grid-cols-3 pt-8 mt-8 border-t border-base-200">
+      <Text tag="h2" variant="textXL" class="font-medium text-base-900"
+        >Why choose us</Text
+      >
+      <div class="lg:col-span-2 grid lg:grid-cols-2 lg:col-start-2 gap-8">
+        {
+          whyus.map((whyus) => (
+            <>
+              <div class=" flex flex-col ">
+                <Text
+                  tag="h3"
+                  variant="textXL"
+                  class=" font-medium text-base-900       "
+                >
+                  {whyus.title}
+                </Text>
+                <Text
+                  tag="p"
+                  variant="textBase"
+                  class="mt-6  text-base-500 text-balance"
+                >
+                  {whyus.subtitle}
+                </Text>
+              </div>
+            </>
+          ))
+        }
+      </div>
+    </div>
+  </Wrapper>
+</section>

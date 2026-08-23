@@ -1,0 +1,28 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+const { page, url } = {
+  url: "/jobs/" + Astro.props.post.id,
+  page: Astro.props.post.data.page,
+};
+---
+
+<div class="w-full group relative">
+  <Text
+    tag="a"
+    href={url}
+    title={page}
+    class="group relative flex h-14 items-center diration-500 overflow-hidden text-white group-hover:text-base-400"
+  >
+    <div
+      class="translate-y-0 transition-transform duration-500 ease-in-out group-hover:-translate-y-[200%]"
+    >
+      {page}
+    </div>
+    <div
+      class="absolute translate-y-[200%] transition-transform duration-500 ease-in-out group-hover:translate-y-0"
+    >
+      {page}
+    </div>
+  </Text>
+</div>

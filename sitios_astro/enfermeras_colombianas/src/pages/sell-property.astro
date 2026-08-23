@@ -1,0 +1,411 @@
+---
+import { Image } from "astro:assets";
+import H1 from "@/images/highlights/1.jpeg";
+import H2 from "@/images/highlights/2.jpeg";
+import H3 from "@/images/highlights/3.jpeg";
+import SellImage from "@/images/sell.png";
+import House1 from "@/images/house1.png";
+import Agent1 from "@/images/agent1.png";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const whatweoffer = [
+  {
+    title: "Meet a local expert who can help your journey",
+    subtitle:
+      "Our network of local real estate professionals apply their local market knowledge to create a comprehensive and customized plan for your home. Find an agent who is closest you and learn their local expertise.",
+    link: { href: "/agents/home", text: "See all agents" },
+    image: {
+      url: Agent1,
+      alt: "#_",
+    },
+  },
+  {
+    title: "Access our local expertise and exceptional service",
+    subtitle:
+      "With experts in every part of the world, we are local everywhere, With innovative technology and unrivaled service, our local brokerage offices can elevate your property and your home selling experience.",
+    link: { href: "/contact", text: "See your property" },
+    image: {
+      url: House1,
+      alt: "#_",
+    },
+  },
+];
+const highlights = [
+  {
+    title: "Press Exposure",
+    subtitle:
+      "As the #1 most profiled luxury real estate brand in the news, Quartiere's International Realty leads the conversation. The brand’s award-winning press office and PR efforts position the brand as a powerhouse in luxury real estate and drives traffic to the brand website, and ultimately, Quartiere's International Realty listings.",
+    image: {
+      url: H1,
+      alt: "#_",
+    },
+  },
+  {
+    title: "Global Connections",
+    subtitle:
+      "Quartiere's International Realty is the only truly global luxury real estate company with 26,500 advisors working in more than 1,100 local offices across 81 countries and territories. Our unparalleled network works together to meet your needs and expectations.",
+    image: {
+      url: H2,
+      alt: "#_",
+    },
+  },
+  {
+    title: "Unmatched Marketing",
+    subtitle:
+      "Quartiere's International Realty works alongside the highest-profile creative agencies and internal team to successfully connect with global consumers always keeping sophisticated design at the foundation.",
+    image: {
+      url: H3,
+      alt: "#_",
+    },
+  },
+];
+---
+<BaseLayout>
+  <section>
+    <Wrapper class="pb-12">
+      <div class="relative">
+        <Image
+          src={SellImage}
+          alt="#_"
+          width={1500}
+          height={1000}
+          class="w-full h-[60vh] 2xl:h-[75vh] object-cover relative"
+        />
+        <div
+          class="absolute bg-white bottom-0 right-0 p-8 w-full md:max-w-xs flex flex-col"
+        >
+          <Text tag="h3" variant="textSM">Quartiere / Real Estate</Text>
+          <div>
+            <Text tag="a" variant="textXS" href="tel:+1-202-555-0123"
+              >Tel: (202) 555-0123</Text
+            >
+          </div>
+        </div>
+      </div>
+      <div class="mt-12">
+        <Text
+          tag="h1"
+          variant="displayXL"
+          class="text-balance font-medium tracking-tighter text-base-900"
+        >
+          Sell your property with Quartiere International Realty
+        </Text>
+      </div>
+    </Wrapper>
+  </section>
+  <section>
+    <Wrapper class="pb-12">
+      <div class="grid lg:grid-cols-3 pt-8 mt-8 border-t gap-8 border-base-200">
+        <div
+          class="lg:col-span-2 lg:col-start-2"
+          data-aos="fade-up"
+          data-aos-duration="2000"
+        >
+          <Text tag="h3" variant="displaySM" class="font-meidum text-base-900">
+            Exceptional properties deserve extraordinary marketing.
+          </Text>
+          <Text
+            tag="p"
+            variant="textBase"
+            class="mt-6 text-pretty text-base-500"
+          >
+            Don't just get it on the market. Get it the attention it deserves.
+            For those who demand an elevated service like none other, there’s
+            Quartiere's International Realty. We’re the industry’s best agents,
+            curating with incomparable attention to style and detail. We’re here
+            for you to help sell your home at a scale you just won’t find
+            anywhere else.
+          </Text>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+  <section>
+    <Wrapper class="pb-12">
+      <div
+        class="grid lg:grid-cols-3 pt-8 mt-40 border-t gap-8 border-base-200"
+      >
+        <div>
+          <Text tag="h3" variant="textLG" class="font-medium text-base-900">
+            List your home with Quartiere International Realty
+          </Text>
+          <Text tag="p" variant="textBase" class="text-base-500 mt-4">
+            If you are considering a move anywhere around the globe, it would be
+            our privilege to help you facilitate your best outcome.
+          </Text>
+        </div>
+        <div class="flex flex-col gap-8 lg:col-span-2">
+          {
+            whatweoffer.map((whatweoffer) => (
+              <>
+                <div class="lg:col-span-2 grid lg:grid-cols-2 gap-8">
+                  <div>
+                    <Text
+                      tag="h3"
+                      variant="textLG"
+                      class="font-medium text-base-900 "
+                    >
+                      {whatweoffer.title}
+                    </Text>
+                    <Text tag="p" variant="textBase" class="text-base-500 mt-4">
+                      {whatweoffer.subtitle}
+                    </Text>
+                    <div class="mt-8">
+                      <a
+                        href={whatweoffer.link.href}
+                        class="text-base-900  hover:text-base-500 mt-auto flex gap-3 items-center justify-between"
+                      >
+                        {whatweoffer.link.text}
+                        <svg
+                          width="71"
+                          height="16"
+                          viewBox="0 0 71 15"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0.996338 6.5C0.444053 6.5 -0.00366211 6.94772 -0.00366211 7.5C-0.00366211 8.05228 0.444053 8.5 0.996338 8.5V6.5ZM69.7739 8.20711C70.1645 7.81658 70.1645 7.18342 69.7739 6.79289L63.41 0.428932C63.0194 0.0384079 62.3863 0.0384079 61.9958 0.428932C61.6052 0.819456 61.6052 1.45262 61.9958 1.84315L67.6526 7.5L61.9958 13.1569C61.6052 13.5474 61.6052 14.1805 61.9958 14.5711C62.3863 14.9616 63.0194 14.9616 63.41 14.5711L69.7739 8.20711ZM0.996338 8.5H69.0668V6.5H0.996338V8.5Z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                  <Image
+                    class="aspect-[4/3] group-hover:scale-110 transition-transform object-cover object-center duration-500"
+                    src={whatweoffer.image.url}
+                    alt={whatweoffer.image.alt}
+                  />
+                </div>
+              </>
+            ))
+          }
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+  <section>
+    <Wrapper variant="standard" class="py-12">
+      <div
+        class="relative grid grid-cols-1 gap-4 md:grid-cols-2 lg:items-center"
+      >
+        <Image
+          width={800}
+          height={1000}
+          src={SellImage}
+          alt="#_"
+          class="max-h-80 md:max-h-full w-full object-cover"
+        />
+        <div
+          class="p-8 lg:p-20 h-full flex flex-col items-center justify-center outline outline-base-200"
+        >
+          <div>
+            <Text
+              tag="h3"
+              variant="displayMD"
+              class="text-balance font-medium text-base-900"
+            >
+              Be where the world is looking.
+            </Text>
+            <div class="mt-8 pt-8 border-t border-base-200">
+              <Text tag="p" variant="textBase" class="text-base-500">
+                The homes we represent benefit from the worldwide recognition
+                and prestige of the Quartiere's name and gain exclusive access
+                to highly qualified global clientele. Our award-winning website
+                — now in 14 languages/dialects – attracts more visitors than any
+                other luxury real estate website. Our relationship with leading
+                media outlets increase traffic to our site and generate exposure
+                for our listings.
+              </Text>
+            </div>
+            <div class="mt-8 pt-8 border-t border-base-200">
+              <p class="text-base-900">What you can get only with us:</p>
+              <ul
+                class="list-none text-base-500 mt-4 text-sm space-y-1 list-inside"
+              >
+                <li>Unrivaled marketing</li>
+                <li>Public relations powerhouse</li>
+                <li>True global reach</li>
+                <li>Exclusive partnerships</li>
+                <li>Brand heritage and reputation</li>
+                <li>Unmatched service</li>
+              </ul>
+            </div>
+            <div class="flex mt-8 gap-2">
+              <Button isLink size="xxl" variant="default" href="/sell-property">
+                Sell your property
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+  <section>
+    <Wrapper class="pb-12">
+      <div
+        class="grid lg:grid-cols-3 pt-8 mt-40 border-t gap-8 border-base-200"
+      >
+        <Text tag="p" variant="textBase" class="text-base-500">
+          If you are considering a move anywhere around the globe, it would be
+          our privilege to help you facilitate your best outcome. The way you
+          market your home should have that wow factor too.
+        </Text>
+        <div class="flex flex-col gap-8 lg:col-span-2">
+          {
+            highlights.map((highlights) => (
+              <>
+                <div class="lg:col-span-2 grid lg:grid-cols-2 gap-8">
+                  <div>
+                    <Text
+                      tag="h3"
+                      variant="textLG"
+                      class="font-medium text-base-900 "
+                    >
+                      {highlights.title}
+                    </Text>
+                    <Text tag="p" variant="textBase" class="text-base-500 mt-4">
+                      {highlights.subtitle}
+                    </Text>
+                  </div>
+                  <Image
+                    width={500}
+                    height={500}
+                    class="aspect-[4/3] group-hover:scale-110 transition-transform object-cover object-center duration-500"
+                    src={highlights.image.url}
+                    alt={highlights.image.alt}
+                  />
+                </div>
+              </>
+            ))
+          }
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+  <section>
+    <Wrapper class="pb-12">
+      <div
+        class="grid grid-cols-1 lg:grid-cols-3 gap-24 2xl:gap-8 pt-8 border-t border-base-200"
+      >
+        <Text tag="h3" variant="textXL" class="font-medium text-base-900">
+          The quickest and simplest method to sell your property
+        </Text>
+        <div class="lg:col-start-2 lg:col-span-2">
+          <form>
+            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
+              <div>
+                <label
+                  for="first-name"
+                  class="block text-xl font-medium text-base-900"
+                  >First name</label
+                >
+                <div>
+                  <input
+                    type="text"
+                    name="first-name"
+                    id="first-name"
+                    autocomplete="given-name"
+                    class="block w-full h-12 border-0 py-1.5 border-b border-base-200 text-base-900 ring-transparent focus:ring-black placeholder:text-base-400 focus:ring-2 focus:ring-inset sm:text-sm"
+                  />
+                </div>
+              </div>
+              <div>
+                <label
+                  for="last-name"
+                  class="block text-xl font-medium text-base-900"
+                  >Last name</label
+                >
+                <div>
+                  <input
+                    type="text"
+                    name="last-name"
+                    id="last-name"
+                    autocomplete="family-name"
+                    class="block w-full h-12 border-0 py-1.5 border-b border-base-200 text-base-900 ring-transparent focus:ring-black placeholder:text-base-400 focus:ring-2 focus:ring-inset sm:text-sm"
+                  />
+                </div>
+              </div>
+              <div>
+                <label
+                  for="total-rooms"
+                  class="block text-xl font-medium text-base-900"
+                  >Total rooms</label
+                >
+                <div>
+                  <input
+                    type="number"
+                    name="total-rooms"
+                    id="total-rooms"
+                    autocomplete="family-name"
+                    class="block w-full h-12 border-0 py-1.5 border-b border-base-200 text-base-900 ring-transparent focus:ring-black placeholder:text-base-400 focus:ring-2 focus:ring-inset sm:text-sm"
+                  />
+                </div>
+              </div>
+              <div>
+                <label
+                  for="email"
+                  class="block text-xl font-medium text-base-900"
+                  >Email address</label
+                >
+                <div>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    class="block w-full h-12 border-0 py-1.5 border-b border-base-200 text-base-900 ring-transparent focus:ring-black placeholder:text-base-400 focus:ring-2 focus:ring-inset sm:text-sm"
+                  />
+                </div>
+              </div>
+              <div class="col-span-full">
+                <label
+                  for="message"
+                  class="block text-xl font-medium text-base-900">Message</label
+                >
+                <div>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="6"
+                    class="block w-full border-0 border-base-200 py-1.5 border-b text-base-900 ring-transparent focus:ring-black placeholder:text-base-400 focus:ring-2 focus:ring-inset sm:text-sm"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="flex w-full mt-8">
+              <Button type="submit" size="xl" variant="default" class="ml-auto">
+                Submit
+              </Button>
+            </div>
+          </form>
+          <Text
+            tag="p"
+            variant="textX"
+            class="mt-40 pt-8 border-t text-base-500 text-xs 2xl:text-sm space-y-4 border-base-200"
+          >
+            By clicking SEND MESSAGE, I agree a Quartiere's International Realty
+            Yes, I would like more information from Quartiere's International
+            Realty.
+            <br />
+            Please use and/or share my information with a Quartiere's International
+            Realty agent to contact me about my real estate needs. Agent may contact
+            me by phone or text message including by automated means about real estate
+            services, and that I can access real estate services without providing
+            my phone number. I acknowledge that I have read and agree to the
+            <a
+              class="text-base-900 hover:text-base-500 underline"
+              href="/infopages/terms">Terms</a
+            > of Use and <a
+              class="text-base-900 hover:text-base-500 underline"
+              href="/infopages/privacy">Privacy Policy</a
+            >.
+          </Text>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

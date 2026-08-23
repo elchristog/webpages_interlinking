@@ -1,0 +1,173 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import JobsCard from "@/components/jobs/JobCard.astro";
+const { frontmatter } = Astro.props;
+// Content
+import { getCollection } from "astro:content";
+const allJobs = await getCollection("jobs");
+// Filter related jobs by category (you can adjust the filter criteria)
+const relatedJobs = allJobs.filter(
+  (job) => job.data.category === Astro.props.frontmatter.category
+);
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pt -12">
+      <div
+        class="lg:w-1/2 mx-auto bg-base-100 p-8 lg:p-32 lg:py-12 rounded-[3rem]"
+      >
+        <Text
+          tag="p"
+          variant="textXS"
+          class="pb-2 text-base-700 font-display pl-8"
+          >{frontmatter.jobType} | {frontmatter.experience}</Text
+        >
+        <Text
+          tag="h1"
+          variant="displaySM"
+          class="font-display text-base-900 mt-8 text-balance"
+        >
+          {frontmatter.title}
+        </Text>
+        <Text
+          tag="p"
+          variant="textXS"
+          class="text-base-700 font-display pl-8 mt-4"
+        >
+          {frontmatter.description}
+        </Text>
+        <Button
+          isLink
+          href="/jobs/apply"
+          size="xs"
+          variant="default"
+          class="mt-8 w-fit"
+        >
+          Apply Now
+        </Button>
+        <div class="mt-2">
+          <div class="flex flex-col gap-4 mt-12">
+            <Text tag="p" variant="textSM" class="flex flex-col"
+              ><span class="text-base-900">Salary:</span>
+              <span class="font-display text-base-700 pl-8 text-xs mt-2">
+                {frontmatter.salaryRange}</span
+              ></Text
+            >
+            <Text tag="p" variant="textSM" class="flex flex-col"
+              ><span class="text-base-900">Location:</span>
+              <span class="font-display text-base-700 pl-8 text-xs mt-2"
+                >{frontmatter.location}</span
+              ></Text
+            >
+            <Text tag="p" variant="textSM" class="flex flex-col"
+              ><span class="text-base-900">Company:</span>
+              <span class="font-display text-base-700 pl-8 text-xs mt-2">
+                {frontmatter.company}</span
+              ></Text
+            >
+            <Text tag="p" variant="textSM" class="flex flex-col"
+              ><span class="text-base-900">Category:</span>
+              <span class="font-display text-base-700 pl-8 text-xs mt-2">
+                {frontmatter.category}</span
+              ></Text
+            >
+            <Text tag="p" variant="textSM" class="flex flex-col">
+              <span class="font-medium text-base-900">Employment Status:</span>
+              <span class="font-display text-base-700 pl-8 text-xs mt-2"
+                >{frontmatter.employmentStatus}</span
+              >
+            </Text>
+            <Text tag="p" variant="textSM" class="flex flex-col"
+              ><span class="text-base-900">Job Level:</span>
+              <span class="font-display text-base-700 pl-8 text-xs mt-2">
+                {frontmatter.jobLevel}</span
+              ></Text
+            >
+            <Text tag="p" variant="textSM" class="flex flex-col">
+              <span class="font-medium text-base-900"
+                >Application Deadline:</span
+              >
+              <time
+                class="font-display text-base-700 pl-8 text-xs mt-2"
+                datetime={new Date(
+                  frontmatter.applicationDeadline
+                ).toISOString()}
+              >
+                {
+                  new Date(frontmatter.applicationDeadline).toLocaleDateString(
+                    "en-US",
+                    {
+                      year: "numeric",
+                      month: "long",
+                      day: "2-digit",
+                    }
+                  )
+                }
+              </time>
+            </Text>
+          </div>
+        </div>
+        <div class="mt-24 space-y-12">
+          <div>
+            <Text
+              variant="textXL"
+              class="text-base-900 lg:col-span-2 text-balance"
+              >Responsibilities:</Text
+            >
+            <ul class="pl-8 text-base-700 font-display text-xs mt-4 list-disc">
+              {frontmatter.responsibilities.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+
+          <div>
+            <Text
+              variant="textXL"
+              class="text-base-900 lg:col-span-2 text-balance"
+              >Requirements:</Text
+            >
+            <ul class="pl-8 text-base-700 font-display text-xs mt-4 list-disc">
+              {frontmatter.requirements.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+
+          <div>
+            <Text
+              variant="textXL"
+              class="text-base-900 lg:col-span-2 text-balance">Benefits:</Text
+            >
+            <ul class="pl-8 text-base-700 font-display text-xs mt-4 list-disc">
+              {frontmatter.benefits.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+    <section>
+      <Wrapper variant="standard" class="pt-2">
+        <div class="p-8 bg-base-600 rounded-3xl">
+          <Text
+            tag="h2"
+            variant="textXL"
+            class="font-display uppercase text-white"
+          >
+            Related jobs
+          </Text>
+        </div>
+        <div class="mt-2 grid grid-cols-1 lg:grid-cols-4 gap-2">
+          {
+            relatedJobs.length > 0 ? (
+              relatedJobs.map((post) => <JobsCard post={post} />)
+            ) : (
+              <p>No related jobs found in this category.</p>
+            )
+          }
+        </div>
+      </Wrapper>
+    </section>
+  </section></BaseLayout
+>

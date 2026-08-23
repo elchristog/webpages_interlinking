@@ -1,0 +1,175 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import JobsEntry from "@/components/jobs/JobsEntry.astro";
+const { frontmatter } = Astro.props;
+// Content
+import { getCollection } from "astro:content";
+const allJobs = await getCollection("jobs");
+// Filter related jobs by category (you can adjust the filter criteria)
+const relatedJobs = allJobs.filter(
+  (job) => job.data.category === Astro.props.frontmatter.category
+);
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-12">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-y-8">
+        <div class="lg:pr-8">
+          <div class="lg:sticky lg:top-20 lg:z-50">
+            <Text
+              tag="h1"
+              variant="textXS"
+              class="text-base-900 uppercase font-medium"
+            >
+              {frontmatter.title}
+            </Text>
+            <div
+              class="relative before:absolute after:absolute before:bg-base-950 after:bg-base-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px pt-4 mt-2"
+            >
+              <Text tag="p" variant="textSM" class="text-base-600">
+                {frontmatter.description}
+              </Text>
+
+              <div
+                class="relative before:absolute after:absolute before:bg-base-950 after:bg-base-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px pt-4 mt-8 flex flex-col divide-y divide-base-200 border-b border-base-200"
+              >
+                <Text
+                  tag="p"
+                  variant="textSM"
+                  class="font-medium text-base-900 pb-2"
+                  >{frontmatter.jobType} | {frontmatter.experience}</Text
+                >
+                <Text
+                  tag="p"
+                  variant="textSM"
+                  class="text-base-600 flex items-center justify-between py-2"
+                  ><span class="font-medium text-base-900">Salary:</span>
+                  {frontmatter.salaryRange}</Text
+                >
+                <Text
+                  tag="p"
+                  variant="textSM"
+                  class="text-base-600 flex items-center justify-between py-2"
+                  ><span class="font-medium text-base-900">Location:</span>
+                  {frontmatter.location}</Text
+                >
+                <Text
+                  tag="p"
+                  variant="textSM"
+                  class="text-base-600 flex items-center justify-between py-2"
+                  ><span class="font-medium text-base-900">Company:</span>
+                  {frontmatter.company}</Text
+                >
+                <Text
+                  tag="p"
+                  variant="textSM"
+                  class="text-base-600 flex items-center justify-between py-2"
+                  ><span class="font-medium text-base-900">Category:</span>
+                  {frontmatter.category}</Text
+                >
+                <Text
+                  tag="p"
+                  variant="textSM"
+                  class="text-base-600 flex items-center justify-between py-2"
+                >
+                  <span class="font-medium text-base-900"
+                    >Employment Status:</span
+                  >
+                  {frontmatter.employmentStatus}
+                </Text>
+                <Text
+                  tag="p"
+                  variant="textSM"
+                  class="text-base-600 flex items-center justify-between py-2"
+                  ><span class="font-medium text-base-900">Job Level:</span>
+                  {frontmatter.jobLevel}</Text
+                >
+                <Text
+                  tag="p"
+                  variant="textSM"
+                  class="text-base-600 flex items-center justify-between py-2"
+                >
+                  <span class="font-medium text-base-900"
+                    >Application Deadline:</span
+                  >
+                  <time
+                    datetime={new Date(
+                      frontmatter.applicationDeadline
+                    ).toISOString()}
+                  >
+                    {
+                      new Date(
+                        frontmatter.applicationDeadline
+                      ).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "2-digit",
+                      })
+                    }
+                  </time>
+                </Text>
+              </div>
+
+              <div class="mt-8 flex">
+                <Button isLink href="/jobs/apply" size="xs" variant="accent">
+                  Apply Now
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="lg:col-span-2 lg:pl-8 lg:relative lg:before:absolute lg:after:absolute
+        lg:before:bg-base-950 lg:after:bg-base-950/10 lg:before:top-0
+        lg:before:left-0 lg:before:h-6 lg:before:w-px lg:after:top-8
+        lg:after:bottom-0 lg:after:left-0 after:w-px"
+        >
+          <Wrapper variant="prose">
+            <h4>Responsibilities:</h4>
+            <ul>
+              {frontmatter.responsibilities.map((item) => <li>{item}</li>)}
+            </ul>
+
+            <h4>Requirements:</h4>
+            <ul>
+              {frontmatter.requirements.map((item) => <li>{item}</li>)}
+            </ul>
+
+            <h4>Benefits:</h4>
+            <ul>
+              {frontmatter.benefits.map((item) => <li>{item}</li>)}
+            </ul>
+          </Wrapper>
+        </div>
+        <!-- Related Jobs Section -->
+      </div>
+    </Wrapper>
+    <section>
+      <Wrapper variant="standard" class="py-12">
+        <Text
+          tag="h3"
+          variant="textXS"
+          class="text-base-900 uppercase font-medium"
+        >
+          Related Jobs
+        </Text>
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-8 relative before:absolute after:absolute before:bg-base-950 after:bg-base-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px pt-4 mt-2"
+        >
+          {
+            relatedJobs.length > 0 ? (
+              relatedJobs.map((post) => <JobsEntry post={post} />)
+            ) : (
+              <p>No related jobs found in this category.</p>
+            )
+          }
+        </div>
+      </Wrapper>
+    </section>
+  </section></BaseLayout
+>

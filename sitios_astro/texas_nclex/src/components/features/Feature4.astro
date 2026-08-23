@@ -1,0 +1,173 @@
+---
+// Assets
+import { Image } from "astro:assets";
+import Image1 from "@/images/assets/1.jpeg";
+import Image2 from "@/images/assets/2.jpeg";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<section>
+  <Wrapper variant="standard" class="py-24">
+    <div class="grid grid-cols-1 md:grid-cols-4 lg:items-end">
+      <div>
+        <Text tag="span" variant="textSM" class="text-base-400">
+          Next-gen capabilities
+        </Text>
+        <Text
+          tag="h2"
+          variant="displayMD"
+          class="mt-12 text-white font-light lg:text-balance font-display"
+        >
+          Build smarter . <span class="text-base-400">Scale seamlessly .</span>
+        </Text>
+      </div>
+      <Text
+        tag="p"
+        variant="textBase"
+        class="mt-4 text-white lg:col-span-2 lg:text-balance lg:col-start-3"
+      >
+        Effortlessly integrate dApps, track on-chain data, and automate insights
+        with powerful Web3-native solutions. The future is decentralized—build
+        with confidence.
+      </Text>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-8 lg:grid-cols-2 mt-12">
+      <div class="grid grid-cols-1 gap-y-4 lg:grid-cols-2">
+        <div class="sm:pr-8">
+          <Image
+            src={Image1}
+            width={400}
+            height={400}
+            alt="#_"
+            class="size-full object-cover object-center aspect-square"
+          />
+        </div>
+        <div class="before:bg-white">
+          <div
+            class="px-4 relative before:absolute after:absolute before:bg-white before:top-0 before:left-0 before:h-6 before:w-px after:top-8 after:bottom-0 after:left-0 after:w-px"
+          >
+            <div class="relative">
+              <Text tag="span" variant="textSM" class="text-base-500">
+                On-Chain Precision
+              </Text>
+              <Text
+                tag="h3"
+                variant="textbase"
+                class="mt-2 text-white font-medium"
+              >
+                Automated Transactions
+              </Text>
+            </div>
+            <Text
+              tag="p"
+              variant="textSM"
+              class="mt-2 text-base-500 text-pretty"
+            >
+              Schedule and execute blockchain transactions with precision using
+              trustless automation and smart contracts.
+            </Text>
+          </div>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 gap-y-8 lg:grid-cols-2">
+        <div class="flex flex-col gap-y-4">
+          <div class="lg:pr-8">
+            <Image
+              src={Image2}
+              width={400}
+              height={400}
+              alt="#_"
+              class="size-full object-cover object-center aspect-16/9"
+            />
+          </div>
+          <div class="before:bg-white">
+            <div
+              class="px-4 relative before:absolute after:absolute before:bg-white before:top-0 before:left-0 before:h-6 before:w-px after:top-8 after:bottom-0 after:left-0 after:w-px"
+            >
+              <div class="relative">
+                <Text tag="span" variant="textSM" class="text-base-500">
+                  Trustless Execution
+                </Text>
+                <Text
+                  tag="h3"
+                  variant="textbase"
+                  class="mt-2 text-white font-medium"
+                >
+                  Self-Executing Smart Contracts
+                </Text>
+              </div>
+              <Text
+                tag="p"
+                variant="textSM"
+                class="mt-2 text-base-500 text-pretty"
+              >
+                Automate complex transactions with self-executing smart
+                contracts, ensuring seamless, tamper-proof, and permissionless
+                operations on the blockchain.
+              </Text>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col gap-y-8">
+          <div class="before:bg-white">
+            <div
+              class="px-4 relative before:absolute after:absolute before:bg-white before:top-0 before:left-0 before:h-6 before:w-px after:top-8 after:bottom-0 after:left-0 after:w-px"
+            >
+              <div class="relative">
+                <Text tag="span" variant="textSM" class="text-base-500">
+                  Decentralized Security
+                </Text>
+                <Text
+                  tag="h3"
+                  variant="textbase"
+                  class="mt-2 text-white font-medium"
+                >
+                  Immutable Transactions
+                </Text>
+              </div>
+              <Text
+                tag="p"
+                variant="textSM"
+                class="mt-2 text-base-500 text-pretty"
+              >
+                Every transaction is permanently recorded on-chain, ensuring
+                transparency, security, and trustless execution without
+                intermediaries.
+              </Text>
+            </div>
+          </div>
+          <div class="before:bg-white">
+            <div
+              class="px-4 relative before:absolute after:absolute before:bg-white before:top-0 before:left-0 before:h-6 before:w-px after:top-8 after:bottom-0 after:left-0 after:w-px"
+            >
+              <div class="relative">
+                <Text tag="span" variant="textSM" class="text-base-500">
+                  Web3 Scalability
+                </Text>
+                <Text
+                  tag="h3"
+                  variant="textbase"
+                  class="mt-2 text-white font-medium"
+                >
+                  Gas-Efficient Smart Contracts
+                </Text>
+              </div>
+              <Text
+                tag="p"
+                variant="textSM"
+                class="mt-2 text-base-500 text-pretty"
+              >
+                Optimize on-chain interactions with low-cost, gas-efficient
+                smart contracts designed for speed, security, and seamless
+                interoperability.
+              </Text>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Wrapper>
+</section>

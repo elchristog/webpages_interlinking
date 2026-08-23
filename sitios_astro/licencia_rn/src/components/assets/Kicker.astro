@@ -1,0 +1,10 @@
+---
+const { class: className = "", ...rest } = Astro.props;
+---
+
+<div
+  {...rest}
+  class={`inline-flex size-10 items-center justify-center font-medium text-xl ${className}`}
+>
+  <slot />
+</div>

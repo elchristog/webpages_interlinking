@@ -1,0 +1,111 @@
+---
+// Assets
+import Logo from "@/components/assets/Logo.astro";
+import { Image } from "astro:assets";
+import visual from "@/images/thumbnails/3.jpg";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+---
+
+<BaseLayout hideNav={true} hideFooter={true}>
+  <div class="flex h-screen">
+    <div
+      class="flex items-center justify-center w-full p-8 bg-sand-100 lg:w-2/3"
+    >
+      <div class="w-full max-w-md py-12">
+        <div>
+          <a href="/">
+            <span class="sr-only">Go back home</span>
+            <Logo class="h-8 text-base-900" /></a
+          >
+          <Text
+            tag="h1"
+            variant="displayMD"
+            class="font-serif font-light tracking-tight text-base-900 text-balance mt-12"
+          >
+            Sign in to your account
+          </Text>
+          <Text
+            tag="p"
+            variant="textXS"
+            class="mt-2 font-medium uppercase text-base-600"
+          >
+            Welcome back! Please enter your email and password to sign in.
+          </Text>
+        </div>
+        <form action="#" method="POST" class="flex flex-col mt-8 gap-4">
+          <div>
+            <label for="email" class="text-base-600 text-xs">Email</label>
+            <div>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                autocomplete="email"
+                required
+                aria-required="true"
+                aria-describedby="email-error"
+                class="w-full h-8 px-0 py-2 text-xs bg-transparent border-0 border-b border-base-300 placeholder-base-500 focus:outline-none focus:ring-0 focus:border-base-500"
+              />
+              <span id="email-error" class="hidden text-sm text-red-600">
+                Please enter a valid email address.
+              </span>
+            </div>
+          </div>
+
+          <div>
+            <label for="password" class="text-base-600 text-xs">Password</label>
+            <div>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                autocomplete="current-password"
+                required
+                aria-required="true"
+                aria-describedby="password-error"
+                class="w-full h-8 px-0 py-2 text-xs bg-transparent border-0 border-b border-base-300 placeholder-base-500 focus:outline-none focus:ring-0 focus:border-base-500"
+              />
+              <span id="password-error" class="hidden text-sm text-red-600">
+                Please enter a valid password.
+              </span>
+            </div>
+          </div>
+
+          <Button size="sm" type="submit" variant="default" class="w-full">
+            Log In
+          </Button>
+
+          <div class="flex items-center mt-12">
+            <Text
+              tag="p"
+              variant="textXS"
+              class="mt-1 font-medium uppercase text-base-600"
+            >
+              Don't have an account?
+              <a
+                class="font-medium leading-normal text-base-900 hover:text-base-600"
+                href="/signup"
+              >
+                Sign up
+              </a>
+            </Text>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <Image
+      src={visual}
+      alt="Background"
+      aria-hidden="true"
+      width={1200}
+      height={1200}
+      loading="lazy"
+      decoding="async"
+      class="object-cover object-right w-full h-full bg-base-50 hidden overflow-hidden lg:block lg:w-1/3"
+    />
+  </div>
+</BaseLayout>

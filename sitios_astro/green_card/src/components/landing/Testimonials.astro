@@ -1,0 +1,112 @@
+---
+// Assets
+import { Image } from "astro:assets";
+import Avatar1 from "@/images/assets/avatar1.jpeg";
+import Avatar2 from "@/images/avatar2.jpeg";
+import Avatar3 from "@/images/assets/avatar3.jpeg";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Content
+const testimonials = [
+  {
+    src: Avatar2,
+    alt: "Your alt",
+    testimonial:
+      "Working with this team has been an absolute pleasure. Their dedication and expertise have helped us achieve outstanding results.",
+    name: "David Johnson",
+    role: "Marketing Manager, Acme Corp",
+  },
+  {
+    src: Avatar1,
+    alt: "Your alt",
+    testimonial:
+      "I am continually impressed by their professionalism and commitment to excellence. They consistently deliver top-notch work on time and within budget.",
+    name: "Sarah Adams",
+    role: "Creative Director, XYZ Design Studio",
+  },
+  {
+    src: Avatar3,
+    alt: "Your alt",
+    testimonial:
+      "I highly recommend this team to anyone seeking reliable and skilled web development services. They are responsive, proactive, and always exceed expectations.",
+    name: "Michael Smith",
+    role: "Founder & CEO, Tech Innovations Inc",
+  },
+];
+---
+
+<section class="bg-white overflow-hidden relative">
+  <Wrapper variant="standard" class="pt-24 pb-12">
+    <div class="grid lg:grid-cols-2 gap-12 items-start">
+      <div>
+        <div class="relative max-w-xs">
+          <div class="absolute inset-0 flex items-center" aria-hidden="true">
+            <div class="w-full border-t border-accent-300"></div>
+          </div>
+          <div class="relative flex justify-start">
+            <span class="bg-white pr-2 text-sm text-accent-500 font-medium"
+              >Our customers</span
+            >
+          </div>
+        </div>
+        <Text
+          tag="h2"
+          variant="displayMD"
+          class="tracking-tight text-accent-800 mt-24 text-balance"
+        >
+          Our clients have something to say about us.
+        </Text>
+        <Text
+          tag="p"
+          variant="textXL"
+          class="text-accent-500 mt-8 text-balance"
+        >
+          We have customers alla round the world.
+        </Text>
+      </div>
+    </div>
+  </Wrapper>
+  <Wrapper variant="standardWide">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 mt-12">
+      {
+        testimonials.map((testimonial) => (
+          <div class="flex flex-col">
+            <figure class=" flex flex-auto flex-col justify-between relative">
+              <Image
+                width={800}
+                height={800}
+                src={testimonial.src}
+                alt={testimonial.alt}
+                class="max-h-96 size-full aspect-square object-cover relative "
+              />
+              <div class="p-8 absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-300 hover:bg-accent-900/70 backdrop-blur-lg">
+                <blockquote class="text-lg  text-white  font-medium">
+                  <p>“{testimonial.testimonial}”</p>
+                </blockquote>
+                <figcaption class="mt-10 flex items-center gap-x-6">
+                  <div class="text-base">
+                    <Text
+                      tag="h3"
+                      variant="textBase"
+                      class="font-semibold text-white"
+                    >
+                      {testimonial.name}
+                    </Text>
+                    <Text
+                      tag="p"
+                      variant="textXs"
+                      class="mt-1 text-accent-100 text-xs"
+                    >
+                      {testimonial.role}
+                    </Text>
+                  </div>
+                </figcaption>
+              </div>
+            </figure>
+          </div>
+        ))
+      }
+    </div>
+  </Wrapper>
+</section>

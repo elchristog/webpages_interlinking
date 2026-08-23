@@ -1,0 +1,50 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import AuthorCard from "@/components/authors/AuthorCard.astro";
+// Content
+import { getCollection } from "astro:content";
+const allAuthors = await getCollection("authors");
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pt-12">
+      <div
+        class="p-10 rounded-4xl lg:rounded-[4rem] bg-base-900 lg:pt-80 lg:px-20"
+      >
+        <span class="text-base-400 text-xs font-display">Meet the Team</span>
+        <Text
+          tag="h1"
+          variant="displaySM"
+          class="font-display text-white md:w-1/3 mt-8 text-balance"
+        >
+          The Brilliant Minds Behind the Chaos
+        </Text>
+        <Text
+          tag="p"
+          variant="textSM"
+          class="text-base-200 pl-8 mt-4 md:w-2/4 text-balance"
+        >
+          These are the people who keep the lights on, the site running, and the
+          coffee machine permanently empty.
+        </Text>
+      </div>
+      <div class="mt-2 grid grid-cols-1 lg:grid-cols-5 gap-2">
+        {
+          // Sorting authors alphabetically inline
+          allAuthors
+            .sort((a, b) => {
+              const nameA = a.data.name.toLowerCase();
+              const nameB = b.data.name.toLowerCase();
+              return nameA < nameB ? -1 : nameA > nameB ? 1 : 0;
+            })
+            .map((post) => <AuthorCard post={post} />)
+        }
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

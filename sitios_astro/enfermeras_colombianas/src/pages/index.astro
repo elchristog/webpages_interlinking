@@ -1,0 +1,64 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import Sell from "@/components/ctas/Sell.astro";
+import ForSaleEntry from "@/components/properties/ForSaleEntry.astro";
+// Sections
+import Hero from "@/components/headers/hero.astro";
+//  Content
+import { getCollection } from "astro:content";
+const forSale = await getCollection("sale");
+const forRent = await getCollection("rent");
+---
+
+<BaseLayout>
+  <Hero />
+  <section>
+    <Wrapper class="py-24">
+      <div class="grid lg:grid-cols-3 gap-8">
+        <div>
+          <Text tag="h2" variant="textXL" class="font-medium text-base-900">
+            Available properties for sale
+          </Text>
+          <Text
+            tag="p"
+            variant="textBase"
+            class="text-pretty mt-4 text-base-500"
+          >
+            Browse our diverse selection of homes, from cozy apartments to
+            spacious estates, and discover the ideal property to call your own.
+          </Text>
+        </div>
+        <div class="flex flex-col lg:col-start-3">
+          <a
+            title="Your title"
+            aria-label="Your title"
+            href="/for-sale"
+            class="text-base-900 hover:text-base-500 mt-auto flex gap-3 items-center justify-between"
+            >See all properties for sale <svg
+              width="71"
+              height="16"
+              viewBox="0 0 71 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0.996338 6.5C0.444053 6.5 -0.00366211 6.94772 -0.00366211 7.5C-0.00366211 8.05228 0.444053 8.5 0.996338 8.5V6.5ZM69.7739 8.20711C70.1645 7.81658 70.1645 7.18342 69.7739 6.79289L63.41 0.428932C63.0194 0.0384079 62.3863 0.0384079 61.9958 0.428932C61.6052 0.819456 61.6052 1.45262 61.9958 1.84315L67.6526 7.5L61.9958 13.1569C61.6052 13.5474 61.6052 14.1805 61.9958 14.5711C62.3863 14.9616 63.0194 14.9616 63.41 14.5711L69.7739 8.20711ZM0.996338 8.5H69.0668V6.5H0.996338V8.5Z"
+                fill="currentColor"></path>
+            </svg></a
+          >
+        </div>
+      </div>
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 border-t border-base-200 pt-8 lg:grid-cols-3 gap-8 mt-8 [&:hover>a]:opacity-30 duration-500"
+      >
+        {forSale.slice(0, 3).map((post) => <ForSaleEntry post={post} />)}
+      </div>
+    </Wrapper>
+  </section>
+
+  <Sell />
+</BaseLayout>

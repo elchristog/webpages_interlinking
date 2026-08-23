@@ -1,0 +1,144 @@
+---
+import { Image } from "astro:assets";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import ChevronLeft from "@/components/fundations/icons/ChevronLeft.astro";
+// Components
+import ShareButtons from "@/components/fundations/elements/ShareButtons.astro";
+import BlogCard from "@/components/blog/BlogCard.astro";
+// Content
+const { frontmatter } = Astro.props;
+import { getEntry } from "astro:content";
+const team = await getEntry("team", frontmatter.team);
+// Get all posts and filter by tag
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("posts");
+const relatedPosts = allPosts.filter((post) =>
+  post.data.tags.some((tag) => frontmatter.tags.includes(tag))
+);
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pt-24 pb-12 lg:pt-48">
+      <a
+        href="/blog"
+        class="flex items-center text-xs text-primary hover:text-primary/60 gap-2"
+      >
+        <ChevronLeft slot="icon" size="sm" />
+        Go back</a
+      >
+      <div
+        class="mt-12 grid gap-4 lg:gap-8 grid-cols-1 lg:grid-cols-3 lg:items-start"
+      >
+        <div class="text-balance lg:col-span-2">
+          <Text tag="h1" variant="textBase" class="text-primary">
+            {frontmatter.title}
+          </Text>
+          <Text
+            tag="p"
+            variant="textSM"
+            class="font-serif text-primary/60 text-balance"
+          >
+            {frontmatter.description}
+          </Text>
+          <Image
+            width={1000}
+            height={800}
+            alt={frontmatter.image.alt}
+            src={frontmatter.image.url}
+            class="object-cover object-center w-full mt-4 aspect-12/6 lg:col-span-2 rounded-xl"
+          />
+          <Wrapper variant="prose" class="mt-4">
+            <slot />
+          </Wrapper>
+        </div>
+
+        <div class="lg:sticky lg:top-24">
+          <div>
+            {
+              team && (
+                <div>
+                  <div>
+                    <a href={`/team/${team.id}`}>
+                      {team?.data?.image?.url && (
+                        <Image
+                          width={100}
+                          height={100}
+                          src={team.data.image.url}
+                          alt={team.data.image.alt}
+                          class="object-cover object-center rounded-full  size-8 shrink-0"
+                        />
+                      )}
+                    </a>
+                    <Text tag="p" variant="textXS" class="mt-2 text-primary/60">
+                      <span>
+                        Written in
+                        <span class="  text-primary/60">
+                          <time
+                            datetime={new Date(
+                              frontmatter.pubDate
+                            ).toISOString()}
+                          >
+                            {new Date(frontmatter.pubDate).toLocaleDateString(
+                              "en-US",
+                              {
+                                year: "numeric",
+                                month: "long",
+                                day: "2-digit",
+                              }
+                            )}
+                          </time>
+                        </span>
+                        by
+                        <a href={`/team/${team.id}`}>
+                          <span class="font-medium text-primary/60 ">
+                            {team.data.name}
+                          </span>
+                        </a>
+                      </span>
+                      {team.data.role}
+                      in
+                      {frontmatter.tags.map((tag) => (
+                        <>
+                          <a href={`/blog/tags/${tag}`} class="capitalize ">
+                            {tag}
+                          </a>
+                        </>
+                      ))}
+                    </Text>
+                  </div>
+                </div>
+              )
+            }
+          </div>
+
+          <div
+            class="relative flex flex-wrap pt-2 mt-2 border-t border-dotted border-primary/10 gap-2"
+          >
+            <ShareButtons description={frontmatter.description} />
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+  {
+    relatedPosts.length > 0 && (
+      <section class="">
+        <Wrapper variant="standard" class="py-12">
+          <Text tag="h2" variant="textBase" class="text-primary ">
+            Related posts
+          </Text>
+          <div class="flex flex-col pt-2 mt-2 border-t border-dotted gap-2 border-primary/10">
+            {relatedPosts.slice(0, 3).map((post) => (
+              <BlogCard post={post} />
+            ))}
+          </div>
+        </Wrapper>
+      </section>
+    )
+  }
+</BaseLayout>

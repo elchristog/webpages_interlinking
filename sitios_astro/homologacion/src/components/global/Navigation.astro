@@ -1,0 +1,142 @@
+---
+// Assets
+import Logo from "@/components/assets/Logo.astro";
+import CornerFrame from "@/components/assets/CornerFrame.astro";
+// Fundations
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Search from "@/components/global/Search.astro";
+// Icons
+const primaryLinks = [
+  { label: "Overview", href: "/system/overview" },
+
+  { label: "Venue", href: "/venue/" },
+  { label: "Hosts", href: "/hosts/" },
+  { label: "Partners", href: "/partners/" },
+  { label: "Journal", href: "/blog/" },
+  { label: "Tickets", href: "/tickets/" },
+  { label: "Schedule", href: "/schedule/" },
+  { label: "Sessions", href: "/sessions/" },
+  { label: "Speakers", href: "/speakers/" },
+  // Add more links here
+];
+---
+
+<nav class="fixed inset-x-0 top-0 z-50">
+  <Wrapper class="border-b border-dashed border-black/10">
+    <div
+      class="grid grid-cols-2 lg:grid-cols-12 items-center divide-x divide-dashed divide-black/10"
+    >
+      <a
+        href="/"
+        class="relative group flex items-center justify-center gap-3 text-accent-500 p-2 h-full bg-base-100 border-l border-black/10 border-dashed"
+      >
+        <CornerFrame />
+        <Logo
+          class="text-sm uppercase text-accent-500 hover:text-accent-500 transition font-medium"
+        />
+        <span class="sr-only">Dusk</span>
+      </a>
+      {
+        primaryLinks.map((link) => (
+          <div class="hidden lg:flex p-2  h-full flex-col items-center justify-center text-center bg-base-100">
+            <a
+              href={link.href}
+              class="text-sm uppercase text-accent-500 hover:text-accent-500 transition font-medium"
+            >
+              {link.label}
+            </a>
+          </div>
+        ))
+      }
+      <Search />
+      <div class="p-2 hidden lg:block bg-base-100 relative group">
+        <CornerFrame />
+        <Button
+          size="xs"
+          variant="accent"
+          class="w-full"
+          href="https://buy.polar.sh/polar_cl_-FBzY3Ho1rrZJwIiRvMO6xnmRO6LHM8PPwFXitfdNVk"
+          >Buy
+        </Button>
+      </div>
+      <div
+        class="lg:hidden ml-auto w-full p-2 bg-base-100 border-r border-dashed border-black/10"
+      >
+        <Button id="mobile-toggle" size="xs" variant="outline" class="w-full">
+          Menu
+        </Button>
+      </div>
+    </div>
+  </Wrapper>
+  {/* Mobile Menu */}
+  <div
+    id="mobile-menu"
+    class="hidden fixed inset-0 z-50 text-accent-500 flex flex-col w-screen h-screen bg-base-100"
+  >
+    <Wrapper class="border-b border-dashed border-black/10 w-full">
+      <div
+        class="divide-x divide-dashed divide-black/10 grid grid-cols-2 w-full"
+      >
+        <a
+          href="/"
+          class="relative group flex items-center justify-center gap-3 text-accent-500 p-2 h-full bg-base-100 border-l border-black/10 border-dashed"
+        >
+          <CornerFrame />
+          <Logo
+            class="text-sm uppercase text-accent-500 hover:text-accent-500 transition font-medium"
+          />
+          <span class="sr-only">Dusk</span>
+        </a>
+        <div class="p-2 bg-base-100 w-full border-r border border-white/10">
+          <Button size="xs" variant="outline" id="mobile-close" class="w-full">
+            Close
+          </Button>
+        </div>
+      </div>
+    </Wrapper>
+    <Wrapper
+      variant="standard"
+      class="flex-1 flex flex-col justify-start overflow-y-auto w-full"
+    >
+      <ul
+        class="flex flex-col items-center divide-y divide-dashed divide-black/10 border-b border-x border-black/10 border-dashed"
+      >
+        {
+          primaryLinks.map((link) => (
+            <li class=" w-full">
+              <a
+                href={link.href}
+                class="flex w-full font-medium uppercase items-center justify-center gap-3 text-accent-500 p-2 h-full bg-base-100 "
+              >
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </Wrapper>
+  </div>
+</nav>
+
+<script is:inline>
+  (() => {
+    const mobileToggle = document.getElementById("mobile-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileClose = document.getElementById("mobile-close");
+    mobileToggle?.addEventListener("click", () => {
+      mobileMenu.classList.remove("hidden");
+      document.documentElement.classList.add("overflow-hidden");
+    });
+    mobileClose?.addEventListener("click", () => {
+      mobileMenu.classList.add("hidden");
+      document.documentElement.classList.remove("overflow-hidden");
+    });
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        mobileMenu.classList.add("hidden");
+        document.documentElement.classList.remove("overflow-hidden");
+      }
+    });
+  })();
+</script>

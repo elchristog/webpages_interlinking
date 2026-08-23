@@ -1,0 +1,46 @@
+---
+// Assets
+import Logo from "@/components/assets/Logo.astro";
+import Bars from "@/components/assets/Bars.astro";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const sections = [
+  { name: "Overview", url: "/system/overview" },
+  { name: "About", url: "/about" },
+  { name: "Carriers", url: "/jobs/home" },
+  { name: "Contact", url: "/contact" },
+  { name: "X", url: "#_" },
+  { name: "Linkedin", url: "#_" },
+  { name: "Youtube", url: "#_" },
+  { name: "Instagram", url: "#_" },
+];
+---
+
+<footer class="overflow-hidden">
+  <Wrapper variant="standard" class="pt-48 pb-4">
+    <Logo class="text-black" />
+    <Bars class="mt-1">
+      ⓒ Copyright Lexington Themes <span id="year"></span></Bars
+    >
+    <div class="flex flex-wrap mt-4 gap-4">
+      {
+        sections.map((link) => (
+          <div class="py-1">
+            <Text
+              tag="a"
+              variant="textBase"
+              class="font-bold text-black border-b border-dashed  hover:text-black border-black/20"
+              href={link.url}
+            >
+              {link.name}
+            </Text>
+          </div>
+        ))
+      }
+    </div>
+  </Wrapper>
+</footer>
+<script type="module">
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>

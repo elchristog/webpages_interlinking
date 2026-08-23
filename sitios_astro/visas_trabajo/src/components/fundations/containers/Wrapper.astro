@@ -1,0 +1,22 @@
+---
+interface Props {
+  variant?: "standard" | "fullWidth" | "prose"; // Define any variants you need
+  class?: string; // Optional prop for additional classes
+  id?: string; // Optional prop for additional classes
+}
+const { variant = "standard", class: extraClass = "" } = Astro.props;
+// Map each variant to its specific classes
+const variantClasses = {
+  fullWidth: "mx-auto max-w-screen",
+  standard: "mx-auto max-w-screen 2xl:max-w-[100rem] px-8 ",
+  // Prose styles
+  prose:
+    "prose max-w-none text-base-600 prose-sm prose-headings:font-display prose-headings:font-normal prose-headings:text-base-900",
+};
+// Combine the classes for the specified variant with any extra classes
+const classes = `${variantClasses[variant]} ${extraClass}`.trim();
+---
+
+<div class={classes}>
+  <slot />
+</div>

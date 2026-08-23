@@ -1,0 +1,35 @@
+<script type="module">
+    document.addEventListener("DOMContentLoaded", () => {
+      const menuButton = document.getElementById("menubutton");
+      const menu = document.getElementById("menu");
+      const menuIcon = document.getElementById("menuIcon");
+      const tabsList = document.getElementById("tabsList");
+      const tabPanels = document.getElementById("tabPanels");
+      let expanded = false;
+      // Toggle menu
+      menuButton.addEventListener("click", () => {
+        expanded = !expanded;
+        menuButton.setAttribute("aria-expanded", expanded);
+        menu.classList.toggle("expanded");
+        menuIcon.style.opacity = expanded ? "0" : "1";
+      });
+      // Tabs functionality
+      tabsList.addEventListener("click", (e) => {
+        if (e.target.tagName === "BUTTON") {
+          const selectedCategory = e.target.getAttribute("data-category");
+          // Update tab styles
+          tabsList.querySelectorAll("button").forEach((tab) => {
+            tab.classList.toggle("border-accent-500", tab === e.target);
+            tab.classList.toggle("border-transparent", tab !== e.target);
+          });
+          // Show/hide tab panels
+          tabPanels.querySelectorAll("div[data-category]").forEach((panel) => {
+            panel.classList.toggle(
+              "hidden",
+              panel.getAttribute("data-category") !== selectedCategory
+            );
+          });
+        }
+      });
+    });
+  </script>

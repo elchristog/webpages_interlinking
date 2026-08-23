@@ -1,0 +1,180 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-32">
+      <div>
+        <Text
+          tag="h1"
+          variant="displayMD"
+          class="text-balance text-accent-500 font-display uppercase leading-tight"
+        >
+          Sign in to manage your pass
+        </Text>
+        <Text
+          tag="p"
+          variant="textBase"
+          class="text-base-600 font-medium max-w-2xl mt-2 text-balance"
+        >
+          Access your itinerary, update attendee details, and download receipts.
+          Use the email address you registered with and the access code provided
+          in your confirmation email.
+        </Text>
+      </div>
+
+      <div class="grid lg:grid-cols-12 mt-8">
+        <form
+          class="bg-accent-500 p-8 lg:col-span-4 space-y-8"
+          method="post"
+          action="#_"
+          aria-labelledby="sign-in-title"
+        >
+          <h2 id="sign-in-title" class="sr-only">Sign in form</h2>
+
+          <!-- Email field -->
+          <div class="flex flex-col gap-2">
+            <label
+              for="email"
+              class="uppercase text-white text-xs tracking-wide"
+            >
+              Email address
+            </label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              required
+              autocomplete="email"
+              placeholder="you@example.com"
+              class="w-full bg-black/15 border-transparent px-4 py-3 h-11 text-xs text-white placeholder:text-base-50 focus:border-white/60 focus:outline-none"
+            />
+          </div>
+
+          <!-- Access code field -->
+          <div class="flex flex-col gap-2">
+            <label
+              for="accessCode"
+              class="uppercase text-white text-xs tracking-wide"
+            >
+              Access code
+            </label>
+            <input
+              id="accessCode"
+              type="password"
+              name="accessCode"
+              required
+              autocomplete="one-time-code"
+              placeholder="••••••"
+              class="w-full bg-black/15 border-transparent px-4 py-3 h-11 text-xs text-white placeholder:text-base-50 focus:border-white/60 focus:outline-none"
+            />
+          </div>
+
+          <!-- Remember + Forgot -->
+          <div>
+            <div class="flex items-center justify-between text-xs text-white">
+              <label
+                for="remember"
+                class="flex items-center gap-2 cursor-pointer"
+              >
+                <input
+                  id="remember"
+                  type="checkbox"
+                  name="remember"
+                  class="border-base-400 accent-white"
+                />
+                <span>Remember device</span>
+              </label>
+              <a
+                class="underline hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
+                href="/forms/reset"
+              >
+                Forgot access code?
+              </a>
+            </div>
+
+            <Button
+              type="submit"
+              size="base"
+              variant="muted"
+              class="w-full mt-4"
+            >
+              Sign in
+            </Button>
+          </div>
+
+          <p class="text-white text-xs">
+            No pass yet? Explore tiers on the
+            <a
+              class="underline focus:outline-none focus:ring-2 focus:ring-white"
+              href="/tickets"
+            >
+              tickets page
+            </a>
+            or
+            <a
+              class="underline focus:outline-none focus:ring-2 focus:ring-white"
+              href="/forms/register"
+            >
+              register now
+            </a>.
+          </p>
+        </form>
+
+        <aside class="lg:col-span-3 lg:col-start-6">
+          <div class="space-y-4">
+            <Text
+              tag="h2"
+              variant="textXL"
+              class="font-display uppercase text-accent-500"
+            >
+              Need assistance?
+            </Text>
+            <Text tag="p" variant="textBase" class="text-base-600">
+              If you have trouble accessing your account, contact the support
+              team. We can resend access codes or update your registration
+              within one business day.
+            </Text>
+          </div>
+          <dl
+            class="divide-y divide-dashed divide-black/10 text-base-200 mt-8 border-y border-dashed border-black/10"
+          >
+            <div class="py-4">
+              <dt class="font-display uppercase text-accent-500">Tickets</dt>
+              <dd>
+                <a
+                  class="underline text-base-600"
+                  href="mailto:tickets@dusk.design">tickets@dusk.design</a
+                >
+              </dd>
+            </div>
+            <div class="py-4">
+              <dt class="font-display uppercase text-accent-500">
+                Residencies
+              </dt>
+              <dd>
+                <a
+                  class="underline text-base-600"
+                  href="mailto:care@dusk.design">care@dusk.design</a
+                >
+              </dd>
+            </div>
+            <div class="py-4">
+              <dt class="font-display uppercase text-accent-500">Phone</dt>
+              <dd>
+                <a class="text-base-600 underline" href="tel:+15145550199"
+                  >+1 (514) 555-0199</a
+                >
+              </dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

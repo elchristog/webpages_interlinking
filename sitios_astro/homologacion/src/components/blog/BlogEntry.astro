@@ -1,0 +1,58 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+// Content
+const { url, title, description, pubDate, imageSrc, imageAlt, author } = {
+  url: `/blog/posts/${Astro.props.post.id}`,
+  title: Astro.props.post.data.title,
+  description: Astro.props.post.data.description,
+  pubDate: new Date(Astro.props.post.data.pubDate).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  }),
+  imageSrc:
+    Astro.props.post.data.image?.src ?? Astro.props.post.data.image?.url,
+  imageAlt: Astro.props.post.data.image?.alt || Astro.props.post.data.title,
+  author: Astro.props.post.data.author,
+};
+---
+
+<article class="group relative flex h-full flex-col bg-accent-500">
+  <a href={url} title={title} class="absolute inset-0 z-10"> </a>
+  {
+    imageSrc ? (
+      <Image
+        width={640}
+        height={800}
+        src={imageSrc}
+        alt={imageAlt}
+        class="w-full object-cover aspect-sqaure  object-center"
+        loading="lazy"
+      />
+    ) : (
+      <div class="flex aspect-sqaure  w-full items-center justify-center border-b border-dashed border-white/10 text-xs uppercase   text-base-400">
+        Image coming soon
+      </div>
+    )
+  }
+  <div class="flex flex-1 flex-col gap-4 p-8">
+    <div class="space-y-2">
+      <Text variant="textXS" tag="p" class="uppercase text-white">
+        <time datetime={Astro.props.post.data.pubDate}>{pubDate}</time>
+      </Text>
+      <Text
+        tag="h3"
+        variant="textXL"
+        class=" uppercase font-display text-white mt-8"
+      >
+        {title}
+      </Text>
+      <Text tag="p" variant="textSM" class="text-base-200 line-clamp-3">
+        {description}
+      </Text>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,184 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const stats = [
+  { label: "Attendees", value: "1,200" },
+  { label: "Speakers", value: "32" },
+  { label: "Workshops", value: "18" },
+  { label: "Countries", value: "21" },
+];
+const highlights = [
+  {
+    title: "Swiss systems translated for product teams",
+    description:
+      "Modulor Studio became a living lab where Swiss grid theory met modern workflows. Teams prototyped design systems in under 48 hours, guided by mentors from Ratio Studio and Atelier D.",
+  },
+  {
+    title: "Night salons on typography and motion",
+    description:
+      "Helvetica Hall transformed after dark with salons led by Emil Steiner and Sofia Hagblom. Attendees dissected kinetic type, responsive grids, and the role of restraint in digital storytelling.",
+  },
+  {
+    title: "Residency teams shipped real features",
+    description:
+      "Residency cohorts paired with nonprofit partners to ship accessibility upgrades, new UI modules, and editorial tooling. Each team left Montreal with deploy-ready work and a critique deck.",
+  },
+];
+const quotes = [
+  {
+    quote:
+      "The week condensed a year of design culture into six days. Every talk was a masterclass in precision and intent.",
+    name: "Martina Rossi",
+    role: "Design Director, Forma Studio",
+  },
+  {
+    quote:
+      "Swiss discipline met product velocity. We brought the rituals home and our roadmap already feels calmer, clearer.",
+    name: "Leo Park",
+    role: "Head of Product Design, Northbound",
+  },
+];
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-32">
+      <div>
+        <Text
+          tag="h1"
+          variant="displayMD"
+          class="text-balance text-accent-500 font-display uppercase leading-tight"
+        >
+          2024 wrap-up Swiss Design Week at Dusk
+        </Text>
+        <Text
+          tag="p"
+          variant="textBase"
+          class="text-base-600 font-medium max-w-2xl mt-2 text-balance"
+        >
+          Montreal hosted our largest gathering yet. Designers, engineers, and
+          researchers converged to explore how Swiss methodology guides digital
+          products. Here is what we built, debated, and carried home.
+        </Text>
+        <section class="grid grid-cols-2 md:grid-cols-12 mt-8">
+          {
+            stats.map((item) => (
+              <div>
+                <Text
+                  tag="p"
+                  variant="displaySM"
+                  class="font-display   uppercase text-accent-500"
+                >
+                  {item.value}
+                </Text>
+                <Text tag="p" variant="textXS" class="uppercase text-base-600">
+                  {item.label}
+                </Text>
+              </div>
+            ))
+          }
+        </section>
+        <section class="space-y-8 mt-24">
+          <Text
+            tag="h2"
+            variant="displaySM"
+            class="font-display uppercase text-accent-500"
+          >
+            Highlights from the week
+          </Text>
+          <div
+            class="grid grid-cols-1 items-start gap-y-12 xl:grid-cols-12 mt-12"
+          >
+            {
+              highlights.map((item) => (
+                <article class="flex flex-col items-start justify-between    h-full [&:nth-child(1)]:lg:col-start-2 [&:nth-child(2)]:lg:col-start-6 relative  lg:col-span-3">
+                  <Text
+                    tag="h3"
+                    variant="textLG"
+                    class="text-accent-500  font-display uppercase"
+                  >
+                    {item.title}
+                  </Text>
+                  <Text tag="p" variant="textBase" class="text-base-500 mt-2">
+                    {item.description}
+                  </Text>
+                </article>
+              ))
+            }
+          </div>
+        </section>
+        <section class="mt-24">
+          <Text
+            tag="h2"
+            variant="displaySM"
+            class="font-display uppercase text-accent-500"
+          >
+            Voices from attendees
+          </Text>
+          <div class="grid md:grid-cols-2 lg:grid-cols-12 mt-12">
+            {
+              quotes.map((item) => (
+                <blockquote class="[&:nth-child(1)]:lg:col-start-3 [&:nth-child(2)]:lg:col-start-7 lg:col-span-3">
+                  <Text tag="p" variant="textBase" class="text-base-600">
+                    “{item.quote}”
+                  </Text>
+                  <div class=" mt-4">
+                    <Text
+                      tag="p"
+                      variant="textXS"
+                      class="uppercase text-accent-500"
+                    >
+                      {item.name}
+                    </Text>
+                    <Text tag="p" variant="textXS" class="text-base-600">
+                      {item.role}
+                    </Text>
+                  </div>
+                </blockquote>
+              ))
+            }
+          </div>
+        </section>
+        <section
+          class="gap-x-12 gap-y-8 border border-white/10 bg-accent-500 p-8 md:flex md:items-center md:justify-between mt-24"
+        >
+          <div class="max-w-2xl space-y-4">
+            <Text
+              tag="h2"
+              variant="displaySM"
+              class="font-display uppercase text-white"
+            >
+              Join us in 2025
+            </Text>
+            <Text
+              tag="p"
+              variant="textSM"
+              class="text-base-200 lg:text-balance"
+            >
+              Registration for the 2025 edition opens soon. Reserve a virtual
+              seat or plan your studio’s residency in Montreal.
+            </Text>
+          </div>
+          <div
+            class="flex flex-wrap items-center justify-center gap-2 md:justify-end"
+          >
+            <Button
+              size="sm"
+              variant="default"
+              class="w-fit"
+              href="/forms/register"
+            >
+              Join virtual
+            </Button>
+            <Button size="sm" variant="muted" class="w-fit" href="/tickets">
+              Plan onsite
+            </Button>
+          </div>
+        </section>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

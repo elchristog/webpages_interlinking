@@ -1,0 +1,110 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-32">
+      <Text
+        tag="h1"
+        variant="displayMD"
+        class="text-balance text-accent-500 font-display uppercase leading-tight"
+        >Buttons</Text
+      >
+
+      <div
+        class="border-y border-dashed border-black/10 mt-12 py-12 grid grid-cols-1 lg:grid-cols-12"
+      >
+        <div class="lg:col-span-3">
+          <Text
+            tag="h3"
+            variant="textBase"
+            class="text-accent-500 uppercase font-display"
+          >
+            Default
+          </Text>
+          <div class="flex flex-col gap-4 mt-2">
+            <Button class="w-fit" size="xs" variant="default">Default XS</Button
+            >
+            <Button class="w-fit" size="sm" variant="default">Default SM</Button
+            >
+            <Button class="w-fit" size="base" variant="default"
+              >Default Base</Button
+            >
+            <Button class="w-fit" size="md" variant="default">Default MD</Button
+            >
+            <Button class="w-fit" size="lg" variant="default">Default LG</Button
+            >
+            <Button class="w-fit" size="xl" variant="default">Default XL</Button
+            >
+          </div>
+        </div>
+        <div class="lg:col-span-3">
+          <Text
+            tag="h3"
+            variant="textBase"
+            class="text-accent-500 uppercase font-display"
+          >
+            Accent
+          </Text>
+          <div class="flex flex-col gap-4 mt-2">
+            <Button class="w-fit" size="xs" variant="accent">Accent XS</Button>
+            <Button class="w-fit" size="sm" variant="accent">Accent SM</Button>
+            <Button class="w-fit" size="base" variant="accent"
+              >Accent Base</Button
+            >
+            <Button class="w-fit" size="md" variant="accent">Accent MD</Button>
+            <Button class="w-fit" size="lg" variant="accent">Accent LG</Button>
+            <Button class="w-fit" size="xl" variant="accent">Accent XL</Button>
+          </div>
+        </div>
+        <div class="lg:col-span-3">
+          <Text
+            tag="h3"
+            variant="textBase"
+            class="text-accent-500 uppercase font-display"
+          >
+            Muted
+          </Text>
+          <div class="flex flex-col gap-4 mt-2">
+            <Button class="w-fit" size="xs" variant="muted">Muted XS</Button>
+            <Button class="w-fit" size="sm" variant="muted">Muted SM</Button>
+            <Button class="w-fit" size="base" variant="muted">Muted Base</Button
+            >
+            <Button class="w-fit" size="md" variant="muted">Muted MD</Button>
+            <Button class="w-fit" size="lg" variant="muted">Muted LG</Button>
+            <Button class="w-fit" size="xl" variant="muted">Muted XL</Button>
+          </div>
+        </div>
+        <div class="lg:col-span-3">
+          <Text
+            tag="h3"
+            variant="textBase"
+            class="text-accent-500 uppercase font-display"
+          >
+            Outline
+          </Text>
+          <div class="flex flex-col gap-4 mt-2">
+            <Button class="w-fit" size="xs" variant="outline">Outline XS</Button
+            >
+            <Button class="w-fit" size="sm" variant="outline">Outline SM</Button
+            >
+            <Button class="w-fit" size="base" variant="outline"
+              >Outline Base</Button
+            >
+            <Button class="w-fit" size="md" variant="outline">Outline MD</Button
+            >
+            <Button class="w-fit" size="lg" variant="outline">Outline LG</Button
+            >
+            <Button class="w-fit" size="xl" variant="outline">Outline XL</Button
+            >
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

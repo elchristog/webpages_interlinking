@@ -1,0 +1,49 @@
+---
+import { Image } from "astro:assets";
+import Text from "@/components/fundations/elements/Text.astro";
+// Content
+const sponsor = Astro.props.sponsor;
+const { name, tier, url: externalUrl, logo } = sponsor.data;
+const detailUrl = `/sponsors/details/${sponsor.id}`;
+const hasExternalLink = externalUrl && externalUrl !== "#_";
+const tierLabels = {
+  platinum: "Platinum Sponsor",
+  gold: "Gold Sponsor",
+  silver: "Silver Sponsor",
+  bronze: "Bronze Sponsor",
+};
+const tierLabel = tierLabels[tier] || "Sponsor";
+const logoAlt = logo?.alt || name;
+---
+
+<article class="relative bg-accent-500 hover:bg-accent-900">
+  <a
+    href={detailUrl}
+    title={name}
+    class="absolute inset-0 z-10"
+    aria-label={`${name} details`}></a>
+  <div class="flex flex-col items-center gap-4 p-8 text-center">
+    {
+      logo?.url ? (
+        <Image
+          src={logo.url}
+          alt={logoAlt}
+          width={logo.width ?? 320}
+          height={logo.height ?? 180}
+          loading="lazy"
+          class="h-10 w-auto object-contain"
+        />
+      ) : (
+        <div class="flex h-20 w-full items-center justify-center text-xs uppercase   text-base-400">
+          Logo coming soon
+        </div>
+      )
+    }
+    <Text tag="span" variant="textXS" class="uppercase text-base-200">
+      {tierLabel}
+    </Text>
+    <Text tag="h3" variant="textLG" class="sr-only">
+      {name}
+    </Text>
+  </div>
+</article>

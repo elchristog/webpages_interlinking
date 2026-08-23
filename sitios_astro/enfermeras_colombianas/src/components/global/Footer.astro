@@ -1,0 +1,111 @@
+---
+// Assets
+import BigLogo from "@/components/assets/BigLogo.astro";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const links = [
+  {
+    type: "navigation",
+    items: [
+      {
+        href: "https://buy.polar.sh/polar_cl_u4mIGtLl_UO9udBG4udXk-2OajL07nSjYkWLbrbPgz4",
+        text: "Buy Quartiere",
+      },
+      {
+        href: "/system/overview",
+        text: "Overview",
+      },
+      {
+        href: "/system/colors",
+        text: "Colors",
+      },
+      {
+        href: "/system/links",
+        text: "Links",
+      },
+      {
+        href: "/system/buttons",
+        text: "Buttons",
+      },
+      {
+        href: "/system/typography",
+        text: "Typography",
+      },
+      {
+        href: "https://www.lexingtonthemes.com/documentation",
+        text: "Documentation",
+      },
+      {
+        href: "https://www.lexingtonthemes.com/legal/license",
+        text: "License",
+      },
+    ],
+  },
+  {
+    type: "social",
+    items: [
+      { href: "#_", text: "X" },
+      { href: "#_", text: "Facebook" },
+      { href: "#_", text: "Instagram" },
+      { href: "#_", text: "Linkedin" },
+      { href: "#_", text: "Youtube" },
+      { href: "#_", text: "Tiktok" },
+    ],
+  },
+  {
+    type: "properties",
+    items: [
+      { href: "/for-sale", text: "All properties for sale" },
+      { href: "/for-sale/1", text: "Property for sale details" },
+      { href: "/for-rent/home", text: "All properties for rent" },
+      { href: "/for-rent/1", text: "Property for rent details" },
+    ],
+  },
+];
+---
+
+<section>
+  <Wrapper class="pb-12 pt-40">
+    <BigLogo />
+    <div class="pt-8 mt-8 border-t border-base-200">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        {
+          links.map((linkGroup) => (
+            <div>
+              <Text tag="h3" variant="textBase" class=" text-base-900 ">
+                {linkGroup.type.charAt(0).toUpperCase() +
+                  linkGroup.type.slice(1)}{" "}
+                {/* Capitalize type */}
+              </Text>
+              <ul class="list-none text-base-500 mt-8 text-base gap-1 list-inside flex flex-col">
+                {linkGroup.items.map((item) => (
+                  <li>
+                    <a
+                      href={item.href}
+                      class="hover:text-base-900  text-base-500 mt-auto flex gap-3 items-center justify-between"
+                    >
+                      {item.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    <div class="mt-8 pt-8 border-t border-base-200 space-y-2">
+      <span class="text-sm text-base-900" id="copyright">
+        Copyright © 2006-<span id="current-year"></span> Quartiere's International
+        Realty LLC. All Rights Reserved.
+      </span>
+    </div>
+  </Wrapper>
+</section>
+<script type="module">
+  // Get the current year
+  const currentYear = new Date().getFullYear();
+  // Update the year in the span with id "current-year"
+  document.getElementById("current-year").textContent = currentYear;
+</script>

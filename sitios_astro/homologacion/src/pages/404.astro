@@ -1,0 +1,126 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+const supportSections = [
+  {
+    title: "Plan your visit",
+    links: [
+      {
+        label: "Sessions",
+        href: "/sessions",
+        description:
+          "Discover the full line-up of talks, ateliers, and residencies.",
+      },
+      {
+        label: "Tickets",
+        href: "/tickets",
+        description:
+          "Reserve your seat before the design week is fully booked.",
+      },
+      {
+        label: "Journal",
+        href: "/blog",
+        description:
+          "Read field notes and behind-the-scenes stories from the team.",
+      },
+    ],
+  },
+  {
+    title: "Need a hand?",
+    links: [
+      {
+        label: "FAQ",
+        href: "/faq",
+        description:
+          "Find quick answers about venues, passes, and accessibility.",
+      },
+      {
+        label: "Venue",
+        href: "/venue",
+        description: "Preview the Montreal Design Centre and plan your route.",
+      },
+      {
+        label: "Contact",
+        href: "/contact",
+        description: "Reach the team directly for bespoke support.",
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pt-32 pb-8">
+      <div class="grid grid-cols-1 gap-y-8 lg:grid-cols-12">
+        <Text
+          tag="p"
+          variant="textXS"
+          class="uppercase text-accent-500 lg:col-span-3 w-full"
+          >Page not found</Text
+        >
+        <div class="lg:col-span-6 lg:-mt-4">
+          <Text
+            tag="h2"
+            variant="displayXL"
+            class="font-display uppercase leading-tight text-accent-500"
+            >404</Text
+          >
+          <Text tag="p" variant="textbase" class="text-base-600 text-balance">
+            We checked the archive, backstage, and every lightbox—this page is
+            no longer on the bill.
+          </Text>
+        </div>
+        <div class="flex flex-col gap-2 lg:col-start-10 lg:col-span-3">
+          <Button href="/" size="xs" variant="default" class="w-full"
+            >Back to home</Button
+          >
+          <Button href="/schedule" size="xs" variant="outline" class="w-full"
+            >View schedule</Button
+          >
+        </div>
+      </div>
+
+      <div class="bg-accent-500 p-8 mt-12 space-y-12">
+        {
+          supportSections.map((section) => (
+            <div class="  group">
+              <Text
+                tag="h3"
+                variant="textXL"
+                class="w-fit text-white font-display uppercase"
+              >
+                {section.title}
+              </Text>
+              <div class=" divide-y divide-white/10 divide-dashed border-y border-white/10 border-dashed mt-2">
+                {section.links.map((link) => (
+                  <div class="relative grid grid-cols-1 gap-y-2 lg:grid-cols-2 py-2">
+                    <a href={link.href} class="absolute inset-0 z-10" />
+                    <Text
+                      tag="h4"
+                      variant="textBase"
+                      class="text-base-200 transition group-hover:text-white font-display uppercase"
+                    >
+                      {link.label}
+                    </Text>
+                    <Text
+                      tag="p"
+                      variant="textBase"
+                      class=" block text-base-200"
+                    >
+                      {link.description}
+                    </Text>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

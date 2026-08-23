@@ -1,0 +1,235 @@
+---
+// Assets
+import { Image } from "astro:assets";
+import Add from "@/images/assets/advertise.jpeg";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+// stats array
+const stats = [
+  { label: "Creators on the platform", value: "8,000+" },
+  { label: "Flat platform fee", value: "3%" },
+  { label: "Uptime guarantee", value: "99.9%" },
+  { label: "Paid out to creators", value: "$70M" },
+  { label: "Total content views", value: "100M+" },
+  { label: "Monthly active users", value: "500K+" },
+  { label: "Countries served", value: "50+" },
+  { label: "Content published per day", value: "1,500+" },
+];
+// ad options
+const adOptions = [
+  {
+    title: "Display Ads",
+    description: "Banner ads on various pages of our website.",
+  },
+  {
+    title: "Sponsored Content",
+    description: "Custom articles tailored to your brand.",
+  },
+  {
+    title: "Podcast Sponsorship",
+    description: "Ad slots in our popular podcasts.",
+  },
+  {
+    title: "Newsletter Ads",
+    description: "Reach our email subscribers with targeted messaging.",
+  },
+];
+const payments = [
+  {
+    title: "Pricing",
+    description:
+      "Pricing varies depending on the type of ad and placement. Please get in touch with us to receive a custom quote based on your needs.",
+    linkText: "Request a Quote →",
+    linkHref: "mailto:advertise@yourwebsite.com",
+  },
+  {
+    title: "Get In Touch",
+    description:
+      "Have questions? We're happy to help you with any inquiries you have about advertising opportunities.",
+    linkText: "Contact Us →",
+    linkHref: "mailto:advertise@yourwebsite.com",
+  },
+];
+---
+
+<!-- Advertise with Us Page -->
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-12">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-y-8">
+        <div class="lg:pr-8">
+          <div class="lg:sticky lg:top-20 lg:z-50">
+            <Text
+              tag="h1"
+              variant="textSM"
+              class="text-base-900 uppercase font-medium"
+            >
+              Advertise with us
+            </Text>
+            <Text
+              tag="p"
+              variant="textSM"
+              class="text-base-600 relative before:absolute after:absolute before:bg-base-950 after:bg-base-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px pt-4 mt-2"
+            >
+              Reach a highly engaged audience with tailored advertising
+              solutions.
+            </Text>
+          </div>
+        </div>
+        <div
+          class="flex flex-col lg:col-span-2 lg:pl-8 lg:relative lg:before:absolute lg:after:absolute
+          lg:before:bg-base-950 lg:after:bg-base-950/10 lg:before:top-0
+          lg:before:left-0 lg:before:h-6 lg:before:w-px lg:after:top-8
+          lg:after:bottom-0 lg:after:left-0 after:w-px"
+        >
+          <Image
+            src={Add}
+            alt="#_"
+            class="object-cover w-full aspect-12/7 object-center rounded-xl"
+          />
+          <!-- Overview Section -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+            <div class="flex flex-col gap-8">
+              <div>
+                <Text
+                  tag="h3"
+                  variant="textBase"
+                  class="font-medium font-display text-base-900"
+                >
+                  Why advertise with us?
+                </Text>
+                <Text tag="p" variant="textSM" class="text-base-600 mt-2">
+                  We offer a variety of advertising solutions across multiple
+                  platforms. Whether it's through sponsored content, display
+                  ads, or podcast sponsorships, we help you reach your target
+                  audience effectively.
+                </Text>
+                <ul
+                  role="list"
+                  class="list-disc text-sm text-base-600 mt-4 list-inside"
+                >
+                  <li>Targeted audience reach</li>
+                  <li>High-quality content integration</li>
+                  <li>Multiple ad formats available</li>
+                </ul>
+              </div>
+              <div>
+                <Text tag="h3" class="font-medium font-display text-base-900"
+                  >Our audience</Text
+                >
+                <Text tag="p" variant="textSM" class="text-base-600 mt-2">
+                  Our audience consists of passionate individuals interested in
+                  sports, technology, business, health, and more. With thousands
+                  of daily visitors and loyal followers, we provide brands with
+                  an ideal platform to engage with their target market.
+                </Text>
+
+                <ul
+                  role="list"
+                  class="list-disc text-sm text-base-600 mt-4 list-inside"
+                >
+                  <li>
+                    <span class="font-medium text-base-900">Age:</span> 18-45
+                  </li>
+                  <li>
+                    <span class="font-medium text-base-900">Gender:</span> 60% Male,
+                    40% Female
+                  </li>
+                  <li>
+                    <span class="font-medium text-base-900">Location:</span> Global
+                    (with a focus on North America)
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <dl class="grid grid-cols-2 gap-8">
+              {
+                stats.map((stat) => (
+                  <div class="flex flex-col gap-y-1">
+                    <dt class="text-sm text-base-600">{stat.label}</dt>
+                    <dd class="order-first text-xl font-semibold font-display text-base-900">
+                      {stat.value}
+                    </dd>
+                  </div>
+                ))
+              }
+            </dl>
+          </div>
+
+          <div class="mt-12">
+            <Text tag="h3" class="font-medium text-base-900">
+              Ad placement options
+            </Text>
+            <div
+              class="relative before:absolute after:absolute before:bg-base-950 after:bg-base-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px pt-4 mt-2"
+            >
+              <div>
+                <Text tag="p" variant="textSM" class="text-base-600">
+                  We offer a variety of advertising formats to suit your needs:
+                </Text>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                  <div class="grid grid-cols-1 md:grid-cols-1 gap-2">
+                    {
+                      adOptions.map((ad) => (
+                        <div>
+                          <Text
+                            tag="h4"
+                            variant="textSM"
+                            class="font-medium font-display text-base-900"
+                          >
+                            {ad.title}
+                          </Text>
+                          <Text
+                            tag="p"
+                            variant="textSM"
+                            class="text-base-600 mt-1"
+                          >
+                            {ad.description}
+                          </Text>
+                        </div>
+                      ))
+                    }
+                  </div>
+
+                  <div class="flex flex-col gap-8">
+                    {
+                      payments.map((section) => (
+                        <div>
+                          <Text tag="h3" class="font-medium text-base-900">
+                            {section.title}
+                          </Text>
+                          <Text
+                            tag="p"
+                            variant="textSM"
+                            class="text-base-600 mt-1"
+                          >
+                            {section.description}
+                          </Text>
+                          <Text
+                            tag="p"
+                            variant="textSM"
+                            class="font-medium mt-4"
+                          >
+                            <a
+                              href={section.linkHref}
+                              class="text-base-900 hover:text-accent-500"
+                            >
+                              {section.linkText}
+                            </a>
+                          </Text>
+                        </div>
+                      ))
+                    }
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

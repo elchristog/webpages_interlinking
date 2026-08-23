@@ -1,0 +1,69 @@
+---
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+// Icons
+import ArrowRight from "@/components/fundations/icons/ArrowRight.astro";
+const { url, title, pubDate, tags } = {
+  url: "/blog/posts/" + Astro.props.post.id,
+  title: Astro.props.post.data.title,
+  tags: Astro.props.post.data.tags,
+  pubDate: new Date(Astro.props.post.data.pubDate).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "2-digit",
+  }),
+};
+
+// Calculate reading time
+import readingTime from "reading-time";
+const stats = readingTime(Astro.props.post.body);
+---
+
+<article class="relative w-full p-8 overflow-hidden group">
+  <div class="relative flex flex-col justify-between h-full">
+    <div class="flex items-center pl-8 font-display gap-x-2 text-base-100">
+      <span>
+        {
+          tags.map((tag) => {
+            const formattedTag = tag.replace(/-/g, " ");
+            return (
+              <Text
+                tag="p"
+                variant="textXS"
+                class="capitalize"
+                title={tag}
+                aria-label={tag}
+              >
+                {formattedTag}
+              </Text>
+            );
+          })
+        }
+      </span>
+      <span aria-hidden="true">·</span>
+      <Text tag="p" variant="textXS">
+        <time datetime={pubDate}>{pubDate}</time>
+      </Text>
+      <span aria-hidden="true">·</span>
+      <Text tag="p" variant="textXS">{stats.text}</Text>
+    </div>
+    <Text
+      tag="h3"
+      variant="textLG"
+      class="mt-4 font-display uppercase text-white"
+    >
+      {title}
+    </Text>
+    <Button
+      isLink
+      href={url}
+      title={title}
+      size="sm"
+      variant="muted"
+      iconOnly
+      class="mt-4"
+    >
+      <ArrowRight slot="icon" size="base" />
+    </Button>
+  </div>
+</article>

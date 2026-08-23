@@ -1,0 +1,83 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import BaseLayout from "./BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pt-24 pb-12 lg:pt-48">
+      <div class="flex items-center gap-4">
+        <Image
+          width={1000}
+          height={800}
+          alt={frontmatter.image.alt}
+          src={frontmatter.image.url}
+          class="object-cover object-center size-12 rounded-full"
+        />
+        <div>
+          <Text tag="h1" variant="textBase" class="text-primary">
+            {frontmatter.title}
+          </Text>
+
+          <Text
+            tag="p"
+            variant="textBase"
+            class="font-serif text-primary/60 text-balance"
+          >
+            {frontmatter.description}
+          </Text>
+        </div>
+      </div>
+      <div class="mt-8 space-y-1">
+        <div class="flex items-baseline lg:justify-between">
+          <Text
+            tag="p"
+            variant="textSM"
+            class="font-medium capitalize text-primary text-balance group-hover:text-white"
+          >
+            Website
+          </Text>
+          <span class="flex-1 mx-2 border-b border-dotted border-primary/10"
+          ></span>
+          <a
+            href={frontmatter.live}
+            title={frontmatter.title}
+            aria-label={frontmatter.title}
+            class="flex items-center text-xs text-primary hover:text-primary/60 gap-2 mt-2"
+          >
+            Visit
+          </a>
+        </div>
+        <div class="flex items-baseline lg:justify-between">
+          <Text
+            tag="p"
+            variant="textSM"
+            class="font-medium capitalize text-primary text-balance group-hover:text-white"
+          >
+            Published
+          </Text>
+          <span class="flex-1 mx-2 border-b border-dotted border-primary/10"
+          ></span>
+          <Text
+            tag="p"
+            variant="textXS"
+            class="flex items-baseline text-primary/60 lg:justify-between"
+          >
+            <time datetime={frontmatter.pubDate.toString().slice(0, 10)}
+              >{frontmatter.pubDate.toString().slice(4, 15)}</time
+            >
+          </Text>
+        </div>
+      </div>
+
+      <Wrapper variant="prose" class="mt-8">
+        <slot />
+      </Wrapper>
+    </Wrapper>
+  </section>
+</BaseLayout>

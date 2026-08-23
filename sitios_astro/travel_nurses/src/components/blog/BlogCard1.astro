@@ -1,0 +1,59 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+const { url, title, description, pubDate, image } = {
+  url: "/blog/posts/" + Astro.props.post.id,
+  title: Astro.props.post.data.title,
+  image: Astro.props.post.data.image.url,
+  description: Astro.props.post.data.description,
+  pubDate: new Date(Astro.props.post.data.pubDate).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "2-digit",
+  }),
+};
+
+// Integrations: calculate reading time
+import readingTime from "reading-time";
+const timeToRead = readingTime(Astro.props.post.body);
+---
+
+<article class="relative">
+  <a
+    href={url}
+    title={title}
+    aria-label={`Read more about ${title}`}
+    class="absolute inset-0 z-30 block"></a>
+
+  <div class="relative">
+    <Image
+      src={image}
+      width="1000"
+      height="1000"
+      class="object-cover aspect-square"
+      alt={title}
+    />
+
+    <div
+      aria-hidden="true"
+      class="absolute inset-0 z-10 bg-black/60 pointer-events-none"
+    >
+    </div>
+  </div>
+
+  <div class="absolute inset-0 z-20 flex flex-col justify-end p-4">
+    <Text tag="p" variant="textXS" class="text-white uppercase">
+      <time datetime={pubDate}>{pubDate}</time>
+      <span>·</span>
+      <span>{timeToRead.text}</span>
+    </Text>
+    <Text tag="h2" variant="textSM" class="mt-4 font-medium text-white">
+      {title}
+    </Text>
+    <Text tag="p" variant="textSM" class="mt-1 text-white">
+      {description}
+    </Text>
+  </div>
+</article>

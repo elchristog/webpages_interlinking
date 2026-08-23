@@ -1,0 +1,167 @@
+---
+// Shape4 This component renders a component and accepts props for customization.
+// Props: - class: A string of additional classes to style the component.
+// - ...rest: Any other valid attributes for an div element (e.g., id, style, role, aria-label, etc.).
+// Example Usage: <Shape4 class="my-custom-class" /> or <Shape4 id="Shape4-id" style="width: 50px; height: 50px;" />
+
+const { class: className = "", ...rest } = Astro.props;
+---
+
+<div class={className} {...rest} class="bg-gradient-down">
+  <svg
+    class="scale-150"
+    viewBox="0 0 400 400"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <!-- Rotating triangles -->
+    <g class="triangles-container">
+      <polygon
+        points="200,120 250,250 150,250"
+        stroke="#fafafa"
+        fill="none"
+        stroke-width="0.5"
+        class="triangle"></polygon>
+      <polygon
+        points="200,120 250,250 150,250"
+        stroke="#444444"
+        fill="none"
+        stroke-width="0.5"
+        class="triangle"></polygon>
+      <polygon
+        points="200,120 250,250 150,250"
+        stroke="#777777"
+        fill="none"
+        stroke-width="0.5"
+        class="triangle"></polygon>
+    </g>
+
+    <!-- Pulsing ellipses -->
+    <g class="ellipses">
+      <ellipse
+        cx="200"
+        cy="200"
+        rx="60"
+        ry="30"
+        stroke="#fafafa"
+        fill="none"
+        class="ellipse"></ellipse>
+      <ellipse
+        cx="200"
+        cy="200"
+        rx="80"
+        ry="40"
+        stroke="#444444"
+        fill="none"
+        class="ellipse"></ellipse>
+      <ellipse
+        cx="200"
+        cy="200"
+        rx="100"
+        ry="50"
+        stroke="#777777"
+        fill="none"
+        class="ellipse"></ellipse>
+    </g>
+
+    <!-- Expanding concentric circles -->
+    <g class="circles">
+      <circle
+        cx="200"
+        cy="200"
+        r="50"
+        stroke="#fafafa"
+        fill="none"
+        class="circle"></circle>
+      <circle
+        cx="200"
+        cy="200"
+        r="75"
+        stroke="#444444"
+        fill="none"
+        class="circle"></circle>
+      <circle
+        cx="200"
+        cy="200"
+        r="100"
+        stroke="#777777"
+        fill="none"
+        class="circle"></circle>
+    </g>
+  </svg>
+</div>
+
+<style>
+  /* Rotating triangle animation */
+  .triangle {
+    transform-origin: 200px 200px; /* Sets the rotation point at (200px, 200px) */
+    animation: rotate 30s linear infinite; /* Rotates continuously over 30 seconds */
+    opacity: 0.6; /* Makes the shape slightly transparent */
+  }
+
+  /* Staggered animation delay for the second triangle */
+  .triangle:nth-child(2) {
+    animation-delay: -3s;
+  }
+
+  /* Staggered animation delay for the third triangle */
+  .triangle:nth-child(3) {
+    animation-delay: -6s;
+  }
+
+  /* Pulsing ellipse animation */
+  .ellipse {
+    stroke-width: 0.5; /* Sets the thickness of the ellipse's stroke */
+    animation: pulse 18s ease-in-out infinite; /* Scales the ellipse in and out over 18 seconds */
+    opacity: 0.6; /* Makes the shape slightly transparent */
+  }
+
+  /* Staggered animation delay for the second ellipse */
+  .ellipse:nth-child(2) {
+    animation-delay: -2s;
+  }
+
+  /* Staggered animation delay for the third ellipse */
+  .ellipse:nth-child(3) {
+    animation-delay: -4s;
+  }
+
+  /* Pulsing circle animation */
+  .circle {
+    stroke-width: 0.5; /* Sets the thickness of the circle's stroke */
+    animation: pulse 25s ease-in-out infinite; /* Scales the circle in and out over 25 seconds */
+    opacity: 0.6; /* Makes the shape slightly transparent */
+  }
+
+  /* Staggered animation delay for the second circle */
+  .circle:nth-child(2) {
+    animation-delay: -3s;
+  }
+
+  /* Staggered animation delay for the third circle */
+  .circle:nth-child(3) {
+    animation-delay: -6s;
+  }
+
+  /* Defines the continuous rotation animation */
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg); /* Starts at 0 degrees */
+    }
+    to {
+      transform: rotate(360deg); /* Completes a full rotation */
+    }
+  }
+
+  /* Defines the pulsing effect */
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: scale(0.8); /* Shrinks slightly */
+      opacity: 0.3; /* Reduces visibility */
+    }
+    50% {
+      transform: scale(1.1); /* Expands slightly */
+      opacity: 0.8; /* Increases visibility */
+    }
+  }
+</style>

@@ -1,0 +1,50 @@
+---
+// Assets
+import { Image } from "astro:assets";
+import CourseImage from "@/images/course.jpeg";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+// Section
+import CourseOverview from "@/components/course/CourseOverview.astro";
+import CourseStructure from "@/components/course/CourseStructure.astro";
+import CoursePricing from "@/components/course/CoursePricing.astro";
+import CourseFaq from "@/components/course/CourseFaq.astro";
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pt-8 pb-12">
+      <Image
+        width={2000}
+        height={1000}
+        src={CourseImage}
+        alt="#_"
+        class="w-full h-96 object-cover object-bottom"
+      />
+      <div class="grid items-start grid-cols-1 gap-8 mt-2 lg:grid-cols-2">
+        <Text
+          tag="h1"
+          variant="textXL"
+          class="dark:text-white text-base-900 text-balance"
+        >
+          Mastering Product Design: From concept to creation
+        </Text>
+        <Text
+          tag="p"
+          variant="textBase"
+          class="text-base-500 dark:text-base-300 lg:text-balance"
+        >
+          A Comprehensive Guide to Designing User-Centered and Market-Ready
+          Products
+        </Text>
+      </div>
+    </Wrapper>
+  </section>
+  <CourseOverview />
+  <CourseStructure />
+  <CoursePricing />
+  <CourseFaq />
+</BaseLayout>

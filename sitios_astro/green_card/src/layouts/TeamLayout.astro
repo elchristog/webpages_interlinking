@@ -1,0 +1,77 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import CtaWork from "@/components/ctas/CtaWork.astro";
+// Content
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout>
+  <section class="bg-white overflow-hidden relative">
+    <Wrapper variant="standard" class="py-12 lg:pt-24">
+      <div class="grid items-start grid-cols-1 gap-4 lg:grid-cols-3 mx-auto">
+        <div
+          class="w-full bg-accent-500 p-10 lg:p-12 lg:h-[75dvh] rounded-2xl flex flex-col justify-between"
+        >
+          <Text
+            tag="h1"
+            variant="displaySM"
+            class="tracking-tighter text-white"
+          >
+            {frontmatter.name}
+          </Text>
+          <dl class="relative flex flex-col gap-8 overflow-hidden w-full mt-12">
+            <div class="flex flex-col items-start gap-2 justify-between w-full">
+              <dt class="text-white font-semibold text-xl">Education</dt><dd
+                class="text-accent-100 font-normal text-sm"
+              >
+                <ul>
+                  {frontmatter.education.map((item) => <li> {item}</li>)}
+                </ul>
+              </dd>
+            </div>
+            <div class="flex flex-col items-start gap-2 justify-between w-full">
+              <dt class="text-white font-semibold text-xl">Experience</dt>
+              <dd class="text-accent-100 font-normal text-sm">
+                <ul>
+                  {frontmatter.experience.map((item) => <li> {item}</li>)}
+                </ul>
+              </dd>
+            </div>
+          </dl>
+        </div>
+        <div class="w-full lg:col-span-2">
+          <Image
+            width={1200}
+            height={630}
+            src={frontmatter.avatar.url}
+            alt={frontmatter.avatar.alt}
+            class="aspect-[4/4] object-cover rounded-t-2xl size-full"
+          />
+          <div
+            class="bg-accent-200 text-accent-600 relative rounded-b-2xl z-10 py-2 px-4 bottom-0 w-full overflow-x-hidden"
+          >
+            <div
+              class="items-center relative animate-marquee flex gap-4 whitespace-nowrap"
+            >
+              {
+                Array.from({ length: 1000 }).map((_) => (
+                  <span>{frontmatter.name}</span>
+                ))
+              }
+            </div>
+          </div>
+          <Wrapper variant="prose" class="mt-12">
+            <slot />
+          </Wrapper>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+  <CtaWork />
+</BaseLayout>

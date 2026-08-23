@@ -1,0 +1,43 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Sections: In order of use
+import BlogHero1 from "@/components/landingPages/index1/BlogHero1.astro";
+import Breaking1 from "@/components/landingPages/index1/Breaking1.astro";
+import TopStories1 from "@/components/landingPages/index1/TopStories1.astro";
+import Aside1 from "@/components/landingPages/index1/Aside1.astro";
+import Briefs1 from "@/components/landingPages/index1/Briefs1.astro";
+import TechHighlights from "@/components/landingPages/index1/TechHighlights.astro";
+import Categories1 from "@/components/landingPages/index1/Categories1.astro";
+// Adverts
+import AdvertAside from "@/components/advert/AdvertAside.astro";
+import AdvertInline from "@/components/advert/AdvertInline.astro";
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard">
+      <BlogHero1 />
+      <div class="mt-2 grid grid-cols-1 lg:grid-cols-4 gap-2">
+        <div class="lg:col-span-3">
+          <div class="flex flex-col gap-2">
+            <Breaking1 />
+            <AdvertInline />
+            <TopStories1 />
+          </div>
+        </div>
+        <div>
+          <div class="lg:sticky lg:top-10 lg:z-20">
+            <Aside1 />
+            <AdvertAside />
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col mt-2">
+        <Briefs1 />
+      </div>
+    </Wrapper>
+  </section>
+  <Categories1 />
+</BaseLayout>

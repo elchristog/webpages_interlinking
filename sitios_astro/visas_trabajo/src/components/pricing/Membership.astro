@@ -1,0 +1,181 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import CheckCircleIcon from "@/components/fundations/icons/CheckCircle.astro";
+// Pricing cards
+const pricingCards = [
+  {
+    title: "Basic Membership",
+    description: "Enjoy limited access to premium content.",
+    price: "$5/month",
+    buttonVariant: "muted",
+  },
+  {
+    title: "Premium Membership",
+    description: "Get access to all premium content and more.",
+    price: "$15/month",
+    buttonVariant: "accent",
+  },
+  {
+    title: "Pro Membership",
+    description: "All the perks of Premium, plus early access to content.",
+    price: "$25/month",
+    buttonVariant: "muted",
+  },
+];
+// Member benefits
+const memberBenefits = [
+  "Exclusive content and resources",
+  "Access to private community forums",
+  "Early access to new articles, podcasts, and videos",
+  "Special discounts on merchandise and events",
+  "Priority customer support",
+  "Exclusive invites to events and webinars",
+  "Ad-free browsing experience",
+  "Access to members-only newsletter",
+  "Customized content recommendations",
+  "Free access to premium webinars and workshops",
+];
+// FAQ questions and answers
+const faqData = [
+  {
+    question: "What is the membership fee?",
+    answer:
+      "The membership fee for basic access is $5/month. For premium access, it is $15/month, and for Pro access, it is $25/month.",
+  },
+  {
+    question: "How can I cancel my membership?",
+    answer:
+      "You can cancel your membership at any time by going to your account settings and selecting the 'Cancel Subscription' option.",
+  },
+  {
+    question: "What benefits do I get with a premium membership?",
+    answer:
+      "Premium members get access to all premium content, early access to new releases, ad-free browsing, and exclusive offers.",
+  },
+  {
+    question: "Can I upgrade or downgrade my membership?",
+    answer:
+      "Yes, you can upgrade or downgrade your membership at any time from your account settings. Adjustments to your subscription will take effect immediately.",
+  },
+  {
+    question: "Is there a free trial available?",
+    answer:
+      "Yes, we offer a 7-day free trial for the Premium membership. You can cancel anytime during the trial period without any charges.",
+  },
+];
+---
+
+<section>
+  <Wrapper variant="standard" class="py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-y-8">
+      <div class="lg:pr-8">
+        <div class="lg:sticky lg:top-20 lg:z-50">
+          <Text
+            tag="h1"
+            variant="textSM"
+            class="text-base-900 uppercase font-medium"
+          >
+            Become a Member
+          </Text>
+          <Text
+            tag="p"
+            variant="textSM"
+            class="text-base-600 relative before:absolute after:absolute before:bg-base-950 after:bg-base-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px pt-4 mt-2"
+          >
+            Join our community and enjoy exclusive benefits, premium content,
+            and more.
+          </Text>
+        </div>
+      </div>
+      <div
+        class="lg:col-span-2 lg:pl-8 lg:relative lg:before:absolute lg:after:absolute
+            lg:before:bg-base-950 lg:after:bg-base-950/10 lg:before:top-0
+            lg:before:left-0 lg:before:h-6 lg:before:w-px lg:after:top-8
+            lg:after:bottom-0 lg:after:left-0 after:w-px"
+      >
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+          {
+            pricingCards.map((card) => (
+              <div class="bg-base-50 p-6 rounded-xl flex flex-col justify-between gap-8">
+                <div>
+                  <Text
+                    tag="h3"
+                    variant="textBase"
+                    class="font-medium font-display text-base-900"
+                  >
+                    {card.title}
+                  </Text>
+                  <Text tag="p" variant="textSM" class="text-base-600 mt-1">
+                    {card.description}
+                  </Text>
+                  <Text tag="p" variant="textBase" class=" font-semibold mt-4">
+                    {card.price}
+                  </Text>
+                </div>
+                <Button type="button" size="xs" variant={card.buttonVariant}>
+                  Sign Up
+                </Button>
+              </div>
+            ))
+          }
+        </div>
+        <section class="mt-12">
+          <Text
+            tag="h1"
+            variant="textSM"
+            class="text-base-900 uppercase font-medium"
+          >
+            Memebrs benefits
+          </Text>
+          <ul
+            class="grid grid-cols-1 md:grid-cols-2 gap-y-2 gap-8 relative before:absolute after:absolute before:bg-base-950 after:bg-base-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px pt-4 mt-2"
+          >
+            {
+              memberBenefits.map((benefit) => (
+                <li class="flex items-center gap-1">
+                  <CheckCircleIcon class="size-4 text-base-600 " />
+                  <Text tag="p" variant="textSM" class="text-base-600">
+                    {benefit}
+                  </Text>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+        <section class="mt-12">
+          <Text
+            tag="h1"
+            variant="textSM"
+            class="text-base-900 uppercase font-medium"
+          >
+            Frequently Asked Questions
+          </Text>
+          <ul
+            class="relative before:absolute after:absolute before:bg-base-950 after:bg-base-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px pt-4 mt-2"
+          >
+            <div class="space-y-4">
+              {
+                faqData.map((faq) => (
+                  <details class="select-none">
+                    <summary class="text-base-900 font-medium font-display">
+                      {faq.question}
+                    </summary>
+                    <div class=" border-t border-base-200 pt-2 pb-8">
+                      <Text tag="h3" variant="textSM" class=" text-base-600">
+                        {faq.answer}
+                      </Text>
+                    </div>
+                  </details>
+                ))
+              }
+            </div>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </Wrapper>
+</section>

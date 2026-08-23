@@ -1,0 +1,81 @@
+---
+// Assets
+import { Image } from "astro:assets";
+import Services from "@/images/assets/services.jpg";
+import Shape1 from "@/components/assets/Shape1.astro";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import CtaHire from "@/components/ctas/CtaHire.astro";
+import ServicesCard1 from "@/components/services/ServicesCard1.astro";
+// Content
+import { getCollection } from "astro:content";
+import Shape2 from "@/components/assets/Shape2.astro";
+const allServices = await getCollection("services");
+---
+
+<BaseLayout>
+  <section class="bg-white overflow-hidden relative">
+    <Wrapper class="py-12 lg:pt-24">
+      <div class="grid items-start grid-cols-1 gap-4 lg:grid-cols-3 mx-auto">
+        <div
+          class="w-full bg-accent-500 p-10 lg:p-12 h-full rounded-2xl flex flex-col justify-between"
+        >
+          <Shape1 class="size-12 md:size-24 text-accent-200" />
+          <Text
+            tag="h1"
+            variant="displayMD"
+            class="tracking-tighter text-white"
+          >
+            Ready to work on the next big thing
+          </Text>
+        </div>
+        <Image
+          src={Services}
+          width={1200}
+          height={630}
+          class="aspect-[4/4] object-cover rounded-2xl h-full lg:col-span-2 w-full"
+          alt="#_"
+        />
+      </div>
+    </Wrapper>
+  </section>
+
+  <section class="bg-white overflow-hidden relative">
+    <Wrapper variant="standard" class="overflow-hidden relative py-24">
+      <Shape2
+        class="absolute w-full h-full opacity-[0.2] z-0 -right-64 sm:-right-96 -bottom-96"
+      />
+      <div class="grid items-end gap-4 lg:grid-cols-3 mx-auto">
+        <div class="lg:col-span-2">
+          <div class="relative max-w-xs">
+            <div class="absolute inset-0 flex items-center" aria-hidden="true">
+              <div class="w-full border-t border-accent-300"></div>
+            </div>
+            <div class="relative flex justify-start">
+              <span class="bg-white pr-2 text-sm text-accent-500 font-medium"
+                >How we work</span
+              >
+            </div>
+          </div>
+
+          <Text
+            tag="h2"
+            variant="displayLG"
+            class="tracking-tight text-accent-800 mt-12 text-balance"
+          >
+            We create a unique and engaging experience for our clients.
+          </Text>
+        </div>
+      </div>
+      <div
+        class="grid g sm:grid-cols-2 lg:grid-cols-2 gap-x-12 gap-y-24 list-none max-w-xl mt-24"
+      >
+        {allServices.map((post) => <ServicesCard1 post={post} />)}
+      </div>
+    </Wrapper>
+  </section>
+  <CtaHire />
+</BaseLayout>

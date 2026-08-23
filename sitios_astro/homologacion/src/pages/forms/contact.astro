@@ -1,0 +1,236 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-32">
+      <div>
+        <Text
+          tag="h1"
+          variant="displayMD"
+          class="text-balance text-accent-500 font-display uppercase leading-tight"
+        >
+          Connect with the Dusk team
+        </Text>
+        <Text
+          tag="p"
+          variant="textBase"
+          class="text-base-600 font-medium max-w-2xl mt-2 text-balance"
+        >
+          Whether you’re planning a residency, requesting press access, or need
+          accessibility support, we’re here to help. Reach out using the form or
+          contact a specialist team directly.
+        </Text>
+      </div>
+      <div class="grid lg:grid-cols-12 mt-8">
+        <form
+          class="bg-accent-500 p-8 lg:col-span-4 space-y-8"
+          method="post"
+          action="#_"
+          aria-labelledby="contact-title"
+        >
+          <h2 id="contact-title" class="sr-only">Contact form</h2>
+          <!-- Name -->
+          <div class="flex flex-col gap-2">
+            <label for="name" class="uppercase text-white text-xs tracking-wide"
+              >Name</label
+            >
+            <input
+              id="name"
+              type="text"
+              name="name"
+              required
+              autocomplete="name"
+              class="w-full bg-black/15 border-transparent px-4 py-3 h-11 text-xs text-white placeholder:text-base-50 focus:border-white/60 focus:outline-none"
+            />
+          </div>
+          <!-- Email -->
+          <div class="flex flex-col gap-2">
+            <label
+              for="email"
+              class="uppercase text-white text-xs tracking-wide">Email</label
+            >
+            <input
+              id="email"
+              type="email"
+              name="email"
+              required
+              autocomplete="email"
+              class="w-full bg-black/15 border-transparent px-4 py-3 h-11 text-xs text-white placeholder:text-base-50 focus:border-white/60 focus:outline-none"
+            />
+          </div>
+          <!-- Organisation (optional) -->
+          <div class="flex flex-col gap-2">
+            <label
+              for="organisation"
+              class="uppercase text-white text-xs tracking-wide"
+              >Organisation <dt class="normal-case lowercase text-white/70">
+                (optional)
+              </dt></label
+            >
+            <input
+              id="organisation"
+              type="text"
+              name="organisation"
+              autocomplete="organization"
+              class="w-full bg-black/15 border-transparent px-4 py-3 h-11 text-xs text-white placeholder:text-base-50 focus:border-white/60 focus:outline-none"
+            />
+          </div>
+          <!-- Topic -->
+          <div class="flex flex-col gap-2">
+            <label
+              for="topic"
+              class="uppercase text-white text-xs tracking-wide">Topic</label
+            >
+            <select
+              id="topic"
+              name="topic"
+              class="w-full bg-black/15 border-transparent px-4 py-3 h-11 text-xs text-white placeholder:text-base-50 focus:border-white/60 focus:outline-none"
+            >
+              <option value="general">General enquiry</option>
+              <option value="tickets">Tickets &amp; registration</option>
+              <option value="press">Press &amp; media</option>
+              <option value="partnerships">Partnerships</option>
+              <option value="accessibility">Accessibility support</option>
+            </select>
+          </div>
+          <!-- Message -->
+          <div class="flex flex-col gap-2">
+            <label
+              for="message"
+              class="uppercase text-white text-xs tracking-wide">Message</label
+            >
+            <textarea
+              id="message"
+              name="message"
+              rows="6"
+              required
+              autocomplete="off"
+              aria-describedby="message-hint"
+              class="w-full bg-black/15 border-transparent px-4 py-3 h-11 text-xs text-white placeholder:text-base-50 focus:border-white/60 focus:outline-none"
+            ></textarea>
+            <p id="message-hint" class="text-xs text-white">
+              Please include any relevant links or ticket details.
+            </p>
+          </div>
+          <!-- Subscribe -->
+          <div>
+            <div class="flex items-start gap-3 text-xs text-white">
+              <input
+                id="subscribe"
+                type="checkbox"
+                name="subscribe"
+                class="mt-1 border-base-400 accent-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+              />
+              <label for="subscribe" class="cursor-pointer">
+                Keep me updated on speaker reveals, residencies, and future Dusk
+                programmes.
+              </label>
+            </div>
+            <!-- Submit -->
+            <Button
+              type="submit"
+              size="base"
+              variant="muted"
+              class="w-full mt-4"
+            >
+              Send us a message!
+            </Button>
+          </div>
+        </form>
+        <aside class="lg:col-span-3 lg:col-start-6">
+          <div class="space-y-4">
+            <Text
+              tag="h2"
+              variant="textXL"
+              class="font-display uppercase text-accent-500"
+            >
+              Direct lines
+            </Text>
+            <dl
+              class="divide-y divide-dashed divide-black/10 text-base-200 mt-8 border-y border-dashed border-black/10"
+            >
+              <div class="py-4">
+                <dt class="font-display uppercase text-accent-500">Tickets</dt>
+                <dd>
+                  <a  class="underline text-base-600" href="mailto:tickets@dusk.design"
+                    >tickets@dusk.design</a
+                  >
+                </dd>
+              </div>
+              <div class="py-4">
+                <dt class="font-display uppercase text-accent-500">Press</dt>
+                <dd>
+                  <a  class="underline text-base-600" href="mailto:press@dusk.design"
+                    >press@dusk.design</a
+                  >
+                </dd>
+              </div>
+              <div class="py-4">
+                <dt class="font-display uppercase text-accent-500">
+                  Partnerships
+                </dt>
+                <dd>
+                  <a  class="underline text-base-600" href="mailto:partners@dusk.design"
+                    >partners@dusk.design</a
+                  >
+                </dd>
+              </div>
+              <div class="py-4">
+                <dt class="font-display uppercase text-accent-500">
+                  Accessibility
+                </dt>
+                <dd>
+                  <a  class="underline text-base-600" href="mailto:care@dusk.design"
+                    >care@dusk.design</a
+                  >
+                </dd>
+              </div>
+            </dl>
+          </div>
+          <div class="space-y-4 border-t border-white/10 pt-6">
+            <Text
+              tag="h2"
+              variant="textXL"
+              class="font-display uppercase text-accent-500"
+            >
+              Office hours
+            </Text>
+
+            <Text tag="p" variant="textBase" class="text-base-600">
+              <time datetime="2025-10-26T09:00-05:00"
+                >Monday to Friday — 09:00</time
+              >
+              to
+              <time datetime="2025-10-26T17:00-05:00">17:00 EST</time>
+            </Text>
+
+            <Text tag="p" variant="textBase" class="text-base-600">
+              <a href="tel:+15145550199" class="underline text-base-600">
+                +1 (514) 555-0199
+              </a>
+            </Text>
+          </div>
+          <div class="space-y-4 border-t border-white/10 pt-6">
+            <Text
+              tag="h2"
+              variant="textXL"
+              class="font-display uppercase text-accent-500"
+            >
+              Visit us
+            </Text>
+            <Text tag="p" variant="textBase" class="text-base-600">
+              Montreal Design Centre 417 Rue Saint-Paul Ouest Montreal, QC H2Y
+              2A1
+            </Text>
+          </div>
+        </aside>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

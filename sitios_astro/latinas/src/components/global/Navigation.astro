@@ -1,0 +1,128 @@
+---
+// Assets
+import BigLogo from "@/components/assets/BigLogo.astro";
+// Fundations
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import Plus from "@/components/fundations/icons/Plus.astro";
+// Components
+import Search from "@/components/global/Search.astro";
+import BlogTicker from "@/components/blog/BlogTicker.astro";
+import { getCollection } from "astro:content";
+
+// Get all podcasts
+const allPodcasts = await getCollection("podcasts");
+allPodcasts.sort((a, b) => {
+  const dateA = new Date(a.data.pubDate).getTime(); // Convert to timestamp
+  const dateB = new Date(b.data.pubDate).getTime(); // Convert to timestamp
+  return dateB - dateA; // Compare timestamps
+});
+// Get all posts
+const allPosts = await getCollection("posts");
+allPosts.sort((a, b) => {
+  const dateA = new Date(a.data.pubDate).getTime(); // Convert to timestamp
+  const dateB = new Date(b.data.pubDate).getTime(); // Convert to timestamp
+  return dateB - dateA; // Compare timestamps
+});
+// Sort posts by date and grab the latest 6
+const latestPosts = [...allPosts]
+  .sort(
+    (a, b) =>
+      new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+  )
+  .slice(0, 6);
+// Tags
+const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
+// Array
+const navLinks = [
+  {
+    href: "https://lexingtonthemes.com/templates/snowpeak",
+    label: "Buy Snowpeak",
+    variant: "pink",
+  },
+  { href: "/system/overview", label: "Overview", variant: "muted" },
+  { href: "/blog", label: "Blog", variant: "muted" },
+  { href: "/blog/top-stories", label: "Top Stories", variant: "muted" },
+  { href: "/podcast", label: "Podcast", variant: "muted" },
+  { href: "/podcast", label: "Podcast", variant: "muted" },
+  { href: "/sign-in", label: "Sign in", variant: "accent" },
+  { href: "/sign-up", label: "Sign up", variant: "orange" },
+];
+---
+
+<section id="navigation" class="overflow-hidden">
+  <Wrapper variant="standard" class="flex flex-col pt-4">
+    <div class="fixed z-50 top-1">
+      <div class="relative">
+        <div
+          class="absolute inset-0 pointer-events-nono bg-black/20 backdrop-blur-2xl rounded-2xl"
+        >
+        </div>
+        <div
+          class="rounded-2xl flex itmes-start lg:items-start gap-1 p-1 relative"
+        >
+          <Button isLink href="/" size="sm" variant="default">
+            <span class="sr-only">Home</span>
+            Snowpeak
+          </Button>
+          <Button
+            id="dropdown-toggle"
+            size="sm"
+            variant="orange"
+            iconOnly
+            class="shrink-0"
+          >
+            <Plus slot="icon" size="sm" />
+          </Button>
+          <Search />
+
+          <div
+            id="dropdown-panel"
+            class="hidden w-full duration-300 ease-in-out"
+          >
+            <div class="flex flex-wrap gap-1">
+              {
+                navLinks.map((link) => (
+                  <Button
+                    isLink
+                    size="sm"
+                    variant={link.variant}
+                    href={link.href}
+                    class="w-full lg:w-fit"
+                  >
+                    {link.label}
+                  </Button>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      id="bigLogo"
+      class="p-10 mt-12 rounded-4xl lg:rounded-[4rem] bg-base-900 lg:p-40"
+    >
+      <BigLogo class="text-white" />
+    </div>
+    <div id="tickerElement">
+      <div
+        class="relative flex items-center order-last px-2 py-2 overflow-x-scroll snap-x snap-proximity scrollbar-hide animate-marquee w-max pause-on-hover"
+      >
+        {latestPosts.map((post) => <BlogTicker post={post} />)}
+      </div>
+    </div>
+  </Wrapper>
+</section>
+
+<script type="module">
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.getElementById("dropdown-toggle");
+    const panel = document.getElementById("dropdown-panel");
+
+    toggle.addEventListener("click", () => {
+      panel.classList.toggle("hidden");
+    });
+  });
+</script>

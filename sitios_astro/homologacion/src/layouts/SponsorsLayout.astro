@@ -1,0 +1,103 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import SponsorCard from "@/components/sponsors/SponsorCard.astro";
+// Content
+import { Image } from "astro:assets";
+const frontmatter = Astro.props.frontmatter;
+const sponsors = Astro.props.sponsors || [];
+const tierLabels = {
+  platinum: "Platinum Sponsor",
+  gold: "Gold Sponsor",
+  silver: "Silver Sponsor",
+  bronze: "Bronze Sponsor",
+};
+const tierLabel = tierLabels[frontmatter.tier] || "Sponsor";
+const otherSponsors = sponsors.filter((s) => s.id !== Astro.props.slug);
+const tierOrder = ["platinum", "gold", "silver", "bronze"];
+const sortedOtherSponsors = otherSponsors
+  .slice()
+  .sort((a, b) => {
+    const tierA = tierOrder.indexOf(a.data.tier || "bronze");
+    const tierB = tierOrder.indexOf(b.data.tier || "bronze");
+    if (tierA !== tierB) return tierA - tierB;
+    return a.data.name.localeCompare(b.data.name);
+  })
+  .slice(0, 6);
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-32">
+      <div class="grid grid-cols-1 lg:grid-cols-12 items-start">
+        <div class="lg:col-span-6">
+          <Text tag="p" variant="textXS" class="uppercase text-base-600">
+            {tierLabel}
+          </Text>
+          <Text
+            tag="h1"
+            variant="displayMD"
+            class="text-balance text-accent-500 font-display uppercase leading-tight mt-8"
+          >
+            {frontmatter.name}
+          </Text>
+          <Wrapper variant="prose" class="mt-12">
+            <slot />
+          </Wrapper>
+        </div>
+        <div
+          class="flex flex-col justify-center lg:col-span-4 lg:col-start-9 lg:sticky lg:top-32"
+        >
+          <div class="bg-accent-500 p-8">
+            {
+              frontmatter.logo?.url ? (
+                <Image
+                  src={frontmatter.logo.url}
+                  alt={frontmatter.logo.alt || frontmatter.name}
+                  width={320}
+                  height={200}
+                  class="h-24 w-auto object-contain"
+                  loading="lazy"
+                />
+              ) : (
+                <div class="flex h-24 w-full items-center justify-center border border-dashed border-white/20 text-xs uppercase   text-base-400">
+                  Logo coming soon
+                </div>
+              )
+            }
+          </div>
+          <Button
+            size="sm"
+            variant="outline"
+            href={frontmatter.url}
+            target="_blank"
+            rel="noreferrer"
+            class="mt-4"
+          >
+            Visit partner site
+          </Button>
+        </div>
+      </div>
+      <section class="mt-24 lg:mt-48">
+        <Text
+          tag="h2"
+          variant="displaySM"
+          class="font-display uppercase text-accent-500"
+        >
+          More sponsors
+        </Text>
+        <div class="grid md:grid-cols-2 xl:grid-cols-3 mt-4">
+          {
+            sortedOtherSponsors.map((sponsor) => (
+              <SponsorCard sponsor={sponsor} />
+            ))
+          }
+        </div>
+      </section>
+    </Wrapper>
+  </section>
+</BaseLayout>

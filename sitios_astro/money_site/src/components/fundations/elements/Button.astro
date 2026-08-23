@@ -1,0 +1,119 @@
+---
+const {
+  gap,
+  size,
+  variant,
+  onlyIconSize,
+  iconOnly = false,
+  isLink = false,
+  class: className,
+  type = "button", // default button type
+  ...rest
+} = Astro.props;
+
+const defaultClass = [
+  "bg-black",
+  "text-white",
+  "focus:ring-black",
+  "hover:bg-base-700",
+];
+const accentClass = [
+  "text-white",
+  "bg-accent-500",
+  "hover:bg-accent-600",
+  "focus:ring-accent-600",
+];
+const mutedClass = [
+  "text-sand-950",
+  "bg-sand-100",
+  "hover:text-accent-500",
+  "focus:ring-sand-100",
+];
+
+const sizes = {
+  xs: ["h-8", "px-4", "py-2", "text-xs"],
+  sm: ["h-9", "px-4", "py-2", "text-sm"],
+  base: ["h-10", "px-6", "py-3", "text-base"],
+  md: ["h-11", "px-6", "py-3", "text-md"],
+  lg: ["h-12", "px-6", "py-3", "text-lg"],
+  xl: ["h-14", "px-6", "py-3", "text-base"],
+};
+
+// Icon-only sizes keep the button perfectly square
+const iconSizes = {
+  xs: ["size-8", "text-xs"],
+  sm: ["size-9", "text-sm"],
+  base: ["size-10", "text-base"],
+  md: ["size-11", "text-md"],
+  lg: ["size-12", "text-lg"],
+  xl: ["size-14", "text-base"],
+};
+
+const gapMap = {
+  xs: ["gap-2"],
+  sm: ["gap-4"],
+  base: ["gap-8"],
+  md: ["gap-10"],
+  lg: ["gap-12"],
+};
+
+const variantClass = {
+  default: defaultClass,
+  accent: accentClass,
+  muted: mutedClass,
+  none: [],
+};
+
+const additionalClasses = className ? className.split(" ") : [];
+
+const sizeValue = iconOnly && onlyIconSize ? onlyIconSize : size;
+const sizeClass = iconOnly
+  ? iconSizes[sizeValue] || sizes[sizeValue] || []
+  : sizes[sizeValue] || [];
+const gapClass = !iconOnly && gap ? gapMap[gap] || [] : [];
+
+const baseClass = [
+  "flex",
+  "transition",
+  "text-center",
+  "rounded-full",
+  "items-center",
+  "duration-300",
+  "justify-center",
+  "focus:ring-2",
+  "focus:outline-none",
+  "focus:ring-offset-2",
+  ...(variantClass[variant] || []),
+  ...sizeClass,
+  ...gapClass,
+  ...additionalClasses,
+];
+---
+
+{
+  isLink ? (
+    <a class:list={baseClass} {...rest}>
+      {iconOnly ? (
+        <slot name="icon" />
+      ) : (
+        <>
+          <slot name="left-icon" />
+          <slot />
+          <slot name="right-icon" />
+        </>
+      )}
+    </a>
+  ) : (
+    <button type={type} class:list={baseClass} {...rest}>
+      {iconOnly ? (
+        <slot name="icon" />
+      ) : (
+        <>
+          <slot name="left-icon" />
+          <slot />
+          <slot name="right-icon" />
+        </>
+      )}
+    </button>
+  )
+}

@@ -1,0 +1,53 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+---
+
+<section>
+  <Wrapper variant="standard" class="py-12">
+    <div
+      class="grid grid-cols-1 md:grid-cols-3 lg:items-center h-full bg-base-100 dark:bg-base-900 p-8"
+    >
+      <Text
+        tag="h1"
+        variant="textXL"
+        class="dark:text-white text-base-900 text-balance md:col-span-2"
+      >
+        Subscribe to my newsletter to get the latest updates and tips on how my
+        latest project or products.
+      </Text>
+
+      <div>
+        <form class="mt-4 flex gap-2 flex-col xl:flex-row xl:items-center">
+          <!-- Email Field -->
+          <div>
+            <label for="email" class="sr-only">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              autocomplete="email"
+              placeholder="Enter your email"
+              class="w-full flex-auto appearance-none rounded-md outline outline-base-200 dark:outline-base-800 dark:text-white text-base-900 outline-inset border-transparent px-3 py-2 shadow-base-800/5 dark:placeholder:text-base-400 dark:place-holder-text-base-600 duration-300 h-9 focus:border-base-500 focus:outline-none focus:outline-4 focus:outline-base-500/10 sm:text-sm bg-base-50 dark:bg-base-800"
+            />
+          </div>
+          <!-- Submit Button -->
+          <div>
+            <Button size="sm" variant="default" type="submit" class="w-full">
+              Subscribe
+            </Button>
+          </div>
+        </form>
+        <Text
+          tag="p"
+          variant="textXS"
+          class="mt-1 text-base-500 dark:text-base-300"
+        >
+          We won't spam you on weekdays, only on weekends.
+        </Text>
+      </div>
+    </div>
+  </Wrapper>
+</section>

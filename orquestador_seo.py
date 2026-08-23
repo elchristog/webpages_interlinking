@@ -150,9 +150,7 @@ def gestionar_estado_contenido(sitio_id, ruta_proyecto, ruta_base, nombre_proyec
     ruta_src_content = os.path.join(ruta_proyecto, 'src', 'content')
     ruta_backup = os.path.join(ruta_base, 'sitios_generados', nombre_proyecto, sitio_id, 'md_backup')
     
-    # Siempre limpiar la carpeta template src/content para que no haya cruces entre sitios
-    if os.path.exists(ruta_src_content):
-        shutil.rmtree(ruta_src_content)
+    # Asegurar que exista la carpeta src/content de la plantilla
     os.makedirs(ruta_src_content, exist_ok=True)
     
     if modo_propagar:
@@ -246,7 +244,11 @@ def guardar_markdown(ruta_proyecto, contenido_md, slug, modo="articulo"):
         os.makedirs(ruta_dir, exist_ok=True)
         ruta_destino = os.path.join(ruta_dir, f"{slug}.md")
     else:
-        ruta_dir = os.path.join(ruta_proyecto, 'src', 'content', 'articulos')
+        dir_posts = os.path.join(ruta_proyecto, 'src', 'content', 'posts')
+        if os.path.exists(dir_posts):
+            ruta_dir = dir_posts
+        else:
+            ruta_dir = os.path.join(ruta_proyecto, 'src', 'content', 'articulos')
         os.makedirs(ruta_dir, exist_ok=True)
         ruta_destino = os.path.join(ruta_dir, f"{slug}.md")
     

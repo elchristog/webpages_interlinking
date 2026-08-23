@@ -1,0 +1,86 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Array
+const colors = [
+  {
+    title: "Black and white",
+    items: [
+      { name: "White", colorClass: "bg-white" },
+      { name: "Black", colorClass: "bg-black" },
+    ],
+  },
+  {
+    title: "Base",
+    items: [
+      { name: "Base 50", colorClass: "bg-base-50" },
+      { name: "Base 100", colorClass: "bg-base-100" },
+      { name: "Base 200", colorClass: "bg-base-200" },
+      { name: "Base 300", colorClass: "bg-base-300" },
+      { name: "Base 400", colorClass: "bg-base-400" },
+      { name: "Base 500", colorClass: "bg-base-500" },
+      { name: "Base 600", colorClass: "bg-base-600" },
+      { name: "Base 700", colorClass: "bg-base-700" },
+      { name: "Base 800", colorClass: "bg-base-800" },
+      { name: "Base 900", colorClass: "bg-base-900" },
+      { name: "Base 950", colorClass: "bg-base-950" },
+    ],
+  },
+  {
+    title: "Accent",
+    items: [
+      { name: "Accent 50", colorClass: "bg-accent-50" },
+      { name: "Accent 100", colorClass: "bg-accent-100" },
+      { name: "Accent 200", colorClass: "bg-accent-200" },
+      { name: "Accent 300", colorClass: "bg-accent-300" },
+      { name: "Accent 400", colorClass: "bg-accent-400" },
+      { name: "Accent 500", colorClass: "bg-accent-500" },
+      { name: "Accent 600", colorClass: "bg-accent-600" },
+      { name: "Accent 700", colorClass: "bg-accent-700" },
+      { name: "Accent 800", colorClass: "bg-accent-800" },
+      { name: "Accent 900", colorClass: "bg-accent-900" },
+      { name: "Accent 950", colorClass: "bg-accent-950" },
+    ],
+  },
+];
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-12">
+      <Text
+        tag="h1"
+        variant="textBase"
+        class="text-base-900 font-display font-medium">Colors</Text
+      >
+
+      <div
+        class="grid grid-cols-3 gap-12 text-base-400 relative before:absolute after:absolute before:bg-base-950 after:bg-base-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px pt-4 mt-2"
+      >
+        {
+          colors.map((colorGroup) => (
+            <div class="flex flex-col gap-2">
+              <Text
+                tag="h3"
+                variant="textXS"
+                class="font-medium text-base-900 uppercase"
+              >
+                {colorGroup.title}
+              </Text>
+              <div class="mt-8 grid grid-cols-4 gap-2 gap-y-8">
+                {colorGroup.items.map((item) => (
+                  <div class="flex flex-col gap-2">
+                    <div class={`p-4 aspect-square ${item.colorClass}`} />
+                    <span class="text-xs text-base-600">{item.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

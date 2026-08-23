@@ -1,0 +1,99 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import Plus from "@/components/fundations/icons/Plus.astro";
+const data = [
+  {
+    question: "Do I need a design or development background?",
+    answer:
+      "Not necessarily. The course starts with foundational design-engineering concepts and builds up. If you're comfortable with HTML/CSS and want to bridge design and frontend, you're ready.",
+  },
+  {
+    question: "How long do I keep access to the course?",
+    answer:
+      "You get lifetime access. Enroll once and revisit lessons, project files, and future updates anytime you want.",
+  },
+  {
+    question: "Will I get a certificate?",
+    answer:
+      "Yes! Once you complete all core lessons and projects, you’ll get a downloadable certificate to showcase your skills.",
+  },
+  {
+    question: "Can my whole team join?",
+    answer:
+      "Definitely. The Teams plan includes multi-seat access, shared dashboards, and team progress tracking tools.",
+  },
+  {
+    question: "What if the course isn’t for me?",
+    answer:
+      "No worries. You’re covered by a 14-day money-back guarantee. Just email us and we’ll refund you—no hard feelings.",
+  },
+  {
+    question: "What tools will I need?",
+    answer:
+      "You’ll need Figma (or a design tool you’re comfortable with), a code editor like VS Code, and a modern browser. We’ll guide you through everything else step-by-step.",
+  },
+  {
+    question: "Is this up to date with current design system practices?",
+    answer:
+      "Yes. The course is regularly updated to reflect current best practices in design systems, component libraries, and frontend tooling.",
+  },
+  {
+    question: "Can I try it before buying?",
+    answer:
+      "Yes. We’ve included a few free lessons so you can get a feel for the format and teaching style before enrolling.",
+  },
+  {
+    question: "Do you cover real-world deployment?",
+    answer:
+      "Absolutely. You’ll learn how to ship production-ready design systems using platforms like Vercel and GitHub.",
+  },
+  {
+    question: "How long will the course take to complete?",
+    answer:
+      "Most learners complete it in 3–5 weeks at a steady pace, but it’s entirely self-paced—go faster or take your time.",
+  },
+];
+---
+
+<section>
+  <Wrapper variant="standard" class="py-12">
+    <div class="text-balance lg:sticky lg:top-24">
+      <Text tag="h2" variant="textBase" class="text-primary">
+        Frequently asked questions
+      </Text>
+      <Text
+        tag="p"
+        variant="textBase"
+        class="font-serif text-primary/60 text-balance"
+      >
+        Everything you need to know before joining—especially if you're new to
+        design engineering or shifting from a pure design or dev background.
+      </Text>
+    </div>
+
+    <div
+      class="flex flex-col border-t border-dotted border-primary/10 mt-2 pt-2 divide-y divide-primary/10 divide-dotted"
+    >
+      {
+        data.map(({ question, answer }) => (
+          <details class="py-2 group">
+            <summary class="flex items-center gap-2 font-medium cursor-pointer text-primary text-sm group-open:text-accent">
+              <Plus class="transition-transform duration-300 group-open:rotate-45  size-4" />
+              <span> {question}</span>
+            </summary>
+            <Text
+              tag="p"
+              variant="textSM"
+              class="mt-2 font-serif  text-primary/60"
+            >
+              {answer}
+            </Text>
+          </details>
+        ))
+      }
+    </div>
+  </Wrapper>
+</section>

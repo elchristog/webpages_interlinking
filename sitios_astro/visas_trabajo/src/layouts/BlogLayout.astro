@@ -1,0 +1,207 @@
+---
+import { Image } from "astro:assets";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import ShareButtons from "@/components/fundations/elements/ShareButtons.astro";
+// Sections
+import AdvertAside from "@/components/advert/AdvertAside.astro";
+import BlogAside from "@/components/blog/BlogAside.astro";
+// Entries
+import BlogCard3 from "@/components/blog/BlogCard3.astro";
+const { frontmatter, readingTime } = Astro.props;
+import { getEntry } from "astro:content";
+const author = await getEntry("authors", frontmatter.author);
+// Get all posts and filter by tag
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("posts");
+const relatedPosts = allPosts.filter((post) =>
+  post.data.tags.some((tag) => frontmatter.tags.includes(tag))
+);
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-12">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-0">
+        <div class="lg:col-span-3 lg:pr-8">
+          <div class="flex gap-2">
+            {
+              frontmatter.tags.map((tag) => (
+                <Text
+                  tag="a"
+                  variant="textXS"
+                  title={tag}
+                  aria-label={tag}
+                  href={`/blog/tags/${tag}`}
+                  class="text-blue-500 uppercase font-medium"
+                >
+                  {tag}
+                </Text>
+              ))
+            }
+          </div>
+          <div
+            class="mt-2 relative before:absolute after:absolute before:bg-base-950 after:bg-base-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px pt-4"
+          >
+            <Text
+              tag="h1"
+              variant="displaySM"
+              class="text-base-900 font-medium font-display lg:col-span-2 text-balance"
+            >
+              {frontmatter.title}
+            </Text>
+            <div class="mt-2">
+              {
+                author && (
+                  <a
+                    href={`/authors/${author.id}`}
+                    class="flex items-center gap-3 hover:opacity-80 transition "
+                  >
+                    {author?.data?.image?.url && (
+                      <Image
+                        width={800}
+                        height={800}
+                        loading="lazy"
+                        decoding="async"
+                        src={author.data.image.url}
+                        alt={author.data.image.alt}
+                        class="inline-block size-10 object-cover rounded-lg object-center"
+                      />
+                    )}
+                    <Text tag="p" variant="textXS" class="text-base-600 ">
+                      <span class="">
+                        Written in
+                        <span class="italic font-medium text-base-600">
+                          <time
+                            datetime={new Date(
+                              frontmatter.pubDate
+                            ).toISOString()}
+                          >
+                            {new Date(frontmatter.pubDate).toLocaleDateString(
+                              "en-US",
+                              {
+                                year: "numeric",
+                                month: "long",
+                                day: "2-digit",
+                              }
+                            )}
+                          </time>
+                        </span>
+                      </span>
+                      <span class="">
+                        by
+                        <span class="italic font-medium text-base-600">
+                          {author.data.name}
+                        </span>
+                      </span>
+                      <span class="block">
+                        {author.data.role}
+                        <span aria-hidden="true">·</span>
+                        {readingTime}
+                      </span>
+                    </Text>
+                  </a>
+                )
+              }
+            </div>
+            <div class="mt-8">
+              <Image
+                width={1000}
+                height={800}
+                src={frontmatter.image.url}
+                alt={frontmatter.image.url}
+                class="w-full aspect-12/6 object-cover col-span-full rounded-xl"
+              />
+              <div class="flex flex-col lg:flex-row gap-12 lg:gap-24 mt-4">
+                <div>
+                  <ShareButtons
+                    contentType="blog"
+                    description={frontmatter.description}
+                  />
+                </div>
+                <div class="lg:col-span-3">
+                  <Text tag="h3" variant="texSM" class="text-base-600">
+                    {frontmatter.description}
+                  </Text>
+
+                  {
+                    frontmatter.isLocked ? (
+                      <div class="mt-10 ">
+                        <div class="bg-base-50 p-8 rounded-xl text-center py-20">
+                          <Text
+                            tag="h4"
+                            variant="textXL"
+                            class="text-base-900 font-medium text-balance"
+                          >
+                            This post is for subscribers only. Unlock premium
+                            insights by becoming a member.
+                          </Text>
+                          <div class="flex justify-center mt-8 flex-wrap gap-2">
+                            <Button
+                              isLink
+                              size="sm"
+                              variant="muted"
+                              href="/sign-in"
+                            >
+                              Log in
+                            </Button>
+                            <Button
+                              isLink
+                              size="sm"
+                              variant="default"
+                              href="/pricing/membership"
+                            >
+                              Subscribe Now
+                            </Button>
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <Wrapper
+                        variant="prose"
+                        class=" relative before:absolute after:absolute before:bg-base-950 after:bg-base-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px pt-4 mt-12 "
+                      >
+                        <slot />
+                      </Wrapper>
+                    )
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="lg:pl-8 lg:relative lg:before:absolute lg:after:absolute lg:before:bg-base-950 lg:after:bg-base-950/10 lg:before:top-0 lg:before:left-0 lg:before:h-6 lg:before:w-px lg:after:top-8 lg:after:bottom-0 lg:after:left-0 after:w-px"
+        >
+          <div class="lg:sticky lg:top-10 lg:z-40">
+            <BlogAside />
+            <AdvertAside />
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+  {
+    relatedPosts.length > 0 && (
+      <section>
+        <Wrapper variant="standard" class="py-8">
+          <Text
+            tag="h2"
+            variant="textSM"
+            class="text-base-900 uppercase font-medium"
+          >
+            Related posts
+          </Text>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative before:absolute after:absolute before:bg-base-950 after:bg-base-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px pt-4 mt-2">
+            {relatedPosts.slice(0, 3).map((post) => (
+              <BlogCard3 post={post} />
+            ))}
+          </div>
+        </Wrapper>
+      </section>
+    )
+  }
+</BaseLayout>

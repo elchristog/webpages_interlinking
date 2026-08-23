@@ -1,0 +1,95 @@
+---
+// import
+import Bars from "@/components/assets/Bars.astro";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Sections
+import Faq from "@/components/helpcenter/Faq.astro";
+// Icons
+import ChevronRight from "@/components/fundations/icons/ChevronRight.astro";
+const { frontmatter } = Astro.props;
+// Breadcrumbs Data
+const breadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: "Help Center", href: "/helpcenter" },
+  { label: frontmatter.page, href: "#" }, // Current page (unstyled)
+];
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pb-2 pt-50">
+      <Text
+        tag="h1"
+        variant="display4XL"
+        class="font-bold tracking-tighter text-black text-balance"
+      >
+        {frontmatter.page}</Text
+      >
+      <Bars class="mt-2"
+        >Last updated<time datetime="{frontmatter.lastUpdated}">
+          {
+            new Date(frontmatter.lastUpdated).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+            })
+          }
+        </time></Bars
+      >
+      <div class="p-8 mt-2 bg-black">
+        <nav aria-label="Breadcrumb">
+          <ol
+            class="flex items-center text-[0.55rem] lg:text-sm space-x-2 text-black"
+          >
+            {
+              breadcrumbs.map((item, index) => (
+                <>
+                  <li>
+                    {index < breadcrumbs.length - 1 ? (
+                      <a
+                        href={item.href}
+                        class="font-medium text-white  hover:text-white"
+                      >
+                        {item.label}
+                      </a>
+                    ) : (
+                      <span class="font-medium text-white ">{item.label}</span>
+                    )}
+                  </li>
+                  {index < breadcrumbs.length - 1 && (
+                    <li class="text-white">
+                      <ChevronRight size="sm" />
+                    </li>
+                  )}
+                </>
+              ))
+            }
+          </ol>
+        </nav>
+      </div>
+    </Wrapper>
+    <Wrapper variant="standard" class="py-2">
+      <div
+        class="relative px-8 py-48 overflow-hidden text-center text-balance bg-gray"
+      >
+        <div class="relative max-w-5xl mx-auto">
+          <Text
+            tag="h2"
+            variant="displayXL"
+            class="font-bold tracking-tighter text-black underline text-balance"
+          >
+            <em>{frontmatter.description}</em>
+          </Text>
+        </div>
+      </div>
+    </Wrapper>
+    <Wrapper variant="standard" class="py-2">
+      <div class="px-8 py-24 bg-orange">
+        <Wrapper variant="prose" class="max-w-xl mx-auto"><slot /></Wrapper>
+      </div>
+    </Wrapper>
+  </section>
+  <Faq />
+</BaseLayout>

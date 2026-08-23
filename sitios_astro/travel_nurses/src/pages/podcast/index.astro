@@ -1,0 +1,47 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Podcast entry components
+import PodcastCardWide from "@/components/podcast/PodcastCardWide.astro";
+import PodcastCardSimple from "@/components/podcast/PodcastCardSimple.astro";
+// Sections
+import Hero from "@/components/podcast/Hero.astro";
+import Subscribe from "@/components/ctas/Subscribe.astro";
+// Astro content
+import { getCollection } from "astro:content";
+const allPodcasts = await getCollection("podcast");
+const sorted = allPodcasts
+  .filter((item) => item.data?.pubDate)
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+---
+
+<BaseLayout>
+  <Hero />
+  <section>
+    <Wrapper variant="standard" class="pt-32 pb-12">
+      <div
+        class="flex flex-col items-start pt-4 border-t border-black divide-y"
+      >
+        {sorted.map((post) => <PodcastCardWide post={post} />)}
+      </div>
+    </Wrapper>
+  </section>
+  <section>
+    <Wrapper variant="standard" class="pt-32 pb-12">
+      <Text tag="p" variant="textSM" class="font-medium uppercase">
+        Subscribers only
+      </Text>
+      <div
+        class="items-start pt-4 mt-4 border-t border-black grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4"
+      >
+        {
+          allPodcasts
+            .filter((post) => post.data.isLocked)
+            .map((post) => <PodcastCardSimple post={post} />)
+        }
+      </div>
+    </Wrapper>
+  </section>
+  <Subscribe />
+</BaseLayout>

@@ -1,0 +1,193 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import SessionCardSimple from "@/components/sessions/SessionCardSimple.astro";
+const { sessions: allSessions = [] } = Astro.props;
+const frontmatter = Astro.props.frontmatter;
+const relatedTalks = Astro.props.relatedTalks ?? [];
+const roleLine = [frontmatter.role, frontmatter.company]
+  .filter(Boolean)
+  .join(", ");
+const shortBio = frontmatter.bio ?? "";
+const SOCIAL_LABELS = [
+  { key: "twitter", label: "Twitter" },
+  { key: "github", label: "GitHub" },
+  { key: "linkedin", label: "LinkedIn" },
+  { key: "website", label: "Website" },
+];
+const socialLinks = SOCIAL_LABELS.filter(
+  ({ key }) => frontmatter.socials?.[key]
+);
+const hasSocial = socialLinks.length > 0;
+const sessionsMap = Array.isArray(allSessions)
+  ? new Map(allSessions.map((session) => [session.id, session]))
+  : new Map();
+const metadata = [
+  ...(frontmatter.role ? [{ label: "Role", value: frontmatter.role }] : []),
+  ...(frontmatter.company
+    ? [{ label: "Company", value: frontmatter.company }]
+    : []),
+  ...(frontmatter.location
+    ? [{ label: "Location", value: frontmatter.location }]
+    : []),
+];
+const tagList = Array.isArray(frontmatter.tags) ? frontmatter.tags : [];
+const relatedSessionsDirect = Array.isArray(allSessions)
+  ? allSessions
+      .filter((session) =>
+        Array.isArray(session.data.speakers)
+          ? session.data.speakers.includes(Astro.props.slug || frontmatter.slug)
+          : false
+      )
+      .sort(
+        (a, b) =>
+          new Date(a.data.start).getTime() - new Date(b.data.start).getTime()
+      )
+  : [];
+const relatedSessionsFromTalks = relatedTalks
+  .map((talk) => sessionsMap.get(talk.id))
+  .filter(Boolean)
+  .sort(
+    (a, b) =>
+      new Date(a.data.start).getTime() - new Date(b.data.start).getTime()
+  );
+const combinedRelated = [
+  ...relatedSessionsFromTalks,
+  ...relatedSessionsDirect.filter(
+    (session) =>
+      !relatedSessionsFromTalks.some((other) => other.id === session.id)
+  ),
+];
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-32">
+      <div class="grid grid-cols-1 lg:grid-cols-12 items-start">
+        <div class="lg:col-span-6">
+          <Text tag="p" variant="textXS" class="uppercase text-base-600">
+            Speaker
+          </Text>
+          <Text
+            tag="h1"
+            variant="displayMD"
+            class="text-balance text-accent-500 font-display uppercase leading-tight mt-8"
+          >
+            {frontmatter.name}
+          </Text>
+
+          <ul
+            class="mt-4 divide-y divide-black/10 divide-dashed border-y border-dashed border-black/10"
+          >
+            {
+              metadata.map((item) => (
+                <li class="flex items-center justify-between gap-1 py-2">
+                  <Text
+                    tag="span"
+                    variant="textXS"
+                    class="uppercase text-accent-500 font-display"
+                  >
+                    {item.label}
+                  </Text>
+                  <Text tag="span" variant="textSM" class="text-base-600">
+                    {item.value}
+                  </Text>
+                </li>
+              ))
+            }
+          </ul>
+
+          <div>
+            <Text tag="p" variant="textXS" class="uppercase text-base-400">
+              Focus areas
+            </Text>
+            <div class="flex flex-col gap-1 mt-4">
+              {
+                tagList.map((tag) => (
+                  <span class="uppercase text-xs text-accent-500">{tag}</span>
+                ))
+              }
+            </div>
+          </div>
+
+          <Wrapper variant="prose" class="mt-12">
+            <slot />
+          </Wrapper>
+        </div>
+        <div
+          class="lg:items-start lg:col-span-4 lg:col-start-9 lg:sticky lg:top-32"
+        >
+          <Text
+            tag="h2"
+            variant="textXL"
+            class="uppercase text-accent-500 font-display"
+          >
+            Connect with {frontmatter.name}
+          </Text>
+          <div class="mt-4">
+            {
+              frontmatter.headshot?.url ? (
+                <Image
+                  src={frontmatter.headshot.url}
+                  alt={frontmatter.headshot.alt || frontmatter.name}
+                  width={360}
+                  height={440}
+                  class="aspect-square h-100 w-full object-cover object-top grayscale"
+                />
+              ) : (
+                <div class="flex h-100 w-full items-center justify-center border border-dashed border-white/20 text-xs uppercase text-base-400 ">
+                  Portrait coming soon
+                </div>
+              )
+            }
+          </div>
+          <div>
+            <div class="mt-8">
+              <Text
+                tag="p"
+                variant="textBase"
+                class="font-display uppercase text-accent-500 font-display mt-2"
+              >
+                Connect
+              </Text>
+              <div class="flex flex-wrap gap-2 text-xs text-base-600 mt-2">
+                {
+                  socialLinks.map(({ key, label }) => (
+                    <a
+                      href={frontmatter.socials[key]}
+                      class="underline-offset-4 hover:text-white hover:underline"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {label}
+                    </a>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {
+        combinedRelated.length > 0 && (
+          <div class="space-y-6 mt-24 lg:mt-48">
+            <Text
+              tag="h2"
+              variant="displaySM"
+              class="  uppercase text-accent-500 font-display"
+            >
+              Sessions with {frontmatter.name}
+            </Text>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3">
+              {combinedRelated.slice(0, 3).map((session) => (
+                <SessionCardSimple session={session} />
+              ))}
+            </div>
+          </div>
+        )
+      }
+    </Wrapper>
+  </section>
+</BaseLayout>

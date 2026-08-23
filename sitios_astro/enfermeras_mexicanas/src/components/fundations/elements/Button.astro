@@ -1,0 +1,133 @@
+---
+const {
+  variant,
+  size,
+  onlyIconSize,
+  iconOnly = false,
+  gap,
+  isLink = false,
+  href,
+  class: className,
+  ...rest
+} = Astro.props;
+
+const defaultClass = [
+  "text-white dark:text-base-900",
+  "bg-base-800 dark:bg-base-50",
+  "hover:bg-base-900 dark:hover:bg-base-300",
+  "focus:outline-base-900 dark:focus:outline-white",
+];
+
+const accentClass = [
+  "text-white",
+  "bg-accent-500 dark:bg-accent-400",
+  "hover:bg-accent-400 dark:hover:bg-accent-300",
+  "focus:outline-accent-500 dark:focus:outline-accent-400",
+];
+
+const mutedClass = [
+  "text-base-900 dark:text-white",
+  "bg-base-50 dark:bg-base-800",
+  "hover:bg-base-100 dark:hover:bg-base-700",
+  "focus:outline-base-100 dark:focus:outline-base-800",
+];
+
+const sizes = {
+  xs: ["h-8", "px-6", "py-2", "text-xs", "rounded-md"],
+  sm: ["h-9", "px-6", "py-2", "text-sm", "rounded-md"],
+  base: ["h-10", "px-8", "py-3", "text-base", "rounded-lg"],
+  md: ["h-11", "px-8", "py-3", "text-md", "rounded-lg"],
+  lg: ["h-12", "px-8", "py-3", "text-lg", "rounded-lg"],
+  xl: ["h-14", "px-12", "py-3", "text-base", "rounded-xl"],
+};
+
+const iconSizes = {
+  xs: ["size-8", "text-xs", "rounded-md"],
+  sm: ["size-9", "text-sm", "rounded-md"],
+  base: ["size-10", "text-base", "rounded-lg"],
+  md: ["size-11", "text-md", "rounded-lg"],
+  lg: ["size-12", "text-lg", "rounded-lg"],
+  xl: ["size-14", "text-base", "rounded-xl"],
+};
+
+const gapMap = {
+  xs: ["gap-2"],
+  sm: ["gap-4"],
+  base: ["gap-8"],
+  md: ["gap-10"],
+  lg: ["gap-12"],
+};
+
+const variantClass = {
+  default: defaultClass,
+  accent: accentClass,
+  muted: mutedClass,
+  none: [],
+};
+
+const additionalClasses = className ? className.split(" ") : [];
+const sizeKey = iconOnly ? onlyIconSize || size : size;
+const sizeClass = iconOnly ? iconSizes[sizeKey] || [] : sizes[sizeKey] || [];
+const gapClass = !iconOnly && gap ? gapMap[gap] || [] : [];
+const baseClass = [
+  "flex",
+  "transition",
+  "text-center",
+  "justify-center",
+  "font-medium",
+  "items-center",
+  "duration-500",
+  "ease-in-out",
+  "transition-colors",
+  "focus:outline-2",
+  "outline-offset-4",
+];
+const isAnchor = isLink || !!href;
+---
+
+{
+  isAnchor ? (
+    <a
+      href={href}
+      class:list={[
+        ...baseClass,
+        ...(variantClass[variant] || []),
+        ...sizeClass,
+        ...gapClass,
+        ...additionalClasses,
+      ]}
+      {...rest}
+    >
+      {iconOnly ? (
+        <slot name="icon" />
+      ) : (
+        <>
+          <slot name="left-icon" />
+          <slot />
+          <slot name="right-icon" />
+        </>
+      )}
+    </a>
+  ) : (
+    <button
+      class:list={[
+        ...baseClass,
+        ...(variantClass[variant] || []),
+        ...sizeClass,
+        ...gapClass,
+        ...additionalClasses,
+      ]}
+      {...rest}
+    >
+      {iconOnly ? (
+        <slot name="icon" />
+      ) : (
+        <>
+          <slot name="left-icon" />
+          <slot />
+          <slot name="right-icon" />
+        </>
+      )}
+    </button>
+  )
+}

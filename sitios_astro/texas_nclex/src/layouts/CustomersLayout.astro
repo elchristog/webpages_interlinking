@@ -1,0 +1,111 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Sections
+import Testimonial2 from "@/components/testimonials/Testimonial2.astro";
+// Frontmatter
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper
+      variant="standard"
+      class="py-42 grid grid-cols-1 gap-y-12 lg:gap-y-24 lg:grid-cols-4 relative"
+    >
+      <div>
+        <div class="lg:pr-8 lg:sticky lg:top-42 alig-self-start ">
+          <Text
+            tag="h1"
+            variant="displayXL"
+            class="text-white font-display italic"
+          >
+            {frontmatter.customer}
+          </Text>
+          <Text tag="p" variant="textBase" class="text-white mt-2 text-balance">
+            How {frontmatter.customer} uses Buio to power their newest projects.
+          </Text>
+
+          <div class="flex flex-col gap-4 mt-12">
+            {
+              Object.entries(frontmatter.details).map(([key, value]) => (
+                <div class=" relative flex flex-col h-full justify-between ">
+                  <Text tag="h4" variant="textBase" class=" text-white">
+                    {key}
+                  </Text>
+                  <Text tag="p" variant="textSM" class="text-base-500">
+                    {value}
+                  </Text>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+      <div class="md:col-span-3">
+        <dl class="grid grid-cols-1 md:grid-cols-3">
+          <div class="before:bg-white h-full">
+            <div
+              class="px-4 relative flex flex-col h-full justify-between before:absolute after:absolute before:bg-white before:top-0 before:left-0 before:h-6 before:w-px after:top-8 after:bottom-0 after:left-0 after:w-px"
+            >
+              <dt>
+                <Text tag="h3" variant="textBase" class="text-white">
+                  About
+                </Text>
+              </dt>
+              <dd class="mt-4">
+                <Text tag="p" variant="textSM" class="mt-2 text-base-500">
+                  {frontmatter.about}
+                </Text>
+              </dd>
+            </div>
+          </div>
+          {
+            frontmatter.challengesAndSolutions.map((item) => (
+              <div class="before:bg-white h-full">
+                <div class="px-4 relative flex flex-col h-full justify-between before:absolute after:absolute before:bg-white before:top-0 before:left-0 before:h-6 before:w-px after:top-8 after:bottom-0 after:left-0 after:w-px">
+                  <dt>
+                    <Text tag="h3" variant="textBase" class="text-white">
+                      {item.title}
+                    </Text>
+                  </dt>
+                  <dd class="mt-4">
+                    <Text tag="p" variant="textSM" class="mt-2 text-base-500">
+                      {item.content}
+                    </Text>
+                  </dd>
+                </div>
+              </div>
+            ))
+          }
+        </dl>
+        <div class="mt-24">
+          <Text tag="h4" variant="displaySM" class="text-white">Results</Text>
+        </div>
+        <div
+          role="list"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-8"
+        >
+          {
+            frontmatter.results.map((result) => (
+              <div class="before:bg-white h-full">
+                <div class="px-4 relative flex flex-col h-full justify-between before:absolute after:absolute before:bg-white before:top-0 before:left-0 before:h-6 before:w-px after:top-8 after:bottom-0 after:left-0 after:w-px">
+                  <Text tag="p" variant="textBase" class=" text-base-500 ">
+                    {result}
+                  </Text>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+
+        <Wrapper variant="prose" class="mt-12 lg:mt-24">
+          <slot />
+        </Wrapper>
+      </div>
+    </Wrapper>
+  </section>
+  <Testimonial2 />
+</BaseLayout>

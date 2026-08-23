@@ -1,0 +1,86 @@
+---
+import Button from "@/components/fundations/elements/Button.astro";
+
+const {
+  target,
+  initialCount = 3,
+  step = 3,
+  label = "Show more",
+  finishedLabel = "No more items",
+  variant = "muted",
+  size = "sm",
+  class: className,
+} = Astro.props;
+
+if (!target) {
+  throw new Error("ShowMoreButton requires a `target` selector for the items.");
+}
+---
+
+<Button
+  type="button"
+  variant={variant}
+  size={size}
+  class={className}
+  data-showmore-button
+  data-target={target}
+  data-initial-count={initialCount}
+  data-step={step}
+>
+  {label}
+</Button>
+
+<script is:inline>
+  (() => {
+    const button = document.currentScript?.previousElementSibling;
+    if (!button) return;
+
+    const targetSelector = button.dataset.target;
+    const initialCount = parseInt(button.dataset.initialCount || "3", 10);
+    const step = parseInt(button.dataset.step || "3", 10);
+    const target = targetSelector
+      ? document.querySelector(targetSelector)
+      : null;
+
+    if (!target) {
+      button.classList.add("hidden");
+      return;
+    }
+
+    const items = Array.from(
+      target.querySelectorAll("[data-showmore-item]")
+    );
+
+    if (!items.length) {
+      button.classList.add("hidden");
+      return;
+    }
+
+    let visibleCount = initialCount;
+
+    const applyVisibility = () => {
+      items.forEach((item, index) => {
+        if (index < visibleCount) {
+          item.classList.remove("hidden");
+        } else {
+          item.classList.add("hidden");
+        }
+      });
+
+      const hasMore = visibleCount < items.length;
+      button.classList.toggle("hidden", !hasMore);
+      button.setAttribute("aria-hidden", (!hasMore).toString());
+      button.setAttribute("aria-disabled", (!hasMore).toString());
+      if (!hasMore) {
+        button.textContent = finishedLabel;
+      }
+    };
+
+    applyVisibility();
+
+    button.addEventListener("click", () => {
+      visibleCount += step;
+      applyVisibility();
+    });
+  })();
+</script>

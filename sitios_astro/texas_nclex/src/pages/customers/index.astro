@@ -1,0 +1,44 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import CustomerCard from "@/components/customers/CustomerCard.astro";
+import { getCollection } from "astro:content";
+const allcustomers = await getCollection("customers");
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper
+      variant="standard"
+      class="py-42 grid grid-cols-1 gap-y-12 lg:gap-y-24 lg:grid-cols-4"
+    >
+      <div class="lg:col-span-2">
+        <Text tag="span" variant="textSM" class="text-white">
+          Integrations
+        </Text>
+        <Text
+          tag="h1"
+          variant="displayLG"
+          class="mt-12 text-white text-balance font-display"
+        >
+          Become a Part of the future:
+          <span class="text-base-400 block">
+            Embrace the Web 3 revolution and unlock new opportunities</span
+          >
+        </Text>
+        <Text tag="p" variant="textBase" class="text-white mt-2 text-balance">
+          Step into a decentralized world with innovative solutions designed to
+          empower you and transform your digital experience.
+        </Text>
+      </div>
+      <ul
+        class="grid grid-cols-2 lg:grid-cols-4 lg:row-start-2 lg:col-span-full divide-y divide-base-900"
+      >
+        {allcustomers.map((post) => <CustomerCard post={post} />)}
+      </ul>
+    </Wrapper>
+  </section>
+</BaseLayout>

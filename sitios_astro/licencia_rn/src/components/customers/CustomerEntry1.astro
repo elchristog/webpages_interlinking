@@ -1,0 +1,56 @@
+---
+// Assets
+import { Image } from "astro:assets";
+import Glass1 from "@/images/assets/glass3.jpg";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+// Icons
+const { customer, url, testimonial } = {
+  url: "/customers/" + Astro.props.post.id,
+  customer: Astro.props.post.data.customer,
+  testimonial: Astro.props.post.data.testimonial,
+};
+---
+
+<article
+  class="relative flex flex-col p-8 overflow-hidden bg-base-50 min-h-100 lg:p-20"
+>
+  <a
+    href={url}
+    title={`Read more about ${customer}`}
+    aria-label={`Read more about ${customer}`}
+    class="absolute inset-0 z-20"
+  >
+    <span class="sr-only">Read more about {customer}</span>
+  </a>
+
+  <Image
+    src={Glass1}
+    alt={customer}
+    width={300}
+    height={300}
+    loading="eager"
+    decoding="async"
+    class="absolute inset-0 object-cover w-full h-full"
+  />
+  <div
+    aria-hidden="true"
+    class="absolute inset-0 z-10 pointer-events-none bg-blue-600/50"
+  >
+  </div>
+
+  <div class="z-10 flex flex-col justify-between h-full mt-4 ">
+    <div>
+      <Text
+        tag="h3"
+        variant="displaySM"
+        class="font-medium text-white leading-6"
+      >
+        {customer}
+      </Text>
+      <Text tag="p" variant="displayXL" class="mt-12 italic font-medium tracking-tight text-white lg:mt-32">
+        "{testimonial}"
+      </Text>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,149 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms";
+@plugin "tailwind-scrollbar-hide";
+@layer utilities {
+
+  
+  .pause-on-hover:hover {
+    animation-play-state: paused;
+  }
+  .audio-player input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background: black;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+  
+  /* WebKit browsers (Chrome, Safari, Edge) */
+  .audio-player input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid black;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .audio-player input[type="range"]::-webkit-slider-thumb:hover {
+    background: black;
+  }
+  
+  /* Firefox */
+  .audio-player input[type="range"]::-moz-range-thumb {
+    width: 20px; /* match your working example or set to 12px for consistency */
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid black;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .audio-player input[type="range"]::-moz-range-thumb:hover {
+    background: black;
+  }
+  
+  /* Firefox track */
+  .audio-player input[type="range"]::-moz-range-track {
+    background: black;
+    height: 2px;
+    border-radius: 2px;
+  }
+  
+  /* Optional: IE */
+  .audio-player input[type="range"]::-ms-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid black;
+    cursor: pointer;
+  }
+  
+
+}
+@theme {
+  /* Typography*/
+  --font-sans: "InterDisplay", sans-serif;
+  --font-display: "STIX Two Text", sans-serif;
+
+
+  /* Accent */
+  --color-accent-50: oklch(0.941 0.03 285.86);
+  --color-accent-100: oklch(0.884 0.059 285.15);
+  --color-accent-200: oklch(0.773 0.119 283.27);
+  --color-accent-300: oklch(0.659 0.185 280.04);
+  --color-accent-400: oklch(0.556 0.247 274.84);
+  --color-accent-500: oklch(0.452 0.313 264.05);
+  --color-accent-600: oklch(0.393 0.272 264.05);
+  --color-accent-700: oklch(0.328 0.227 264.05);
+  --color-accent-800: oklch(0.271 0.188 264.05);
+  --color-accent-900: oklch(0.205 0.142 264.05);
+  --color-accent-950: oklch(0.163 0.113 264.05);
+  /* Base */
+ --color-base-50: oklch(0.985 0.002 247.839);
+  --color-base-100: oklch(0.967 0.003 264.542);
+  --color-base-200: oklch(0.928 0.006 264.531);
+  --color-base-300: oklch(0.872 0.01 258.338);
+  --color-base-400: oklch(0.707 0.022 261.325);
+  --color-base-500: oklch(0.551 0.027 264.364);
+  --color-base-600: oklch(0.446 0.03 256.802);
+  --color-base-700: oklch(0.373 0.034 259.733);
+  --color-base-800: oklch(0.278 0.033 256.848); 
+  --color-base-900: oklch(0.21 0.034 264.665);
+  --color-base-950: oklch(0.13 0.028 261.692);
+  /* Keyframes */
+  --animate-marquee: marquee 32s linear infinite;
+  --animate-rightMarquee: rightMarquee 300s linear infinite;
+  --animate-slowMarquee: marquee 300s linear infinite;
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  @keyframes rightMarquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: InterVariable, sans-serif;
+  }
+}
+:root {
+  font-family: Inter, sans-serif;
+  font-feature-settings: "liga" 1, "calt" 1; /* fix for Chrome */
+   
+}
+/* Optional: Customize your player styles */
+.audio-player input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background: black;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  transition: background 0.3s;
+  cursor: pointer;
+}

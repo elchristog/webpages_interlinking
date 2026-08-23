@@ -1,0 +1,185 @@
+---
+import { Image } from "astro:assets";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import ShareButtons from "@/components/fundations/elements/ShareButtons.astro";
+// Sections
+import AdvertAside from "@/components/advert/AdvertAside.astro";
+import AsidePost from "@/components/blog/AsidePost.astro";
+// Entries
+import BlogCard2 from "@/components/blog/BlogCard2.astro";
+// Content
+const { frontmatter, readingTime } = Astro.props;
+import { getEntry } from "astro:content";
+const author = await getEntry("authors", frontmatter.author);
+// Get all posts and filter by tag
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("posts");
+const relatedPosts = allPosts.filter((post) =>
+  post.data.tags.some((tag) => frontmatter.tags.includes(tag))
+);
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pt-12">
+      <div class="lg:grid-cols-4 grid grid-cols-1 gap-2">
+        <div class="space-y-2">
+          <div class="p-8 bg-base-900 rounded-4xl">
+            <div class="flex items-center pl-8 font-display text-white gap-x-2">
+              {
+                frontmatter.tags.map((tag) => (
+                  <Text
+                    tag="a"
+                    variant="textXS"
+                    title={tag}
+                    aria-label={tag}
+                    href={`/blog/tags/${tag}`}
+                    class="capitalize"
+                  >
+                    {tag}
+                  </Text>
+                ))
+              }
+            </div>
+            <div class="mt-8">
+              <a
+                href={`/authors/${author.id}`}
+                class="flex items-center font-display uppercase text-white hover:opacity-80 gap-3 hover:text-orange-500"
+              >
+                <Text tag="p" variant="textLG">
+                  Written in
+                  <time datetime={new Date(frontmatter.pubDate).toISOString()}>
+                    {
+                      new Date(frontmatter.pubDate).toLocaleDateString(
+                        "en-US",
+                        {
+                          year: "numeric",
+                          month: "long",
+                          day: "2-digit",
+                        }
+                      )
+                    }
+                  </time>
+                  by
+                  {author.data.name} an {author.data.role} at Snowpeak
+                </Text>
+              </a>
+              <Text
+                tag="p"
+                variant="textSM"
+                class="mt-4 text-base-600 uppercase"
+              >
+                {readingTime}
+              </Text>
+
+              {
+                author?.data?.image?.url && (
+                  <Image
+                    width={400}
+                    height={400}
+                    src={author.data.image.url}
+                    alt={author.data.image.alt}
+                    class="object-cover object-center mt-24 ml-auto size-24  rounded-4xl grayscale"
+                  />
+                )
+              }
+            </div>
+          </div>
+          <AsidePost />
+          <AdvertAside />
+        </div>
+        <div
+          class="lg:col-span-3 bg-base-100 p-8 lg:p-40 lg:py-12 rounded-[3rem]"
+        >
+          <Text
+            tag="h1"
+            variant="displaySM"
+            class="font-display uppercase text-base-900 text-balance"
+          >
+            {frontmatter.title}
+          </Text>
+
+          <div class="mt-12">
+            <Image
+              width={1000}
+              height={800}
+              src={frontmatter.image.url}
+              alt={frontmatter.image.url}
+              class="object-cover w-full aspect-12/6 col-span-full rounded-4xl"
+            />
+
+            <div class="flex flex-col mt-2 lg:flex-row lg:gap-24 gap-12">
+              <div class="lg:col-span-3">
+                {
+                  frontmatter.isLocked ? (
+                    <div class="p-8 bg-base-600 rounded-3xl lg:p-12 ">
+                      <Text
+                        tag="h4"
+                        variant="displaySM"
+                        class="font-display uppercase text-white text-balance"
+                      >
+                        This post is for subscribers only. Unlock premium
+                        insights by becoming a member.
+                      </Text>
+                      <div class="flex flex-wrap justify-end mt-24  gap-2 lg:mt-48">
+                        <Button
+                          isLink
+                          size="xl"
+                          variant="default"
+                          href="/sign-in"
+                        >
+                          Log in
+                        </Button>
+                        <Button
+                          isLink
+                          size="xl"
+                          variant="muted"
+                          href="/pricing/membership"
+                        >
+                          Subscribe Now
+                        </Button>
+                      </div>
+                    </div>
+                  ) : (
+                    <Wrapper variant="prose" class="mt-2 ">
+                      <h3>{frontmatter.description}</h3>
+                      <slot />
+                    </Wrapper>
+                  )
+                }
+              </div>
+            </div>
+            <div class="flex items-center mt-12 gap-2">
+              <ShareButtons
+                contentType="blog"
+                description={frontmatter.description}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+  {
+    relatedPosts.length > 0 && (
+      <section>
+        <Wrapper variant="standard" class="pt-2">
+          <div class="p-8 bg-base-600 rounded-3xl">
+            <Text tag="h2" variant="textXL" class="font-display   text-white ">
+              Related posts
+            </Text>
+          </div>
+          <div class="mt-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+            {relatedPosts.slice(0, 3).map((post) => (
+              <BlogCard2 post={post} />
+            ))}
+          </div>
+        </Wrapper>
+      </section>
+    )
+  }
+</BaseLayout>

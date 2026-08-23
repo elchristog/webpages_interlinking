@@ -1,0 +1,134 @@
+---
+import { Image } from "astro:assets";
+import Button from "@/components/fundations/elements/Button.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+// Icons
+import ArrowRight from "@/components/fundations/icons/ArrowRight.astro";
+const { url, title, pubDate, image, author } = {
+  url: "/podcast/episodes/" + Astro.props.post.id,
+  title: Astro.props.post.data.title,
+  author: Astro.props.post.data.author,
+  image: Astro.props.post.data.image.url,
+  pubDate: new Date(Astro.props.post.data.pubDate).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "2-digit",
+  }),
+};
+const formatAuthorName = (slug) => {
+  return slug
+    .replace(/-/g, " ") // Replace hyphens with spaces
+    .split(" ") // Split the string into words
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
+    .join(" "); // Join the words back with spaces
+};
+const formattedAuthor = formatAuthorName(author);
+---
+
+<article
+  class="relative w-full keen-slider__slide group grid grid-cols-1 lg:grid-cols-3 gap-2"
+>
+  <div
+    class="flex flex-col justify-between w-full p-8 bg-base-100 rounded-4xl lg:col-span-2"
+  >
+    <div>
+      <Text
+        tag="p"
+        variant="textXS"
+        class="pl-8 font-display capitalize text-base-700"
+      >
+        <time datetime={pubDate}>{pubDate}</time>
+      </Text>
+      <Text
+        tag="h3"
+        variant="textXL"
+        class="mt-8 font-display uppercase text-base-900"
+      >
+        {title}
+      </Text>
+    </div>
+    <Button
+      isLink
+      href={url}
+      title={title}
+      size="xl"
+      variant="default"
+      iconOnly
+      class="mt-8"
+    >
+      <ArrowRight slot="icon" size="lg" />
+    </Button>
+  </div>
+  <Image
+    src={image}
+    width="800"
+    height="800"
+    alt={title}
+    class="object-cover w-full h-full aspect-12/8 rounded-4xl"
+  />
+</article>
+<script type="module">
+  import KeenSlider from "https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/+esm";
+  // Autoplay plugin
+  const autoplay = (slider) => {
+    let timeout;
+    let mouseOver = false;
+    function clearNextTimeout() {
+      clearTimeout(timeout);
+    }
+    function nextTimeout() {
+      clearTimeout(timeout);
+      if (mouseOver) return;
+      timeout = setTimeout(() => {
+        slider.next();
+      }, 3000); // Adjust time if needed
+    }
+    slider.on("created", () => {
+      slider.container.addEventListener("mouseover", () => {
+        mouseOver = true;
+        clearNextTimeout();
+      });
+      slider.container.addEventListener("mouseout", () => {
+        mouseOver = false;
+        nextTimeout();
+      });
+      nextTimeout();
+    });
+    slider.on("dragStarted", clearNextTimeout);
+    slider.on("animationEnded", nextTimeout);
+    slider.on("updated", nextTimeout);
+  };
+  const keenSlider = new KeenSlider(
+    "#keen-slider",
+    {
+      loop: true,
+      defaultAnimation: {
+        duration: 1500,
+      },
+      detailsChanged: (s) => {
+        s.slides.forEach((element, idx) => {
+          element.style.opacity = s.track.details.slides[idx].portion;
+        });
+      },
+      slides: {
+        origin: "center",
+        perView: 1,
+        spacing: 12,
+      },
+      breakpoints: {
+        "(min-width: 1024px)": {
+          slides: {
+            origin: "auto",
+            perView: 2.5,
+            spacing: 8,
+          },
+        },
+      },
+    },
+    [autoplay] //  Add autoplay plugin here
+  );
+  const keenSliderPrevious = document.getElementById("keen-slider-previous");
+  const keenSliderNext = document.getElementById("keen-slider-next");
+  keenSliderPrevious.addEventListener("click", () => keenSlider.prev());
+  keenSliderNext.addEventListener("click", () => keenSlider.next());
+</script>

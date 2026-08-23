@@ -1,0 +1,32 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import WorkCard3 from "@/components/work/WorkCard3.astro";
+// Content
+import { getCollection } from "astro:content";
+const allWork = await getCollection("work");
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper class="py-8">
+      <div class="overflow-hidden">
+        <Text
+          tag="h1"
+          variant="textXL"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          class="dark:text-white text-base-900 text-balance"
+        >
+          All work
+        </Text>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-y-12 gap-x-1 mt-4">
+        {allWork.map((post) => <WorkCard3 post={post} />)}
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

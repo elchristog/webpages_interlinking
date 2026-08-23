@@ -1,0 +1,37 @@
+---
+import { Image } from "astro:assets";
+import logo1 from "@/images/brands/1.svg";
+import logo2 from "@/images/brands/2.svg";
+import logo3 from "@/images/brands/3.svg";
+import logo4 from "@/images/brands/4.svg";
+import logo5 from "@/images/brands/5.svg";
+import logo6 from "@/images/brands/6.svg";
+const logos = [
+  { src: logo1, alt: "b1 Logo" },
+  { src: logo2, alt: "b2 Logo" },
+  { src: logo3, alt: "b3 Logo" },
+  { src: logo4, alt: "b4 Logo" },
+  { src: logo5, alt: "b5 Logo" },
+  { src: logo6, alt: "b6 Logo" },
+];
+const { class: className = "", ...rest } = Astro.props;
+---
+
+<div
+  class={`${className} flex  items-start justify-start w-full gap-4 animate-marquee`}
+  {...rest}
+>
+  {
+    logos.map((logo) => (
+      <Image
+        width={200}
+        height={100}
+        src={logo.src}
+        alt={logo.alt}
+        loading="eager"
+        decoding="async"
+        class="h-8"
+      />
+    ))
+  }
+</div>

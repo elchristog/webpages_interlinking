@@ -1,0 +1,133 @@
+---
+// Icons
+import LinkIcon from "@/components/fundations/icons/Link.astro";
+import Twitter from "@/components/fundations/icons/Twitter.astro";
+import Envelope from "@/components/fundations/icons/Envelope.astro";
+import Linkedin from "@/components/fundations/icons/Linkedin.astro";
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import BlogCard3 from "@/components/blog/BlogCard3.astro";
+// Load all posts
+import { getCollection } from "astro:content";
+// Content
+const allPosts = await getCollection("posts");
+// Get the author slug from the URL
+const authorSlug = Astro.url.pathname.split("/").filter(Boolean).pop();
+// Filter posts by this author (based on slug)
+const relatedPosts = allPosts.filter((post) => post.data.author === authorSlug);
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pt-12">
+      <div
+        class="p-10 rounded-4xl lg:rounded-[4rem] bg-base-900 lg:pt-80 lg:px-20"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-2 items-end">
+          <div>
+            <span class="font-display text-xs text-base-400">
+              {frontmatter.role}</span
+            >
+            <Text
+              tag="h1"
+              variant="displaySM"
+              class="font-display text-white md:w-1/3 mt-8 text-balance"
+            >
+              {frontmatter.name}
+            </Text>
+            {
+              frontmatter.bio.split("\n").map((paragraph) => (
+                <Text
+                  tag="p"
+                  variant="textSM"
+                  class="pl-8 mt-4   text-base-200  text-balance"
+                >
+                  {paragraph}
+                </Text>
+              ))
+            }
+            <div class="flex mt-8 gap-6">
+              {/* Social Media Links */}
+              <Button
+                isLink
+                iconOnly
+                variant="muted"
+                size="xs"
+                href={frontmatter.socials.twitter}
+                aria-label="Twitter"
+              >
+                <Twitter slot="icon" size="sm" />
+              </Button>
+              <Button
+                isLink
+                href={frontmatter.socials.linkedin}
+                variant="muted"
+                size="xs"
+                iconOnly
+                aria-label="LinkedIn"
+              >
+                <Linkedin slot="icon" size="sm" />
+              </Button>
+              <Button
+                isLink
+                href={frontmatter.socials.email}
+                variant="muted"
+                size="xs"
+                iconOnly
+                aria-label="Email"
+              >
+                <Envelope slot="icon" size="sm" />
+              </Button>
+              <Button
+                isLink
+                href={frontmatter.socials.website}
+                variant="muted"
+                size="xs"
+                iconOnly
+                aria-label="Website"
+              >
+                <LinkIcon slot="icon" size="sm" />
+              </Button>
+            </div>
+          </div>
+          <Image
+            width={400}
+            height={400}
+            src={frontmatter.image.url}
+            alt={frontmatter.image.alt}
+            class="object-cover object-center mt-24 ml-auto size-24 lg:size-48 rounded-4xl grayscale"
+          />
+        </div>
+      </div>
+      <div class="mt-2">
+        {
+          relatedPosts.length > 0 && (
+            <div>
+              <div class="p-8 bg-base-600 rounded-3xl">
+                <Text
+                  tag="h2"
+                  variant="textXL"
+                  class="font-display   text-white "
+                >
+                  More articles from {authorSlug}
+                </Text>
+              </div>
+              <div class="mt-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
+                {relatedPosts.map((post) => (
+                  <BlogCard3 post={post} />
+                ))}
+              </div>
+            </div>
+          )
+        }
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

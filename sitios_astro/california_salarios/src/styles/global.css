@@ -1,0 +1,30 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
+@plugin "tailwind-scrollbar-hide";
+@theme {
+  /* Typography */
+  --font-sans: "Geist", sans-serif;
+  --font-mono: "Geist Mono", monospace;
+  /* Colors*/
+  --color-black: oklch(0.29 0 0);
+  --color-white: oklch(0.95 0.0187 80.72);
+  /* accent Colors */
+  --color-cyan: oklch(0.8 0.0456 250.63);
+  --color-yellow: oklch(0.75 0.1081 64.85);
+  --color-gray: oklch(0.83 0.0018 325.59);
+  --color-orange: oklch(0.6 0.1499 37.55);
+  
+  /* Keyframes */
+  --animate-upMarqueeFast: upMarqueeFast 12s linear infinite;
+ 
+  @keyframes upMarqueeFast {
+    0% {
+      transform: translateY(0%);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
+  }
+  
+}

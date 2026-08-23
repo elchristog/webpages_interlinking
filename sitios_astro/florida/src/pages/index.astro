@@ -1,0 +1,56 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Sections
+import Hero from "@/components/landing/Hero.astro";
+import Learn from "@/components/landing/Learn.astro";
+import Who from "@/components/landing/Who.astro";
+import Expectations from "@/components/landing/Expectations.astro";
+import Testimonials from "@/components/testimonials/Testimonials.astro";
+// Components
+import CourseCard from "@/components/courses/CourseCard.astro";
+// Content
+import { getCollection } from "astro:content";
+const allLessons = await getCollection("lessons");
+const allCourses = (await getCollection("courses")).sort(
+  (a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate)
+);
+---
+
+<BaseLayout>
+  <Hero />
+  <Learn />
+  <Who />
+  <Expectations />
+  <section>
+    <Wrapper variant="standard" class="py-12">
+      <Text tag="h2" variant="textBase" class="font-medium text-primary">
+        What will you sharpen next?
+      </Text>
+      <Text
+        tag="p"
+        variant="textBase"
+        class="font-serif text-primary/60 text-balance"
+      >
+        New lessons and UI patterns released regularly. Stay sharp, stay current
+        — and keep building with confidence.
+      </Text>
+      <a href="/courses" class="text-xs text-primary hover:text-primary/60">
+        Get pro access</a
+      >
+      <div
+        class="flex flex-col pt-2 mt-2 border-t border-dotted gap-2 border-primary/10"
+      >
+        {
+          allCourses.map((course) => (
+            <CourseCard post={course} lessons={allLessons} />
+          ))
+        }
+      </div>
+    </Wrapper>
+  </section>
+  <Testimonials />
+</BaseLayout>

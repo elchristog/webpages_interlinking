@@ -1,0 +1,22 @@
+---
+// Entries
+import BlogCard3 from "@/components/blog/BlogCard3.astro";
+// Get all posts
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("posts");
+allPosts.sort((a, b) => {
+  const dateA = new Date(a.data.pubDate).getTime(); // Convert to timestamp
+  const dateB = new Date(b.data.pubDate).getTime(); // Convert to timestamp
+  return dateB - dateA; // Compare timestamps
+});
+---
+
+<span class="sr-only"> Breaking news </span>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+  {
+    allPosts
+      .filter((post) => post.data.isBreaking)
+
+      .map((post) => <BlogCard3 post={post} />)
+  }
+</div>

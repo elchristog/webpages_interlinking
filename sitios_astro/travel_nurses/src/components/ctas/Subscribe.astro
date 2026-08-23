@@ -1,0 +1,38 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import ArrowRight from "@/components/fundations/icons/ArrowRight.astro";
+---
+
+<section>
+  <Wrapper variant="standard" class="flex flex-col py-24 lg:pt-48">
+    <Text
+      tag="p"
+      variant="displayXL"
+      class="font-serif font-light tracking-tight text-base-900 lg:text-balance"
+    >
+      Subscribe to our newsletter to get the latest updates on our blog and
+      podcasts.
+    </Text>
+    <form class="flex items-baseline w-full mt-8 space-y-4 gap-2">
+      <div class="w-full">
+        <label for="email" class="sr-only"> Email Address </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          class="w-full h-8 px-0 py-2 text-xs placeholder-black bg-transparent border-t-0 border-b border-black border-x-0 focus:outline-none focus:ring-2 focus:ring-base-500 focus:border-base-500"
+          placeholder="you@example.com"
+        />
+      </div>
+      <Button iconOnly size="sm" type="submit" variant="default">
+        <span class="sr-only">Subscribe</span>
+        <ArrowRight slot="icon" size="sm" />
+      </Button>
+    </form>
+  </Wrapper>
+</section>

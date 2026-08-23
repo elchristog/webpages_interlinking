@@ -1,0 +1,95 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const sections = [
+  {
+    title: "Multi-Platform Control",
+    paragraph:
+      "Run and manage ads across all your channels—Google, Facebook, Instagram, and more—all from one place.",
+  },
+  {
+    title: "Live Performance Data",
+    paragraph:
+      "Monitor campaign performance in real-time. Track metrics like CTR, CPC, and ROAS to stay ahead.",
+  },
+  {
+    title: "Precision Targeting",
+    paragraph:
+      "Connect with the right audience using filters for demographics, interests, and custom segments.",
+  },
+  {
+    title: "Smart Budgeting",
+    paragraph:
+      "Automatically shift your budget to the ads that perform best. Pause low-performers without lifting a finger.",
+  },
+  {
+    title: "Quick Campaign Setup",
+    paragraph:
+      "Set up and launch campaigns fast with ready-to-go templates and easy-to-use tools.",
+  },
+  {
+    title: "AI-Powered Optimization",
+    paragraph:
+      "Let AI handle the heavy lifting—optimize bids, creatives, and targeting for better results and higher returns.",
+  },
+  {
+    title: "Integrated CRM Tools",
+    paragraph:
+      "Manage leads, track conversations, and close deals without switching tabs. Everything you need, built in.",
+  },
+  {
+    title: "Custom Workflows",
+    paragraph:
+      "Build automated workflows that match your sales process. Trigger actions based on lead behavior or campaign activity.",
+  },
+  {
+    title: "Collaboration Made Easy",
+    paragraph:
+      "Assign tasks, leave comments, and share updates with your team in real time—so everyone stays in sync.",
+  },
+  {
+    title: "Secure Data Management",
+    paragraph:
+      "Your data is protected with enterprise-grade security and privacy controls. Compliance and peace of mind, built in.",
+  },
+];
+---
+
+<section>
+  <Wrapper variant="standard" class="py-2">
+    <div class="px-8 pt-24 bg-orange">
+      <Text
+        tag="h2"
+        variant="display3XL"
+        class="font-bold tracking-tighter text-white text-balance lg:col-span-2 lg:col-start-3"
+      >
+        Ælen is designed to help you work faster and cut costs.</Text
+      >
+      <div class="flex flex-col mt-12 border-t border-dashed border-white/20">
+        {
+          sections.map((section, index) => (
+            <div class="sticky top-0 z-10 py-12  grid grid-cols-1 gap-4 lg:gap-0 lg:grid-cols-4 bg-orange">
+              <Text
+                tag="h3"
+                variant="displayLG"
+                class="font-semibold tracking-tight text-white lg:col-span-2"
+              >
+                {section.title}
+              </Text>
+              <div class="h-full border-dashed lg:col-span-2  gap-8 lg:pb-24 lg:pl-12 lg:border-l lg:border-white/20">
+                <Text
+                  tag="p"
+                  variant="textLG"
+                  class="max-w-xl font-semibold text-white"
+                >
+                  {section.paragraph}
+                </Text>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </Wrapper>
+</section>

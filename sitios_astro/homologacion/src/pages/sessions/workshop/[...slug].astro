@@ -1,0 +1,34 @@
+---
+import SessionsLayout from "@/layouts/SessionsLayout.astro";
+import { getCollection, render } from "astro:content";
+export async function getStaticPaths() {
+  const sessionEntries = await getCollection("sessions");
+  return sessionEntries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry, sessions: sessionEntries },
+  }));
+}
+const { entry, sessions } = Astro.props;
+const { Content } = await render(entry);
+
+// Fetch speaker socials and pass as prop
+let speakerSocials = [];
+if (import.meta.env.SSR) {
+  const allSpeakers = await getCollection("speakers");
+  speakerSocials = (entry.data.speakers || []).map((id) => {
+    const speaker = allSpeakers.find((s) => s.id === id);
+    return speaker
+      ? { slug: id, socials: speaker.data.socials }
+      : { slug: id, socials: {} };
+  });
+}
+---
+
+<SessionsLayout
+  frontmatter={entry.data}
+  sessions={sessions}
+  speakerSocials={speakerSocials}
+  slug={entry.id}
+>
+  <Content />
+</SessionsLayout>

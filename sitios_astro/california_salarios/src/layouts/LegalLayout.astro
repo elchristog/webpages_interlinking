@@ -1,0 +1,78 @@
+---
+// Assets
+import Bars from "@/components/assets/Bars.astro";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import ChevronRight from "@/components/fundations/icons/ChevronRight.astro";
+const { frontmatter } = Astro.props;
+// Breadcrumbs Data
+const breadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: frontmatter.page, href: "#" }, // Current page (unstyled)
+];
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pb-2 pt-50">
+      <Text
+        tag="h1"
+        variant="display6XL"
+        class="font-bold tracking-tighter text-black text-balance"
+      >
+        {frontmatter.page}</Text
+      >
+      <Bars class="mt-2"
+        >Last updated on <time
+          datetime={new Date(frontmatter.pubDate).toISOString()}
+        >
+          {
+            new Date(frontmatter.pubDate).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "2-digit",
+            })
+          }
+        </time></Bars
+      >
+
+      <div class="p-8 mt-2 bg-black">
+        <nav aria-label="Breadcrumb">
+          <ol
+            class="flex items-center text-[0.55rem] lg:text-sm space-x-2 text-black"
+          >
+            {
+              breadcrumbs.map((item, index) => (
+                <>
+                  <li>
+                    {index < breadcrumbs.length - 1 ? (
+                      <a
+                        href={item.href}
+                        class="font-medium text-white  hover:text-white"
+                      >
+                        {item.label}
+                      </a>
+                    ) : (
+                      <span class="font-medium text-white ">{item.label}</span>
+                    )}
+                  </li>
+                  {index < breadcrumbs.length - 1 && (
+                    <li class="text-white">
+                      <ChevronRight size="sm" />
+                    </li>
+                  )}
+                </>
+              ))
+            }
+          </ol>
+        </nav>
+      </div>
+      <div class="px-8 py-24 mt-2 bg-orange">
+        <Wrapper variant="prose" class="max-w-xl mx-auto"><slot /></Wrapper>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

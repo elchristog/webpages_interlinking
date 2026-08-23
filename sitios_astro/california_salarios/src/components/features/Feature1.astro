@@ -1,0 +1,73 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const sections = [
+  {
+    title: "Create",
+    paragraph:
+      "Quickly launch professional ad campaigns using pre-designed templates and a user-friendly setup process. Whether you're starting from scratch or scaling an existing strategy, our tools help you go live faster with less friction.",
+  },
+  {
+    title: "Adjust",
+    paragraph:
+      "Fine-tune your campaigns in real time based on live performance metrics. Easily update targeting, creative assets, and budgets on the fly to keep your campaigns aligned with evolving goals and customer behavior.",
+  },
+  {
+    title: "Analyze",
+    paragraph:
+      "Get full visibility into what's working and what’s not with detailed performance dashboards. From conversion rates to ROI, you’ll have the insights needed to make smarter decisions and maximize results.",
+  },
+  {
+    title: "Automate",
+    paragraph:
+      "Let AI take the wheel with intelligent automation that optimizes performance around the clock. Automatically adjust bids, pause underperforming ads, and scale what’s working—without lifting a finger.",
+  },
+];
+---
+
+<section>
+  <Wrapper variant="standard" class="py-2">
+    <div class="px-8 pt-24 bg-orange">
+      <Text
+        tag="h2"
+        variant="displayLG"
+        class="font-semibold tracking-tight text-white text-balance"
+        >Blending AI and sales expertise, we build smart CRM solutions for
+        startups, enterprises, and everything in between.</Text
+      >
+      <div class="flex flex-col mt-12">
+        {
+          sections.map((section, index) => (
+            <div class="sticky top-0 z-10 py-8 border-t border-dashed border-white/20 grid grid-cols-1 gap-12 lg:gap-0 lg:grid-cols-5 bg-orange">
+              <Text
+                tag="span"
+                variant="display2XL"
+                class="font-bold tracking-tight text-white"
+              >
+                {String(index + 1).padStart(2, "0")}
+              </Text>
+
+              <div class="flex flex-col border-dashed lg:col-span-4 gap-24 lg:pl-12 lg:border-l lg:border-white/20">
+                <Text
+                  tag="h3"
+                  variant="display2XL"
+                  class="font-bold tracking-tight text-white"
+                >
+                  {section.title}
+                </Text>
+                <Text
+                  tag="p"
+                  variant="textLG"
+                  class="max-w-xl font-semibold text-white"
+                >
+                  {section.paragraph}
+                </Text>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </Wrapper>
+</section>

@@ -1,0 +1,122 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Content
+import { getCollection } from "astro:content";
+const sessions = await getCollection("sessions");
+const speakers = await getCollection("speakers");
+// Calculate unique days from sessions
+const daysSet = new Set(
+  sessions.map((s) => new Date(s.data.start).toISOString().slice(0, 10))
+);
+const numDays = daysSet.size;
+const numSpeakers = speakers.length;
+const highlights = [
+  {
+    number: numDays,
+    label: "Days",
+    description: `Celebrate ${numDays} days of Swiss design excellence. Join us for a curated program of talks, workshops, and exhibitions inspired by the clarity, order, and innovation of Swiss visual culture.`,
+    button: { label: "Full Program", href: "/schedule" },
+  },
+  {
+    number: sessions.length,
+    label: "Sessions",
+    description: `Explore ${sessions.length} sessions on Swiss design, product thinking, and creative process. Attend talks, workshops, and panels led by industry leaders and visionaries.`,
+    button: { label: "See Sessions", href: "/schedule" },
+    gradient: "",
+  },
+  {
+    number: numSpeakers,
+    label: "Speakers",
+    description: `Hear from ${numSpeakers} renowned designers, typographers, and creative leaders. Experience the perspectives that define and challenge the Swiss design tradition.`,
+    button: { label: "See Speakers", href: "/speakers" },
+  },
+];
+const eventHighlights = [
+  {
+    title: "Morning keynotes",
+    description: "Theory & case studies",
+  },
+  {
+    title: "Afternoon ateliers",
+    description: "Hands-on critiques",
+  },
+  {
+    title: "Night salons",
+    description: "Community & discourse",
+  },
+];
+---
+
+<section>
+  <Wrapper variant="standard" class="py-24">
+    <div class="grid grid-cols-1 lg:grid-cols-9">
+      <div class="lg:col-span-9">
+        <Text
+          tag="h2"
+          variant="displaySM"
+          class="text-balance text-accent-500 font-display uppercase leading-tight"
+        >
+          A summit for swiss design
+        </Text>
+        <ul class="grid grid-cols-1 lg:grid-cols-9 mt-4">
+          {
+            eventHighlights.map((item) => (
+              <li class="lg:col-span-3">
+                <Text
+                  variant="textBase"
+                  tag="h3"
+                  class="text-accent-500 font-medium"
+                >
+                  {item.title}
+                </Text>
+                <Text tag="p" variant="textSM" class="text-base-500 ">
+                  {item.description}
+                </Text>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+    <div
+      class="grid grid-cols-1 items-start gap-y-12 xl:grid-cols-12 mt-12"
+    >
+      {
+        highlights.map((item) => (
+          <div class="flex flex-col items-start justify-between gap-8 pt-20 md:pt-48  h-full [&:nth-child(1)]:lg:col-start-2 [&:nth-child(2)]:lg:col-start-6 relative  lg:col-span-3">
+            <div class="w-full ">
+              <Text
+                tag="p"
+                variant="display6XL"
+                class="text-base-900 font-display font-thin lg:text-right absolute top-0 md:right-0 md:text-[20rem] xl:text-[25rem] md:opacity-6 md:-top-14"
+              >
+                {item.number}
+              </Text>
+              <div class="lg:pr-8 mt-4 lg:mt-0 realtive w-full">
+                <Text
+                  tag="h3"
+                  variant="textXL"
+                  class="text-accent-500  font-display uppercase"
+                >
+                  {item.label}
+                </Text>
+                <Text tag="p" variant="textBase" class="text-base-500 ">
+                  {item.description}
+                </Text>
+              </div>
+            </div>
+            <a
+              href={item.button.href}
+              class="text-accent-500 font-medium underline text-sm"
+            >
+              {item.button.label}
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </Wrapper>
+</section>

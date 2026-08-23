@@ -1,0 +1,33 @@
+@import "tailwindcss";
+@theme {
+    /* Gradients */
+  /* Down*/
+  --background-image-gradient-down: radial-gradient(
+    140% 107.13% at 50% 10%,
+    transparent 37.41%,
+    #4a00e070 69.27%,
+    /* Neon purple */ #00eaff 100% /* Electric cyan */
+  );
+  /*  Up*/
+  --background-image-gradient-up: radial-gradient(
+    131.66% 109.77% at 50% 97.75%,
+    transparent 37.41%,
+    #4a00e070 69.27%,
+    /* Neon purple */ #00eaff 100% /* Electric cyan */
+  );
+  /* Right to Left */
+  --background-image-gradient-right-to-left: radial-gradient(
+    circle at right center,
+    transparent 37.41%,
+    #4a00e070 69.27%,
+    #00eaff 100%
+  );
+  /* Left to Right */
+  --background-image-gradient-left-to-right: radial-gradient(
+    circle at left center,
+    transparent 37.41%,
+    #4a00e070 69.27%,
+    #00eaff 100%
+  );
+ 
+}

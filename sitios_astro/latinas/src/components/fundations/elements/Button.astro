@@ -1,0 +1,150 @@
+---
+const {
+  variant,
+  size,
+  onlyIconSize,
+  iconOnly = false,
+  gap,
+  isLink = false,
+  class: className,
+  href,
+  ...rest
+} = Astro.props;
+
+const variantClass = {
+  default: [
+    "text-white",
+    "bg-base-900",
+    "hover:bg-base-900",
+    "focus:ring-base-900",
+  ],
+  accent: [
+    "text-white",
+    "bg-accent-500",
+    "hover:bg-accent-600",
+    "focus:ring-accent-500",
+  ],
+  pink: [
+    "text-white",
+    "bg-pink-500",
+    "hover:bg-pink-600",
+    "focus:ring-pink-500",
+  ],
+  orange: [
+    "text-base-900",
+    "bg-orange-500",
+    "hover:bg-orange-600",
+    "focus:ring-orange-500",
+  ],
+  muted: [
+    "text-base-900",
+    "bg-white",
+    "hover:bg-base-200",
+    "focus:ring-base-100",
+  ],
+  none: [],
+};
+
+const sizes = {
+  xxs: ["h-7.5", "px-5", "py-2", "text-xs", "rounded-lg"],
+  xs: ["h-9", "px-6", "py-3", "text-xs", "rounded-xl"],
+  sm: ["h-10", "px-6", "py-3", "text-sm", "rounded-xl"],
+  base: ["h-11", "px-8", "py-4", "text-base", "rounded-xl"],
+  md: ["h-12", "px-8", "py-4", "text-md", "rounded-xl"],
+  lg: ["h-13", "px-8", "py-4", "text-lg", "rounded-xl"],
+  xl: ["h-14", "px-8", "py-4", "text-base", "rounded-2xl"],
+  xxl: ["h-15", "px-8", "py-4", "text-lg", "rounded-2xl"],
+  "16": ["h-16", "px-8", "py-4", "text-xl", "rounded-2xl"],
+  "17": ["h-17", "px-8", "py-4", "text-xl", "rounded-2xl"],
+  "18": ["h-18", "px-8", "py-4", "text-xl", "rounded-2xl"],
+  "19": ["h-19", "px-8", "py-4", "text-xl", "rounded-2xl"],
+  "20": ["h-20", "px-8", "py-4", "text-xl", "rounded-3xl"],
+  "21": ["h-21", "px-8", "py-4", "text-xl", "rounded-3xl"],
+  "22": ["h-22", "px-8", "py-4", "text-xl", "rounded-3xl"],
+  "23": ["h-23", "px-8", "py-4", "text-xl", "rounded-3xl"],
+  "24": ["h-24", "px-8", "py-4", "text-xl", "rounded-3xl"],
+};
+
+const iconSizes = {
+  xxs: ["size-7.5", "py-2", "text-xs", "rounded-lg"],
+  xs: ["size-9", "text-xs", "rounded-xl"],
+  sm: ["size-10", "text-sm", "rounded-xl"],
+  base: ["size-11", "text-base", "rounded-xl"],
+  md: ["size-12", "text-md", "rounded-xl"],
+  lg: ["size-13", "text-lg", "rounded-xl"],
+  xl: ["size-14", "text-base", "rounded-2xl"],
+  xxl: ["size-15", "text-lg", "rounded-2xl"],
+  "16": ["size-16", "text-xl", "rounded-2xl"],
+  "17": ["size-17", "text-xl", "rounded-2xl"],
+  "18": ["size-18", "text-xl", "rounded-2xl"],
+  "19": ["size-19", "text-xl", "rounded-2xl"],
+  "20": ["size-20", "text-xl", "rounded-3xl"],
+  "21": ["size-21", "text-xl", "rounded-3xl"],
+  "22": ["size-22", "text-xl", "rounded-3xl"],
+  "23": ["size-23", "text-xl", "rounded-3xl"],
+  "24": ["size-24", "text-xl", "rounded-3xl"],
+};
+
+const gapMap = {
+  xs: ["gap-2"],
+  sm: ["gap-4"],
+  base: ["gap-8"],
+  md: ["gap-10"],
+  lg: ["gap-12"],
+};
+
+const additionalClasses = className ? className.split(" ") : [];
+const baseClass = [
+  "flex",
+  "text-center",
+  "font-display",
+  "justify-center",
+  "font-medium",
+  "items-center",
+  "duration-500",
+  "ease-in-out",
+  "transition-all",
+  "focus:ring-2",
+  "ring-offset-2",
+  "ring-offset-base-500",
+  "hover:rounded-full",
+];
+
+const sizeClass = iconOnly ? iconSizes[size] : sizes[size];
+const gapClass = !iconOnly && gap ? gapMap[gap] : [];
+const classList = [
+  ...baseClass,
+  ...(variantClass[variant] || []),
+  ...(sizeClass || []),
+  ...(gapClass || []),
+  ...additionalClasses,
+];
+---
+
+{
+  isLink ? (
+    <a class:list={classList} href={href} {...rest}>
+      {iconOnly ? (
+        <slot name="icon" />
+      ) : (
+        <>
+          <slot name="left-icon" />
+          <slot />
+          <slot name="right-icon" />
+        </>
+      )}
+    </a>
+  ) : (
+    <button class:list={classList} {...rest}>
+      {iconOnly ? (
+        <slot name="icon" />
+      ) : (
+        <>
+          <slot name="left-icon" />
+          <slot />
+          <slot name="right-icon" />
+        </>
+      )}
+    </button>
+  )
+}

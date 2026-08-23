@@ -1,0 +1,22 @@
+---
+// Logo Component This component renders an SVG logo and accepts props for customization.
+// Props: - class: A string of additional classes to style the SVG.
+// - ...rest: Any other valid attributes for an <svg> element (e.g., id, style, role, aria-label, etc.).
+// Example Usage: <Logo class="my-custom-class" /> or <Logo id="logo-id" style="width: 50px; height: 50px;" />
+// ADd your logo here and pass the   class={className} {...rest} like on the example
+const { class: className = "", ...rest } = Astro.props;
+---
+
+<svg
+  class={className}
+  {...rest}
+  viewBox="0 0 84 83"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M14.2998 0H0.549805V82.5L83.0498 82.5V55V27.5L83.0498 0L83.0498 13.75H69.2998L69.2998 0H55.5498V13.75H41.7998V0H28.0498V13.75H14.2998V0ZM41.7998 27.5H28.0498V13.75H41.7998V27.5ZM55.5498 27.5H41.7998V41.25H55.5498V55H69.2998L69.2998 68.75L83.0498 68.75L83.0498 55H69.2998L69.2998 41.25H83.0498L83.0498 27.5H69.2998L69.2998 13.75H55.5498V27.5ZM55.5498 27.5H69.2998L69.2998 41.25H55.5498V27.5Z"
+    fill="currentColor"></path>
+</svg>

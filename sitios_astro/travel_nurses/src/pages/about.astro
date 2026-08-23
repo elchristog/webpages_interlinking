@@ -1,0 +1,93 @@
+---
+// Images
+import { Image } from "astro:assets";
+import Avatar1 from "@/images/about/1.jpeg";
+import Avatar2 from "@/images/about/2.jpeg";
+import Avatar3 from "@/images/about/3.jpeg";
+import Avatar4 from "@/images/about/4.jpeg";
+
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-2">
+        <div class="pr-10">
+          <Text
+            tag="h1"
+            variant="textXS"
+            class="font-medium uppercase text-text-base-900"
+            >Welcome to <span class="text-base-900"
+              >Innovative Design Conversations</span
+            >, where creativity meets engineering. Join us for insightful
+            interviews and podcasts that explore the minds of design engineers —</Text
+          >
+          <div
+            class="mt-24 font-serif text-base-600 grid grid-cols-1 md:grid-cols-2 gap-4"
+          >
+            <Text tag="p" variant="textSM" class="first-letter:text-2xl">
+              Innovative Design Conversations is a space where creativity and
+              engineering come together. In today’s fast-paced design landscape,
+              design engineers play a vital role in transforming visionary ideas
+              into functional, user-centered solutions. They bridge the gap
+              between aesthetics and practicality, ensuring that designs are not
+              only visually striking but also feasible to implement. Their work
+              is a testament to the seamless blend of artistic creativity and
+              technical expertise.
+            </Text>
+            <Text tag="p" variant="textSM">
+              Our blog dives deep into this fascinating intersection, offering
+              interviews with industry experts, engaging podcasts, and
+              thoughtful articles. We explore the challenges and triumphs faced
+              by design engineers, highlighting the innovative approaches that
+              drive the field forward. Whether you’re here to gain insights,
+              find inspiration, or simply learn more about the evolving world of
+              design engineering, you’re part of a community dedicated to
+              shaping the future of design.
+
+              <br /><br />Design engineers are at the forefront of innovation,
+              solving complex problems while keeping user experience at the
+              heart of their creations. They don’t just design for today—they
+              craft solutions that stand the test of time, adapting to the
+              ever-changing demands of technology, sustainability, and human
+              interaction.
+            </Text>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-2">
+          <Image
+            src={Avatar1}
+            width={1000}
+            height={1000}
+            loading="lazy"
+            decoding="async"
+            alt="#_"
+            class="object-cover object-center h-full grayscale aspect-4/3"
+          />
+          <Image
+            src={Avatar2}
+            width={1000}
+            height={1000}
+            loading="lazy"
+            decoding="async"
+            alt="#_"
+            class="object-cover object-center h-full grayscale aspect-4/3"
+          />
+          <Image
+            src={Avatar3}
+            width={1000}
+            height={1000}
+            loading="lazy"
+            decoding="async"
+            alt="#_"
+            class="object-cover object-center h-full grayscale col-span-full aspect-4/2"
+          />
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

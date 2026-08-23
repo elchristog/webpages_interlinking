@@ -1,0 +1,228 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import CourseCard from "@/components/courses/CourseCard.astro";
+// Icons
+import Play from "@/components/fundations/icons/Play.astro";
+import Lock from "@/components/fundations/icons/Lock.astro";
+import ChevronLeft from "@/components/fundations/icons/ChevronLeft.astro";
+// Content
+import { getEntry, getCollection } from "astro:content";
+const { frontmatter } = Astro.props;
+const teacher = await getEntry("teachers", frontmatter.teacher);
+const allCourses = await getCollection("courses");
+const relatedCourses = allCourses.filter(
+  (c) =>
+    c.id !== Astro.url.pathname.split("/").filter(Boolean).pop() &&
+    c.data.tags?.some((tag) => frontmatter.tags?.includes(tag))
+);
+const allLessons = await getCollection("lessons");
+const lessonsForThisCourse = allLessons.filter(
+  (l) => l.data.course === frontmatter.slug
+);
+// Sidebar structure
+const sidebarSections = frontmatter.sections.map((section) => ({
+  ...section,
+  lessons: section.lessons.map((slug) => ({
+    slug,
+    isActive: false, // Optional: logic for active slug if needed
+  })),
+}));
+---
+
+<BaseLayout>
+  <Wrapper variant="standard" class="pt-24 pb-12 lg:pt-48">
+    <a
+      href="/"
+      class="flex items-center text-xs text-primary hover:text-primary/60 gap-2"
+    >
+      <ChevronLeft slot="icon" size="sm" />
+      Go back home</a
+    >
+
+    <div class="text-balance mt-12">
+      <Text tag="h1" variant="textBase" class="text-primary">
+        {frontmatter.title}
+      </Text>
+      <Text
+        tag="p"
+        variant="textSM"
+        class="font-serif text-primary/60 text-balance"
+      >
+        {frontmatter.description}
+      </Text>
+    </div>
+    <video controls class="w-full mt-4 rounded-xl" src={frontmatter.videoUrl}
+    ></video>
+    <div class="mt-8 divide-y divide-primary/10">
+      <div class="pb-4">
+        <Text tag="h2" variant="textSM" class="font-medium text-primary">
+          Course information and content
+        </Text>
+        <div class="mt-2 space-y-1">
+          <Text
+            tag="p"
+            variant="textXS"
+            class="flex items-baseline text-primary/60 lg:justify-between"
+          >
+            Units
+            <span class="flex-1 mx-2 border-b border-dotted border-primary/10"
+            ></span>
+
+            <span class="font-serif font-medium">
+              {frontmatter.sections.length}
+            </span>
+          </Text>
+          <Text
+            tag="p"
+            variant="textXS"
+            class="flex items-baseline text-primary/60 lg:justify-between"
+          >
+            Lessons
+            <span class="flex-1 mx-2 border-b border-dotted border-primary/10"
+            ></span>
+
+            <span class="font-serif font-medium">
+              {lessonsForThisCourse.length}
+            </span>
+          </Text>
+          <Text
+            tag="p"
+            variant="textXS"
+            class="flex items-baseline text-primary/60 lg:justify-between"
+          >
+            Duration
+            <span class="flex-1 mx-2 border-b border-dotted border-primary/10"
+            ></span>
+
+            <span class="font-serif font-medium">
+              {frontmatter.duration}
+            </span>
+          </Text>
+          <Text
+            tag="p"
+            variant="textXS"
+            class="flex items-baseline text-primary/60 lg:justify-between"
+          >
+            Price
+            <span class="flex-1 mx-2 border-b border-dotted border-primary/10"
+            ></span>
+
+            <span class="font-serif font-medium">
+              {frontmatter.isFree ? "Free" : `$${frontmatter.price}`}
+            </span>
+          </Text>
+          <Text
+            tag="p"
+            variant="textXS"
+            class="flex items-baseline text-primary/60 lg:justify-between"
+          >
+            Teacher
+            <span class="flex-1 mx-2 border-b border-dotted border-primary/10"
+            ></span>
+
+            <span class="font-serif font-medium">
+              {teacher?.data.name}
+            </span>
+          </Text>
+        </div>
+      </div>
+      <div class="py-4">
+        <Text tag="h2" variant="textSM" class="font-medium text-primary">
+          Skills
+        </Text>
+        <ul
+          role="list"
+          class="mt-2 text-xs grid grid-cols-1 gap-1 text-primary/60"
+        >
+          {
+            frontmatter.skills.map((skill) => (
+              <li>
+                <span class="font-medium text-primary/60">{skill}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="py-4 space-y-2">
+        {
+          sidebarSections.map((section, i) => (
+            <div>
+              <Text
+                tag="h3"
+                variant="textXS"
+                class="font-medium  text-primary/60"
+              >
+                Unit {i + 1}: {section.title}
+              </Text>
+              <ul class="mt-2 space-y-1">
+                {section.lessons.map((lessonId) => {
+                  const matched = allLessons.find(
+                    (l) => l.id === lessonId
+                  );
+                  if (!matched) {
+                    return (
+                      <li class="text-sm text-red-600">
+                        Missing: {lessonId}
+                      </li>
+                    );
+                  }
+                  const slug = matched.id.split("/")[1];
+                  return (
+                    <li class="relative flex items-baseline lg:justify-between">
+                      <a
+                        class="absolute inset-0 z-10"
+                        href={`/courses/${frontmatter.slug}/${slug}`}
+                      />
+
+                      <Text
+                        tag="h3"
+                        variant="textXS"
+                        class="flex items-center font-medium text-primary gap-1"
+                      >
+                        {matched.data.duration}
+                        <span aria-hidden="true" />
+                        {matched.data.title}
+                      </Text>
+                      <span class="flex-1 mx-2 border-b border-dotted border-primary/10" />
+                      <Text
+                        tag="span"
+                        variant="textXS"
+                        class="md:ml-auto text-primary/60 "
+                      >
+                        {matched.data.isLocked ? "Paywall" : "Open"}
+                      </Text>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </Wrapper>
+  {
+    relatedCourses.length > 0 && (
+      <section>
+        <Wrapper variant="standard" class="py-12">
+          <Text tag="h2" variant="textBase" class="font-medium text-primary ">
+            More courses you might like
+          </Text>
+          <div class="flex flex-col pt-2 mt-2 border-t border-dotted gap-2 border-primary/10">
+            {relatedCourses.slice(0, 3).map((post) => (
+              <CourseCard post={post} />
+            ))}
+          </div>
+        </Wrapper>
+      </section>
+    )
+  }
+</BaseLayout>

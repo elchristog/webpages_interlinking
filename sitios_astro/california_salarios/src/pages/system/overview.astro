@@ -1,0 +1,156 @@
+---
+// Assets
+import Bars from "@/components/assets/Bars.astro";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Data array
+const pageData = [
+  {
+    sectionTitle: "Static",
+    categories: [
+      {
+        title: "Main",
+        links: [
+          { name: "Index", url: "/" },
+          { name: "About", url: "/about" },
+          { name: "404", url: "/404" },
+        ],
+      },
+      {
+        title: "Pricing",
+        links: [{ name: "Pricing", url: "/pricing" }],
+      },
+      {
+        title: "Forms",
+        links: [
+          { name: "Sign in", url: "/sign-in" },
+          { name: "Sign up", url: "/sign-up" },
+          { name: "Contact", url: "/contact" },
+          { name: "Reset password", url: "/reset" },
+        ],
+      },
+      {
+        title: "System",
+        links: [
+          { name: "Links", url: "/system/link" },
+          { name: "Colors", url: "/system/colors" },
+          { name: "Buttons", url: "/system/buttons" },
+          { name: "Typography", url: "/system/typography" },
+          {
+            name: "License",
+            url: "https://lexingtonthemes.com/legal/license/",
+          },
+          {
+            name: "Documentation",
+            url: "https://lexingtonthemes.com/documentation",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    sectionTitle: "Content collections",
+    categories: [
+      {
+        title: "Blog Pages",
+        links: [
+          { name: "Blog home", url: "/blog" },
+          { name: "Blog post", url: "/blog/posts/1" },
+          { name: "Tag index", url: "/blog/tags" },
+          { name: "Tag Category", url: "/blog/tags/finance" },
+          { name: "RSS", url: "/rss.xml" },
+        ],
+      },
+      {
+        title: "Utility Pages",
+        links: [
+          { name: "Terms Of use", url: "/infopages/terms" },
+          { name: "Privacy Policy", url: "/infopages/privacy" },
+        ],
+      },
+      {
+        title: "Help Center",
+        links: [
+          { name: "Knowledge Base", url: "/helpcenter/knowledge-base" },
+          { name: "Home", url: "/helpcenter" },
+          { name: "Details", url: "/helpcenter/1" },
+        ],
+      },
+      {
+        title: "Integrations",
+        links: [
+          { name: "Home", url: "/integrations" },
+          { name: "Details", url: "/integrations/1" },
+        ],
+      },
+      {
+        title: "Changelog",
+        links: [
+          { name: "Home", url: "/changelog" },
+          { name: "Details", url: "/changelog/1" },
+        ],
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pb-2 pt-50">
+      <Text
+        tag="h1"
+        variant="display6XL"
+        class="font-bold tracking-tighter text-black text-balance"
+      >
+        Overview</Text
+      >
+      <Bars class="mt-2">See all pages</Bars>
+    </Wrapper>
+
+    <Wrapper variant="standard" class="py-12">
+      <div class="flex flex-col gap-12">
+        {
+          pageData.map((section) => (
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-8">
+              <Text
+                tag="h3"
+                variant="displaySM"
+                class="font-semibold tracking-tight text-black  text-balance"
+              >
+                {section.sectionTitle}
+              </Text>
+              <div class="lg:col-span-2  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-8 ">
+                {section.categories.map((category) => (
+                  <div class="flex flex-col space-y-2">
+                    <Text
+                      tag="h3"
+                      variant="displaySM"
+                      class="font-semibold tracking-tight text-black "
+                    >
+                      {category.title}
+                    </Text>
+                    {category.links.map((link) => (
+                      <Text
+                        tag="a"
+                        variant="textBase"
+                        href={link.url}
+                        title={link.name}
+                        aria-label={link.name}
+                        class="flex w-full font-bold text-black border-b border-dashed  hover:text-baxse-500 border-black/50"
+                      >
+                        {link.name}
+                      </Text>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

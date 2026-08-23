@@ -1,0 +1,101 @@
+---
+import Button from "@/components/fundations/elements/Button.astro";
+// Icons
+import Twitter from "@/components/fundations/icons/Twitter.astro";
+import Facebook from "@/components/fundations/icons/Facebook.astro";
+import Linkedin from "@/components/fundations/icons/Linkedin.astro";
+import Link from "@/components/fundations/icons/Link.astro";
+// ShareButtons.astro
+interface Props {
+  url?: string;
+  title?: string;
+  description?: string;
+  contentType?: "blog" | "podcast" | "generic";
+}
+const { url, title, description, contentType = "generic" } = Astro.props;
+---
+
+<Button
+  size="xs"
+  variant="muted"
+  iconOnly
+  id="twitter-share"
+  aria-label="Share on Twitter"
+>
+  <Twitter slot="icon" size="xs" />
+</Button>
+<Button
+  size="xs"
+  variant="muted"
+  iconOnly
+  id="facebook-share"
+  aria-label="Share on Facebook"
+>
+  <Facebook slot="icon" size="xs" />
+</Button>
+<Button
+  size="xs"
+  variant="muted"
+  iconOnly
+  id="linkedin-share"
+  aria-label="Share on LinkedIn"
+>
+  <Linkedin slot="icon" size="xs" />
+</Button>
+<Button
+  size="xs"
+  variant="muted"
+  iconOnly
+  id="copy-link"
+  aria-label="Copy link"
+>
+  <Link slot="icon" size="xs" />
+</Button>
+<script define:vars={{ url, title, description, contentType }}>
+  // Get the current page URL and title, using custom values if provided
+  const pageUrl = url || window.location.href;
+  const pageTitle = title || document.title;
+  const pageDesc = description || "";
+  // Customize share text based on content type
+  let shareText = pageTitle;
+  if (contentType === "podcast") {
+    shareText = `Listen to this podcast: ${pageTitle}`;
+  } else if (contentType === "blog") {
+    shareText = `Check out this article: ${pageTitle}`;
+  }
+  // Add description if available
+  if (pageDesc) {
+    shareText += ` - ${pageDesc}`;
+  }
+  // Twitter share
+  document.getElementById("twitter-share")?.addEventListener("click", () => {
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(pageUrl)}`;
+    window.open(twitterUrl, "_blank");
+  });
+  // Facebook share
+  document.getElementById("facebook-share")?.addEventListener("click", () => {
+    const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}`;
+    window.open(facebookUrl, "_blank");
+  });
+  // LinkedIn share
+  document.getElementById("linkedin-share")?.addEventListener("click", () => {
+    const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(pageUrl)}`;
+    window.open(linkedinUrl, "_blank");
+  });
+  // Copy link
+  document.getElementById("copy-link")?.addEventListener("click", () => {
+    navigator.clipboard.writeText(pageUrl).then(
+      () => {
+        const button = document.getElementById("copy-link");
+        const originalText = button.textContent;
+        button.textContent = "Link Copied!";
+        setTimeout(() => {
+          button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg> Copy Link`;
+        }, 2000);
+      },
+      (err) => {
+        console.error("Could not copy text: ", err);
+      }
+    );
+  });
+</script>

@@ -1,0 +1,27 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<section>
+  <Wrapper variant="standard" class="py-2">
+    <div class="px-8 py-48 text-center bg-black text-balance">
+      <div class="max-w-5xl mx-auto">
+        <Text
+          tag="h2"
+          variant="displayXL"
+          class="font-bold tracking-tighter text-white underline text-balance"
+          >Ready to turn more leads into sales? / Join over 1,000 agencies,
+          startups, and consultants growing their business with Ælen CRM.
+        </Text>
+        <div class="flex justify-center mt-8">
+          <Button href="/pricing" size="xl" variant="muted" isLink>
+            Get started
+          </Button>
+        </div>
+      </div>
+    </div>
+  </Wrapper>
+</section>

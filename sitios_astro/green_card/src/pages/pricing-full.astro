@@ -1,0 +1,221 @@
+---
+// Assets
+import Shape3 from "@/components/assets/Shape3.astro";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const pricingPlans = [
+  {
+    name: "Design Essentials",
+    price: "1500",
+
+    description: "Ideal for newcomers and individual creators.",
+    cardBgClass: "bg-accent-100/50 text-accent-600  backdrop-blur-2xl",
+    buttonVariant: "default",
+    features: [
+      "Access to basic UI/UX design tools",
+      "2 active design system projects",
+      "Basic web development support",
+      "Up to 3 product design projects",
+    ],
+    unavailableFeatures: [
+      "3D Design support",
+      "Advanced design system collaboration",
+      "Priority support",
+    ],
+  },
+  {
+    name: "Creative Pro",
+    price: "3500",
+
+    description: "A perfect match for growing startups and small businesses.",
+    cardBgClass: "bg-accent-400/50 backdrop-blur-2xl text-accent-900 ",
+    buttonVariant: "muted",
+    features: [
+      "10 active design system projects",
+      "Intermediate UI/UX design tools",
+      "Web development with CMS support",
+      "Up to 5 product design projects",
+      "Basic 3D design features",
+    ],
+    unavailableFeatures: [
+      "Advanced 3D design tools",
+      "Premium design system collaboration",
+      "Priority support",
+    ],
+  },
+  {
+    name: "Innovation Suite",
+    price: "5000",
+
+    description:
+      "Designed for established businesses seeking to lead with innovation.",
+    cardBgClass: "bg-accent-900/80 backdrop-blur-2xl text-accent-100 ",
+    buttonVariant: "muted",
+    features: [
+      "Unlimited design system projects",
+      "Advanced UI/UX design toolkit",
+      "Full-stack web development capabilities",
+      "Unlimited product design projects",
+      "Advanced 3D design and rendering",
+      "Premium design system collaboration",
+      "Priority customer support",
+    ],
+    unavailableFeatures: [],
+  },
+];
+const faq = [
+  {
+    question: "What services does your creative agency offer?",
+    answer:
+      "Our creative agency specializes in a wide range of digital services including UI/UX Design, Product Design, Web Development, Branding and Identity, 3D Design, and Design Systems. We focus on delivering high-quality and innovative solutions tailored to meet our clients' unique needs.",
+  },
+  {
+    question: "How do we start a project with your agency?",
+    answer:
+      "Starting a project is simple. Reach out to us with your project idea or business challenge, and we'll schedule an initial consultation. During this meeting, we'll discuss your objectives, scope, timeline, and budget. Once we have all the details, we'll propose a tailored strategy and project plan.",
+  },
+  {
+    question: "What is your project development process?",
+    answer:
+      "Our project development process includes several key phases: Discovery and Research, Strategy and Planning, Design and Prototyping, Development and Implementation, Testing and Quality Assurance, and finally, Launch and Evaluation. Each phase is carefully managed to ensure alignment with project goals and client satisfaction.",
+  },
+  {
+    question: "Can you work with our existing brand guidelines?",
+    answer:
+      "Absolutely. We often work with clients who have existing brand guidelines to ensure consistency across all materials. Our team can adapt to your brand's aesthetic and voice, ensuring that all new designs or developments align seamlessly with your established brand identity.",
+  },
+  {
+    question: "How long does it typically take to complete a project?",
+    answer:
+      "The duration of a project can vary significantly depending on its complexity, scope, and your specific requirements. After our initial consultation and once we've defined the project's scope, we'll provide a more accurate timeline. Our goal is to work efficiently while ensuring the highest quality of our deliverables.",
+  },
+  {
+    question: "How do you handle revisions and feedback?",
+    answer:
+      "We view revisions and feedback as an integral part of the creative process. During the project, we'll have scheduled checkpoints to review progress and gather your feedback. Our policy typically includes a set number of revision rounds to ensure your complete satisfaction with the final outcome, with the option for additional revisions if needed.",
+  },
+];
+---
+
+<BaseLayout>
+  <section class="bg-white overflow-hidden relative">
+    <Wrapper variant="standard" class="py-12 lg:pt-24">
+      <Shape3
+        class="absolute w-full h-full opacity-[0.2] z-0 -right-64 sm:-right-96 -bottom-52"
+      />
+      <div class="relative">
+        <div class="w-full max-w-xl">
+          <Text
+            tag="h1"
+            variant="displayLG"
+            class="tracking-tight text-accent-800 text-balance"
+          >
+            Accessible pricing plans
+          </Text>
+          <Text
+            tag="p"
+            variant="textXL"
+            class="text-accent-500 mt-8 text-balance"
+          >
+            Look at the pricing plans below to find the right fit for your
+            project.
+          </Text>
+        </div>
+        <div
+          class="grid grid-cols-1 rounded-2xl overflow-hidden mt-12 lg:grid-cols-3 relative"
+        >
+          {
+            pricingPlans.map((plan) => (
+              <div class={`flex flex-col  p-8   ${plan.cardBgClass}`}>
+                <div class="flex flex-col justify-between gap-3">
+                  <span class="  ">
+                    <span class="text-2xl lg:text-5xl tracking-tight">
+                      ${plan.price}/m
+                    </span>
+                  </span>
+                  <p class="text-2xl font-medium    ">{plan.name}</p>
+                </div>
+                <Text tag="p" variant="textSM" class="mt-2">
+                  {plan.description}
+                </Text>
+                <div class="flex mt-12">
+                  <Button
+                    type="button"
+                    size="base"
+                    variant={plan.buttonVariant}
+                    class="w-full"
+                  >
+                    Get started
+                  </Button>
+                </div>
+                <ul class="flex flex-col order-last mt-8 text-sm list-none  gap-y-3">
+                  {plan.features.map((feature) => (
+                    <li class="inline-flex items-start gap-2">{feature}</li>
+                  ))}
+                  {plan.unavailableFeatures.map((feature) => (
+                    <li class="flex items-center gap-2 opacity-60">
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+  <section class="bg-white overflow-hidden relative">
+    <Wrapper variant="standard" class="py-24">
+      <div class="w-full max-w-xl">
+        <div class="relative max-w-xs">
+          <div class="absolute inset-0 flex items-center" aria-hidden="true">
+            <div class="w-full border-t border-accent-300"></div>
+          </div>
+          <div class="relative flex justify-start">
+            <span class="bg-white pr-2 text-sm text-accent-500 font-medium"
+              >FAQ</span
+            >
+          </div>
+        </div>
+        <Text
+          tag="h2"
+          variant="displayLG"
+          class="tracking-tight text-accent-800 mt-12 text-balance"
+        >
+          Frequently asked questions
+        </Text>
+        <Text
+          tag="p"
+          variant="textXL"
+          class="text-accent-500 mt-8 text-balance"
+        >
+          Answers to commonly asked questions about our platform
+        </Text>
+        <div class="mt-24">
+          {
+            faq.map((faq) => (
+              <details class="pb-4">
+                <summary class="select-none cursor-pointer text-xl font-medium focus:text-pink-500   text-accent-800  ">
+                  {faq.question}
+                </summary>
+                <div class="py-8">
+                  <Text
+                    tag="p"
+                    variant="textBase"
+                    class="pl-2 text-accent-500   text-balance"
+                  >
+                    {faq.answer}
+                  </Text>
+                </div>
+              </details>
+            ))
+          }
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

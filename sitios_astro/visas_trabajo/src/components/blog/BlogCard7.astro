@@ -1,0 +1,92 @@
+---
+import { Image } from "astro:assets";
+import Text from "@/components/fundations/elements/Text.astro";
+import readingTime from "reading-time";
+
+const { url, title, description, pubDate, image, author, tags } = {
+  url: "/blog/posts/" + Astro.props.post.id,
+  tags: Astro.props.post.data.tags,
+  title: Astro.props.post.data.title,
+  author: Astro.props.post.data.author,
+  image: Astro.props.post.data.image.url,
+  description: Astro.props.post.data.description,
+  pubDate: new Date(Astro.props.post.data.pubDate).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "2-digit",
+  }),
+};
+
+// Calculate reading time
+const stats = readingTime(Astro.props.post.body);
+
+const formatAuthorName = (slug) => {
+  return slug
+    .replace(/-/g, " ") // Replace hyphens with spaces
+    .split(" ") // Split the string into words
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
+    .join(" "); // Join the words back with spaces
+};
+
+const formattedAuthor = formatAuthorName(author);
+---
+
+<article class="relative grid grid-cols-1 md:grid-cols-3 gap-8 w-full group">
+  <a href={url} title={title} class="absolute inset-0 z-10"> </a>
+  <div class="flex flex-col h-full justify-between gap-2">
+    <div>
+      <div>
+        {
+          tags.map((tag) => {
+            const formattedTag = tag.replace(/-/g, " ");
+            return (
+              <Text
+                tag="p"
+                variant="textXS"
+                title={tag}
+                aria-label={tag}
+                class="text-base-600 uppercase font-medium"
+              >
+                {formattedTag}
+              </Text>
+            );
+          })
+        }
+      </div>
+      <Text
+        tag="h3"
+        variant="textXL"
+        class="mt-8 font-medium font-display text-base-900 group-hover:underline"
+      >
+        {title}
+      </Text>
+      <Text
+        tag="p"
+        variant="textBase"
+        class="mt-2 tracking-tight text-base-600"
+      >
+        {description}
+      </Text>
+    </div>
+
+    <div class="flex flex-col gap-y-1 text-base-600">
+      <Text tag="p" variant="textSM" class="font-medium">{formattedAuthor}</Text
+      >
+      {/* Use the formatted author name here */}
+      <Text tag="p" variant="textXS" class="font-medium">
+        <time datetime={pubDate}>{pubDate}</time>
+        <span aria-hidden="true">·</span>
+        {stats.text}
+      </Text>
+    </div>
+  </div>
+  <Image
+    src={image}
+    alt={title}
+    width={800}
+    height={800}
+    loading="eager"
+    decoding="async"
+    class="object-cover w-full aspect-16/11 md:col-span-2 rounded-xl order-first md:order-last"
+  />
+</article>

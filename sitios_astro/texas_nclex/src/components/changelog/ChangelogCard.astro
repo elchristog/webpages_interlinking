@@ -1,0 +1,49 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+const { page, description, pubDate, image, url } = {
+  url: "/changelog/" + Astro.props.post.id,
+  description: Astro.props.post.data.description,
+  pubDate: Astro.props.post.data.pubDate.toString().slice(4, 15),
+  image: Astro.props.post.data.image.url,
+  page: Astro.props.post.data.page,
+};
+---
+
+<div>
+  <div class="before:bg-white">
+    <div
+      class="px-4 relative before:absolute after:absolute before:bg-white before:top-0 before:left-0 before:h-6 before:w-px after:top-8 after:bottom-0 after:left-0 after:w-px"
+    >
+      <Image
+        width={500}
+        height={500}
+        src={image}
+        alt={description}
+        class="aspect-16/9 w-full object-top object-cover"
+      />
+    </div>
+  </div>
+  <Text id={pubDate} tag="p" variant="textXS" class="text-white mt-8">
+    <time datetime={pubDate}>{pubDate}</time>
+  </Text>
+  <Text tag="h3" variant="textBase" class="text-white mt-4">{page}</Text>
+  <Text tag="p" variant="textSM" class="mt-2 text-base-400">
+    {description}
+  </Text>
+  <div class="mt-8 flex">
+    <Button
+      isLink
+      size="base"
+      variant="default"
+      href={url}
+      title={page}
+      aria-label={page}
+    >
+      Read further
+    </Button>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import BlogCard2 from "@/components/blog/BlogCard2.astro";
+// Content
+import { getCollection } from "astro:content";
+// Get all blog posts
+const allPosts = await getCollection("posts");
+allPosts.sort((a, b) => {
+  const dateA = new Date(a.data.pubDate).getTime(); // Convert to timestamp
+  const dateB = new Date(b.data.pubDate).getTime(); // Convert to timestamp
+  return dateB - dateA; // Compare timestamps
+});
+---
+
+<section>
+  <Wrapper variant="standard" class="pt-32 pb-12">
+    <div class="flex flex-wrap items-center justify-between w-full gap-4">
+      <Text tag="p" variant="textSM" class="font-medium uppercase">
+        Our most popular posts post
+      </Text>
+      <Button
+        isLink
+        size="xs"
+        variant="default"
+        href="/blog/"
+        class="w-auto text-center"
+        aria-label="Read all blog posts"
+        title="Read all blog posts"
+      >
+        Read them all
+      </Button>
+    </div>
+    <div
+      class="items-start pt-4 mt-4 border-t border-black grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4"
+    >
+      {
+        allPosts
+          .filter((post) => post.data.isPopular)
+          .map((post) => <BlogCard2 key={post.id} post={post} />)
+      }
+    </div>
+  </Wrapper>
+</section>

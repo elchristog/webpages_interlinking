@@ -1,0 +1,51 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Sections
+import Hero from "@/components/blog/Hero.astro";
+import Subscribe from "@/components/ctas/Subscribe.astro";
+// Blog entries
+import BlogCard2 from "@/components/blog/BlogCard2.astro";
+import BlogCard1 from "@/components/blog/BlogCard1.astro";
+// Get all posts
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("posts");
+const sortedPosts = allPosts
+  .filter((post) => post.data?.pubDate)
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+---
+
+<BaseLayout>
+  <Hero />
+  <section>
+    <Wrapper variant="standard" class="pt-32 pb-12">
+      <div
+        class="items-start pt-4 border-t border-black grid grid-cols-1 md:grid-cols-2 md:grid-cols-2 gap-x-4 gap-y-12"
+      >
+        {sortedPosts.map((post) => <BlogCard2 post={post} />)}
+      </div>
+    </Wrapper>
+  </section>
+  <section>
+    <Wrapper variant="standard" class="pt-32 pb-12">
+      <Text
+        tag="h1"
+        variant="displayMD"
+        class="font-serif font-light text-base-600"
+        >Subscribers only
+      </Text>
+      <div
+        class="items-start pt-4 mt-4 border-t border-black grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-2"
+      >
+        {
+          allPosts
+            .filter((post) => post.data.isLocked)
+            .map((post) => <BlogCard1 post={post} />)
+        }
+      </div>
+    </Wrapper>
+  </section>
+  <Subscribe />
+</BaseLayout>

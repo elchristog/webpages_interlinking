@@ -1,0 +1,26 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+const { title, description, url } = {
+  url: "/helpcenter/" + Astro.props.post.id,
+  title: Astro.props.post.data.title,
+  description: Astro.props.post.data.description,
+};
+---
+
+<div class="bg-base-50 p-6 rounded-xl relative group">
+  <a href={url} title={title} class="absolute inset-0 z-10"></a>
+  <Text
+    tag="h3"
+    variant="textBase"
+    class="text-base-900 font-display font-medium"
+  >
+    {title}
+  </Text>
+  <Text tag="p" variant="textSM" class="mt-2 text-base-600">
+    {description}
+  </Text>
+  <div class="mt-4">
+    <span class="text-sm group-hover:text-accent-500">Read Further &rarr;</span>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+---
+// Assets
+import { Image } from "astro:assets";
+import HeroImage from "@/images/hero.png";
+
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Content
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout>
+  <section class="overflow-hidden">
+    <div class="px-8 pb-12">
+      <div data-aos="zoom-out" data-aos-duration="1500" class="relative">
+        <Image
+          src={HeroImage}
+          alt="#_"
+          width={1500}
+          height={1000}
+          class="w-full h-[60vh] 2xl:h-[75vh] object-cover relative"
+        />
+        <div
+          class="absolute bg-white bottom-0 right-0 p-8 w-full md:max-w-xs flex flex-col"
+        >
+          <Text tag="h3" variant="textSM">Quartiere / Real Estate</Text>
+          <div>
+            <Text tag="a" variant="textXS" href="tel:+1-202-555-0123"
+              >Tel: (202) 555-0123</Text
+            >
+          </div>
+        </div>
+      </div>
+      <div
+        class="pt-8 mt-40 border-t border-base-200 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+      >
+        <div>
+          <Text tag="h1" variant="textXL" class="text-base-900">
+            {frontmatter.page}
+          </Text>
+          <Text tag="p" variant="textSM" class="mt-4 text-base-500">
+            Effective date: <time
+              datetime={new Date(frontmatter.pubDate).toLocaleDateString(
+                "en-US",
+                {
+                  year: "numeric",
+                  month: "long",
+                  day: "2-digit",
+                }
+              )}
+            >
+              {
+                new Date(frontmatter.pubDate).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "2-digit",
+                })
+              }</time
+            >
+          </Text>
+        </div>
+        <div class="lg:col-span-2">
+          <Wrapper variant="prose">
+            <slot />
+          </Wrapper>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

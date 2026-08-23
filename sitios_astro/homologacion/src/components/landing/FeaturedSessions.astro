@@ -1,0 +1,53 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Sessions
+import SessionCard from "@/components/sessions/SessionCard.astro";
+import { getCollection } from "astro:content";
+const sessions = await getCollection("sessions");
+---
+
+<section>
+  <Wrapper variant="standard" class="py-24">
+    <div class="grid grid-cols-1 gap-y-8 lg:grid-cols-12">
+      <Text
+        tag="p"
+        variant="textXS"
+        class="uppercase text-base-600 lg:col-span-3 w-full"
+      >
+        Programme preview
+      </Text>
+      <div class="lg:col-span-6 lg:-mt-4">
+        <Text
+          tag="h2"
+          variant="displayXL"
+          class="font-display uppercase leading-tight text-accent-500"
+        >
+          Session highlights
+        </Text>
+        <Text tag="p" variant="textSM" class="text-base-600 text-balance">
+          A rotating glimpse into the ateliers, critiques, and keynotes shaping
+          the week. Each feature cycles through a different day of the
+          programme.
+        </Text>
+      </div>
+      <div class="flex flex-col gap-2 lg:col-start-12">
+        <Button href="/sessions" size="sm" variant="outline" class="w-full">
+          All sessions
+        </Button>
+        <Text tag="p" variant="textXS" class="text-base-500"
+          >Day {sessions[0]?.data.day?.split("-")[1] ?? "1"} &bull; {
+            sessions.length
+          } total sessions</Text
+        >
+      </div>
+    </div>
+    <div
+      class="session-grid mt-8 grid sm:grid-cols-2 xl:grid-cols-4 border-y border-dashed border-white/5"
+    >
+      {sessions.slice(0, 4).map((session) => <SessionCard session={session} />)}
+    </div>
+  </Wrapper>
+</section>

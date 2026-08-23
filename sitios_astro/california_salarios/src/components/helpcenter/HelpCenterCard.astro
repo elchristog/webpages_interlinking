@@ -1,0 +1,31 @@
+---
+// Fundations
+import Button from "@/components/fundations/elements/Button.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+// Content
+const { page, description, url } = {
+  url: "/helpcenter/" + Astro.props.post.id,
+  page: Astro.props.post.data.page,
+  description: Astro.props.post.data.description,
+};
+---
+
+<div
+  class="relative flex flex-col justify-between h-full border-dashed lg:pl-8 lg:border-l lg:border-black/20"
+>
+  <div>
+    <Text
+      tag="h3"
+      variant="displaySM"
+      class="font-medium tracking-tight text-black text-balance"
+    >
+      {page}
+    </Text>
+    <Text tag="p" variant="textLG" class="mt-4 font-medium text-black lg:mt-48"
+      >{description}</Text
+    >
+  </div>
+  <Button href={url} size="xl" variant="default" isLink class="w-full mt-8">
+    Read more
+  </Button>
+</div>

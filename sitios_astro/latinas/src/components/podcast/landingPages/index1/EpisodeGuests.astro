@@ -1,0 +1,25 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+// Components
+import PodcastCard2 from "@/components/podcast/PodcastCard2.astro";
+// Get all posts
+import { getCollection } from "astro:content";
+const allPodcasts = await getCollection("podcasts");
+allPodcasts.sort((a, b) => {
+  const dateA = new Date(a.data.pubDate).getTime(); // Convert to timestamp
+  const dateB = new Date(b.data.pubDate).getTime(); // Convert to timestamp
+  return dateB - dateA; // Compare timestamps
+});
+---
+
+<div>
+  <span class="sr-only">Podcasts with our guests</span>
+  <div class="space-y-2">
+    {
+      allPodcasts
+        .filter((post) => post.data.isGuest)
+        .map((post) => <PodcastCard2 post={post} />)
+    }
+  </div>
+</div>

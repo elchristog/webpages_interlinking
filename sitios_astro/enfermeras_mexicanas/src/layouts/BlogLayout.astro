@@ -1,0 +1,267 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import SubscribeCta from "@/components/blog/SubscribeCta.astro";
+import BlogCard1 from "@/components/blog/BlogCard1.astro";
+// Content
+const { frontmatter, readingTime, previous, next } = Astro.props;
+
+import { getCollection } from "astro:content";
+// Sort posts by date
+const allPosts = await getCollection("posts");
+allPosts.sort((a, b) => {
+  const dateA = new Date(a.data.pubDate).getTime(); // Convert to timestamp
+  const dateB = new Date(b.data.pubDate).getTime(); // Convert to timestamp
+  return dateB - dateA; // Compare timestamps
+});
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pt-8 pb-12">
+      <div class="overflow-hidden">
+        <Image
+          width={1000}
+          height={100}
+          src={frontmatter.image.url}
+          alt={frontmatter.image.alt}
+          data-aos="fade-up"
+          data-aos-duration="1500"
+          class="w-full h-120 object-cover object-center"
+        />
+      </div>
+      <div class="mt-2">
+        <div class="overflow-hidden">
+          <Text
+            tag="h1"
+            variant="textXL"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            class="dark:text-white text-base-900 text-balance"
+          >
+            {frontmatter.title}
+          </Text>
+        </div>
+        <div class="overflow-hidden">
+          <Text
+            tag="p"
+            variant="textBase"
+            data-aos="fade-up"
+            data-aos-duration="1200"
+            class="mt-2 text-base-500 dark:text-base-300 lg:text-balance"
+          >
+            {frontmatter.description}
+          </Text>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 lg:grid-cols-4 mt-12 gap-4 overflow-hidden">
+        <div
+          class="flex flex-col gap-1"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
+          <Text
+            tag="p"
+            variant="textXS"
+            class="text-base-900 dark:text-white font-medium uppercase"
+          >
+            Published on
+          </Text>
+          <Text
+            tag="span"
+            variant="textXS"
+            class="text-base-600 dark:text-base-400"
+          >
+            <time
+              datetime={new Date(frontmatter.pubDate).toLocaleDateString(
+                "en-US",
+                {
+                  year: "numeric",
+                  month: "long",
+                  day: "2-digit",
+                }
+              )}
+            >
+              {
+                new Date(frontmatter.pubDate).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "2-digit",
+                })
+              }</time
+            >
+          </Text>
+        </div>
+        <div
+          class="flex flex-col gap-1"
+          data-aos="fade-up"
+          data-aos-duration="1200"
+        >
+          <Text
+            tag="p"
+            variant="textXS"
+            class="text-base-900 dark:text-white font-medium uppercase"
+          >
+            Author
+          </Text>
+          <Text
+            tag="p"
+            variant="textXS"
+            class="text-base-600 dark:text-base-400">{frontmatter.author}</Text
+          >
+        </div>
+        <div
+          class="flex flex-col gap-1"
+          data-aos="fade-up"
+          data-aos-duration="1200"
+        >
+          <Text
+            tag="p"
+            variant="textXS"
+            class="text-base-900 dark:text-white font-medium uppercase"
+          >
+            Time to read
+          </Text>
+          <Text
+            tag="p"
+            variant="textXS"
+            class="text-base-600 dark:text-base-400">{readingTime}</Text
+          >
+        </div>
+        <div
+          class="flex flex-col gap-1"
+          data-aos="fade-up"
+          data-aos-duration="1500"
+        >
+          <Text
+            tag="p"
+            variant="textXS"
+            class="text-base-900 dark:text-white font-medium uppercase"
+          >
+            Tags
+          </Text>
+          <div class="flex flex-col">
+            {
+              frontmatter.tags.map((tag) => (
+                <Text
+                  tag="a"
+                  variant="textXS"
+                  href={`/blog/tags/${tag}`}
+                  class=" text-base-500 dark:text-base-300 lg:text-balance capitalize"
+                >
+                  {tag}
+                </Text>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+
+      <Wrapper variant="prose" class="mt-12 max-w-xl"><slot /></Wrapper>
+
+      <div class="mt-12">
+        <Text
+          tag="p"
+          variant="textSM"
+          class="text-base-950 dark:text-white text-balance font-medium"
+        >
+          Share on:
+        </Text>
+        <div class="flex placeholder-inherit mt-2 gap-2">
+          <Text
+            tag="a"
+            variant="textSM"
+            href="#_"
+            class="text-base-500 dark:text-base-400 text-balance"
+          >
+            Instagram
+          </Text>
+          <Text
+            tag="a"
+            variant="textSM"
+            href="#_"
+            class="text-base-500 dark:text-base-400 text-balance"
+          >
+            Twitter
+          </Text>
+        </div>
+      </div>
+      <nav
+        class="flex flex-col md:flex-row lg:justify-between gap-4 lg:items-center relative text-xs mt-24 pt-4 relative before:absolute after:absolute before:bg-black after:bg-base-200 dark:before:bg-base-50 dark:after:bg-base-50/10 before:top-0 before:left-0 before:h-px before:w-18 after:top-0 after:right-0 after:left-20 after:h-px"
+      >
+        <div>
+          {
+            previous && (
+              <a
+                href={`/blog/posts/${previous.id}`}
+                class="hover:opacity-80 "
+              >
+                <span class="block  text-base-900 dark:text-white font-medium uppercase">
+                  Previous:
+                </span>
+                <span class="block  text-base-500 dark:text-base-400">
+                  {" "}
+                  {previous.data.title}
+                </span>
+              </a>
+            )
+          }
+        </div>
+        <div>
+          {
+            next && (
+              <a
+                href={`/blog/posts/${next.id}`}
+                class=" hover:opacity-80 text-right"
+              >
+                <span class="block  text-base-900 dark:text-white font-medium uppercase ">
+                  Next:
+                </span>
+                <span class="block  text-base-500 dark:text-base-400">
+                  {" "}
+                  {next.data.title}
+                </span>
+              </a>
+            )
+          }
+        </div>
+      </nav>
+    </Wrapper>
+  </section>
+
+  <SubscribeCta />
+  <section>
+    <Wrapper class="py-12">
+      <Text
+        tag="h3"
+        variant="textLG"
+        class="dark:text-white text-base-900 text-balance"
+      >
+        Latest relfexions
+      </Text>
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1 mt-1 pt-4 relative before:absolute after:absolute before:bg-black after:bg-base-200 dark:before:bg-base-50 dark:after:bg-base-50/10 before:top-0 before:left-0 before:h-px before:w-18 after:top-0 after:right-0 after:left-20 after:h-px"
+      >
+        {allPosts.slice(0, 4).map((post) => <BlogCard1 post={post} />)}
+      </div>
+      <div
+        class="flex justify-end mt-4 pt-2 relative before:absolute after:absolute before:bg-black after:bg-base-200 dark:before:bg-base-50 dark:after:bg-base-50/10 before:top-0 before:left-0 before:h-px before:w-18 after:top-0 after:right-0 after:left-20 after:h-px"
+      >
+        <Text
+          tag="a"
+          href="/blog"
+          variant="textBase"
+          class="dark:text-base-400 text-base-500 text-balance"
+        >
+          All relfexions
+        </Text>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

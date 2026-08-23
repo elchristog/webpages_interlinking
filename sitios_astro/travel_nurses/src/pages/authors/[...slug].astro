@@ -1,0 +1,20 @@
+---
+import { getCollection, render } from "astro:content";
+import AuthorsLayout from "@/layouts/AuthorsLayout.astro";
+export async function getStaticPaths() {
+  const authors = await getCollection("authors");
+  const paths = authors.map((page) => {
+    return {
+      params: { slug: page.id },
+      props: { page },
+      trailingSlash: false,
+    };
+  });
+  return paths;
+}
+const { page } = Astro.props;
+const { Content } = await render(page);
+---
+<AuthorsLayout frontmatter={page.data}>
+  <Content />
+</AuthorsLayout>

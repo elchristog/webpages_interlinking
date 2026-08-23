@@ -1,0 +1,83 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import ArrowRight from "@/components/fundations/icons/ArrowRight.astro";
+// Content
+import { getCollection } from "astro:content";
+const pageTitle = "Tag Index";
+// Get all posts
+const allPosts = await getCollection("posts");
+// Extract tags from all posts and count occurrences
+const tagCounts = allPosts.reduce((acc, post) => {
+  post.data.tags.forEach((tag) => {
+    acc[tag] = (acc[tag] || 0) + 1; // Count each tag per post
+  });
+  return acc;
+}, {});
+// Extract unique tags for display
+const tags = Object.keys(tagCounts);
+// Function to get the image for a specific tag
+function getTagImage(tag) {
+  const filteredPosts = allPosts.filter((post) => post.data.tags.includes(tag));
+  if (filteredPosts.length > 0) {
+    return filteredPosts[0].data.image.url; // Return the image of the first post with that tag
+  }
+}
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <section>
+    <Wrapper variant="standard" class="py-12">
+      <div class="p-8 bg-base-600 rounded-2xl">
+        <Text
+          tag="h2"
+          variant="textXL"
+          class="font-display text-white uppercase">All tags</Text
+        >
+      </div>
+      <div class="mt-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
+        {
+          tags.map((tag) => (
+            <div class="relative flex flex-col overflow-hidden bg-white group rounded-4xl">
+              <Image
+                width={800}
+                height={800}
+                src={getTagImage(tag)}
+                alt={`${tag} icon`}
+                class="order-last object-cover w-full aspect-12/6"
+              />
+              <div class="p-8">
+                <span class="pl-8 font-display text-base-500">
+                  <span>{tagCounts[tag]}</span> Articles in
+                </span>
+                <Text
+                  tag="h3"
+                  variant="textLG"
+                  class="mt-1 font-display uppercase  text-base-900"
+                >
+                  {tag}
+                </Text>
+                <Button
+                  isLink
+                  href={`/blog/tags/${tag}`}
+                  size="base"
+                  variant="default"
+                  iconOnly
+                  class="mt-10"
+                >
+                  <ArrowRight slot="icon" size="base" />
+                </Button>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

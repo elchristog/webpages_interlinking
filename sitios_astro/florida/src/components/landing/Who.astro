@@ -1,0 +1,70 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+const data = [
+  {
+    title: "Frontend developers who want design superpowers",
+    subtitle:
+      "Sharpen your eye, master spacing, and learn to build beautiful interfaces — not just functional ones.",
+  },
+  {
+    title: "Designers transitioning into development",
+    subtitle:
+      "Confidently go from Figma to functional components, without drowning in frameworks.",
+  },
+  {
+    title: "Indie makers and solopreneurs",
+    subtitle:
+      "Craft and ship polished UIs without relying on a full design team or bloated tools.",
+  },
+  {
+    title: "UI-focused engineers",
+    subtitle:
+      "You already care about details. Now systematize them with reusable patterns and components.",
+  },
+  {
+    title: "Anyone tired of the frontend/design divide",
+    subtitle: "This course is the bridge — clean code meets thoughtful UI.",
+  },
+];
+---
+
+<section>
+  <Wrapper variant="standard" class="py-12">
+    <Text tag="h2" variant="textBase" class="font-medium text-primary">
+      Who this course is for
+    </Text>
+
+    <Text
+      tag="p"
+      variant="textBase"
+      class="font-serif text-primary/60 text-balance"
+    >
+      Whether you're a developer with an eye for design, or a designer learning
+      to code — this course helps you blend both worlds into one craft.
+    </Text>
+
+    <div
+      class="pt-2 mt-2 border-t border-dotted grid gap-8 md:grid-cols-2 border-primary/10 text-balance"
+    >
+      {
+        data.map((item) => (
+          <div>
+            <Text tag="h3" variant="textSM" class="text-primary">
+              {item.title}
+            </Text>
+            <Text
+              tag="p"
+              variant="textSM"
+              class="mt-1 font-serif text-primary/60"
+            >
+              {item.subtitle}
+            </Text>
+          </div>
+        ))
+      }
+    </div>
+  </Wrapper>
+</section>

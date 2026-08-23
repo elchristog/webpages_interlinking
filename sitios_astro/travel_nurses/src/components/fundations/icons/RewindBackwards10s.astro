@@ -1,0 +1,30 @@
+---
+const { variant, size, class: className, ...rest } = Astro.props;
+const xs = ["size-3"];
+const sm = ["size-4"];
+const base = ["size-5"];
+const md = ["size-6"];
+const lg = ["size-7"];
+const xl = ["size-8"];
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 256 256"
+  fill="currentColor"
+  class:list={[
+    "icon",
+    size === "xs" && xs,
+    size === "sm" && sm,
+    size === "base" && base,
+    size === "md" && md,
+    size === "lg" && lg,
+    size === "xl" && xl,
+    className,
+  ]}
+  {...rest}
+>
+ <path
+    d="M225.7,54.46a20,20,0,0,0-20.33.66L132,101.85v-30a19.91,19.91,0,0,0-30.63-16.72L13.19,111.29a19.79,19.79,0,0,0,0,33.42l88.18,56.17A19.91,19.91,0,0,0,132,184.16v-30l73.37,46.73A19.91,19.91,0,0,0,236,184.16V71.84A19.84,19.84,0,0,0,225.7,54.46ZM108,176.64,31.63,128,108,79.36Zm104,0L135.63,128,212,79.36Z"
+  ></path></svg
+>

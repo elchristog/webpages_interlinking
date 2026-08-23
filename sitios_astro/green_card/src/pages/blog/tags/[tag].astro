@@ -1,0 +1,71 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Content
+// Components
+import BlogCard2 from "@/components/blog/BlogCard2.astro";
+import { getCollection } from "astro:content";
+export async function getStaticPaths() {
+  const allPosts = await getCollection("posts");
+  const uniqueTags = [
+    ...new Set(allPosts.map((post) => post.data.tags).flat()),
+  ];
+  return uniqueTags.map((tag) => {
+    const filteredPosts = allPosts.filter((post) =>
+      post.data.tags.includes(tag)
+    );
+    return {
+      params: { tag },
+      props: { posts: filteredPosts },
+    };
+  });
+}
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<BaseLayout pageTitle={tag}>
+  <section class="bg-white overflow-hidden relative">
+    <Wrapper class="py-12 lg:pt-24">
+      <div class="max-w-5xl mx-auto">
+        <div
+          class="w-full h-full rounded-2xl grid items-start gap-4 lg:grid-cols-3"
+        >
+          <div class="lg:col-span-2">
+            <Text
+              tag="h1"
+              variant="displayLG"
+              class="tracking-tighter text-accent-800 text-balance"
+            >
+              Blog posts tagged with {tag}
+            </Text>
+          </div>
+          <form>
+            <div class="flex flex-col gap-2">
+              <label for="email-address" class="sr-only">Email address</label>
+              <input
+                id="email-address"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+                class="min-w-0 flex-auto rounded-md bg-accent-5 border-0 h-12 duration-300 px-3.5 py-2 text-accent-900 ring-1 ring-inset ring-accent-100 placeholder:text-accent-400 focus:ring-2 focus:ring-inset focus:ring-accent-600"
+                placeholder="Enter your email"
+              />
+              <Button type="submit" size="lg" variant="accent">
+                Subscribe
+              </Button>
+            </div>
+          </form>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24 mt-24">
+          {posts.map((post) => <BlogCard2 post={post} />)}
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

@@ -1,0 +1,93 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+// Content
+const speaker = Astro.props.speaker;
+const {
+  name,
+  headshot,
+  role,
+  company,
+  location,
+  tags: rawTags,
+  summary,
+  bio,
+} = speaker.data;
+const url = `/speakers/profile/${speaker.id}`;
+const tags = Array.isArray(rawTags) ? rawTags : [];
+const description = summary || bio || "";
+---
+
+<article class="group relative flex flex-col overflow-hidden transition">
+  <a href={url} title={name} class="absolute inset-0 z-20"></a>
+  <div class="relative">
+    {
+      headshot?.url ? (
+        <div class="relative w-full">
+          <Image
+            width={600}
+            height={600}
+            src={headshot.url}
+            alt={headshot.alt || name}
+            class="aspect-square object-cover object-center w-full grayscale relative"
+            loading="lazy"
+          />
+          <div class="grid grid-cols-12 absolute bottom-0 w-full">
+            <div class="p-2 aspect-square bg-accent-500 group-hover:bg-accent-900 duration-300 lg:col-start-8 flex" />
+            <div class="p-2 aspect-square bg-accent-500 group-hover:bg-accent-900 duration-300 flex lg:col-start-10" />
+            <div class="p-2 aspect-square bg-accent-500 group-hover:bg-accent-900 duration-300 flex" />
+            <div class="p-2 aspect-square bg-accent-500 group-hover:bg-accent-900 duration-300 flex" />
+          </div>
+        </div>
+      ) : (
+        <div class="flex h-72 w-full items-center justify-center border-b border-dashed border-white/20 text-xs uppercase   text-base-400">
+          Portrait coming soon
+        </div>
+      )
+    }
+
+    <div
+      class="relative flex flex-col h-full justify-between p-6 bg-accent-500 group-hover:bg-accent-900 duration-300"
+    >
+      <div>
+        <Text tag="p" variant="textXS" class="text-base-200">
+          {role}
+          {company ? `, ${company}` : ""}
+        </Text>
+        <Text
+          tag="h3"
+          variant="textBase"
+          class="text-white font-display uppercase mt-2"
+        >
+          {name}
+        </Text>
+
+        <Text tag="p" variant="textSM" class="text-base-200 mt-2">
+          {description}
+        </Text>
+
+        <div class="mt-8">
+          <Text tag="p" variant="textXS" class="uppercase text-white">
+            {location}
+          </Text>
+          <div class="flex flex-col mt-1">
+            {
+              tags.length > 0 &&
+                tags.map((tag) => (
+                  <Text
+                    tag="p"
+                    variant="textXS"
+                    class="capitalize text-base-200"
+                  >
+                    {tag}
+                  </Text>
+                ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

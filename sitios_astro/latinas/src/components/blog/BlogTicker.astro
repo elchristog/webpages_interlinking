@@ -1,0 +1,15 @@
+---
+// fundations
+import Button from "@/components/fundations/elements/Button.astro";
+const { post } = Astro.props;
+const url = `/blog/posts/${post.id}`;
+const fullTitle = post.data.title;
+const shortTitle =
+  fullTitle.length > 60 ? fullTitle.slice(0, 57) + "..." : fullTitle;
+---
+
+<article class="relative px-1 shrink-0 whitespace-nowrap">
+  <Button isLink size="base" variant="default" href={url} title={fullTitle}>
+    {shortTitle}
+  </Button>
+</article>

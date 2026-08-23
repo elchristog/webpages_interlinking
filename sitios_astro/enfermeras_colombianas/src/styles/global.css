@@ -1,0 +1,52 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
+@plugin "tailwind-scrollbar-hide";
+
+@theme {
+  /* Typography*/
+  /* Typography */
+  --font-sans: "Geist", sans-serif;
+  --font-mono: "Geist Mono", monospace;
+  /* Colors */
+  --color-accent-50: oklch(96.13% 0.017 256.28);
+  --color-accent-100: oklch(92.15% 0.035 260.39);
+  --color-accent-200: oklch(84.54% 0.071 259.08);
+  --color-accent-300: oklch(76.91% 0.11 259.62);
+  --color-accent-400: oklch(69.49% 0.149 259.56);
+  --color-accent-500: oklch(62.31% 0.188 259.81);
+  --color-accent-600: oklch(53.49% 0.221 260.91);
+  --color-accent-700: oklch(43.61% 0.176 260.74);
+  --color-accent-800: oklch(33.04% 0.127 260.18);
+  --color-accent-900: oklch(21.7% 0.073 259.06);
+  --color-accent-950: oklch(15.33% 0.042 252.92);
+  --color-base-50: oklch(0.985 0 0);
+  --color-base-100: oklch(0.97 0 0);
+  --color-base-200: oklch(0.922 0 0);
+  --color-base-300: oklch(0.87 0 0);
+  --color-base-400: oklch(0.708 0 0);
+  --color-base-500: oklch(0.556 0 0);
+  --color-base-600: oklch(0.439 0 0);
+  --color-base-700: oklch(0.371 0 0);
+  --color-base-800: oklch(0.269 0 0);
+  --color-base-900: oklch(0.205 0 0);
+  --color-base-950: oklch(0.145 0 0);
+}
+
+:root {
+  /* Typography */
+  font-variant-numeric: tabular-nums;
+
+  /* Style code blocks */
+  --astro-code-color-text: theme("colors.black");
+  --astro-code-color-background: theme("colors.base.50");
+  --astro-code-token-constant: theme("colors.base.500");
+  --astro-code-token-string: theme("colors.base.500");
+  --astro-code-token-comment: theme("colors.base.400");
+  --astro-code-token-keyword: theme("colors.base.700");
+  --astro-code-token-parameter: theme("colors.base.900");
+  --astro-code-token-function: theme("colors.base.600");
+  --astro-code-token-string-expression: theme("colors.base.500");
+  --astro-code-token-punctuation: theme("colors.base.500");
+  --astro-code-token-link: theme("colors.base.800");
+}

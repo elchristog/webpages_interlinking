@@ -1,0 +1,215 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import Plus from "@/components/fundations/icons/Plus.astro";
+// Components
+const { frontmatter, previous, next } = Astro.props;
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-8 relative">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div>
+          <div class="overflow-hidden">
+            <Text
+              tag="h1"
+              variant="textXL"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+              class="dark:text-white text-base-900 text-balance"
+            >
+              {frontmatter.title}
+            </Text>
+          </div>
+          <div class="overflow-hidden">
+            <Text
+              tag="p"
+              variant="textSM"
+              data-aos="fade-up"
+              data-aos-duration="1500"
+              class="text-base-500 mt-2 dark:text-base-300 lg:text-balance lg:col-span-2"
+            >
+              {frontmatter.description}
+            </Text>
+          </div>
+          <div class="flex ml-auto mt-4">
+            <Button
+              isLink
+              href="#_"
+              size="xs"
+              variant="default"
+              data-aos="fade-up"
+              data-aos-duration="2000"
+            >
+              Buy {frontmatter.title} for ${frontmatter.price}
+            </Button>
+          </div>
+          <div class="mt-8">
+            <Text
+              tag="h3"
+              variant="textBase"
+              class="text-base-900 dark:text-white font-medium"
+              >Specificatons</Text
+            >
+            <dl class="flex flex-col text-xs mt-2">
+              {
+                frontmatter.specifications.map((spec) => (
+                  <div class="flex justify-between items-baseline border-b border-base-200 dark:border-base-800 py-2">
+                    <dt>
+                      <Text
+                        tag="h4"
+                        variant="textXS"
+                        class="text-base-600 dark:text-base-400"
+                      >
+                        {spec.name}
+                      </Text>
+                    </dt>
+                    <dd class="text-base-500">
+                      <Text
+                        tag="p"
+                        variant="textXS"
+                        class="text-base-600 dark:text-base-400"
+                      >
+                        {spec.value}
+                      </Text>
+                    </dd>
+                  </div>
+                ))
+              }
+            </dl>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
+            <div>
+              <Text
+                tag="h3"
+                variant="textBase"
+                class="text-base-900 dark:text-white font-medium">Includes</Text
+              >
+              <ul role="list" class="text-xs">
+                {
+                  frontmatter.highlights.map((highlight) => (
+                    <li>
+                      <Text
+                        tag="p"
+                        variant="textXS"
+                        class="text-base-600 dark:text-base-400 mt-2"
+                      >
+                        {highlight}
+                      </Text>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+            <div>
+              <Text
+                tag="h3"
+                variant="textBase"
+                class="text-base-900 dark:text-white font-medium">License</Text
+              >
+              <Text
+                tag="p"
+                variant="textXS"
+                class="text-base-600 dark:text-base-400 mt-2"
+              >
+                {frontmatter.license}
+              </Text>
+            </div>
+          </div>
+          <div class="mt-12">
+            <Text
+              tag="h3"
+              variant="textBase"
+              class="text-base-900 dark:text-white font-medium"
+              >Frequently Asked Questions</Text
+            >
+            <div class="space-y-4 mt-4">
+              {
+                frontmatter.faq.map((item) => (
+                  <details class="border-b border-base-200 dark:border-base-800 pb-2 group select-none">
+                    <summary class="flex  cursor-pointer ">
+                      <Text
+                        tag="h4"
+                        variant="textSM"
+                        class="text-base-900 dark:text-white flex items-center gap-2"
+                      >
+                        <Plus
+                          size="sm"
+                          class="duration-300 ease-out  transform group-open:-rotate-45 "
+                        />
+                        {item.question}
+                      </Text>
+                    </summary>
+                    <Text
+                      tag="p"
+                      variant="textXS"
+                      class="text-base-500 dark:text-base-400 mt-2"
+                    >
+                      {item.answer}
+                    </Text>
+                  </details>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col gap-1">
+          {
+            frontmatter.images.map((image) => (
+              <Image
+                width={1000}
+                height={1000}
+                src={image.url}
+                alt={image.alt}
+                class="aspect-7/5 object-cover object-top bg-center h-full bg-base-100 dark:bg-base-800"
+              />
+            ))
+          }
+        </div>
+      </div>
+      <nav
+        class="flex flex-col md:flex-row lg:justify-between gap-4 lg:items-center relative text-xs mt-24"
+      >
+        <div>
+          {
+            previous && (
+              <a href={`/store/${previous.id}`} class="hover:opacity-80 ">
+                <span class="block  text-base-900 dark:text-white font-medium uppercase">
+                  Previous:
+                </span>
+                <span class="block  text-base-500 dark:text-base-400">
+                  {previous.data.title}
+                </span>
+              </a>
+            )
+          }
+        </div>
+        <div>
+          {
+            next && (
+              <a
+                href={`/store/${next.id}`}
+                class=" hover:opacity-80 text-right"
+              >
+                <span class="block  text-base-900 dark:text-white font-medium uppercase ">
+                  Next:
+                </span>
+                <span class="block  text-base-500 dark:text-base-400">
+                  {" "}
+                  {next.data.title}
+                </span>
+              </a>
+            )
+          }
+        </div>
+      </nav>
+    </Wrapper>
+  </section>
+</BaseLayout>

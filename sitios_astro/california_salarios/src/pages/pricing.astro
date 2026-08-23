@@ -1,0 +1,143 @@
+---
+// Assets
+import Bars from "@/components/assets/Bars.astro";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Sections
+import Faq from "@/components/helpcenter/Faq.astro";
+// Array with pricing plans
+const pricingPlans = [
+  {
+    cardColor: "bg-orange text-white",
+    name: "Solo",
+    monthlyPrice: "$199/One time",
+    description: "Perfect for freelancers and solo founders",
+    buttonVariant: "muted",
+    features: [
+      "Manage up to 500 contacts",
+      "1 user included",
+      "Custom pipelines",
+      "Email tracking & reminders",
+      "Basic reporting dashboard",
+      "API & webhook access",
+    ],
+    unavailableFeatures: [
+      "Team collaboration tools",
+      "Shared pipelines",
+      "Priority support",
+    ],
+  },
+  {
+    cardColor: "bg-yellow text-black ",
+    name: "Team",
+    monthlyPrice: "$79/One time",
+    description: "For startups and small teams ready to scale",
+    buttonVariant: "default",
+    features: [
+      "Everything in Solo",
+      "Up to 10 users",
+      "Shared pipelines & permissions",
+      "Team activity tracking",
+      "Advanced reporting & analytics",
+      "Slack + Zapier integrations",
+    ],
+    unavailableFeatures: [
+      "Custom roles & permissions",
+      "Dedicated account manager",
+    ],
+  },
+  {
+    cardColor: "bg-cyan text-black ",
+    name: "Enterprise",
+    monthlyPrice: "Contact us",
+    description: "For fast-growing companies and large teams",
+    buttonVariant: "default",
+    features: [
+      "Everything in Team",
+      "Unlimited users",
+      "Custom roles & permissions",
+      "Dedicated success manager",
+      "Single sign-on (SSO)",
+      "Priority support & onboarding",
+      "Custom API limits",
+    ],
+    unavailableFeatures: [],
+  },
+];
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pb-2 pt-50">
+      <div>
+        <Text
+          tag="h1"
+          variant="display6XL"
+          class="font-bold tracking-tighter text-black text-balance"
+          >Simple pricing.</Text
+        >
+        <Bars class="mt-2">For everyone.</Bars>
+        <div class="mt-4 grid grid-cols-1 lg:grid-cols-3 gap-4">
+          {
+            pricingPlans.map((plan, index) => (
+              <div class={`flex flex-col h-full px-8 py-12  ${plan.cardColor}`}>
+                <div class=" gap-8">
+                  <div class="lg:col-span-3">
+                    <div>
+                      <Text
+                        tag="h3"
+                        variant="displayMD"
+                        class=" font-bold tracking-tight "
+                      >
+                        {plan.name}
+                      </Text>
+                      <Text
+                        tag="p"
+                        variant="textLG"
+                        class="font-semibold mt-12"
+                      >
+                        {" "}
+                        {plan.monthlyPrice}
+                      </Text>
+                    </div>
+                    <Text tag="p" variant="textLG" class="mt-2 font-semibold">
+                      {plan.description}
+                    </Text>
+                    <div class="flex w-full mt-8">
+                      <Button
+                        size="xl"
+                        variant={plan.buttonVariant}
+                        class="w-full"
+                      >
+                        Subscribe to {plan.name}
+                      </Button>
+                    </div>
+                    <ul
+                      role="list"
+                      class="pt-6 mt-6 text-base font-semibold border-t border-dashed border-black/50 gap-1 flex flex-col "
+                    >
+                      {plan.features.map((feature) => (
+                        <li class="inline-flex items-start gap-3">
+                          — {feature}
+                        </li>
+                      ))}
+                      {plan.unavailableFeatures.map((feature) => (
+                        <li class="inline-flex items-start gap-3 opacity-60">
+                          — {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+  <Faq />
+</BaseLayout>

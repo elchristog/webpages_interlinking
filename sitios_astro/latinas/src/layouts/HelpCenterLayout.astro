@@ -1,0 +1,77 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import ChevronRight from "@/components/fundations/icons/ChevronRight.astro";
+const { frontmatter } = Astro.props;
+// Breadcrumbs Data
+const breadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: "Help Center", href: "/helpcenter" },
+  { label: frontmatter.title, href: "#" },
+];
+---
+
+<BaseLayout>
+  <Wrapper variant="standard" class="py-12">
+    <div
+      class="lg:w-1/2 mx-auto bg-base-100 p-8 lg:p-32 lg:py-12 rounded-[3rem]"
+    >
+      <div class="mx-auto max-w-x">
+        <div>
+          <nav aria-label="Breadcrumb">
+            <ol
+              class="flex items-center pl-8 font-display text-xs space-x-2 text-base-700"
+            >
+              {
+                breadcrumbs.map((item, index) => (
+                  <>
+                    <li>
+                      {index < breadcrumbs.length - 1 ? (
+                        <a href={item.href} class="hover:text-base-900">
+                          {item.label}
+                        </a>
+                      ) : (
+                        <span>{item.label}</span>
+                      )}
+                    </li>
+                    {index < breadcrumbs.length - 1 && (
+                      <li class="text-base-400">
+                        <ChevronRight size="sm" />
+                      </li>
+                    )}
+                  </>
+                ))
+              }
+            </ol>
+          </nav>
+          <Text
+            tag="h1"
+            variant="displaySM"
+            class="font-display text-base-900 mt-8 text-balance"
+          >
+            {frontmatter.title}
+          </Text>
+          <Text
+            tag="p"
+            variant="textXS"
+            class="mt-24 font-display text-base-700"
+          >
+            {
+              new Date(frontmatter.pubDate).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "2-digit",
+              })
+            }
+          </Text>
+        </div>
+      </div>
+      <div class="mt-2">
+        <Wrapper variant="prose" class="max-w-xl"><slot /></Wrapper>
+      </div>
+    </div>
+  </Wrapper>
+</BaseLayout>

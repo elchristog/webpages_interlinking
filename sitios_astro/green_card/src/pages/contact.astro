@@ -1,0 +1,146 @@
+---
+// Assets
+import Shape3 from "@/components/assets/Shape3.astro";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<BaseLayout>
+  <section class="bg-white overflow-hidden relative">
+    <Wrapper variant="standard" class="pt-24 lg:pt-32 pb-12">
+      <div class="grid items-start grid-cols-1 gap-4 lg:grid-cols-3 mx-auto">
+        <div
+          class="w-full bg-accent-500 p-10 lg:p-12 h-full rounded-2xl flex flex-col justify-between"
+        >
+          <Shape3 class="size-12 md:size-24 text-accent-200" />
+          <Text
+            tag="h1"
+            variant="displayMD"
+            class="tracking-tighter text-white mt-12"
+          >
+            Ready to work on the next big thing
+          </Text>
+        </div>
+        <form
+          action="#"
+          method="POST"
+          class="lg:col-span-2 bg-accent-50 p-10 lg:p-16 rounded-2xl"
+        >
+          <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+            <div>
+              <label
+                for="first-name"
+                class="block text-sm font-semibold leading-6 text-accent-500"
+                >First name</label
+              >
+              <div class="mt-2.5">
+                <input
+                  type="text"
+                  name="first-name"
+                  id="first-name"
+                  autocomplete="given-name"
+                  class="block w-full rounded-md border-0 px-3.5 py-2 text-accent-500 ring-1 ring-inset ring-accent-100 placeholder:text-accent-400 focus:ring-2 focus:ring-inset focus:ring-accent-300 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+            <div>
+              <label
+                for="last-name"
+                class="block text-sm font-semibold leading-6 text-accent-500"
+                >Last name</label
+              >
+              <div class="mt-2.5">
+                <input
+                  type="text"
+                  name="last-name"
+                  id="last-name"
+                  autocomplete="family-name"
+                  class="block w-full rounded-md border-0 px-3.5 py-2 text-accent-500 ring-1 ring-inset ring-accent-100 placeholder:text-accent-400 focus:ring-2 focus:ring-inset focus:ring-accent-300 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+            <div class="sm:col-span-2">
+              <label
+                for="email"
+                class="block text-sm font-semibold leading-6 text-accent-500"
+                >Email</label
+              >
+              <div class="mt-2.5">
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  class="block w-full rounded-md border-0 px-3.5 py-2 text-accent-500 ring-1 ring-inset ring-accent-100 placeholder:text-accent-400 focus:ring-2 focus:ring-inset focus:ring-accent-300 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+            <div class="sm:col-span-2">
+              <label
+                for="company"
+                class="block text-sm font-semibold leading-6 text-accent-500"
+                >Company</label
+              >
+              <div class="mt-2.5">
+                <input
+                  type="text"
+                  name="company"
+                  id="company"
+                  autocomplete="organization"
+                  class="block w-full rounded-md border-0 px-3.5 py-2 text-accent-500 ring-1 ring-inset ring-accent-100 placeholder:text-accent-400 focus:ring-2 focus:ring-inset focus:ring-accent-300 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+            <div class="sm:col-span-2">
+              <div class="flex justify-between text-sm leading-6">
+                <label for="phone" class="block font-semibold text-accent-500"
+                  >Phone</label
+                >
+                <p id="phone-description" class="text-accent-400">Optional</p>
+              </div>
+              <div class="mt-2.5">
+                <input
+                  type="tel"
+                  name="phone"
+                  id="phone"
+                  autocomplete="tel"
+                  aria-describedby="phone-description"
+                  class="block w-full rounded-md border-0 px-3.5 py-2 text-accent-500 ring-1 ring-inset ring-accent-100 placeholder:text-accent-400 focus:ring-2 focus:ring-inset focus:ring-accent-300 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+            <div class="sm:col-span-2">
+              <div class="flex justify-between text-sm leading-6">
+                <label
+                  for="message"
+                  class="block text-sm font-semibold leading-6 text-accent-500"
+                  >How can we help you?</label
+                >
+                <p id="message-description" class="text-accent-400">
+                  Max 500 characters
+                </p>
+              </div>
+              <div class="mt-2.5">
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  aria-describedby="message-description"
+                  class="block w-full rounded-md border-0 px-3.5 py-2 text-accent-500 ring-1 ring-inset ring-accent-100 placeholder:text-accent-400 focus:ring-2 focus:ring-inset focus:ring-accent-300 sm:text-sm sm:leading-6"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="mt-10 flex w-full">
+            <Button type="submit" size="base" variant="accent" class="w-full">
+              Submit
+            </Button>
+          </div>
+        </form>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

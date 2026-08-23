@@ -1,0 +1,82 @@
+---
+// Assets
+import Logo from "@/components/assets/Logo.astro";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import Menu from "@/components/fundations/icons/Menu.astro";
+// Components
+import Search from "@/components/global/Search.astro";
+import MegaMenu from "@/components/global/MegaMenu.astro";
+import NavTicker from "@/components/global/NavTicker.astro";
+import NavLatestNews from "@/components/global/NavLatestNews.astro";
+---
+
+<section id="navigation" class="overflow-hidden">
+  <Wrapper variant="standard" class="pb-1 pt-4">
+    <div class="bg-base-50">
+      <div
+        class="grid w-full grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-12 l items-center"
+      >
+        <Text
+          tag="p"
+          variant="textXS"
+          class="text-base-600 dark:textbase-400 hidden lg:block"
+        >
+          <span id="clock"> </span>
+        </Text>
+        <a href="/" class="lg:mx-auto">
+          <Logo class="uppercase lg:text-2xl font-medium" /></a
+        >
+        <div class="flex items-center gap-2 ml-auto">
+          <Search />
+          <Button
+            isLink
+            size="xs"
+            variant="muted"
+            href="/sign-in"
+            class="shrink-0">Sign in</Button
+          >
+          <Button
+            isLink
+            size="xs"
+            variant="default"
+            href="/sign-up"
+            class="shrink-0">Sign up</Button
+          >
+          <Button
+            iconOnly
+            size="sm"
+            variant="muted"
+            id="menubutton"
+            type="button"
+            aria-controls="menu"
+            aria-label="Toggle menu"
+          >
+            <Menu slot="icon" size="base" />
+          </Button>
+        </div>
+      </div>
+      <div class="grid w-full grid-cols-3 gap-4 lg:gap-12 mt-2">
+        <a
+          href="https://lexingtonthemes.com/templates/phanatik"
+          class="text-xs text-base-600 hover:text-accent-500 shrink-0"
+        >
+          Buy Phanatik
+        </a>
+        <NavLatestNews />
+        <a
+          href="/system/overview"
+          class="text-xs text-base-600 hover:text-accent-500 lg:col-span-auto col-start-3 ml-auto"
+        >
+          Overview
+        </a>
+      </div>
+      <MegaMenu />
+      <!-- Ticker element to be conditionally hidden -->
+      <NavTicker />
+    </div>
+  </Wrapper>
+</section>

@@ -1,0 +1,53 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pt-48 pb-8">
+      <div class="max-w-xl mx-auto">
+        <Text
+          tag="h1"
+          variant="textLG"
+          class="max-w-sm text-base-800 text-balance"
+        >
+          Forgot your password?
+        </Text>
+        <Text tag="p" variant="textBase" class="mt-2 text-base-500">
+          We'll send you a magic link to reset it. No passwords to remember.
+        </Text>
+        <form class="mt-4 space-y-4" aria-label="Password Reset Form">
+          <div>
+            <label for="email" class="sr-only">Email address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="name@email.com"
+              required
+              class="w-full text-lg border-transparent outline-none bg-base-100 h-14 text-base-700 placeholder-base-400 focus:ring-inset focus:ring-base-800 focus:border-base-800 focus:bg-white"
+            />
+          </div>
+          <Button
+            size="xl"
+            variant="default"
+            type="submit"
+            class="flex items-center w-full gap-2"
+          >
+            Send Magic Link
+          </Button>
+        </form>
+        <Text tag="p" variant="textXS" class="mt-4 text-base-500">
+          Remembered your password? <a
+            href="/forms/signin"
+            class="underline hover:text-base-700">Back to sign in</a
+          >.
+        </Text>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

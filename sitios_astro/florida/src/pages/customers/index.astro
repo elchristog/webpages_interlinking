@@ -1,0 +1,28 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+// Components
+import CustomersCard1 from "@/components/customers/CustomersCard1.astro";
+// Content
+import { getCollection } from "astro:content";
+const allCustomers = await getCollection("customers");
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pt-24 pb-12 lg:pt-48">
+      <Text tag="h1" variant="textBase" class="text-primary">
+        Our students
+      </Text>
+
+      <div
+        class="pt-2 mt-2 border-t border-dotted border-primary/10 flex flex-col gap-4"
+      >
+        {allCustomers.map((post) => <CustomersCard1 post={post} />)}
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

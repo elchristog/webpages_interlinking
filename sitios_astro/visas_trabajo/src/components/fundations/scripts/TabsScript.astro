@@ -1,0 +1,37 @@
+<script type="module">
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("#tab-section").forEach((tabSection) => {
+      // Select all the tab links inside the current #tab-section
+      const tabs = tabSection.querySelectorAll("button");
+      // Select all the tab content sections within the current #tab-section
+      const tabContents = tabSection.querySelectorAll(".tab-content");
+
+      if (tabs.length > 0 && tabContents.length > 0) {
+        // Set the first tab as active and its content visible by default
+        tabs[0].classList.add("text-black", "border-b-2", "border-base-500");
+        tabContents[0].classList.remove("hidden"); // Show the first tab content by default
+      }
+
+      // Add a click event listener to each tab link
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          // Remove the active class from all tabs in this section
+          tabs.forEach((t) =>
+            t.classList.remove("border-b-2", "border-base-500", "text-black")
+          );
+          // Add the active class to the clicked tab
+          tab.classList.add("text-black", "border-b-2", "border-base-500");
+
+          // Hide all tab contents in this section
+          tabContents.forEach((content) => content.classList.add("hidden"));
+
+          // Show the corresponding content in this section
+          const targetTab = tab.getAttribute("data-tab");
+          tabSection.querySelector(`#${targetTab}`).classList.remove("hidden");
+        });
+      });
+    });
+  });
+</script>

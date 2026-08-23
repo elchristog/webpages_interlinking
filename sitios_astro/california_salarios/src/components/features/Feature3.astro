@@ -1,0 +1,65 @@
+---
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+const industries = [
+  "Tech Startups",
+  "Enterprise SaaS",
+  "E-commerce",
+  "Fintech",
+  "Healthcare",
+  "Real Estate",
+  "Marketing Agencies",
+  "Consulting Firms",
+  "Education & EdTech",
+  "Logistics & Supply Chain",
+  "Media & Publishing",
+  "Hospitality",
+  "Nonprofits",
+  "Telecommunications",
+  "Legal Services",
+  "Automotive",
+  "Recruitment & HR",
+  "Construction",
+  "Energy & Utilities",
+  "Consumer Products",
+];
+---
+
+<section class="relative overflow-hidden">
+  <Wrapper variant="standard" class="relative py-2">
+    <div
+      class="items-start px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 bg-yellow"
+    >
+      <div class="flex flex-col justify-center py-24">
+        <Text
+          tag="h2"
+          variant="display3XL"
+          class="font-bold tracking-tighter text-black text-balance"
+        >
+          Industries We Support
+        </Text>
+        <Text tag="p" variant="textLG" class="max-w-md mt-8 font-semibold text-black">
+          From startups to enterprises, we partner with high-performing teams
+          across industries to streamline sales, boost efficiency, and scale
+          smarter. Top performers trust our CRM to power their growth.
+        </Text>
+      </div>
+
+      <!-- Seamless fast full-height marquee -->
+      <div class="relative overflow-hidden h-[50dvh] lg:h-dvh">
+        <div class="absolute flex flex-col w-full gap-4 animate-upMarqueeFast">
+          {
+            industries.concat(industries).map((industry) => (
+              <div class="flex m-1">
+                <span class="w-full text-4xl font-bold text-black border-b border-dashed  border-black/20">
+                  {industry}
+                </span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </Wrapper>
+</section>

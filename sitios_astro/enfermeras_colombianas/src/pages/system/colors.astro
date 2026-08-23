@@ -1,0 +1,132 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pb-24">
+      <Text
+        tag="h3"
+        variant="textXS"
+        class="text-base-900 font-medium uppercase">Colors</Text
+      >
+
+      <div class="grid grid-cols-3 mt-12 gap-2 text-base-400">
+        <div class="flex flex-col gap-2">
+          <Text
+            tag="h3"
+            variant="textXS"
+            class="font-medium text-base-900 uppercase">Black and white</Text
+          >
+          <div class="flex flex-col gap-4 mt-12">
+            <div class="p-4 bg-white border border-base-300"></div>
+            <span class="text-xs text-base-500">White </span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <div class="p-4 bg-black"></div>
+            <span class="text-xs text-base-500">Black </span>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <Text
+            tag="h3"
+            variant="textXS"
+            class="font-medium text-base-900 uppercase">Base</Text
+          >
+          <div class="flex flex-col gap-4 mt-12">
+            <div class="p-4 bg-base-50"></div>
+            <span class="text-xs text-base-500">Base 50 </span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <div class="p-4 bg-base-100"></div>
+            <span class="text-xs text-base-500">Base 100 </span>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <div class="p-4 bg-base-200"></div>
+            <span class="text-xs text-base-500">Base 200 </span>
+          </div><div class="flex flex-col gap-2">
+            <div class="p-4 bg-base-300"></div>
+            <span class="text-xs text-base-500">Base 300 </span>
+          </div><div class="flex flex-col gap-2">
+            <div class="p-4 bg-base-400"></div>
+            <span class="text-xs text-base-500">Base 400 </span>
+          </div><div class="flex flex-col gap-2">
+            <div class="p-4 bg-base-500"></div>
+            <span class="text-xs text-base-500">Base 500 </span>
+          </div><div class="flex flex-col gap-2">
+            <div class="p-4 bg-base-600"></div>
+            <span class="text-xs text-base-500">Base 600 </span>
+          </div><div class="flex flex-col gap-2">
+            <div class="p-4 bg-base-700"></div>
+            <span class="text-xs text-base-500">Base 700 </span>
+          </div><div class="flex flex-col gap-2">
+            <div class="p-4 bg-base-800"></div>
+            <span class="text-xs text-base-500">Base 800 </span>
+          </div><div class="flex flex-col gap-2">
+            <div class="p-4 bg-base-900"></div>
+            <span class="text-xs text-base-500">Base 900 </span>
+          </div><div class="flex flex-col gap-2">
+            <div class="p-4 bg-base-950"></div>
+            <span class="text-xs text-base-500">Base 950 </span>
+          </div>
+        </div>
+        <div class="flex flex-col gap-2">
+          <Text
+            tag="h3"
+            variant="textXS"
+            class="font-medium text-base-900 uppercase">Accent</Text
+          >
+          <div class="flex flex-col gap-4 mt-12">
+            <div class="p-4 bg-accent-50"></div>
+            <span class="text-xs text-base-500">Accent 50 </span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <div class="p-4 bg-accent-100"></div>
+            <span class="text-xs text-base-500">Accent 100 </span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <div class="p-4 bg-accent-200"></div>
+            <span class="text-xs text-base-500">Accent 200 </span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <div class="p-4 bg-accent-300"></div>
+            <span class="text-xs text-base-500">Accent 300 </span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <div class="p-4 bg-accent-400"></div>
+            <span class="text-xs text-base-500">Accent 400 </span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <div class="p-4 bg-accent-500"></div>
+            <span class="text-xs text-base-500">Accent 500 </span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <div class="p-4 bg-accent-600"></div>
+            <span class="text-xs text-base-500">Accent 600 </span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <div class="p-4 bg-accent-700"></div>
+            <span class="text-xs text-base-500">Accent 700 </span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <div class="p-4 bg-accent-800"></div>
+            <span class="text-xs text-base-500">Accent 800 </span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <div class="p-4 bg-accent-900"></div>
+            <span class="text-xs text-base-500">Accent 900 </span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <div class="p-4 bg-accent-950"></div>
+            <span class="text-xs text-base-500">Accent 950 </span>
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

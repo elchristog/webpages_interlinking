@@ -1,0 +1,45 @@
+---
+import { getCollection, render } from "astro:content";
+import BlogLayout from "@/layouts/BlogLayout.astro";
+
+export async function getStaticPaths() {
+  const blog = await getCollection("posts");
+  return blog.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+
+// Re-fetch and sort all posts
+const allPosts = await getCollection("posts");
+
+const validPosts = allPosts.filter(
+  (item) => item.data?.pubDate && item.data?.title
+);
+
+const sorted = validPosts.sort(
+  (a, b) =>
+    new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
+
+// Get previous and next based on entry.id
+const index = sorted.findIndex((item) => item.id === entry.id);
+const previous = sorted[index - 1] || null;
+const next = sorted[index + 1] || null;
+
+const { Content } = await render(entry);
+// Calculate reading time from the raw markdown body
+import readingTime from "reading-time";
+const stats = readingTime(entry.body ?? "");
+---
+
+<BlogLayout
+  frontmatter={entry.data}
+  previous={previous}
+  next={next}
+  readingTime={stats.text}
+>
+  <Content />
+</BlogLayout>

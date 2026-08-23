@@ -1,0 +1,147 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Data array
+const pageData = [
+  {
+    sectionTitle: "All pages",
+    categories: [
+      {
+        title: "Main",
+        links: [
+          { url: "/", name: "Home" },
+          { url: "/about", name: "About" },
+          { url: "/studio", name: "Studio" },
+          { url: "/course", name: "Course" },
+          { url: "/404", name: "Error 404" },
+        ],
+      },
+      {
+        title: "Forms",
+        links: [
+          { url: "/signin", name: "Sign in" },
+          { url: "/signup", name: "Sign up" },
+          { url: "/contact", name: "Contact" },
+        ],
+      },
+      {
+        title: "System Pages",
+        links: [
+          { name: "Colors", url: "/system/colors" },
+          { name: "Links", url: "/system/links" },
+          { name: "Buttons", url: "/system/buttons" },
+          { name: "Typography", url: "/system/typography" },
+          {
+            name: "License",
+            url: "https://lexingtonthemes.com/legal/license/",
+          },
+          {
+            name: "Documentation",
+            url: "https://lexingtonthemes.com/documentation",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    sectionTitle: "Content collections",
+    categories: [
+      {
+        title: "Blog Pages",
+        links: [
+          { url: "/blog", name: "Home" },
+          { url: "/blog/index-2", name: "Home 2" },
+          { url: "/blog/index-3", name: "Home 3" },
+          { url: "/blog/posts/1", name: "Details" },
+          { url: "/blog/tags", name: "Tag index" },
+          { url: "/blog/tags/patterns", name: "Tag category" },
+          { url: "/rss.xml", name: "RSS" },
+        ],
+      },
+      {
+        title: "Work",
+        links: [
+          { url: "/work", name: "Home" },
+          { url: "/work/index-2", name: "Home 2" },
+          { url: "/work/index-3", name: "Home 3" },
+          { url: "/work/1", name: "Details" },
+        ],
+      },
+      {
+        title: "Store",
+        links: [
+          { url: "/store/index", name: "Home" },
+          { url: "/store/index-2", name: "Home 2" },
+          { url: "/store/index-3", name: "Home 3" },
+          { url: "/store/1", name: "Details" },
+        ],
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-8">
+      <Text
+        tag="h1"
+        variant="textXL"
+        class="dark:text-white text-base-900 text-balance"
+      >
+        Overview
+      </Text>
+      <Text
+        tag="p"
+        variant="textBase"
+        class="mt-2 text-base-500 dark:text-base-300 lg:text-balance"
+      >
+        Explore all pagges
+      </Text>
+      <div class="grid grid-cols-2 mt-8 sm:grid-cols-2 gap-y-24">
+        {
+          pageData.map((section) => (
+            <div class="md:col-span-2">
+              <Text
+                tag="p"
+                variant="textBase"
+                class=" dark:text-white text-base-900"
+              >
+                {section.sectionTitle}
+              </Text>
+              <div class="relative grid grid-cols-1 gap-1 pt-4 mt-1 md:grid-cols-2 lg:grid-cols-4 before:absolute after:absolute before:bg-black after:bg-base-200 dark:before:bg-base-50 dark:after:bg-base-50/10 before:top-0 before:left-0 before:h-px before:w-18 after:top-0 after:right-0 after:left-20 after:h-px">
+                {section.categories.map((category) => (
+                  <div class="flex flex-col ">
+                    <Text
+                      tag="h3"
+                      variant="textBase"
+                      class=" dark:text-white fotn-medium text-base-900"
+                    >
+                      {category.title}
+                    </Text>
+                    <div class="flex flex-col gap-1 mt-2">
+                      {category.links.map((link) => (
+                        <Text
+                          tag="a"
+                          variant="textSM"
+                          class="dark:text-base-400 text-base-500"
+                          href={link.url}
+                          title={link.name}
+                          aria-label={link.name}
+                        >
+                          {link.name}
+                        </Text>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

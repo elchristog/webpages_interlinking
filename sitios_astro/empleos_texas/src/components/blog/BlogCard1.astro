@@ -1,0 +1,33 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+const { index } = Astro.props;
+const { url, title, image } = {
+  url: "/blog/posts/" + Astro.props.post.id,
+  title: Astro.props.post.data.title,
+  image: Astro.props.post.data.image.url,
+};
+---
+<div class="relative group">
+  <a class="absolute inset-0 z-20" href={url} title={title}></a>
+  <div class="relative">
+    <Image
+      src={image}
+      alt={title}
+      width={1000}
+      height={100}
+      class="size-full object-cover object-center"
+    />
+    <div class="mt-1">
+      <Text
+        tag="h3"
+        variant="textBase"
+        class="leading-6 text-base-900 dark:text-white"
+      >
+      (0{index}) {title}
+      </Text>
+    </div>
+  </div>
+</div>

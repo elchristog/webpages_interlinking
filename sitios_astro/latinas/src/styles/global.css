@@ -1,0 +1,92 @@
+@import "./audio-player.css";
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
+@plugin "tailwind-scrollbar-hide";
+@layer utilities {
+  .pause-on-hover:hover {
+    animation-play-state: paused;
+  }
+}
+@theme {
+  /* Typography*/
+  --font-sans: "InterVariable", sans-serif;
+  --font-display: "Stack Sans Notch", sans-serif;
+  /* Colors */
+  /* accent */
+ --color-accent-50: oklch(95.22% 0.025 298.61);
+  --color-accent-100: oklch(90.25% 0.051 298.95);
+  --color-accent-200: oklch(80.76% 0.102 298.1);
+  --color-accent-300: oklch(71.23% 0.157 296.13);
+  --color-accent-400: oklch(63% 0.203 293.32);
+  --color-accent-500: oklch(51.96% 0.262 286.62);
+  --color-accent-600: oklch(44.62% 0.262 280.92);
+  --color-accent-700: oklch(36.06% 0.208 281.66);
+  --color-accent-800: oklch(27.7% 0.154 283.32);
+  --color-accent-900: oklch(17.63% 0.091 288.01);
+  --color-accent-950: oklch(13.25% 0.06 293.82);
+  /* orange */
+  --color-orange-50: oklch(97.66% 0.016 73.68);
+  --color-orange-100: oklch(95.47% 0.032 78.16);
+  --color-orange-200: oklch(90.91% 0.064 76.06);
+  --color-orange-300: oklch(86.63% 0.094 75.93);
+  --color-orange-400: oklch(82.64% 0.121 74.13);
+  --color-orange-500: oklch(77.19% 0.152 69.58);
+  --color-orange-600: oklch(68.57% 0.15 66.04);
+  --color-orange-700: oklch(55.84% 0.121 65.84);
+  --color-orange-800: oklch(42.39% 0.09 67.41);
+  --color-orange-900: oklch(26.45% 0.053 71.01);
+  --color-orange-950: oklch(19.23% 0.035 77.72);
+  /* pink */
+  --color-pink-50: oklch(96.22% 0.03 327.49);
+  --color-pink-100: oklch(92.45% 0.059 326.93);
+  --color-pink-200: oklch(85.24% 0.12 328.45);
+  --color-pink-300: oklch(78.83% 0.179 328.82);
+  --color-pink-400: oklch(73.59% 0.23 329.86);
+  --color-pink-500: oklch(68.34% 0.284 330.57);
+  --color-pink-600: oklch(61.35% 0.274 330.91);
+  --color-pink-700: oklch(50% 0.221 331);
+  --color-pink-800: oklch(37.76% 0.165 330.69);
+  --color-pink-900: oklch(23.23% 0.099 330.95);
+  --color-pink-950: oklch(16.53% 0.066 331.03);
+  /* Yellow */
+  /* Base */
+  --color-base-50: oklch(0.970 0.000 0.0);
+  --color-base-100: oklch(0.940 0.000 0.0);
+  --color-base-200: oklch(0.876 0.000 0.0);
+  --color-base-300: oklch(0.814 0.000 0.0);
+  --color-base-400: oklch(0.748 0.000 0.0);
+  --color-base-500: oklch(0.686 0.000 0.0);
+  --color-base-600: oklch(0.580 0.000 0.0);
+  --color-base-700: oklch(0.475 0.000 0.0);
+  --color-base-800: oklch(0.360 0.000 0.0);
+  --color-base-900: oklch(0.239 0.000 0.0);
+  --color-base-950: oklch(0.168 0.000 0.0);
+  /* Keyframes */
+  --animate-marquee: marquee 90s linear infinite;
+  --animate-rightMarquee: rightMarquee 300s linear infinite;
+  --animate-slowMarquee: marquee 300s linear infinite;
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  @keyframes rightMarquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}
+:root {
+  font-family: Inter, sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+}
+@supports (font-variation-settings: normal) {
+  :root { font-family: InterVariable, sans-serif; }
+}

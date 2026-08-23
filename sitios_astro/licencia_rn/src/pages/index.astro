@@ -1,0 +1,46 @@
+---
+// Assets
+import { Image } from "astro:assets";
+import Dashboard from "@/images/assets/dashboard.jpg";
+import LogoCloud from "@/components/assets/LogoCloud.astro";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Sections
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Feature1 from "@/components/features/Feature1.astro";
+import Feature2 from "@/components/features/Feature2.astro";
+import Feature3 from "@/components/features/Feature3.astro";
+import Feature4 from "@/components/features/Feature4.astro";
+import Cta from "@/components/ctas/Cta.astro";
+---
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pt-48 pb-8 overflow-hidden lg:pt-82">
+      <Text
+        tag="h1"
+        variant="displayLG"
+        class="max-w-xl text-base-800 text-balance font-medium tracking-tight"
+      >
+        The last business platform you'll ever need
+      </Text>
+      <LogoCloud class="mt-12" />
+      <div class="mt-12">
+        <Image
+          width={1800}
+          height={800}
+          src={Dashboard}
+          alt="#_"
+          loading="eager"
+          decoding="async"
+          class="w-full"
+        />
+      </div>
+    </Wrapper>
+  </section>
+  <Feature1 />
+  <Feature2 />
+  <Feature3 />
+  <Feature4 />
+  <Cta />
+</BaseLayout>

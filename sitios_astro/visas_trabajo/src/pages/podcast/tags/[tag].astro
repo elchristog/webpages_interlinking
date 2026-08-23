@@ -1,0 +1,64 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Sections
+import PodcastAside from "@/components/podcast/PodcastAside.astro";
+// Components
+import PodcastCard1 from "@/components/podcast/PodcastCard1.astro";
+import AdvertAside from "@/components/advert/AdvertAside.astro";
+// Content
+import { getCollection } from "astro:content";
+export async function getStaticPaths() {
+  const allPodcasts = await getCollection("podcast");
+  const uniqueTags = [
+    ...new Set(allPodcasts.map((post) => post.data.tags).flat()),
+  ];
+  return uniqueTags.map((tag) => {
+    const filteredPosts = allPodcasts.filter((post) =>
+      post.data.tags.includes(tag)
+    );
+    return {
+      params: { tag },
+      props: { posts: filteredPosts },
+    };
+  });
+}
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<BaseLayout pageTitle={tag}>
+  <section>
+    <Wrapper variant="standard" class="py-12">
+      <Text
+        tag="h2"
+        variant="textXS"
+        class="text-base-900 uppercase font-medium"
+      >
+        All our <span class="italic">{tag}</span> episodes
+      </Text>
+      <div
+        class="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-0 relative before:absolute after:absolute before:bg-base-950 after:bg-base-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px pt-4 mt-2"
+      >
+        <div class="lg:col-span-3 lg:pr-8">
+          <div>
+            {posts.map((post) => <PodcastCard1 post={post} />)}
+          </div>
+        </div>
+        <div
+          class="lg:pl-8 lg:relative lg:before:absolute lg:after:absolute
+        lg:before:bg-base-950 lg:after:bg-base-950/10 lg:before:top-0
+        lg:before:left-0 lg:before:h-6 lg:before:w-px lg:after:top-8
+        lg:after:bottom-0 lg:after:left-0 after:w-px"
+        >
+          <div class="lg:sticky lg:top-10 lg:z-20">
+            <PodcastAside />
+            <AdvertAside />
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

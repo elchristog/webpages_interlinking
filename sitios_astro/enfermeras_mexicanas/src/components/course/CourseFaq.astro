@@ -1,0 +1,69 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import Plus from "@/components/fundations/icons/Plus.astro";
+const faq = [
+  {
+    question: "What is product design?",
+    answer:
+      "Product design is the process of designing and developing products that are user-centered and functional. It involves user research, prototyping, testing, and iterating to create the best product solution.",
+  },
+  {
+    question: "Who should take this course?",
+    answer:
+      "This course is ideal for anyone looking to pursue a career in product design, including UX/UI designers, product managers, developers, and entrepreneurs.",
+  },
+  {
+    question: "What tools will I learn in this course?",
+    answer:
+      "You'll learn how to use industry-standard tools like Figma, Adobe XD, Sketch, and prototyping tools to create design systems, wireframes, and interactive prototypes.",
+  },
+  {
+    question: "Can I access the course materials after completion?",
+    answer:
+      "Yes, once you complete the course, you will have lifetime access to the materials, including video lessons, assignments, and additional resources.",
+  },
+  {
+    question: "Is there a certificate at the end of the course?",
+    answer:
+      "Yes, upon successful completion of the course, you'll receive a certificate to showcase your skills and knowledge in product design.",
+  },
+];
+---
+
+<section>
+  <Wrapper variant="standard" class="py-12">
+    <Text
+      tag="h3"
+      variant="textLG"
+      class="dark:text-white text-base-900 text-balance"
+    >
+      FAQ
+    </Text>
+    <div
+      class="flex flex-col relative before:absolute after:absolute before:bg-black after:bg-base-200 dark:before:bg-base-50 dark:after:bg-base-50/10 before:top-0 before:left-0 before:h-px before:w-18 after:top-0 after:right-0 after:left-20 after:h-px"
+    >
+      {
+        faq.map((faq) => (
+          <details class="group cursor-pointer p-4 bg-base-50 dark:bg-base-900 mt-1">
+            <summary class="dark:text-white text-base font-medium flex text-base-950  items-center justify-between w-full   text-left select-none hover:text-accent-500 focus:text-accent-500 dark:hover:text-accent-400 dark:focus:text-white">
+              {faq.question}
+
+              <Plus
+                size="sm"
+                class="duration-300 ease-out  transform group-open:-rotate-45 "
+              />
+            </summary>
+            <div class="py-4 pt-2 text-sm text-base-500">
+              <Text tag="p" variant="textSM" class="text-base-500 font-medium">
+                {faq.answer}
+              </Text>
+            </div>
+          </details>
+        ))
+      }
+    </div>
+  </Wrapper>
+</section>

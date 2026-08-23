@@ -1,0 +1,82 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import IntegrationsSearch from "@/components/integrations/IntegrationsSearch.astro";
+import IntegrationsEntries from "@/components/integrations/IntegrationsEntries.astro";
+// Icons
+import ChevronRight from "@/components/fundations/icons/ChevronRight.astro";
+// Content
+import { getCollection } from "astro:content";
+const allIntegrations = (await getCollection("integrations")).sort((a, b) =>
+  a.data.integration.localeCompare(b.data.integration)
+);
+const allTags = Array.from(
+  new Set(allIntegrations.flatMap((post) => post.data.tags))
+).sort();
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="fixed z-40 top-[3.8rem] inset-x-0">
+      <IntegrationsSearch />
+    </Wrapper>
+    <Wrapper variant="standard" class="pt-48 pb-8 lg:pt-82">
+      <Text tag="h1" variant="displayLG" class="text-base-800 text-balance">
+        Integrations
+      </Text>
+
+      <div class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
+        <div>
+          <div class="sticky z-10 top-40">
+            <nav>
+              <ul class="flex flex-col text-base gap-2">
+                {
+                  allTags.map((tag) => (
+                    <li>
+                      <a
+                        href={`#tag-${tag}`}
+                        class="flex items-center text-sm capitalize text-base-600 hover:text-base-800 gap-1"
+                        aria-label={`Jump to ${tag} integrations`}
+                      >
+                        <ChevronRight size="sm" />
+                        {tag}
+                      </a>
+                    </li>
+                  ))
+                }
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="flex flex-col gap-4 lg:col-span-4">
+          {
+            allTags.map((tag) => (
+              <section id={`tag-${tag}`} class="pb-12 ">
+                <div class="pb-2 border-b border-base-200">
+                  <Text
+                    tag="h2"
+                    variant="text2XL"
+                    class="capitalize text-base-800 "
+                  >
+                    {tag}
+                  </Text>
+                </div>
+
+                <div class="mt-4 grid grid-cols-1 gap-x-8 gap-y-14 md:grid-cols-2 lg:grid-cols-3">
+                  {allIntegrations
+                    .filter((post) => post.data.tags.includes(tag))
+                    .map((post) => (
+                      <IntegrationsEntries post={post} />
+                    ))}
+                </div>
+              </section>
+            ))
+          }
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

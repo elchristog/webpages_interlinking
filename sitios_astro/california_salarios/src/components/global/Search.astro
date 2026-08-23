@@ -1,0 +1,237 @@
+---
+// Assets
+import Bars from "@/components/assets/Bars.astro";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "../fundations/elements/Button.astro";
+// Icons
+import SearchIcon from "@/components/fundations/icons/Search.astro";
+import { getCollection } from "astro:content";
+const { accentClass = "bg-yellow", buttonLabel = "Search" } = Astro.props;
+const [posts, helpcenter, integrations, changelog, legal] = await Promise.all([
+  getCollection("posts"),
+  getCollection("helpcenter"),
+  getCollection("integrations"),
+  getCollection("changelog"),
+  getCollection("legal"),
+]);
+const searchItems = [
+  ...posts.map((post) => ({
+    title: post.data.title,
+    description: post.data.description,
+    date: post.data.pubDate,
+    url: `/blog/posts/${post.id}`,
+    type: "Blog",
+  })),
+  ...helpcenter.map((post) => ({
+    title: post.data.page,
+    description: post.data.description,
+    url: `/helpcenter/${post.id}`,
+    type: "Help Center",
+  })),
+  ...integrations.map((post) => ({
+    title: post.data.integration,
+    description: post.data.description,
+    url: `/integrations/${post.id}`,
+    type: "Integration",
+  })),
+  ...changelog.map((post) => ({
+    title: post.data.page,
+    description: post.data.description,
+    date: post.data.pubDate,
+    url: `/changelog/${post.id}`,
+    type: "Changelog",
+  })),
+  ...legal.map((post) => ({
+    title: post.data.page,
+    description: post.data.page,
+    date: post.data.pubDate,
+    url: `/legal/${post.id}`,
+    type: "Legal",
+  })),
+];
+---
+
+<div class="relative">
+  <Button
+    iconOnly
+    size="xs"
+    variant="default"
+    type="button"
+    id="searchButton"
+    aria-label="Search"
+  >
+    <SearchIcon slot="icon" size="sm" />
+    <span>{buttonLabel}</span>
+  </Button>
+  <div
+    id="searchModal"
+    class="fixed inset-0 z-[9999] hidden overflow-y-auto"
+    role="dialog"
+    aria-modal="true"
+  >
+    <div class="min-h-screen px-8 text-center">
+      <div
+        class:list={["fixed", "inset-0", "transition-opacity", accentClass]}
+        id="modalOverlay"
+      >
+      </div>
+      <div
+        class="relative inline-block w-full p-8 mb-8 text-left align-middle max-w-screen transition-all transform"
+      >
+        <div class="pt-12 pb-2">
+          <Text
+            tag="p"
+            variant="display2XL"
+            class="font-bold tracking-tighter text-black text-balance"
+            >Search
+          </Text>
+          <Bars class="mt-2">Find anything across Ælen</Bars>
+        </div>
+        <div class="relative hidden">
+          <button
+            type="button"
+            id="closeSearch"
+            class="ml-auto cursor-pointer text-base-400 hover:text-black"
+            aria-label="Close search"
+          >
+            x
+          </button>
+        </div>
+        <div class="relative">
+          <label for="email" class="sr-only"> Search </label>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search..."
+            class="block w-full text-white border-transparent appearance-none bg-black/20 h-14 placeholder-white/80 focus:outline-none focus:ring-white"
+          />
+        </div>
+        <div
+          id="searchResults"
+          class="relative w-full mt-2 overflow-hidden overflow-y-auto bg-white max-h-100 scrollbar-hide"
+        >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script is:inline define:vars={{ searchItems }}>
+  // Wait for the entire page to load before running the script
+  window.addEventListener("load", () => {
+    // Get references to various elements in the search UI
+    const searchButton = document.getElementById("searchButton"); // Button that opens search modal
+    const searchModal = document.getElementById("searchModal"); // Search modal container
+    const modalOverlay = document.getElementById("modalOverlay"); // Overlay that closes modal on click
+    const searchInput = document.getElementById("searchInput"); // Input field for searching
+    const searchResults = document.getElementById("searchResults"); // Container for search results
+    const closeSearch = document.getElementById("closeSearch"); // Button to close search modal
+    // Initialize Fuse.js for fuzzy searching with content data
+    const fuse = new Fuse(searchItems, {
+      keys: ["title", "description", "type"], // Fields to search within
+      threshold: 0.3, // Controls search sensitivity (lower = more strict)
+      includeMatches: true, // Includes matching results for highlighting
+    });
+    // Hide search results by default
+    searchResults.classList.add("hidden");
+    // Function to open the search modal
+    function openSearch(e) {
+      e.preventDefault(); // Prevent default action (e.g., form submission)
+      e.stopPropagation(); // Stop event from bubbling up the DOM
+      searchModal.classList.remove("hidden"); // Show modal
+      document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
+      setTimeout(() => searchInput.focus(), 100); // Focus input field after a short delay
+    }
+    // Function to close the search modal
+    function closeSearchModal(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      searchModal.classList.add("hidden"); // Hide modal
+      document.body.style.overflow = ""; // Restore scrolling
+      searchInput.value = ""; // Clear search input
+      searchResults.innerHTML = ""; // Clear search results
+      searchResults.classList.add("hidden"); // Ensure results remain hidden
+    }
+    // Function to display search results
+    function renderResults(results) {
+      // If input is empty, hide results
+      if (!searchInput.value.trim()) {
+        searchResults.innerHTML = "";
+        searchResults.classList.add("hidden");
+        return;
+      }
+      // If no results are found, display a message
+      if (results.length === 0) {
+        searchResults.innerHTML = `
+         <div class="p-8 bg-black">
+            <h3 class="text-xl font-bold text-white">
+              Bummer, we couldn't find anything for you.
+            </h3>
+        </div>
+        `;
+        searchResults.classList.remove("hidden");
+        return;
+      }
+      // Generate HTML for each search result
+      searchResults.innerHTML = results
+        .slice(0, 12)
+        .map(
+          (result) => `
+          <div class="relative block p-8 bg-black border-b border-dashed border-white/20 hover:bg-black/90">
+              <a href="${result.item.url}" class="absolute inset-0 z-10"></a>
+              <div class="flex items-center justify-between gap-2 text-white/70">
+                <p class="text-xs font-semibold uppercase tracking-wide">${result.item.type}</p>
+                ${
+                  result.item.date
+                    ? `<p class="text-xs">${new Date(
+                        result.item.date
+                      ).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "2-digit",
+                      })}</p>`
+                    : ""
+                }
+              </div>
+              <h3  class="mt-3 text-2xl font-bold text-white">
+                ${result.item.title}
+              </h3>
+              ${
+                result.item.description
+                  ? `<p class="block max-w-xl mt-3 text-lg text-white">
+                      ${result.item.description}
+                    </p>`
+                  : ""
+              }
+          </div>
+        `
+        )
+        .join(""); // Join all results into a single string of HTML
+      // Make the search results visible
+      searchResults.classList.remove("hidden");
+    }
+    // Add event listeners to open the search modal
+    searchButton.addEventListener("click", openSearch);
+    searchButton.addEventListener("touchend", openSearch); // For mobile devices
+    // Add event listeners to close the search modal
+    closeSearch.addEventListener("click", closeSearchModal);
+    closeSearch.addEventListener("touchend", closeSearchModal);
+    // Close modal when clicking on the overlay (outside the modal)
+    modalOverlay.addEventListener("click", closeSearchModal);
+    modalOverlay.addEventListener("touchend", closeSearchModal);
+    // Listen for user input and perform a search
+    searchInput.addEventListener("input", (e) => {
+      const value = e.target.value.trim(); // Get search input value
+      const results = value ? fuse.search(value) : []; // Perform search only if input isn't empty
+      renderResults(results); // Display search results
+    });
+    // Close search modal when the Escape key is pressed
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !searchModal.classList.contains("hidden")) {
+        closeSearchModal();
+      }
+    });
+  });
+</script>

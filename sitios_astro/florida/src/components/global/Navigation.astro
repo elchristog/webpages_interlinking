@@ -1,0 +1,193 @@
+---
+// Assets
+import ThemeToggle from "@/components/global/ThemeToggle.astro";
+// Fundations
+import Logo from "@/components/assets/Logo.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import X from "@/components/fundations/icons/X.astro";
+const navigationLinks = [
+  {
+    title: "Overview",
+    href: "/system/overview",
+  },
+  {
+    title: "Pricing",
+    href: "/pricing",
+  },
+  {
+    title: "Buy Vanta",
+    href: "https://lexingtonthemes.com/templates/vanta",
+  },
+  {
+    title: "Sign in",
+    href: "/sign-in",
+  },
+];
+---
+
+<div id="nav-wrapper" class="fixed inset-x-0 top-0 w-full mx-auto z-51">
+  <Wrapper id="second-wrapper" variant="standard" class="py-4">
+    <div
+      id="navigation-wrapper"
+      class="relative flex flex-col md:items-center md:justify-between md:gap-12 md:flex-row"
+    >
+      <div class="flex flex-row items-center justify-between">
+        <a href="/" class="flex items-center font-medium gap-2">
+          <span class="sr-only">Go to homepage</span>
+          <Logo class="text-primary" />
+        </a>
+        <Button
+          iconOnly
+          id="menu-toggle"
+          size="xs"
+          variant="accent"
+          class="md:hidden"
+        >
+          <svg
+            slot="icon"
+            class="size-4"
+            stroke="currentColor"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              id="menu-icon"
+              class="inline-flex"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"></path>
+            <path
+              id="close-icon"
+              class="hidden"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </Button>
+      </div>
+      <nav
+        id="navigation-menu"
+        class="fixed inset-0 flex flex-col justify-between h-full py-12 opacity-0 pointer-events-none bg-secondary md:bg-none md:bg-transparent lg:p-0 md:p-0 transform transition-all duration-300 ease-in-out -translate-y-4 md:relative md:inset-auto md:opacity-100 md:pointer-events-auto md:translate-y-0 md:w-full"
+      >
+        <Button
+          iconOnly
+          variant="muted"
+          size="xs"
+          id="menu-close"
+          class="absolute top-4 right-8 md:hidden"
+          aria-label="Close menu"
+        >
+          <X slot="icon" size="sm" />
+        </Button>
+        <div
+          class="relative flex flex-col items-start justify-start w-full h-full px-8 gap-4 md:px-0 md:flex-row md:items-center md:text-left"
+        >
+          <a href="/" class="md:hidden">
+            <span class="sr-only">Go to homepage</span>
+            <Logo class="h-8 text-primary" />
+          </a>
+          <div
+            class="relative flex flex-col justify-center mt-12 gap-2 md:gap-4 md:flex-row md:ml-auto md:mt-0"
+          >
+            {
+              navigationLinks.map((link, index) => (
+                <a
+                  href={link.href}
+                  class="text-xs text-primary/60 hover:text-primary"
+                >
+                  {link.title}
+                </a>
+              ))
+            }
+            <ThemeToggle />
+          </div>
+        </div>
+      </nav>
+    </div>
+  </Wrapper>
+</div>
+<script type="module">
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menu-toggle");
+    const menuClose = document.getElementById("menu-close");
+    const menuIcon = document.getElementById("menu-icon");
+    const closeIcon = document.getElementById("close-icon");
+    const navigationMenu = document.getElementById("navigation-menu");
+    const navWrapper = document.getElementById("nav-wrapper");
+
+    // --- Mobile Menu Logic ---
+    let isMobileMenuOpen = false;
+
+    function toggleMenu(open) {
+      isMobileMenuOpen = open;
+      navigationMenu.classList.toggle("opacity-100", open);
+      navigationMenu.classList.toggle("translate-y-0", open);
+      navigationMenu.classList.toggle("pointer-events-auto", open);
+      navigationMenu.classList.toggle("opacity-0", !open);
+      navigationMenu.classList.toggle("-translate-y-4", !open);
+      navigationMenu.classList.toggle("pointer-events-none", !open);
+      menuIcon.classList.toggle("hidden", open);
+      closeIcon.classList.toggle("hidden", !open);
+
+      // Update nav background when menu state changes
+      updateNavOnScroll();
+    }
+
+    menuToggle.addEventListener("click", () => toggleMenu(true));
+    menuClose.addEventListener("click", () => toggleMenu(false));
+
+    // --- Scroll Blur Logic (Desktop and Mobile) ---
+    let ticking = false;
+
+    function updateNavOnScroll() {
+      // Don't apply blur effects when mobile menu is open
+      if (window.innerWidth < 768 && isMobileMenuOpen) {
+        navWrapper.classList.remove(
+          "backdrop-blur",
+          "bg-secondary/10",
+          "backdrop-blur-sm",
+          "bg-secondary/5"
+        );
+        return;
+      }
+
+      if (window.scrollY > 50) {
+        if (window.innerWidth >= 768) {
+          // Desktop: Full blur
+          navWrapper.classList.add("backdrop-blur", "bg-secondary/10");
+          navWrapper.classList.remove("backdrop-blur-sm", "bg-secondary/5");
+        } else {
+          // Mobile: Lighter blur for better performance
+          navWrapper.classList.add("backdrop-blur-sm", "bg-secondary/5");
+          navWrapper.classList.remove("backdrop-blur", "bg-secondary/10");
+        }
+      } else {
+        // Remove all blur effects when at top
+        navWrapper.classList.remove(
+          "backdrop-blur",
+          "bg-secondary/10",
+          "backdrop-blur-sm",
+          "bg-secondary/5"
+        );
+      }
+      ticking = false;
+    }
+
+    function requestTick() {
+      if (!ticking) {
+        requestAnimationFrame(updateNavOnScroll);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener("scroll", requestTick);
+    window.addEventListener("resize", updateNavOnScroll);
+
+    // Initial check
+    updateNavOnScroll();
+  });
+</script>

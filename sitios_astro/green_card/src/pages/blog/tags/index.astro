@@ -1,0 +1,56 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Content
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("posts");
+allPosts.sort((a, b) => {
+  const dateA = new Date(a.data.pubDate).getTime(); // Convert to timestamp
+  const dateB = new Date(b.data.pubDate).getTime(); // Convert to timestamp
+  return dateB - dateA; // Compare timestamps
+});
+// Tags
+const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
+const pageTitle = "Tag Index";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <section class="bg-white overflow-hidden relative">
+    <Wrapper class="py-12 lg:pt-24">
+      <div class="gap-4 lflex flex-col max-w-5xl mx-auto">
+        <div class="grid items-end gap-4 lg:grid-cols-3 max-w-5xl mx-auto">
+          <div class="lg:col-span-2">
+            <Text
+              tag="h1"
+              variant="displayLG"
+              class="tracking-tighter text-accent-800 text-balance"
+            >
+              All tags
+            </Text>
+          </div>
+          <Text tag="p" variant="textLG" class="font-medium text-accent-500">
+            Explore all tags from our blog.
+          </Text>
+        </div>
+        <div
+          class="relative flex flex-col divide-y divide-accent-200 overflow-hidden w-full mt-24"
+        >
+          {
+            tags.sort().map((tag) => (
+              <Text
+                tag="a"
+                variant="displaySM"
+                class=" font-diusplay text-accent-500 text-base hover:text-pink-500 duration-200  capitalize py-4"
+                href={`/blog/tags/${tag}`}
+              >
+                {tag}
+              </Text>
+            ))
+          }
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

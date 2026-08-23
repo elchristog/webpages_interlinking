@@ -1,0 +1,196 @@
+---
+// Assets
+import { Code } from "astro:components";
+// Foundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Data array
+const sections = [
+  {
+    id: "true-ownership",
+    title: "True Ownership",
+    description:
+      "Your data, your assets, your rules. With Web3, you have complete authority over your digital identity, finances, and online presence.",
+    imageAlt: "#_",
+  },
+  {
+    id: "decentralized-secure",
+    title: "Decentralized & Secure",
+    description:
+      "Powered by blockchain technology, our platform eliminates the need for intermediaries, making it trustless, transparent, and resistant to censorship.",
+    imageAlt: "#_",
+  },
+];
+---
+
+<section>
+  <Wrapper variant="standard">
+    <div
+      class="grid grid-cols-1 md:divide-x divide-accent-900 list-none md:grid-cols-2 border-x border-base-900"
+    >
+      {
+        sections.map((section) => (
+          <div class="h-160 bg-gradient-down bg-base-950  border-t  border-base-900  p-8 pt-24 pb-0 relative overflow-hidden">
+            <div class="text-center ">
+              <Text
+                tag="h2"
+                variant="displayLG"
+                class="font-medium text-white font-display    "
+              >
+                {section.title}
+              </Text>
+              <Text
+                tag="p"
+                variant="textBase"
+                class="mt-4 text-base-400 text-balance "
+              >
+                {section.description}
+              </Text>
+            </div>
+            {/* Conditionally show the correct code block */}
+            {section.id === "true-ownership" && (
+              <div
+                data-aos="fade-up"
+                data-aos-duration="1500"
+                class="shadow-dimensional "
+              >
+                <div class="py-2 px-4  border border-b-0 border-base-900 mt-12 border-l-white">
+                  <div class="flex items-center gap-1">
+                    <div class="size-2 outline rounded-full outline-base-600" />
+                    <div class="size-2 outline rounded-full outline-base-700" />
+                    <div class="size-2 outline rounded-full outline-base-800" />
+                  </div>
+                </div>
+                <Code
+                  class="scrollbar-hide border  text-xs p-8 border-base-900"
+                  code={`// SPDX-License-Identifier: MIT
+  pragma solidity ^0.8.19;
+  
+  /// @title Web3 Ownership Smart Contract
+  /// @dev Enables ownership management and secure asset transfers
+  contract Web3Ownership {
+      address public owner;
+      mapping(address => bool) public authorizedUsers;
+  
+      event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+      event UserAuthorized(address indexed user);
+      event UserRevoked(address indexed user);
+  
+      constructor() {
+          owner = msg.sender;
+      }
+  
+      /// @notice Transfers ownership to a new address
+      /// @param newOwner Address of the new contract owner
+      function transferOwnership(address newOwner) public {
+          require(msg.sender == owner, "Not the contract owner");
+          require(newOwner != address(0), "Invalid new owner");
+          emit OwnershipTransferred(owner, newOwner);
+          owner = newOwner;
+      }
+  
+      /// @notice Authorizes a new user for specific operations
+      /// @param user Address to be authorized
+      function authorizeUser(address user) public {
+          require(msg.sender == owner, "Only the owner can authorize");
+          authorizedUsers[user] = true;
+          emit UserAuthorized(user);
+      }
+  
+      /// @notice Revokes authorization from a user
+      /// @param user Address to be revoked
+      function revokeUser(address user) public {
+          require(msg.sender == owner, "Only the owner can revoke access");
+          authorizedUsers[user] = false;
+          emit UserRevoked(user);
+      }
+  
+      /// @notice Checks if an address is authorized
+      /// @param user Address to check
+      function isAuthorized(address user) public view returns (bool) {
+          return authorizedUsers[user];
+      }
+  }
+  `}
+                  lang="js"
+                  theme="css-variables"
+                />
+              </div>
+            )}
+
+            {section.id === "decentralized-secure" && (
+              <div
+                data-aos="fade-up"
+                data-aos-duration="3000"
+                class="shadow-dimensional "
+              >
+                <div class="py-2 px-4 border border-b-0 border-base-900 bg-base-950 mt-12 border-l-white">
+                  <div class="flex items-center gap-1">
+                    <div class="size-2 outline rounded-full outline-base-600" />
+                    <div class="size-2 outline rounded-full outline-base-700" />
+                    <div class="size-2 outline rounded-full outline-base-800" />
+                  </div>
+                </div>
+                <Code
+                  class="scrollbar-hide border text-xs p-8 border-base-900"
+                  code={`// SPDX-License-Identifier: MIT
+  pragma solidity ^0.8.19;
+  
+  interface IERC721 {
+      function ownerOf(uint256 tokenId) external view returns (address);
+      function transferFrom(address from, address to, uint256 tokenId) external;
+  }
+  
+  /// @title NFT Ownership Verification and Secure Transfer Contract
+  /// @dev Enables verification and secure peer-to-peer transfers
+  contract NFTOwnershipVerifier {
+      event OwnershipVerified(address indexed user, uint256 indexed tokenId);
+      event NFTTransferred(address indexed from, address indexed to, uint256 indexed tokenId);
+  
+      /// @notice Verifies if a user owns a specific NFT
+      /// @param nftContract Address of the ERC-721 contract
+      /// @param tokenId ID of the NFT
+      /// @param user Address of the potential owner
+      /// @return bool Whether the user owns the token
+      function verifyOwnership(address nftContract, uint256 tokenId, address user)
+          external
+          view
+          returns (bool)
+      {
+          IERC721 nft = IERC721(nftContract);
+          bool isOwner = nft.ownerOf(tokenId) == user;
+          if (isOwner) {
+              emit OwnershipVerified(user, tokenId);
+          }
+          return isOwner;
+      }
+  
+      /// @notice Securely transfers an NFT between two users
+      /// @param nftContract Address of the ERC-721 contract
+      /// @param tokenId ID of the NFT
+      /// @param from Current owner of the NFT
+      /// @param to New recipient of the NFT
+      function secureTransfer(
+          address nftContract,
+          uint256 tokenId,
+          address from,
+          address to
+      ) external {
+          IERC721 nft = IERC721(nftContract);
+          require(nft.ownerOf(tokenId) == from, "Sender does not own the NFT");
+          nft.transferFrom(from, to, tokenId);
+          emit NFTTransferred(from, to, tokenId);
+      }
+  }
+  `}
+                  lang="js"
+                  theme="css-variables"
+                />
+              </div>
+            )}
+          </div>
+        ))
+      }
+    </div>
+  </Wrapper>
+</section>

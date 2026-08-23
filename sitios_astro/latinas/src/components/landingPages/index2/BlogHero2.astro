@@ -1,0 +1,56 @@
+---
+// Fundations
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+// Icons
+import ArrowLeft from "@/components/fundations/icons/ArrowLeft.astro";
+import ArrowRight from "@/components/fundations/icons/ArrowRight.astro";
+// Components
+import BlogCard5 from "@/components/blog/BlogCard5.astro";
+// Get all posts
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("posts");
+allPosts.sort((a, b) => {
+  const dateA = new Date(a.data.pubDate).getTime(); // Convert to timestamp
+  const dateB = new Date(b.data.pubDate).getTime(); // Convert to timestamp
+  return dateB - dateA; // Compare timestamps
+});
+---
+
+<section class="overflow-x-hidden">
+  <Wrapper variant="standard" class="mt-2">
+    <div class="relative overflow-hidden">
+      <div id="keen-slider" class="relative overflow-hidden keen-slider">
+        {
+          allPosts
+            .filter((post) => post.data.isTopStory)
+            .map((post) => <BlogCard5 post={post} />)
+        }
+      </div>
+
+      <div class="lg:absolute lg:bottom-8 left-8 right-">
+        <div class="flex items-center justify-center my-2 gap-2">
+          <Button
+            iconOnly
+            aria-label="Previous slide"
+            id="keen-slider-previous"
+            size="24"
+            variant="orange"
+          >
+            <ArrowLeft slot="icon" size="lg" />
+          </Button>
+          <Button
+            iconOnly
+            aria-label="Next slide"
+            id="keen-slider-next"
+            size="24"
+            variant="orange"
+          >
+            <ArrowRight slot="icon" size="lg" />
+          </Button>
+        </div>
+      </div>
+    </div>
+  </Wrapper>
+</section>

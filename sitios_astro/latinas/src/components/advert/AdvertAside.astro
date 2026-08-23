@@ -1,0 +1,19 @@
+---
+import { Image } from "astro:assets";
+import advertAside from "@/images/assets/advertAside.svg";
+---
+
+<div class="relative flex items-end w-full mt-2 overflow-hidden">
+  <a
+    href="https://lexingtonthemes.com/"
+    title="link to https://lexingtonthemes.com/"
+    class="absolute inset-0 z-10"></a>
+
+  <Image
+    src={advertAside}
+    alt="#_"
+    width={1000}
+    height={1000}
+    class="object-cover object-bottom w-full h-full aspect-square lg:aspect-auto lg:object-center invert rounded-3xl"
+  />
+</div>

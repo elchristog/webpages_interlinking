@@ -1,0 +1,59 @@
+---
+import { Image } from "astro:assets";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+// Icons
+import ArrowRight from "@/components/fundations/icons/ArrowRight.astro";
+
+const { url, title, pubDate, image } = {
+  url: "/blog/posts/" + Astro.props.post.id,
+  title: Astro.props.post.data.title,
+  image: Astro.props.post.data.image.url,
+  pubDate: new Date(Astro.props.post.data.pubDate).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "2-digit",
+  }),
+};
+
+// Calculate reading time
+import readingTime from "reading-time";
+const stats = readingTime(Astro.props.post.body);
+---
+
+<article class="grid grid-cols-1 lg:grid-cols-3 gap-2">
+  <div class="flex flex-col p-8 bg-base-100 rounded-4xl">
+    <div class="flex items-center pl-8 font-display gap-x-2 text-base-700">
+      <Text tag="p" variant="textXS">
+        <time datetime={pubDate}>{pubDate}</time>
+      </Text>
+      <span aria-hidden="true">·</span>
+      <Text tag="p" variant="textXS">{stats.text}</Text>
+    </div>
+    <Text
+      tag="h3"
+      variant="textLG"
+      class="mt-8 text-balance font-display uppercase text-base-900"
+    >
+      {title}
+    </Text>
+    <Button
+      isLink
+      href={url}
+      title={title}
+      size="xl"
+      variant="default"
+      iconOnly
+      class="mt-8"
+    >
+      <ArrowRight slot="icon" size="lg" />
+    </Button>
+  </div>
+  <Image
+    src={image}
+    width="800"
+    height="800"
+    alt={title}
+    class="object-cover w-full aspect-12/8 lg:col-span-2 rounded-4xl"
+  />
+</article>

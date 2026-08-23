@@ -1,0 +1,71 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import CtaHire from "@/components/ctas/CtaHire.astro";
+// Content
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout>
+  <section class="bg-white overflow-hidden relative">
+    <Wrapper variant="standard" class="py-12 lg:pt-24">
+      <div class="flex flex-col gap-4 lg:grid-cols-3">
+        <div class="max-w-xl">
+          <Text
+            tag="h1"
+            variant="displayLG"
+            class="tracking-tighter text-accent-800 text-balance"
+          >
+            {frontmatter.service}
+          </Text>
+          <Text
+            tag="p"
+            variant="textXL"
+            class="text-accent-500 mt-8 text-balance"
+          >
+            {frontmatter.description}
+          </Text>
+        </div>
+        <div class="flex flex-col items-center justify-center">
+          <div class="relative -skew-y-12">
+            <div
+              class="bg-accent-200 text-accent-600 relative rounded-2xl mt-24 z-10 py-8 px-4 bottom-0 w-full overflow-x-hidden"
+            >
+              <div
+                class="items-center relative animate-slowMarquee flex gap-4 whitespace-nowrap w-max"
+              >
+                {
+                  Array.from({ length: 5 }).map((_) => (
+                    <span>{frontmatter.description}</span>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+          <div class="relative skew-y-12">
+            <div
+              class="bg-accent-200 text-accent-600 relative rounded-2xl mt-24 z-10 py-8 px-4 bottom-0 w-full overflow-x-hidden"
+            >
+              <div
+                class="items-center relative animate-slowMarquee flex gap-4 whitespace-nowrap w-max"
+              >
+                {
+                  Array.from({ length: 20 }).map((_) => (
+                    <span>{frontmatter.service}.</span>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+        <Wrapper variant="prose" class="mt-12">
+          <slot />
+        </Wrapper>
+      </div>
+    </Wrapper>
+  </section>
+  <CtaHire />
+</BaseLayout>

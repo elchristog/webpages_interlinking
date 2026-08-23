@@ -1,0 +1,19 @@
+---
+import { Image } from "astro:assets";
+import advertInline from "@/images/assets/advertInline.svg";
+---
+
+<div class="relative items-end w-full overflow-hidden ">
+  <a
+    href="https://advertInlineingtonthemes.com/"
+    title="link to https://advertInlineingtonthemes.com/"
+    class="absolute inset-0 z-10"></a>
+
+  <Image
+    src={advertInline}
+    alt="#_"
+    width={1000}
+    height={1000}
+    class="object-cover object-bottom w-full h-full aspect-square lg:aspect-auto lg:object-center rounded-4xl invert"
+  />
+</div>

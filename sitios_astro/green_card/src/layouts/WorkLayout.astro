@@ -1,0 +1,99 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import CtaHire from "@/components/ctas/CtaHire.astro";
+// Content
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout>
+  <section class="bg-white overflow-hidden relative">
+    <Wrapper variant="standard" class="py-12 lg:pt-24">
+      <div class="gap-4 lflex flex-col">
+        <div class="grid items-end gap-4 lg:grid-cols-3 max-w-5xl mx-auto">
+          <div class="lg:col-span-2">
+            <Text
+              tag="h1"
+              variant="displayLG"
+              class="tracking-tighter text-accent-800 text-balance"
+            >
+              {frontmatter.company}
+            </Text>
+          </div>
+          <Text tag="p" variant="textBase" class="font-medium text-accent-500">
+            We are a team of creatives and developers who work together to
+            create a unique and engaging experience for our clients.
+          </Text>
+        </div>
+        <dl class="flex flex-col gap-2 mt-24">
+          <div class="flex items-center justify-between w-full">
+            <dt class="text-accent-900 font-semibold">Client</dt><dd
+              class="text-accent-600 font-normal"
+            >
+              {frontmatter.client}
+            </dd>
+          </div>
+          <div class="flex items-center justify-between w-full">
+            <dt class="text-accent-900 font-semibold">Year</dt>
+            <dd class="text-accent-600 font-normal">
+              <time datetime={frontmatter.year}>
+                {frontmatter.year}
+              </time>
+            </dd>
+          </div>
+          <div class="flex items-center justify-between w-full">
+            <dt class="text-accent-900 font-semibold">Work</dt>
+            <dd class="text-accent-600 font-normal">
+              {frontmatter.work}
+            </dd>
+          </div>
+          <div>
+            {
+              frontmatter.credits.map((credit) => (
+                <div class="flex items-center justify-between w-full">
+                  <dt class="text-accent-900 font-semibold">{credit.name}</dt>
+                  <dd class="text-accent-600 font-normal">{credit.role}</dd>
+                </div>
+              ))
+            }
+          </div>
+          <div class="flex items-center justify-between w-full">
+            <dt class="text-accent-900 font-semibold">Website</dt>
+            <dd class="text-accent-600 font-normal">
+              <a href={frontmatter.link}>Visit</a>
+            </dd>
+          </div>
+        </dl>
+      </div>
+      <Image
+        width={1200}
+        height={630}
+        src={frontmatter.thumbnail.url}
+        alt={frontmatter.thumbnail.alt}
+        class="w-full max-h-120 rounded-t-2xl relative object-cover object-top mt-12"
+      />
+      <div
+        class="bg-accent-200 text-accent-600 relative rounded-b-2xl z-10 py-2 px-4 bottom-0 w-full overflow-x-hidden"
+      >
+        <div
+          class="items-center relative animate-marquee flex gap-4 whitespace-nowrap w-max"
+        >
+          {
+            Array.from({ length: 20 }).map((_) => (
+              <span>{frontmatter.company}.</span>
+            ))
+          }
+        </div>
+      </div>
+      <Wrapper variant="prose" class="mt-12">
+        <slot />
+      </Wrapper>
+    </Wrapper>
+  </section>
+  <CtaHire />
+</BaseLayout>

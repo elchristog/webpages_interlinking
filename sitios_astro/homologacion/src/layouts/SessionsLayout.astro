@@ -1,0 +1,211 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import SessionCard from "@/components/sessions/SessionCard.astro";
+import { Image } from "astro:assets";
+import { getEntry } from "astro:content";
+const frontmatter = Astro.props.frontmatter;
+const speakerSocials = Astro.props.speakerSocials ?? [];
+const passedSessions = Astro.props.sessions ?? [];
+const currentSlug = Astro.props.slug ?? frontmatter?.slug;
+const relatedSessions = Array.isArray(passedSessions)
+  ? passedSessions
+      .filter(
+        (session) =>
+          session.data.day === frontmatter.day &&
+          (currentSlug ? session.id !== currentSlug : true)
+      )
+      .sort(
+        (a, b) =>
+          new Date(a.data.start).getTime() - new Date(b.data.start).getTime()
+      )
+  : [];
+const startDate = new Date(frontmatter.start);
+const endDate = new Date(frontmatter.end);
+const dateLabel = startDate.toLocaleDateString("en-US", {
+  weekday: "long",
+  month: "long",
+  day: "numeric",
+  year: "numeric",
+});
+const timeRange = `${startDate.toLocaleTimeString("en-US", {
+  hour: "2-digit",
+  minute: "2-digit",
+})} – ${endDate.toLocaleTimeString("en-US", {
+  hour: "2-digit",
+  minute: "2-digit",
+})}`;
+const metadata = [
+  { label: "Date", value: dateLabel },
+  { label: "Time", value: timeRange },
+  { label: "Room", value: frontmatter.room },
+  ...(frontmatter.track ? [{ label: "Track", value: frontmatter.track }] : []),
+  ...(frontmatter.level ? [{ label: "Level", value: frontmatter.level }] : []),
+];
+const slugToName = (slug) =>
+  String(slug || "")
+    .split("-")
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
+const socialMap = new Map(
+  speakerSocials.map((speaker) => [speaker.slug, speaker.socials ?? {}])
+);
+const speakerEntries = await Promise.all(
+  (frontmatter.speakers ?? []).map((slug) => getEntry("speakers", slug))
+);
+const speakers = speakerEntries.map((entry, index) => {
+  const slug = frontmatter.speakers[index];
+  return {
+    slug,
+    name: slugToName(slug),
+    socials: socialMap.get(slug) ?? {},
+    headshot: entry?.data.headshot,
+  };
+});
+const SOCIAL_LABELS = [
+  { key: "twitter", label: "Twitter" },
+  { key: "github", label: "GitHub" },
+  { key: "linkedin", label: "LinkedIn" },
+  { key: "website", label: "Website" },
+];
+const hasAnySocial = speakers.some((speaker) =>
+  SOCIAL_LABELS.some(({ key }) => speaker.socials?.[key])
+);
+const tags = Array.isArray(frontmatter.tags) ? frontmatter.tags : [];
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-32">
+      <div class="grid grid-cols-1 lg:grid-cols-12 items-start">
+        <div class="lg:col-span-6">
+          <Text tag="p" variant="textXS" class="uppercase text-base-600">
+            A Session with {speakers.map((speaker) => speaker.name).join(" • ")}
+          </Text>
+          <Text
+            tag="h1"
+            variant="displayMD"
+            class="text-balance text-accent-500 font-display uppercase leading-tight mt-8"
+          >
+            {frontmatter.title}
+          </Text>
+
+          <Text tag="p" variant="textSM" class="text-base-600 mt-2">
+            {frontmatter.abstract}
+          </Text>
+          <div class="flex flex-col gap-1 mt-4">
+            {
+              tags.map((tag) => (
+                <span class="uppercase text-xs text-accent-500 ">{tag}</span>
+              ))
+            }
+          </div>
+
+          <Text
+            tag="p"
+            variant="textBase"
+            class="uppercase text-accent-500 font-display"
+          >
+            Session details
+          </Text>
+          <ul
+            class="mt-4 divide-y divide-black/10 divide-dashed border-y border-dashed border-black/10"
+          >
+            {
+              metadata.map((item) => (
+                <li class="flex items-center justify-between py-2">
+                  <Text
+                    tag="span"
+                    variant="textXS"
+                    class="uppercase text-accent-500 font-display"
+                  >
+                    {item.label}
+                  </Text>
+                  <Text tag="span" variant="textSM" class="text-base-600">
+                    {item.value}
+                  </Text>
+                </li>
+              ))
+            }
+          </ul>
+          <Wrapper variant="prose" class="mt-24">
+            <slot />
+          </Wrapper>
+        </div>
+        <div class="lg:col-span-4 lg:col-start-9 lg:sticky lg:top-32">
+          {
+            hasAnySocial && (
+              <div>
+                <Text
+                  tag="h2"
+                  variant="textXL"
+                  class="uppercase text-accent-500 font-display"
+                >
+                  Connect with the speaker{speakers.length > 1 ? "s" : ""}
+                </Text>
+                <div class="mt-4 flex flex-col">
+                  {speakers.map((speaker) => {
+                    const links = SOCIAL_LABELS.filter(
+                      ({ key }) => speaker.socials?.[key]
+                    );
+                    if (!links.length) {
+                      return null;
+                    }
+                    return (
+                      <div>
+                        <Image
+                          src={speaker.headshot.url}
+                          alt={speaker.headshot.alt || speaker.name}
+                          width={600}
+                          height={600}
+                          class="aspect-square w-full object-cover grayscale"
+                        />
+                        <Text
+                          tag="p"
+                          variant="textBase"
+                          class="font-display uppercase text-accent-500 font-display mt-2"
+                        >
+                          {speaker.name}
+                        </Text>
+                        <div class="flex flex-wrap gap-2 text-xs    text-base-600 mt-2">
+                          {links.map(({ key, label }) => (
+                            <a
+                              href={speaker.socials[key]}
+                              class="underline-offset-4 hover:text-white hover:underline"
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              {label}
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )
+          }
+        </div>
+      </div>
+
+      <section class="mt-24 lg:mt-48">
+        <Text
+          tag="h2"
+          variant="displaySM"
+          class="font-display uppercase text-accent-500"
+        >
+          More sessions this day
+        </Text>
+        <div class="grid mt-8 md:grid-cols-2 xl:grid-cols-3">
+          {
+            relatedSessions
+              .slice(0, 3)
+              .map((session) => <SessionCard session={session} />)
+          }
+        </div>
+      </section>
+    </Wrapper>
+  </section>
+</BaseLayout>

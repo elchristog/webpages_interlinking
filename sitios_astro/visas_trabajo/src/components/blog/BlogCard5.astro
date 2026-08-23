@@ -1,0 +1,58 @@
+---
+import Text from "@/components/fundations/elements/Text.astro";
+import readingTime from "reading-time";
+
+const { url, title, pubDate, tags } = {
+  url: "/blog/posts/" + Astro.props.post.id,
+  title: Astro.props.post.data.title,
+  tags: Astro.props.post.data.tags,
+  pubDate: new Date(Astro.props.post.data.pubDate).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "2-digit",
+  }),
+};
+
+// Calculate reading time
+const stats = readingTime(Astro.props.post.body);
+---
+
+<article class="relative w-full pb-4 group overflow-hidden">
+  <a href={url} title={title} class="absolute inset-0 z-30"></a>
+
+  <div class="flex flex-col justify-between h-full relative z-20">
+    <Text
+      tag="h3"
+      variant="textBase"
+      class="text-base-900 font-display group-hover:underline"
+    >
+      {title}
+    </Text>
+    <div class="flex items-center gap-x-2 text-base-600">
+      <span>
+        {
+          tags.map((tag) => {
+            const formattedTag = tag.replace(/-/g, " ");
+            return (
+              <Text
+                tag="p"
+                variant="textXS"
+                title={tag}
+                aria-label={tag}
+                class="capitalize"
+              >
+                {formattedTag}
+              </Text>
+            );
+          })
+        }
+      </span>
+      <span>·</span>
+      <Text tag="p" variant="textXS">
+        <time datetime={pubDate}>{pubDate}</time>
+        <span aria-hidden="true">·</span>
+        {stats.text}
+      </Text>
+    </div>
+  </div>
+</article>

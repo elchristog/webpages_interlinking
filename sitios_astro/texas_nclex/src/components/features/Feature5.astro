@@ -1,0 +1,114 @@
+---
+// Assets
+import Shape1 from "@/components/assets/Shape1.astro";
+import Shape2 from "@/components/assets/Shape2.astro";
+import Shape3 from "@/components/assets/Shape3.astro";
+import Shape4 from "@/components/assets/Shape4.astro";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Data array
+const features = [
+  {
+    animationDuration: 1500,
+    symbol: "Shape1",
+    title: "Seamless Web3 Integration",
+    description:
+      "Effortlessly connect your dApps, wallets, and smart contracts with our plug-and-play solutions.",
+  },
+  {
+    animationDuration: 2000,
+    symbol: "Shape2",
+    title: "Customizable Smart Contracts",
+    description:
+      "Easily deploy and manage tailor-made smart contracts for your decentralized applications.",
+  },
+  {
+    animationDuration: 2500,
+    symbol: "Shape3",
+    title: "On-Chain Data Tracking",
+    description:
+      "Monitor real-time blockchain transactions and track assets across multiple networks.",
+  },
+  {
+    animationDuration: 1500,
+    symbol: "Shape4",
+    title: "Automated Blockchain Analytics",
+    description:
+      "Generate real-time reports on token flows, smart contract activity, and user engagement.",
+  },
+];
+---
+
+<section>
+  <Wrapper class="py-24 relative overflow-hidden">
+    <div
+      class="mx-auto max-w-2xl text-center lg:mx-0 lg:flex-auto lg:text-left"
+    >
+      <Text tag="span" variant="textSM" class="text-white">
+        Next-gen capabilities
+      </Text>
+      <Text
+        tag="h1"
+        variant="displayLG"
+        class="mt-12 text-white text-balance font-display"
+      >
+        Build smarter
+        <span class="text-base-400">Scale seamlessly </span>
+      </Text>
+      <Text tag="p" variant="textBase" class="text-white mt-2 text-balance">
+        Effortlessly integrate dApps, track on-chain data, and automate insights
+        with powerful Web3-native solutions. The future is decentralized—build
+        with confidence.
+      </Text>
+    </div>
+    <dl
+      class="gap-y-12 lg:col-span-3 md:grid-cols-2 lg:col-start-2 grid grid-cols-1 lg:grid-cols-4"
+    >
+      {
+        features.map((feature) => (
+          <div
+            data-aos="fade-up"
+            data-aos-duration={feature.animationDuration}
+            class="relative overflow-hidden"
+          >
+            {feature.symbol === "Shape1" && (
+              <Shape1 class="text-white bg-gradient-down" />
+            )}
+            {feature.symbol === "Shape2" && (
+              <Shape2 class="text-white bg-gradient-down" />
+            )}
+            {feature.symbol === "Shape3" && (
+              <Shape3 class="text-white bg-gradient-down" />
+            )}
+            {feature.symbol === "Shape4" && (
+              <Shape4 class="text-white bg-gradient-down" />
+            )}
+            <div class="before:bg-white mt-8">
+              <div class="px-4 relative  before:absolute after:absolute before:bg-white before:top-0 before:left-0 before:h-6 before:w-px after:top-8 after:bottom-0 after:left-0 after:w-px">
+                <dt class="flex flex-col  gap-4">
+                  <Text
+                    tag="h3"
+                    variant="textLg"
+                    class="font-medium text-white    "
+                  >
+                    {feature.title}
+                  </Text>
+                </dt>
+                <dd class="mt-4">
+                  <Text
+                    tag="p"
+                    variant="textSM"
+                    class=" text-base-400 text-balance"
+                  >
+                    {feature.description}
+                  </Text>
+                </dd>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </dl>
+  </Wrapper>
+</section>

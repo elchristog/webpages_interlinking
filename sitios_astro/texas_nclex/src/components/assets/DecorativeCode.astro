@@ -1,0 +1,125 @@
+---
+// Assets
+import { Code } from "astro:components";
+// DecorativeCode : This component renders a component and accepts props for customization.
+// Props: - class: A string of additional classes to style the component.
+// - ...rest: Any other valid attributes for an div element (e.g., id, style, role, aria-label, etc.).
+// Example Usage: <DecorativeCode class="my-custom-class" /> or <DecorativeCode id="DecorativeCode-id" style="width: 50px; height: 50px;" />
+const { class: className = "", ...rest } = Astro.props;
+---
+<div class={className}
+{...rest} >
+    <div class="flex items-start">
+      <Code
+      data-aos="fade-up" data-aos-duration="1500"
+        class="scrollbar-hide border-y border-l lg:border-l-0 border-r text-xs p-8 border-base-900"
+        code={`// SPDX-License-Identifier: MIT
+      pragma solidity ^0.8.19;
+      
+      interface IERC721 {
+          function ownerOf(uint256 tokenId) external view returns (address);
+          function transferFrom(address from, address to, uint256 tokenId) external;
+      }
+      
+      /// @title NFT Ownership Verification and Secure Transfer Contract
+      /// @dev Enables verification and secure peer-to-peer transfers
+      contract NFTOwnershipVerifier {
+          event OwnershipVerified(address indexed user, uint256 indexed tokenId);
+          event NFTTransferred(address indexed from, address indexed to, uint256 indexed tokenId);
+      
+          /// @notice Verifies if a user owns a specific NFT
+          /// @param nftContract Address of the ERC-721 contract
+          /// @param tokenId ID of the NFT
+          /// @param user Address of the potential owner
+          /// @return bool Whether the user owns the token
+          function verifyOwnership(address nftContract, uint256 tokenId, address user)
+              external
+              view
+              returns (bool)
+          {
+              IERC721 nft = IERC721(nftContract);
+              bool isOwner = nft.ownerOf(tokenId) == user;
+              if (isOwner) {
+                  emit OwnershipVerified(user, tokenId);
+              }
+              return isOwner;
+          }
+      
+          /// @notice Securely transfers an NFT between two users
+          /// @param nftContract Address of the ERC-721 contract
+          /// @param tokenId ID of the NFT
+          /// @param from Current owner of the NFT
+          /// @param to New recipient of the NFT
+          function secureTransfer(
+              address nftContract,
+              uint256 tokenId,
+              address from,
+              address to
+          ) external {
+              IERC721 nft = IERC721(nftContract);
+              require(nft.ownerOf(tokenId) == from, "Sender does not own the NFT");
+              nft.transferFrom(from, to, tokenId);
+              emit NFTTransferred(from, to, tokenId);
+          }
+      }
+                 `}
+        lang="js"
+        theme="css-variables"
+      />
+      <Code
+      data-aos="fade-up" data-aos-duration="2500"
+        class="scrollbar-hide hidden md:block border-y border-l lg:border-l-0 border-r text-xs p-8 border-base-900"
+        code={`// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.19;
+
+/// @title Web3 Ownership Smart Contract
+/// @dev Enables ownership management and secure asset transfers
+contract Web3Ownership {
+address public owner;
+mapping(address => bool) public authorizedUsers;
+
+event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+event UserAuthorized(address indexed user);
+event UserRevoked(address indexed user);
+
+constructor() {
+owner = msg.sender;
+}
+
+/// @notice Transfers ownership to a new address
+/// @param newOwner Address of the new contract owner
+function transferOwnership(address newOwner) public {
+require(msg.sender == owner, "Not the contract owner");
+require(newOwner != address(0), "Invalid new owner");
+emit OwnershipTransferred(owner, newOwner);
+owner = newOwner;
+}
+
+/// @notice Authorizes a new user for specific operations
+/// @param user Address to be authorized
+function authorizeUser(address user) public {
+require(msg.sender == owner, "Only the owner can authorize");
+authorizedUsers[user] = true;
+emit UserAuthorized(user);
+}
+
+/// @notice Revokes authorization from a user
+/// @param user Address to be revoked
+function revokeUser(address user) public {
+require(msg.sender == owner, "Only the owner can revoke access");
+authorizedUsers[user] = false;
+emit UserRevoked(user);
+}
+
+/// @notice Checks if an address is authorized
+/// @param user Address to check
+function isAuthorized(address user) public view returns (bool) {
+return authorizedUsers[user];
+}
+}
+`}
+        lang="js"
+        theme="css-variables"
+      />
+    </div>
+  </div>

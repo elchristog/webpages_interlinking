@@ -1,0 +1,33 @@
+---
+import SpeakersLayout from "@/layouts/SpeakersLayout.astro";
+import { getCollection, render } from "astro:content";
+export async function getStaticPaths() {
+  const speakerEntries = await getCollection("speakers");
+  return speakerEntries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry, speakers: speakerEntries },
+  }));
+}
+const { entry, speakers } = Astro.props;
+const { Content } = await render(entry);
+
+// Fetch related talks for this speaker
+let relatedTalks = [];
+let allSessions = [];
+if (import.meta.env.SSR) {
+  allSessions = await getCollection("sessions");
+  relatedTalks = allSessions.filter((session: import("astro:content").CollectionEntry<"sessions">) =>
+    (entry.data.talks || []).includes(session.id)
+  );
+}
+---
+
+<SpeakersLayout
+  frontmatter={entry.data}
+  speakers={speakers}
+  relatedTalks={relatedTalks}
+  sessions={allSessions}
+  slug={entry.id}
+>
+  <Content />
+</SpeakersLayout>

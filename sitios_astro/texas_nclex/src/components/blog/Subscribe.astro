@@ -1,0 +1,57 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<section>
+  <Wrapper
+    variant="standard"
+    class="py-12 relative grid grid-cols-1 md:grid-cols-4"
+  >
+    <div class="md:col-span-2 md:col-start-2">
+      <Text
+        tag="h1"
+        variant="displayXL"
+        class="mt-12 text-white text-balance font-display"
+      >
+        We have a newsletter
+      </Text>
+      <Text tag="p" variant="textBase" class="text-white mt-2 text-balance"
+        >Subscribe and get the latest news and updates about web3 on your inbox
+        every week. No spam, no hassle.
+      </Text>
+      <form class="mt-12">
+        <div class="flex flex-col gap-y-4">
+          <div class="flex flex-col-reverse relative">
+            <input
+              id="email"
+              name="email"
+              type="text"
+              placeholder="Your email"
+              autocomplete="email"
+              class="peer relative placeholder:duration-500 placeholder:absolute focus:placeholder:pt-10 tblock w-full px-3 py-3 border-l border-l-white border-transparent appearance-none text-white bg-base-900 focus:border-white focus:bg-base-950 focus:outline-none duration-300 focus:ring-white sm:text-sm placeholder-base-500 h-14 focus:placeholder:text-transparent z-10"
+            />
+            <label
+              for="email"
+              class="duration-500 opacity-0 mb-1 peer-focus:opacity-100 text-base-500 text-xs -translate-y-12 peer-focus:translate-y-0 after:ml-0.5 after:text-red-500 after:content-['*'] z-0"
+            >
+              Email
+            </label>
+          </div>
+          <div class="flex">
+            <Button
+              size="base"
+              variant="default"
+              type="Button"
+              class="w-auto justify-center"
+            >
+              Submit
+            </Button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </Wrapper>
+</section>

@@ -1,0 +1,64 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<BaseLayout>
+  <section class="bg-gradient-up">
+    <Wrapper
+      variant="standard"
+      class="py-42 relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4"
+    >
+      <div class="md:col-span-2 md:col-start-2">
+        <div>
+          <Text
+            tag="h1"
+            variant="display2XL"
+            class="mt-12 text-white text-balance font-display"
+          >
+            Error 404
+          </Text>
+          <Text tag="p" variant="textBase" class="text-white mt-2 text-balance"
+            >Oh no! It seems like you've stumbled upon uncharted territory.
+          </Text>
+        </div>
+        <Wrapper variant="prose" class="mt-12">
+          <p>
+            The page you're looking for has gone missing, but fear not, we're
+            here to assist you.
+          </p>
+          <p>
+            Our team of digital explorers is on the case, working diligently to
+            bring back what was lost. In the meantime, feel free to:
+          </p>
+          <ul>
+            <li>
+              Navigate through our <a href="/">homepage</a> to explore our other
+              captivating pages.
+            </li>
+            <li>
+              Search for what you need using our website's search feature.
+            </li>
+            <li>
+              Read our latest articles or visit our blog for insights and
+              updates.
+            </li>
+            <li>
+              Contact our <a href="/forms/contact">support team</a> if you need further
+              assistance or have any queries.
+            </li>
+          </ul>
+          <p>Stay curious and keep exploring!</p>
+        </Wrapper>
+        <div class="flex">
+          <Button isLink href="/" size="base" variant="muted" class="mt-8">
+            Go back home
+          </Button>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

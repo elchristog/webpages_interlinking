@@ -1,0 +1,106 @@
+---
+import { Image } from "astro:assets";
+import logo1 from "@/images/integrations/7.svg";
+import logo2 from "@/images/integrations/11.svg";
+import logo3 from "@/images/integrations/3.svg";
+const { class: className = "", ...rest } = Astro.props;
+---
+
+<div {...rest} class={className}>
+  <div class="p-6 bg-white">
+    <ul class="space-y-4">
+      <!-- Notion -->
+      <li class="flex items-center justify-between">
+        <div class="flex items-start gap-3">
+          <Image
+            src={logo1}
+            alt="Notion"
+            width={24}
+            height={24}
+            class="w-6 h-6"
+          />
+          <div>
+            <p class="text-sm font-medium text-base-900">Notion</p>
+            <p class="text-xs text-base-500">Docs & knowledge base</p>
+          </div>
+        </div>
+        <button
+          class="inline-flex items-center px-3 py-1 text-xs font-medium text-green-800 rounded-full gap-1 bg-green-100 group-hover:bg-green-900 group-hover:text-white duration-300"
+        >
+          <svg
+            class="size-4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path d="M5 13l4 4L19 7"></path>
+          </svg>
+          Connected
+        </button>
+      </li>
+
+      <!-- Sketch -->
+      <li class="flex items-center justify-between">
+        <div class="flex items-start gap-3">
+          <Image
+            src={logo2}
+            alt="Sketch"
+            width={24}
+            height={24}
+            class="w-6 h-6"
+          />
+          <div>
+            <p class="text-sm font-medium text-base-900">Sketch</p>
+            <p class="text-xs text-base-500">Vector design & prototyping</p>
+          </div>
+        </div>
+        <button
+          class="inline-flex items-center px-3 py-1 text-xs font-medium text-gray-600 rounded-full gap-1 bg-gray-50"
+        >
+          <svg
+            class="size-4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path d="M12 5v14M5 12h14"></path>
+          </svg>
+          Connect
+        </button>
+      </li>
+
+      <!-- Behance -->
+      <li class="flex items-center justify-between">
+        <div class="flex items-start gap-3">
+          <Image
+            src={logo3}
+            alt="Behance"
+            width={24}
+            height={24}
+            class="w-6 h-6"
+          />
+          <div>
+            <p class="text-sm font-medium text-base-900">Behance</p>
+            <p class="text-xs text-base-500">Creative portfolio platform</p>
+          </div>
+        </div>
+        <button
+          class="inline-flex items-center px-3 py-1 text-xs font-medium text-green-800 rounded-full gap-1 bg-green-100 group-hover:bg-green-900 group-hover:text-white duration-300"
+        >
+          <svg
+            class="size-4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path d="M5 13l4 4L19 7"></path>
+          </svg>
+          Connected
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const features = [
+  {
+    title: "Built for the AI Era",
+    paragraph:
+      "We design tools for forward-thinking teams. Our CRM isn’t just modern—it’s purpose-built for today’s fast-moving, data-driven workflows. The tougher the sales challenge, the more we’re in our element.",
+  },
+  {
+    title: "End-to-End and Evolving",
+    paragraph:
+      "Our platform connects powerful AI with proven sales strategies. By working with both industry leaders and startups, we deliver flexible solutions that grow with your business. Sales never stands still—neither do we.",
+  },
+  {
+    title: "Focused on What Matters",
+    paragraph:
+      "Everything we build is designed to support your long-term success. No hype, just practical features that keep your team efficient and your customers happy. While others make noise, we deliver.",
+  },
+];
+---
+
+<section>
+  <Wrapper variant="standard" class="py-2">
+    <div class="px-8 py-24 bg-gray">
+      <Text
+        tag="h2"
+        variant="display5XL"
+        class="font-bold tracking-tighter text-black text-balance"
+        >Redefining what a CRM can do.</Text
+      >
+      <div
+        class="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-24"
+      >
+        {
+          features.map((feature) => (
+            <div class="border-dashed lg:pl-8 lg:border-l lg:border-black/20">
+              <Text
+                tag="h3"
+                variant="displaySM"
+                class="font-semibold tracking-tight text-black  text-balance"
+              >
+                {feature.title}
+              </Text>
+              <Text
+                tag="p"
+                variant="textLG"
+                class="mt-4 font-semibold text-black  lg:mt-48"
+              >
+                {feature.paragraph}
+              </Text>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </Wrapper>
+</section>

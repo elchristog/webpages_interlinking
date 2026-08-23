@@ -1,0 +1,70 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import PodcastCard2 from "@/components/podcast/PodcastCard2.astro";
+import PodcastCard1 from "@/components/podcast/PodcastCard1.astro";
+// Content
+const allPodcasts = await getCollection("podcast");
+import { getCollection } from "astro:content";
+// Sections
+import PodcastAside from "@/components/podcast/PodcastAside.astro";
+import AdvertAside from "@/components/advert/AdvertAside.astro";
+// Sort posts by date
+allPodcasts.sort((a, b) => {
+  const dateA = new Date(a.data.pubDate).getTime();
+  const dateB = new Date(b.data.pubDate).getTime();
+  return dateB - dateA; // Compare timestamps
+});
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-12">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-0">
+        <div class="lg:col-span-3 lg:pr-8">
+          <Text
+            tag="h2"
+            variant="textXS"
+            class="text-base-900 uppercase font-medium"
+          >
+            Featured podcasts
+          </Text>
+          <div
+            class="relative before:absolute after:absolute before:bg-base-950 after:bg-base-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px pt-4 mt-2"
+          >
+            {
+              allPodcasts
+                .filter((post) => post.data.isFeatured)
+                .slice(0, 1)
+                .map((post) => <PodcastCard1 post={post} />)
+            }
+          </div>
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8"
+          >
+            {
+              allPodcasts
+                .filter((post) => post.data.isFeatured)
+                .slice(1)
+                .map((post) => <PodcastCard2 post={post} />)
+            }
+          </div>
+        </div>
+        <div
+          class="lg:pl-8 lg:relative lg:before:absolute lg:after:absolute
+        lg:before:bg-base-950 lg:after:bg-base-950/10 lg:before:top-0
+        lg:before:left-0 lg:before:h-6 lg:before:w-px lg:after:top-8
+        lg:after:bottom-0 lg:after:left-0 after:w-px"
+        >
+          <div class="lg:sticky lg:top-10 lg:z-50">
+            <PodcastAside />
+            <AdvertAside />
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

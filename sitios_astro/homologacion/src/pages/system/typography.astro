@@ -1,0 +1,95 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<BaseLayout>
+  <Wrapper variant="standard" class="py-32">
+    <Text
+      tag="h1"
+      variant="displayMD"
+      class="text-balance text-accent-500 font-display text-accent-500 uppercase leading-tight"
+      >Typography</Text
+    >
+    <Text
+      tag="p"
+      variant="textBase"
+      class="text-accent-600 font-medium max-w-2xl mt-2 text-balance"
+    >
+      All variants - Font in use: Clash Display - General Sans
+    </Text>
+ 
+    <div
+      class="flex flex-col font-medium text-base-600 divide-y divide-black/10 divide-dashed mt-12 border-y border-dashed border-black/10 "
+    >
+      <div class="p-8">
+        <Text tag="p" variant="textXS"> Text XS </Text>
+      </div>
+      <div class="p-8">
+        <Text tag="p" variant="textSM"> Text SM </Text>
+      </div>
+
+      <div class="p-8">
+        <Text tag="p" variant="textBase"> Text Base </Text>
+      </div>
+      <div class="p-8">
+        <Text tag="p" variant="textLG"> Text LG </Text>
+      </div>
+      <div class="p-8">
+        <Text tag="p" variant="textXL"> Text XL </Text>
+      </div>
+      <div class="p-8">
+        <Text tag="p" variant="displayXS" class="font-display text-accent-500">
+          Display XS
+        </Text>
+      </div>
+      <div class="p-8">
+        <Text tag="p" variant="displaySM" class="font-display text-accent-500">
+          Display SM
+        </Text>
+      </div>
+      <div class="p-8">
+        <Text tag="p" variant="displayMD" class="font-display text-accent-500">
+          Display MD
+        </Text>
+      </div>
+      <div class="p-8">
+        <Text tag="p" variant="displayLG" class="font-display text-accent-500">
+          Display LG
+        </Text>
+      </div>
+      <div class="p-8">
+        <Text tag="p" variant="displayXL" class="font-display text-accent-500">
+          Display XL
+        </Text>
+      </div>
+      <div class="p-8">
+        <Text tag="p" variant="display2XL" class="font-display text-accent-500">
+          Display 2XL
+        </Text>
+      </div>
+      <div class="p-8">
+        <Text tag="p" variant="display3XL" class="font-display text-accent-500">
+          Display 3XL
+        </Text>
+      </div>
+      <div class="p-8">
+        <Text tag="p" variant="display4XL" class="font-display text-accent-500">
+          Display 4XL
+        </Text>
+      </div>
+      <div class="p-8">
+        <Text tag="p" variant="display5XL" class="font-display text-accent-500">
+          Display 5XL
+        </Text>
+      </div>
+      <div class="p-8">
+        <Text tag="p" variant="display6XL" class="font-display text-accent-500">
+          Display 6XL
+        </Text>
+      </div>
+    </div>
+  </Wrapper>
+</BaseLayout>

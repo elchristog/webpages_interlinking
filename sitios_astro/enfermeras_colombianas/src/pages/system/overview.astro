@@ -1,0 +1,140 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Define the data for each section and its pages
+const pages = [
+  {
+    title: "Static",
+    categories: [
+      {
+        name: "Pages",
+        links: [
+          { href: "/", text: "Home" },
+          { href: "/legal/about", text: "About us" },
+          { href: "/404", text: "Error 404" },
+        ],
+      },
+      {
+        name: "Forms",
+        links: [
+          { href: "/sign-in", text: "Sign In" },
+          { href: "/sign-up", text: "Sign Up" },
+          { href: "/contact", text: "Contact" },
+          { href: "/bookings", text: "Book a visit" },
+          { href: "/sell-property", text: "Sell Property" },
+        ],
+      },
+      {
+        name: "System",
+        links: [
+          { href: "/system/colors", text: "Colors" },
+          { href: "/system/links", text: "Links" },
+          { href: "/system/buttons", text: "Buttons" },
+          { href: "/system/typography", text: "Typography" },
+          {
+            href: "https://lexingtonthemes.com/legal/license",
+            text: "License",
+          },
+          {
+            href: "https://lexingtonthemes.com/documentation/",
+            text: "Documentation",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Content collections",
+    categories: [
+      {
+        name: "Blog",
+        links: [
+          { href: "/blog", text: "Home" },
+          { href: "/blog/posts/1", text: "Details" },
+          { href: "/blog/tags", text: "Tag index" },
+          { href: "/blog/tags/website", text: "Tag category" },
+          { href: "/rss.xml", text: "RSS" },
+        ],
+      },
+      {
+        name: "Properties for sale",
+        links: [
+          { href: "/for-sale", text: "Home" },
+          { href: "/for-sale/1", text: "Details" },
+        ],
+      },
+
+      {
+        name: "Agents",
+        links: [
+          { href: "/agents", text: "Home" },
+          { href: "/agents/1", text: "Details" },
+        ],
+      },
+      {
+        name: "Legal",
+        links: [
+  
+          { href: "/legal/terms", text: "Details" },
+          
+        ],
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pb-12">
+      <Text
+        tag="h1"
+        variant="displaySM"
+        class="text-balance text-3xl font-medium md:text-5xl lg:text-4xl text-base-900"
+      >
+        Overview
+      </Text>
+      <div class="space-y-20 mt-20">
+        {
+          pages.map((section) => (
+            <div class=" grid lg:grid-cols-3 pt-8 mt-8 border-t border-base-200">
+              <span class="text-3xl font-medium text-base-900       ">
+                {section.title}
+              </span>
+              <div class=" gap-y-12 gap-x-6 grid grid-cols-2 xl:grid-cols-4 lg:col-span-2">
+                {section.categories.map((category) => (
+                  <div class="flex flex-col gap-4 ">
+                    <Text
+                      tag="h3"
+                      variant="textBase"
+                      class=" font-medium text-base-900  "
+                    >
+                      {category.name}
+                    </Text>
+                    <ul
+                      role="list"
+                      class="grid grid-cols-1 gap-2   lg:col-span-2"
+                    >
+                      {category.links.map((link) => (
+                        <li>
+                          <a
+                            href={link.href}
+                            class="text-base-500 hover:text-base-900  duration-200"
+                          >
+                            {link.text}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

@@ -1,0 +1,101 @@
+---
+// Assets
+import { Image } from "astro:assets";
+import Blog from "@/images/assets/blog.jpeg";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import BlogCard1 from "@/components/blog/BlogCard1.astro";
+import CtaSubscribe from "@/components/ctas/CtaSubscribe.astro";
+// Content
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("posts");
+allPosts.sort((a, b) => {
+  const dateA = new Date(a.data.pubDate).getTime(); // Convert to timestamp
+  const dateB = new Date(b.data.pubDate).getTime(); // Convert to timestamp
+  return dateB - dateA; // Compare timestamps
+});
+// Tags
+const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
+---
+
+<BaseLayout>
+  <section class="bg-white overflow-hidden relative">
+    <Wrapper variant="standardWide" class="px-8 pb-0 py-12 lg:pt-24">
+      <div class="grid items-end gap-4 lg:grid-cols-3 max-w-5xl mx-auto">
+        <div class="lg:col-span-2">
+          <Text
+            tag="h1"
+            variant="displayXL"
+            class="tracking-tighter text-accent-800 text-balance"
+          >
+            Welcome to our blog.
+          </Text>
+          <Text tag="p" variant="textBase" class="font-medium text-accent-500">
+            We are a team of creatives and developers who work together to
+            create a unique and engaging experience for our clients.
+          </Text>
+        </div>
+        <form class="mt-12">
+          <div class="flex flex-col gap-2">
+            <label for="email-address" class="sr-only">Email address</label>
+            <input
+              id="email-address"
+              name="email"
+              type="email"
+              autocomplete="email"
+              required
+              class="block w-full rounded-md border-0 px-3.5 py-2 text-accent-500 ring-1 ring-inset ring-accent-100 placeholder:text-accent-400 focus:ring-2 focus:ring-inset focus:ring-accent-300 sm:text-sm sm:leading-6"
+              placeholder="Enter your email"
+            />
+            <Button type="submit" size="base" variant="accent">
+              Subscribe
+            </Button>
+          </div>
+        </form>
+      </div>
+      <Image
+        width="1200"
+        height="630"
+        class="w-full max-h-[60vh] rounded-2xl relative object-cover object-center mt-12"
+        src={Blog}
+        alt="#_"
+      />
+    </Wrapper>
+  </section>
+  <section>
+    <div class="bg-white 2xl:max-w-7xl mx-auto overflow-hidden relative">
+      <img
+        src="/shapes/2.svg"
+        class="absolute w-full h-full opacity-[0.1] z-0 -left-64 sm:-left-96 -bottom-96"
+        alt="your alt"
+      />
+      <div class="px-8 py-12 mx-auto max-w-6xl md:px-16 space-y-24">
+        <div
+          class="relative flex flex-wrap justify-start gap-2 max-w-xl ml-auto"
+        >
+          {
+            tags.map((tag, index) => (
+              <>
+                <a
+                  class="text-sm text-accent-500 font-medium hover:text-pink-700"
+                  href={`/blog/tags/${tag}`}
+                >
+                  {tag}
+                </a>
+                {index < tags.length - 1 && <span class="mx-1">·</span>}
+              </>
+            ))
+          }
+        </div>
+        <dl class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24">
+          {allPosts.map((post) => <BlogCard1 post={post} />)}
+        </dl>
+      </div>
+    </div>
+  </section>
+  <CtaSubscribe />
+</BaseLayout>

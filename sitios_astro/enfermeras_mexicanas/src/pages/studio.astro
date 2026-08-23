@@ -1,0 +1,252 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import DownRight from "@/components/fundations/icons/DownRight.astro";
+
+// Structure the sections with their respective items
+const services = [
+  {
+    title: "UI/UX",
+    buttonVariant: "muted",
+    items: [
+      {
+        name: "Design",
+        price: "5,455",
+        description:
+          "Through my UI/UX Design Systems offering, I create a unified toolkit tailored for your brand.",
+        includes: [
+          "Brand Style Guide",
+          "Component Library",
+          "UI Patterns",
+          "Interactive Prototypes",
+          "Accessibility Standards",
+          "Responsive Designs",
+          "Design Tokens",
+          "User Flow Diagrams",
+          "Documentation & Guidelines",
+          "Version Control",
+        ],
+      },
+    ],
+  },
+  {
+    title: "Full-Stack Development",
+    buttonVariant: "accent",
+    items: [
+      {
+        name: "Development",
+        price: "5,455",
+        description:
+          "With my Full-Stack Development service, I deliver a comprehensive development package.",
+        includes: [
+          "End-to-End Development",
+          "Database Design & Integration",
+          "API Development & Integration",
+          "Front-End & Back-End Programming",
+          "Security Best Practices",
+          "Scalable Architecture",
+          "Performance Optimization",
+          "Cloud Deployment & CI/CD",
+          "Technical Documentation",
+          "Ongoing Support & Maintenance",
+        ],
+      },
+    ],
+  },
+  {
+    title: "Branding",
+    buttonVariant: "default",
+    items: [
+      {
+        name: "Brand Development",
+        price: "5,455",
+        description:
+          "Through my Branding service, I forge a distinctive identity for your brand.",
+        includes: [
+          "Brand Strategy & Positioning",
+          "Logo Design & Visual Identity",
+          "Brand Voice & Messaging",
+          "Packaging & Merchandise Design",
+          "Brand Guidelines",
+          "Marketing Collaterals",
+          "Digital Branding",
+          "Social Media Branding",
+          "Brand Launch Strategy",
+          "Ongoing Brand Management",
+        ],
+      },
+    ],
+  },
+  {
+    title: "E-commerce Development",
+    buttonVariant: "muted",
+    items: [
+      {
+        name: "Online Store Setup",
+        price: "6,200",
+        description:
+          "I build seamless and scalable e-commerce solutions tailored to your brand’s needs.",
+        includes: [
+          "Custom E-commerce Website",
+          "Payment Gateway Integration",
+          "Product & Inventory Management",
+          "Shopping Cart & Checkout Flow",
+          "Mobile-Optimized Design",
+          "SEO & Performance Enhancements",
+          "Third-Party API Integration",
+          "Security & Fraud Prevention",
+          "Analytics & Reporting Tools",
+          "Ongoing Support & Maintenance",
+        ],
+      },
+    ],
+  },
+  {
+    title: "No-Code & Automation",
+    buttonVariant: "muted",
+    items: [
+      {
+        name: "Workflow Automation",
+        price: "4,800",
+        description:
+          "I create efficient no-code and low-code solutions to streamline your business processes.",
+        includes: [
+          "Automation with Zapier & Make",
+          "Custom No-Code Workflows",
+          "Database & CRM Integrations",
+          "AI & Chatbot Implementation",
+          "API & Webhook Configurations",
+          "Automated Email & SMS Systems",
+          "Data Sync & Process Automation",
+          "Custom Dashboard & Reporting",
+          "Scalable & Maintainable Solutions",
+          "Consulting & Strategy Sessions",
+        ],
+      },
+    ],
+  },
+  {
+  title: "Performance Optimization",
+  buttonVariant: "muted",
+  items: [
+    {
+      name: "Speed & SEO Boost",
+      price: "4,200",
+      description:
+        "I optimize website performance to ensure fast loading times, SEO improvements, and a smooth user experience.",
+      includes: [
+        "Page Speed Optimization",
+        "Core Web Vitals Improvements",
+        "SEO Best Practices",
+        "Lazy Loading & Asset Optimization",
+        "Code Minification & Compression",
+        "Caching Strategies",
+        "Database Query Optimization",
+        "CDN Integration",
+        "Mobile & Accessibility Enhancements",
+        "Performance Monitoring & Reporting",
+      ],
+    },
+  ],
+}
+];
+---
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-8">
+     <div class="grid items-end grid-cols-1 gap-8 lg:grid-cols-2 ">
+        <div >
+          <div class="overflow-hidden">
+            <Text
+              tag="h1"
+              variant="textXL"
+              data-aos="fade-up" data-aos-duration="1000"
+
+              class="dark:text-white text-base-900 text-balance"
+            >
+              Studio
+            </Text>
+          </div>
+          <div class="overflow-hidden">
+            <Text
+              tag="p"
+              variant="textBase"
+              data-aos="fade-up" data-aos-duration="1200"
+
+              class="mt-2 text-base-500 dark:text-base-300 lg:text-balance"
+            >
+              Build innovative and scalable solutions with my expertise in software
+              development, architecture, and cutting-edge technology.
+            </Text>
+          </div>
+        </div>
+        <div class="flex lg:ml-auto">
+          <Button
+            isLink
+            size="xs"
+            variant="muted"
+            href="/contact/"
+             
+            
+          >
+            Schedule a call
+          </Button>
+        </div>
+     </div>
+      <div class="relative grid grid-cols-1 gap-1 pt-4 mt-2 md:grid-cols-2 lg:grid-cols-3 before:absolute after:absolute before:bg-black after:bg-base-200 dark:before:bg-base-50 dark:after:bg-base-50/10 before:top-0 before:left-0 before:h-px before:w-18 after:top-0 after:right-0 after:left-20 after:h-px">
+        {
+          services.map((section) => (
+            <div class="flex flex-col justify-between h-full gap-8 p-8 bg-base-100 dark:bg-base-900">
+             <div>
+                <Text tag="h3" variant="textLG" class="font-medium leading-6 text-base-900 dark:text-white group-hover:text-accent-400">
+                  {section.title}
+                </Text>
+                <div
+                  class="mt-8 ">
+                  {section.items.map((item) => (
+                    <div >
+                      <Text tag="h4" variant="textBase"  class="text-base font-medium text-base-900  dark:text-white">
+                        {item.name}
+                      </Text>
+                      <Text tag="p" variant="textSM" class="text-base-500 text dark:text-base-400">
+                        Starting at ${item.price}
+                      </Text>
+                    </div>
+                    <div class="relative pt-2 mt-2 before:absolute after:absolute before:bg-black after:bg-base-200 dark:before:bg-base-50 dark:after:bg-base-50/10 before:top-0 before:left-0 before:h-px before:w-18 after:top-0 after:right-0 after:left-20 after:h-px">
+                      <Text tag="p" variant="textSM" class="text-base-500 t dark:text-base-400">
+                        {item.description}
+                      </Text>
+                      <ul
+                        class="flex flex-col gap-2 mt-4 list-none list-inside "
+                        role="list">
+                        {item.includes.map((feature) => (
+                          <li>
+                            <Text tag="p" variant="textXS" class="flex items-center gap-2 text-base-600 dark:text-base-300">
+                          <DownRight  size="sm" />
+                           {feature}</Text></li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+             </div>
+              <div class="relative ">
+                <Button
+                size="base"
+                variant={section.buttonVariant}
+               class="w-full "
+                  >
+                  Get started
+                </Button>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

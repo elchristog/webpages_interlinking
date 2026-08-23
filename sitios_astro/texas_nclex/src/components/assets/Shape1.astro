@@ -1,0 +1,120 @@
+---
+// Shape1: This component renders a component and accepts props for customization.
+// Props: - class: A string of additional classes to style the component.
+// - ...rest: Any other valid attributes for an div element (e.g., id, style, role, aria-label, etc.).
+// Example Usage: <Shape1 class="my-custom-class" /> or <Shape1 id="Shape1-id" style="width: 50px; height: 50px;" />
+const { class: className = "", ...rest } = Astro.props;
+---
+
+<div class={className} {...rest}>
+  <svg
+    class="scale-150"
+    viewBox="0 0 400 400"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <!-- Background -->
+    <!-- Rotating triangles -->
+    <g class="triangles-container">
+      <polygon
+        class="triangle"
+        points="200,150 250,250 150,250"
+        stroke="#fafafa"
+        fill="none"
+        stroke-width="0.2"></polygon>
+      <polygon
+        class="triangle"
+        points="200,150 250,250 150,250"
+        stroke="#444444"
+        fill="none"
+        stroke-width="0.2"></polygon>
+      <polygon
+        class="triangle"
+        points="200,150 250,250 150,250"
+        stroke="#777777"
+        fill="none"
+        stroke-width="0.2"></polygon>
+    </g>
+    <!-- Pulsing circles -->
+    <g class="circles">
+      <circle
+        cx="200"
+        cy="200"
+        r="50"
+        stroke="#fafafa"
+        fill="none"
+        class="circle"></circle>
+      <circle
+        cx="200"
+        cy="200"
+        r="75"
+        stroke="#444444"
+        fill="none"
+        class="circle"></circle>
+      <circle
+        cx="200"
+        cy="200"
+        r="100"
+        stroke="#777777"
+        fill="none"
+        class="circle"></circle>
+    </g>
+  </svg>
+</div>
+<style>
+  /* Rotating triangle animation */
+  .triangle {
+    transform-origin: 200px 200px; /* Sets the rotation point to (200px, 200px) */
+    animation: rotate 20s linear infinite; /* Rotates the triangle continuously over 20 seconds */
+    opacity: 0.6; /* Makes the shape slightly transparent */
+  }
+
+  /* Delays the animation for the second triangle */
+  .triangle:nth-child(2) {
+    animation-delay: -2.6s;
+  }
+
+  /* Delays the animation for the third triangle */
+  .triangle:nth-child(3) {
+    animation-delay: -5.3s;
+  }
+
+  /* Pulsing circle animation */
+  .circle {
+    stroke-width: 0.5; /* Sets the thickness of the circle's stroke */
+    animation: pulse 18s ease-in-out infinite; /* Makes the circle scale in and out over 18 seconds */
+    opacity: 0.6; /* Makes the shape slightly transparent */
+  }
+
+  /* Delays the animation for the second circle */
+  .circle:nth-child(2) {
+    animation-delay: -1.3s;
+  }
+
+  /* Delays the animation for the third circle */
+  .circle:nth-child(3) {
+    animation-delay: -2.6s;
+  }
+
+  /* Defines the rotation animation */
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg); /* Starts at 0 degrees */
+    }
+    to {
+      transform: rotate(360deg); /* Rotates fully around */
+    }
+  }
+
+  /* Defines the pulsing effect */
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: scale(0.8); /* Shrinks the shape slightly */
+      opacity: 0.3; /* Makes it more transparent */
+    }
+    50% {
+      transform: scale(1.1); /* Expands the shape */
+      opacity: 0.8; /* Makes it more visible */
+    }
+  }
+</style>

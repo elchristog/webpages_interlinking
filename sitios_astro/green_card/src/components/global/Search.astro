@@ -1,0 +1,269 @@
+---
+// fundations
+import Button from "@/components/fundations/elements/Button.astro";
+// Icons
+import SearchIcon from "@/components/fundations/icons/Search.astro";
+// Content
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("posts");
+const work = await getCollection("work");
+const services = await getCollection("services");
+const team = await getCollection("team");
+const legal = await getCollection("legal");
+
+const searchItems = [
+  ...posts.map((entry) => ({
+    slug: entry.id,
+    url: `/blog/posts/${entry.id}`,
+    title: entry.data.title,
+    description: entry.data.description,
+    pubDate: entry.data.pubDate,
+    type: "Post",
+  })),
+  ...work.map((entry) => ({
+    slug: entry.id,
+    url: `/work/${entry.id}`,
+    title: entry.data.company
+      ? `${entry.data.company} — ${entry.data.work}`
+      : entry.data.work,
+    description: entry.data.client || entry.data.company || entry.data.work,
+    pubDate: entry.data.year || entry.data.pubDate,
+    type: "Work",
+  })),
+  ...services.map((entry) => ({
+    slug: entry.id,
+    url: `/services/${entry.id}`,
+    title: entry.data.service,
+    description: entry.data.description,
+    type: "Service",
+  })),
+  ...team.map((entry) => ({
+    slug: entry.id,
+    url: `/team/${entry.id}`,
+    title: entry.data.name,
+    description: entry.data.role || entry.data.intro,
+    type: "Team",
+  })),
+  ...legal.map((entry) => ({
+    slug: entry.id,
+    url: `/legal/${entry.id}`,
+    image: null,
+    title: entry.data.page,
+    description: entry.data.page,
+    pubDate: entry.data.pubDate,
+    type: "Legal",
+  })),
+];
+
+const { className, ...rest } = Astro.props;
+---
+
+<div class={className} {...rest}>
+  <div class="relative">
+    <Button
+      iconOnly
+      size="sm"
+      variant="muted"
+      type="button"
+      id="searchButton"
+      aria-label="Search content"
+      c
+    >
+      <SearchIcon slot="icon" size="sm" />
+    </Button>
+    <div
+      id="searchModal"
+      class="fixed inset-0 z-90 overflow-y-auto hidden"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="min-h-screen px-4 text-center">
+        <div
+          class="fixed inset-0 bg-white/50 transition-opacity"
+          id="modalOverlay"
+        >
+        </div>
+        <div
+          class="inline-block w-full max-w-2xl px-8 mb-8 mt-12 lg:mt-48 p-8 bg-accent-50 rounded-xl text-left align-middle transition-all transform"
+        >
+          <div class="hidden">
+            <button
+              type="button"
+              id="closeSearch"
+              class="text-accent-600 hover:text-accent-700 cursor-pointer ml-auto"
+              aria-label="Close search"
+            >
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 15 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                ><path
+                  d="M0.877075 7.49988C0.877075 3.84219 3.84222 0.877045 7.49991 0.877045C11.1576 0.877045 14.1227 3.84219 14.1227 7.49988C14.1227 11.1575 11.1576 14.1227 7.49991 14.1227C3.84222 14.1227 0.877075 11.1575 0.877075 7.49988ZM7.49991 1.82704C4.36689 1.82704 1.82708 4.36686 1.82708 7.49988C1.82708 10.6329 4.36689 13.1727 7.49991 13.1727C10.6329 13.1727 13.1727 10.6329 13.1727 7.49988C13.1727 4.36686 10.6329 1.82704 7.49991 1.82704ZM9.85358 5.14644C10.0488 5.3417 10.0488 5.65829 9.85358 5.85355L8.20713 7.49999L9.85358 9.14644C10.0488 9.3417 10.0488 9.65829 9.85358 9.85355C9.65832 10.0488 9.34173 10.0488 9.14647 9.85355L7.50002 8.2071L5.85358 9.85355C5.65832 10.0488 5.34173 10.0488 5.14647 9.85355C4.95121 9.65829 4.95121 9.3417 5.14647 9.14644L6.79292 7.49999L5.14647 5.85355C4.95121 5.65829 4.95121 5.3417 5.14647 5.14644C5.34173 4.95118 5.65832 4.95118 5.85358 5.14644L7.50002 6.79289L9.14647 5.14644C9.34173 4.95118 9.65832 4.95118 9.85358 5.14644Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"></path></svg
+              >
+            </button>
+          </div>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search content..."
+            class="block w-full h-10 px-4 py-2 text-sm text-accent-700 border border-transparent rounded-lg appearance-none duration-300 bg-accent-100 placeholder-accent-400 focus:bg-transparent focus:outline-none focus:ring-accent-500 focus:ring-offset-2 focus:ring-2 focus:ring-offset-accent-200"
+          />
+          <div>
+            <div
+              id="searchResults"
+              class="max-h-100 overflow-y-auto bg-accent-50 w-full scrollbar-hide rounded-xl mt-2 p-2"
+            >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script is:inline define:vars={{ searchItems }}>
+  window.addEventListener("load", () => {
+    const searchButton = document.getElementById("searchButton");
+    const searchModal = document.getElementById("searchModal");
+    const modalOverlay = document.getElementById("modalOverlay");
+    const searchInput = document.getElementById("searchInput");
+    const searchResults = document.getElementById("searchResults");
+    const closeSearch = document.getElementById("closeSearch");
+
+    const fuse = new Fuse(searchItems, {
+      keys: ["title", "description", "type", "slug"],
+      threshold: 0.3,
+      includeMatches: true,
+    });
+
+    let currentIndex = -1; // Variable to track the currently highlighted result
+
+    // Function to close the search modal
+    function closeSearchModal(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      searchModal.classList.add("hidden"); // Hide modal
+      document.body.style.overflow = ""; // Restore scrolling
+
+      // Clear the input and results
+      searchInput.value = ""; // Clear search input field
+      searchResults.innerHTML = ""; // Clear search results
+      searchResults.classList.add("hidden"); // Ensure results remain hidden
+    }
+
+    // Render search results
+    function renderResults(results) {
+      if (!searchInput.value.trim()) {
+        searchResults.innerHTML = "";
+        searchResults.classList.add("hidden");
+        return;
+      }
+
+      if (results.length === 0) {
+        searchResults.innerHTML = `
+        <div>
+          <h3 class="font-medium text-accent text-accent-900 p-8 font-medium">
+            There's nothing here,...
+          </h3>
+        </div>
+        `;
+        searchResults.classList.remove("hidden");
+        return;
+      }
+
+      searchResults.innerHTML = results
+        .map((result, index) => {
+          const dateLabel = result.item.pubDate
+            ? new Date(result.item.pubDate).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "2-digit",
+              })
+            : "";
+          const meta = [result.item.type, dateLabel]
+            .filter(Boolean)
+            .join(" • ");
+
+          return `
+          <a href="${result.item.url}" class="block p-4 duration-300 hover:bg-accent-100 rounded-xl focus:ring-accent-500 focus:bg-accent-50" id="result-${index}">
+            <div class="flex flex-col gap-1">
+              ${meta ? `<p class="text-xs text-accent-500">${meta}</p>` : ""}
+              <h3 class="font-medium text-sm md:text-lg lg:text-xl text-accent-900">
+                ${result.item.title}
+              </h3>
+              ${
+                result.item.description
+                  ? `<p class="text-xs text-accent-500 line-clamp-2">${result.item.description}</p>`
+                  : ""
+              }
+            </div>
+          </a>
+        `;
+        })
+        .join("");
+
+      searchResults.classList.remove("hidden");
+      currentIndex = -1; // Reset to no highlighted item after results are rendered
+    }
+
+    // Open search modal
+    function openSearch(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      searchModal.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+      setTimeout(() => searchInput.focus(), 100);
+    }
+
+    // Event listeners
+    searchButton.addEventListener("click", openSearch);
+    closeSearch.addEventListener("click", closeSearchModal);
+    modalOverlay.addEventListener("click", closeSearchModal);
+
+    // Perform search when input changes
+    searchInput.addEventListener("input", (e) => {
+      const value = e.target.value.trim();
+      const results = value ? fuse.search(value) : [];
+      renderResults(results);
+    });
+
+    // Close search on Escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !searchModal.classList.contains("hidden")) {
+        closeSearchModal();
+      }
+    });
+
+    // Keyboard navigation with arrow keys
+    document.addEventListener("keydown", (e) => {
+      const resultElements = Array.from(
+        searchResults.getElementsByTagName("a")
+      );
+
+      if (e.key === "ArrowDown") {
+        if (currentIndex < resultElements.length - 1) {
+          currentIndex++;
+        }
+      } else if (e.key === "ArrowUp") {
+        if (currentIndex > 0) {
+          currentIndex--;
+        }
+      }
+
+      if (currentIndex >= 0 && currentIndex < resultElements.length) {
+        resultElements[currentIndex].focus(); // Focus on the current item
+        resultElements[currentIndex].scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+        });
+      }
+    });
+  });
+</script>

@@ -1,0 +1,128 @@
+---
+const {
+  variant,
+  size,
+  onlyIconSize,
+  iconOnly = false,
+  gap,
+  isLink = false,
+  class: className,
+  href,
+  ...rest
+} = Astro.props;
+// Default button
+const defaultClass = [
+  "text-white ",
+  "bg-black",
+  "hover:bg-base-700",
+  "ring-black",
+  "hover:ring-base-800",
+];
+// Accent button
+const accentClass = [
+  "text-white ",
+  "bg-teal-600",
+  "hover:bg-teal-700",
+  "ring-teal-600",
+  "hover:ring-teal-800",
+];
+// Muted button
+const mutedClass = [
+  "text-black ",
+  "bg-white",
+  "ring-base-200",
+  "hover:ring-black",
+];
+// Size (only applies if variant is not "link")
+const xs = ["h-8", "px-3.5", "py-2", "text-xs"];
+const sm = ["h-9", "px-4", "py-2", "text-sm"];
+const base = ["h-10", "px-4", "py-3", "text-base"];
+const md = ["h-11", "px-6", "py-3", "text-md"];
+const lg = ["h-12", "px-6", "py-3", "text-lg"];
+const xl = ["h-14", "px-6", "py-3", "text-lg"];
+// Icon size
+const iconSizes = {
+  xs: ["h-8", "w-8", "text-xs"],
+  sm: ["h-9", "w-9", "text-sm"],
+  base: ["h-10", "w-10", "text-base"],
+  md: ["h-11", "w-11", "text-md"],
+  lg: ["h-12", "w-12", "text-lg"],
+  xl: ["h-14", "w-14", "text-lg"],
+};
+// Gap
+const gapXS = ["gap-2"];
+const gapSM = ["gap-4"];
+const gapBase = ["gap-8"];
+const gapMD = ["gap-10"];
+const gapLG = ["gap-12"];
+const additionalClasses = className ? className.split(" ") : [];
+const baseClasses = [
+  "flex",
+  "text-center",
+  "font-medium",
+  "items-center",
+  "ring",
+  "focus:z-1",
+  "focus:ring-2",
+  "focus:ring-inset",
+  "justify-center",
+  "duration-300",
+  "ease-in-out",
+  "transition-all",
+];
+const sizeKey = iconOnly ? onlyIconSize || size : size;
+const sizeClass = iconOnly
+  ? iconSizes[sizeKey] || []
+  : (size === "xs" && xs) ||
+    (size === "sm" && sm) ||
+    (size === "base" && base) ||
+    (size === "md" && md) ||
+    (size === "lg" && lg) ||
+    (size === "xl" && xl) ||
+    [];
+const gapClass =
+  !iconOnly &&
+  ((gap === "xs" && gapXS) ||
+    (gap === "sm" && gapSM) ||
+    (gap === "base" && gapBase) ||
+    (gap === "md" && gapMD) ||
+    (gap === "lg" && gapLG));
+const classList = [
+  ...baseClasses,
+  variant === "default" && defaultClass,
+  variant === "accent" && accentClass,
+  variant === "muted" && mutedClass,
+  variant === "none" && [], // No additional classes for "none" variant
+  ...sizeClass,
+  gapClass,
+  ...additionalClasses,
+];
+---
+
+{
+  isLink ? (
+    <a class:list={classList} href={href} {...rest}>
+      {iconOnly ? (
+        <slot name="icon" />
+      ) : (
+        <>
+          <slot name="left-icon" />
+          <slot />
+          <slot name="right-icon" />
+        </>
+      )}
+    </a>
+  ) : (
+    <button class:list={classList} {...rest}>
+      {iconOnly ? (
+        <slot name="icon" />
+      ) : (
+        <>
+          <slot name="left-icon" />
+          <slot />
+          <slot name="right-icon" />
+        </>
+      )}
+    </button>
+  )
+}

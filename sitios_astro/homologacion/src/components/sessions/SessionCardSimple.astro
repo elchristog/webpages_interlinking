@@ -1,0 +1,69 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+// Content
+const session = Astro.props.session;
+const { title, abstract, start, end, room, speakers } = session.data;
+const url = "/sessions/workshop/" + session.id;
+const description = abstract;
+const dayNum = new Date(start).getDate().toString().padStart(2, "0");
+const weekday = new Date(start).toLocaleDateString("en-US", {
+  weekday: "short",
+});
+const time = (() => {
+  const startDate = new Date(start);
+  const endDate = new Date(end);
+  return `${startDate.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" })} - ${endDate.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" })}`;
+})();
+---
+
+<article class="relative overflow-hidden h-full flex flex-col group">
+  <a href={url} title={title} class="absolute inset-0 z-20" aria-label={title}
+  ></a>
+  <div
+    class="relative flex flex-col h-full justify-between p-6 bg-accent-500 group-hover:bg-accent-900 duration-300"
+  >
+    <div>
+      <Text
+        tag="h3"
+        variant="textBase"
+        class="text-white font-display uppercase break-words"
+      >
+        {title}
+      </Text>
+      <Text tag="p" variant="textSM" class="text-base-200 mt-1">
+        {description}
+      </Text>
+    </div>
+    <div class="mt-4 divide-y divide-white/20 divide-dashed">
+      <div class="flex items-center justify-between py-1">
+        <Text tag="p" variant="textXS" class="text-white uppercase font-display"
+          >Date</Text
+        >
+        <Text tag="p" variant="textXS" class="text-white">{dayNum}</Text>
+      </div>
+      <div class="flex items-center justify-between py-1">
+        <Text tag="p" variant="textXS" class="text-white uppercase font-display"
+          >Day</Text
+        >
+        <Text tag="p" variant="textXS" class="text-white">{weekday}</Text>
+      </div>
+      <div class="flex items-center justify-between py-1">
+        <Text tag="p" variant="textXS" class="text-white uppercase font-display"
+          >Time</Text
+        >
+        <Text tag="p" variant="textXS" class="text-white">
+          <time datetime={time}>{time}</time>
+        </Text>
+      </div>
+      <div class="flex items-center justify-between py-1">
+        <Text tag="p" variant="textXS" class="text-white uppercase font-display"
+          >Room</Text
+        >
+        <Text tag="p" variant="textXS" class="text-white break-words"
+          >{room}</Text
+        >
+      </div>
+    </div>
+  </div>
+</article>

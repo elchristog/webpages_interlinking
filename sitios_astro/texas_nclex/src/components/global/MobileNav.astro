@@ -1,0 +1,85 @@
+---
+// fundations
+import Button from "@/components/fundations/elements/Button.astro";
+// Icons
+import Menu from "@/components/fundations/icons/Menu.astro";
+import Close from "@/components/fundations/icons/Close.astro";
+interface Props {
+  navLinks: { label: string; href: string }[];
+}
+const { navLinks } = Astro.props;
+---
+
+<div class="md:hidden">
+  <!-- Mobile Menu Toggle -->
+  <Button
+    iconOnly
+    size="sm"
+    variant="default"
+    id="menu-toggle"
+    aria-label="Toggle main menu"
+  >
+    <Menu slot="icon" size="sm" id="menu-icon" />
+    <Close slot="icon" size="sm" class="hidden" id="close-icon" />
+  </Button>
+  <!-- Mobile Menu - Curtain Animation -->
+  <nav
+    id="mobile-menu"
+    class="absolute left-4 mt-8 right-4 top-full grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-in-out"
+  >
+    <div class="overflow-hidden">
+      <div class="flex flex-col gap-2 p-8 bg-base-900 rounded-xl">
+        {
+          navLinks.map((link) => (
+            <a
+              title={link.label}
+              aria-label={link.label}
+              href={link.href}
+              class="hover:text-base-400 text-white text-xl"
+            >
+              {link.label}
+            </a>
+          ))
+        }
+        <div class="flex items-center gap-1 mt-12">
+          <Button isLink size="sm" variant="muted" href="#_"> Sign in </Button>
+          <Button isLink size="sm" variant="default" href="#_">
+            Sing up
+          </Button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menuIcon = document.getElementById("menu-icon");
+    const closeIcon = document.getElementById("close-icon");
+    let isMenuOpen = false;
+    function toggleMenu() {
+      isMenuOpen = !isMenuOpen;
+      if (isMenuOpen) {
+        mobileMenu.classList.remove("grid-rows-[0fr]");
+        mobileMenu.classList.add("grid-rows-[1fr]");
+      } else {
+        mobileMenu.classList.remove("grid-rows-[1fr]");
+        mobileMenu.classList.add("grid-rows-[0fr]");
+      }
+      menuIcon.classList.toggle("hidden", isMenuOpen);
+      closeIcon.classList.toggle("hidden", !isMenuOpen);
+    }
+    function handleResize() {
+      if (window.innerWidth >= 768 && isMenuOpen) {
+        isMenuOpen = false;
+        mobileMenu.classList.remove("grid-rows-[1fr]");
+        mobileMenu.classList.add("grid-rows-[0fr]");
+        menuIcon.classList.remove("hidden");
+        closeIcon.classList.add("hidden");
+      }
+    }
+    menuToggle.addEventListener("click", toggleMenu);
+    window.addEventListener("resize", handleResize);
+  });
+</script>

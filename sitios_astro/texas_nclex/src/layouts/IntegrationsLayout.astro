@@ -1,0 +1,215 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import BaseLayout from "./BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-42 grid grid-cols-1 lg:grid-cols-4">
+      <div class="md:col-span-2">
+        <Image
+          width={100}
+          height={100}
+          class="size-16"
+          src={frontmatter.logo.url}
+          alt={frontmatter.logo.alt}
+        />
+        <Text
+          tag="h1"
+          variant="displayXL"
+          class="mt-12 text-white text-balance font-display"
+        >
+          {frontmatter.integration}
+        </Text>
+        <Text tag="p" variant="textBase" class="text-white mt-2 text-balance">
+          {frontmatter.description}
+        </Text>
+        <div class="mt-8">
+          <Button size="base" variant="default" id="open-modal">
+            Connect {frontmatter.integration} to Buio
+          </Button>
+         
+        </div>
+      
+        <!-- Modal -->
+        <div
+          id="modal"
+          style="display: none"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-title"
+          class="fixed inset-0 z-10 overflow-y-auto"
+        >
+          <!-- Overlay -->
+          <div id="modal-overlay" class="fixed inset-0 bg-base-950/50"></div>
+          <!-- Panel -->
+          <Wrapper
+            variant="standard"
+            class="relative grid grid-cols-1 lg:grid-cols-4 min-h-screen items-center justify-center"
+          >
+            <div
+              id="modal-content"
+              class="relative w-full lg:col-span-2 lg:col-start-3 overflow-y-auto bg-base-900 p-8 pl-0"
+            >
+              <div class="before:bg-white h-full">
+                <div
+                  class="px-8 relative flex flex-col h-full justify-between before:absolute after:absolute before:bg-white before:top-0 before:left-0 before:h-6 before:w-px after:top-8 after:bottom-0 after:left-0 after:w-px"
+                >
+                  <div>
+                    <Text
+                      tag="h3"
+                      variant="textBase"
+                      class="text-white"
+                      id="modal-title"
+                    >
+                      Connect {frontmatter.integration} to Buio
+                    </Text>
+                    <Text tag="p" variant="textSM" class="mt-2 text-base-400">
+                      Give priority to tasks and projects based on the
+                      requirements of your customers, and establish a closer
+                      feedback loop with them.
+                    </Text>
+                  </div>
+                  <p class="text-white text-left font-medium mt-8">
+                    Buio would like to
+                  </p>
+                  <ul
+                    role="list"
+                    class="text-left list-none text-base-500 mt-2 text-xs"
+                  >
+                    {
+                      frontmatter.permissions.map((permission) => (
+                        <li class="flex items-center gap-3">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="icon icon-tabler icon-tabler-check"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            stroke-width="2"
+                            stroke="currentColor"
+                            fill="none"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M5 12l5 5l10 -10" />
+                          </svg>
+                          {permission}
+                        </li>
+                      ))
+                    }
+                  </ul>
+                  <p class="text-base-400 text-left text-xs mt-4">
+                    *We prioritize your privacy, as stated in our
+                    <a
+                      class="text-base-500 hover:text-white"
+                      href="/infopages/privacy">Privacy Policy</a
+                    >. By clicking "Allow access," you grant Untitled permission
+                    to access your information.
+                  </p>
+                  <div class="flex flex-wrap gap-2 mt-12 ml-auto">
+                    <Button
+                      size="base"
+                      variant="muted"
+                      type="button"
+                      id="close-modal"
+                    >
+                      Cancel
+                    </Button>
+                    <Button size="base" variant="accent" type="submit">
+                      Allow access
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Wrapper>
+        </div>
+      </div>
+      <div class="mt-24 lg:col-span-2 lg:row-start-2">
+        <Text tag="h3" variant="displaySM" class="text-white font-display">
+          Company Details
+        </Text>
+        <ul
+          role="list"
+          class="mt-2 flex flex-col gap-2 border-b border-base-700 py-4"
+        >
+          {
+            frontmatter.details.map((detail) => (
+              <li>
+                <Text tag="p" variant="textBase" class="text-base-400">
+                  <span class="text-white">{detail.title}</span> -
+                  {detail.url ? (
+                    <a href={detail.url}>{detail.value}</a>
+                  ) : (
+                    detail.value
+                  )}
+                </Text>
+              </li>
+            ))
+          }
+        </ul>
+        <Wrapper variant="prose" class="mt-12"><slot /></Wrapper>
+      </div>
+    </Wrapper>
+  </section>
+  <script type="module">
+    //
+    // Modal Component Script
+    //
+    // This script handles the functionality of a modal dialog with the following features:
+    // Opens/closes modal with animation
+    // Prevents background scrolling when modal is open
+    // Closes on outside click, escape key, or close button
+    // Handles scrollbar width to prevent layout shift
+    document.addEventListener("DOMContentLoaded", () => {
+      // Store all modal-related DOM elements in a single object for better organization
+      const modal = {
+        element: document.getElementById("modal"), // Main modal container
+        openButton: document.getElementById("open-modal"), // Button to open modal
+        closeButton: document.getElementById("close-modal"), // Button to close modal
+        content: document.getElementById("modal-content"), // Modal content container
+      };
+      // Toggles the modal visibility and handles body scroll
+      // @param {boolean} show - True to show modal, false to hide
+      const toggleModal = (show) => {
+        // Calculate scrollbar width to prevent layout shift when body scroll is disabled
+        const scrollbarWidth =
+          window.innerWidth - document.documentElement.clientWidth;
+        // Toggle body scroll and compensate for scrollbar removal
+        document.body.style.overflow = show ? "hidden" : "";
+        document.body.style.paddingRight = show ? `${scrollbarWidth}px` : "";
+        // Show/hide modal
+        modal.element.style.display = show ? "block" : "none";
+      };
+      // Event Listeners
+      // Opens modal when trigger button is clicked
+      modal.openButton.addEventListener("click", () => toggleModal(true));
+      // Closes modal when close button is clicked
+      modal.closeButton.addEventListener("click", () => toggleModal(false));
+      // Handles clicks on the modal backdrop
+      // Closes modal when clicking outside the modal content area
+      modal.element.addEventListener("click", (event) => {
+        // Check if click occurred outside modal content
+        // contains() checks if the clicked element is inside the modal content
+        if (!modal.content.contains(event.target)) {
+          toggleModal(false);
+        }
+      });
+      // Global keyboard event handler
+      // Closes modal when Escape key is pressed and modal is visible
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && modal.element.style.display === "block") {
+          toggleModal(false);
+        }
+      });
+    });
+  </script>
+</BaseLayout>

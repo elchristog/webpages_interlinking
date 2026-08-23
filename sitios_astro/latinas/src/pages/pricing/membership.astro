@@ -1,0 +1,199 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import ArrowRight from "@/components/fundations/icons/ArrowRight.astro";
+// Pricing cards
+import Plus from "@/components/fundations/icons/Plus.astro";
+const pricingCards = [
+  {
+    title: "Basic",
+    description:
+      "Enjoy limited access to premium content. Just enough to feel included.",
+    price: "$5/month",
+    buttonVariant: "default",
+    features: [
+      "Access to a *carefully curated* handful of articles",
+      "Monthly newsletter (we promise it's not spammy)",
+      "Community forum access (where chaos lives)",
+      "Occasional ‘you’re still alive?’ email check-ins",
+      "The warm fuzzy feeling of supporting independent media",
+    ],
+  },
+  {
+    title: "Premium",
+    description:
+      "Get access to all premium content and more. Finally, no paywalls.",
+    price: "$15/month",
+    buttonVariant: "accent",
+    features: [
+      "Unlimited article access — scroll responsibly",
+      "Weekly exclusive content to make you feel special",
+      "Ad-free experience (because you deserve peace)",
+      "Early invites to events you may or may not attend",
+      "Bonus points in the imaginary internet points economy",
+      "Slightly superior moral high ground over Basic users",
+    ],
+  },
+  {
+    title: "Pro",
+    description:
+      "All the perks of Premium, plus bragging rights and early everything.",
+    price: "$25/month",
+    buttonVariant: "default",
+    features: [
+      "Everything in Premium (obviously)",
+      "Early access to *literally everything* — even bugs",
+      "Priority support (yes, a real human might answer)",
+      "Behind-the-scenes updates you didn’t ask for",
+      "First dibs on new features, even the weird ones",
+      "A digital gold star for being *that* invested",
+      "Our eternal gratitude (until your card declines)",
+    ],
+  },
+];
+
+// FAQ questions and answers
+const faqData = [
+  {
+    question: "What is the membership fee?",
+    answer:
+      "The membership fee for basic access is $5/month. For premium access, it is $15/month, and for Pro access, it is $25/month.",
+  },
+  {
+    question: "How can I cancel my membership?",
+    answer:
+      "You can cancel your membership at any time by going to your account settings and selecting the 'Cancel Subscription' option.",
+  },
+  {
+    question: "What benefits do I get with a premium membership?",
+    answer:
+      "Premium members get access to all premium content, early access to new releases, ad-free browsing, and exclusive offers.",
+  },
+  {
+    question: "Can I upgrade or downgrade my membership?",
+    answer:
+      "Yes, you can upgrade or downgrade your membership at any time from your account settings. Adjustments to your subscription will take effect immediately.",
+  },
+  {
+    question: "Is there a free trial available?",
+    answer:
+      "Yes, we offer a 7-day free trial for the Premium membership. You can cancel anytime during the trial period without any charges.",
+  },
+];
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-12">
+      <div
+        class="p-10 rounded-4xl lg:rounded-[4rem] bg-base-900 lg:pt-80 lg:px-20"
+      >
+        <span class="text-base-400 text-xs font-display">Membership</span>
+        <Text
+          tag="h1"
+          variant="displaySM"
+          class="font-display text-white md:w-1/3 mt-8 text-balance"
+        >
+          Support us. Unlock perks. Feel superior.
+        </Text>
+        <Text
+          tag="p"
+          variant="textSM"
+          class="text-base-200 pl-8 mt-4 md:w-2/4 text-balance"
+        >
+          Choose a tier, throw money at the screen, and enjoy members-only
+          content like a true insider. It's like a secret club—minus the secrecy
+          and the weird handshakes.
+        </Text>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 mt-2">
+        {
+          pricingCards.map((card) => (
+            <div class="flex flex-col justify-between p-8  bg-base-100 rounded-4xl gap-8">
+              <div>
+                <Text
+                  tag="h3"
+                  variant="displaySM"
+                  class="flex items-start justify-between mt-1 gap-4 text-base-900 font-display uppercase"
+                >
+                  <spam> {card.title}</spam>
+                  <spam> {card.price}</spam>
+                </Text>
+                <Text
+                  tag="p"
+                  variant="textBase"
+                  class="mt-2 text-base-700 pl-8  "
+                >
+                  {card.description}
+                </Text>
+
+                <Wrapper variant="prose" class="mt-8 ">
+                  <ul role="list">
+                    {card.features.map((feature) => (
+                      <li>{feature}</li>
+                    ))}
+                  </ul>
+                </Wrapper>
+              </div>
+
+              <Button
+                type="button"
+                size="24"
+                iconOnly
+                class="mt-4"
+                variant={card.buttonVariant}
+              >
+                <ArrowRight slot="icon" size="xl" />
+              </Button>
+            </div>
+          ))
+        }
+      </div>
+
+      <section class="mt-2">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+          <div class="p-8 bg-base-100 rounded-4xl">
+            <Text
+              tag="h2"
+              variant="displaySM"
+              class="font-ligth text-base-900 font-display uppercase"
+            >
+              Frequently Asked Questions
+            </Text>
+          </div>
+          <ul role="list">
+            <li class="space-y-2">
+              {
+                faqData.map((faq) => (
+                  <details class="select-none p-8 bg-base-100 rounded-3xl">
+                    <summary class="font-medium text-base-900 text-2xl flex group items-center gap-2 justify-between ">
+                      {faq.question}
+                      <Plus
+                        slot="icon"
+                        size="base"
+                        class="group-focus:rotate-90 duration-300 ease-in-out"
+                      />
+                    </summary>
+                    <div class="pt-2 pb-8 pl-8">
+                      <Text
+                        tag="h3"
+                        variant="textSM"
+                        class=" text-base-700 font-display  "
+                      >
+                        {faq.answer}
+                      </Text>
+                    </div>
+                  </details>
+                ))
+              }
+            </li>
+          </ul>
+        </div>
+      </section>
+    </Wrapper>
+  </section>
+</BaseLayout>

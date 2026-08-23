@@ -1,0 +1,57 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+const cards = [
+  {
+    title: "Design with a Developer's Mind",
+    subtitle:
+      "Learn layout, spacing, and visual systems that scale — all while thinking in code. No more design handoff confusion.",
+  },
+  {
+    title: "Build Reusable UI Components",
+    subtitle:
+      "Craft accessible, responsive, and polished components that work across devices and breakpoints with confidence.",
+  },
+  {
+    title: "From Figma to Frontend",
+    subtitle:
+      "Translate design files into production-ready code using consistent tokens, spacing, and typographic rhythm.",
+  },
+  {
+    title: "Work Like a Design Engineer",
+    subtitle:
+      "Bridge the gap between design and development. Build, test, and ship UIs that feel as good as they look.",
+  },
+];
+---
+
+<section>
+  <Wrapper variant="standard" class="py-12">
+    <Text tag="h2" variant="textBase" class="font-medium text-primary">
+      Build interfaces that look great and work flawlessly
+    </Text>
+
+    <div
+      class="pt-2 mt-2 border-t border-dotted grid gap-8 md:grid-cols-2 border-primary/10 text-balance"
+    >
+      {
+        cards.map((card) => (
+          <div>
+            <Text tag="h3" variant="textSM" class="text-primary">
+              {card.title}
+            </Text>
+            <Text
+              tag="p"
+              variant="textSM"
+              class="mt-1 font-serif text-primary/60"
+            >
+              {card.subtitle}
+            </Text>
+          </div>
+        ))
+      }
+    </div>
+  </Wrapper>
+</section>

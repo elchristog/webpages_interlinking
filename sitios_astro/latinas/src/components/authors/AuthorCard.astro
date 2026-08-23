@@ -1,0 +1,36 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+// Icons
+const { url, name, image, role } = {
+  url: "/authors/" + Astro.props.post.id,
+  name: Astro.props.post.data.name,
+  role: Astro.props.post.data.role,
+  image: Astro.props.post.data.image.url,
+};
+---
+
+<div class="relative flex flex-col overflow-hidden bg-white group rounded-4xl">
+  <a href={url} name={name} aria-label={name} class="absolute inset-0 z-10">
+  </a>
+  <Image
+    width="800"
+    height="800"
+    src={image}
+    alt={name}
+    class="object-cover w-full aspect-12/8"
+  />
+
+  <div class="p-8">
+    <Text
+      tag="h3"
+      variant="textLG"
+      class="mt-1 font-display uppercase gap-4 text-base-900">{name}</Text
+    >
+    <Text tag="p" variant="textSM" class="pl-8 mt-2 font-display text-base-700"
+      >{role}</Text
+    >
+  </div>
+</div>

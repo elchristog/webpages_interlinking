@@ -1,0 +1,31 @@
+---
+import { AstroSeo } from "@lexingtonthemes/seo";
+---
+
+<AstroSeo
+  title="Your Page Title"
+  description="A detailed description of your page content."
+  canonical="https://yoursite.com/current-page"
+  openGraph={{
+    url: "https://yoursite.com/current-page",
+    title: "Your Page Title",
+    description: "A detailed description of your page content.",
+    images: [
+      {
+        url: "https://yoursite.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Open Graph Image Alt",
+        type: "image/jpeg",
+      },
+    ],
+    site_name: "Your Site Name",
+    type: "website",
+    locale: "en_US",
+  }}
+  twitter={{
+    handle: "@yourhandle",
+    site: "@yoursite",
+    cardType: "summary_large_image",
+  }}
+/>

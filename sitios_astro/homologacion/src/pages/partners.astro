@@ -1,0 +1,232 @@
+---
+// Assets
+import { Image } from "astro:assets";
+import formoLogo from "@/images/partners/formo.svg";
+import typoraLogo from "@/images/partners/typora-studio.svg";
+import gridlineLogo from "@/images/partners/gridline-labs.svg";
+import nordicFormLogo from "@/images/partners/nordic-form.svg";
+import modulorLogo from "@/images/partners/modulor-assembly.svg";
+import atelierLogo from "@/images/partners/atelier-helvetice.svg";
+import signalStreamLogo from "@/images/partners/signal-stream.svg";
+import designCommonsLogo from "@/images/partners/design-commons.svg";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const partnerCategories = [
+  {
+    title: "Presenting partner",
+    description:
+      "Gridline Labs helped architect the 2024 programme, bringing their systems thinking prowess to every stage, atelier, and installation.",
+    partners: [
+      {
+        name: "Gridline Labs",
+        logo: {
+          src: gridlineLogo,
+          alt: "Gridline Labs logo",
+        },
+        blurb:
+          "A Montreal-based consultancy specialising in design infrastructure, Gridline Labs supported the Dusk residency teams and hosted the closing salon on modular design systems.",
+      },
+    ],
+  },
+  {
+    title: "Design collaborators",
+    description:
+      "Studios and collectives who brought installations, props, and curated experiences to life across the venue.",
+    partners: [
+      {
+        name: "Atelier Helvetica",
+        logo: {
+          src: atelierLogo,
+          alt: "Atelier Helvetica logo",
+        },
+        blurb:
+          "Led the typographic poster archive and produced the limited-run Swiss grid letterpress prints for attendees.",
+      },
+      {
+        name: "Modulor Assembly",
+        logo: {
+          src: modulorLogo,
+          alt: "Modulor Assembly logo",
+        },
+        blurb:
+          "Designed the spatial installations guiding attendees through Helvetica Hall, including the kinetic wayfinding system.",
+      },
+    ],
+  },
+  {
+    title: "Technology partners",
+    description:
+      "Toolmakers and platforms that powered streaming, prototyping, and collaborative workshops.",
+    partners: [
+      {
+        name: "Formo",
+        logo: {
+          src: formoLogo,
+          alt: "Formo logo",
+        },
+        blurb:
+          "Provided interactive prototypes for the motion labs, enabling real-time feedback loops across devices.",
+      },
+      {
+        name: "Typora Studio",
+        logo: {
+          src: typoraLogo,
+          alt: "Typora Studio logo",
+        },
+        blurb:
+          "Powered the typographic pairings lab and supplied the variable font experiments showcased in the night salons.",
+      },
+      {
+        name: "SignalStream",
+        logo: {
+          src: signalStreamLogo,
+          alt: "SignalStream logo",
+        },
+        blurb:
+          "Handled virtual broadcast infrastructure, ensuring remote attendees consumed every session in high fidelity.",
+      },
+    ],
+  },
+  {
+    title: "Community supporters",
+    description:
+      "Partners who help us offer scholarships, travel bursaries, and community tickets each year.",
+    partners: [
+      {
+        name: "Design Commons",
+        logo: {
+          src: designCommonsLogo,
+          alt: "Design Commons logo",
+        },
+        blurb:
+          "Funded 40 student bursaries and hosted the mentorship clinic connecting emerging designers with Dusk speakers.",
+      },
+      {
+        name: "Nordic Form",
+        logo: {
+          src: nordicFormLogo,
+          alt: "Nordic Form logo",
+        },
+        blurb:
+          "Underwrote accessibility services including captioning, tactile signage, and assisted listening for on-site attendees.",
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-32">
+      <div>
+        <Text
+          tag="h1"
+          variant="displayMD"
+          class="text-balance text-accent-500 font-display uppercase leading-tight"
+        >
+          Collaborators Partners of Dusk
+        </Text>
+        <Text
+          tag="p"
+          variant="textBase"
+          class="text-base-600 font-medium max-w-2xl mt-2 text-balance"
+        >
+          Dusk is built alongside studios and platforms committed to the rigor
+          of Swiss design. Explore the partners who help shape each edition and
+          expand access to the programme.
+        </Text>
+      </div>
+      <div class="space-y-32 mt-24">
+        {
+          partnerCategories.map((category) => (
+            <div class="grid grid-cols-1 lg:grid-cols-12 items-start">
+              <div class="lg:col-span-2">
+                <Text
+                  tag="h2"
+                  variant="textLG"
+                  class="font-display  uppercase text-accent-500"
+                >
+                  {category.title}
+                </Text>
+                <Text tag="p" variant="textSM" class="mt-2 text-base-600">
+                  {category.description}
+                </Text>
+              </div>
+              <div class="grid  md:grid-cols-2 xl:grid-cols-3 lg:col-span-9 lg:col-start-4">
+                {category.partners.map((partner) => (
+                  <article class="flex h-full flex-col gap-6 bg-base-white">
+                    <div class="flex items-center gap-4">
+                      <div class="flex size-10 items-center justify-center bg-accent-500">
+                        {partner.logo?.src && (
+                          <Image
+                            src={partner.logo.src}
+                            alt={partner.logo.alt || partner.name}
+                            width={64}
+                            height={64}
+                            class="size-8 object-contain"
+                          />
+                        )}
+                      </div>
+                      <Text
+                        tag="h3"
+                        variant="textLG"
+                        class="font-display  uppercase text-accent-500"
+                      >
+                        {partner.name}
+                      </Text>
+                    </div>
+                    <Text tag="p" variant="textXS" class="text-base-600 pr-8">
+                      {partner.blurb}
+                    </Text>
+                  </article>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+      <section
+        class="gap-x-12 gap-y-8 border border-white/10 bg-accent-500 p-8 md:flex md:items-center md:justify-between mt-24"
+      >
+        <div class="max-w-xl space-y-4">
+          <Text
+            tag="h2"
+            variant="displaySM"
+            class="font-display uppercase text-white"
+          >
+            Partner with Dusk 2025
+          </Text>
+          <Text tag="p" variant="textSM" class="text-base-200 lg:text-balance">
+            Interested in supporting the next edition? We offer partnership
+            tiers tailored to product teams, tool makers, and design
+            institutions.
+          </Text>
+        </div>
+        <div
+          class="flex flex-wrap items-center justify-center gap-2 md:justify-end"
+        >
+          <Button
+            size="sm"
+            variant="default"
+            class="w-fit"
+            href="mailto:partners@dusk.design"
+          >
+            Request deck
+          </Button>
+          <Button
+            size="sm"
+            variant="muted"
+            class="w-fit"
+            href="/press"
+            href="/downloads/partners.pdf"
+          >
+            Download prospectus
+          </Button>
+        </div>
+      </section>
+    </Wrapper>
+  </section>
+</BaseLayout>

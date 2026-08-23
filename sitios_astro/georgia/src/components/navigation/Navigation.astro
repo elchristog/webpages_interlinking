@@ -1,0 +1,61 @@
+---
+// Assets
+import Logo from "@/components/assets/Logo.astro";
+// Fundations
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import MobileNav from "./MobileNav.astro";
+// Quick access links
+const links = [
+  { href: "/system/overview", text: "Overview" },
+  { href: "/", text: "Websites" },
+  { href: "/pricing/", text: "Pricing" },
+  { href: "/blog/", text: "Blog" },
+  { href: "/store/", text: "Store" },
+  { href: "/submit/", text: "Submit" },
+  { href: "/advertise/", text: "Sponsors" },
+  { href: "https://lexingtonthemes.com/templates/carbon", text: "Buy Carbon" },
+];
+---
+
+<MobileNav />
+<nav class="fixed w-full top-0 z-20 bg-white py-4 hidden md:block">
+  <Wrapper variant="standard">
+    <div
+      class="grid grid-cols-2 md:grid-cols-2 items-center w-full gap-3 relative"
+    >
+      <a
+        href="/"
+        class="shrink-0 foucs:outline-none"
+        aria-label="Go to homepage"
+      >
+        <Logo class="h-4 text-base-900" />
+      </a>
+      <div class="flex items-center gap-2 lg:gap-2 ml-auto">
+        <div class="flex items-center gap-4">
+          {
+            links.map((link) => (
+              <a
+                class="text-base-600 hover:text-base-900 text-xs whitespace-nowrap"
+                href={link.href}
+              >
+                {link.text}
+              </a>
+            ))
+          }
+        </div>
+        <Button isLink size="xs" variant="muted" href="/signin" class="shrink-0"
+          >Sign in</Button
+        >
+        <Button
+          isLink
+          size="xs"
+          variant="default"
+          href="/signup"
+          class="shrink-0">Sign up</Button
+        >
+      </div>
+    </div>
+  </Wrapper>
+</nav>

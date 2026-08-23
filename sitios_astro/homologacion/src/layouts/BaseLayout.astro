@@ -1,0 +1,21 @@
+---
+// Fundations
+import "@/styles/global.css";
+import BaseHead from "@/components/fundations/head/BaseHead.astro";
+// Components
+import Navigation from "@/components/global/Navigation.astro";
+import Footer from "@/components/global/Footer.astro";
+import GuidelinesGrid from "@/components/assets/GuidelinesGrid.astro";
+---
+
+<html lang="en" class="scroll-smooth scrollbar-hide">
+  <head>
+    <BaseHead />
+  </head>
+  <body class="bg-base-100 flex flex-col min-h-svh">
+    <Navigation />
+    <main class="grow relative z-10 relative"><slot /></main>
+    <Footer />
+    <GuidelinesGrid />
+  </body>
+</html>

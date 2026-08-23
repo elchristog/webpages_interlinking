@@ -1,0 +1,38 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+const { title, url, description, image } = {
+  url: "/for-sale/" + Astro.props.post.id,
+  image: Astro.props.post.data.image.url,
+  title: Astro.props.post.data.title,
+  description: Astro.props.post.data.description,
+};
+---
+
+<a
+  href={url}
+  title={title}
+  class="text-xs 2xl:text-sm flex flex-col gap-4 items-center"
+>
+  <div class="overflow-hidden group">
+    <Image
+      width={400}
+      height={400}
+      src={image}
+      alt={title}
+      class="aspect-[16/7] object-cover object-center group-hover:scale-110 transition-transform duration-500"
+    />
+  </div>
+  <div class="w-full divide-y">
+    <div class="gap-4 mt-2">
+      <Text tag="h3" variant="textBase" class="text-base-900">
+        {title}
+      </Text>
+      <Text tag="p" variant="textSM" class="text-base-500 mt-4"
+        >{description}</Text
+      >
+    </div>
+  </div>
+</a>

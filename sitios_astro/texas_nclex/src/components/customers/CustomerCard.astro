@@ -1,0 +1,17 @@
+---
+// Image
+import { Image } from "astro:assets";
+const { customer, logo, url } = {
+  url: "/customers/" + Astro.props.post.id,
+  customer: Astro.props.post.data.customer,
+  logo: Astro.props.post.data.logo.url,
+};
+---
+
+<a
+  href={url}
+  title={customer}
+  class="p-8 lg:p-20 justify-center bg-white/5 hover:bg-gradient-down duration-500 items-center transition-all ease-in-out aspect-square flex"
+>
+  <Image width={400} height={400} class="mx-auto" src={logo} alt={customer} />
+</a>

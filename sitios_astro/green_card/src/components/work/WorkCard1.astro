@@ -1,0 +1,38 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+const { url, company, work, thumbnail } = {
+  url: "/work/" + Astro.props.post.id,
+  company: Astro.props.post.data.company,
+  work: Astro.props.post.data.work,
+  thumbnail: Astro.props.post.data.thumbnail.url,
+};
+---
+
+<article
+  class="relative flex flex-col justify-between overflow-hidden group keen-slider__slide"
+>
+  <a href={url} title={company} class="text-white absolute inset-0 z-10"></a>
+  <Image
+    src={thumbnail}
+    width="1000"
+    height="1000"
+    alt={company}
+    class="aspect-4/6 rounded-2xl object-cover object-top"
+  />
+
+  <div class="mt-4 text-center">
+    <Text tag="h2" variant="textLG" class="text-accent-500 font-medium">
+      {company}
+    </Text>
+    <Text
+      tag="p"
+      variant="textBase"
+      class="tracking-tight text-accent-500 text-balance"
+    >
+      {work}
+    </Text>
+  </div>
+</article>

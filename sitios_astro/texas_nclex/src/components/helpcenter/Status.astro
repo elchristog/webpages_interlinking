@@ -1,0 +1,126 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Array
+const statusItems = [
+  { service: "Node Network", status: "Operational", color: "green-500" },
+  { service: "Smart Contract API", status: "Operational", color: "green-500" },
+  {
+    service: "On-Chain Data & Analytics",
+    status: "Operational",
+    color: "green-500",
+  },
+  {
+    service: "Decentralized Oracles",
+    status: "Operational",
+    color: "green-500",
+  },
+  { service: "IPFS Hosted Pages", status: "Down", color: "red-500" },
+  {
+    service: "Crypto Payment Gateways",
+    status: "Low signal",
+    color: "accent-500",
+  },
+  { service: "Supported Tokens", status: "Operational", color: "green-500" },
+];
+
+const events = [
+  {
+    status: "Completed",
+    description:
+      "The scheduled blockchain upgrade has been successfully completed.",
+    timestamp: "May 17, 23:00 PDT",
+  },
+  {
+    status: "In progress",
+    description:
+      "Network maintenance is currently in progress. Validators are syncing, and we will provide updates as necessary.",
+    timestamp: "May 17, 22:00 PDT",
+  },
+  {
+    status: "Scheduled",
+    description:
+      "A protocol upgrade is scheduled. Users may experience temporary delays in transaction confirmations.",
+    timestamp: "May 11, 10:04 PDT",
+  },
+];
+---
+
+<section>
+  <Wrapper
+    variant="standard"
+    class="py-42 relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4"
+  >
+    <div class="md:col-span-2 md:col-start-2">
+      <Text tag="span" variant="textSM" class="text-white">
+        Last block synced at <time datetime="22:18:51">22:18:51 BST</time>
+      </Text>
+
+      <Text
+        tag="h1"
+        variant="display2XL"
+        class="mt-12 text-white text-balance font-display"
+      >
+        Network Status:
+        <span class="text-base-400 block"> All nodes operational</span>
+      </Text>
+      <Text tag="p" variant="textBase" class="text-white mt-2 text-balance">
+        Our decentralized infrastructure is continuously monitored for network
+        stability, validator performance, and potential disruptions. Any
+        anomalies or protocol upgrades will be reported here in real time.
+      </Text>
+
+      <ul role="list" class="mt-12">
+        {
+          statusItems.map((item) => (
+            <li class="flex items-center justify-between space-x-3 py-2">
+              <span class="relative inline-flex items-center gap-x-1.5 text-sm leading-6 text-base-500">
+                <svg
+                  class={`size-1.5 fill-${item.color} animate-pulse`}
+                  viewBox="0 0 6 6"
+                  aria-hidden="true"
+                >
+                  <circle cx="3" cy="3" r="3" />
+                </svg>
+                {item.service}
+              </span>
+              <span class="flex-1 mx-2 border-dotted border-b border-base-300" />
+              <p class="flex-shrink-0 text-sm text-white">{item.status}</p>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="mt-24 w-full">
+        <Text tag="span" variant="textSM" class="text-white">
+          May 17, 2023 ⏤ Scheduled Maintenance
+        </Text>
+        <Text
+          tag="h1"
+          variant="displaySM"
+          class="mt-12 text-white text-balance font-display"
+        >
+          Past Incidents:
+          <span class="text-base-400 block"> No incidents today.</span>
+        </Text>
+        <ul role="list" class="text-white pt-6 mt-4">
+          {
+            events.map((event) => (
+              <li class="py-4">
+                <span class="text-base-500 block">
+                  <strong class="text-white">{event.status}</strong> ⏤
+                  {event.description}
+                </span>
+                <span>
+                  <time class="block text-base-400 text-xs mt-2">
+                    {event.timestamp}
+                  </time>
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </Wrapper>
+</section>

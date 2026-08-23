@@ -1,0 +1,26 @@
+---
+import BlogTicker from "@/components/blog/BlogTicker.astro";
+import { getCollection } from "astro:content";
+
+// Get latest posts for the ticker
+const allPosts = await getCollection("posts");
+allPosts.sort(
+  (a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
+const latestPosts = allPosts.slice(0, 6);
+---
+
+<div id="tickerElement" class="bg-base-50 mt-2">
+  <div
+    class="relative flex snap-x snap-proximity items-center gap-2 px-2 overflow-x-scroll scrollbar-hide animate-marquee w-max pause-on-hover"
+  >
+    {
+      latestPosts.map((post, index) => (
+        <>
+          {index > 0 && <span class="text-black">•</span>}
+          <BlogTicker post={post} />
+        </>
+      ))
+    }
+  </div>
+</div>

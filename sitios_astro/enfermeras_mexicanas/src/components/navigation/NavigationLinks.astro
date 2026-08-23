@@ -1,0 +1,147 @@
+---
+// Define navigation data
+const navigationItems = [
+  {
+    items: [
+      { href: "/blog", text: "Blog" },
+      { href: "/work", text: "Work" },
+      {
+        href: "/store",
+        text: "Store",
+      },
+      { href: "/about", text: "About" },
+      {
+        href: "/studio",
+        text: "Studio",
+      },
+      {
+        href: "/course",
+        text: "Course",
+      },
+      {
+        href: "/signin",
+        text: "Sing in",
+      },
+      {
+        href: "/signup",
+        text: "Sign up",
+      },
+      {
+        href: "/contact",
+        text: "Contact",
+      },
+    ],
+  },
+  {
+    items: [
+      {
+        href: "/system/overview",
+        text: "Overview",
+      },
+      {
+        href: "/system/links",
+        text: "Links",
+      },
+      {
+        href: "/system/buttons",
+        text: "Buttons",
+      },
+      {
+        href: "/system/colors",
+        text: "Colors",
+      },
+      {
+        href: "/system/typography",
+        text: "Typography",
+      },
+    ],
+  },
+  {
+    items: [
+      {
+        href: "https://lexingtonthemes.com/viewports/profoliox",
+        text: "Buy ProFolioX",
+      },
+    ],
+  },
+];
+const { class: className = "", ...rest } = Astro.props;
+---
+
+<div class={className} {...rest}>
+  <div class="space-y-8" id="menuContent">
+    {
+      navigationItems.map((section, sectionIndex) => (
+        <div class="flex flex-col gap-1">
+          {section.items.map((item, itemIndex) => (
+            <a
+              href={item.href}
+              class="nav-link text-sm text-base-500 hover:text-accent-500 dark:hover:text-accent-300 dark:text-base-50 duration-500"
+              data-index={sectionIndex * 100 + itemIndex}
+            >
+              {item.text}
+            </a>
+          ))}
+        </div>
+      ))
+    }
+  </div>
+</div>
+<script type="module">
+  // Wait for the DOM to be fully loaded before running the script
+  document.addEventListener("DOMContentLoaded", (event) => {
+    // Get a reference to the menu content element
+    const menuContent = document.getElementById("menuContent");
+
+    // Define a function to animate the links
+    function animateLinks() {
+      // Select all navigation links within the menu content
+      const navLinks = menuContent.querySelectorAll(".nav-link");
+
+      // Iterate over each navigation link
+      navLinks.forEach((link, index) => {
+        // Set initial state: invisible
+        link.style.opacity = "0";
+        // Set initial state: 20px below its final position
+        link.style.transform = "translateY(20px)";
+        // Remove any existing transitions
+        link.style.transition = "none";
+
+        // Delay the animation slightly to ensure the initial state is applied
+        setTimeout(() => {
+          // Set up the transition for smooth animation
+          // The delay is staggered based on the link's index
+          link.style.transition = `opacity 0.3s ease-out ${index * 0.1}s, transform 0.3s ease-out ${index * 0.1}s`;
+          // Fade in the link
+          link.style.opacity = "1";
+          // Move the link to its final position
+          link.style.transform = "translateY(0)";
+        }, 50);
+      });
+    }
+
+    // Run the animation function when the page loads
+    animateLinks();
+
+    // Create a new MutationObserver to watch for changes in the menu's visibility
+    const observer = new MutationObserver((mutations) => {
+      // Iterate over each mutation
+      mutations.forEach((mutation) => {
+        // Check if the mutation is a change to the class attribute
+        if (
+          mutation.type === "attributes" &&
+          mutation.attributeName === "class"
+        ) {
+          // If the menu is not hidden (i.e., it's visible)
+          if (!menuContent.classList.contains("hidden")) {
+            // Run the animation
+            animateLinks();
+          }
+        }
+      });
+    });
+
+    // Start observing the menu content for attribute changes
+    observer.observe(menuContent, { attributes: true });
+  });
+</script>

@@ -1,0 +1,154 @@
+---
+// Assets
+import { Code } from "astro:components";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+// Data array
+const features = [
+  {
+    asset: "GridSurface1",
+    tagline: "Seamless Connectivity",
+    title: "Web3 Integrations",
+    description:
+      "Effortlessly connect your dApps, wallets, and smart contracts with our flexible and interoperable Web3 solutions.",
+  },
+  {
+    asset: "GridSurface2",
+    tagline: "On-Chain Precision",
+    title: "Automated Transactions",
+    description:
+      "Schedule and execute blockchain transactions with precision using trustless automation and smart contracts.",
+  },
+  {
+    asset: "GridSurface3",
+    tagline: "Instant Access",
+    title: "Decentralized Performance",
+    description:
+      "Leverage high-speed, scalable blockchain infrastructure to access and manage your assets instantly and securely.",
+  },
+  {
+    asset: "GridSurface4",
+    tagline: "Ownership Redefined",
+    title: "Self-Custody & Security",
+    description:
+      "Take full control of your digital identity, assets, and data with non-custodial solutions, ensuring maximum security and privacy.",
+  },
+];
+---
+
+<section>
+  <Wrapper
+    class="py-12 lg:pt-42 grid grid-cols-1 gap-y-12 lg:gap-y-24 lg:grid-cols-4"
+  >
+    <div class="lg:col-span-2">
+      <div>
+        <Text tag="span" variant="textSM" class="text-white">
+          Unlock the Power of Web3
+        </Text>
+        <Text
+          tag="h3"
+          variant="displayMD"
+          class="mt-12 text-white text-balance font-display"
+        >
+          Decentralized. Scalable. Secure.
+          <span class="text-base-400 block">Build today without limits.</span>
+        </Text>
+        <Text tag="p" variant="textBase" class="text-white mt-2 text-balance">
+          Seamlessly integrate dApps, execute trustless transactions, and take
+          full control of your digital assets with cutting-edge Web3 solutions.
+          The next evolution of the internet starts here.
+        </Text>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-y-12 mt-24 lg:col-span-4">
+        {
+          features.map((item) => (
+            <div class="before:bg-white ">
+              <div class="px-4 relative  before:absolute after:absolute before:bg-white before:top-0 before:left-0 before:h-6 before:w-px after:top-8 after:bottom-0 after:left-0 after:w-px">
+                <div class="relative">
+                  <Text tag="span" variant="textSM" class="text-base-500">
+                    {item.tagline}
+                  </Text>
+                  <Text
+                    tag="h3"
+                    variant="textbase"
+                    class="mt-2 text-white font-medium"
+                  >
+                    {item.title}
+                  </Text>
+                </div>
+                <Text
+                  tag="p"
+                  variant="textSM"
+                  class="mt-2 text-base-500 text-pretty"
+                >
+                  {item.description}
+                </Text>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    <div class="relative mt-8 lg:mt-0 lg:col-span-2">
+      <div data-aos="fade-up" data-aos-duration="1500">
+        <div
+          class="py-2 px-4 border border-b-0 border-base-900 bg-base-950 border-l-white"
+        >
+          <div class="flex items-center gap-1">
+            <div class="size-2 outline rounded-full outline-base-600"></div>
+            <div class="size-2 outline rounded-full outline-base-700"></div>
+            <div class="size-2 outline rounded-full outline-base-800"></div>
+          </div>
+        </div>
+        <Code
+          class="scrollbar-hide border-y border-l lg:border-l-0 border-r text-xs p-8 border-base-900"
+          code={`function sendNonFungibleToken(
+  tokenId: string,
+  sender: string,
+  receiver: string,
+  sourcePort: string,
+  sourceChannel: string,
+  timeoutHeight: Height,
+  timeoutTimestamp: uint64
+  ): uint64 {
+  const prefix = [sourcePort, sourceChannel].join("/");
+    
+    // Check if the token is originally from this chain
+    const isSource = !tokenId.startsWith(prefix);
+  
+    if (isSource) {
+        // Determine escrow account for cross-chain transfer
+        const escrowAccount = nftEscrowAddresses[sourceChannel];
+  
+        // Lock the NFT in escrow (assumed to fail if not owned by sender)
+        nftModule.transferNFT(sender, escrowAccount, tokenId);
+    } else {
+        // If the receiver is the original chain, burn the wrapped NFT
+        nftModule.burnNFT(sender, tokenId);
+    }
+  
+    // Create NFT transfer packet data
+    const data = NonFungibleTokenPacketData{ tokenId, sender, receiver };
+  
+    // Send packet using ICS4 interface
+    const sequence = handler.sendPacket(
+        getCapability("port"),
+        sourcePort,
+        sourceChannel,
+        timeoutHeight,
+        timeoutTimestamp,
+        data
+    );
+  
+    return sequence;
+  }
+  `}
+          lang="js"
+          theme="css-variables"
+        />
+      </div>
+    </div>
+  </Wrapper>
+</section>

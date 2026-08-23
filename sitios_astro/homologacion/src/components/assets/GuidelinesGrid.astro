@@ -1,0 +1,25 @@
+---
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+interface Props {
+  count?: number;
+}
+
+const { count = 12 }: Props = Astro.props;
+const columns = Array.from({ length: count });
+---
+
+<!--
+// This Guide lines are absolute positioned and they are on every page.
+// Find it on the BaseLayout.astro file
+-->
+<Wrapper class="fixed inset-0 z-0 pointer-events-none">
+  <div
+    class="h-full grid gap-0 border-x divide-x divide-black/10 border-dashed divide-dashed border-black/10 mx-auto"
+    style={`grid-template-columns: repeat(${count}, minmax(0, 1fr));`}
+  >
+    {columns.map((_, index) => (
+      <div aria-hidden="true" class="w-full"></div>
+    ))}
+  </div>
+</Wrapper>

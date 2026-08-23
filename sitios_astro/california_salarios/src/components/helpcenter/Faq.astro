@@ -1,0 +1,83 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import Plus from "@/components/fundations/icons/Plus.astro";
+const faqs = [
+  {
+    question: "Can I get a refund if Ælen’s not right for me?",
+    answer:
+      "Yes. If you’re not satisfied within your first 30 days, we’ll refund your full subscription—no questions asked. Just reach out to support with your account info and reason for canceling. Refunds are typically processed in 5–7 business days and apply to both monthly and annual plans.",
+  },
+  {
+    question: "Do you offer custom pricing for large teams?",
+    answer:
+      "We do. Enterprise clients get flexible pricing based on team size, contract length, and feature needs. We also offer dedicated onboarding, support, and integrations. Contact our sales team to talk about a tailored plan for your company.",
+  },
+  {
+    question: "How does the Ælen referral program work?",
+    answer:
+      "Invite a friend, and when they sign up for a paid plan, you both get 20% off your next billing cycle. There’s no cap on referrals, so the savings stack up. Share your unique link from your dashboard to start earning rewards.",
+  },
+  {
+    question: "Are there any hidden fees?",
+    answer:
+      "Nope. Your subscription covers all core features, updates, and standard support. Extra services—like advanced onboarding, custom integrations, or premium support—are optional and clearly priced. No surprises.",
+  },
+  {
+    question: "Is Ælen optimized for performance?",
+    answer:
+      "Yes. Ælen ships with Astro and Tailwind CSS, optimized out of the box for fast loading and high Lighthouse scores. It’s designed to be light, clean, and efficient—no bloat, no nonsense.",
+  },
+  {
+    question: "Can I use Ælen with other CMS platforms?",
+    answer:
+      "Ælen is built with Astro, but you can connect it to any headless CMS or data source you like—Sanity, Contentful, Ghost, or even a custom API. It’s flexible enough to adapt to whatever stack you're using.",
+  },
+  {
+    question: "Is there dark mode?",
+    answer:
+      "Ælen ships in light mode by default, but you can easily add dark mode support with Tailwind’s dark variant. A full toggle is just a few lines of config away—no plugin necessary.",
+  },
+  {
+    question: "Can I customize the components?",
+    answer:
+      "Definitely. Ælen’s components are built with flexibility in mind—fully reusable, well-commented, and easy to adapt to your branding or design system. Tweak, remix, or completely overhaul—it’s your call.",
+  },
+];
+---
+
+<section>
+  <section class="py-24">
+    <Wrapper variant="standard">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <Text
+          tag="h2"
+          variant="display6XL"
+          class="font-bold tracking-tighter text-black text-balance"
+        >
+          FAQ
+        </Text>
+
+        <div class="lg:col-span-2 w-full">
+          {
+            faqs.map((faq) => (
+              <details class="pb-2 pt-8 border-b border-dashed select-none group border-black/20 ">
+                <summary class="text-base lg:text-3xl font-bold text-black list-none cursor-pointer  group-open:text-black transition-colors group flex items-center gap-4">
+                  <div class="bg-black text-white p-1 rounded-full">
+                    <Plus class="duration-300 size-4 transition-transform group-open:rotate-180" />
+                  </div>
+                  {faq.question}
+                </summary>
+                <div class="mt-4  text-black text-xl font-semibold max-w-xl">
+                  {faq.answer}
+                </div>
+              </details>
+            ))
+          }
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</section>

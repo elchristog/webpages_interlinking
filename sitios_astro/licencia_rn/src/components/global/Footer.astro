@@ -1,0 +1,133 @@
+---
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+const footerLinks = [
+  {
+    title: "Navigation",
+    links: [
+      { href: "/system/overview", label: "Overview" },
+      { href: "/system/colors", label: "Colors" },
+      { href: "/system/links", label: "Links" },
+      { href: "/system/buttons", label: "Buttons" },
+      { href: "/system/typography", label: "Typography" },
+    ],
+  },
+  {
+    title: "Stay updated",
+    links: [
+      { href: "/blog/home", label: "Blog" },
+      { href: "/changelog/home", label: "Changelog" },
+      {
+        href: "https://www.lexingtonthemes.com/legal/license",
+        label: "License",
+      },
+      {
+        href: "https://www.lexingtonthemes.com/documentation",
+        label: "Documentation",
+      },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { href: "/about", label: "About" },
+      { href: "/customers/home", label: "Customers" },
+      { href: "/helpcenter/home", label: "Help Center" },
+      { href: "/integrations/home", label: "Integrations" },
+    ],
+  },
+  {
+    title: "Socials",
+    links: [
+      {
+        href: "https://twitter.com/lexingtonthemes",
+        label: "@lexingtonthemes",
+      },
+      { href: "https://twitter.com/Mike_Andreuzza", label: "@Mike_Andreuzza" },
+    ],
+  },
+];
+---
+
+<footer class="relative">
+  <Wrapper variant="standard" class="py-8">
+    <div
+      class="items-start pt-12 mt-12 tracking-tight border-t grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-24 border-base-200"
+    >
+      <div class="items-start tracking-tight grid grid-cols-2 gap-x-8 gap-y-12">
+        {
+          footerLinks.map((section) => (
+            <div>
+              <Text
+                tag="h3"
+                variant="textBase"
+                class="font-medium text-base-600"
+              >
+                {section.title}
+              </Text>
+              <ul role="list" class="mt-4 space-y-2">
+                {section.links.map((link) => (
+                  <li>
+                    <a
+                      class="text-base-500  hover:text-base-800"
+                      href={link.href}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+      <div class="flex flex-col justify-between h-full p-8 bg-base-50">
+        <Text
+          tag="p"
+          variant="displaySM"
+          class="md:max-w-sm text-base-800 text-balance"
+          >Stay up to date with Alfred's news.</Text
+        >
+
+        <div>
+          <form class="mt-2 space-y-4" aria-label="Newsletter Signup Form">
+            <div>
+              <label for="email" class="sr-only">Email address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="name@email.com"
+                required
+                class="w-full text-lg bg-white border-transparent outline-none h-14 text-base-700 placeholder-base-400 focus:ring-inset focus:ring-base-800 focus:border-base-800"
+              />
+            </div>
+            <Button
+              type="submit"
+              size="xl"
+              variant="default"
+              type="submit"
+              class="w-full"
+            >
+              Signup
+            </Button>
+          </form>
+
+          <Text
+            tag="p"
+            variant="textXS"
+            class="mt-2 leading-relaxed text-base-500"
+          >
+            By signing up, you agree that Alfred may contact you about our
+            products and services. You can unsubscribe at any time. See Alfred's
+            <a href="/infopages/privacy" class="underline hover:text-base-700"
+              >Privacy Statement</a
+            >
+            for more information on how we handle your data.
+          </Text>
+        </div>
+      </div>
+    </div>
+  </Wrapper>
+</footer>

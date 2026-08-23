@@ -1,0 +1,22 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+
+// Content
+const { title, url } = {
+  url: "/helpcenter/" + Astro.props.post.id,
+  title: Astro.props.post.data.title,
+};
+---
+
+<div class="relative p-4 bg-base-50">
+  <a
+    href={url}
+    title={`Read help article: ${title}`}
+    aria-label={`Read help article: ${title}`}
+    class="absolute inset-0"></a>
+
+  <Text tag="h3" variant="textBase" class="font-medium text-base-90">
+    {title}
+  </Text>
+</div>

@@ -1,0 +1,212 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms";
+@plugin "tailwind-scrollbar-hide";
+@layer utilities {
+  .audio-player input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background: black;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+
+  /* WebKit browsers (Chrome, Safari, Edge) */
+  .audio-player input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid black;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+
+  .audio-player input[type="range"]::-webkit-slider-thumb:hover {
+    background: black;
+  }
+
+  /* Firefox */
+  .audio-player input[type="range"]::-moz-range-thumb {
+    width: 20px; /* match your working example or set to 12px for consistency */
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid black;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+
+  .audio-player input[type="range"]::-moz-range-thumb:hover {
+    background: black;
+  }
+
+  /* Firefox track */
+  .audio-player input[type="range"]::-moz-range-track {
+    background: black;
+    height: 2px;
+    border-radius: 2px;
+  }
+
+  /* Optional: IE */
+  .audio-player input[type="range"]::-ms-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid black;
+    cursor: pointer;
+  }
+}
+@theme {
+  /* Typography*/
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "STIX Two Text", serif;
+  /* Colors */
+
+
+  --color-accent-50: oklch(98.17% 0.018 92.68);
+  --color-accent-100: oklch(96.39% 0.034 92.27);
+  --color-accent-200: oklch(92.87% 0.067 92.43);
+  --color-accent-300: oklch(89.55% 0.098 91.71);
+  --color-accent-400: oklch(86.27% 0.125 91.38);
+  --color-accent-500: oklch(82.72% 0.146 89.45);
+  --color-accent-600: oklch(76.92% 0.153 86.84);
+  --color-accent-700: oklch(62.29% 0.123 86.94);
+  --color-accent-800: oklch(46.62% 0.091 87.92);
+  --color-accent-900: oklch(29.61% 0.055 88.55);
+  --color-accent-950: oklch(20.22% 0.035 93.13);
+  --color-base-50: oklch(0.985 0 0);
+  --color-base-100: oklch(0.97 0 0);
+  --color-base-200: oklch(0.922 0 0);
+  --color-base-300: oklch(0.87 0 0);
+  --color-base-400: oklch(0.708 0 0);
+  --color-base-500: oklch(0.556 0 0);
+  --color-base-600: oklch(0.439 0 0);
+  --color-base-700: oklch(0.371 0 0);
+  --color-base-800: oklch(0.269 0 0);
+  --color-base-900: oklch(0.205 0 0);
+  --color-base-950: oklch(0.145 0 0);
+
+}
+:root {
+  /* Typography */
+  font-feature-settings: "liga" 1, "calt" 1,
+    /* Contextual Alternates */ "dlig" 1, /* Discretionary Ligatures */ "ss07" 1,
+    /* fSquare punctuation */ "ss08" 1, /* Square quotes */ "zero" 1,
+    /* Slashed zero */ "tnum" 1, /* Tabular numbers */ "cv03" 1,
+    /* Open six */ "cv04" 1, /* Open nine */ "cv01" 1,
+    /* Alternate one */ "cv09", /* Flat-top three */ "cv02" 1; /* Open 4 */
+  font-family: Inter, sans-serif;
+  font-variant-numeric: tabular-nums;
+  /* Shiki code style - Light Mode */
+  --astro-code-foreground: theme(colors.base.600); /* Dark base for text */
+  --astro-code-background: theme(
+    colors.base.200
+  ); /* Light base for background */
+  --astro-code-token-punctuation: theme(colors.base.700); /* Dark base */
+  --astro-code-token-parameter: theme(
+    colors.base.600
+  ); /* Slightly lighter base */
+  --astro-code-token-line-number: theme(
+    colors.base.500
+  ); /* Medium base for line numbers */
+  --astro-code-token-comment: theme(
+    colors.base.500
+  ); /* Muted base for comments */
+  --astro-code-token-cdata: theme(
+    colors.base.600
+  ); /* Same as parameter for consistency */
+  --astro-code-token-constant: theme(colors.base.700); /* Dark base */
+  --astro-code-token-function: theme(
+    colors.base.800
+  ); /* Darkest base for emphasis */
+  --astro-code-token-attr-name: theme(
+    colors.base.700
+  ); /* Attribute names in dark base */
+  --astro-code-token-builtin: theme(
+    colors.base.600
+  ); /* Subtle distinction for built-ins */
+  --astro-code-token-boolean: theme(colors.base.700); /* Similar to constants */
+  --astro-code-token-class-name: theme(
+    colors.base.600
+  ); /* Mid-tone base for class names */
+  --astro-code-token-property: theme(
+    colors.base.700
+  ); /* Same as attr-name for properties */
+  --astro-code-token-selector: theme(
+    colors.base.800
+  ); /* Dark base for selectors */
+  --astro-code-token-string: theme(
+    colors.base.600
+  ); /* Slight contrast for strings */
+  --astro-code-token-string-expression: theme(
+    colors.base.700
+  ); /* Match other text tokens */
+  --astro-code-token-variable: theme(
+    colors.base.800
+  ); /* Dark base for variables */
+  --astro-code-token-keyword: theme(
+    colors.base.700
+  ); /* Slight contrast for keywords */
+  --astro-code-token-symbol: theme(
+    colors.base.800
+  ); /* Match text for consistency */
+  --astro-code-token-number: theme(colors.base.800); /* Dark base for numbers */
+  --astro-code-token-operator: theme(
+    colors.base.700
+  ); /* Slightly lighter base */
+  --astro-code-token-deleted: theme(
+    colors.base.500
+  ); /* Medium base for deleted tokens */
+  --astro-code-token-changed: theme(
+    colors.base.500
+  ); /* Medium base for changes */
+  --astro-code-token-important: theme(
+    colors.base.800
+  ); /* Darkest base for important text */
+  --astro-code-token-tag: theme(colors.base.700); /* Slightly darker for tags */
+  --astro-code-token-inserted: theme(
+    colors.base.600
+  ); /* Mid-tone base for inserted text */
+  --astro-code-token-namespace: theme(
+    colors.base.700
+  ); /* Consistent with tags */
+  --astro-code-token-atrule: theme(colors.base.700); /* Same as namespace */
+  --astro-code-token-entity: theme(
+    colors.base.700
+  ); /* Match other identifiers */
+  --astro-code-token-highlight: theme(
+    colors.base.200
+  ); /* Slightly darker background highlight */
+  --astro-code-token-alert: theme(
+    colors.base.800
+  ); /* Darkest base for alerts */
+  --astro-code-token-emphasis: theme(
+    colors.base.600
+  ); /* Mid-tone for emphasis */
+  --astro-code-token-focus: theme(
+    colors.base.700
+  ); /* Dark for focused elements */
+  --astro-code-token-notice: theme(
+    colors.base.700
+  ); /* Match other noticeable elements */
+  --astro-code-token-attr-value: theme(colors.base.600); /* Same as strings */
+  --astro-code-token-regex: theme(
+    colors.base.600
+  ); /* Consistent with strings */
+  --astro-code-token-doctype: theme(colors.base.500); /* Muted for doctype */
+  --astro-code-token-prolog: theme(colors.base.500); /* Same as comments */
+  --astro-code-token-doctype: theme(colors.base.400); /* Muted for doctype */
+  --astro-code-token-prolog: theme(colors.base.400); /* Same as comments */
+  --astro-code-token-bold: inherit;
+  --astro-code-token-italic: italic;
+  --astro-code-token-underline: underline;
+}

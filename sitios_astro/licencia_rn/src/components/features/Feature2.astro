@@ -1,0 +1,48 @@
+---
+// Assets
+import { Image } from "astro:assets";
+import calendarDashboard from "@/images/assets/calendarDashboard.jpg";
+import Kicker from "@/components/assets/Kicker.astro";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<section>
+  <Wrapper variant="standard" class="py-8">
+    <div class="p-8 lg:p-12 bg-rose-50">
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-4 md:items-end">
+        <div>
+          <Kicker class="text-white bg-rose-800">C</Kicker>
+
+          <Text
+            tag="h2"
+            variant="displaySM"
+            class="mt-8 font-medium tracking-tight text-rose-900 text-balance"
+          >
+            Calendar that doesn´t flake
+          </Text>
+        </div>
+        <Text
+          tag="p"
+          variant="textLG"
+          class="mt-4 text-base-600 lg:text-balance md:col-span-2 md:col-start-3"
+        >
+          No more “who edited this?” panic. Just smooth, drama-free workflows
+          that actually help your team get stuff done—for once.
+        </Text>
+      </div>
+      <div class="mt-12">
+        <Image
+          width={1800}
+          height={800}
+          src={calendarDashboard}
+          alt="#_"
+          loading="eager"
+          decoding="async"
+          class="w-full"
+        />
+      </div>
+    </div>
+  </Wrapper>
+</section>

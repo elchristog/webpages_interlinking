@@ -1,0 +1,179 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import ArrowLeft from "@/components/fundations/icons/ArrowLeft.astro";
+import ArrowRight from "@/components/fundations/icons/ArrowRight.astro";
+// Images
+import { Image } from "astro:assets";
+// import the logos
+import avatar1 from "@/images/avatar/1.jpeg";
+import avatar2 from "@/images/avatar/2.jpeg";
+import avatar3 from "@/images/avatar/3.jpeg";
+import avatar4 from "@/images/avatar/4.jpeg";
+import avatar5 from "@/images/avatar/5.jpeg";
+import avatar6 from "@/images/avatar/6.jpeg";
+const testimonials = [
+  {
+    bgColor: "bg-cyan/50",
+    name: "Lana M.",
+    role: "Sales Ops Lead",
+    imageUrl: avatar1,
+    content:
+      "I start my day with Ælen. Pipeline review, key insights, done. It’s like having a calm, unbothered assistant who never drops the ball.",
+  },
+  {
+    bgColor: "bg-orange/50",
+    name: "Jay T.",
+    role: "Founder, Recovering Spreadsheet Addict",
+    imageUrl: avatar2,
+    content:
+      "I used to live in tabs and dashboards. Ælen turned that chaos into one clean view. Now I actually enjoy checking my CRM.",
+  },
+  {
+    bgColor: "bg-yellow/50",
+    name: "Niko L.",
+    role: "Growth Strategist",
+    imageUrl: avatar3,
+    content:
+      "Ælen gives me daily nudges I didn’t know I needed. Smart, subtle, and just enough to keep deals moving without babysitting them.",
+  },
+  {
+    bgColor: "bg-gray/50",
+    name: "Tessa R.",
+    role: "Agency Director",
+    imageUrl: avatar4,
+    content:
+      "Other CRMs felt bloated or way too 'motivational'. Ælen feels focused and human. It just helps me get work done—without the noise.",
+  },
+  {
+    bgColor: "bg-cyan/50",
+    name: "Andre W.",
+    role: "Freelancer, Team of One",
+    imageUrl: avatar5,
+    content:
+      "This is the first CRM that actually fits how I work. The dashboard is calm, the AI is sharp, and I spend way less time chasing tasks.",
+  },
+  {
+    bgColor: "bg-orange/50",
+    name: "Samira K.",
+    role: "Head of Client Success",
+    imageUrl: avatar6,
+    content:
+      "Ælen doesn’t just store contacts—it helps me stay ahead. I can see what matters, who needs a follow-up, and why. It's a game changer.",
+  },
+];
+---
+
+<section>
+  <Wrapper variant="standard" class="py-2">
+    <div class="py-12 overflow-hidden">
+      <div class="flex items-baseline justify-between">
+        <Text
+          tag="h2"
+          variant="display4XL"
+          class="font-bold tracking-tighter text-black text-balance"
+        >
+          Customers</Text
+        >
+        <div class="flex items-center ml-auto gap-1">
+          <button
+            aria-label="Previous slide"
+            id="keen-slider-previous"
+            class="bg-black text-white p-1 rounded-full hover:bg-black/80 duration-300 focus:bg-orange"
+          >
+            <ArrowLeft class="size-6" />
+          </button>
+          <button
+            aria-label="Next slide"
+            id="keen-slider-next"
+            class="bg-black text-white p-1 rounded-full hover:bg-black/80 duration-300 focus:bg-orange"
+          >
+            <ArrowRight class="size-6" />
+          </button>
+        </div>
+      </div>
+      <div class="pt-12 mt-12 border-t border-dashed border-black/20">
+        <div id="keen-slider" class="keen-slider">
+          {
+            testimonials.map((testimonial) => (
+              <div class="pl-8 border-l border-dashed keen-slider__slide border-black/20">
+                <div class="relative">
+                  <Image
+                    width={600}
+                    height={600}
+                    alt={testimonial.name}
+                    src={testimonial.imageUrl}
+                    class="object-cover size-full  aspect-square grayscale"
+                  />
+                  <div
+                    aria-hidden="true"
+                    class={`absolute inset-0 ${testimonial.bgColor} z-10 pointer-events-none`}
+                  />
+                </div>
+                <div class="mt-8">
+                  <div>
+                    <Text
+                      tag="p"
+                      variant="displaySM"
+                      class="font-bold text-black uppercase  xl:text-xl"
+                    >
+                      {testimonial.name}
+                    </Text>
+                    <Text
+                      tag="p"
+                      variant="textSM"
+                      class="text-black uppercase "
+                    >
+                      {testimonial.role}
+                    </Text>
+                  </div>
+                  <div class="h-full pt-2 mt-2 group">
+                    <blockquote class="relative">
+                      <Text
+                        tag="p"
+                        variant="textLG"
+                        class="font-semibold text-black "
+                      >
+                        "{testimonial.content}"
+                      </Text>
+                    </blockquote>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </Wrapper>
+</section>
+<script type="module">
+  import KeenSlider from "https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/+esm";
+  const keenSlider = new KeenSlider(
+    "#keen-slider",
+    {
+      loop: true,
+      slides: {
+        origin: "center",
+        perView: 1.11,
+        spacing: 16,
+      },
+      breakpoints: {
+        "(min-width: 1024px)": {
+          slides: {
+            origin: "auto",
+            perView: 3.2,
+            spacing: 30,
+          },
+        },
+      },
+    },
+    []
+  );
+  const keenSliderPrevious = document.getElementById("keen-slider-previous");
+  const keenSliderNext = document.getElementById("keen-slider-next");
+  keenSliderPrevious.addEventListener("click", () => keenSlider.prev());
+  keenSliderNext.addEventListener("click", () => keenSlider.next());
+</script>

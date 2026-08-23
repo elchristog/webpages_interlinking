@@ -1,0 +1,68 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import Cta from "@/components/jobs/Cta.astro";
+// Frontmatter
+const { frontmatter } = Astro.props;
+---
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-42 grid grid-cols-1 lg:grid-cols-4">
+      <div class="lg:col-span-2">
+        <Text tag="span" variant="textSM" class="text-white">
+          {frontmatter.role}
+        </Text>
+        <Text
+          tag="h1"
+          variant="display2XL"
+          class="mt-12 text-white text-balance font-display"
+        >
+          {frontmatter.name}
+        </Text>
+        <Text tag="p" variant="textBase" class="text-white mt-2 text-balance">
+          {frontmatter.intro}
+        </Text>
+        <Image
+          width={500}
+          height={500}
+          src={frontmatter.avatar.url}
+          alt={frontmatter.avatar.alt}
+          class="aspect-16/12 w-full object-top object-cover mt-8"
+        />
+        <div class="grid grid-cols-1 gap-y-12 lg:gap-y-24 lg:grid-cols-2 mt-12">
+          <div class="before:bg-white">
+            <div
+              class="px-4 relative before:absolute after:absolute before:bg-white before:top-0 before:left-0 before:h-6 before:w-px after:top-8 after:bottom-0 after:left-0 after:w-px"
+            >
+              <Text tag="h3" variant="textBase" class="text-white"
+                >Education</Text
+              >
+              <Text tag="p" variant="textSM" class="mt-2 text-base-400">
+                {frontmatter.education.map((item) => <span> {item}</span>)}
+              </Text>
+            </div>
+          </div>
+          <div class="before:bg-white">
+            <div
+              class="px-4 relative items-start before:absolute after:absolute before:bg-white before:top-0 before:left-0 before:h-6 before:w-px after:top-8 after:bottom-0 after:left-0 after:w-px"
+            >
+              <Text tag="h3" variant="textBase" class="text-white">Date</Text>
+              <Text tag="p" variant="textSM" class="mt-2 text-base-400">
+                {frontmatter.experience.map((item) => <span> {item}</span>)}
+              </Text>
+            </div>
+          </div>
+        </div>
+      </div>
+      <Wrapper variant="prose" class="mt-12 lg:row-start-2 lg:col-span-2"
+        ><slot /></Wrapper
+      >
+    </Wrapper>
+  </section>
+  <Cta />
+</BaseLayout>

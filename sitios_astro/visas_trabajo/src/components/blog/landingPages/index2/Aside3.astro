@@ -1,0 +1,60 @@
+---
+// Entries
+import BlogCard1 from "@/components/blog/BlogCard1.astro";
+// Get all posts
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("posts");
+allPosts.sort((a, b) => {
+  const dateA = new Date(a.data.pubDate).getTime(); // Convert to timestamp
+  const dateB = new Date(b.data.pubDate).getTime(); // Convert to timestamp
+  return dateB - dateA; // Compare timestamps
+});
+---
+
+<div id="tab-section">
+  <ul class="flex gap-4 text-sm border-b text-base-600 border-base-200">
+    <li class="-mb-px">
+      <button
+        class="inline-block pb-2 font-medium text-black border-b-2 border-base-500 uppercase text-xs"
+        data-tab="health"
+      >
+        Health
+      </button>
+    </li>
+    <li class="-mb-px">
+      <button
+        class="inline-block pb-2 font-medium uppercase text-xs"
+        data-tab="sports"
+      >
+        Sports
+      </button>
+    </li>
+  </ul>
+  <div class="py-4 pt-4 text-left text-base-600 content">
+    <!-- Tab Content -->
+    <div id="health" class="tab-content">
+      <section>
+        <div class="flex flex-col gap-8">
+          {
+            allPosts
+              .filter((post) => post.data.tags.includes("health")) // "health" should be a string
+              .slice(0, 6)
+              .map((post) => <BlogCard1 post={post} />)
+          }
+        </div>
+      </section>
+    </div>
+    <div id="sports" class="hidden tab-content">
+      <section>
+        <div class="flex flex-col gap-8">
+          {
+            allPosts
+              .filter((post) => post.data.tags.includes("sports")) // "health" should be a string
+              .slice(0, 6)
+              .map((post) => <BlogCard1 post={post} />)
+          }
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

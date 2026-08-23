@@ -1,0 +1,222 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import SubscribeCta from "@/components/blog/SubscribeCta.astro";
+import BlogCard1 from "@/components/blog/BlogCard1.astro";
+// Content
+const { frontmatter } = Astro.props;
+import { getCollection } from "astro:content";
+// Sort posts by date
+const allPosts = await getCollection("posts");
+allPosts.sort((a, b) => {
+  const dateA = new Date(a.data.pubDate).getTime(); // Convert to timestamp
+  const dateB = new Date(b.data.pubDate).getTime(); // Convert to timestamp
+  return dateB - dateA; // Compare timestamps
+});
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-24 lg:py-48">
+      <div>
+        <Text
+          tag="h1"
+          variant="display3XL"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          class="dark:text-white text-base-900 font-medium tracking-tighter lowercase lg:text-balance"
+        >
+          {frontmatter.title}
+        </Text>
+
+        <Text
+          tag="p"
+          variant="textXL"
+          data-aos="fade-up"
+          data-aos-duration="1200"
+          class="mt-2 text-base-700 dark:text-base-300 lg:text-balance"
+        >
+          {frontmatter.description}
+        </Text>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start mt-12">
+        <div
+          class="flex flex-col divide-y divide-base-200 dark:divide-base-800 border-y border-base-200 dark:border-base-800 overflow-hidden"
+        >
+          <div
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            class="flex flex-col gap-1 py-4"
+          >
+            <Text
+              tag="p"
+              variant="displayXL"
+              class="dark:text-white text-base-900 font-medium tracking-tighter"
+            >
+              date
+            </Text>
+            <Text
+              tag="span"
+              variant="textBase"
+              class="text-base-700 dark:text-base-300"
+            >
+              <time
+                datetime={new Date(frontmatter.pubDate).toLocaleDateString(
+                  "en-US",
+                  {
+                    year: "numeric",
+                    month: "long",
+                    day: "2-digit",
+                  }
+                )}
+              >
+                {
+                  new Date(frontmatter.pubDate).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "2-digit",
+                  })
+                }</time
+              >
+            </Text>
+          </div>
+          <div
+            data-aos="fade-up"
+            data-aos-duration="1200"
+            class="flex flex-col gap-1 py-4"
+          >
+            <Text
+              tag="p"
+              variant="displayXL"
+              class="dark:text-white text-base-900 font-medium tracking-tighter"
+            >
+              author
+            </Text>
+            <Text
+              tag="p"
+              variant="textBase"
+              class="text-base-700 dark:text-base-300"
+              >{frontmatter.author}</Text
+            >
+          </div>
+          <div
+            data-aos="fade-up"
+            data-aos-duration="1500"
+            class="flex flex-col gap-1 py-4"
+          >
+            <Text
+              tag="p"
+              variant="displayXL"
+              class="dark:text-white text-base-900 font-medium tracking-tighter"
+            >
+              tags
+            </Text>
+            <div class="flex flex-col">
+              {
+                frontmatter.tags.map((tag) => (
+                  <Text
+                    tag="a"
+                    variant="textBase"
+                    href={`/blog/tags/${tag}`}
+                    class=" text-base-700 dark:text-base-300 lg:text-balance capitalize"
+                  >
+                    {tag}
+                  </Text>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+        <Image
+          width={1000}
+          height={100}
+          src={frontmatter.image.url}
+          alt={frontmatter.image.alt}
+          data-aos="fade-up"
+          data-aos-duration="1500"
+          class="relative overflow-hidden lg:col-span-3 aspect-square size-full object-cover object-center"
+        />
+      </div>
+
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-4">
+        <div class="lg:col-span-3 lg:col-start-2">
+          <Wrapper variant="prose">
+            <div>
+              <slot />
+            </div>
+          </Wrapper>
+          <div class="flex flex-col gap-4">
+            <Text
+              tag="p"
+              variant="displayXL"
+              class="dark:text-white text-base-900 font-medium tracking-tighter"
+            >
+              Share on:
+            </Text>
+            <div class="flex flex-col gap-y-4">
+              <Text
+                href="#_"
+                tag="a"
+                variant="textXL"
+                class="text-base-500 dark:text-base-400"
+              >
+                Instagram
+              </Text>
+              <Text
+                href="#_"
+                tag="a"
+                variant="textXL"
+                class="text-base-500 dark:text-base-400"
+              >
+                Twitter
+              </Text>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <SubscribeCta />
+  <section>
+    <Wrapper variant="standard" class="py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <div class="flex flex-col">
+          <Text
+            tag="h3"
+            variant="displayXL"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            class="dark:text-white text-base-900 font-medium tracking-tighter"
+          >
+            Latest insights
+          </Text>
+          <Text
+            tag="a"
+            variant="textXS"
+            data-aos="fade-up"
+            data-aos-duration="1500"
+            href="/blog"
+            class="uppercase text-black dark:text-white hover:text-base-500"
+          >
+            view all
+          </Text>
+        </div>
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-y-12 gap-2 lg:col-span-3"
+        >
+          {
+            allPosts
+              .slice(0, 3)
+              .map((post, index) => <BlogCard1 post={post} index={index + 1} />)
+          }
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

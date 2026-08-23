@@ -1,0 +1,45 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+
+// Props
+const { post, lessons = [] } = Astro.props;
+if (!post) {
+  throw new Error("Missing `post` prop in CourseCard.astro");
+}
+const {
+  slug,
+  data: { title, description, isNew, price = 0 },
+} = post;
+const courseUrl = `/courses/${slug}`;
+const coursePrice = price === 0 ? "Free" : `$${price}`;
+---
+
+<article
+  class="relative p-4 bg-primary/2 hover:bg-primary/5 duration-300 rounded-xl flex flex-col md:flex-row items-start gap-4"
+>
+  <a
+    href={courseUrl}
+    aria-label={`View course: ${title}`}
+    title={`View course: ${title}`}
+    class="absolute inset-0 z-10"></a>
+
+  <div>
+    <span class="flex items-center text-xs gap-1 text-primary/60">
+      {isNew && <span>New /</span>}
+      <span>
+        {coursePrice}
+      </span>
+    </span>
+    <Text tag="h3" variant="textSM" class="mt-2 text-primary">
+      {title}
+    </Text>
+    <Text
+      tag="p"
+      variant="textSM"
+      class="mt-1 font-serif text-primary/60 lg:w-3/4 text-balance"
+    >
+      {description}
+    </Text>
+  </div>
+</article>

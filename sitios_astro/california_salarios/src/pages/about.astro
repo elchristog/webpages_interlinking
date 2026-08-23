@@ -1,0 +1,154 @@
+---
+// Assets
+import { Image } from "astro:assets";
+import Avatar1 from "@/images/team/1.jpeg";
+import Avatar2 from "@/images/team/2.jpeg";
+import Avatar3 from "@/images/team/3.jpeg";
+import Avatar4 from "@/images/team/4.jpeg";
+import Avatar5 from "@/images/team/5.jpeg";
+import Avatar6 from "@/images/team/6.jpeg";
+import Bars from "@/components/assets/Bars.astro";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const team = [
+  {
+    cardColor: "bg-orange",
+    name: "Cory Swanson",
+    role: "Co-founder & Product",
+    image: Avatar1,
+  },
+  {
+    cardColor: "bg-cyan",
+    name: "Trevor Tuzu",
+    role: "Co-founder & Growth",
+    image: Avatar2,
+  },
+  {
+    cardColor: "bg-gray",
+    name: "Russ Gilbert",
+    role: "Engineering Lead",
+    image: Avatar3,
+  },
+  {
+    cardColor: "bg-yellow",
+    name: "Mikey Blazer",
+    role: "Customer Success",
+    image: Avatar4,
+  },
+  {
+    cardColor: "bg-gray",
+    name: "Paul Tellini",
+    role: "Advisor, GTM Strategy",
+    image: Avatar5,
+  },
+  {
+    cardColor: "bg-orange",
+    name: "Huge Soreness",
+    role: "Advisor, Systems & Ops",
+    image: Avatar6,
+  },
+];
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pb-2 pt-50">
+      <Text
+        tag="h1"
+        variant="display6XL"
+        class="font-bold tracking-tighter text-black text-balance"
+        >About us</Text
+      >
+      <Bars class="mt-2"
+        >We are passionate about the future of our customers</Bars
+      >
+    </Wrapper>
+  </section>
+  <section>
+    <Wrapper variant="standard" class="py-2">
+      <div class="px-8 py-48 text-center text-balance bg-cyan">
+        <div class="max-w-5xl mx-auto">
+          <Text
+            tag="h2"
+            variant="displayXL"
+            class="font-bold tracking-tighter text-black underline text-balance"
+            >A team of former sales leads, ops pros, and product builders,
+            backed by some of the sharpest founders and GTM minds in tech
+          </Text>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+  <section>
+    <Wrapper variant="standard" class="py-2">
+      <div class="flex flex-col px-8 py-24 gap-8 bg-orange">
+        <Text
+          tag="h2"
+          variant="display4XL"
+          class="max-w-3xl font-bold tracking-tighter text-white text-balance"
+          >We got experience</Text
+        >
+        <Text
+          tag="p"
+          variant="textLG"
+          class="max-w-xl font-semibold text-white border-dashed lg:col-span-2 lg:pl-12 lg:border-l lg:border-white/50 lg:ml-auto"
+        >
+          We're a team of former sales leaders, RevOps strategists, and product
+          designers who’ve spent years inside high-growth startups and scaling
+          teams. We've built pipelines from scratch, wrestled with bloated CRMs,
+          and watched deals fall through the cracks because the tools just
+          didn’t work the way people do. Ælen is the result of that experience —
+          a CRM designed by people who’ve actually lived the pain of selling,
+          managing, and growing.
+        </Text>
+      </div>
+    </Wrapper>
+  </section>
+  <section>
+    <Wrapper variant="standard" class="py-12">
+      <Text
+        tag="h2"
+        variant="display4XL"
+        class="font-bold tracking-tighter text-black text-balance"
+        >Our team</Text
+      >
+      <div
+        class="pt-12 mt-12 border-t border-dashed grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 border-black/20"
+      >
+        {
+          team.map((member) => (
+            <div class="flex flex-col gap-2">
+              <div class="relative">
+                <Image
+                  width={828}
+                  height={828}
+                  src={member.image}
+                  alt={member.name}
+                  class="object-cover object-top  aspect-9/10 grayscale"
+                />
+                <div
+                  aria-hidden="true"
+                  class={`pointer-events-none absolute inset-0 ${member.cardColor}/50`}
+                />
+              </div>
+              <div>
+                <Text
+                  tag="h3"
+                  variant="textXL"
+                  class="font-semibold  text-base-800"
+                >
+                  {member.name}
+                </Text>
+                <Text tag="p" variant="textBase" class="text-black ">
+                  {member.role}
+                </Text>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

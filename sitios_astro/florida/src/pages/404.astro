@@ -1,0 +1,35 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import ChevronLeft from "@/components/fundations/icons/ChevronLeft.astro";
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pt-24 pb-12 lg:pt-48">
+      <div class="pb-2 border-b border-dotted border-primary/10">
+        <Text tag="h1" variant="textBase" class="text-primary">
+          Oops.This page ghosted us.
+        </Text>
+        <Text
+          tag="p"
+          variant="textBase"
+          class="font-serif text-primary/60 text-balance"
+        >
+          Looks like what you're looking for doesn’t exist. Maybe it got lost in
+          the spam folder. Or maybe it never existed at all. Hard to say.
+        </Text>
+      </div>
+      <a
+        href="/"
+        class="flex items-center text-xs text-primary hover:text-primary/60 gap-2 mt-4"
+      >
+        <ChevronLeft slot="icon" size="sm" />
+        Go back home</a
+      >
+    </Wrapper>
+  </section>
+</BaseLayout>

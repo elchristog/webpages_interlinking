@@ -1,0 +1,198 @@
+---
+// Assets
+import Kicker from "@/components/assets/Kicker.astro";
+import { Image } from "astro:assets";
+import Glass4 from "@/images/assets/glass4.jpg";
+// Widgets
+import WorkflowWidget from "@/components/featureWidgets/WorkflowWidget.astro";
+import CalendarWidget from "@/components/featureWidgets/CalendarWidget.astro";
+import AnalyticsWidget from "@/components/featureWidgets/AnalyticsWidget.astro";
+import BoardsWidget from "@/components/featureWidgets/BoardsWidget.astro";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<section>
+  <Wrapper variant="standard" class="py-8">
+    <div class="p-8 lg:p-12 bg-green-50">
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-4 md:items-end">
+        <div>
+          <Kicker class="text-white bg-green-800">C</Kicker>
+          <Text
+            tag="h2"
+            variant="displaySM"
+            class="mt-8 font-medium tracking-tight text-green-900 text-balance"
+          >
+            Tools built for whatever today throws at you
+          </Text>
+        </div>
+        <Text
+          tag="p"
+          variant="textLG"
+          class="mt-4 text-base-600 lg:text-balance md:col-span-2 md:col-start-3"
+        >
+          Whether you're planning, building, or just trying to make it through
+          Monday, we've got a feature (or five) to make it suck less.
+        </Text>
+      </div>
+      <div class="items-center mt-12 grid grid-cols-1 gap-y-4 lg:grid-cols-2">
+        <div class="flex flex-col overflow-x-auto gap-8 md:overflow-x-visible">
+          <button
+            class="w-full text-left cursor-pointer tab-btn transition-all duration-300"
+            data-tab="feature1"
+          >
+            <div class="hidden md:block">
+              <Text tag="h3" variant="textLG" class="font-medium text-green-900">
+                Plays nice with the tools you already tolerate
+              </Text>
+              <Text
+                tag="p"
+                variant="textBase"
+                class="mt-4 text-green-800 text-balance"
+              >
+                Boost your workflow without blowing up your setup. Everything
+                connects, nothing breaks (hopefully).
+              </Text>
+            </div>
+          </button>
+          <button
+            class="w-full text-left cursor-pointer tab-btn transition-all duration-300"
+            data-tab="feature2"
+          >
+            <div class="hidden md:block">
+              <Text tag="h3" variant="textLG" class="font-medium text-green-900">
+                Pretend you've got it together
+              </Text>
+              <Text
+                tag="p"
+                variant="textBase"
+                class="mt-4 text-green-800 text-balance"
+              >
+                Manage your time (or at least look like you do) with a calendar
+                that doesn’t fight back. Add, change, and share stuff without
+                losing your mind.
+              </Text>
+            </div>
+          </button>
+          <button
+            class="w-full text-left cursor-pointer tab-btn transition-all duration-300"
+            data-tab="feature3"
+          >
+            <div class="hidden md:block">
+              <Text tag="h3" variant="textLG" class="font-medium text-green-900">
+                Analytics that actually mean something
+              </Text>
+              <Text
+                tag="p"
+                variant="textBase"
+                class="mt-4 text-green-800 text-balance"
+              >
+                Because staring at graphs isn’t a strategy. Get real insights,
+                not just pretty charts and vague vibes.
+              </Text>
+            </div>
+          </button>
+          <button
+            class="w-full text-left cursor-pointer tab-btn transition-all duration-300"
+            data-tab="feature4"
+          >
+            <div class="hidden md:block">
+              <Text tag="h3" variant="textLG" class="font-medium text-green-900">
+                Boards without the bloat
+              </Text>
+              <Text
+                tag="p"
+                variant="textBase"
+                class="mt-4 text-green-800 text-balance"
+              >
+                Finally, a way to manage projects without feeling like you’re
+                drowning in features you’ll never use. Just clean, simple, and
+                actually helpful.
+              </Text>
+            </div>
+          </button>
+        </div>
+        <div class="relative flex-1 aspect-square">
+          <Image
+            src={Glass4}
+            alt="#_"
+            width={600}
+            height={800}
+            loading="eager"
+            decoding="async"
+            class="absolute inset-0 object-cover object-center w-full h-full"
+          />
+
+          <div
+            class="absolute inset-0 z-10 flex items-center justify-center p-4"
+          >
+            <div class="tab-content" id="feature1">
+              <WorkflowWidget class="w-full max-w-sm mx-auto" />
+            </div>
+            <div class="hidden tab-content" id="feature2">
+              <CalendarWidget class="w-full max-w-xl" />
+            </div>
+            <div class="hidden tab-content" id="feature3">
+              <AnalyticsWidget class="w-full" />
+            </div>
+            <div class="hidden tab-content" id="feature4">
+              <BoardsWidget class="w-full" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Wrapper>
+</section>
+<script type="module">
+  document.addEventListener("DOMContentLoaded", () => {
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    const tabContents = document.querySelectorAll(".tab-content");
+
+    // Activate selected tab and deactivate others
+    const setActiveTab = (tabId) => {
+      tabButtons.forEach((btn) => {
+        const isActive = btn.getAttribute("data-tab") === tabId;
+        btn.classList.toggle("active", isActive);
+        btn.classList.toggle("opacity-100", isActive);
+        btn.classList.toggle("text-base-800", isActive);
+        btn.classList.toggle("opacity-50", !isActive);
+        btn.classList.toggle("text-base-600", !isActive);
+      });
+
+      tabContents.forEach((content) => {
+        content.classList.toggle("hidden", content.id !== tabId);
+      });
+    };
+
+    // Attach event listeners to each tab button
+    tabButtons.forEach((button) =>
+      button.addEventListener("click", () =>
+        setActiveTab(button.getAttribute("data-tab"))
+      )
+    );
+
+    // Activate the first tab on load
+    setActiveTab("feature1");
+
+    // Animate feature blocks when they enter the viewport
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("opacity-100", "translate-y-0");
+            entry.target.classList.remove("opacity-0", "translate-y-8");
+            entry.target.style.transition = "all 0.5s ease-out";
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    // Start observing all feature blocks
+    document
+      .querySelectorAll('[id^="feature"]')
+      .forEach((block) => observer.observe(block));
+  });
+</script>

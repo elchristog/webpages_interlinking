@@ -1,0 +1,45 @@
+---
+// Funadtions
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import JobsEntry from "@/components/jobs/JobsEntry.astro";
+// Content
+import { getCollection } from "astro:content";
+const allJobs = await getCollection("jobs");
+---
+
+<BaseLayout>
+  <Wrapper variant="standard" class="py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div class="lg:pr-8">
+        <div class="lg:sticky lg:top-20 lg:z-50">
+          <Text
+            tag="h2"
+            variant="textXS"
+            class="text-base-900 uppercase font-medium"
+          >
+            Open Positions
+          </Text>
+          <Text
+            tag="p"
+            variant="textSM"
+            class="text-base-600 relative before:absolute after:absolute before:bg-base-950 after:bg-base-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px pt-4 mt-2"
+          >
+            We’re hiring! Come join our amazing team and take the next step in
+            your career.
+          </Text>
+        </div>
+      </div>
+      <div
+        class="lg:col-span-2 lg:pl-8 lg:relative lg:before:absolute lg:after:absolute
+        lg:before:bg-base-950 lg:after:bg-base-950/10 lg:before:top-0
+        lg:before:left-0 lg:before:h-6 lg:before:w-px lg:after:top-8
+        lg:after:bottom-0 lg:after:left-0 after:w-px flex flex-col gap-8"
+      >
+        {allJobs.map((post) => <JobsEntry post={post} />)}
+      </div>
+    </div>
+  </Wrapper>
+</BaseLayout>

@@ -1,0 +1,40 @@
+---
+// Assets
+import { Image } from "astro:assets";
+import Text from "@/components/fundations/elements/Text.astro";
+
+const { url, title, description, image } = {
+  url: "/projects/" + Astro.props.post.id,
+  title: Astro.props.post.data.title,
+  description: Astro.props.post.data.description,
+  image: Astro.props.post.data.image.url,
+};
+---
+
+<div class="relative flex flex-col md:flex-row items-start gap-4">
+  <a
+    href={url}
+    aria-label={`View course: ${title}`}
+    title={`View course: ${title}`}
+    class="absolute inset-0 z-10"></a>
+  <Image
+    src={Astro.props.post.data.image.url}
+    alt={Astro.props.post.data.image.alt}
+    width={1200}
+    height={800}
+    class="size-8 rounded-full object-cover object-center aspect-square"
+  />
+
+  <div>
+    <Text tag="h3" variant="textSM" class="text-primary">
+      {title}
+    </Text>
+    <Text
+      tag="p"
+      variant="textSM"
+      class="mt-1 font-serif text-primary/60 text-balance"
+    >
+      {description}
+    </Text>
+  </div>
+</div>

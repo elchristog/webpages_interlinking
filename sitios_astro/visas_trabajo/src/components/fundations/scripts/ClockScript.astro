@@ -1,0 +1,32 @@
+<script type="module">
+    function updateClock() {
+      // Create a new Date object based on the user's local time zone
+      const now = new Date();
+      let hours = now.getHours(); // 0-23
+      const minutes = now.getMinutes(); // 0-59
+      const period = hours >= 12 ? "PM" : "AM"; // Determine if it's AM or PM
+      // Convert hours to 12-hour format
+      hours = hours % 12;
+      hours = hours ? hours : 12; // Handle the case for 12 AM and 12 PM
+      // Format time as HH:MM AM/PM
+      const timeString =
+        [
+          hours.toString().padStart(2, "0"),
+          minutes.toString().padStart(2, "0"),
+        ].join(":") +
+        " " +
+        period;
+      // Update the clock element with the time
+      document.getElementById("clock").textContent = timeString;
+    }
+    // Update the year every second
+    function updateYear() {
+      const currentYear = new Date().getFullYear(); // Get the current year
+      document.getElementById("year").textContent = currentYear; // Update the year in the span
+    }
+    // Update the clock every second
+    setInterval(updateClock, 1000);
+    // Initialize the clock and year
+    updateClock();
+    updateYear();
+</script>

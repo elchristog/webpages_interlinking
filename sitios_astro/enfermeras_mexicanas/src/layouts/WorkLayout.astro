@@ -1,0 +1,250 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import ArrowUpRight from "@/components/fundations/icons/ArrowUpRight.astro";
+// Content
+const { frontmatter, previous, next } = Astro.props;
+
+// This layout is not using the <slot/> feature, it's getting content from the markdown file frontmatter.
+// The <slot/> feature is used to allow for dynamic content to be inserted into the layout by writing the content in the markdown file outsite the frontmatter.
+//
+// You can add the <slot/> where you want the content to be inserted by using the following syntax:
+// <slot/> and use the Wrapper component with variant="prose" to style the content, the styles are already defined in the Wrapper component.
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pt-8 pb-12">
+      <div class="relative overflow-hidden">
+        <Image
+          width={1000}
+          height={100}
+          src={frontmatter.thumbnail.url}
+          alt={frontmatter.thumbnail.alt}
+          data-aos="fade-up"
+          data-aos-duration="1500"
+          class="w-full h-120 object-cover object-center"
+        />
+
+        <Button
+          isLink
+          iconOnly
+          size="sm"
+          variant="muted"
+          data-aos="fade-up"
+          data-aos-duration="2500"
+          href={frontmatter.live}
+          class="absolute bottom-4 left-4 z-50"
+        >
+          <ArrowUpRight slot="icon" size="base" />
+        </Button>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 mt-2 items-start gap-8">
+        <div class="overflow-hidden">
+          <Text
+            tag="h1"
+            variant="textXL"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            class="dark:text-white text-base-900 text-balance"
+          >
+            {frontmatter.title}
+          </Text>
+        </div>
+        <div>
+          <Wrapper variant="prose" class="-mt-4">
+            {
+              frontmatter.intro &&
+                frontmatter.intro.map((item) => (
+                  <div>
+                    {item.paragraphs &&
+                      item.paragraphs.map((paragraph) => (
+                        <Text tag="p" variant="textBase">
+                          {paragraph}
+                        </Text>
+                      ))}
+                  </div>
+                ))
+            }
+          </Wrapper>
+          {
+            frontmatter.projectData.map((credit) => (
+              <div class="grid grid-cols-2  gap-4 ">
+                {Object.keys(credit).map((key) => (
+                  <div>
+                    <Text
+                      tag="h4"
+                      variant="textBase"
+                      class="text-base-950  dark:text-white  capitalize"
+                    >
+                      {key}
+                    </Text>
+                    <Text
+                      tag="p"
+                      variant="textSM"
+                      class="text-base-500  dark:text-base-400 text-balance"
+                    >
+                      {credit[key]}
+                    </Text>
+                  </div>
+                ))}
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-1 mt-8">
+        {
+          frontmatter.images
+            .slice(0, 2)
+            .map((image) => (
+              <Image
+                src={image.url}
+                alt={image.alt}
+                width={1000}
+                height={1000}
+                class="w-full object-cover aspect-[4/4]"
+              />
+            ))
+        }
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 py-12">
+        <div class="lg:col-start-2">
+          {
+            frontmatter.highlights &&
+              frontmatter.highlights.map((item) => (
+                <div>
+                  <Text
+                    tag="h2"
+                    variant="textXL"
+                    class="text-base-950  dark:text-white text-balance capitalize "
+                  >
+                    {item.title}
+                  </Text>
+                  {item.paragraphs &&
+                    item.paragraphs.map((paragraph) => (
+                      <Text
+                        tag="p"
+                        variant="textBase"
+                        class="text-base-500  dark:text-base-400 mt-4 "
+                      >
+                        {paragraph}
+                      </Text>
+                    ))}
+                </div>
+              ))
+          }
+        </div>
+      </div>
+      <div>
+        {
+          frontmatter.images
+            .slice(2, 3)
+            .map((image) => (
+              <Image
+                src={image.url}
+                alt={image.alt}
+                width={1000}
+                height={1000}
+                class="w-full h-120 object-cover object-center"
+              />
+            ))
+        }
+      </div>
+      <div class="mt-4 grid grid-cols-1 lg:grid-cols-2">
+        <div>
+          <div>
+            {
+              frontmatter.outro &&
+                frontmatter.outro.map((item) => (
+                  <div>
+                    {item.paragraphs &&
+                      item.paragraphs.map((paragraph) => (
+                        <Text
+                          tag="p"
+                          variant="textSM"
+                          class="text-base-500  dark:text-base-400 text-balance"
+                        >
+                          {paragraph}
+                        </Text>
+                      ))}
+                  </div>
+                ))
+            }
+          </div>
+          <div class="mt-8">
+            <Text
+              tag="h4"
+              variant="textSM"
+              class="dark:text-white text-base-900">Credits</Text
+            >
+            <div class="grid grid-cols-2 lg:grid-cols-4 w-full">
+              {
+                frontmatter.credits.map((credit) => (
+                  <div class="mt-4">
+                    <Text
+                      tag="p"
+                      variant="textSM"
+                      class="text-base-950  dark:text-white text-balance"
+                    >
+                      {credit.name}
+                    </Text>
+                    <Text
+                      tag="p"
+                      variant="textSM"
+                      class="text-base-500  dark:text-base-400 text-balance"
+                    >
+                      {credit.role}
+                    </Text>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav
+        class="flex flex-col md:flex-row lg:justify-between gap-4 lg:items-center relative text-xs mt-24"
+      >
+        <div>
+          {
+            previous && (
+              <a href={`/work/${previous.id}`} class="hover:opacity-80 ">
+                <span class="block  text-base-900 dark:text-white font-medium uppercase">
+                  Previous:
+                </span>
+                <span class="block  text-base-500 dark:text-base-400">
+                  {previous.data.title}
+                </span>
+              </a>
+            )
+          }
+        </div>
+        <div>
+          {
+            next && (
+              <a
+                href={`/work/${next.id}`}
+                class=" hover:opacity-80 text-right"
+              >
+                <span class="block  text-base-900 dark:text-white font-medium uppercase ">
+                  Next:
+                </span>
+                <span class="block  text-base-500 dark:text-base-400">
+                  {" "}
+                  {next.data.title}
+                </span>
+              </a>
+            )
+          }
+        </div>
+      </nav>
+    </Wrapper>
+  </section>
+</BaseLayout>
