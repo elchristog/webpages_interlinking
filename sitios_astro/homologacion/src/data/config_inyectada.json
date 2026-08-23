@@ -16,19 +16,19 @@
   },
   "menu_global": [
     {
-      "nombre": "Título USA",
+      "nombre": "Revalidar Meta",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Guía NCLEX",
+      "nombre": "Examen NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Buscar Trabajo",
+      "nombre": "Vacantes USA",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Migrar Legal",
+      "nombre": "Green Card",
       "ruta": "/visa"
     },
     {
@@ -40,11 +40,11 @@
       "ruta": "/blog"
     },
     {
-      "nombre": "WhatsApp",
+      "nombre": "Hablar Asesor",
       "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Portal RN",
+      "nombre": "Acceso",
       "ruta": "/login"
     }
   ],

@@ -16,19 +16,19 @@
   },
   "menu_global": [
     {
-      "nombre": "Validar Título",
+      "nombre": "Proceso Grado",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "NCLEX Paso",
+      "nombre": "Prep NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Bolsa Empleo",
+      "nombre": "Trabajo Hoy",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Sponsor Visa",
+      "nombre": "Trámite EB3",
       "ruta": "/visa"
     },
     {
@@ -36,15 +36,15 @@
       "ruta": "/salarios"
     },
     {
-      "nombre": "Guías Tips",
+      "nombre": "Actualidad",
       "ruta": "/blog"
     },
     {
-      "nombre": "Escríbenos",
+      "nombre": "Consultar Ahora",
       "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Mi Cuenta",
+      "nombre": "Portal RN",
       "ruta": "/login"
     }
   ],

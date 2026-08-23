@@ -20,31 +20,31 @@
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Prep NCLEX",
+      "nombre": "Examen NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Ofertas Trabajo",
+      "nombre": "Bolsa Empleo",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Sponsor Visa",
+      "nombre": "Green Card",
       "ruta": "/visa"
     },
     {
-      "nombre": "Ingresos USA",
+      "nombre": "Salario Real",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Novedades",
+      "nombre": "Historias",
       "ruta": "/blog"
     },
     {
-      "nombre": "Chat Directo",
+      "nombre": "Hablar Asesor",
       "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Portal RN",
+      "nombre": "Login",
       "ruta": "/login"
     }
   ],

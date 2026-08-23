@@ -16,15 +16,15 @@
   },
   "menu_global": [
     {
-      "nombre": "Validar Diploma",
+      "nombre": "Revalidar Meta",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Pasar NCLEX",
+      "nombre": "Superar NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Bolsa Empleo",
+      "nombre": "Puestos Libres",
       "ruta": "/vacantes"
     },
     {
@@ -32,7 +32,7 @@
       "ruta": "/visa"
     },
     {
-      "nombre": "Sueldo Promedio",
+      "nombre": "Cuanto Ganan",
       "ruta": "/salarios"
     },
     {
