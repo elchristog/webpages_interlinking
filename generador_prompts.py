@@ -155,22 +155,23 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
                 text = text.replace(tag, "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80")
             return text
 
-    hero_prompt = replace_img_placeholders(hero_elegido["prompt"].replace("{preset}", "").replace("  ", " "))
+    hero_preset = random.choice(hero_elegido.get("allowed_presets", [""]))
+    hero_prompt = replace_img_placeholders(hero_elegido["prompt"].replace("{preset}", hero_preset).replace("  ", " "))
     prompt_componentes += f"1. {hero_prompt}\n\n"
     
     # Inyectar Utilidades
     for i, util in enumerate(utils_elegidas, 2):
         prompt_componentes += f"{i}. {util['prompt']}\n\n"
     
-    # Inyectar Secciones (Sin filtro de presets)
+    # Inyectar Secciones
     contador_item = len(utils_elegidas) + 2
     
-    # SHUFFLE SECTIONS to ensure all have a chance (Diversity in the PBN)
     sections_randomized = list(sections_elegidas)
     random.shuffle(sections_randomized)
     
     for sec in sections_randomized:
-        sec_prompt = replace_img_placeholders(sec["prompt"].replace("{preset}", "").replace("  ", " "))
+        sec_preset = random.choice(sec.get("allowed_presets", [""]))
+        sec_prompt = replace_img_placeholders(sec["prompt"].replace("{preset}", sec_preset).replace("  ", " "))
         prompt_componentes += f"{contador_item}. {sec_prompt}\n\n"
         contador_item += 1
 
@@ -178,15 +179,12 @@ def generar_prompt_antidetencion(nicho_actual, palabras_clave, url_money_site, a
     MAX_SENTENCES = config_logic["content"]["paragraph_max_sentences"] if config_logic else 3
 
     REGLAS_LEGIBILIDAD_ASTRO = """
-- **DISEÑO DE FONDO CLARO Y TEXTO NEGRO DE ALTO CONTRASTE**: Prioriza el fondo blanco (`bg-white` o `bg-slate-50`) con texto negro puro (`text-slate-950` o `text-black`). **ESTÁ ESTRICTAMENTE PROHIBIDO USAR TEXTO GRIS O DE BAJO CONTRASTE EN FONDOS CLAROS**. Todo el texto explicativo y párrafos deben ser oscuros y totalmente legibles.
-- **HERO SECCIONES CON FONDO OSCURO O IMAGEN**: Si una sección Hero tiene imagen de fondo o una capa/overlay oscuro (`bg-slate-950`, `bg-black`, `bg-gradient-to-r from-slate-950/90`), **TODO EL TEXTO INTERNO (TÍTULOS H1, SUBTÍTULOS, PÁRRAFOS P) DEBE SER ESTRICTAMENTE BLANCO (`text-white`)**. NUNCA USES TEXTO NEGRO O VERDE OSCURO SOBRE FONDOS U OVERLAYS OSCUROS.
+- **USO ESTRICTO DE PLANTILLAS ASTRO LEXINGTON THEMES**: Utiliza únicamente la estructura HTML y las clases CSS nativas de las plantillas compradas (ej: `ui-hero-agency`, `ui-hero-product`, `ui-value-props`, `ui-apple-product-cards-container`, `ui-services-split`, `ui-feature-cards`, `ui-lifestyle-grid`, `ui-data-comparison-container`, `ui-impact-cta`, `ui-faq-section`). ESTÁ PROHIBIDO AÑADIR CLASES TAILWIND SOBRESCRITAS O MODIFICAR LOS COLORES Y ESTILOS ORIGINALES DE LA PLANTILLA.
 - **MARGEN IZQUIERDO ABSOLUTO**: Todo el código HTML debe empezar en la columna 0. **PROHIBIDO INDENTAR CON ESPACIOS O TABS**. La indentación rompe el renderizado en Astro y lo muestra como código raw.
 - **PROHIBIDO EL USO DE SÍMBOLOS MARKDOWN (** , _, *, #) DENTRO DE ETIQUETAS HTML**. Si necesitas negrita dentro de un H1 o P, usa <strong> o <span class="ui-highlight">.
 - **NO ENVUELVAS EL HTML EN BLOQUES DE CÓDIGO (```html ... ```)**. Escribe el HTML directamente.
-- **ACCESIBILIDAD Y CONTRASTE**: El texto debe ser fácil de leer. Usa párrafos cortos y lenguaje claro.
 - **ESPACIADO**: Usa `<div class="ui-spacer"></div>` para separar las secciones principales.
-- **TÍTULOS**: Usa encabezados H1 (solo uno al inicio), H2 (centrados con clase `text-center`), H3 estándar.
-- **RESALTADO**: Para destacar palabras o frases clave, usa `<span class="ui-highlight">TEXTO RESALTADO</span>` (se mostrará como una píldora naranja fuerte con texto blanco puro de máximo contraste).
+- **RESALTADO**: Para destacar palabras o frases clave, usa `<span class="ui-highlight">TEXTO RESALTADO</span>` respetando el diseño nativo de la plantilla.
 - **MANTÉN ETIQUETAS ABIERTAS**: Asegúrate de cerrar todos los <section>, <div> y <a>.
 """
 

@@ -1,94 +1,142 @@
 {
   "presets": [
     {
+      "id": "ui-preset--midnight",
+      "name": "Midnight Luxury",
+      "type": "dark",
+      "description": "Fondo negro puro #000000 con acentos de alto lujo y excelente contraste."
+    },
+    {
+      "id": "ui-preset--emerald",
+      "name": "Emerald Professional",
+      "type": "emerald",
+      "description": "Fondo verde esmeralda profundo oklch(20% 0.05 160) elegante y profesional."
+    },
+    {
+      "id": "ui-preset--professional",
+      "name": "Slate Navy Professional",
+      "type": "professional",
+      "description": "Fondo azul marino corporativo y confiable #0f172a."
+    },
+    {
       "id": "ui-preset--light",
       "name": "Apple Clean Light",
       "type": "light",
-      "description": "Estilo 100% Apple Clean Light (fondo blanco/slate-50, texto negro puro #020617 de altísimo contraste)."
+      "description": "Fondo blanco limpio con tarjetas y tipografía de alto contraste."
     }
   ],
   "heroes": [
     {
       "id": "ui-hero-agency",
-      "name": "Hero Agency (Apple Clean Light)",
+      "name": "Hero Agency (Template Original)",
       "allowed_presets": [
+        "ui-preset--midnight",
+        "ui-preset--emerald",
+        "ui-preset--professional",
         "ui-preset--light"
       ],
-      "prompt": "HERO AGENCY LEXINGTON (ui-hero-agency): Estilo corporativo Apple Clean Light de alto impacto con fondo claro (bg-slate-50) y texto negro (#020617) de máximo contraste. PROHIBIDO USAR FONDOS NEGROS.\n<section class=\"ui-hero-agency relative py-20 md:py-32 bg-slate-50 text-slate-950 overflow-hidden border-b border-slate-200\">\n  <div class=\"max-w-6xl mx-auto px-6 text-center relative z-10\">\n    <h1 class=\"text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-950 leading-tight mb-8\">\n      Título Principal <span class=\"bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent\">Con Frase de Impacto</span>\n    </h1>\n    <p class=\"text-lg md:text-2xl text-slate-950 max-w-3xl mx-auto mb-10 leading-relaxed font-bold\">\n      Subtítulo descriptivo en texto negro de altísimo contraste que resuelva la propuesta de valor en 2 líneas...\n    </p>\n    <div class=\"flex justify-center mb-12\">\n      <a href=\"URL\" class=\"inline-block px-10 py-5 bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700 text-white font-extrabold text-lg rounded-full shadow-xl transition-all duration-300 transform hover:-translate-y-1 no-underline\">\n        🚀 BOTÓN DE ACCIÓN PRINCIPAL\n      </a>\n    </div>\n  </div>\n</section>"
+      "prompt": "HERO AGENCY TEMPLATE (ui-hero-agency): Estructura original de la plantilla Lexington Astro. Usa estrictamente las clases originales sin añadir inline Tailwind.\n<section class=\"ui-hero-agency {preset}\">\n  <div class=\"hero-content\">\n    <h1>Título Principal con <span class=\"ui-highlight\">Frase Resaltada</span></h1>\n    <p class=\"subtitle\">Subtítulo explicativo con la propuesta de valor del programa...</p>\n    <div class=\"hero-cta\">\n      <a href=\"URL\" class=\"btn-agency\">🚀 BOTÓN DE ACCIÓN →</a>\n    </div>\n  </div>\n</section>"
     },
     {
       "id": "ui-hero-product",
-      "name": "Hero Product Split (Apple Minimalist)",
+      "name": "Hero Product Split (Template Original)",
       "allowed_presets": [
+        "ui-preset--midnight",
+        "ui-preset--emerald",
+        "ui-preset--professional",
         "ui-preset--light"
       ],
-      "prompt": "HERO PRODUCT SPLIT (ui-hero-product): Layout dividido con texto a la izquierda y visual a la derecha en fondo claro (bg-white) con texto negro (#020617).\n<section class=\"ui-hero-product relative py-16 md:py-24 bg-white text-slate-950 border-b border-slate-200\">\n  <div class=\"max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center\">\n    <div>\n      <span class=\"text-sm font-extrabold tracking-widest text-orange-600 uppercase mb-4 block\">PROGRAMA OFICIAL</span>\n      <h1 class=\"text-4xl md:text-6xl font-extrabold text-slate-950 leading-tight mb-6\">\n        Construye tu Carrera en <span class=\"bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent\">Estados Unidos</span>\n      </h1>\n      <p class=\"text-lg md:text-xl text-slate-950 font-bold leading-relaxed mb-8\">\n        Acompañamiento integral para enfermeras hispanas en homologación de títulos, examen NCLEX y patrocinio de visa.\n      </p>\n      <div class=\"flex flex-wrap gap-4\">\n        <a href=\"URL\" class=\"px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-extrabold rounded-full shadow-lg transition-all no-underline\">\n          Comenzar Ahora →\n        </a>\n      </div>\n    </div>\n    <div class=\"rounded-3xl overflow-hidden shadow-2xl border border-slate-200 max-h-[450px]\">\n      <img src=\"{IMAGEN_1}\" alt=\"Visual del Programa\" class=\"w-full h-full object-cover\">\n    </div>\n  </div>\n</section>"
+      "prompt": "HERO PRODUCT SPLIT (ui-hero-product): Layout dividido original con badge, texto e imagen del proyecto.\n<section class=\"ui-hero-product {preset}\">\n  <div class=\"hero-product-container\">\n    <div class=\"hero-product-text\">\n      <span class=\"hero-product-badge\">PROGRAMA OFICIAL</span>\n      <h1 class=\"hero-product-title\">Construye tu Carrera en <span class=\"ui-highlight\">Estados Unidos</span></h1>\n      <p class=\"hero-product-subtitle\">Acompañamiento integral para enfermeras hispanas en homologación, NCLEX y visa de trabajo.</p>\n      <a href=\"URL\" class=\"btn-product\">Comenzar Ahora →</a>\n    </div>\n    <div class=\"hero-product-image-wrapper\">\n      <img src=\"{IMAGEN_1}\" alt=\"Visual del Programa\" class=\"hero-product-image\" />\n    </div>\n  </div>\n</section>"
     }
   ],
   "sections": [
     {
       "id": "ui-value-props",
-      "name": "Value Propositions Grid (Apple Light Bento)",
+      "name": "Value Props Grid (Template Original)",
       "allowed_presets": [
+        "ui-preset--midnight",
+        "ui-preset--emerald",
+        "ui-preset--professional",
         "ui-preset--light"
       ],
-      "prompt": "SECCIÓN VALUE PROPS (ui-value-props): Rejilla Bento en FONDO BLANCO (bg-white) con TARJETAS CLARAS (bg-slate-50), TEXTO NEGRO PUERO (#020617) y AVATARES FOTOGRÁFICOS CIRCULARES PERFECTOS (rounded-full). NUNCA USES ICONOS SVG NI TEXTO GRIS O FONDOS NEGROS.\n<section class=\"ui-value-props py-20 md:py-28 bg-white text-slate-950 overflow-hidden text-center\">\n  <div class=\"max-w-7xl mx-auto px-6 md:px-12\">\n    <h2 class=\"section-title text-3xl md:text-5xl font-extrabold tracking-tight text-slate-950 mb-14 leading-tight\">\n      ¿Por qué elegirnos? <br /><span class=\"bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent\">Nuestra Propuesta de Valor</span>\n    </h2>\n    <div class=\"props-grid grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10\">\n      <div class=\"prop-card relative bg-slate-50 rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-12 border border-slate-200 shadow-lg flex flex-col items-center text-center transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl\">\n        <div class=\"prop-icon-wrapper w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden mb-6 border-4 border-orange-500/30 shadow-md bg-white flex items-center justify-center flex-shrink-0\">\n          <img src=\"{IMAGEN_1}\" alt=\"Pilares 1\" class=\"prop-icon w-full h-full object-cover object-center rounded-full\">\n        </div>\n        <p class=\"prop-text text-lg md:text-xl text-slate-950 font-semibold leading-relaxed mb-6 text-center\">\n          <strong class=\"text-slate-950 font-extrabold block mb-2 text-xl md:text-2xl\">Pilar o Beneficio 1</strong>\n          Descripción detallada en texto negro de alta visibilidad.\n        </p>\n        <a href=\"URL\" class=\"prop-link inline-flex items-center gap-2 text-orange-600 hover:text-orange-700 font-extrabold text-base md:text-lg transition-colors no-underline mt-auto\">\n          Saber más →\n        </a>\n      </div>\n      <div class=\"prop-card relative bg-slate-50 rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-12 border border-slate-200 shadow-lg flex flex-col items-center text-center transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl\">\n        <div class=\"prop-icon-wrapper w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden mb-6 border-4 border-orange-500/30 shadow-md bg-white flex items-center justify-center flex-shrink-0\">\n          <img src=\"{IMAGEN_2}\" alt=\"Pilares 2\" class=\"prop-icon w-full h-full object-cover object-center rounded-full\">\n        </div>\n        <p class=\"prop-text text-lg md:text-xl text-slate-950 font-semibold leading-relaxed mb-6 text-center\">\n          <strong class=\"text-slate-950 font-extrabold block mb-2 text-xl md:text-2xl\">Pilar o Beneficio 2</strong>\n          Descripción del segundo pilar con enfoque en resultados.\n        </p>\n        <a href=\"URL\" class=\"prop-link inline-flex items-center gap-2 text-orange-600 hover:text-orange-700 font-extrabold text-base md:text-lg transition-colors no-underline mt-auto\">\n          Saber más →\n        </a>\n      </div>\n    </div>\n  </div>\n</section>"
-    },
-    {
-      "id": "ui-data-comparison",
-      "name": "Data Comparison Dashboard (Apple Light Bento)",
-      "allowed_presets": [
-        "ui-preset--light"
-      ],
-      "prompt": "SECCIÓN DATA COMPARISON (ui-data-comparison): Dashboard Bento de tendencias en fondo claro (bg-slate-50) con tarjetas de leyenda (#ffffff) y gráfico centrado. Úsala para comparar métricas con texto negro puro (#020617).\n<section class=\"ui-data-comparison-container py-20 md:py-28 bg-slate-50 text-slate-950 overflow-hidden\">\n  <div class=\"max-w-7xl mx-auto px-6 md:px-12\">\n    <p class=\"comparison-intro text-lg md:text-2xl text-slate-950 max-w-4xl mx-auto mb-14 text-center leading-relaxed font-bold\">\n      Análisis de mercado: <span class=\"bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent font-extrabold\">Explosión de demanda laboral</span>\n    </p>\n    <div class=\"comparison-dashboard bg-white rounded-[2.5rem] md:rounded-[3rem] p-6 md:p-12 border border-slate-200 shadow-xl\">\n      <div class=\"legend-cards grid grid-cols-1 md:grid-cols-2 gap-6 mb-10\">\n        <div class=\"legend-card bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm\">\n          <div class=\"legend-header flex items-center gap-3 mb-2\"><span class=\"legend-marker w-4 h-4 rounded-full bg-blue-600\"></span><span class=\"legend-name text-xl font-extrabold text-slate-950\">Vacantes Disponibles</span></div>\n          <span class=\"legend-label text-sm text-slate-950 font-bold ml-7 block\">Demanda en Aumento</span>\n        </div>\n        <div class=\"legend-card bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm\">\n          <div class=\"legend-header flex items-center gap-3 mb-2\"><span class=\"legend-marker w-4 h-4 rounded-full bg-red-600\"></span><span class=\"legend-name text-xl font-extrabold text-slate-950\">Procesamiento de Visas</span></div>\n          <span class=\"legend-label text-sm text-slate-950 font-bold ml-7 block\">Capacidad Limitada</span>\n        </div>\n      </div>\n      <div class=\"chart-area bg-slate-100 p-6 md:p-10 rounded-2xl border border-slate-200 text-center\">\n        <h3 class=\"chart-title text-2xl md:text-4xl font-extrabold text-slate-950 mb-4 tracking-tight\">Tendencia de Empleo y Patrocinio</h3>\n        <p class=\"text-base md:text-xl text-slate-950 max-w-3xl mx-auto mb-8 leading-relaxed font-bold\">La demanda actual supera la oferta nacional en más de un 300%.</p>\n        <div class=\"chart-wrapper relative w-full overflow-hidden rounded-xl border border-slate-200 bg-white max-h-[480px] shadow-lg\">\n          <img src=\"{IMAGEN_3}\" alt=\"Gráfico de tendencias\" class=\"w-full h-full object-cover object-center\">\n        </div>\n      </div>\n    </div>\n  </div>\n</section>"
-    },
-    {
-      "id": "ui-lifestyle-grid",
-      "name": "Lifestyle Testimonials (Apple Light Masonry)",
-      "allowed_presets": [
-        "ui-preset--light"
-      ],
-      "prompt": "SECCIÓN TESTIMONIOS (ui-lifestyle-grid): Rejilla de 3 columnas con fotos de perfil circulares (rounded-full) y testimonios en tarjetas claras (#f8fafc) con texto negro puro (#020617).\n<section class=\"ui-lifestyle-grid py-20 md:py-28 bg-white text-slate-950 overflow-hidden\">\n  <div class=\"max-w-7xl mx-auto px-6 md:px-12\">\n    <h2 class=\"text-3xl md:text-5xl font-extrabold tracking-tight text-slate-950 m-0 text-center leading-tight mb-16\">\n      Historias de Éxito Reales <br /><span class=\"bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent\">Vidas Transformadas</span>\n    </h2>\n    <div class=\"lifestyle-grid grid grid-cols-1 md:grid-cols-3 gap-8\">\n      <div class=\"lifestyle-item bg-slate-50 rounded-[2.5rem] p-8 border border-slate-200 shadow-lg flex flex-col justify-between\">\n        <div>\n          <div class=\"flex items-center gap-4 mb-6\">\n            <img src=\"{IMAGEN_4}\" alt=\"Testimonio 1\" class=\"w-16 h-16 rounded-full object-cover border-2 border-orange-500 shadow-sm flex-shrink-0\">\n            <div>\n              <h3 class=\"text-xl font-extrabold text-slate-950 leading-tight\">María Rodríguez</h3>\n              <span class=\"text-sm text-orange-600 font-bold\">RN en EE. UU.</span>\n            </div>\n          </div>\n          <p class=\"text-base text-slate-950 leading-relaxed italic mb-6 font-semibold\">\"El proceso de homologación fue transparente y rápido. Hoy ejerzo mi profesión con estabilidad.\"</p>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>"
-    },
-    {
-      "id": "ui-feature-cards",
-      "name": "Feature Cards Grid (Brightlight Bento)",
-      "allowed_presets": [
-        "ui-preset--light"
-      ],
-      "prompt": "SECCIÓN FEATURE CARDS (ui-feature-cards): Rejilla de 3 tarjetas de características con bordes redondeados y texto negro puro.\n<section class=\"ui-feature-cards py-20 bg-slate-50 text-slate-950 border-b border-slate-200\">\n  <div class=\"max-w-7xl mx-auto px-6 md:px-12\">\n    <h2 class=\"text-3xl md:text-5xl font-extrabold text-slate-950 text-center mb-16\">Servicios Clave para tu Transición</h2>\n    <div class=\"grid grid-cols-1 md:grid-cols-3 gap-8\">\n      <div class=\"bg-white rounded-3xl p-8 border border-slate-200 shadow-md hover:shadow-xl transition-all\">\n        <div class=\"w-14 h-14 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center font-extrabold text-xl mb-6\">01</div>\n        <h3 class=\"text-2xl font-extrabold text-slate-950 mb-4\">Homologación Express</h3>\n        <p class=\"text-slate-950 font-semibold leading-relaxed mb-6\">Gestión completa de credenciales académicas ante las juntas de enfermería estatales.</p>\n        <a href=\"URL\" class=\"text-orange-600 font-extrabold hover:text-orange-700 no-underline\">Saber más →</a>\n      </div>\n      <div class=\"bg-white rounded-3xl p-8 border border-slate-200 shadow-md hover:shadow-xl transition-all\">\n        <div class=\"w-14 h-14 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center font-extrabold text-xl mb-6\">02</div>\n        <h3 class=\"text-2xl font-extrabold text-slate-950 mb-4\">Preparación NCLEX-RN</h3>\n        <p class=\"text-slate-950 font-semibold leading-relaxed mb-6\">Simuladores de examen y clases virtuales para asegurar la aprobación en el primer intento.</p>\n        <a href=\"URL\" class=\"text-orange-600 font-extrabold hover:text-orange-700 no-underline\">Saber más →</a>\n      </div>\n      <div class=\"bg-white rounded-3xl p-8 border border-slate-200 shadow-md hover:shadow-xl transition-all\">\n        <div class=\"w-14 h-14 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center font-extrabold text-xl mb-6\">03</div>\n        <h3 class=\"text-2xl font-extrabold text-slate-950 mb-4\">Patrocinio Visa EB-3</h3>\n        <p class=\"text-slate-950 font-semibold leading-relaxed mb-6\">Conexión directa con hospitales acreditados que ofrecen residencia permanente.</p>\n        <a href=\"URL\" class=\"text-orange-600 font-extrabold hover:text-orange-700 no-underline\">Saber más →</a>\n      </div>\n    </div>\n  </div>\n</section>"
+      "prompt": "SECCIÓN VALUE PROPS (ui-value-props): Rejilla Bento original de propuestas de valor.\n<section class=\"ui-value-props {preset}\">\n  <div class=\"container-wrapper\">\n    <h2 class=\"section-title\">¿Por qué elegirnos? <span class=\"ui-highlight\">Nuestra Propuesta</span></h2>\n    <div class=\"props-grid\">\n      <div class=\"prop-card\">\n        <div class=\"prop-icon-wrapper\">\n          <img src=\"{IMAGEN_1}\" alt=\"Pilar 1\" class=\"prop-icon\" />\n        </div>\n        <p class=\"prop-text\"><strong>Pilar 1:</strong> Explicación detallada del primer beneficio o servicio principal.</p>\n        <a href=\"URL\" class=\"prop-link\">Saber más →</a>\n      </div>\n      <div class=\"prop-card\">\n        <div class=\"prop-icon-wrapper\">\n          <img src=\"{IMAGEN_2}\" alt=\"Pilar 2\" class=\"prop-icon\" />\n        </div>\n        <p class=\"prop-text\"><strong>Pilar 2:</strong> Explicación detallada del segundo beneficio o servicio clave.</p>\n        <a href=\"URL\" class=\"prop-link\">Saber más →</a>\n      </div>\n    </div>\n  </div>\n</section>"
     },
     {
       "id": "ui-apple-product-cards-container",
-      "name": "Apple Product Cards (Bento Showcase)",
+      "name": "Apple Product Cards Showcase (Template Original)",
       "allowed_presets": [
+        "ui-preset--midnight",
+        "ui-preset--emerald",
+        "ui-preset--professional",
         "ui-preset--light"
       ],
-      "prompt": "SECCIÓN APPLE PRODUCT CARDS (ui-apple-product-cards-container): Showcase visual estilo Apple con tarjetas grandes y fotografía elegante en fondo claro.\n<section class=\"ui-apple-product-cards-container py-20 bg-white text-slate-950\">\n  <div class=\"max-w-7xl mx-auto px-6 md:px-12\">\n    <h2 class=\"text-3xl md:text-5xl font-extrabold text-slate-950 text-center mb-16\">Pasos Hacia tu Residencia Permanente</h2>\n    <div class=\"grid grid-cols-1 md:grid-cols-2 gap-10\">\n      <div class=\"bg-slate-50 rounded-[2.5rem] p-8 md:p-12 border border-slate-200 shadow-lg flex flex-col justify-between overflow-hidden\">\n        <div>\n          <span class=\"text-xs font-extrabold text-orange-600 tracking-widest uppercase mb-2 block\">Fase 1</span>\n          <h3 class=\"text-2xl md:text-3xl font-extrabold text-slate-950 mb-4\">Validación de Título</h3>\n          <p class=\"text-slate-950 font-semibold leading-relaxed mb-6\">Revisión oficial de plan de estudios y horas prácticas conforme al CGFNS.</p>\n        </div>\n        <div class=\"rounded-2xl overflow-hidden max-h-64 shadow-md\">\n          <img src=\"{IMAGEN_1}\" alt=\"Validación de Título\" class=\"w-full h-full object-cover\">\n        </div>\n      </div>\n      <div class=\"bg-slate-50 rounded-[2.5rem] p-8 md:p-12 border border-slate-200 shadow-lg flex flex-col justify-between overflow-hidden\">\n        <div>\n          <span class=\"text-xs font-extrabold text-orange-600 tracking-widest uppercase mb-2 block\">Fase 2</span>\n          <h3 class=\"text-2xl md:text-3xl font-extrabold text-slate-950 mb-4\">Oferta Laboral Directa</h3>\n          <p class=\"text-slate-950 font-semibold leading-relaxed mb-6\">Entrevistas directas con directores de enfermería en clínicas y hospitales de EE. UU.</p>\n        </div>\n        <div class=\"rounded-2xl overflow-hidden max-h-64 shadow-md\">\n          <img src=\"{IMAGEN_2}\" alt=\"Oferta Laboral Directa\" class=\"w-full h-full object-cover\">\n        </div>\n      </div>\n    </div>\n  </div>\n</section>"
+      "prompt": "SECCIÓN APPLE PRODUCT CARDS (ui-apple-product-cards-container): Showcase visual estilo Apple Store con tarjetas grandes y fotografía.\n<section class=\"ui-apple-product-cards-container {preset}\">\n  <div class=\"container-wrapper\">\n    <h2 class=\"section-title\">Pasos Hacia tu Residencia Permanente</h2>\n    <p class=\"section-description\">Un camino estructurado y comprobado hacia tu éxito profesional en EE. UU.</p>\n    <div class=\"product-cards-grid\">\n      <div class=\"apple-product-card\">\n        <div class=\"card-content-top\">\n          <span class=\"product-card-category\">FASE 1</span>\n          <h3 class=\"product-card-title\">Validación de Título</h3>\n          <p class=\"product-card-description\">Revisión oficial de plan de estudios y credenciales ante la junta de enfermería.</p>\n        </div>\n        <div class=\"card-image-wrapper\">\n          <img src=\"{IMAGEN_1}\" alt=\"Validación de Título\" class=\"product-card-image\" />\n        </div>\n        <a href=\"URL\" class=\"product-card-btn\" aria-label=\"Ver detalles\">→</a>\n      </div>\n      <div class=\"apple-product-card\">\n        <div class=\"card-content-top\">\n          <span class=\"product-card-category\">FASE 2</span>\n          <h3 class=\"product-card-title\">Oferta Laboral Directa</h3>\n          <p class=\"product-card-description\">Entrevistas directas con directores de hospitales acreditados en EE. UU.</p>\n        </div>\n        <div class=\"card-image-wrapper\">\n          <img src=\"{IMAGEN_2}\" alt=\"Oferta Laboral Directa\" class=\"product-card-image\" />\n        </div>\n        <a href=\"URL\" class=\"product-card-btn\" aria-label=\"Ver detalles\">→</a>\n      </div>\n    </div>\n  </div>\n</section>"
     },
     {
       "id": "ui-services-split",
-      "name": "Services Split Showcase (Carbon/Vanta Style)",
+      "name": "Services Split Showcase (Template Original)",
       "allowed_presets": [
+        "ui-preset--midnight",
+        "ui-preset--emerald",
+        "ui-preset--professional",
         "ui-preset--light"
       ],
-      "prompt": "SECCIÓN SERVICES SPLIT (ui-services-split): Layout de 2 columnas con lista de especificaciones a un lado e imagen de alta calidad al otro.\n<section class=\"ui-services-split py-20 bg-slate-50 text-slate-950 border-b border-slate-200\">\n  <div class=\"max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center\">\n    <div class=\"lg:col-span-5 rounded-3xl overflow-hidden shadow-2xl border border-slate-200 max-h-[500px]\">\n      <img src=\"{IMAGEN_3}\" alt=\"Servicios Especializados\" class=\"w-full h-full object-cover\">\n    </div>\n    <div class=\"lg:col-span-7 space-y-8\">\n      <h2 class=\"text-3xl md:text-5xl font-extrabold text-slate-950 tracking-tight\">Beneficios Exclusivos del Contrato</h2>\n      <div class=\"space-y-6\">\n        <div class=\"flex items-start gap-4 p-4 bg-white rounded-2xl border border-slate-200 shadow-sm\">\n          <div class=\"w-8 h-8 rounded-full bg-orange-600 text-white flex items-center justify-center font-bold flex-shrink-0\">✓</div>\n          <div>\n            <h3 class=\"text-xl font-extrabold text-slate-950\">Salarios Competitivos por Hora</h3>\n            <p class=\"text-slate-950 font-semibold mt-1\">Tarifas que oscilan entre 5 y 5/hr según el estado y la especialidad médica.</p>\n          </div>\n        </div>\n        <div class=\"flex items-start gap-4 p-4 bg-white rounded-2xl border border-slate-200 shadow-sm\">\n          <div class=\"w-8 h-8 rounded-full bg-orange-600 text-white flex items-center justify-center font-bold flex-shrink-0\">✓</div>\n          <div>\n            <h3 class=\"text-xl font-extrabold text-slate-950\">Relocalización y Vivienda</h3>\n            <p class=\"text-slate-950 font-semibold mt-1\">Bono de reubicación e ingresos iniciales cubiertos durante las primeras semanas.</p>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>"
+      "prompt": "SECCIÓN SERVICES SPLIT (ui-services-split): Layout original de 2 columnas con especificaciones e imagen.\n<section class=\"ui-services-split {preset}\">\n  <div class=\"services-split-container\">\n    <div class=\"services-split-image-col\">\n      <img src=\"{IMAGEN_3}\" alt=\"Servicios Especializados\" class=\"services-split-image\" />\n    </div>\n    <div class=\"services-split-content-col\">\n      <h2 class=\"services-split-title\">Beneficios Exclusivos del Contrato</h2>\n      <div class=\"services-split-list\">\n        <div class=\"service-split-item\">\n          <div class=\"service-icon\">✓</div>\n          <div class=\"service-text\">\n            <h3>Salarios Competitivos por Hora</h3>\n            <p>Tarifas garantizadas según el estado y la especialidad médica.</p>\n          </div>\n        </div>\n        <div class=\"service-split-item\">\n          <div class=\"service-icon\">✓</div>\n          <div class=\"service-text\">\n            <h3>Relocalización y Vivienda</h3>\n            <p>Bono de reubicación y asistencia inicial durante tu llegada.</p>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>"
+    },
+    {
+      "id": "ui-feature-cards",
+      "name": "Feature Cards Grid (Template Original)",
+      "allowed_presets": [
+        "ui-preset--midnight",
+        "ui-preset--emerald",
+        "ui-preset--professional",
+        "ui-preset--light"
+      ],
+      "prompt": "SECCIÓN FEATURE CARDS (ui-feature-cards): Rejilla de tarjetas de características numeradas original.\n<section class=\"ui-feature-cards {preset}\">\n  <div class=\"container-wrapper\">\n    <h2 class=\"section-title\">Servicios Clave para tu Transición</h2>\n    <div class=\"feature-cards-grid\">\n      <div class=\"feature-card\">\n        <div class=\"feature-card-number\">01</div>\n        <h3 class=\"feature-card-title\">Homologación Express</h3>\n        <p class=\"feature-card-desc\">Gestión completa de credenciales académicas ante las juntas estatales.</p>\n        <a href=\"URL\" class=\"feature-card-link\">Saber más →</a>\n      </div>\n      <div class=\"feature-card\">\n        <div class=\"feature-card-number\">02</div>\n        <h3 class=\"feature-card-title\">Preparación NCLEX-RN</h3>\n        <p class=\"feature-card-desc\">Simuladores y clases virtuales para asegurar la aprobación en el primer intento.</p>\n        <a href=\"URL\" class=\"feature-card-link\">Saber más →</a>\n      </div>\n      <div class=\"feature-card\">\n        <div class=\"feature-card-number\">03</div>\n        <h3 class=\"feature-card-title\">Patrocinio Visa EB-3</h3>\n        <p class=\"feature-card-desc\">Conexión directa con hospitales que ofrecen residencia permanente.</p>\n        <a href=\"URL\" class=\"feature-card-link\">Saber más →</a>\n      </div>\n    </div>\n  </div>\n</section>"
+    },
+    {
+      "id": "ui-lifestyle-grid",
+      "name": "Lifestyle Testimonials (Template Original)",
+      "allowed_presets": [
+        "ui-preset--midnight",
+        "ui-preset--emerald",
+        "ui-preset--professional",
+        "ui-preset--light"
+      ],
+      "prompt": "SECCIÓN TESTIMONIOS (ui-lifestyle-grid): Rejilla de testimonios original de la plantilla.\n<section class=\"ui-lifestyle-grid {preset}\">\n  <div class=\"container-wrapper\">\n    <h2 class=\"section-title\">Historias de Éxito Reales</h2>\n    <div class=\"lifestyle-grid\">\n      <div class=\"lifestyle-item\">\n        <div class=\"lifestyle-author\">\n          <img src=\"{IMAGEN_4}\" alt=\"Testimonio 1\" class=\"lifestyle-avatar\" />\n          <div class=\"lifestyle-author-info\">\n            <h3>María Rodríguez</h3>\n            <span>RN en EE. UU.</span>\n          </div>\n        </div>\n        <p class=\"lifestyle-quote\">\"El proceso de homologación fue transparente y rápido. Hoy ejerzo mi profesión con estabilidad.\"</p>\n      </div>\n    </div>\n  </div>\n</section>"
+    },
+    {
+      "id": "ui-data-comparison",
+      "name": "Data Comparison Dashboard (Template Original)",
+      "allowed_presets": [
+        "ui-preset--midnight",
+        "ui-preset--emerald",
+        "ui-preset--professional",
+        "ui-preset--light"
+      ],
+      "prompt": "SECCIÓN DATA COMPARISON (ui-data-comparison): Dashboard Bento de tendencias original de la plantilla.\n<section class=\"ui-data-comparison-container {preset}\">\n  <div class=\"container-wrapper\">\n    <p class=\"comparison-intro\">Análisis de mercado: <span class=\"ui-highlight\">Demanda laboral</span></p>\n    <div class=\"comparison-dashboard\">\n      <div class=\"legend-cards\">\n        <div class=\"legend-card\">\n          <div class=\"legend-header\"><span class=\"legend-marker marker-blue\"></span><span class=\"legend-name\">Vacantes Disponibles</span></div>\n          <span class=\"legend-label\">Demanda en Aumento</span>\n        </div>\n        <div class=\"legend-card\">\n          <div class=\"legend-header\"><span class=\"legend-marker marker-red\"></span><span class=\"legend-name\">Proceso de Visas</span></div>\n          <span class=\"legend-label\">Capacidad Limitada</span>\n        </div>\n      </div>\n      <div class=\"chart-area\">\n        <h3 class=\"chart-title\">Tendencia de Empleo y Patrocinio</h3>\n        <p class=\"chart-desc\">La demanda actual supera la oferta nacional en más de un 300%.</p>\n        <div class=\"chart-wrapper\">\n          <img src=\"{IMAGEN_3}\" alt=\"Gráfico de tendencias\" class=\"chart-img\" />\n        </div>\n      </div>\n    </div>\n  </div>\n</section>"
     },
     {
       "id": "ui-impact-cta",
-      "name": "Impact CTA Banner (Vibrant Light Accent Banner)",
+      "name": "Impact CTA Banner (Template Original)",
       "allowed_presets": [
+        "ui-preset--midnight",
+        "ui-preset--emerald",
+        "ui-preset--professional",
         "ui-preset--light"
       ],
-      "prompt": "SECCIÓN IMPACT CTA (ui-impact-cta): Banner vibrante de llamado a la acción con degradado naranja cálido y botón blanco brillante de alto impacto.\n<section class=\"ui-impact-cta relative py-20 md:py-28 bg-gradient-to-r from-orange-500 to-amber-600 rounded-[3rem] my-16 overflow-hidden max-w-7xl mx-auto shadow-2xl border border-orange-400 text-white\">\n  <div class=\"relative z-10 max-w-4xl mx-auto px-6 text-center\">\n    <h2 class=\"text-3xl md:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight drop-shadow-md\">\n      ¿Lista para Dar el Siguiente Paso?\n    </h2>\n    <p class=\"text-lg md:text-2xl text-orange-50 mb-10 leading-relaxed max-w-2xl mx-auto font-bold\">\n      Permítenos guiarte hacia tu empleo soñado con visa de trabajo y patrocinio completo.\n    </p>\n    <div class=\"flex justify-center\">\n      <a href=\"URL\" class=\"inline-block px-10 py-5 bg-white text-orange-600 hover:bg-slate-100 font-extrabold text-lg md:text-xl rounded-full shadow-2xl transition-all duration-300 transform hover:-translate-y-1 no-underline\">\n        HABLAR CON UN ASESOR AHORA\n      </a>\n    </div>\n  </div>\n</section>"
+      "prompt": "SECCIÓN IMPACT CTA (ui-impact-cta): Banner de llamada a la acción original de la plantilla.\n<section class=\"ui-impact-cta {preset}\">\n  <div class=\"impact-cta-content\">\n    <h2 class=\"impact-cta-title\">¿Lista para Dar el Siguiente Paso?</h2>\n    <p class=\"impact-cta-desc\">Permítenos guiarte hacia tu empleo soñado con visa de trabajo y patrocinio completo.</p>\n    <div class=\"impact-cta-actions\">\n      <a href=\"URL\" class=\"btn-impact-cta\">HABLAR CON UN ASESOR AHORA</a>\n    </div>\n  </div>\n</section>"
     },
     {
       "id": "ui-faq-accordion",
-      "name": "FAQ Accordion (Apple Light)",
+      "name": "FAQ Accordion (Template Original)",
       "allowed_presets": [
+        "ui-preset--midnight",
+        "ui-preset--emerald",
+        "ui-preset--professional",
         "ui-preset--light"
       ],
-      "prompt": "SECCIÓN FAQ ACCORDION (ui-faq-accordion): Acordeón de preguntas frecuentes en 2 columnas con tarjetas claras (#ffffff), borde (#e2e8f0) y texto negro puro (#020617).\n<section class=\"ui-faq-section py-20 md:py-28 bg-slate-50 text-slate-950 overflow-hidden\">\n  <div class=\"max-w-7xl mx-auto px-6 md:px-12\">\n    <div class=\"grid grid-cols-1 lg:grid-cols-12 gap-12\">\n      <div class=\"lg:col-span-4\">\n        <h2 class=\"text-3xl md:text-5xl font-extrabold tracking-tight text-slate-950 mb-6 leading-tight\">\n          Preguntas Frecuentes\n        </h2>\n        <p class=\"text-base md:text-lg text-slate-950 font-bold leading-relaxed mb-6\">\n          Resolvemos tus dudas sobre el proceso NCLEX, visado EB-3 y patrocinio.\n        </p>\n      </div>\n      <div class=\"lg:col-span-8 space-y-6\">\n        <details class=\"faq-item bg-white rounded-2xl p-6 border border-slate-200 shadow-md cursor-pointer transition-all duration-300 hover:border-slate-300\">\n          <summary class=\"faq-question flex items-center justify-between text-lg md:text-xl font-extrabold text-slate-950 tracking-tight\">\n            <span>¿Cuánto tiempo toma el proceso completo?</span>\n            <span class=\"text-orange-600\">▼</span>\n          </summary>\n          <div class=\"faq-answer mt-4 pt-4 border-t border-slate-200 text-base md:text-lg text-slate-950 font-bold leading-relaxed\">\n            <p>El proceso habitualmente toma entre 12 y 18 meses desde la homologación inicial hasta la emisión de la visa.</p>\n          </div>\n        </details>\n      </div>\n    </div>\n  </div>\n</section>"
+      "prompt": "SECCIÓN FAQ ACCORDION (ui-faq-accordion): Acordeón de preguntas frecuentes original de la plantilla.\n<section class=\"ui-faq-section {preset}\">\n  <div class=\"container-wrapper\">\n    <div class=\"faq-grid\">\n      <div class=\"faq-intro\">\n        <h2 class=\"faq-title\">Preguntas Frecuentes</h2>\n        <p class=\"faq-desc\">Resolvemos tus dudas sobre el proceso NCLEX, visado EB-3 y patrocinio.</p>\n      </div>\n      <div class=\"faq-list\">\n        <details class=\"faq-item\">\n          <summary class=\"faq-question\">\n            <span>¿Cuánto tiempo toma el proceso completo?</span>\n            <span class=\"faq-icon\">▼</span>\n          </summary>\n          <div class=\"faq-answer\">\n            <p>El proceso habitualmente toma entre 12 y 18 meses desde la homologación inicial hasta la emisión de la visa.</p>\n          </div>\n        </details>\n      </div>\n    </div>\n  </div>\n</section>"
     }
   ]
 }
