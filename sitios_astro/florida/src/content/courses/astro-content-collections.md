@@ -18,7 +18,7 @@ isNew: true
 isLocked: true
 videoUrl: "/videos/intro1.mp4"
 image:
-  url: "/src/images/courses/2.jpeg"
+  url: "/imagenes_proyecto/ofertas-de-empleo-y-salarios-promedios-para-enfermeras-extranjeras-en-miami-y-tampa-florida-3.webp"
   alt: "Astro content collections with markdown files and TypeScript schemas"
 tags: ["intermediate", "astro", "content", "typescript"]
 sections:

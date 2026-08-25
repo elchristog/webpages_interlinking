@@ -1,7 +1,7 @@
 ---
 // Assets
 import { Image } from "astro:assets";
-import Dashboard from "@/images/assets/dashboard.jpg";
+const Dashboard = "/imagenes_proyecto/enfermera-en-estados-unidos-gu-a-principal-2.webp";
 // Fundations
 import Text from "@/components/fundations/elements/Text.astro";
 import Button from "@/components/fundations/elements/Button.astro";
@@ -34,7 +34,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
           >
         </div>
       </div>
-      <Image
+      <img
         src={Dashboard}
         alt="Dashboard"
         class="w-full h-auto rounded-xl lg:col-span-2 lg:-mb-12"

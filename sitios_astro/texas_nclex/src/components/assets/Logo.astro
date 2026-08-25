@@ -1,13 +1,10 @@
 ---
-// Logo Component This component renders an SVG logo and accepts props for customization.
-// Props: - class: A string of additional classes to style the SVG.
-// - ...rest: Any other valid attributes for an <svg> element (e.g., id, style, role, aria-label, etc.).
-// Example Usage: <Logo class="my-custom-class" /> or <Logo id="logo-id" style="width: 50px; height: 50px;" />
 const { class: className = "", ...rest } = Astro.props;
 ---
-
-<svg class={className}
-{...rest} viewBox="0 0 365 365" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M0 96.9V268.6C0 321.8 43.2 365 96.4 365H268.1C321.3 365 364.5 321.8 364.5 268.6V96.9C364.5 43.7 321.3 0.5 268.1 0.5H96.4C43.2 0.5 0 43.7 0 96.9ZM97.1 340.8C56.8 340.8 24.2 308.2 24.2 267.9C24.2 227.6 56.8 195 97.1 195C137.4 195 170 227.6 170 267.9C170 308.2 137.3 340.8 97.1 340.8ZM97.1 170.5C56.8 170.5 24.2 137.9 24.2 97.6C24.2 57.3 56.8 24.7 97.1 24.7C137.4 24.7 170 57.3 170 97.6C170 137.9 137.3 170.5 97.1 170.5ZM267.4 340.8C227.1 340.8 194.5 308.2 194.5 267.9C194.5 227.6 227.1 195 267.4 195C307.7 195 340.3 227.6 340.3 267.9C340.3 308.2 307.6 340.8 267.4 340.8ZM267.4 170.5C227.1 170.5 194.5 137.9 194.5 97.6C194.5 57.3 227.1 24.7 267.4 24.7C307.7 24.7 340.3 57.3 340.3 97.6C340.3 137.9 307.6 170.5 267.4 170.5Z" fill="currentColor"/>
-  </svg>
-  
+<img
+  src="/imagenes_proyecto/logo.webp"
+  alt="Logo"
+  class={className || "h-8 w-auto object-contain"}
+  {...rest}
+  onerror="this.onerror=null; this.src='/favicon.ico';"
+/>

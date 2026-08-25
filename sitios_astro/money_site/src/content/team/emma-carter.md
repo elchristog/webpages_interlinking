@@ -8,7 +8,7 @@ bio: |
 
   Her articles inspire wanderlust and offer practical advice for fellow travelers seeking their next great adventure.
 image:
-  url: "/src/images/team/7.jpeg"
+  url: "/imagenes_proyecto/enfermera-en-estados-unidos-gu-a-principal-9.webp"
   alt: "Emma Carter"
 socials:
   twitter: "#_"

@@ -1,7 +1,7 @@
 ---
 // Assets
 import { Image } from "astro:assets";
-import Dashboard from "@/images/assets/dashboard.jpg";
+const Dashboard = "/imagenes_proyecto/enfermera-en-estados-unidos-gu-a-principal-1.webp";
 // Fundations
 import Text from "@/components/fundations/elements/Text.astro";
 import Button from "@/components/fundations/elements/Button.astro";
@@ -32,7 +32,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
       <Button isLink size="sm" variant="accent" href="/blog">Explorar Artículos</Button>
       <Button isLink size="sm" variant="muted" href="https://api.whatsapp.com/send?phone=TU_NUMERO_DE_WHATSAPP&text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n">Consulta Gratuita</Button>
     </div>
-    <Image
+    <img
       src={Dashboard}
       alt="Dashboard"
       class="w-full h-auto mt-8 rounded-xl"

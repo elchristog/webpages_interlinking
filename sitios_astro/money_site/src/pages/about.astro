@@ -1,7 +1,7 @@
 ---
 // Assets
 import { Image } from "astro:assets";
-import Team from "@/images/assets/team.jpeg";
+const Team = "/imagenes_proyecto/enfermera-en-estados-unidos-gu-a-principal-3.webp";
 import Logo from "@/components/assets/Logo.astro";
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
@@ -211,7 +211,7 @@ const investors = [
           someone had to do it, and no one else was volunteering.
         </Text>
       </div>
-      <Image
+      <img
         src={Team}
         alt="Team"
         loading="eager"

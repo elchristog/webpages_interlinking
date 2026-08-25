@@ -5,7 +5,7 @@ org: "StudyFlow"
 bio: |
   Soren has taught thousands of developers how to use modern tools like React, Vue, and Astro. He’s known for his direct teaching style and deep technical insights—especially when it comes to how components and frameworks work under the hood.
 image:
-  url: "/src/images/teachers/6.jpeg"
+  url: "/imagenes_proyecto/ofertas-de-empleo-y-salarios-promedios-para-enfermeras-extranjeras-en-miami-y-tampa-florida-6.webp"
   alt: "Soren Dahl"
 socials:
   twitter: "#"

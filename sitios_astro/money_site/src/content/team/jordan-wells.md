@@ -8,7 +8,7 @@ bio: |
 
   Whether discussing the latest in eSports or the rise of interactive fan experiences, Jordan provides insightful commentary on the ever-changing landscape of sports and its relationship with technology.
 image:
-  url: "/src/images/team/1.jpeg"
+  url: "/imagenes_proyecto/enfermera-en-estados-unidos-gu-a-principal-11.webp"
   alt: "Jordan Wells"
 socials:
   twitter: "#_"

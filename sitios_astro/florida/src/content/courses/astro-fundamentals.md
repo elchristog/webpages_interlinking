@@ -12,7 +12,7 @@ isNew: false
 isLocked: false
 videoUrl: "/videos/intro1.mp4"
 image:
-  url: "/src/images/courses/1.jpeg"
+  url: "/imagenes_proyecto/ofertas-de-empleo-y-salarios-promedios-para-enfermeras-extranjeras-en-miami-y-tampa-florida-4.webp"
   alt: "#_"
 tags: ["beginner", "astro", "webdev"]
 sections:

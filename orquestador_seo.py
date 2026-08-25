@@ -373,31 +373,36 @@ def post_procesar_rutas_locales(ruta_persistente):
                 with open(ruta_archivo, 'w', encoding='utf-8') as f:
                     f.write(contenido)
 
-def compilar_y_persistir(sitio_id, ruta_proyecto, ruta_base, nombre_proyecto, nicho=""):
-    """Construye el sitio y lo mueve a una carpeta persistente para su visualización."""
-    ruta_sitios = os.path.join(ruta_base, 'sitios_generados', nombre_proyecto)
-    os.makedirs(ruta_sitios, exist_ok=True)
-    ruta_persistente = os.path.join(ruta_sitios, sitio_id)
-    
-    # Copiar e intentar convertir imágenes del proyecto a la carpeta public de Astro
+def procesar_e_inyectar_media(sitio_id, ruta_proyecto, ruta_base, nombre_proyecto, nicho):
+    """
+    Procesa el logo e imágenes del proyecto, los convierte a WebP, 
+    crea los favicons y reemplaza las referencias de imagen en componentes,
+    páginas y markdown para que apunten a los archivos .webp locales del nicho.
+    """
     ruta_imagenes = os.path.join(ruta_base, 'proyectos', nombre_proyecto, 'imagenes')
     ruta_public_imagenes = os.path.join(ruta_proyecto, 'public', 'imagenes_proyecto')
     
     if os.path.exists(ruta_public_imagenes):
         shutil.rmtree(ruta_public_imagenes)
         
+    os.makedirs(ruta_public_imagenes, exist_ok=True)
+    slug_nicho = generar_slug_nicho(nicho) if nicho else "imagen-seo"
+    
+    archivos_webp_generados = []
+    
     if os.path.exists(ruta_imagenes):
-        os.makedirs(ruta_public_imagenes, exist_ok=True)
-        slug_nicho = generar_slug_nicho(nicho) if nicho else "imagen-seo"
         todos_archivos = sorted([f for f in os.listdir(ruta_imagenes) if f.lower().endswith(('.png', '.jpg', '.jpeg', '.webp', '.svg'))])
         archivos_img = [f for f in todos_archivos if 'logo' not in f.lower()]
         archivos_logo = [f for f in todos_archivos if 'logo' in f.lower()]
 
-        # Procesar logo exclusivo si existe y sobrescribir favicon.ico
+        # 1. Procesar Logo y Favicon
         if archivos_logo:
             logo_src = os.path.join(ruta_imagenes, archivos_logo[0])
             logo_dst = os.path.join(ruta_public_imagenes, "logo.webp")
-            favicon_dst = os.path.join(ruta_proyecto, "public", "favicon.ico")
+            favicon_ico = os.path.join(ruta_proyecto, "public", "favicon.ico")
+            favicon_png = os.path.join(ruta_proyecto, "public", "favicon.png")
+            apple_touch = os.path.join(ruta_proyecto, "public", "apple-touch-icon.png")
+            
             try:
                 with Image.open(logo_src) as im:
                     im.save(logo_dst, "webp", quality=90)
@@ -405,23 +410,151 @@ def compilar_y_persistir(sitio_id, ruta_proyecto, ruta_base, nombre_proyecto, ni
                         im_ico = im.convert("RGBA")
                     else:
                         im_ico = im
-                    im_ico.save(favicon_dst, "ICO", sizes=[(32, 32), (48, 48)])
+                    im_ico.save(favicon_ico, "ICO", sizes=[(32, 32), (48, 48)])
+                    im_ico.save(favicon_png, "PNG")
+                    im_ico.save(apple_touch, "PNG")
+                    print(f"[Media Injector] Logo y Favicons generados en WebP e ICO")
             except Exception as e:
+                print(f"[-] Error al generar favicons desde logo: {e}")
                 shutil.copy2(logo_src, logo_dst)
-                shutil.copy2(logo_src, favicon_dst)
+                shutil.copy2(logo_src, favicon_ico)
+                shutil.copy2(logo_src, favicon_png)
+                shutil.copy2(logo_src, apple_touch)
 
+        # 2. Convertir imágenes a .webp
         for i, img in enumerate(archivos_img):
             src_path = os.path.join(ruta_imagenes, img)
-            dst_path = os.path.join(ruta_public_imagenes, f"{slug_nicho}-{i+1}.webp")
+            dst_filename = f"{slug_nicho}-{i+1}.webp"
+            dst_path = os.path.join(ruta_public_imagenes, dst_filename)
             
             try:
                 with Image.open(src_path) as im:
                     if im.mode in ("RGBA", "P"):
                         im = im.convert("RGB")
                     im.save(dst_path, "webp", quality=85)
+                    archivos_webp_generados.append(f"/imagenes_proyecto/{dst_filename}")
             except Exception as e:
                 print(f"[-] Error al convertir {img} a webp: {e}")
                 shutil.copy2(src_path, dst_path)
+                archivos_webp_generados.append(f"/imagenes_proyecto/{dst_filename}")
+    
+    if not archivos_webp_generados:
+        archivos_webp_generados = ["/imagenes_proyecto/logo.webp"]
+
+    # 3. Inyectar Logo en componentes Logo.astro y BigLogo.astro
+    rutas_componentes = os.path.join(ruta_proyecto, 'src', 'components')
+    if os.path.exists(rutas_componentes):
+        for root, dirs, files in os.walk(rutas_componentes):
+            for file in files:
+                if file in ("Logo.astro", "BigLogo.astro"):
+                    logo_file_path = os.path.join(root, file)
+                    try:
+                        with open(logo_file_path, 'w', encoding='utf-8') as f:
+                            f.write('''---
+const { class: className = "", ...rest } = Astro.props;
+---
+<img
+  src="/imagenes_proyecto/logo.webp"
+  alt="Logo"
+  class={className || "h-8 w-auto object-contain"}
+  {...rest}
+  onerror="this.onerror=null; this.src='/favicon.ico';"
+/>
+''')
+                        print(f"[Media Injector] Actualizado {file} -> /imagenes_proyecto/logo.webp")
+                    except Exception as e:
+                        print(f"[-] Error actualizando logo en {file}: {e}")
+
+    # 4. Actualizar Favicons.astro
+    if os.path.exists(rutas_componentes):
+        for root, dirs, files in os.walk(rutas_componentes):
+            for file in files:
+                if file == "Favicons.astro":
+                    fav_path = os.path.join(root, file)
+                    try:
+                        with open(fav_path, 'w', encoding='utf-8') as f:
+                            f.write('''<!-- Favicons -->
+<link rel="icon" type="image/webp" href="/imagenes_proyecto/logo.webp" />
+<link rel="shortcut icon" href="/imagenes_proyecto/logo.webp" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+''')
+                        print(f"[Media Injector] Actualizado Favicons.astro -> /imagenes_proyecto/logo.webp")
+                    except Exception as e:
+                        print(f"[-] Error actualizando favicons: {e}")
+
+    # 5. Reemplazar imágenes dummy por imágenes .webp en components, pages y content
+    rutas_a_escanear = [
+        os.path.join(ruta_proyecto, 'src', 'components'),
+        os.path.join(ruta_proyecto, 'src', 'pages'),
+        os.path.join(ruta_proyecto, 'src', 'content')
+    ]
+
+    img_counter = 0
+    num_imgs = len(archivos_webp_generados)
+
+    for carpeta in rutas_a_escanear:
+        if not os.path.exists(carpeta):
+            continue
+        for root, dirs, files in os.walk(carpeta):
+            for file in files:
+                if file.endswith(('.astro', '.md', '.tsx', '.jsx')):
+                    filepath = os.path.join(root, file)
+                    try:
+                        with open(filepath, 'r', encoding='utf-8') as f:
+                            content = f.read()
+
+                        modificado = False
+                        
+                        # 1. Detectar y reemplazar imports ESM de imágenes (import VarName from "@/images/...")
+                        patron_import_img = r'import\s+([A-Za-z0-9_]+)\s+from\s+["\']([^"\']*(?:/images/|@/images/)[^"\']+)["\'];?'
+                        imports_encontrados = re.findall(patron_import_img, content)
+                        for var_name, import_path in imports_encontrados:
+                            if "logo" in import_path.lower() or "logo" in var_name.lower():
+                                img_actual = "/imagenes_proyecto/logo.webp"
+                            else:
+                                img_actual = archivos_webp_generados[img_counter % num_imgs]
+                                img_counter += 1
+                            
+                            # Reemplazar la declaración import por const VarName = "img_actual";
+                            content = re.sub(
+                                r'import\s+' + re.escape(var_name) + r'\s+from\s+["\'][^"\']+["\'];?',
+                                f'const {var_name} = "{img_actual}";',
+                                content
+                            )
+                            modificado = True
+
+                        # 2. Convertir todas las etiquetas <Image ... /> y </Image> en etiquetas <img ... />
+                        if re.search(r'<Image\b', content):
+                            content = re.sub(r'<Image\b', '<img', content)
+                            content = re.sub(r'</Image>', '</img>', content)
+                            modificado = True
+
+                        # 3. Reemplazar rutas dummy de imágenes restantes (/src/images/..., @/images/..., etc.)
+                        patron_dummy = r'(/src/images/[^\s"\'\)]+|@/images/[^\s"\'\)]+|\./_astro/[^\s"\'\)]+)'
+                        matches = re.findall(patron_dummy, content)
+                        if matches:
+                            for match in set(matches):
+                                if "logo" in match.lower():
+                                    content = content.replace(match, "/imagenes_proyecto/logo.webp")
+                                else:
+                                    img_actual = archivos_webp_generados[img_counter % num_imgs]
+                                    img_counter += 1
+                                    content = content.replace(match, img_actual)
+                                modificado = True
+
+                        if modificado:
+                            with open(filepath, 'w', encoding='utf-8') as f:
+                                f.write(content)
+                            print(f"[Media Injector] Imágenes WebP inyectadas en {file}")
+                    except Exception as e:
+                        pass
+
+def compilar_y_persistir(sitio_id, ruta_proyecto, ruta_base, nombre_proyecto, nicho=""):
+    """Construye el sitio y lo mueve a una carpeta persistente para su visualización."""
+    ruta_sitios = os.path.join(ruta_base, 'sitios_generados', nombre_proyecto)
+    os.makedirs(ruta_sitios, exist_ok=True)
+    ruta_persistente = os.path.join(ruta_sitios, sitio_id)
     
     print(f"[*] Compilando Astro para {sitio_id}...")
     comando_build = "npm run build"
@@ -691,6 +824,9 @@ def procesar_sitio(sitio, config_global, config_menus, ruta_proyecto_config, rut
         configuracion_actual["footer"]["empresa_legal"] = nombre_empresa_global
     
     escribir_config_inyectada(sitio['ruta_astro'], configuracion_actual)
+
+    # NUEVO: Procesar e inyectar logo, favicons e imágenes WebP del nicho
+    procesar_e_inyectar_media(sitio_id, sitio['ruta_astro'], ruta_base, nombre_proyecto, sitio.get('nicho', 'Enfermera en Estados Unidos'))
 
     # NUEVO: Personalizar automáticamente textos de componentes de la plantilla en español según el nicho
     personalizar_componentes_plantilla(sitio['ruta_astro'], sitio.get('nicho', 'Enfermera en Estados Unidos'), sitio.get('palabras_clave', []))

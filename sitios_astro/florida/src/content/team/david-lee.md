@@ -8,7 +8,7 @@ bio: |
 
   When he's not breaking down JavaScript islands or optimizing build times, he’s helping learners turn their side projects into serious skills. His work has influenced developers and educators alike across the modern web ecosystem.
 image:
-  url: "/src/images/team/1.jpeg"
+  url: "/imagenes_proyecto/ofertas-de-empleo-y-salarios-promedios-para-enfermeras-extranjeras-en-miami-y-tampa-florida-7.webp"
   alt: "David Lee headshot"
 socials:
   twitter: "#_"

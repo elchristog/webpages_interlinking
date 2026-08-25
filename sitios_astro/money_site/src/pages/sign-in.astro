@@ -1,7 +1,7 @@
 ---
 // Assets
 import { Image } from "astro:assets";
-import Avatar from "@/images/assets/signin.jpeg";
+const Avatar = "/imagenes_proyecto/enfermera-en-estados-unidos-gu-a-principal-5.webp";
 import Logo from "@/components/assets/Logo.astro";
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
@@ -109,7 +109,7 @@ import GoogleColor from "@/components/fundations/icons/GoogleColor.astro";
     <div
       class="relative hidden overflow-hidden lg:block lg:w-1/3 lg:order-first"
     >
-      <Image
+      <img
         src={Avatar}
         alt="Background"
         aria-hidden="true"
