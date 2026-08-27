@@ -1,8 +1,8 @@
 ---
 import { Image } from "astro:assets";
-import logo1 from "@/images/integrations/7.svg";
-import logo2 from "@/images/integrations/11.svg";
-import logo3 from "@/images/integrations/3.svg";
+const logo1 = "/imagenes_proyecto/logo.webp";
+const logo2 = "/imagenes_proyecto/logo.webp";
+const logo3 = "/imagenes_proyecto/logo.webp";
 const { class: className = "", ...rest } = Astro.props;
 ---
 
@@ -12,7 +12,7 @@ const { class: className = "", ...rest } = Astro.props;
       <!-- Notion -->
       <li class="flex items-center justify-between">
         <div class="flex items-start gap-3">
-          <Image
+          <img
             src={logo1}
             alt="Notion"
             width={24}
@@ -43,7 +43,7 @@ const { class: className = "", ...rest } = Astro.props;
       <!-- Sketch -->
       <li class="flex items-center justify-between">
         <div class="flex items-start gap-3">
-          <Image
+          <img
             src={logo2}
             alt="Sketch"
             width={24}
@@ -74,7 +74,7 @@ const { class: className = "", ...rest } = Astro.props;
       <!-- Behance -->
       <li class="flex items-center justify-between">
         <div class="flex items-start gap-3">
-          <Image
+          <img
             src={logo3}
             alt="Behance"
             width={24}

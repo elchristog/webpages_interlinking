@@ -550,6 +550,148 @@ const { class: className = "", ...rest } = Astro.props;
                     except Exception as e:
                         pass
 
+def inyectar_navegacion_e_interlinking(ruta_astro, configuracion_actual, ruta_proyecto_config):
+    """
+    Garantiza que el menú superior de navegación (header) y el menú inferior (footer)
+    estén sincronizados con menu_global y contengan los enlaces de interlinking estratégico.
+    """
+    rutas_components = os.path.join(ruta_astro, 'src', 'components')
+    if not os.path.exists(rutas_components):
+        return
+
+    header_nav_code = '''import config from "@/data/config_inyectada.json";
+
+const navigationLinks = (config.menu_global && config.menu_global.length > 0)
+  ? config.menu_global.map(item => ({
+      title: item.nombre,
+      text: item.nombre,
+      label: item.nombre,
+      nombre: item.nombre,
+      href: item.ruta,
+      ruta: item.ruta
+    }))
+  : [
+      { title: "Inicio", text: "Inicio", label: "Inicio", nombre: "Inicio", href: "/", ruta: "/" },
+      { title: "Homologación", text: "Homologación", label: "Homologación", nombre: "Homologación", href: "/homologacion", ruta: "/homologacion" },
+      { title: "NCLEX-RN", text: "NCLEX-RN", label: "NCLEX-RN", nombre: "NCLEX-RN", href: "/nclex", ruta: "/nclex" },
+      { title: "Vacantes", text: "Vacantes", label: "Vacantes", nombre: "Vacantes", href: "/vacantes", ruta: "/vacantes" },
+      { title: "Visa EB-3", text: "Visa EB-3", label: "Visa EB-3", nombre: "Visa EB-3", href: "/visa", ruta: "/visa" },
+      { title: "Blog", text: "Blog", label: "Blog", nombre: "Blog", href: "/blog", ruta: "/blog" }
+    ];
+const links = navigationLinks;'''
+
+    footer_nav_code = '''import config from "@/data/config_inyectada.json";
+
+const siteMenu = (config.menu_global && config.menu_global.length > 0)
+  ? config.menu_global.map(item => ({
+      label: item.nombre,
+      title: item.nombre,
+      text: item.nombre,
+      nombre: item.nombre,
+      href: item.ruta,
+      ruta: item.ruta
+    }))
+  : [
+      { label: "Inicio", title: "Inicio", text: "Inicio", nombre: "Inicio", href: "/", ruta: "/" },
+      { label: "Homologación", title: "Homologación", text: "Homologación", nombre: "Homologación", href: "/homologacion", ruta: "/homologacion" },
+      { label: "NCLEX-RN", title: "NCLEX-RN", text: "NCLEX-RN", nombre: "NCLEX-RN", href: "/nclex", ruta: "/nclex" },
+      { label: "Vacantes", title: "Vacantes", text: "Vacantes", nombre: "Vacantes", href: "/vacantes", ruta: "/vacantes" },
+      { label: "Visa EB-3", title: "Visa EB-3", text: "Visa EB-3", nombre: "Visa EB-3", href: "/visa", ruta: "/visa" },
+      { label: "Blog", title: "Blog", text: "Blog", nombre: "Blog", href: "/blog", ruta: "/blog" }
+    ];
+
+const interlinkLinks = [
+  { label: "Agencia Enfermera en EE. UU.", title: "Agencia Enfermera en EE. UU.", text: "Agencia Enfermera en EE. UU.", nombre: "Agencia Enfermera en EE. UU.", href: "https://enfermeraenestadosunidos.com", ruta: "https://enfermeraenestadosunidos.com" },
+  { label: "Guía Trabajar de Enfermera en USA", title: "Guía Trabajar de Enfermera en USA", text: "Guía Trabajar de Enfermera en USA", nombre: "Guía Trabajar de Enfermera en USA", href: "https://enfermeraenestadosunidos.com/guia-para-trabajar-de-enfermera-en-estados-unidos/", ruta: "https://enfermeraenestadosunidos.com/guia-para-trabajar-de-enfermera-en-estados-unidos/" },
+  { label: "Ofertas Empleo RN EE. UU.", title: "Ofertas Empleo RN EE. UU.", text: "Ofertas Empleo RN EE. UU.", nombre: "Ofertas Empleo RN EE. UU.", href: "https://enfermeraenestadosunidos.com/ofertas-de-empleo-para-enfermeras-en-usa/", ruta: "https://enfermeraenestadosunidos.com/ofertas-de-empleo-para-enfermeras-en-usa/" },
+  { label: "Visa EB3 & Green Card Enfermería", title: "Visa EB3 & Green Card Enfermería", text: "Visa EB3 & Green Card Enfermería", nombre: "Visa EB3 & Green Card Enfermería", href: "https://enfermeraenestadosunidos.com/visa-y-green-card-para-enfermeras-en-usa/", ruta: "https://enfermeraenestadosunidos.com/visa-y-green-card-para-enfermeras-en-usa/" },
+  { label: "Portal Oficial CGFNS", title: "Portal Oficial CGFNS", text: "Portal Oficial CGFNS", nombre: "Portal Oficial CGFNS", href: "https://www.cgfns.org/", ruta: "https://www.cgfns.org/" },
+  { label: "Examen Oficial NCSBN NCLEX", title: "Examen Oficial NCSBN NCLEX", text: "Examen Oficial NCSBN NCLEX", nombre: "Examen Oficial NCSBN NCLEX", href: "https://www.ncsbn.org/nclex.page", ruta: "https://www.ncsbn.org/nclex.page" }
+];
+
+const footerLinks = [
+  {
+    heading: "Navegación Sitio",
+    title: "Navegación Sitio",
+    links: siteMenu
+  },
+  {
+    heading: "Red PBN & Interlinking",
+    title: "Red PBN & Interlinking",
+    links: interlinkLinks
+  },
+  {
+    heading: "Recursos & Legal",
+    title: "Recursos & Legal",
+    links: [
+      { label: "Política de Privacidad", title: "Política de Privacidad", text: "Política de Privacidad", nombre: "Política de Privacidad", href: "/legal/privacy", ruta: "/legal/privacy" },
+      { label: "Términos del Servicio", title: "Términos del Servicio", text: "Términos del Servicio", nombre: "Términos del Servicio", href: "/legal/terms", ruta: "/legal/terms" },
+      { label: "Asesoría WhatsApp", title: "Asesoría WhatsApp", text: "Asesoría WhatsApp", nombre: "Asesoría WhatsApp", href: "https://api.whatsapp.com/send?phone=TU_NUMERO_DE_WHATSAPP&text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n", ruta: "https://api.whatsapp.com/send?phone=TU_NUMERO_DE_WHATSAPP&text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n" }
+    ]
+  }
+];
+const links = footerLinks;'''
+
+    for root, dirs, files in os.walk(rutas_components):
+        for file in files:
+            if not file.endswith('.astro'):
+                continue
+            filepath = os.path.join(root, file)
+            
+            # Header Navigation files
+            if any(k in file for k in ("Navigation", "Header", "Navbar", "MobileNav", "DesktopNav", "NavigationLinks")) and "Footer" not in file:
+                try:
+                    with open(filepath, 'r', encoding='utf-8') as f:
+                        content = f.read()
+                    
+                    if "---" in content:
+                        parts = content.split("---", 2)
+                        fm = parts[1]
+                        
+                        if 'import config from "@/data/config_inyectada.json";' in fm:
+                            pass
+                        elif re.search(r'const\s+(navigationLinks|links)\s*=', fm):
+                            fm = re.sub(
+                                r'const\s+(navigationLinks|links)\s*=\s*\[[\s\S]*?\];',
+                                header_nav_code,
+                                fm,
+                                count=1
+                            )
+                            parts[1] = fm
+                            new_content = "---".join(parts)
+                            with open(filepath, 'w', encoding='utf-8') as f:
+                                f.write(new_content)
+                            print(f"[Nav Injector] Menú superior actualizado en {file}")
+                except Exception as e:
+                    print(f"[-] Error actualizando nav header en {file}: {e}")
+
+            # Footer Navigation files
+            elif "Footer" in file:
+                try:
+                    with open(filepath, 'r', encoding='utf-8') as f:
+                        content = f.read()
+
+                    if "---" in content:
+                        parts = content.split("---", 2)
+                        fm = parts[1]
+
+                        if 'import config from "@/data/config_inyectada.json";' in fm:
+                            pass
+                        elif re.search(r'const\s+(footerLinks|links)\s*=', fm):
+                            fm = re.sub(
+                                r'const\s+(footerLinks|links)\s*=\s*\[[\s\S]*?\];',
+                                footer_nav_code,
+                                fm,
+                                count=1
+                            )
+                            parts[1] = fm
+                            new_content = "---".join(parts)
+                            with open(filepath, 'w', encoding='utf-8') as f:
+                                f.write(new_content)
+                            print(f"[Nav Injector] Menú inferior e interlinking actualizado en {file}")
+                except Exception as e:
+                    print(f"[-] Error actualizando nav footer en {file}: {e}")
+
 def compilar_y_persistir(sitio_id, ruta_proyecto, ruta_base, nombre_proyecto, nicho=""):
     """Construye el sitio y lo mueve a una carpeta persistente para su visualización."""
     ruta_sitios = os.path.join(ruta_base, 'sitios_generados', nombre_proyecto)
@@ -558,7 +700,12 @@ def compilar_y_persistir(sitio_id, ruta_proyecto, ruta_base, nombre_proyecto, ni
     
     print(f"[*] Compilando Astro para {sitio_id}...")
     comando_build = "npm run build"
-    subprocess.run(comando_build, cwd=ruta_proyecto, shell=True)
+    env_build = os.environ.copy()
+    ruta_poly = os.path.join(ruta_base, 'node_polyfill.cjs')
+    if os.path.exists(ruta_poly):
+        env_build["NODE_OPTIONS"] = f"-r {ruta_poly}"
+    env_build["YARGS_MIN_NODE_VERSION"] = "18"
+    subprocess.run(comando_build, cwd=ruta_proyecto, shell=True, env=env_build)
     
     # Mover dist a la carpeta persistente
     dist_path = os.path.join(ruta_proyecto, 'dist')
@@ -830,6 +977,9 @@ def procesar_sitio(sitio, config_global, config_menus, ruta_proyecto_config, rut
 
     # NUEVO: Personalizar automáticamente textos de componentes de la plantilla en español según el nicho
     personalizar_componentes_plantilla(sitio['ruta_astro'], sitio.get('nicho', 'Enfermera en Estados Unidos'), sitio.get('palabras_clave', []))
+
+    # NUEVO: Inyectar navegación de menú superior e inferior con enlaces e interlinking
+    inyectar_navegacion_e_interlinking(sitio['ruta_astro'], configuracion_actual, ruta_proyecto_config)
 
     # NUEVO: Gestionar estado
     gestionar_estado_contenido(sitio_id, sitio['ruta_astro'], ruta_base, nombre_proyecto, modo_propagar)

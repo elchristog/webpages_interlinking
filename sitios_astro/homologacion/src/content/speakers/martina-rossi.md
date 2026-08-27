@@ -3,7 +3,7 @@ name: Martina Rossi
 role: UX Researcher
 company: Italia Digitale
 headshot:
-  url: /src/images/speakers/martina-rossi.png
+  url: /imagenes_proyecto/pasos-y-requisitos-legales-para-que-las-enfermeras-extrajeras-puedan-homologar-o-validar-su-t-tulo-de-enfermer-a-en-estados-unidos-1.webp
   alt: Martina Rossi headshot
 location: Milan, Italy
 summary: "UX researcher blending musical structure with Swiss proportion to craft balanced interfaces."

@@ -3,7 +3,7 @@ name: Google
 tier: gold
 url: "#_"
 logo:
-  url: /src/images/sponsors/google.svg
+  url: /imagenes_proyecto/pasos-y-requisitos-legales-para-que-las-enfermeras-extrajeras-puedan-homologar-o-validar-su-t-tulo-de-enfermer-a-en-estados-unidos-4.webp
   alt: Google logo
 ---
 

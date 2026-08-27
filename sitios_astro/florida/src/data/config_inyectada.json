@@ -16,11 +16,11 @@
   },
   "menu_global": [
     {
-      "nombre": "Título USA",
+      "nombre": "Homologar Título",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Guía NCLEX",
+      "nombre": "NCLEX Paso",
       "ruta": "/nclex"
     },
     {
@@ -28,7 +28,7 @@
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Migrar Legal",
+      "nombre": "Visa EB-3",
       "ruta": "/visa"
     },
     {
@@ -36,15 +36,15 @@
       "ruta": "/salarios"
     },
     {
-      "nombre": "Casos Éxito",
+      "nombre": "Historias",
       "ruta": "/blog"
     },
     {
-      "nombre": "Chat Directo",
+      "nombre": "WhatsApp",
       "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Acceso",
+      "nombre": "Portal RN",
       "ruta": "/login"
     }
   ],

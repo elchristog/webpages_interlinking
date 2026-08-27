@@ -8,7 +8,7 @@ bio: |
 
   David’s work has been featured in top industry magazines, and he continues to be a leading voice for sustainability in the fashion world.
 image:
-  url: "/src/images/team/10.jpeg"
+  url: "/imagenes_proyecto/gu-a-oficial-para-obtener-la-licencia-de-registered-nurse-rn-en-estados-unidos-3.webp"
   alt: "#_"
 socials:
   twitter: "#_"

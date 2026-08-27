@@ -3,7 +3,7 @@ name: Emil Steiner
 role: Creative Director
 company: Ratio Studio
 headshot:
-  url: /src/images/speakers/emil-steiner.png
+  url: /imagenes_proyecto/pasos-y-requisitos-legales-para-que-las-enfermeras-extrajeras-puedan-homologar-o-validar-su-t-tulo-de-enfermer-a-en-estados-unidos-11.webp
   alt: Emil Steiner headshot
 location: Basel, Switzerland
 summary: "Creative director bringing Swiss rationalism to contemporary design systems and team culture."

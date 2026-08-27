@@ -1,7 +1,7 @@
 ---
 // Assets
 import { Image } from "astro:assets";
-import Glass1 from "@/images/assets/glass3.jpg";
+const Glass1 = "/imagenes_proyecto/gu-a-oficial-para-obtener-la-licencia-de-registered-nurse-rn-en-estados-unidos-2.webp";
 // Fundations
 import Text from "@/components/fundations/elements/Text.astro";
 // Icons
@@ -24,7 +24,7 @@ const { customer, url, testimonial } = {
     <span class="sr-only">Read more about {customer}</span>
   </a>
 
-  <Image
+  <img
     src={Glass1}
     alt={customer}
     width={300}

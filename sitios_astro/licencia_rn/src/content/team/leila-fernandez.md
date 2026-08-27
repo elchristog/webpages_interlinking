@@ -8,7 +8,7 @@ bio: |
 
   With a keen eye on the future of health, Leila’s reporting aims to inform readers about the transformative changes happening in healthcare, making complex medical topics more accessible to the general public.
 image:
-  url: "/src/images/team/3.jpeg"
+  url: "/imagenes_proyecto/gu-a-oficial-para-obtener-la-licencia-de-registered-nurse-rn-en-estados-unidos-8.webp"
   alt: "Leila Fernandez"
 socials:
   twitter: "#_"

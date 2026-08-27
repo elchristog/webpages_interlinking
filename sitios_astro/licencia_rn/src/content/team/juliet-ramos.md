@@ -8,7 +8,7 @@ bio: |
 
   Juliet’s writing offers a balanced view of the potential benefits and challenges posed by technological advancements, making her a leading voice in the tech and culture space.
 image:
-  url: "/src/images/team/4.jpeg"
+  url: "/imagenes_proyecto/gu-a-oficial-para-obtener-la-licencia-de-registered-nurse-rn-en-estados-unidos-7.webp"
   alt: "Juliet Ramos"
 socials:
   twitter: "#_"

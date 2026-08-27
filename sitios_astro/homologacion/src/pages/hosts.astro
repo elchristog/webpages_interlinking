@@ -1,8 +1,8 @@
 ---
 // Assets
 import { Image } from "astro:assets";
-import annaHost from "@/images/hosts/anna-wintour.png";
-import jonasHost from "@/images/hosts/jonas-ledin.png";
+const annaHost = "/imagenes_proyecto/pasos-y-requisitos-legales-para-que-las-enfermeras-extrajeras-puedan-homologar-o-validar-su-t-tulo-de-enfermer-a-en-estados-unidos-10.webp";
+const jonasHost = "/imagenes_proyecto/pasos-y-requisitos-legales-para-que-las-enfermeras-extrajeras-puedan-homologar-o-validar-su-t-tulo-de-enfermer-a-en-estados-unidos-11.webp";
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Text from "@/components/fundations/elements/Text.astro";
@@ -56,7 +56,7 @@ const hosts = [
           hosts.map((host) => (
             <article class="flex h-full flex-col  justify-between  bg-accent-500">
               <div>
-                <Image
+                <img
                   src={host.headshot}
                   alt={`${host.name} portrait`}
                   width={640}

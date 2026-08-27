@@ -1,7 +1,7 @@
 ---
 // Assets
 import { Image } from "astro:assets";
-import Glass from "@/images/assets/glass1.jpg";
+const Glass = "/imagenes_proyecto/gu-a-oficial-para-obtener-la-licencia-de-registered-nurse-rn-en-estados-unidos-1.webp";
 import LogoCloud from "@/components/assets/LogoCloud.astro";
 // Fundations
 import Text from "@/components/fundations/elements/Text.astro";
@@ -12,7 +12,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 <section>
   <Wrapper variant="standard" class="relative py-12">
     <div class="relative overflow-hidden min-h-200">
-      <Image
+      <img
         src={Glass}
         alt="Background Glass Image"
         width={800}

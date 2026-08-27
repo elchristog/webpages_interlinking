@@ -8,7 +8,7 @@ bio: |
 
   Her articles inspire wanderlust and offer practical advice for fellow travelers seeking their next great adventure.
 image:
-  url: "/src/images/team/7.jpeg"
+  url: "/imagenes_proyecto/gu-a-oficial-para-obtener-la-licencia-de-registered-nurse-rn-en-estados-unidos-4.webp"
   alt: "Emma Carter"
 socials:
   twitter: "#_"

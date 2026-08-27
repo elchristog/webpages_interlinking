@@ -1,26 +1,26 @@
 ---
 // Assets
 import { Image } from "astro:assets";
-import logo1 from "@/images/integrations/1.svg";
-import logo2 from "@/images/integrations/2.svg";
-import logo3 from "@/images/integrations/3.svg";
-import logo4 from "@/images/integrations/4.svg";
-import logo5 from "@/images/integrations/5.svg";
-import logo6 from "@/images/integrations/6.svg";
-import logo7 from "@/images/integrations/7.svg";
-import logo8 from "@/images/integrations/8.svg";
-import logo9 from "@/images/integrations/9.svg";
-import logo10 from "@/images/integrations/10.svg";
-import logo11 from "@/images/integrations/11.svg";
-import logo12 from "@/images/integrations/12.svg";
-import logo13 from "@/images/integrations/13.svg";
-import logo14 from "@/images/integrations/14.svg";
-import logo15 from "@/images/integrations/15.svg";
-import logo16 from "@/images/integrations/16.svg";
-import logo17 from "@/images/integrations/17.svg";
-import logo18 from "@/images/integrations/18.svg";
-import logo19 from "@/images/integrations/19.svg";
-import logo20 from "@/images/integrations/20.svg";
+const logo1 = "/imagenes_proyecto/logo.webp";
+const logo2 = "/imagenes_proyecto/logo.webp";
+const logo3 = "/imagenes_proyecto/logo.webp";
+const logo4 = "/imagenes_proyecto/logo.webp";
+const logo5 = "/imagenes_proyecto/logo.webp";
+const logo6 = "/imagenes_proyecto/logo.webp";
+const logo7 = "/imagenes_proyecto/logo.webp";
+const logo8 = "/imagenes_proyecto/logo.webp";
+const logo9 = "/imagenes_proyecto/logo.webp";
+const logo10 = "/imagenes_proyecto/logo.webp";
+const logo11 = "/imagenes_proyecto/logo.webp";
+const logo12 = "/imagenes_proyecto/logo.webp";
+const logo13 = "/imagenes_proyecto/logo.webp";
+const logo14 = "/imagenes_proyecto/logo.webp";
+const logo15 = "/imagenes_proyecto/logo.webp";
+const logo16 = "/imagenes_proyecto/logo.webp";
+const logo17 = "/imagenes_proyecto/logo.webp";
+const logo18 = "/imagenes_proyecto/logo.webp";
+const logo19 = "/imagenes_proyecto/logo.webp";
+const logo20 = "/imagenes_proyecto/logo.webp";
 const logos = [
   { src: logo1, alt: "b1 Logo" },
   { src: logo2, alt: "b2 Logo" },
@@ -49,7 +49,7 @@ const logos = [
 >
   {
     logos.map((logo) => (
-      <Image
+      <img
         width={200}
         height={100}
         src={logo.src}

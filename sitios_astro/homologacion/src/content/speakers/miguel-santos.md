@@ -3,7 +3,7 @@ name: Miguel Santos
 role: Web Developer
 company: Portugal Digital
 headshot:
-  url: /src/images/speakers/miguel-santos.png
+  url: /imagenes_proyecto/pasos-y-requisitos-legales-para-que-las-enfermeras-extrajeras-puedan-homologar-o-validar-su-t-tulo-de-enfermer-a-en-estados-unidos-2.webp
   alt: Miguel Santos headshot
 location: Porto, Portugal
 summary: "Accessibility advocate ensuring Swiss-inspired interfaces stay fast, inclusive, and standards-based."

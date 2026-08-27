@@ -8,7 +8,7 @@ bio: |
 
   Whether examining the impact of new technologies or the revival of past trends, Isaac's writing is an insightful commentary on the cultural forces that influence us all.
 image:
-  url: "/src/images/team/6.jpeg"
+  url: "/imagenes_proyecto/gu-a-oficial-para-obtener-la-licencia-de-registered-nurse-rn-en-estados-unidos-5.webp"
   alt: "Isaac Turner"
 socials:
   twitter: "#_"

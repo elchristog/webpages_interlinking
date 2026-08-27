@@ -1,15 +1,15 @@
 ---
 // Assets
 import { Image } from "astro:assets";
-import one from "@/images/gallery/1.png";
-import two from "@/images/gallery/2.png";
-import three from "@/images/gallery/3.png";
-import four from "@/images/gallery/4.png";
-import five from "@/images/gallery/5.png";
-import six from "@/images/gallery/6.png";
-import seven from "@/images/gallery/7.png";
-import eight from "@/images/gallery/8.png";
-import nine from "@/images/gallery/9.png";
+const one = "/imagenes_proyecto/pasos-y-requisitos-legales-para-que-las-enfermeras-extrajeras-puedan-homologar-o-validar-su-t-tulo-de-enfermer-a-en-estados-unidos-1.webp";
+const two = "/imagenes_proyecto/pasos-y-requisitos-legales-para-que-las-enfermeras-extrajeras-puedan-homologar-o-validar-su-t-tulo-de-enfermer-a-en-estados-unidos-2.webp";
+const three = "/imagenes_proyecto/pasos-y-requisitos-legales-para-que-las-enfermeras-extrajeras-puedan-homologar-o-validar-su-t-tulo-de-enfermer-a-en-estados-unidos-3.webp";
+const four = "/imagenes_proyecto/pasos-y-requisitos-legales-para-que-las-enfermeras-extrajeras-puedan-homologar-o-validar-su-t-tulo-de-enfermer-a-en-estados-unidos-4.webp";
+const five = "/imagenes_proyecto/pasos-y-requisitos-legales-para-que-las-enfermeras-extrajeras-puedan-homologar-o-validar-su-t-tulo-de-enfermer-a-en-estados-unidos-5.webp";
+const six = "/imagenes_proyecto/pasos-y-requisitos-legales-para-que-las-enfermeras-extrajeras-puedan-homologar-o-validar-su-t-tulo-de-enfermer-a-en-estados-unidos-6.webp";
+const seven = "/imagenes_proyecto/pasos-y-requisitos-legales-para-que-las-enfermeras-extrajeras-puedan-homologar-o-validar-su-t-tulo-de-enfermer-a-en-estados-unidos-7.webp";
+const eight = "/imagenes_proyecto/pasos-y-requisitos-legales-para-que-las-enfermeras-extrajeras-puedan-homologar-o-validar-su-t-tulo-de-enfermer-a-en-estados-unidos-8.webp";
+const nine = "/imagenes_proyecto/pasos-y-requisitos-legales-para-que-las-enfermeras-extrajeras-puedan-homologar-o-validar-su-t-tulo-de-enfermer-a-en-estados-unidos-9.webp";
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Text from "@/components/fundations/elements/Text.astro";
@@ -118,7 +118,7 @@ const gallerySections = [
               <div class="grid grid-cols-1 md:grid-cols-3 lg:col-span-9 lg:col-start-4">
                 {section.images.map((image) => (
                   <figure class="group relative">
-                    <Image
+                    <img
                       src={image.src}
                       alt={image.alt}
                       height={1200}

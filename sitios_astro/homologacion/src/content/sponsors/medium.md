@@ -3,7 +3,7 @@ name: Medium
 tier: gold
 url: "#_"
 logo:
-  url: /src/images/sponsors/medium.svg
+  url: /imagenes_proyecto/pasos-y-requisitos-legales-para-que-las-enfermeras-extrajeras-puedan-homologar-o-validar-su-t-tulo-de-enfermer-a-en-estados-unidos-5.webp
   alt: Medium logo
 ---
 

@@ -3,7 +3,7 @@ name: Polar SH
 tier: bronze
 url: "#_"
 logo:
-  url: /src/images/sponsors/polar-sh.svg
+  url: /imagenes_proyecto/pasos-y-requisitos-legales-para-que-las-enfermeras-extrajeras-puedan-homologar-o-validar-su-t-tulo-de-enfermer-a-en-estados-unidos-6.webp
   alt: Polar SH logo
 ---
 

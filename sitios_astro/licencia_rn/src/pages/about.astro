@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
-import Ceo from "@/images/assets/ceo.jpeg";
-import Glass from "@/images/assets/glass4.jpg";
+const Ceo = "/imagenes_proyecto/gu-a-oficial-para-obtener-la-licencia-de-registered-nurse-rn-en-estados-unidos-6.webp";
+const Glass = "/imagenes_proyecto/gu-a-oficial-para-obtener-la-licencia-de-registered-nurse-rn-en-estados-unidos-7.webp";
 import LogoCloud from "@/components/assets/LogoCloud.astro";
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
@@ -31,7 +31,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
       <div
         class="grid grid-cols-1 gap-8 md:grid-cols-2 pt-8 mt-8 border-t items-end border-base-200"
       >
-        <Image
+        <img
           src={Ceo}
           alt="ceo"
           width={1200}
@@ -57,7 +57,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
       <div class="relative py-32 lg:py-72">
         {/* Clip only the background image */}
         <div class="absolute inset-0 overflow-hidden">
-          <Image
+          <img
             src={Glass}
             alt="Background Glass Image"
             width={800}
