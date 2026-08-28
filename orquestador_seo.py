@@ -483,6 +483,20 @@ const { class: className = "", ...rest } = Astro.props;
                     except Exception as e:
                         print(f"[-] Error actualizando favicons: {e}")
 
+    # Patch content.config.ts to support string URLs in image schemas
+    content_config = os.path.join(ruta_proyecto, 'src', 'content.config.ts')
+    if os.path.exists(content_config):
+        try:
+            with open(content_config, 'r', encoding='utf-8') as f:
+                c_content = f.read()
+            if 'url: image()' in c_content:
+                c_content = c_content.replace('url: image()', 'url: z.union([z.string(), image()])')
+                with open(content_config, 'w', encoding='utf-8') as f:
+                    f.write(c_content)
+                print(f"[Media Injector] Emparchado content.config.ts para permitir URLs relativas/públicas")
+        except Exception as e:
+            print(f"[-] Error emparchando content.config.ts: {e}")
+
     # 5. Reemplazar imágenes dummy por imágenes .webp en components, pages y content
     rutas_a_escanear = [
         os.path.join(ruta_proyecto, 'src', 'components'),

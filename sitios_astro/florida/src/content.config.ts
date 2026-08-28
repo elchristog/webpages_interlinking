@@ -16,7 +16,7 @@ const customers = defineCollection({
     z.object({
       name: z.string(),
       avatar: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
       location: z.string().optional(),
@@ -36,7 +36,7 @@ const projects = defineCollection({
       description: z.string(),
       live: z.string(),
       image: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
     }),
@@ -50,7 +50,7 @@ const team = defineCollection({
       role: z.string().optional(),
       bio: z.string().optional(),
       image: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
       socials: z
@@ -73,7 +73,7 @@ const posts = defineCollection({
       description: z.string(),
       team: z.string(),
       image: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
       tags: z.array(z.string()),
@@ -99,7 +99,7 @@ const courses = defineCollection({
         })
       ),
       image: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
       tags: z.array(z.string()).optional(),
@@ -131,7 +131,7 @@ const teachers = defineCollection({
       org: z.string().optional(),
       bio: z.string(),
       image: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
       socials: z
