@@ -16,15 +16,15 @@
   },
   "menu_global": [
     {
-      "nombre": "Homologar Título",
+      "nombre": "Título USA",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Superar NCLEX",
+      "nombre": "Prep NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Buscar Trabajo",
+      "nombre": "Puestos Libres",
       "ruta": "/vacantes"
     },
     {
@@ -32,19 +32,19 @@
       "ruta": "/visa"
     },
     {
-      "nombre": "Salario Real",
+      "nombre": "Sueldos USA",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Novedades",
+      "nombre": "Actualidad",
       "ruta": "/blog"
     },
     {
-      "nombre": "Escríbenos",
-      "ruta": "https://wa.me/something"
+      "nombre": "Hablar Asesor",
+      "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Entrar",
+      "nombre": "Portal RN",
       "ruta": "/login"
     }
   ],
@@ -61,5 +61,6 @@
       "system": "OKLCH Premium v2"
     }
   },
-  "nav_footer_version": "v2"
+  "nav_footer_version": "v2",
+  "plantilla_origen": "flabbergasted"
 }

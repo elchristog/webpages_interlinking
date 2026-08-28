@@ -486,8 +486,8 @@ const { class: className = "", ...rest } = Astro.props;
     # 5. Reemplazar imágenes dummy por imágenes .webp en components, pages y content
     rutas_a_escanear = [
         os.path.join(ruta_proyecto, 'src', 'components'),
-        os.path.join(ruta_proyecto, 'src', 'pages'),
-        os.path.join(ruta_proyecto, 'src', 'content')
+        os.path.join(ruta_proyecto, 'src', 'content', 'posts'),
+        os.path.join(ruta_proyecto, 'src', 'content', 'articulos')
     ]
 
     img_counter = 0
@@ -748,6 +748,27 @@ def auditar_y_limpiar_integridad(sitio_id, ruta_astro, configuracion_actual, man
                         if token in content:
                             content = content.replace(token, reemplazo)
                             modificado = True
+
+                    norm_filepath = filepath.replace('\\', '/')
+                    if file.endswith('.md') and ('/content/posts' in norm_filepath or '/content/articulos' in norm_filepath) and content.startswith('---'):
+                        parts = content.split('---', 2)
+                        if len(parts) >= 3:
+                            fm = parts[1]
+                            body = parts[2]
+                            if '/imagenes_proyecto/' in fm:
+                                import re
+                                fm = re.sub(r'url:\s*["\']/imagenes_proyecto/[^"\']+["\']', 'url: "/src/images/blog/1.jpg"', fm)
+                                content = f'---{fm}---' + body
+                                modificado = True
+                            elif 'titulo:' in fm or 'fecha:' in fm or 'descripcion:' in fm or 'title:' not in fm or 'pubDate:' not in fm or 'team:' not in fm or 'image:' not in fm or 'tags:' not in fm:
+                                import re
+                                title_match = re.search(r'(?:title|titulo):\s*\"?([^\n\"]+)\"?', fm)
+                                title = title_match.group(1) if title_match else 'Guía Oficial de Enfermería'
+                                desc_match = re.search(r'(?:description|descripcion):\s*\"?([^\n\"]+)\"?', fm)
+                                desc = desc_match.group(1) if desc_match else f'Guía completa sobre {title}.'
+                                new_fm = f'\ntitle: "{title}"\npubDate: 2026-08-28\ndescription: "{desc}"\nteam: "david-lee"\nimage:\n  url: "/src/images/blog/1.jpg"\n  alt: "{title}"\ntags:\n  - enfermeria\n  - {sitio_id}\n'
+                                content = f'---{new_fm}---' + body
+                                modificado = True
 
                     if modificado:
                         with open(filepath, 'w', encoding='utf-8') as f:
@@ -1198,6 +1219,8 @@ if __name__ == "__main__":
         print("[*] Iniciando generación base (bulk)...")
         sitios_procesados = []
         for sitio in config_sitios["sitios_espejo"]:
+            if args.sitio_id and sitio["id"] != args.sitio_id:
+                continue
             resultado = procesar_sitio(
                 sitio, config_global, config_menus, 
                 ruta_proyecto_config, ruta_base, nombre_proyecto

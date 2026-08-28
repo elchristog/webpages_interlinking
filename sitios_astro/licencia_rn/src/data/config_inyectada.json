@@ -20,7 +20,7 @@
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Prep NCLEX",
+      "nombre": "Pasar NCLEX",
       "ruta": "/nclex"
     },
     {
@@ -28,20 +28,20 @@
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Green Card",
+      "nombre": "Visa EB-3",
       "ruta": "/visa"
     },
     {
-      "nombre": "Cuanto Ganan",
+      "nombre": "Sueldos USA",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Noticias",
+      "nombre": "Historias",
       "ruta": "/blog"
     },
     {
-      "nombre": "Escríbenos",
-      "ruta": "https://wa.me/something"
+      "nombre": "Hablar Asesor",
+      "ruta": "https://wa.me/ayuda"
     },
     {
       "nombre": "Mi Cuenta",
@@ -60,5 +60,6 @@
       "system": "OKLCH Premium v2"
     }
   },
-  "nav_footer_version": "v2"
+  "nav_footer_version": "v2",
+  "plantilla_origen": "carbon"
 }

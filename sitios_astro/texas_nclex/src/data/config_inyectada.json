@@ -16,19 +16,19 @@
   },
   "menu_global": [
     {
-      "nombre": "Validar Diploma",
+      "nombre": "Validar Título",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Prep NCLEX",
+      "nombre": "Examen NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Bolsa Empleo",
+      "nombre": "Empleos RN",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Trámite EB3",
+      "nombre": "Migrar Legal",
       "ruta": "/visa"
     },
     {
@@ -36,15 +36,15 @@
       "ruta": "/salarios"
     },
     {
-      "nombre": "Noticias",
+      "nombre": "Blog Oficial",
       "ruta": "/blog"
     },
     {
-      "nombre": "Hablar Asesor",
-      "ruta": "https://wa.me/something"
+      "nombre": "WhatsApp",
+      "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Iniciar",
+      "nombre": "Acceso",
       "ruta": "/login"
     }
   ],
@@ -60,5 +60,6 @@
       "system": "OKLCH Premium v2"
     }
   },
-  "nav_footer_version": "v2"
+  "nav_footer_version": "v2",
+  "plantilla_origen": "author"
 }

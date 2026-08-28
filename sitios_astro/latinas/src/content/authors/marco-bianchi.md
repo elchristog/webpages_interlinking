@@ -8,7 +8,7 @@ bio: |
 
   Marco is dedicated to making economics accessible, breaking down complex theories and trends into easily understandable concepts. He aims to equip readers with the knowledge they need to navigate the ever-evolving landscape of global finance.
 image:
-  url: "/src/images/authors/2.jpeg"
+  url: "/imagenes_proyecto/proceso-paso-a-paso-y-agencias-de-enfermer-a-en-usa-para-enfermeras-latinas-de-toda-latinoam-rica-10.webp"
   alt: "Marco Bianchi"
 socials:
   twitter: "#_"

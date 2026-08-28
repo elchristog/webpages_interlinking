@@ -16,35 +16,35 @@
   },
   "menu_global": [
     {
-      "nombre": "Título USA",
+      "nombre": "Validar Diploma",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Examen NCLEX",
+      "nombre": "NCLEX Paso",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Empleos RN",
+      "nombre": "Bolsa Empleo",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Sponsor Visa",
+      "nombre": "Green Card",
       "ruta": "/visa"
     },
     {
-      "nombre": "Sueldo Promedio",
+      "nombre": "Sueldos USA",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Blog Oficial",
+      "nombre": "Actualidad",
       "ruta": "/blog"
     },
     {
-      "nombre": "Ayuda Chat",
-      "ruta": "https://wa.me/something"
+      "nombre": "Hablar Asesor",
+      "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Mi Cuenta",
+      "nombre": "Acceso",
       "ruta": "/login"
     }
   ],
@@ -61,5 +61,6 @@
       "name": "Royal Purple",
       "system": "OKLCH Premium v2"
     }
-  }
+  },
+  "plantilla_origen": "navy"
 }

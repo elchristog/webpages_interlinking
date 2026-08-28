@@ -4,7 +4,7 @@ pubDate: 2026-08-23
 description: "Guía definitiva sobre Ofertas de empleo y salarios promedios para enfermeras extranjeras en Miami y Tampa, Florida."
 team: "david-lee"
 image:
-  url: "/imagenes_proyecto/ofertas-de-empleo-y-salarios-promedios-para-enfermeras-extranjeras-en-miami-y-tampa-florida-8.webp"
+  url: "/src/images/blog/1.jpg"
   alt: "Ofertas De Empleo Y Salarios Promedios Para Enfermeras Extranjeras En Miami Y Tampa, Florida"
 tags:
   - enfermeria

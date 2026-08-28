@@ -20,31 +20,31 @@
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Pasar NCLEX",
+      "nombre": "Superar NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Vacantes USA",
+      "nombre": "Empleos RN",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Trámite EB3",
+      "nombre": "Green Card",
       "ruta": "/visa"
     },
     {
-      "nombre": "Pagos RN",
+      "nombre": "Tablas Sueldos",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Historias",
+      "nombre": "Casos Éxito",
       "ruta": "/blog"
     },
     {
       "nombre": "Ayuda Chat",
-      "ruta": "https://wa.me/something"
+      "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Entrar",
+      "nombre": "Iniciar",
       "ruta": "/login"
     }
   ],
@@ -60,5 +60,6 @@
       "name": "Deep Forest",
       "system": "OKLCH Premium v2"
     }
-  }
+  },
+  "plantilla_origen": "kotei"
 }

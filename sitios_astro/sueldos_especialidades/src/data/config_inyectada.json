@@ -16,7 +16,7 @@
   },
   "menu_global": [
     {
-      "nombre": "Validar Diploma",
+      "nombre": "Validar Título",
       "ruta": "/homologacion"
     },
     {
@@ -24,24 +24,24 @@
       "ruta": "/nclex"
     },
     {
-      "nombre": "Ofertas Trabajo",
+      "nombre": "Empleos RN",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Trámite EB3",
+      "nombre": "Green Card",
       "ruta": "/visa"
     },
     {
-      "nombre": "Ingresos USA",
+      "nombre": "Salario Real",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Actualidad",
+      "nombre": "Guías Tips",
       "ruta": "/blog"
     },
     {
       "nombre": "WhatsApp",
-      "ruta": "https://wa.me/something"
+      "ruta": "https://wa.me/ayuda"
     },
     {
       "nombre": "Portal RN",
@@ -60,5 +60,6 @@
       "system": "OKLCH Premium v2"
     }
   },
-  "nav_footer_version": "v2"
+  "nav_footer_version": "v2",
+  "plantilla_origen": "dusk"
 }

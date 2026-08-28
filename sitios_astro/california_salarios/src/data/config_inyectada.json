@@ -16,7 +16,7 @@
   },
   "menu_global": [
     {
-      "nombre": "Validar Título",
+      "nombre": "Proceso Grado",
       "ruta": "/homologacion"
     },
     {
@@ -24,11 +24,11 @@
       "ruta": "/nclex"
     },
     {
-      "nombre": "Empleos RN",
+      "nombre": "Trabajo Hoy",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Visa EB-3",
+      "nombre": "Visa Trabajo",
       "ruta": "/visa"
     },
     {
@@ -36,15 +36,15 @@
       "ruta": "/salarios"
     },
     {
-      "nombre": "Actualidad",
+      "nombre": "Casos Éxito",
       "ruta": "/blog"
     },
     {
-      "nombre": "Soporte",
-      "ruta": "https://wa.me/something"
+      "nombre": "Ayuda Chat",
+      "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Acceso",
+      "nombre": "Login",
       "ruta": "/login"
     }
   ],
@@ -61,5 +61,6 @@
       "system": "OKLCH Premium v2"
     }
   },
-  "nav_footer_version": "v1"
+  "nav_footer_version": "v1",
+  "plantilla_origen": "carriera"
 }

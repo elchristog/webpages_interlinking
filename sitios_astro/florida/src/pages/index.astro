@@ -21,9 +21,8 @@ const allCourses = (await getCollection("courses")).sort(
 
 ---
 
-<BaseLayout >
-  {
-    <Hero />
+<BaseLayout>
+  <Hero />
   <Learn />
   <Who />
   <Expectations />
@@ -55,7 +54,4 @@ const allCourses = (await getCollection("courses")).sort(
     </Wrapper>
   </section>
   <Testimonials />
-
-      </>
-    )
 </BaseLayout>

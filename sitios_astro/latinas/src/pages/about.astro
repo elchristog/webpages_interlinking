@@ -1,7 +1,7 @@
 ---
 // Assets
 import { Image } from "astro:assets";
-import AboutImage from "@/images/assets/about.jpeg";
+const AboutImage = "/imagenes_proyecto/proceso-paso-a-paso-y-agencias-de-enfermer-a-en-usa-para-enfermeras-latinas-de-toda-latinoam-rica-3.webp";
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Text from "@/components/fundations/elements/Text.astro";
@@ -52,7 +52,7 @@ const missionVision = [
               crisis at a time.
             </Text>
           </div>
-          <Image
+          <img
             width={400}
             height={400}
             src={AboutImage}
