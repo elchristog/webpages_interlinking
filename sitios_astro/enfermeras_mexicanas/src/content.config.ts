@@ -56,12 +56,12 @@ const work = defineCollection({
         .optional(),
       images: z.array(
         z.object({
-          url: image(),
+          url: z.union([z.string(), image()]),
           alt: z.string(),
         })
       ),
       thumbnail: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
     }),
@@ -90,12 +90,12 @@ const store = defineCollection({
         .optional(),
       description: z.string(),
       image: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
       images: z.array(
         z.object({
-          url: image(),
+          url: z.union([z.string(), image()]),
           alt: z.string(),
         })
       ),
@@ -123,7 +123,7 @@ const posts = defineCollection({
       description: z.string(),
       author: z.string(),
       image: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
       tags: z.array(z.string()),

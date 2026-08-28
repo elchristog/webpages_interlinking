@@ -4,7 +4,7 @@ pubDate: 2026-08-28
 description: "Guía definitiva sobre Directorio de agencias y hospitales reclutando enfermeras extranjeras en Estado Unidos."
 team: "david-lee"
 image:
-  url: "/imagenes_proyecto/directorio-de-agencias-y-hospitales-reclutando-enfermeras-extranjeras-en-estado-unidos-1.webp"
+  url: "/src/images/blog/1.jpg"
   alt: "Directorio De Agencias Y Hospitales Reclutando Enfermeras Extranjeras En Estado Unidos"
 tags:
   - enfermeria

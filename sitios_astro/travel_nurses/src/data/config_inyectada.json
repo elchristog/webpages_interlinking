@@ -16,32 +16,32 @@
   },
   "menu_global": [
     {
-      "nombre": "Homologar Título",
+      "nombre": "Revalidar Meta",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Prep NCLEX",
+      "nombre": "Estudio NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Puestos Libres",
+      "nombre": "Empleos RN",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Visa Trabajo",
+      "nombre": "Residencia USA",
       "ruta": "/visa"
     },
     {
-      "nombre": "Sueldo Promedio",
+      "nombre": "Ingresos USA",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Historias",
+      "nombre": "Blog Oficial",
       "ruta": "/blog"
     },
     {
-      "nombre": "Soporte",
-      "ruta": "https://wa.me/something"
+      "nombre": "WhatsApp",
+      "ruta": "https://wa.me/ayuda"
     },
     {
       "nombre": "Login",

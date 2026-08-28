@@ -16,35 +16,35 @@
   },
   "menu_global": [
     {
-      "nombre": "Validar Diploma",
+      "nombre": "Título USA",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Superar NCLEX",
+      "nombre": "Prep NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Ofertas Trabajo",
+      "nombre": "Empleos RN",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Green Card",
+      "nombre": "Sponsor Visa",
       "ruta": "/visa"
     },
     {
-      "nombre": "Salario Real",
+      "nombre": "Sueldos USA",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Novedades",
+      "nombre": "Historias",
       "ruta": "/blog"
     },
     {
-      "nombre": "Chat Directo",
+      "nombre": "Consultar Ahora",
       "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Portal RN",
+      "nombre": "Login",
       "ruta": "/login"
     }
   ],

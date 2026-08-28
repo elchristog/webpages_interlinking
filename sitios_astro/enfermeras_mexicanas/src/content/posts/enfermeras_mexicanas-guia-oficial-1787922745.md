@@ -4,7 +4,7 @@ pubDate: 2026-08-28
 description: "Guía definitiva sobre Requisitos específicos, equivalencias y trámites consulares para enfermeras mexicanas queriendo cruzar a USA."
 team: "david-lee"
 image:
-  url: "/imagenes_proyecto/requisitos-espec-ficos-equivalencias-y-tr-mites-consulares-para-enfermeras-mexicanas-queriendo-cruzar-a-usa-1.webp"
+  url: "/src/images/blog/1.jpg"
   alt: "Requisitos Específicos, Equivalencias Y Trámites Consulares Para Enfermeras Mexicanas Queriendo Cruzar A Usa"
 tags:
   - enfermeria

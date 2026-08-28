@@ -20,31 +20,31 @@
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Examen NCLEX",
+      "nombre": "Guía NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Empleos RN",
+      "nombre": "Buscar Trabajo",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Visa EB-3",
+      "nombre": "Visa Trabajo",
       "ruta": "/visa"
     },
     {
-      "nombre": "Cuanto Ganan",
+      "nombre": "Tablas Sueldos",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Novedades",
+      "nombre": "Noticias",
       "ruta": "/blog"
     },
     {
       "nombre": "Soporte",
-      "ruta": "https://wa.me/ayuda"
+      "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Acceso",
+      "nombre": "Entrar",
       "ruta": "/login"
     }
   ],

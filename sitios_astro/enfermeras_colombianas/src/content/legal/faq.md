@@ -18,7 +18,7 @@ Yes, we strive to keep our listings updated regularly to provide you with the mo
 To purchase a property, you can contact the listing agent directly through our website or request more information using the provided contact form. Our agents will guide you through the buying process and assist you with any questions you may have.
 
 ### Can I sell my property through your website?
-Yes, we welcome property owners to list their properties for sale on our website. You can contact us to learn more about our listing process and the services we offer to sellers.
+Yes, we welcome property owners to list their properties for sale on our website. You can contact us to Ver Guías about our listing process and the services we offer to sellers.
 
 ### Do you offer financing options for buyers?
 While we do not directly provide financing, we can connect you with trusted lenders in our network who can help you secure a mortgage or financing for your property purchase.
@@ -28,7 +28,7 @@ While we do not directly provide financing, we can connect you with trusted lend
 ### Do you offer property management services?
 Yes, we offer comprehensive property management services for landlords and property owners. Our services include tenant screening, rent collection, property maintenance, and more.
 
-### How can I learn more about your property management services?
+### How can I Ver Guías about your property management services?
 You can contact our property management team to schedule a consultation and discuss your specific needs. We'll be happy to provide you with more information about our services and how we can assist you.
 
 ### What areas do you cover for property management?

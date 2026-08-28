@@ -16,31 +16,31 @@
   },
   "menu_global": [
     {
-      "nombre": "Diploma Online",
+      "nombre": "Revalidar Meta",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Estudio NCLEX",
+      "nombre": "NCLEX Paso",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Puestos Libres",
+      "nombre": "Buscar Trabajo",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Sponsor Visa",
+      "nombre": "Residencia USA",
       "ruta": "/visa"
     },
     {
-      "nombre": "Salario Real",
+      "nombre": "Pagos RN",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Actualidad",
+      "nombre": "Noticias",
       "ruta": "/blog"
     },
     {
-      "nombre": "Ayuda Chat",
+      "nombre": "Chat Directo",
       "ruta": "https://wa.me/ayuda"
     },
     {

@@ -16,11 +16,11 @@
   },
   "menu_global": [
     {
-      "nombre": "Validar Diploma",
+      "nombre": "Revalidar Meta",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "NCLEX Paso",
+      "nombre": "Pasar NCLEX",
       "ruta": "/nclex"
     },
     {
@@ -28,23 +28,23 @@
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Green Card",
+      "nombre": "Residencia USA",
       "ruta": "/visa"
     },
     {
-      "nombre": "Sueldos USA",
+      "nombre": "Cuanto Ganan",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Actualidad",
+      "nombre": "Guías Tips",
       "ruta": "/blog"
     },
     {
-      "nombre": "Hablar Asesor",
-      "ruta": "https://wa.me/ayuda"
+      "nombre": "WhatsApp",
+      "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Acceso",
+      "nombre": "Login",
       "ruta": "/login"
     }
   ],

@@ -4,7 +4,7 @@ pubDate: 2026-08-25
 description: "Guía definitiva sobre Proceso migratorio, requisitos de licencia y búsqueda de sponsor para enfermeras en Georgia."
 team: "david-lee"
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/ofertas-de-empleo-y-salarios-promedios-para-enfermeras-extranjeras-en-miami-y-tampa-florida-8.webp"
   alt: "Proceso Migratorio, Requisitos De Licencia Y Búsqueda De Sponsor Para Enfermeras En Georgia"
 tags:
   - enfermeria

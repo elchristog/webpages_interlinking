@@ -12,7 +12,7 @@ const team = defineCollection({
       education: z.array(z.string()),
       experience: z.array(z.string()),
       avatar: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
     }),
@@ -36,7 +36,7 @@ const work = defineCollection({
         )
         .optional(),
       thumbnail: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
     }),
@@ -59,7 +59,7 @@ const posts = defineCollection({
       description: z.string(),
       author: z.string(),
       image: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
       tags: z.array(z.string()),

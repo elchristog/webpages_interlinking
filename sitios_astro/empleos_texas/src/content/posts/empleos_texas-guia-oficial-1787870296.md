@@ -4,7 +4,7 @@ pubDate: 2026-08-27
 description: "Guía definitiva sobre Ofertas de trabajo y vacantes en hospitales top de Houston, Dallas y el resto de Texas."
 team: "david-lee"
 image:
-  url: "/imagenes_proyecto/ofertas-de-trabajo-y-vacantes-en-hospitales-top-de-houston-dallas-y-el-resto-de-texas-1.webp"
+  url: "/src/images/blog/1.jpg"
   alt: "Ofertas De Trabajo Y Vacantes En Hospitales Top De Houston, Dallas Y El Resto De Texas"
 tags:
   - enfermeria

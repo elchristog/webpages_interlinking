@@ -4,7 +4,7 @@ pubDate: 2026-08-28
 description: "Guía definitiva sobre Análisis legal de los tipos de visa (H-1B, TN, EB-3) para trabajar de enfermera extranjera en USA."
 team: "david-lee"
 image:
-  url: "/imagenes_proyecto/an-lisis-legal-de-los-tipos-de-visa-h-1b-tn-eb-3-para-trabajar-de-enfermera-extranjera-en-usa-1.webp"
+  url: "/src/images/blog/1.jpg"
   alt: "Análisis Legal De Los Tipos De Visa (H-1B, Tn, Eb-3) Para Trabajar De Enfermera Extranjera En Usa"
 tags:
   - enfermeria

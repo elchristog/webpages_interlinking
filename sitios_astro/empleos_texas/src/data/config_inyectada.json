@@ -16,7 +16,7 @@
   },
   "menu_global": [
     {
-      "nombre": "Título USA",
+      "nombre": "Proceso Grado",
       "ruta": "/homologacion"
     },
     {
@@ -24,27 +24,27 @@
       "ruta": "/nclex"
     },
     {
-      "nombre": "Puestos Libres",
+      "nombre": "Empleos RN",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Green Card",
+      "nombre": "Residencia USA",
       "ruta": "/visa"
     },
     {
-      "nombre": "Sueldos USA",
+      "nombre": "Tablas Sueldos",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Actualidad",
+      "nombre": "Novedades",
       "ruta": "/blog"
     },
     {
-      "nombre": "Hablar Asesor",
+      "nombre": "WhatsApp",
       "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Portal RN",
+      "nombre": "Mi Cuenta",
       "ruta": "/login"
     }
   ],

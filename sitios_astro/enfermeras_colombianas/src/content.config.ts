@@ -14,14 +14,14 @@ const agents = defineCollection({
       stats: z.array(z.object({ key: z.string(), value: z.string() })),
       images: z.array(
         z.object({
-          url: image(),
+          url: z.union([z.string(), image()]),
           alt: z.string(),
         })
       ),
       office: z.string(),
       officeAddress: z.string(),
       avatar: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
     }),
@@ -48,19 +48,19 @@ const sale = defineCollection({
       about: z.array(z.object({ key: z.string(), value: z.string() })),
       aboutImages: z.array(
         z.object({
-          url: image(),
+          url: z.union([z.string(), image()]),
           alt: z.string(),
         })
       ),
       amenities: z.array(z.object({ key: z.string(), value: z.string() })),
       amenitiesImages: z.array(
         z.object({
-          url: image(),
+          url: z.union([z.string(), image()]),
           alt: z.string(),
         })
       ),
       image: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
       video: z.object({
@@ -78,11 +78,11 @@ const posts = defineCollection({
       description: z.string(),
       author: z.string(),
       image: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
       avatar: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
       tags: z.array(z.string()),

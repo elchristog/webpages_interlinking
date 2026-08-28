@@ -409,11 +409,20 @@ def procesar_e_inyectar_media(sitio_id, ruta_proyecto, ruta_base, nombre_proyect
                     if im.mode != "RGBA":
                         im_ico = im.convert("RGBA")
                     else:
-                        im_ico = im
-                    im_ico.save(favicon_ico, "ICO", sizes=[(32, 32), (48, 48)])
-                    im_ico.save(favicon_png, "PNG")
-                    im_ico.save(apple_touch, "PNG")
-                    print(f"[Media Injector] Logo y Favicons generados en WebP e ICO")
+                        im_ico = im.copy()
+                    
+                    # Generar ICO multitamaño (16, 32, 48)
+                    im_ico.save(favicon_ico, "ICO", sizes=[(16, 16), (32, 32), (48, 48)])
+                    
+                    # Generar favicon.png de 32x32 para máxima compatibilidad con navegadores
+                    im_32 = im_ico.resize((32, 32), Image.Resampling.LANCZOS)
+                    im_32.save(favicon_png, "PNG")
+                    
+                    # Generar apple-touch-icon.png de 180x180 para dispositivos móviles
+                    im_180 = im_ico.resize((180, 180), Image.Resampling.LANCZOS)
+                    im_180.save(apple_touch, "PNG")
+                    
+                    print(f"[Media Injector] Logo y Favicons (32x32 PNG, 180x180 Apple, ICO) generados correctamente")
             except Exception as e:
                 print(f"[-] Error al generar favicons desde logo: {e}")
                 shutil.copy2(logo_src, logo_dst)
@@ -458,7 +467,7 @@ const { class: className = "", ...rest } = Astro.props;
   alt="Logo"
   class={className || "h-8 w-auto object-contain"}
   {...rest}
-  onerror="this.onerror=null; this.src='/favicon.ico';"
+  onerror="this.onerror=null; this.src='/favicon.png';"
 />
 ''')
                         print(f"[Media Injector] Actualizado {file} -> /imagenes_proyecto/logo.webp")
@@ -474,12 +483,13 @@ const { class: className = "", ...rest } = Astro.props;
                     try:
                         with open(fav_path, 'w', encoding='utf-8') as f:
                             f.write('''<!-- Favicons -->
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="icon" type="image/webp" href="/imagenes_proyecto/logo.webp" />
-<link rel="shortcut icon" href="/imagenes_proyecto/logo.webp" />
-<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 ''')
-                        print(f"[Media Injector] Actualizado Favicons.astro -> /imagenes_proyecto/logo.webp")
+                        print(f"[Media Injector] Actualizado Favicons.astro -> /favicon.png & /imagenes_proyecto/logo.webp")
                     except Exception as e:
                         print(f"[-] Error actualizando favicons: {e}")
 
