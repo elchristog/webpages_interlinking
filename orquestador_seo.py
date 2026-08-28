@@ -663,7 +663,17 @@ const links = footerLinks;'''
                         fm = parts[1]
                         
                         if 'import config from "@/data/config_inyectada.json";' in fm:
-                            pass
+                            if fm.count('const siteMenu') > 1:
+                                m = re.search(r'(import config from "@/data/config_inyectada\.json";[\s\S]*?const (navigationLinks|links) = siteMenu;)', fm)
+                                if m:
+                                    rest_fm = fm[m.end():]
+                                    rest_fm = re.sub(r'import config from "@/data/config_inyectada\.json";[\s\S]*?const (navigationLinks|links) = siteMenu;', '', rest_fm)
+                                    fm = fm[:m.end()] + rest_fm
+                                    parts[1] = fm
+                                    new_content = "---".join(parts)
+                                    with open(filepath, 'w', encoding='utf-8') as f:
+                                        f.write(new_content)
+                                    print(f"[Nav Injector] Limpiadas duplicaciones en header {file}")
                         elif re.search(r'const\s+(navigationLinks|links)\s*=', fm):
                             fm = re.sub(
                                 r'const\s+(navigationLinks|links)\s*=\s*\[[\s\S]*?\];',
@@ -690,7 +700,18 @@ const links = footerLinks;'''
                         fm = parts[1]
 
                         if 'import config from "@/data/config_inyectada.json";' in fm:
-                            pass
+                            if fm.count('const siteMenu') > 1 or fm.count('const links = footerLinks') > 1:
+                                m = re.search(r'(import config from "@/data/config_inyectada\.json";[\s\S]*?const links = footerLinks;)', fm)
+                                if m:
+                                    rest_fm = fm[m.end():]
+                                    rest_fm = re.sub(r'import config from "@/data/config_inyectada\.json";[\s\S]*?const links = footerLinks;', '', rest_fm)
+                                    rest_fm = re.sub(r'const\s+links\s*=\s*footerLinks;', '', rest_fm)
+                                    fm = fm[:m.end()] + rest_fm
+                                    parts[1] = fm
+                                    new_content = "---".join(parts)
+                                    with open(filepath, 'w', encoding='utf-8') as f:
+                                        f.write(new_content)
+                                    print(f"[Nav Injector] Limpiadas duplicaciones en footer {file}")
                         elif re.search(r'const\s+(footerLinks|links)\s*=', fm):
                             fm = re.sub(
                                 r'const\s+(footerLinks|links)\s*=\s*\[[\s\S]*?\];',
