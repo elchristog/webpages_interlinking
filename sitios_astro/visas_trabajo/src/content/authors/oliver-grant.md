@@ -8,7 +8,7 @@ bio: |
 
   As an advocate for financial education, Oliver also emphasizes the importance of financial literacy, offering actionable advice for readers to take control of their financial futures. His work aims to simplify complex financial concepts and empower individuals to make informed decisions about their wealth-building journey.
 image:
-  url: "/src/images/authors/6.jpeg"
+  url: "/imagenes_proyecto/an-lisis-legal-de-los-tipos-de-visa-h-1b-tn-eb-3-para-trabajar-de-enfermera-extranjera-en-usa-7.webp"
   alt: "Oliver Grant"
 socials:
   twitter: "#_"

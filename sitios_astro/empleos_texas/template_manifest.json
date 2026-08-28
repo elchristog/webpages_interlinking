@@ -1,0 +1,50 @@
+{
+  "plantilla_id": "brightlight_maestra",
+  "version": "1.0.0",
+  "descripcion": "Plantilla Astro Maestra con manifiesto de inyección y auditoría estricta anti-placeholders",
+  "componentes_clave": {
+    "header": [
+      "src/components/global/Navigation.astro",
+      "src/components/global/NavigationV2.astro",
+      "src/components/global/NavigationV3.astro",
+      "src/components/Header.astro"
+    ],
+    "footer": [
+      "src/components/global/Footer.astro",
+      "src/components/global/FooterV2.astro",
+      "src/components/global/FooterV3.astro",
+      "src/components/Footer.astro"
+    ],
+    "logo": [
+      "src/components/assets/Logo.astro"
+    ],
+    "favicons": [
+      "src/components/fundations/head/Favicons.astro"
+    ]
+  },
+  "reglas_reemplazo": [
+    {
+      "buscar": "Brightlight",
+      "reemplazar_con": "{sitio_nombre}",
+      "sensible_mayusculas": false
+    },
+    {
+      "buscar": "Lexington Themes",
+      "reemplazar_con": "{empresa_legal}",
+      "sensible_mayusculas": false
+    },
+    {
+      "buscar": "TU_NUMERO_DE_WHATSAPP",
+      "reemplazar_con": "{whatsapp_numero}",
+      "sensible_mayusculas": true
+    }
+  ],
+  "blacklist_placeholders": [
+    "Brightlight",
+    "Lexington Themes",
+    "TU_NUMERO_DE_WHATSAPP",
+    "Lorem ipsum",
+    "dolor sit amet",
+    "something"
+  ]
+}

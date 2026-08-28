@@ -8,7 +8,7 @@ bio: |
 
   Juliet’s writing offers a balanced view of the potential benefits and challenges posed by technological advancements, making her a leading voice in the tech and culture space.
 image:
-  url: "/src/images/authors/4.jpeg"
+  url: "/imagenes_proyecto/an-lisis-legal-de-los-tipos-de-visa-h-1b-tn-eb-3-para-trabajar-de-enfermera-extranjera-en-usa-3.webp"
   alt: "Juliet Ramos"
 socials:
   twitter: "#_"

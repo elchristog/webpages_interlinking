@@ -7,20 +7,26 @@ import Button from "@/components/fundations/elements/Button.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 // Icons
 import X from "@/components/fundations/icons/X.astro";
-const navigationLinks = [
-  {
-    title: "Overview",
-    href: "/system/overview",
-  },
-  {
-    title: "Pricing",
-    href: "/pricing",
-  },
-  {
-    title: "Buy Navy",
-    href: "https://lexingtonthemes.com/templates/navy",
-  },
-];
+import config from "@/data/config_inyectada.json";
+
+const navigationLinks = (config.menu_global && config.menu_global.length > 0)
+  ? config.menu_global.map(item => ({
+      title: item.nombre,
+      text: item.nombre,
+      label: item.nombre,
+      nombre: item.nombre,
+      href: item.ruta,
+      ruta: item.ruta
+    }))
+  : [
+      { title: "Inicio", text: "Inicio", label: "Inicio", nombre: "Inicio", href: "/", ruta: "/" },
+      { title: "Homologación", text: "Homologación", label: "Homologación", nombre: "Homologación", href: "/homologacion", ruta: "/homologacion" },
+      { title: "NCLEX-RN", text: "NCLEX-RN", label: "NCLEX-RN", nombre: "NCLEX-RN", href: "/nclex", ruta: "/nclex" },
+      { title: "Vacantes", text: "Vacantes", label: "Vacantes", nombre: "Vacantes", href: "/vacantes", ruta: "/vacantes" },
+      { title: "Visa EB-3", text: "Visa EB-3", label: "Visa EB-3", nombre: "Visa EB-3", href: "/visa", ruta: "/visa" },
+      { title: "Blog", text: "Blog", label: "Blog", nombre: "Blog", href: "/blog", ruta: "/blog" }
+    ];
+const links = navigationLinks;
 ---
 
 <div id="nav-wrapper" class="fixed inset-x-0 top-0 w-full mx-auto z-51">

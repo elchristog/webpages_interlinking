@@ -1,11 +1,11 @@
 ---
 import { Image } from "astro:assets";
-import H1 from "@/images/highlights/1.jpeg";
-import H2 from "@/images/highlights/2.jpeg";
-import H3 from "@/images/highlights/3.jpeg";
-import SellImage from "@/images/sell.png";
-import House1 from "@/images/house1.png";
-import Agent1 from "@/images/agent1.png";
+const H1 = "/imagenes_proyecto/gu-a-exclusiva-para-revalidar-t-tulo-desde-colombia-y-agencias-especializadas-en-reclutar-talento-colombiano-7.webp";
+const H2 = "/imagenes_proyecto/gu-a-exclusiva-para-revalidar-t-tulo-desde-colombia-y-agencias-especializadas-en-reclutar-talento-colombiano-8.webp";
+const H3 = "/imagenes_proyecto/gu-a-exclusiva-para-revalidar-t-tulo-desde-colombia-y-agencias-especializadas-en-reclutar-talento-colombiano-9.webp";
+const SellImage = "/imagenes_proyecto/gu-a-exclusiva-para-revalidar-t-tulo-desde-colombia-y-agencias-especializadas-en-reclutar-talento-colombiano-10.webp";
+const House1 = "/imagenes_proyecto/gu-a-exclusiva-para-revalidar-t-tulo-desde-colombia-y-agencias-especializadas-en-reclutar-talento-colombiano-11.webp";
+const Agent1 = "/imagenes_proyecto/gu-a-exclusiva-para-revalidar-t-tulo-desde-colombia-y-agencias-especializadas-en-reclutar-talento-colombiano-12.webp";
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Text from "@/components/fundations/elements/Text.astro";
@@ -67,7 +67,7 @@ const highlights = [
   <section>
     <Wrapper class="pb-12">
       <div class="relative">
-        <Image
+        <img
           src={SellImage}
           alt="#_"
           width={1500}
@@ -174,7 +174,7 @@ const highlights = [
                       </a>
                     </div>
                   </div>
-                  <Image
+                  <img
                     class="aspect-[4/3] group-hover:scale-110 transition-transform object-cover object-center duration-500"
                     src={whatweoffer.image.url}
                     alt={whatweoffer.image.alt}
@@ -192,7 +192,7 @@ const highlights = [
       <div
         class="relative grid grid-cols-1 gap-4 md:grid-cols-2 lg:items-center"
       >
-        <Image
+        <img
           width={800}
           height={1000}
           src={SellImage}
@@ -271,7 +271,7 @@ const highlights = [
                       {highlights.subtitle}
                     </Text>
                   </div>
-                  <Image
+                  <img
                     width={500}
                     height={500}
                     class="aspect-[4/3] group-hover:scale-110 transition-transform object-cover object-center duration-500"

@@ -9,7 +9,7 @@ hiringPage: "#_"
 headquarters: "San Francisco"
 location: "United States"
 size: "400+"
-logo: "/src/images/companies/vercel.svg"
+logo: "/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-7.webp"
 industry: "Web Infrastructure"
 socials:
   twitter: "#_"

@@ -1,7 +1,7 @@
 ---
 // Assets
 import { Image } from "astro:assets";
-import ContactImage from "@/images/sell.png";
+const ContactImage = "/imagenes_proyecto/gu-a-exclusiva-para-revalidar-t-tulo-desde-colombia-y-agencias-especializadas-en-reclutar-talento-colombiano-1.webp";
 // Fundations
 
 import BaseLayout from "@/layouts/BaseLayout.astro";
@@ -20,11 +20,11 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
         data-aos="fade-up"
         data-aos-duration="1500"
       >
-        Sign in
+        Asesoría
       </Text>
       <div class="grid lg:grid-cols-3 pt-8 mt-8 border-t gap-8 border-base-200">
         <div class="relative overflow-hidden">
-          <Image
+          <img
             src={ContactImage}
             alt="#_"
             data-aos="fade-up"
@@ -49,15 +49,15 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
           <form class="w-full">
             <div class="flex flex-wrap w-full gap-3">
               <Button type="submit" size="xl" variant="muted">
-                Sign in with Google
+                Asesoría with Google
               </Button>
               <Button type="submit" size="xl" variant="muted">
-                Sign in with Apple
+                Asesoría with Apple
               </Button>
             </div>
             <div class="mt-8 pt-8 border-t border-base-200">
               <Text tag="p" variant="texrBase" class="text-base-500">
-                Sign in with your email address instead.
+                Asesoría with your email address instead.
               </Text>
             </div>
             <div class="flex flex-col gap-8 mt-2 pt-2 border-t border-base-200">

@@ -692,6 +692,75 @@ const links = footerLinks;'''
                 except Exception as e:
                     print(f"[-] Error actualizando nav footer en {file}: {e}")
 
+def cargar_manifiesto_plantilla(ruta_astro):
+    """Carga el archivo template_manifest.json del sitio o genera una estructura por defecto."""
+    manifest_path = os.path.join(ruta_astro, 'template_manifest.json')
+    if os.path.exists(manifest_path):
+        try:
+            with open(manifest_path, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except Exception as e:
+            print(f"[-] Error cargando template_manifest.json en {ruta_astro}: {e}")
+    
+    return {
+        "plantilla_id": "generica",
+        "blacklist_placeholders": [
+            "Brightlight",
+            "Lexington Themes",
+            "TU_NUMERO_DE_WHATSAPP",
+            "Lorem ipsum",
+            "dolor sit amet",
+            "something"
+        ]
+    }
+
+def auditar_y_limpiar_integridad(sitio_id, ruta_astro, configuracion_actual, manifiesto):
+    """Audita los archivos del sitio Astro contra el manifiesto y elimina placeholders no deseados."""
+    blacklist = manifiesto.get("blacklist_placeholders", [])
+    if not blacklist:
+        return
+
+    nombre_sitio = configuracion_actual.get("nombre", sitio_id)
+    empresa_legal = configuracion_actual.get("footer", {}).get("empresa_legal", "Enfermera en Estados Unidos")
+
+    reemplazos_directos = {
+        "Brightlight": nombre_sitio,
+        "Lexington Themes": empresa_legal,
+        "TU_NUMERO_DE_WHATSAPP": "123456789",
+        "something": "ayuda"
+    }
+
+    archivos_limpiados = 0
+    src_dir = os.path.join(ruta_astro, 'src')
+
+    if os.path.exists(src_dir):
+        for root, dirs, files in os.walk(src_dir):
+            for file in files:
+                if not (file.endswith('.astro') or file.endswith('.json') or file.endswith('.md')):
+                    continue
+                filepath = os.path.join(root, file)
+                try:
+                    with open(filepath, 'r', encoding='utf-8') as f:
+                        content = f.read()
+
+                    modificado = False
+                    for token, reemplazo in reemplazos_directos.items():
+                        if token in content:
+                            content = content.replace(token, reemplazo)
+                            modificado = True
+
+                    if modificado:
+                        with open(filepath, 'w', encoding='utf-8') as f:
+                            f.write(content)
+                        archivos_limpiados += 1
+                except Exception as e:
+                    print(f"[-] Error auditando archivo {file}: {e}")
+
+    if archivos_limpiados > 0:
+        print(f"[Auditor Manifiesto] Se limpiaron placeholders en {archivos_limpiados} archivos de {sitio_id}.")
+    else:
+        print(f"[Auditor Manifiesto] Auditoría completada para {sitio_id}: 0 placeholders detectados.")
+
 def compilar_y_persistir(sitio_id, ruta_proyecto, ruta_base, nombre_proyecto, nicho=""):
     """Construye el sitio y lo mueve a una carpeta persistente para su visualización."""
     ruta_sitios = os.path.join(ruta_base, 'sitios_generados', nombre_proyecto)
@@ -1015,6 +1084,10 @@ def procesar_sitio(sitio, config_global, config_menus, ruta_proyecto_config, rut
     
     # NUEVO: Respaldar estado antes de compilar
     respaldar_estado_contenido(sitio_id, sitio['ruta_astro'], ruta_base, nombre_proyecto)
+
+    # NUEVO: Auditoría de integridad anti-placeholders guiada por Manifiesto
+    manifiesto = cargar_manifiesto_plantilla(sitio['ruta_astro'])
+    auditar_y_limpiar_integridad(sitio_id, sitio['ruta_astro'], configuracion_actual, manifiesto)
     
     compilar_y_persistir(sitio_id, sitio['ruta_astro'], ruta_base, nombre_proyecto, sitio.get('nicho', ''))
     return {"id": sitio_id, "dominio": configuracion_actual["dominio"]}

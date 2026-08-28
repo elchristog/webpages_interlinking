@@ -2,7 +2,7 @@
 // Assets
 import Logo from "@/components/assets/Logo.astro";
 import { Image } from "astro:assets";
-import visual from "@/images/about/3.jpeg";
+const visual = "/imagenes_proyecto/gu-a-salarial-y-de-ofertas-laborales-exclusivas-para-travel-nurses-en-estados-unidos-7.webp";
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Text from "@/components/fundations/elements/Text.astro";
@@ -126,13 +126,13 @@ import Button from "@/components/fundations/elements/Button.astro";
               class="font-medium leading-normal text-base-900 hover:text-base-600"
               href="/login"
             >
-              Sign in
+              Asesoría
             </a>
           </Text>
         </div>
       </div>
     </div>
-    <Image
+    <img
       src={visual}
       alt="Background"
       aria-hidden="true"

@@ -1,7 +1,7 @@
 ---
 // Assets
 import { Image } from "astro:assets";
-import Team1 from "@/images/assets/team1.jpeg";
+const Team1 = "/imagenes_proyecto/directorio-de-agencias-y-hospitales-reclutando-enfermeras-extranjeras-en-estado-unidos-5.webp";
 import Dots from "@/components/assets/Dots.astro";
 import Burst from "@/components/assets/Burst.astro";
 import Kicker from "@/components/assets/Kicker.astro";
@@ -52,7 +52,7 @@ const allAuthors = await getCollection("team");
             Helping you go from side project to “oh no, this is real” — without
             the corporate drama
           </Text>
-          <Image
+          <img
             src={Team1}
             alt="Team1"
             class="object-cover p-8 mt-24 size-full aspect-square bg-dots"

@@ -1,0 +1,64 @@
+{
+  "nombre_sitio": "Travel Nurse Hispanas",
+  "color_tema": "#e65100",
+  "comando_deploy": "aws s3 sync ./dist s3://travel-nurses",
+  "layout": "LayoutC",
+  "gcp_project_id": "travel-nrs-aws-77",
+  "seo": {
+    "titulo_base": "Travel Nurses USA",
+    "descripcion_base": "Ofertas agresivas y sueldos astronómicos para enfermeras que viajan dentro de Estados Unidos.",
+    "idioma": "es-US"
+  },
+  "footer": {
+    "empresa_legal": "Enfermera en Estados Unidos",
+    "direccion": "Denver, CO 80201",
+    "email_contacto": "hola@travel-nurse-hispanas.org"
+  },
+  "menu_global": [
+    {
+      "nombre": "Validar Diploma",
+      "ruta": "/homologacion"
+    },
+    {
+      "nombre": "Pasar NCLEX",
+      "ruta": "/nclex"
+    },
+    {
+      "nombre": "Vacantes USA",
+      "ruta": "/vacantes"
+    },
+    {
+      "nombre": "Visa EB-3",
+      "ruta": "/visa"
+    },
+    {
+      "nombre": "Ingresos USA",
+      "ruta": "/salarios"
+    },
+    {
+      "nombre": "Guías Tips",
+      "ruta": "/blog"
+    },
+    {
+      "nombre": "Consultar Ahora",
+      "ruta": "https://wa.me/something"
+    },
+    {
+      "nombre": "Iniciar",
+      "ruta": "/login"
+    }
+  ],
+  "dominio": "https://travel-nurse-hispanas.org",
+  "font_family": "Roboto",
+  "color_palette": {
+    "primary": "oklch(40% 0.12 150)",
+    "secondary": "oklch(55% 0.08 150)",
+    "accent": "oklch(88% 0.15 80)",
+    "text_bold": "oklch(20% 0.05 150)",
+    "meta": {
+      "name": "Deep Forest",
+      "system": "OKLCH Premium v2"
+    }
+  },
+  "nav_footer_version": "v1"
+}

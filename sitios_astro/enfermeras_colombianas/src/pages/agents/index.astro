@@ -1,7 +1,7 @@
 ---
 // Assets
 import { Image } from "astro:assets";
-import Agents from "@/images/agents.jpeg";
+const Agents = "/imagenes_proyecto/gu-a-exclusiva-para-revalidar-t-tulo-desde-colombia-y-agencias-especializadas-en-reclutar-talento-colombiano-3.webp";
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Text from "@/components/fundations/elements/Text.astro";
@@ -19,7 +19,7 @@ import { getCollection } from "astro:content";
 <BaseLayout>
   <section>
     <Wrapper class="pb-12">
-      <Image
+      <img
         src={Agents}
         alt="#_"
         width={1500}

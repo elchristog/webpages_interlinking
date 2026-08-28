@@ -1,7 +1,7 @@
 ---
 // Assets
 import { Image } from "astro:assets";
-import One from "@/images/assets/1.png";
+const One = "/imagenes_proyecto/requisitos-y-proceso-legal-detallado-para-obtener-la-green-card-residencia-permanente-siendo-enfermera-5.webp";
 // Fundations
 import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
@@ -33,7 +33,7 @@ const repeated = Array(20).fill(tags.join(" — ")).join(" — ");
         unique and engaging experience for our clients.
       </Text>
     </div>
-    <Image
+    <img
       width="1200"
       height="630"
       class="w-full max-h-[80vh] rounded-t-2xl relative object-cover object-top mt-12"

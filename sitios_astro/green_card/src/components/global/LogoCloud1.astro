@@ -4,10 +4,10 @@ import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 // Asssets
 import { Image } from "astro:assets";
-import One from "@/images/brands/1.svg";
-import Two from "@/images/brands/2.svg";
-import Three from "@/images/brands/3.svg";
-import Four from "@/images/brands/4.svg";
+const One = "/imagenes_proyecto/requisitos-y-proceso-legal-detallado-para-obtener-la-green-card-residencia-permanente-siendo-enfermera-1.webp";
+const Two = "/imagenes_proyecto/requisitos-y-proceso-legal-detallado-para-obtener-la-green-card-residencia-permanente-siendo-enfermera-2.webp";
+const Three = "/imagenes_proyecto/requisitos-y-proceso-legal-detallado-para-obtener-la-green-card-residencia-permanente-siendo-enfermera-3.webp";
+const Four = "/imagenes_proyecto/requisitos-y-proceso-legal-detallado-para-obtener-la-green-card-residencia-permanente-siendo-enfermera-4.webp";
 
 const logos = [
   { src: One, alt: "#_" },
@@ -35,7 +35,7 @@ const logos = [
         <div class="flex flex-wrap justify-between">
           {
             logos.map((logo) => (
-              <Image
+              <img
                 width={80}
                 height={80}
                 alt={logo.alt}

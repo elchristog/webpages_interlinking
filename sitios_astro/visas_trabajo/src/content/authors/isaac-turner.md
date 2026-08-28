@@ -8,7 +8,7 @@ bio: |
 
   Whether examining the impact of new technologies or the revival of past trends, Isaac's writing is an insightful commentary on the cultural forces that influence us all.
 image:
-  url: "/src/images/authors/6.jpeg"
+  url: "/imagenes_proyecto/an-lisis-legal-de-los-tipos-de-visa-h-1b-tn-eb-3-para-trabajar-de-enfermera-extranjera-en-usa-1.webp"
   alt: "Isaac Turner"
 socials:
   twitter: "#_"

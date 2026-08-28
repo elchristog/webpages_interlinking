@@ -1,0 +1,64 @@
+{
+  "nombre_sitio": "Vacantes Agencias USA",
+  "color_tema": "#3e2723",
+  "comando_deploy": "gcloud app deploy app.yaml --quiet",
+  "layout": "LayoutA",
+  "gcp_project_id": "us-vacancies-app-e",
+  "seo": {
+    "titulo_base": "Directorio Vacantes",
+    "descripcion_base": "El directorio más completo de agencias reclutadoras con sponsor de visa disponibles.",
+    "idioma": "es-US"
+  },
+  "footer": {
+    "empresa_legal": "Enfermera en Estados Unidos",
+    "direccion": "New York, NY 10001",
+    "email_contacto": "apply@vacantes-hospitales-usa.org"
+  },
+  "menu_global": [
+    {
+      "nombre": "Validar Diploma",
+      "ruta": "/homologacion"
+    },
+    {
+      "nombre": "NCLEX Paso",
+      "ruta": "/nclex"
+    },
+    {
+      "nombre": "Trabajo Hoy",
+      "ruta": "/vacantes"
+    },
+    {
+      "nombre": "Green Card",
+      "ruta": "/visa"
+    },
+    {
+      "nombre": "Sueldo Promedio",
+      "ruta": "/salarios"
+    },
+    {
+      "nombre": "Casos Éxito",
+      "ruta": "/blog"
+    },
+    {
+      "nombre": "Hablar Asesor",
+      "ruta": "https://wa.me/something"
+    },
+    {
+      "nombre": "Mi Cuenta",
+      "ruta": "/login"
+    }
+  ],
+  "dominio": "https://vacantes-hospitales-usa.org",
+  "nav_footer_version": "v1",
+  "font_family": "Outfit",
+  "color_palette": {
+    "primary": "oklch(40% 0.12 150)",
+    "secondary": "oklch(55% 0.08 150)",
+    "accent": "oklch(88% 0.15 80)",
+    "text_bold": "oklch(20% 0.05 150)",
+    "meta": {
+      "name": "Deep Forest",
+      "system": "OKLCH Premium v2"
+    }
+  }
+}

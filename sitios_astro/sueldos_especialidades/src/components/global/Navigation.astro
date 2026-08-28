@@ -1,4 +1,25 @@
 ---
+import config from "@/data/config_inyectada.json";
+
+const navigationLinks = (config.menu_global && config.menu_global.length > 0)
+  ? config.menu_global.map(item => ({
+      title: item.nombre,
+      text: item.nombre,
+      label: item.nombre,
+      nombre: item.nombre,
+      href: item.ruta,
+      ruta: item.ruta
+    }))
+  : [
+      { title: "Inicio", text: "Inicio", label: "Inicio", nombre: "Inicio", href: "/", ruta: "/" },
+      { title: "Homologación", text: "Homologación", label: "Homologación", nombre: "Homologación", href: "/homologacion", ruta: "/homologacion" },
+      { title: "NCLEX-RN", text: "NCLEX-RN", label: "NCLEX-RN", nombre: "NCLEX-RN", href: "/nclex", ruta: "/nclex" },
+      { title: "Vacantes", text: "Vacantes", label: "Vacantes", nombre: "Vacantes", href: "/vacantes", ruta: "/vacantes" },
+      { title: "Visa EB-3", text: "Visa EB-3", label: "Visa EB-3", nombre: "Visa EB-3", href: "/visa", ruta: "/visa" },
+      { title: "Blog", text: "Blog", label: "Blog", nombre: "Blog", href: "/blog", ruta: "/blog" }
+    ];
+const links = navigationLinks;
+
 // Assets
 import Logo from "@/components/assets/Logo.astro";
 // fundations
@@ -13,8 +34,8 @@ const navLinks = [
   { href: "/helpcenter", label: "Help Center" },
   { href: "/pricing", label: "Pricing" },
   { href: "/sign-in", label: "Sign In" },
-  { href: "/system/overview", label: "Overview" },
-  { href: "https://lexingtonthemes.com/templates/carriera", label: "Buy Carriera" },
+  { href: "/system/overview", label: "Inicio" },
+  { href: "https://lexingtonthemes.com/templates/carriera", label: "Contacto Carriera" },
 ];
 ---
 <section>
@@ -33,8 +54,8 @@ const navLinks = [
       <div class="items-center gap-2 flex ml-auto">
         <JobSearch />
        <div class="hidden items-center gap-2 lg:flex">
-          <Button isLink href="/sign-in" size="sm" variant="muted">Sign in</Button>
-          <Button isLink href="/sign-up"size="sm" variant="accent" >Sign in</Button>
+          <Button isLink href="/sign-in" size="sm" variant="muted">Asesoría</Button>
+          <Button isLink href="/sign-up"size="sm" variant="accent" >Asesoría</Button>
       </div>
       <button
         id="navToggle"

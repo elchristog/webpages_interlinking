@@ -1,4 +1,86 @@
 ---
+import config from "@/data/config_inyectada.json";
+
+const siteMenu = (config.menu_global && config.menu_global.length > 0)
+  ? config.menu_global.map(item => ({
+      label: item.nombre,
+      title: item.nombre,
+      text: item.nombre,
+      nombre: item.nombre,
+      href: item.ruta,
+      ruta: item.ruta
+    }))
+  : [
+      { label: "Inicio", title: "Inicio", text: "Inicio", nombre: "Inicio", href: "/", ruta: "/" },
+      { label: "Homologación", title: "Homologación", text: "Homologación", nombre: "Homologación", href: "/homologacion", ruta: "/homologacion" },
+      { label: "NCLEX-RN", title: "NCLEX-RN", text: "NCLEX-RN", nombre: "NCLEX-RN", href: "/nclex", ruta: "/nclex" },
+      { label: "Vacantes", title: "Vacantes", text: "Vacantes", nombre: "Vacantes", href: "/vacantes", ruta: "/vacantes" },
+      { label: "Visa EB-3", title: "Visa EB-3", text: "Visa EB-3", nombre: "Visa EB-3", href: "/visa", ruta: "/visa" },
+      { label: "Blog", title: "Blog", text: "Blog", nombre: "Blog", href: "/blog", ruta: "/blog" }
+    ];
+
+const interlinkLinks = [
+  { label: "Agencia Enfermera en EE. UU.", title: "Agencia Enfermera en EE. UU.", text: "Agencia Enfermera en EE. UU.", nombre: "Agencia Enfermera en EE. UU.", href: "https://enfermeraenestadosunidos.com", ruta: "https://enfermeraenestadosunidos.com" },
+  { label: "Guía Trabajar de Enfermera en USA", title: "Guía Trabajar de Enfermera en USA", text: "Guía Trabajar de Enfermera en USA", nombre: "Guía Trabajar de Enfermera en USA", href: "https://enfermeraenestadosunidos.com/guia-para-trabajar-de-enfermera-en-estados-unidos/", ruta: "https://enfermeraenestadosunidos.com/guia-para-trabajar-de-enfermera-en-estados-unidos/" },
+  { label: "Ofertas Empleo RN EE. UU.", title: "Ofertas Empleo RN EE. UU.", text: "Ofertas Empleo RN EE. UU.", nombre: "Ofertas Empleo RN EE. UU.", href: "https://enfermeraenestadosunidos.com/ofertas-de-empleo-para-enfermeras-en-usa/", ruta: "https://enfermeraenestadosunidos.com/ofertas-de-empleo-para-enfermeras-en-usa/" },
+  { label: "Visa EB3 & Green Card Enfermería", title: "Visa EB3 & Green Card Enfermería", text: "Visa EB3 & Green Card Enfermería", nombre: "Visa EB3 & Green Card Enfermería", href: "https://enfermeraenestadosunidos.com/visa-y-green-card-para-enfermeras-en-usa/", ruta: "https://enfermeraenestadosunidos.com/visa-y-green-card-para-enfermeras-en-usa/" },
+  { label: "Portal Oficial CGFNS", title: "Portal Oficial CGFNS", text: "Portal Oficial CGFNS", nombre: "Portal Oficial CGFNS", href: "https://www.cgfns.org/", ruta: "https://www.cgfns.org/" },
+  { label: "Examen Oficial NCSBN NCLEX", title: "Examen Oficial NCSBN NCLEX", text: "Examen Oficial NCSBN NCLEX", nombre: "Examen Oficial NCSBN NCLEX", href: "https://www.ncsbn.org/nclex.page", ruta: "https://www.ncsbn.org/nclex.page" }
+];
+
+import config from "@/data/config_inyectada.json";
+
+const siteMenu = (config.menu_global && config.menu_global.length > 0)
+  ? config.menu_global.map(item => ({
+      label: item.nombre,
+      title: item.nombre,
+      text: item.nombre,
+      nombre: item.nombre,
+      href: item.ruta,
+      ruta: item.ruta
+    }))
+  : [
+      { label: "Inicio", title: "Inicio", text: "Inicio", nombre: "Inicio", href: "/", ruta: "/" },
+      { label: "Homologación", title: "Homologación", text: "Homologación", nombre: "Homologación", href: "/homologacion", ruta: "/homologacion" },
+      { label: "NCLEX-RN", title: "NCLEX-RN", text: "NCLEX-RN", nombre: "NCLEX-RN", href: "/nclex", ruta: "/nclex" },
+      { label: "Vacantes", title: "Vacantes", text: "Vacantes", nombre: "Vacantes", href: "/vacantes", ruta: "/vacantes" },
+      { label: "Visa EB-3", title: "Visa EB-3", text: "Visa EB-3", nombre: "Visa EB-3", href: "/visa", ruta: "/visa" },
+      { label: "Blog", title: "Blog", text: "Blog", nombre: "Blog", href: "/blog", ruta: "/blog" }
+    ];
+
+const interlinkLinks = [
+  { label: "Agencia Enfermera en EE. UU.", title: "Agencia Enfermera en EE. UU.", text: "Agencia Enfermera en EE. UU.", nombre: "Agencia Enfermera en EE. UU.", href: "https://enfermeraenestadosunidos.com", ruta: "https://enfermeraenestadosunidos.com" },
+  { label: "Guía Trabajar de Enfermera en USA", title: "Guía Trabajar de Enfermera en USA", text: "Guía Trabajar de Enfermera en USA", nombre: "Guía Trabajar de Enfermera en USA", href: "https://enfermeraenestadosunidos.com/guia-para-trabajar-de-enfermera-en-estados-unidos/", ruta: "https://enfermeraenestadosunidos.com/guia-para-trabajar-de-enfermera-en-estados-unidos/" },
+  { label: "Ofertas Empleo RN EE. UU.", title: "Ofertas Empleo RN EE. UU.", text: "Ofertas Empleo RN EE. UU.", nombre: "Ofertas Empleo RN EE. UU.", href: "https://enfermeraenestadosunidos.com/ofertas-de-empleo-para-enfermeras-en-usa/", ruta: "https://enfermeraenestadosunidos.com/ofertas-de-empleo-para-enfermeras-en-usa/" },
+  { label: "Visa EB3 & Green Card Enfermería", title: "Visa EB3 & Green Card Enfermería", text: "Visa EB3 & Green Card Enfermería", nombre: "Visa EB3 & Green Card Enfermería", href: "https://enfermeraenestadosunidos.com/visa-y-green-card-para-enfermeras-en-usa/", ruta: "https://enfermeraenestadosunidos.com/visa-y-green-card-para-enfermeras-en-usa/" },
+  { label: "Portal Oficial CGFNS", title: "Portal Oficial CGFNS", text: "Portal Oficial CGFNS", nombre: "Portal Oficial CGFNS", href: "https://www.cgfns.org/", ruta: "https://www.cgfns.org/" },
+  { label: "Examen Oficial NCSBN NCLEX", title: "Examen Oficial NCSBN NCLEX", text: "Examen Oficial NCSBN NCLEX", nombre: "Examen Oficial NCSBN NCLEX", href: "https://www.ncsbn.org/nclex.page", ruta: "https://www.ncsbn.org/nclex.page" }
+];
+
+const footerLinks = [
+  {
+    heading: "Navegación Sitio",
+    title: "Navegación Sitio",
+    links: siteMenu
+  },
+  {
+    heading: "Red PBN & Interlinking",
+    title: "Red PBN & Interlinking",
+    links: interlinkLinks
+  },
+  {
+    heading: "Recursos & Legal",
+    title: "Recursos & Legal",
+    links: [
+      { label: "Política de Privacidad", title: "Política de Privacidad", text: "Política de Privacidad", nombre: "Política de Privacidad", href: "/legal/privacy", ruta: "/legal/privacy" },
+      { label: "Términos del Servicio", title: "Términos del Servicio", text: "Términos del Servicio", nombre: "Términos del Servicio", href: "/legal/terms", ruta: "/legal/terms" },
+      { label: "Asesoría WhatsApp", title: "Asesoría WhatsApp", text: "Asesoría WhatsApp", nombre: "Asesoría WhatsApp", href: "https://api.whatsapp.com/send?phone=TU_NUMERO_DE_WHATSAPP&text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n", ruta: "https://api.whatsapp.com/send?phone=TU_NUMERO_DE_WHATSAPP&text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n" }
+    ]
+  }
+];
+const links = footerLinks;
+const links = footerLinks;
+
 // Assets
 import Logo from "@/components/assets/Logo.astro";
 import Bars from "@/components/assets/Bars.astro";
@@ -6,7 +88,7 @@ import Bars from "@/components/assets/Bars.astro";
 import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 const sections = [
-  { name: "Overview", url: "/system/overview" },
+  { name: "Inicio", url: "/system/overview" },
   { name: "About", url: "/about" },
   { name: "Carriers", url: "/jobs/home" },
   { name: "Contact", url: "/contact" },

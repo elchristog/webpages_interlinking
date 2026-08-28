@@ -1,7 +1,7 @@
 ---
 // Assets
 import { Image } from "astro:assets";
-import SubcribeImage from "@/images/blog/SubcribeImage.jpeg";
+const SubcribeImage = "/imagenes_proyecto/gu-a-exclusiva-para-revalidar-t-tulo-desde-colombia-y-agencias-especializadas-en-reclutar-talento-colombiano-2.webp";
 
 // Fundations
 import Text from "@/components/fundations/elements/Text.astro";
@@ -12,7 +12,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 <section>
   <Wrapper variant="standard" class="py-12">
     <div class="relative grid grid-cols-1 gap-4 md:grid-cols-2 lg:items-center">
-      <Image
+      <img
         width={800}
         height={1000}
         src={SubcribeImage}

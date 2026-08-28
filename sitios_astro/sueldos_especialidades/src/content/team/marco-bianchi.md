@@ -8,7 +8,7 @@ bio: |
 
   Marco is dedicated to making economics accessible, breaking down complex theories and trends into easily understandable concepts. He aims to equip readers with the knowledge they need to navigate the ever-evolving landscape of global finance.
 image:
-  url: "/src/images/team/2.jpeg"
+  url: "/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-8.webp"
   alt: "Marco Bianchi"
 socials:
   twitter: "#_"

@@ -2,12 +2,12 @@
 // Assets
 import { Image } from "astro:assets";
 // import the logos
-import logo1 from "@/images/brands/1.svg";
-import logo2 from "@/images/brands/2.svg";
-import logo3 from "@/images/brands/3.svg";
-import logo4 from "@/images/brands/4.svg";
-import logo5 from "@/images/brands/5.svg";
-import logo6 from "@/images/brands/6.svg";
+const logo1 = "/imagenes_proyecto/logo.webp";
+const logo2 = "/imagenes_proyecto/logo.webp";
+const logo3 = "/imagenes_proyecto/logo.webp";
+const logo4 = "/imagenes_proyecto/logo.webp";
+const logo5 = "/imagenes_proyecto/logo.webp";
+const logo6 = "/imagenes_proyecto/logo.webp";
 const logos = [
   { src: logo1, alt: "b1 Logo" },
   { src: logo2, alt: "b2 Logo" },
@@ -26,7 +26,7 @@ const logos = [
   >
     {
       logos.map((logo) => (
-        <Image
+        <img
           width={200}
           height={100}
           class="h-8 dark:filter-none filter invert"

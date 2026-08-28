@@ -1,7 +1,7 @@
 ---
 // Assets
 import { Image } from "astro:assets";
-import Team from "@/images/assets/team.jpeg";
+const Team = "/imagenes_proyecto/requisitos-y-proceso-legal-detallado-para-obtener-la-green-card-residencia-permanente-siendo-enfermera-1.webp";
 import Shape1 from "@/components/assets/Shape1.astro";
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
@@ -66,7 +66,7 @@ const avatarsSlider = [
             </Text>
           </div>
         </div>
-        <Image
+        <img
           src={Team}
           width={1200}
           height={630}

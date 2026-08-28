@@ -1,7 +1,7 @@
 ---
 // Assets
 import { Image } from "astro:assets";
-import ContactImage from "@/images/assets/contact.jpeg";
+const ContactImage = "/imagenes_proyecto/an-lisis-legal-de-los-tipos-de-visa-h-1b-tn-eb-3-para-trabajar-de-enfermera-extranjera-en-usa-7.webp";
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Text from "@/components/fundations/elements/Text.astro";
@@ -109,7 +109,7 @@ const locations = [
         lg:before:left-0 lg:before:h-6 lg:before:w-px lg:after:top-8
         lg:after:bottom-0 lg:after:left-0 after:w-px"
         >
-          <Image
+          <img
             width={1000}
             height={1000}
             loading="lazy"

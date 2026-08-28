@@ -1,5 +1,10 @@
 ---
 const { class: className = "", ...rest } = Astro.props;
 ---
-<span class={className}
-{...rest}>Carriera®</span>
+<img
+  src="/imagenes_proyecto/logo.webp"
+  alt="Logo"
+  class={className || "h-8 w-auto object-contain"}
+  {...rest}
+  onerror="this.onerror=null; this.src='/favicon.ico';"
+/>

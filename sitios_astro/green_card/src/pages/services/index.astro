@@ -1,7 +1,7 @@
 ---
 // Assets
 import { Image } from "astro:assets";
-import Services from "@/images/assets/services.jpg";
+const Services = "/imagenes_proyecto/requisitos-y-proceso-legal-detallado-para-obtener-la-green-card-residencia-permanente-siendo-enfermera-12.webp";
 import Shape1 from "@/components/assets/Shape1.astro";
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
@@ -32,7 +32,7 @@ const allServices = await getCollection("services");
             Ready to work on the next big thing
           </Text>
         </div>
-        <Image
+        <img
           src={Services}
           width={1200}
           height={630}

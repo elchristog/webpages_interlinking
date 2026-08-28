@@ -8,10 +8,10 @@ bio: |
 
   David’s work has been featured in top industry magazines, and he continues to be a leading voice for sustainability in the fashion world.
 image:
-  url: "/src/images/authors/1.jpg"
+  url: "/imagenes_proyecto/gu-a-salarial-y-de-ofertas-laborales-exclusivas-para-travel-nurses-en-estados-unidos-8.webp"
   alt: "#_"
 guestAvatar:
-  url: "/src/images/thumbnails/a.jpg"
+  url: "/imagenes_proyecto/gu-a-salarial-y-de-ofertas-laborales-exclusivas-para-travel-nurses-en-estados-unidos-9.webp"
   alt: "#_"
 socials:
   twitter: "#_"

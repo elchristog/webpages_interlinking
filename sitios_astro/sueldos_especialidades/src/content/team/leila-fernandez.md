@@ -8,7 +8,7 @@ bio: |
 
   With a keen eye on the future of health, Leila’s reporting aims to inform readers about the transformative changes happening in healthcare, making complex medical topics more accessible to the general public.
 image:
-  url: "/src/images/team/3.jpeg"
+  url: "/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-7.webp"
   alt: "Leila Fernandez"
 socials:
   twitter: "#_"

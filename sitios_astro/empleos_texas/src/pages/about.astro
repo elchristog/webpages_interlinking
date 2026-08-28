@@ -1,14 +1,14 @@
 ---
 // Assets
 import { Image } from "astro:assets";
-import Avatar from "@/images/avatar.jpeg";
+const Avatar = "/imagenes_proyecto/ofertas-de-trabajo-y-vacantes-en-hospitales-top-de-houston-dallas-y-el-resto-de-texas-1.webp";
 // Team images
-import One from "@/images/team/1.jpeg";
-import Two from "@/images/team/2.jpeg";
-import Three from "@/images/team/3.jpeg";
-import Four from "@/images/team/4.jpeg";
-import Five from "@/images/team/5.jpeg";
-import Six from "@/images/team/6.jpeg";
+const One = "/imagenes_proyecto/ofertas-de-trabajo-y-vacantes-en-hospitales-top-de-houston-dallas-y-el-resto-de-texas-2.webp";
+const Two = "/imagenes_proyecto/ofertas-de-trabajo-y-vacantes-en-hospitales-top-de-houston-dallas-y-el-resto-de-texas-3.webp";
+const Three = "/imagenes_proyecto/ofertas-de-trabajo-y-vacantes-en-hospitales-top-de-houston-dallas-y-el-resto-de-texas-4.webp";
+const Four = "/imagenes_proyecto/ofertas-de-trabajo-y-vacantes-en-hospitales-top-de-houston-dallas-y-el-resto-de-texas-5.webp";
+const Five = "/imagenes_proyecto/ofertas-de-trabajo-y-vacantes-en-hospitales-top-de-houston-dallas-y-el-resto-de-texas-6.webp";
+const Six = "/imagenes_proyecto/ofertas-de-trabajo-y-vacantes-en-hospitales-top-de-houston-dallas-y-el-resto-de-texas-7.webp";
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Button from "@/components/fundations/elements/Button.astro";
@@ -153,7 +153,7 @@ const teamMembers = [
           that customers remember.
         </Text>
       </div>
-      <Image
+      <img
         width={1000}
         height={2000}
         src={Avatar}
@@ -272,7 +272,7 @@ const teamMembers = [
           {
             teamMembers.map((member, index) => (
               <div class="flex flex-col ">
-                <Image
+                <img
                   width={500}
                   height={500}
                   src={member.image}

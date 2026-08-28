@@ -1,7 +1,7 @@
 ---
 // Assets
 import { Image } from "astro:assets";
-import Avatar from "@/images/avatar.jpeg";
+const Avatar = "/imagenes_proyecto/requisitos-espec-ficos-equivalencias-y-tr-mites-consulares-para-enfermeras-mexicanas-queriendo-cruzar-a-usa-1.webp";
 // Fundations
 import Text from "@/components/fundations/elements/Text.astro";
 import Button from "@/components/fundations/elements/Button.astro";
@@ -11,7 +11,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 <section>
   <Wrapper variant="standard" class="py-8 lg:pb-24">
     <div class="overflow-hidden">
-      <Image
+      <img
         width={2000}
         height={1000}
         src={Avatar}

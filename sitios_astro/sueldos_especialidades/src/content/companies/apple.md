@@ -9,7 +9,7 @@ hiringPage: "#_"
 headquarters: "Cupertino"
 location: "United States"
 size: "5000+"
-logo: "/src/images/companies/apple.svg"
+logo: "/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-11.webp"
 industry: "Consumer Electronics"
 
 socials:

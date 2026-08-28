@@ -1,0 +1,65 @@
+{
+  "nombre_sitio": "Visado Enfermeras Pro",
+  "color_tema": "#880e4f",
+  "comando_deploy": "firebase deploy --only hosting",
+  "layout": "LayoutB",
+  "gcp_project_id": "work-visa-fb-551",
+  "seo": {
+    "titulo_base": "Visas de Trabajo EB",
+    "descripcion_base": "H-1B, TN y EB-3. Todo sobre peticiones migratorias de hospitales hacia extranjeras.",
+    "idioma": "es-US"
+  },
+  "footer": {
+    "empresa_legal": "Enfermera en Estados Unidos",
+    "direccion": "Seattle, WA 98101",
+    "email_contacto": "tramites@visas-enfermeria-usa.net"
+  },
+  "menu_global": [
+    {
+      "nombre": "Título USA",
+      "ruta": "/homologacion"
+    },
+    {
+      "nombre": "Examen NCLEX",
+      "ruta": "/nclex"
+    },
+    {
+      "nombre": "Empleos RN",
+      "ruta": "/vacantes"
+    },
+    {
+      "nombre": "Sponsor Visa",
+      "ruta": "/visa"
+    },
+    {
+      "nombre": "Sueldo Promedio",
+      "ruta": "/salarios"
+    },
+    {
+      "nombre": "Blog Oficial",
+      "ruta": "/blog"
+    },
+    {
+      "nombre": "Ayuda Chat",
+      "ruta": "https://wa.me/something"
+    },
+    {
+      "nombre": "Mi Cuenta",
+      "ruta": "/login"
+    }
+  ],
+  "dominio": "https://visas-enfermeria-usa.net",
+  "nav_footer_version": "v2",
+  "font_family": "Outfit",
+  "sidebar_pos": "left",
+  "color_palette": {
+    "primary": "oklch(35% 0.18 300)",
+    "secondary": "oklch(50% 0.14 300)",
+    "accent": "oklch(87% 0.12 180)",
+    "text_bold": "oklch(15% 0.08 300)",
+    "meta": {
+      "name": "Royal Purple",
+      "system": "OKLCH Premium v2"
+    }
+  }
+}

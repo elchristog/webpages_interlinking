@@ -1,9 +1,9 @@
 ---
 // Assets
 import { Image } from "astro:assets";
-import Avatar1 from "@/images/assets/avatar1.jpeg";
-import Avatar2 from "@/images/avatar2.jpeg";
-import Avatar3 from "@/images/assets/avatar3.jpeg";
+const Avatar1 = "/imagenes_proyecto/requisitos-y-proceso-legal-detallado-para-obtener-la-green-card-residencia-permanente-siendo-enfermera-6.webp";
+const Avatar2 = "/imagenes_proyecto/requisitos-y-proceso-legal-detallado-para-obtener-la-green-card-residencia-permanente-siendo-enfermera-7.webp";
+const Avatar3 = "/imagenes_proyecto/requisitos-y-proceso-legal-detallado-para-obtener-la-green-card-residencia-permanente-siendo-enfermera-8.webp";
 // Fundations
 import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
@@ -73,7 +73,7 @@ const testimonials = [
         testimonials.map((testimonial) => (
           <div class="flex flex-col">
             <figure class=" flex flex-auto flex-col justify-between relative">
-              <Image
+              <img
                 width={800}
                 height={800}
                 src={testimonial.src}

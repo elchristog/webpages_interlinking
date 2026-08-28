@@ -1,14 +1,14 @@
 ---
 import { Image } from "astro:assets";
-import House1 from "@/images/house1.png";
-import Agent1 from "@/images/agent1.png";
+const House1 = "/imagenes_proyecto/gu-a-exclusiva-para-revalidar-t-tulo-desde-colombia-y-agencias-especializadas-en-reclutar-talento-colombiano-3.webp";
+const Agent1 = "/imagenes_proyecto/gu-a-exclusiva-para-revalidar-t-tulo-desde-colombia-y-agencias-especializadas-en-reclutar-talento-colombiano-4.webp";
 import Text from "@/components/fundations/elements/Text.astro";
 import Entries2 from "@/components/blog/Entries2.astro";
 import { getCollection } from "astro:content";
 
 const allPosts = await getCollection("posts");
 const navigation = [
-  { link: { href: "/system/overview", text: "Overview" } },
+  { link: { href: "/system/overview", text: "Inicio" } },
   { link: { href: "/system/style-guide", text: "Style guide" } },
   { link: { href: "/for-sale", text: "Properties for sale" } },
   { link: { href: "/for-rent/home", text: "Properties for rent" } },
@@ -101,7 +101,7 @@ const whatweoffer = [
                   </a>
                 </div>
               </div>
-              <Image
+              <img
                 width={400}
                 height={400}
                 src={whatweoffer.image.url}

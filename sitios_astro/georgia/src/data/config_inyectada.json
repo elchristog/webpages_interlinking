@@ -16,19 +16,19 @@
   },
   "menu_global": [
     {
-      "nombre": "Revalidar Meta",
+      "nombre": "Título USA",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Superar NCLEX",
+      "nombre": "Guía NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Puestos Libres",
+      "nombre": "Bolsa Empleo",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Visa EB-3",
+      "nombre": "Trámite EB3",
       "ruta": "/visa"
     },
     {
@@ -36,11 +36,11 @@
       "ruta": "/salarios"
     },
     {
-      "nombre": "Historias",
+      "nombre": "Actualidad",
       "ruta": "/blog"
     },
     {
-      "nombre": "Soporte",
+      "nombre": "Consultar Ahora",
       "ruta": "https://wa.me/something"
     },
     {

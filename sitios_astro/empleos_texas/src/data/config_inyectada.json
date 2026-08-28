@@ -1,0 +1,65 @@
+{
+  "nombre_sitio": "Empleos en Hospitales TX",
+  "color_tema": "#4a148c",
+  "comando_deploy": "firebase deploy --only hosting",
+  "layout": "LayoutB",
+  "gcp_project_id": "tx-jobs-fb-909",
+  "seo": {
+    "titulo_base": "Trabajos TX",
+    "descripcion_base": "Miles de vacantes abiertas en hospitales top grade de Houston y Dallas.",
+    "idioma": "es-US"
+  },
+  "footer": {
+    "empresa_legal": "Enfermera en Estados Unidos",
+    "direccion": "Dallas, TX 75201",
+    "email_contacto": "reclutamiento@empleos-enfermeria-texas.com"
+  },
+  "menu_global": [
+    {
+      "nombre": "Homologar Título",
+      "ruta": "/homologacion"
+    },
+    {
+      "nombre": "Superar NCLEX",
+      "ruta": "/nclex"
+    },
+    {
+      "nombre": "Buscar Trabajo",
+      "ruta": "/vacantes"
+    },
+    {
+      "nombre": "Green Card",
+      "ruta": "/visa"
+    },
+    {
+      "nombre": "Salario Real",
+      "ruta": "/salarios"
+    },
+    {
+      "nombre": "Novedades",
+      "ruta": "/blog"
+    },
+    {
+      "nombre": "Escríbenos",
+      "ruta": "https://wa.me/something"
+    },
+    {
+      "nombre": "Entrar",
+      "ruta": "/login"
+    }
+  ],
+  "dominio": "https://empleos-enfermeria-texas.com",
+  "font_family": "Roboto",
+  "sidebar_pos": "left",
+  "color_palette": {
+    "primary": "oklch(38% 0.11 50)",
+    "secondary": "oklch(52% 0.07 50)",
+    "accent": "oklch(86% 0.14 20)",
+    "text_bold": "oklch(18% 0.05 50)",
+    "meta": {
+      "name": "Warm Professional",
+      "system": "OKLCH Premium v2"
+    }
+  },
+  "nav_footer_version": "v2"
+}

@@ -1,10 +1,10 @@
 ---
 // Images
 import { Image } from "astro:assets";
-import Avatar1 from "@/images/about/1.jpeg";
-import Avatar2 from "@/images/about/2.jpeg";
-import Avatar3 from "@/images/about/3.jpeg";
-import Avatar4 from "@/images/about/4.jpeg";
+const Avatar1 = "/imagenes_proyecto/gu-a-salarial-y-de-ofertas-laborales-exclusivas-para-travel-nurses-en-estados-unidos-1.webp";
+const Avatar2 = "/imagenes_proyecto/gu-a-salarial-y-de-ofertas-laborales-exclusivas-para-travel-nurses-en-estados-unidos-2.webp";
+const Avatar3 = "/imagenes_proyecto/gu-a-salarial-y-de-ofertas-laborales-exclusivas-para-travel-nurses-en-estados-unidos-3.webp";
+const Avatar4 = "/imagenes_proyecto/gu-a-salarial-y-de-ofertas-laborales-exclusivas-para-travel-nurses-en-estados-unidos-4.webp";
 
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
@@ -59,7 +59,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
           </div>
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-2">
-          <Image
+          <img
             src={Avatar1}
             width={1000}
             height={1000}
@@ -68,7 +68,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
             alt="#_"
             class="object-cover object-center h-full grayscale aspect-4/3"
           />
-          <Image
+          <img
             src={Avatar2}
             width={1000}
             height={1000}
@@ -77,7 +77,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
             alt="#_"
             class="object-cover object-center h-full grayscale aspect-4/3"
           />
-          <Image
+          <img
             src={Avatar3}
             width={1000}
             height={1000}

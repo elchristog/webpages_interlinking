@@ -1,12 +1,12 @@
 ---
 // Assets
 import { Image } from "astro:assets";
-import Avatar1 from "@/images/team/1.jpeg";
-import Avatar2 from "@/images/team/2.jpeg";
-import Avatar3 from "@/images/team/3.jpeg";
-import Avatar4 from "@/images/team/4.jpeg";
-import Avatar5 from "@/images/team/5.jpeg";
-import Avatar6 from "@/images/team/6.jpeg";
+const Avatar1 = "/imagenes_proyecto/an-lisis-de-salarios-por-especialidad-ingresos-de-travel-nurses-y-finanzas-para-enfermeras-en-california-7.webp";
+const Avatar2 = "/imagenes_proyecto/an-lisis-de-salarios-por-especialidad-ingresos-de-travel-nurses-y-finanzas-para-enfermeras-en-california-8.webp";
+const Avatar3 = "/imagenes_proyecto/an-lisis-de-salarios-por-especialidad-ingresos-de-travel-nurses-y-finanzas-para-enfermeras-en-california-9.webp";
+const Avatar4 = "/imagenes_proyecto/an-lisis-de-salarios-por-especialidad-ingresos-de-travel-nurses-y-finanzas-para-enfermeras-en-california-10.webp";
+const Avatar5 = "/imagenes_proyecto/an-lisis-de-salarios-por-especialidad-ingresos-de-travel-nurses-y-finanzas-para-enfermeras-en-california-11.webp";
+const Avatar6 = "/imagenes_proyecto/an-lisis-de-salarios-por-especialidad-ingresos-de-travel-nurses-y-finanzas-para-enfermeras-en-california-12.webp";
 import Bars from "@/components/assets/Bars.astro";
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
@@ -121,7 +121,7 @@ const team = [
           team.map((member) => (
             <div class="flex flex-col gap-2">
               <div class="relative">
-                <Image
+                <img
                   width={828}
                   height={828}
                   src={member.image}

@@ -1,7 +1,7 @@
 ---
 // Assets
 import { Image } from "astro:assets";
-import SellImage from "@/images/sell.png";
+const SellImage = "/imagenes_proyecto/gu-a-exclusiva-para-revalidar-t-tulo-desde-colombia-y-agencias-especializadas-en-reclutar-talento-colombiano-1.webp";
 // Fundations
 import Text from "@/components/fundations/elements/Text.astro";
 import Button from "@/components/fundations/elements/Button.astro";
@@ -11,7 +11,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 <section>
   <Wrapper variant="standard" class="py-12">
     <div class="relative grid grid-cols-1 gap-4 md:grid-cols-2 lg:items-center">
-      <Image
+      <img
         width={800}
         height={1000}
         src={SellImage}

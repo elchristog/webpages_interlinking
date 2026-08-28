@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import SideImage from "@/images/assets/about.jpeg";
+const SideImage = "/imagenes_proyecto/an-lisis-legal-de-los-tipos-de-visa-h-1b-tn-eb-3-para-trabajar-de-enfermera-extranjera-en-usa-9.webp";
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Text from "@/components/fundations/elements/Text.astro";
@@ -20,7 +20,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
             variant="textBase"
             class="text-base-900 font-display font-medium"
           >
-            Sign in to your account
+            Asesoría to your account
           </Text>
           <Text
             tag="p"
@@ -96,7 +96,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
           </div>
           <div class="mt-2">
             <Button type="submit" size="base" variant="accent" class="w-full">
-              Sign in
+              Asesoría
             </Button>
           </div>
         </form>
@@ -112,13 +112,13 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
             class="flex flex-col gap-y-2 relative before:absolute after:absolute before:bg-base-950 after:bg-base-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px pt-4 mt-2"
           >
             <Button isLink href="#_" size="base" variant="muted" class="w-full">
-              Sign in with Apple
+              Asesoría with Apple
             </Button>
             <Button isLink href="#_" size="base" variant="muted" class="w-full">
-              Sign in with Meta
+              Asesoría with Meta
             </Button>
             <Button isLink href="#_" size="base" variant="muted" class="w-full">
-              Sign in with Chrome
+              Asesoría with Chrome
             </Button>
           </div>
           <Text tag="p" variant="textSM" class="text-base-600 mt-4">
@@ -136,7 +136,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
     <div
       class="relative hidden overflow-hidden lg:block lg:w-1/3 lg:order-first"
     >
-      <Image
+      <img
         src={SideImage}
         alt="Background"
         aria-hidden="true"

@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
-import Avatar from "@/images/avatar.jpeg";
+const Avatar = "/imagenes_proyecto/ofertas-de-trabajo-y-vacantes-en-hospitales-top-de-houston-dallas-y-el-resto-de-texas-9.webp";
 import Text from "@/components/fundations/elements/Text.astro";
 import Button from "@/components/fundations/elements/Button.astro";
 ---
@@ -19,7 +19,7 @@ import Button from "@/components/fundations/elements/Button.astro";
           data-aos-duration="1500"
           class="dark:text-white xl:text-4xl tracking-tight font-medium text-black text-balance"
         >
-          Sign in
+          Asesoría
         </Text>
         <form class="mt-12">
           <div class="flex flex-col gap-2">
@@ -52,7 +52,7 @@ import Button from "@/components/fundations/elements/Button.astro";
           </div>
           <div class="mt-2">
             <Button size="sm" variant="default" type="submit" class="w-full">
-              Sign in
+              Asesoría
             </Button>
             <Text
               tag="p"
@@ -73,7 +73,7 @@ import Button from "@/components/fundations/elements/Button.astro";
         >
       </div>
     </div>
-    <Image
+    <img
       width={1000}
       height={2000}
       src={Avatar}

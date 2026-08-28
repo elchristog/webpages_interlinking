@@ -1,7 +1,7 @@
 ---
 // Assets
 import { Image } from "astro:assets";
-import HeroImage from "@/images/hero.png";
+const HeroImage = "/imagenes_proyecto/gu-a-exclusiva-para-revalidar-t-tulo-desde-colombia-y-agencias-especializadas-en-reclutar-talento-colombiano-5.webp";
 // Fundations
 import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
@@ -33,7 +33,7 @@ const whyus = [
 <section class="overflow-hidden">
   <Wrapper variant="standard" class="pb-12">
     <div class="relative">
-      <Image
+      <img
         src={HeroImage}
         alt="#_"
         width={1500}

@@ -1,0 +1,64 @@
+{
+  "nombre_sitio": "Green Card Health Network",
+  "color_tema": "#00695c",
+  "comando_deploy": "vercel deploy --prod",
+  "layout": "LayoutC",
+  "gcp_project_id": "green-card-vcl-33",
+  "seo": {
+    "titulo_base": "Proceso Green Card",
+    "descripcion_base": "Información indispensable sobre el otorgamiento de residencia permanente para profesionales de la salud.",
+    "idioma": "es-US"
+  },
+  "footer": {
+    "empresa_legal": "Enfermera en Estados Unidos",
+    "direccion": "Washington, DC 20001",
+    "email_contacto": "legal@green-card-enfermeras.com"
+  },
+  "menu_global": [
+    {
+      "nombre": "Proceso Grado",
+      "ruta": "/homologacion"
+    },
+    {
+      "nombre": "Pasar NCLEX",
+      "ruta": "/nclex"
+    },
+    {
+      "nombre": "Vacantes USA",
+      "ruta": "/vacantes"
+    },
+    {
+      "nombre": "Trámite EB3",
+      "ruta": "/visa"
+    },
+    {
+      "nombre": "Pagos RN",
+      "ruta": "/salarios"
+    },
+    {
+      "nombre": "Historias",
+      "ruta": "/blog"
+    },
+    {
+      "nombre": "Ayuda Chat",
+      "ruta": "https://wa.me/something"
+    },
+    {
+      "nombre": "Entrar",
+      "ruta": "/login"
+    }
+  ],
+  "dominio": "https://green-card-enfermeras.com",
+  "nav_footer_version": "v2",
+  "font_family": "Plus Jakarta Sans",
+  "color_palette": {
+    "primary": "oklch(40% 0.12 150)",
+    "secondary": "oklch(55% 0.08 150)",
+    "accent": "oklch(88% 0.15 80)",
+    "text_bold": "oklch(20% 0.05 150)",
+    "meta": {
+      "name": "Deep Forest",
+      "system": "OKLCH Premium v2"
+    }
+  }
+}

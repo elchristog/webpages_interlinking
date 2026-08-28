@@ -1,14 +1,14 @@
 ---
 // Assets
 import { Image } from "astro:assets";
-import CourseImage from "@/images/course.jpeg";
+const CourseImage = "/imagenes_proyecto/requisitos-espec-ficos-equivalencias-y-tr-mites-consulares-para-enfermeras-mexicanas-queriendo-cruzar-a-usa-3.webp";
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 
 // Section
-import CourseOverview from "@/components/course/CourseOverview.astro";
+import CourseInicio from "@/components/course/CourseInicio.astro";
 import CourseStructure from "@/components/course/CourseStructure.astro";
 import CoursePricing from "@/components/course/CoursePricing.astro";
 import CourseFaq from "@/components/course/CourseFaq.astro";
@@ -17,7 +17,7 @@ import CourseFaq from "@/components/course/CourseFaq.astro";
 <BaseLayout>
   <section>
     <Wrapper variant="standard" class="pt-8 pb-12">
-      <Image
+      <img
         width={2000}
         height={1000}
         src={CourseImage}
@@ -43,7 +43,7 @@ import CourseFaq from "@/components/course/CourseFaq.astro";
       </div>
     </Wrapper>
   </section>
-  <CourseOverview />
+  <CourseInicio />
   <CourseStructure />
   <CoursePricing />
   <CourseFaq />

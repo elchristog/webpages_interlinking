@@ -56,7 +56,7 @@ First, a big thank you from all of us here at **Phanatik** for using our product
 
 1. We provide our Services “as is” — no promises about perfection, but we’re working hard to make it as reliable as possible. For status updates, visit [37status](#_).
 2. If your usage exceeds the average, we may temporarily disable your account. We’ll give you a shout before doing anything drastic.
-3. We take your data seriously and protect it with encryption, backups, and redundancies. Learn more about our [Security Overview](#_).
+3. We take your data seriously and protect it with encryption, backups, and redundancies. Ver Guías about our [Security Inicio](#_).
 4. By using our Services, you trust us with your data. We process your data for specific purposes—just as outlined in our [Privacy Policy](#_). Your data is safe, and we’ll never sell it. 
 
 ---
@@ -129,7 +129,7 @@ Uptime, Security, and Privacy
 
 1.  Your use of the Services is at your sole risk. We provide these Services on an “as is” and “as available” basis. We do not offer service-level agreements for most of our Services — here’s [the one exception](#_) — but do take uptime of our applications seriously. Visit [https://www.37status.com](#_) to see the status of our Services.
 2.  We reserve the right to temporarily disable your account if your usage significantly exceeds the average usage of other customers of the Services. Of course, we’ll reach out to the account owner before taking any action except in rare cases where the level of use may negatively impact the performance of the Service for other customers.
-3.  We take many measures to protect and secure your data through backups, redundancies, and encryption. We enforce encryption for data transmission from the public Internet. There are some edge cases where we may send your data through our network unencrypted. Please refer to our [Security Overview](#_) for full details and our [Security Response page](#_) for how to report a security incident or threat.
+3.  We take many measures to protect and secure your data through backups, redundancies, and encryption. We enforce encryption for data transmission from the public Internet. There are some edge cases where we may send your data through our network unencrypted. Please refer to our [Security Inicio](#_) for full details and our [Security Response page](#_) for how to report a security incident or threat.
 4.  When you use our Services, you entrust us with your data. We take that trust to heart. You agree that Lexington may process your data as described in our [Privacy Policy](#_) and for no other purpose. We as humans can access your data for the following reasons:
 
     *   **To help you with support requests you make.** We’ll ask for express consent before accessing your account.

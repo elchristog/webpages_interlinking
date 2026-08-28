@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import ContactImage from "@/images/sell.png";
+const ContactImage = "/imagenes_proyecto/gu-a-exclusiva-para-revalidar-t-tulo-desde-colombia-y-agencias-especializadas-en-reclutar-talento-colombiano-6.webp";
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Text from "@/components/fundations/elements/Text.astro";
@@ -22,7 +22,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
       </Text>
       <div class="grid lg:grid-cols-3 pt-8 mt-8 border-t border-base-200 gap-8">
         <div class="relative overflow-hidden">
-          <Image
+          <img
             src={ContactImage}
             alt="#_"
             data-aos="fade-up"

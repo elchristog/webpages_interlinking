@@ -1,0 +1,64 @@
+{
+  "nombre_sitio": "Talento Enfermería CO",
+  "color_tema": "#fbc02d",
+  "comando_deploy": "gcloud app deploy app.yaml --quiet",
+  "layout": "LayoutC",
+  "gcp_project_id": "co-talent-app-11",
+  "seo": {
+    "titulo_base": "Desde Colombia a USA",
+    "descripcion_base": "Proceso EB-3 migratorio y reclutamiento garantizado para profesionales graduados en Colombia.",
+    "idioma": "es-CO"
+  },
+  "footer": {
+    "empresa_legal": "Enfermera en Estados Unidos",
+    "direccion": "Bogotá, Colombia 110111",
+    "email_contacto": "asistencia@enfermeras-colombianas-usa.com"
+  },
+  "menu_global": [
+    {
+      "nombre": "Validar Título",
+      "ruta": "/homologacion"
+    },
+    {
+      "nombre": "Superar NCLEX",
+      "ruta": "/nclex"
+    },
+    {
+      "nombre": "Empleos RN",
+      "ruta": "/vacantes"
+    },
+    {
+      "nombre": "Visa EB-3",
+      "ruta": "/visa"
+    },
+    {
+      "nombre": "Cuanto Ganan",
+      "ruta": "/salarios"
+    },
+    {
+      "nombre": "Historias",
+      "ruta": "/blog"
+    },
+    {
+      "nombre": "Chat Directo",
+      "ruta": "https://wa.me/something"
+    },
+    {
+      "nombre": "Iniciar",
+      "ruta": "/login"
+    }
+  ],
+  "dominio": "https://enfermeras-colombianas-usa.com",
+  "nav_footer_version": "v3",
+  "font_family": "Inter",
+  "color_palette": {
+    "primary": "oklch(38% 0.14 260)",
+    "secondary": "oklch(50% 0.10 260)",
+    "accent": "oklch(85% 0.12 190)",
+    "text_bold": "oklch(15% 0.06 260)",
+    "meta": {
+      "name": "Midnight Ocean",
+      "system": "OKLCH Premium v2"
+    }
+  }
+}
