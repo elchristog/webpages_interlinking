@@ -1,8 +1,14 @@
 ---
-titulo: "Proceso Migratorio, Requisitos De Licencia Y Búsqueda De Sponsor Para Enfermeras En Georgia"
-descripcion: "Guía definitiva sobre Proceso migratorio, requisitos de licencia y búsqueda de sponsor para enfermeras en Georgia."
-slug: "georgia-guia-oficial-1787498620"
-fecha: "2026-08-23"
+title: "Proceso Migratorio, Requisitos De Licencia Y Búsqueda De Sponsor Para Enfermeras En Georgia"
+pubDate: 2026-08-28
+description: "Guía definitiva sobre Proceso migratorio, requisitos de licencia y búsqueda de sponsor para enfermeras en Georgia."
+team: "david-lee"
+image:
+  url: "/src/images/blog/1.jpg"
+  alt: "Proceso Migratorio, Requisitos De Licencia Y Búsqueda De Sponsor Para Enfermeras En Georgia"
+tags:
+  - enfermeria
+  - georgia
 ---
 
 <section class="ui-hero-product ui-preset--midnight">

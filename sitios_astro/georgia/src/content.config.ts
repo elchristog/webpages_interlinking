@@ -38,13 +38,13 @@ const store = defineCollection({
         })
       ),
       image: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
       gallery: z
         .array(
           z.object({
-            url: image(),
+            url: z.union([z.string(), image()]),
             alt: z.string(),
           })
         )
@@ -74,7 +74,7 @@ const sites = defineCollection({
         )
         .optional(),
       thumbnail: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
       tags: z.array(z.string().optional()).optional(),
@@ -93,7 +93,7 @@ const posts = defineCollection({
       pubDate: z.date(),
       description: z.string(),
       image: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
       tags: z.array(z.string()),

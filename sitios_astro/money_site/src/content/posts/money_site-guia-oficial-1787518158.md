@@ -4,7 +4,7 @@ pubDate: 2026-08-23
 description: "Guía definitiva sobre Enfermera en Estados Unidos - Guía Principal."
 team: "david-lee"
 image:
-  url: "/imagenes_proyecto/enfermera-en-estados-unidos-gu-a-principal-12.webp"
+  url: "/src/images/blog/1.jpg"
   alt: "Enfermera En Estados Unidos - Guía Principal"
 tags:
   - enfermeria
