@@ -16,11 +16,11 @@
   },
   "menu_global": [
     {
-      "nombre": "Validar Título",
+      "nombre": "Validar Diploma",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Examen NCLEX",
+      "nombre": "Prep NCLEX",
       "ruta": "/nclex"
     },
     {
@@ -32,11 +32,11 @@
       "ruta": "/visa"
     },
     {
-      "nombre": "Sueldo Promedio",
+      "nombre": "Sueldos USA",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Blog Oficial",
+      "nombre": "Noticias",
       "ruta": "/blog"
     },
     {
@@ -44,7 +44,7 @@
       "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Acceso",
+      "nombre": "Iniciar",
       "ruta": "/login"
     }
   ],

@@ -97,7 +97,8 @@
           "system": "OKLCH Premium v2"
         }
       },
-      "nav_footer_version": "v1"
+      "nav_footer_version": "v1",
+      "plantilla_origen": "brightlight"
     },
     "florida": {
       "nombre_sitio": "Enfermería Florida Hoy",
@@ -161,7 +162,8 @@
           "system": "OKLCH Premium v2"
         }
       },
-      "nav_footer_version": "v2"
+      "nav_footer_version": "v2",
+      "plantilla_origen": "alfred"
     },
     "georgia": {
       "nombre_sitio": "Red de Enfermeras GA",
@@ -226,7 +228,8 @@
           "system": "OKLCH Premium v2"
         }
       },
-      "nav_footer_version": "v1"
+      "nav_footer_version": "v1",
+      "plantilla_origen": "aubergine"
     },
     "texas_nclex": {
       "nombre_sitio": "Prep NCLEX Texas",
@@ -290,7 +293,8 @@
           "system": "OKLCH Premium v2"
         }
       },
-      "nav_footer_version": "v2"
+      "nav_footer_version": "v2",
+      "plantilla_origen": "author"
     },
     "homologacion": {
       "nombre_sitio": "Homologa tu Título",
@@ -354,7 +358,8 @@
           "system": "OKLCH Premium v2"
         }
       },
-      "nav_footer_version": "v2"
+      "nav_footer_version": "v2",
+      "plantilla_origen": "buio"
     },
     "licencia_rn": {
       "nombre_sitio": "Licencia RN Oficial",
@@ -418,7 +423,8 @@
           "system": "OKLCH Premium v2"
         }
       },
-      "nav_footer_version": "v2"
+      "nav_footer_version": "v2",
+      "plantilla_origen": "carbon"
     },
     "california_salarios": {
       "nombre_sitio": "California Nurse Salaries",
@@ -483,7 +489,8 @@
           "system": "OKLCH Premium v2"
         }
       },
-      "nav_footer_version": "v1"
+      "nav_footer_version": "v1",
+      "plantilla_origen": "carriera"
     },
     "sueldos_especialidades": {
       "nombre_sitio": "Sueldos de Enfermería Hub",
@@ -547,7 +554,8 @@
           "system": "OKLCH Premium v2"
         }
       },
-      "nav_footer_version": "v2"
+      "nav_footer_version": "v2",
+      "plantilla_origen": "dusk"
     },
     "travel_nurses": {
       "nombre_sitio": "Travel Nurse Hispanas",
@@ -611,7 +619,8 @@
           "system": "OKLCH Premium v2"
         }
       },
-      "nav_footer_version": "v1"
+      "nav_footer_version": "v1",
+      "plantilla_origen": "enlightr"
     },
     "empleos_texas": {
       "nombre_sitio": "Empleos en Hospitales TX",
@@ -676,7 +685,8 @@
           "system": "OKLCH Premium v2"
         }
       },
-      "nav_footer_version": "v2"
+      "nav_footer_version": "v2",
+      "plantilla_origen": "flabbergasted"
     },
     "vacantes_hospitales": {
       "nombre_sitio": "Vacantes Agencias USA",
@@ -740,7 +750,8 @@
           "name": "Deep Forest",
           "system": "OKLCH Premium v2"
         }
-      }
+      },
+      "plantilla_origen": "hemingway"
     },
     "green_card": {
       "nombre_sitio": "Green Card Health Network",
@@ -804,7 +815,8 @@
           "name": "Deep Forest",
           "system": "OKLCH Premium v2"
         }
-      }
+      },
+      "plantilla_origen": "kotei"
     },
     "visas_trabajo": {
       "nombre_sitio": "Visado Enfermeras Pro",
@@ -869,7 +881,8 @@
           "name": "Royal Purple",
           "system": "OKLCH Premium v2"
         }
-      }
+      },
+      "plantilla_origen": "navy"
     },
     "enfermeras_mexicanas": {
       "nombre_sitio": "Enfermeras Mexicanas Exitosas",
@@ -933,7 +946,8 @@
           "name": "Midnight Ocean",
           "system": "OKLCH Premium v2"
         }
-      }
+      },
+      "plantilla_origen": "outkast"
     },
     "enfermeras_colombianas": {
       "nombre_sitio": "Talento Enfermería CO",
@@ -997,7 +1011,8 @@
           "name": "Midnight Ocean",
           "system": "OKLCH Premium v2"
         }
-      }
+      },
+      "plantilla_origen": "phanatik"
     },
     "latinas": {
       "nombre_sitio": "Red Enfermeras Latinas",
@@ -1062,7 +1077,8 @@
           "name": "Midnight Ocean",
           "system": "OKLCH Premium v2"
         }
-      }
+      },
+      "plantilla_origen": "snowpeak"
     }
   },
   "videos": {
