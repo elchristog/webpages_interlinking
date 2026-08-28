@@ -749,6 +749,111 @@ def cargar_manifiesto_plantilla(ruta_astro):
         ]
     }
 
+def limpiar_rutas_demo_template(ruta_astro, paginas_activas=None):
+    """
+    Elimina carpetas y páginas demo de prueba de src/pages en Lexington Themes
+    para asegurar que sólo se compilen las páginas activas reales del sitio.
+    Preserva el contenido base necesario para evitar fallos en componentes.
+    """
+    if paginas_activas is None:
+        paginas_activas = []
+    
+    src_pages = os.path.join(ruta_astro, 'src', 'pages')
+    src_content = os.path.join(ruta_astro, 'src', 'content')
+
+    # Carpetas demo a eliminar de src/pages
+    demo_pages_dirs = [
+        'changelog', 'customers', 'helpcenter', 'integrations',
+        'system', 'team', 'courses', 'teachers', 'projects',
+        'store', 'submit', 'sites', 'signin', 'signup'
+    ]
+
+    # Archivos demo a eliminar de src/pages
+    demo_pages_files = [
+        'index-two.astro', 'pricing.astro', 'about.astro', 'contact.astro',
+        'sign-in.astro', 'sign-up.astro'
+    ]
+
+    if os.path.exists(src_pages):
+        for d in demo_pages_dirs:
+            target_dir = os.path.join(src_pages, d)
+            if os.path.exists(target_dir):
+                shutil.rmtree(target_dir)
+                print(f"[Cleaner] Eliminada carpeta demo de páginas: {d}")
+        
+        for f in demo_pages_files:
+            base_name = f.replace('.astro', '')
+            if base_name in paginas_activas:
+                continue
+            target_file = os.path.join(src_pages, f)
+            if os.path.exists(target_file):
+                os.remove(target_file)
+                print(f"[Cleaner] Eliminado archivo demo de páginas: {f}")
+
+    if os.path.exists(src_content):
+        # Limpiar posts numéricos demo de plantilla (1.md, 2.md ... 10.md)
+        for posts_dir in [os.path.join(src_content, 'posts'), os.path.join(src_content, 'articulos')]:
+            if os.path.exists(posts_dir):
+                for f in os.listdir(posts_dir):
+                    if re.match(r'^\d+\.md$', f):
+                        file_p = os.path.join(posts_dir, f)
+                        try:
+                            os.remove(file_p)
+                            print(f"[Cleaner] Eliminado post demo numerado: {f}")
+                        except Exception:
+                            pass
+
+def gestionar_paginas_incrementales(sitio_id, ruta_astro, configuracion_actual):
+    """
+    Lee las páginas activas definidas en la configuración del sitio
+    y crea modularmente aquellas páginas solicitadas (ej: homologacion, nclex)
+    sin alterar ni sobrescribir index.astro ni las páginas ya creadas.
+    """
+    paginas_activas = configuracion_actual.get("paginas_activas", ["home", "blog"])
+    src_pages = os.path.join(ruta_astro, 'src', 'pages')
+    os.makedirs(src_pages, exist_ok=True)
+
+    for pag in paginas_activas:
+        if pag in ["home", "index", "blog"]:
+            continue
+        
+        filename = f"{pag}.astro"
+        page_path = os.path.join(src_pages, filename)
+        if not os.path.exists(page_path):
+            title_page = pag.replace('-', ' ').replace('_', ' ').title()
+            nombre_sitio = configuracion_actual.get('nombre_sitio', 'Enfermera en EE. UU.')
+            content_astro = f'''---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+
+const title = "{title_page} | {nombre_sitio}";
+const description = "Guía oficial y requisitos sobre {title_page} para enfermeras internacionales en Estados Unidos.";
+---
+
+<BaseLayout title={{title}} description={{description}}>
+  <section class="py-20 bg-white">
+    <Wrapper class="max-w-4xl mx-auto px-4">
+      <Text tag="h1" variant="displayLG" class="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+        {title_page}
+      </Text>
+      <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+        Bienvenido a la sección oficial sobre <strong>{title_page}</strong>. Aquí encontrarás información detallada, pasos a seguir, requisitos oficiales y asesoría especializada.
+      </p>
+      <div class="prose max-w-none text-gray-700 space-y-6">
+        <h2 class="text-2xl font-semibold text-gray-800">Aspectos Clave</h2>
+        <p>
+          Nuestro equipo de expertos en inmigración y revalidación de credenciales te acompaña en cada paso para asegurar el éxito en tu proceso en Estados Unidos.
+        </p>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>
+'''
+            with open(page_path, 'w', encoding='utf-8') as f:
+                f.write(content_astro)
+            print(f"[Pagina Incremental] Creada nueva página: {filename}")
+
 def auditar_y_limpiar_integridad(sitio_id, ruta_astro, configuracion_actual, manifiesto):
     """Audita los archivos del sitio Astro contra el manifiesto y elimina placeholders no deseados."""
     blacklist = manifiesto.get("blacklist_placeholders", [])
@@ -1096,6 +1201,12 @@ def procesar_sitio(sitio, config_global, config_menus, ruta_proyecto_config, rut
         configuracion_actual["footer"]["empresa_legal"] = nombre_empresa_global
     
     escribir_config_inyectada(sitio['ruta_astro'], configuracion_actual)
+
+    # NUEVO: Limpiar rutas y contenidos demo innecesarios de las plantillas base
+    limpiar_rutas_demo_template(sitio['ruta_astro'], configuracion_actual.get('paginas_activas', []))
+
+    # NUEVO: Gestionar creación incremental de páginas declaradas
+    gestionar_paginas_incrementales(sitio_id, sitio['ruta_astro'], configuracion_actual)
 
     # NUEVO: Procesar e inyectar logo, favicons e imágenes WebP del nicho
     procesar_e_inyectar_media(sitio_id, sitio['ruta_astro'], ruta_base, nombre_proyecto, sitio.get('nicho', 'Enfermera en Estados Unidos'))
