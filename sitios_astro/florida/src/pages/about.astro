@@ -1,7 +1,7 @@
 ---
 // Assets
 import { Image } from "astro:assets";
-const Designer = "/imagenes_proyecto/ofertas-de-empleo-y-salarios-promedios-para-enfermeras-extranjeras-en-miami-y-tampa-florida-1.webp";
+import Designer from "/src/images/assets/designer.jpeg";
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Text from "@/components/fundations/elements/Text.astro";
@@ -116,7 +116,7 @@ const socialLinks = [
   <section>
     <Wrapper variant="standard" class="pt-24 pb-12 lg:pt-48">
       <header class="flex items-center gap-4">
-        <img
+        <Image
           src={Designer}
           alt="Portrait of Vanta Smith, course instructor"
           width={1200}

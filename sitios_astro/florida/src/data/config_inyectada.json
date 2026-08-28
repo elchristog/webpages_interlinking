@@ -16,11 +16,11 @@
   },
   "menu_global": [
     {
-      "nombre": "Revalidar Meta",
+      "nombre": "Diploma Online",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Guía NCLEX",
+      "nombre": "NCLEX Paso",
       "ruta": "/nclex"
     },
     {
@@ -28,23 +28,23 @@
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Residencia USA",
+      "nombre": "Sponsor Visa",
       "ruta": "/visa"
     },
     {
-      "nombre": "Pagos RN",
+      "nombre": "Sueldo Promedio",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Guías Tips",
+      "nombre": "Blog Oficial",
       "ruta": "/blog"
     },
     {
-      "nombre": "Chat Directo",
+      "nombre": "Soporte",
       "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Mi Cuenta",
+      "nombre": "Iniciar",
       "ruta": "/login"
     }
   ],

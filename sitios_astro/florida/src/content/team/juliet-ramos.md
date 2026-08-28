@@ -8,7 +8,7 @@ bio: |
 
   Through content strategy, design reviews, and ethical frameworks, Juliet helps guide the platform’s mission to create not just better websites—but a better web.
 image:
-  url: "/imagenes_proyecto/ofertas-de-empleo-y-salarios-promedios-para-enfermeras-extranjeras-en-miami-y-tampa-florida-11.webp"
+  url: "/src/images/team/5.jpeg"
   alt: "Juliet Ramos"
 socials:
   twitter: "#_"
