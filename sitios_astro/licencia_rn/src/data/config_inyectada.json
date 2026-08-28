@@ -20,28 +20,28 @@
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Pasar NCLEX",
+      "nombre": "Prep NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Vacantes USA",
+      "nombre": "Ofertas Trabajo",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Visa EB-3",
+      "nombre": "Residencia USA",
       "ruta": "/visa"
     },
     {
-      "nombre": "Sueldos USA",
+      "nombre": "Sueldo Promedio",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Historias",
+      "nombre": "Casos Éxito",
       "ruta": "/blog"
     },
     {
-      "nombre": "Hablar Asesor",
-      "ruta": "https://wa.me/ayuda"
+      "nombre": "Ayuda Chat",
+      "ruta": "https://wa.me/something"
     },
     {
       "nombre": "Mi Cuenta",

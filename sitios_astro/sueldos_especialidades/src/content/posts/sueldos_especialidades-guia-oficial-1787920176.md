@@ -4,7 +4,7 @@ pubDate: 2026-08-28
 description: "Guía definitiva sobre Análisis comparativo de salarios de enfermería por especialidad (quirúrgica, anestesista, neonatal) en Estados Unidos."
 team: "david-lee"
 image:
-  url: "/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-1.webp"
+  url: "/src/images/blog/1.jpg"
   alt: "Análisis Comparativo De Salarios De Enfermería Por Especialidad (Quirúrgica, Anestesista, Neonatal) En Estados Unidos"
 tags:
   - enfermeria

@@ -42,7 +42,7 @@ Sofia is an avid photographer and finds inspiration in the geometry of urban lan
 
 ## Presentation Outline
 
-- The evolution of Swiss design in digital media
+- The evolution of Swiss deAsesoría digital media
 - Minimalism as a tool for clarity
 - Case study: Redesigning a classic brand for the web
 - Balancing tradition and innovation

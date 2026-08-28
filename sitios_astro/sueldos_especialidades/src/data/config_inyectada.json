@@ -16,7 +16,7 @@
   },
   "menu_global": [
     {
-      "nombre": "Validar Título",
+      "nombre": "Diploma Online",
       "ruta": "/homologacion"
     },
     {
@@ -24,11 +24,11 @@
       "ruta": "/nclex"
     },
     {
-      "nombre": "Empleos RN",
+      "nombre": "Puestos Libres",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Green Card",
+      "nombre": "Sponsor Visa",
       "ruta": "/visa"
     },
     {
@@ -36,15 +36,15 @@
       "ruta": "/salarios"
     },
     {
-      "nombre": "Guías Tips",
+      "nombre": "Actualidad",
       "ruta": "/blog"
     },
     {
-      "nombre": "WhatsApp",
+      "nombre": "Ayuda Chat",
       "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Portal RN",
+      "nombre": "Acceso",
       "ruta": "/login"
     }
   ],

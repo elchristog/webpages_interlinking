@@ -16,31 +16,31 @@
   },
   "menu_global": [
     {
-      "nombre": "Revalidar Meta",
+      "nombre": "Diploma Online",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Superar NCLEX",
+      "nombre": "Prep NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Bolsa Empleo",
+      "nombre": "Ofertas Trabajo",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Green Card",
+      "nombre": "Visa Trabajo",
       "ruta": "/visa"
     },
     {
-      "nombre": "Cuanto Ganan",
+      "nombre": "Tablas Sueldos",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Historias",
+      "nombre": "Novedades",
       "ruta": "/blog"
     },
     {
-      "nombre": "WhatsApp",
+      "nombre": "Consultar Ahora",
       "ruta": "https://wa.me/ayuda"
     },
     {

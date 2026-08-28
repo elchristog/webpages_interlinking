@@ -18,7 +18,7 @@ const integrations = defineCollection({
         })
       ),
       logo: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
     }),
@@ -46,7 +46,7 @@ const changelog = defineCollection({
       description: z.string(),
       pubDate: z.coerce.date(),
       image: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
     }),
@@ -69,7 +69,7 @@ const posts = defineCollection({
       description: z.string(),
       author: z.string(),
       image: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
       tags: z.array(z.string()),

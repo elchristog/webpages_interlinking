@@ -1,8 +1,14 @@
 ---
-titulo: "Pasos Y Requisitos Legales Para Que Las Enfermeras Extrajeras Puedan Homologar O Validar Su Título De Enfermería En Estados Unidos"
-descripcion: "Guía definitiva sobre Pasos y requisitos legales para que las enfermeras extrajeras puedan homologar o validar su título de enfermería en Estados Unidos."
-slug: "homologacion-guia-oficial-1787499081"
-fecha: "2026-08-23"
+title: "Pasos Y Requisitos Legales Para Que Las Enfermeras Extrajeras Puedan Homologar O Validar Su Título De Enfermería En Estados Unidos"
+pubDate: 2026-08-28
+description: "Guía definitiva sobre Pasos y requisitos legales para que las enfermeras extrajeras puedan homologar o validar su título de enfermería en Estados Unidos."
+team: "david-lee"
+image:
+  url: "/src/images/blog/1.jpg"
+  alt: "Pasos Y Requisitos Legales Para Que Las Enfermeras Extrajeras Puedan Homologar O Validar Su Título De Enfermería En Estados Unidos"
+tags:
+  - enfermeria
+  - homologacion
 ---
 
 <section class="ui-hero-product ui-preset--professional">

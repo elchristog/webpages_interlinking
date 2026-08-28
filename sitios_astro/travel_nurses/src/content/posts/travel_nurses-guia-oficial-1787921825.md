@@ -4,7 +4,7 @@ pubDate: 2026-08-28
 description: "Guía definitiva sobre Guía salarial y de ofertas laborales exclusivas para Travel Nurses en Estados Unidos."
 team: "david-lee"
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/gu-a-salarial-y-de-ofertas-laborales-exclusivas-para-travel-nurses-en-estados-unidos-1.webp"
   alt: "Guía Salarial Y De Ofertas Laborales Exclusivas Para Travel Nurses En Estados Unidos"
 tags:
   - enfermeria

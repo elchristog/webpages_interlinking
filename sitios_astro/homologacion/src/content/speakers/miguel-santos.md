@@ -38,7 +38,7 @@ Miguel Santos is a web developer and accessibility advocate with a passion for b
 
 ## Fun Fact
 
-Miguel enjoys hiking in the Swiss Alps and draws design inspiration from nature.
+Miguel enjoys hiking in the Swiss Alps and draws deAsesoríaspiration from nature.
 
 ## Presentation Outline
 

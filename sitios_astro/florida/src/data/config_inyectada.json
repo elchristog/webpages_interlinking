@@ -16,7 +16,7 @@
   },
   "menu_global": [
     {
-      "nombre": "Validar Título",
+      "nombre": "Homologar Título",
       "ruta": "/homologacion"
     },
     {
@@ -28,23 +28,23 @@
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Sponsor Visa",
+      "nombre": "Visa Trabajo",
       "ruta": "/visa"
     },
     {
-      "nombre": "Salario Real",
+      "nombre": "Cuanto Ganan",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Novedades",
+      "nombre": "Historias",
       "ruta": "/blog"
     },
     {
-      "nombre": "Soporte",
+      "nombre": "Escríbenos",
       "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Acceso",
+      "nombre": "Entrar",
       "ruta": "/login"
     }
   ],

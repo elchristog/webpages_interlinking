@@ -18,7 +18,7 @@ const postsCollection = defineCollection({
       pubDate: z.coerce.date(),
       description: z.string(),
       image: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
       tags: z.array(z.string()),
@@ -34,7 +34,7 @@ const speaker = defineCollection({
       company: z.string().optional(),
       headshot: z
         .object({
-          url: image(),
+          url: z.union([z.string(), image()]),
           alt: z.string().optional(),
         })
         .optional(),
@@ -78,7 +78,7 @@ const sponsor = defineCollection({
       tier: z.enum(["platinum", "gold", "silver", "bronze"]).default("bronze"),
       url: z.string().regex(/^(https?:\/\/|#_)/),
       logo: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string().optional(),
       }),
     }),

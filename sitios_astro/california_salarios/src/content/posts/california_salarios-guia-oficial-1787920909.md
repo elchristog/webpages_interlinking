@@ -4,7 +4,7 @@ pubDate: 2026-08-28
 description: "Guía definitiva sobre Análisis de salarios por especialidad, ingresos de Travel Nurses y finanzas para enfermeras en California."
 team: "david-lee"
 image:
-  url: "/imagenes_proyecto/an-lisis-de-salarios-por-especialidad-ingresos-de-travel-nurses-y-finanzas-para-enfermeras-en-california-1.webp"
+  url: "/src/images/blog/1.jpg"
   alt: "Análisis De Salarios Por Especialidad, Ingresos De Travel Nurses Y Finanzas Para Enfermeras En California"
 tags:
   - enfermeria

@@ -791,17 +791,16 @@ def limpiar_rutas_demo_template(ruta_astro, paginas_activas=None):
                 print(f"[Cleaner] Eliminado archivo demo de páginas: {f}")
 
     if os.path.exists(src_content):
-        # Limpiar posts numéricos demo de plantilla (1.md, 2.md ... 10.md)
-        for posts_dir in [os.path.join(src_content, 'posts'), os.path.join(src_content, 'articulos')]:
-            if os.path.exists(posts_dir):
-                for f in os.listdir(posts_dir):
-                    if re.match(r'^\d+\.md$', f):
-                        file_p = os.path.join(posts_dir, f)
-                        try:
-                            os.remove(file_p)
-                            print(f"[Cleaner] Eliminado post demo numerado: {f}")
-                        except Exception:
-                            pass
+        # Limpiar posts y contenidos numéricos demo de plantilla (1.md, 2.md ... 10.md) en cualquier subcarpeta
+        for root, dirs, files in os.walk(src_content):
+            for f in files:
+                if re.match(r'^\d+\.md$', f):
+                    file_p = os.path.join(root, f)
+                    try:
+                        os.remove(file_p)
+                        print(f"[Cleaner] Eliminado archivo demo numerado: {file_p}")
+                    except Exception:
+                        pass
 
 def gestionar_paginas_incrementales(sitio_id, ruta_astro, configuracion_actual):
     """
@@ -1089,7 +1088,7 @@ def personalizar_componentes_plantilla(ruta_astro, nicho, palabras_clave):
     """
     Escanea la carpeta src/components/, src/pages/ y src/content/ del proyecto Astro
     y reemplaza automáticamente cualquier texto de relleno en inglés por contenido en español
-    adaptado al nicho del sitio.
+    adaptado al nicho del sitio. Soporta coincidencias multilínea con espacios/saltos de línea.
     """
     if not os.path.exists(ruta_astro):
         return
@@ -1098,27 +1097,109 @@ def personalizar_componentes_plantilla(ruta_astro, nicho, palabras_clave):
     kw_str = ", ".join(palabras_clave[:3]) if palabras_clave else "enfermería en USA"
 
     reemplazos_directos = [
-        # Heros & Headers principales
-        ("Plug it in before your coffee gets cold", f"Todo lo que necesitas para ejercer como Enfermera en EE. UU."),
-        ("Clean, no-BS interface. Set it up in minutes, send emails even faster.", f"Un programa estructurado para acompañarte desde la convalidación hasta tu trabajo hospitalario."),
-        ("Built by developers who were sick of broken email APIs", f"Ventajas Exclusivas de Nuestro Programa de Reclutamiento"),
-        ("We got tired of wrestling with clunky tools, so we built the email platform we always wanted — fast, clean, and actually works without swearing at your terminal.", f"Diseñamos un proceso transparente e integral, respaldado por expertos en inmigración y docentes de enfermería."),
-        ("Write Like a Human, Not a Hacker", f"Asesoría Personalizada y Acompañamiento Continuo"),
-        ("Finally, an editor that doesn’t fight you. Format, style, and send emails without touching a single . Build visually, tweak freely, and leave the HTML rage-quits behind.", f"Te acompañamos en cada etapa: evaluación de credenciales CGFNS, preparación de examen y trámite consular."),
-        ("Contact Management That Doesn’t Suck", f"Gestión Consular y Patrocinio Visa EB-3"),
-        ("Import your entire list in minutes — whether it’s 50 or 50,000. See every contact’s details without clicking through 12 tabs. It’s like a CRM, but without the bloat (or the monthly breakdown).", f"Un equipo legal de inmigración gestiona tu petición I-140 y visa de residencia permanente (Green Card)."),
-        ("Broadcast Analytics (Because Guesswork Is for Amateurs)", f"Preparación del Examen NCLEX-RN con Métodos Probados"),
-        ("See who opened, clicked, ignored, or rage-deleted your email. Real insights, no fluff — so you actually know what’s working (and what’s not).", f"Nuestros docentes capacitados te guían con simuladores reales NGN para aprobar en tu primer intento."),
-        ("Email, But Actually Good", f"Tu Futuro como Enfermera en EE. UU. Empieza Hoy"),
-        ("No setup rituals. No DNS sorcery. Just emails that send, land, and look damn good doing it. — Available now. Because why wait?", f"Evaluamos tu perfil profesional sin costo y trazamos la ruta directa hacia tu empleo en EE. UU."),
-        ("Plans that grow with your ambition (or chaos)", f"Programas Diseñados para Tu Éxito Profesional"),
-        ("Start free. Pay when your side project accidentally turns into a business.", f"Elige la fase en la que te encuentras o realiza la ruta completa con nuestro acompañamiento."),
-        ("No concepts. Just real websites.", f"Licencia de Enfermería & Oportunidades Laborales"),
-        ("A curated collection of production websites worth studying — layout, hierarchy, interaction, and execution. Use them to benchmark your own work, not to copy it.", f"Guía actualizada sobre homologación de títulos, visados de residencia EB-3 y salarios de enfermería."),
+        # Hero & Headings Vanta / Carbon / Brightlight
+        ("A course for developers who care about design. Learn to craft beautiful, responsive UIs with precision — from layout to component polish.",
+         "Guía estratégica sobre homologación de títulos, visados de residencia EB-3 y salarios de enfermería."),
+        ("A course for developers who care about design. Learn to craft beautiful, responsive UIs with precision - from layout to component polish.",
+         "Guía estratégica sobre homologación de títulos, visados de residencia EB-3 y salarios de enfermería."),
+        
+        ("No concepts. Just real websites.", f"Licencia de Enfermería & Oportunidades en EE. UU."),
+        ("No concepts.", "Licencia de Enfermería &"),
+        ("Just real websites.", "Oportunidades Laborales en EE. UU."),
+        
+        ("A curated collection of production websites worth studying — layout, hierarchy, interaction, and execution. Use them to benchmark your own work, not to copy it.",
+         "Guía actualizada sobre homologación de títulos, visados de residencia EB-3 y salarios de enfermería."),
+        ("A curated collection of production websites worth studying - layout, hierarchy, interaction, and execution. Use them to benchmark your own work, not to copy it.",
+         "Guía actualizada sobre homologación de títulos, visados de residencia EB-3 y salarios de enfermería."),
+
+        ("Build interfaces that look great and work flawlessly", "Programas Diseñados para Tu Éxito Profesional"),
+        ("Design with a Developer's Mind", "Evaluación Inicial Gratuita"),
+        ("Learn layout, spacing, and visual systems that scale — all while thinking in code. No more design handoff confusion.",
+         "Analizamos tus títulos universitarios y experiencia clínica para cumplir con el State Board."),
+        ("Learn layout, spacing, and visual systems that scale - all while thinking in code. No more design handoff confusion.",
+         "Analizamos tus títulos universitarios y experiencia clínica para cumplir con el State Board."),
+        ("Build Reusable UI Components", "Preparación NCLEX-RN Adaptativa"),
+        ("Craft accessible, responsive, and polished components that work across devices and breakpoints with confidence.",
+         "Simuladores NGN en vivo y tutorías especializadas para asegurar tu aprobación."),
+        ("From Figma to Frontend", "Tramitación de Visa EB-3"),
+        ("Translate design files into production-ready code using consistent tokens, spacing, and typographic rhythm.",
+         "Gestión directa de residencia permanente para ti y tu núcleo familiar."),
+        ("Work Like a Design Engineer", "Contrato Directo con Hospitales"),
+        ("Bridge the gap between design and development. Build, test, and ship UIs that feel as good as they look.",
+         "Ubicación laboral directa en centros médicos líderes en Estados Unidos."),
+
+        ("Latest articles", "Últimos Artículos"),
+        ("See all articles", "Ver Todos los Artículos"),
+        ("Our latest templates", "Recursos Destacados"),
+        ("See them all!", "Ver Todos"),
+        ("Show more", "Ver Más"),
+
+        # Brightlight & otros temas
+        ("Plug it in before your coffee gets cold", "Todo lo que necesitas para ejercer como Enfermera en EE. UU."),
+        ("Clean, no-BS interface. Set it up in minutes, send emails even faster.", "Un programa estructurado para acompañarte desde la convalidación hasta tu trabajo hospitalario."),
+        ("Built by developers who were sick of broken email APIs", "Ventajas Exclusivas de Nuestro Programa de Reclutamiento"),
+        ("We got tired of wrestling with clunky tools, so we built the email platform we always wanted — fast, clean, and actually works without swearing at your terminal.", "Diseñamos un proceso transparente e integral, respaldado por expertos en inmigración y docentes de enfermería."),
+        ("Write Like a Human, Not a Hacker", "Asesoría Personalizada y Acompañamiento Continuo"),
+        ("Finally, an editor that doesn’t fight you. Format, style, and send emails without touching a single . Build visually, tweak freely, and leave the HTML rage-quits behind.", "Te acompañamos en cada etapa: evaluación de credenciales CGFNS, preparación de examen y trámite consular."),
+        ("Contact Management That Doesn’t Suck", "Gestión Consular y Patrocinio Visa EB-3"),
+        ("Import your entire list in minutes — whether it’s 50 or 50,000. See every contact’s details without clicking through 12 tabs. It’s like a CRM, but without the bloat (or the monthly breakdown).", "Un equipo legal de inmigración gestiona tu petición I-140 y visa de residencia permanente (Green Card)."),
+        ("Broadcast Analytics (Because Guesswork Is for Amateurs)", "Preparación del Examen NCLEX-RN con Métodos Probados"),
+        ("See who opened, clicked, ignored, or rage-deleted your email. Real insights, no fluff — so you actually know what’s working (and what’s not).", "Nuestros docentes capacitados te guían con simuladores reales NGN para aprobar en tu primer intento."),
+        ("Email, But Actually Good", "Tu Futuro como Enfermera en EE. UU. Empieza Hoy"),
+        ("No setup rituals. No DNS sorcery. Just emails that send, land, and look damn good doing it. — Available now. Because why wait?", "Evaluamos tu perfil profesional sin costo y trazamos la ruta directa hacia tu empleo en EE. UU."),
+        ("Plans that grow with your ambition (or chaos)", "Programas Diseñados para Tu Éxito Profesional"),
+        ("Start free. Pay when your side project accidentally turns into a business.", "Elige la fase en la que te encuentras o realiza la ruta completa con nuestro acompañamiento."),
         ("Design Smarter. Build Better.", f"Guía Oficial: {nicho_title}"),
-        ("A course for developers who care about design. Learn to craft beautiful, responsive UIs with precision — from layout to component polish.", f"Información estratégica sobre revalidación de credenciales, cursos NCLEX-RN y patrocinio hospitalario."),
-        ("What will you sharpen next?", f"Recursos Destacados y Guías de Estudio"),
-        ("New lessons and UI patterns released regularly. Stay sharp, stay current — and keep building with confidence.", f"Explora nuestros artículos detallados sobre trámites de enfermería, visas laborales y consejos de examen."),
+        ("What will you sharpen next?", "Recursos Destacados y Guías de Estudio"),
+        ("New lessons and UI patterns released regularly. Stay sharp, stay current — and keep building with confidence.", "Explora nuestros artículos detallados sobre trámites de enfermería, visas laborales y consejos de examen."),
+
+        # Sections de Vanta (Who.astro, Expectations.astro, Testimonials.astro)
+        ("Who this course is for", "¿Para quién es esta guía y programa?"),
+        ("Whether you're a developer with an eye for design, or a designer learning to code — this course helps you blend both worlds into one craft.",
+         "Diseñado para enfermeras graduadas y licenciados en enfermería de Latinoamérica que buscan homologar su título y conseguir su visa de residencia permanente EB-3 en Estados Unidos."),
+        ("Frontend developers who want design superpowers", "Enfermeras Graduadas y Licenciadas"),
+        ("Sharpen your eye, master spacing, and learn to build beautiful interfaces — not just functional ones.",
+         "Ideal para profesionales que desean convalidar sus estudios universitarios ante el Board de Enfermería."),
+        ("Designers transitioning into development", "Estudiantes de Último Año de Enfermería"),
+        ("Confidently go from Figma to functional components, without drowning in frameworks.",
+         "Comienza a preparar tus documentos y la preparación del NCLEX-RN antes de tu graduación."),
+        ("Indie makers and solopreneurs", "Enfermeras Especialistas y Quirúrgicas"),
+        ("Craft and ship polished UIs without relying on a full design team or bloated tools.",
+         "Accede a contratos en Unidades de Cuidados Intensivos (UCI), Quirófanos y Emergencias."),
+        ("UI-focused engineers", "Profesionales buscando Visa EB-3"),
+        ("You already care about details. Now systematize them with reusable patterns and components.",
+         "Obtén la Residencia Permanente (Green Card) con patrocinio directo de hospitales norteamericanos."),
+        ("Anyone tired of the frontend/design divide", "Asesoría Integral Paso a Paso"),
+        ("This course is the bridge — clean code meets thoughtful UI.",
+         "Te acompañamos desde la evaluación de credenciales CGFNS hasta tu entrevista consular."),
+
+        ("What you’ll actually walk away with", "Lo que Obtendrás con Nuestro Programa"),
+        ("What you'll actually walk away with", "Lo que Obtendrás con Nuestro Programa"),
+        ("From reusable UI components to visual systems thinking — this course gives you more than code. It gives you taste, clarity, and tools.",
+         "Un plan paso a paso con acompañamiento experto, preparación para el examen NCLEX-RN y patrocinio de visa laboral EB-3."),
+        ("From reusable UI components to visual systems thinking - this course gives you more than code. It gives you taste, clarity, and tools.",
+         "Un plan paso a paso con acompañamiento experto, preparación para el examen NCLEX-RN y patrocinio de visa laboral EB-3."),
+        ("Build beautiful UIs, not just wireframes", "Homologación Directa de Título"),
+        ("Each project focuses on polish — spacing, typography, color, and real-world layout challenges. You’ll finish with work that looks ready for a portfolio.",
+         "Evaluación oficial de tus asignaturas universitarias para obtener la equivalencia BSN (Bachelor of Science in Nursing)."),
+        ("Learn through real components", "Simuladores NCLEX-RN NGN"),
+        ("We’ll build buttons, cards, forms, and layouts — and explain the design decisions behind them. No theory without code.",
+         "Acceso a preguntas conceptuales y casos clínicos bajo el estándar de evaluación oficial de la NCSBN."),
+        ("Go beyond 'just dev' or 'just design'", "Licencia RN Permanente"),
+        ("Go beyond ‘just dev’ or ‘just design’", "Licencia RN Permanente"),
+        ("This course is built for hybrid thinkers — you'll work across both sides to create thoughtful, scalable interfaces.",
+         "Tramitamos tu Authorization to Test (ATT) y la emisión de tu licencia como Registered Nurse."),
+        ("Lifetime access, zero deadlines", "Oferta Laboral Acreditada"),
+        ("Take it at your own pace. Whether you binge it or take one component a week, your access never expires.",
+         "Contrato laboral directo a tiempo completo en hospitales y clínicas de Estados Unidos."),
+        ("Get a certificate that actually means ayuda", "Residencia Permanente EB-3"),
+        ("Get a certificate that actually means", "Residencia Permanente EB-3"),
+        ("Earn proof of your skill — not just completion. You'll finish with real, portfolio-worthy projects and confidence to back them up.",
+         "Trámite legal completo para tu Green Card y la de tu familia (cónyuge e hijos)."),
+
+        ("Our alumni work where design meets engineering", "Casos de Éxito y Enfermeras Contratadas"),
+        ("Graduates have gone on to build thoughtful interfaces at companies like Stripe, Notion, Linear, and design systems teams at world-class startups.",
+         "Cientos de enfermeras latinoamericanas ya se encuentran ejerciendo con éxito en hospitales de Miami, Orlando, Tampa y Atlanta."),
 
         # Botones y enlaces de navegación
         ("Get full access", "Solicitar Evaluación Gratuita"),
@@ -1129,25 +1210,7 @@ def personalizar_componentes_plantilla(ruta_astro, nicho, palabras_clave):
         ("Buy Brightlight", "Contacto"),
         ("Buy ", "Contacto "),
         ("Sign in", "Asesoría"),
-        ("Overview", "Inicio"),
-
-        # Tarjetas de características
-        ("Test Mode (aka Safe Chaos)", "Homologación Directa"),
-        ("Blow things up without consequences. Simulate everything, send nothing. Perfect for testing, debugging, and not losing your job.", "Evaluamos tus credenciales universitarias para cumplir los requisitos del Board de Enfermería."),
-        ("Webhooks That Actually Work", "Preparación NCLEX-RN"),
-        ("We ping your server the second something happens — delivery, open, click, bounce, interpretive dance. You’ll know.", "Clases en vivo y simuladores adaptativos NGN con más de 3,000 preguntas preparatorias."),
-        ("Live Logs (Bring Popcorn)", "Patrocinio Visa EB-3"),
-        ("Every request, every response, every oops — logged in real time. It's like tailing your server logs, but less painful.", "Petición de Residencia Permanente (Green Card) para ti, tu cónyuge e hijos menores de 21 años."),
-        ("Retry Logic That Babysits for You", "Contratos Hospitalarios"),
-        ("Flaky internet? Broken SMTP? We’ve got auto-retries so you don’t have to watch your queue like a hawk on Red Bull.", "Ofertas laborales directas con sistemas de salud acreditados en Estados Unidos."),
-        ("Open & Click Tracking (Legally Not Creepy)", "Salarios Competitivos"),
-        ("Want to know who opened what and clicked where? So do we. Welcome to legally acceptable email surveillance.", "Ingresos promedio desde $75,000 hasta $110,000 USD anuales según tu especialidad."),
-        ("Markup Freedom (Build It Your Way)", "Bono de Reubicación"),
-        ("Whatever you write, we’ll render it without crying over inline styles.", "Asistencia para tiquetes aéreos, alojamiento inicial y trámites de llegada."),
-        ("Inbox Previews (For the Control Freak in You)", "Inglés Clínico Especializado"),
-        ("Preview your masterpiece before it hits the inbox. Yes, even in Outlook. Especially in Outlook.", "Entrenamiento enfocado en vocabulario médico para certificar TOEFL iBT o IELTS Academic."),
-        ("Custom Domains (Stop Using Sketchy Emails)", "Acompañamiento VIP 1 a 1"),
-        ("Send from your own domain and stop looking like a scammer. Nobody trusts ‘noreply@fakedomain.biz’.", "Asesoría personalizada en cada etapa del proceso hasta tu incorporación hospitalaria.")
+        ("Overview", "Inicio")
     ]
 
     rutas_a_escanear = [
@@ -1155,6 +1218,16 @@ def personalizar_componentes_plantilla(ruta_astro, nicho, palabras_clave):
         os.path.join(ruta_astro, 'src', 'pages'),
         os.path.join(ruta_astro, 'src', 'content')
     ]
+
+    def flexible_replace(content, orig, reemp):
+        if orig in content:
+            return content.replace(orig, reemp), True
+        words = orig.strip().split()
+        if len(words) < 2:
+            return content, False
+        regex_pattern = r'\s+'.join(re.escape(w) for w in words)
+        new_content, count = re.subn(regex_pattern, reemp, content, flags=re.IGNORECASE | re.DOTALL)
+        return new_content, (count > 0)
 
     for carpeta in rutas_a_escanear:
         if not os.path.exists(carpeta):
@@ -1169,8 +1242,8 @@ def personalizar_componentes_plantilla(ruta_astro, nicho, palabras_clave):
                         
                         modificado = False
                         for orig, reemp in reemplazos_directos:
-                            if orig in content:
-                                content = content.replace(orig, reemp)
+                            content, fue_mod = flexible_replace(content, orig, reemp)
+                            if fue_mod:
                                 modificado = True
                         
                         if modificado:

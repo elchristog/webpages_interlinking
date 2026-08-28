@@ -30,7 +30,7 @@ const jobs = defineCollection({
       deadline: z.date().optional(),
       flag: z
         .object({
-          url: image(),
+          url: z.union([z.string(), image()]),
           alt: z.string(),
         })
         .optional(),
@@ -91,7 +91,7 @@ const candidates = defineCollection({
       status: z.string().optional(),
       avatar: z
         .object({
-          url: image(),
+          url: z.union([z.string(), image()]),
           alt: z.string(),
         })
         .optional(),
@@ -107,7 +107,7 @@ const team = defineCollection({
       role: z.string().optional(),
       bio: z.string().optional(),
       image: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
       socials: z
@@ -130,7 +130,7 @@ const posts = defineCollection({
       description: z.string(),
       team: z.string(),
       image: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
       tags: z.array(z.string()),

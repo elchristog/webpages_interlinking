@@ -16,11 +16,11 @@
   },
   "menu_global": [
     {
-      "nombre": "Título USA",
+      "nombre": "Homologar Título",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Guía NCLEX",
+      "nombre": "Prep NCLEX",
       "ruta": "/nclex"
     },
     {
@@ -28,23 +28,23 @@
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Migrar Legal",
+      "nombre": "Visa Trabajo",
       "ruta": "/visa"
     },
     {
-      "nombre": "Tablas Sueldos",
+      "nombre": "Sueldo Promedio",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Guías Tips",
+      "nombre": "Historias",
       "ruta": "/blog"
     },
     {
-      "nombre": "Consultar Ahora",
-      "ruta": "https://wa.me/ayuda"
+      "nombre": "Soporte",
+      "ruta": "https://wa.me/something"
     },
     {
-      "nombre": "Acceso",
+      "nombre": "Login",
       "ruta": "/login"
     }
   ],

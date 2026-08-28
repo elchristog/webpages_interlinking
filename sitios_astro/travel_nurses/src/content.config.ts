@@ -10,7 +10,7 @@ const authors = defineCollection({
       role: z.string().optional(),
       bio: z.string().optional(),
       image: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
       socials: z
@@ -41,11 +41,11 @@ const podcast = defineCollection({
       description: z.string(),
       author: z.string(),
       image: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
       guestAvatar: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
       episodeNumber: z.number().optional(),
@@ -71,7 +71,7 @@ const posts = defineCollection({
       description: z.string(),
       author: z.string(),
       image: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
       tags: z.array(z.string()),

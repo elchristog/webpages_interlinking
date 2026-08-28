@@ -18,7 +18,7 @@ const changelog = defineCollection({
       description: z.string(),
       pubDate: z.date(),
       image: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
     }),
@@ -48,7 +48,7 @@ const integrations = defineCollection({
         })
       ),
       logo: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
       tags: z.array(z.string()),
@@ -63,7 +63,7 @@ const team = defineCollection({
       role: z.string().optional(),
       bio: z.string().optional(),
       image: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
       socials: z
@@ -86,7 +86,7 @@ const postsCollection = defineCollection({
       description: z.string(),
       team: z.string(),
       image: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
       tags: z.array(z.string()),
@@ -103,7 +103,7 @@ const customers = defineCollection({
       testimonial: z.string().optional(),
       partnership: z.string().optional(),
       avatar: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
       challengesAndSolutions: z.array(
@@ -116,7 +116,7 @@ const customers = defineCollection({
       about: z.string(),
       details: z.record(z.string(), z.string()),
       logo: z.object({
-        url: image(),
+        url: z.union([z.string(), image()]),
         alt: z.string(),
       }),
     }),

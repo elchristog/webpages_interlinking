@@ -16,35 +16,35 @@
   },
   "menu_global": [
     {
-      "nombre": "Proceso Grado",
+      "nombre": "Validar Diploma",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "NCLEX Paso",
+      "nombre": "Superar NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Trabajo Hoy",
+      "nombre": "Ofertas Trabajo",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Visa Trabajo",
+      "nombre": "Green Card",
       "ruta": "/visa"
     },
     {
-      "nombre": "Cuanto Ganan",
+      "nombre": "Salario Real",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Casos Éxito",
+      "nombre": "Novedades",
       "ruta": "/blog"
     },
     {
-      "nombre": "Ayuda Chat",
+      "nombre": "Chat Directo",
       "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Login",
+      "nombre": "Portal RN",
       "ruta": "/login"
     }
   ],
