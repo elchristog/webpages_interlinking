@@ -16,35 +16,35 @@
   },
   "menu_global": [
     {
-      "nombre": "Título USA",
+      "nombre": "Revalidar Meta",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Estudio NCLEX",
+      "nombre": "Guía NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Trabajo Hoy",
+      "nombre": "Vacantes USA",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Green Card",
+      "nombre": "Residencia USA",
       "ruta": "/visa"
     },
     {
-      "nombre": "Sueldo Promedio",
+      "nombre": "Pagos RN",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Historias",
+      "nombre": "Guías Tips",
       "ruta": "/blog"
     },
     {
-      "nombre": "Soporte",
+      "nombre": "Chat Directo",
       "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Iniciar",
+      "nombre": "Mi Cuenta",
       "ruta": "/login"
     }
   ],
