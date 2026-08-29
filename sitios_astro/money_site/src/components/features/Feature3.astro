@@ -28,7 +28,7 @@ const allCustomers = await getCollection("customers");
     <div class="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-4">
       <div
         aria-hidden="true"
-        class="p-8 pb-0 overflow-hidden bg-sand-100 lg:col-span-2 lg:p-20 lg:pb-0 rounded-xl"
+        class="p-8 pb-0 overflow-hidden bg-sand-100 lg:col-span-2 lg:p-12 lg:pb-0 rounded-xl"
       >
         <div
           class="h-2 mx-8 bg-white border border-b-0 rounded-t-xl border-sand-500/20"
@@ -39,51 +39,55 @@ const allCustomers = await getCollection("customers");
         >
         </div>
         <div
-          class="bg-white outline outline-sand-500/10 rounded-xl shadow-sm divide-y divide-sand-500/10 -mb-[12%] overflow-hidden"
+          class="bg-white outline outline-sand-500/10 rounded-xl shadow-sm divide-y divide-sand-500/10 -mb-[5%] overflow-hidden"
         >
           <div
-            class="flex items-center justify-between px-4 py-2 text-xs bg-sand-50 text-base-600"
+            class="flex items-center justify-between px-4 py-2.5 text-xs bg-sand-50 text-base-600"
           >
-            <span>money_site Newsletter</span>
+            <span class="font-semibold text-base-900">Portal del Candidato — Seguimiento de Expediente</span>
             <div class="flex items-center gap-2">
-              <span class="text-xs text-base-400">a day ago</span>
+              <span class="text-xs text-accent-600 font-medium">Estado: En Proceso</span>
               <div
-                class="px-3 py-1 text-xs border rounded-full border-base-300 text-base-700 hover:bg-base-100"
+                class="px-3 py-1 text-xs text-white rounded-full bg-accent-600 font-medium"
               >
-                Test
-              </div>
-              <div
-                class="px-3 py-1 text-xs text-white rounded-full bg-base-900 hover:bg-accent-600"
-              >
-                Send
+                Activo
               </div>
             </div>
           </div>
-          <div class="px-6 py-4 text-xs space-y-4 text-base-700">
-            <div class="flex justify-between">
-              <span class="font-medium text-base-500">From</span>
-              <span class="text-base-900">your.name@lexingtonthemes.com</span>
+          <div class="px-6 py-4 text-xs space-y-3 text-base-700">
+            <div class="flex justify-between items-center border-b border-sand-100 pb-2">
+              <span class="font-medium text-base-500">Candidata:</span>
+              <span class="text-base-900 font-semibold">Enfermera Licenciada (RN)</span>
             </div>
-            <div class="flex items-center justify-between">
-              <span class="font-medium text-base-500">To</span>
+            <div class="flex items-center justify-between border-b border-sand-100 pb-2">
+              <span class="font-medium text-base-500">Etapa 1: Homologación CGFNS</span>
               <span
-                class="bg-base-100 text-base-700 text-xs font-medium px-2 py-0.5 rounded-full"
+                class="bg-emerald-100 text-emerald-800 text-xs font-semibold px-2.5 py-0.5 rounded-full"
               >
-                Newsletter Subscribers
+                ✓ Aprobado
               </span>
             </div>
-            <div class="flex justify-between">
-              <span class="font-medium text-base-500">Subject</span>
-              <span class="text-base-900">Weekly Newsletter</span>
+            <div class="flex items-center justify-between border-b border-sand-100 pb-2">
+              <span class="font-medium text-base-500">Etapa 2: NCLEX-RN Simulación</span>
+              <span
+                class="bg-accent-100 text-accent-800 text-xs font-semibold px-2.5 py-0.5 rounded-full"
+              >
+                94% de Precisión
+              </span>
+            </div>
+            <div class="flex items-center justify-between border-b border-sand-100 pb-2">
+              <span class="font-medium text-base-500">Etapa 3: Petición Migratoria EB-3</span>
+              <span
+                class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full"
+              >
+                I-140 Presentada
+              </span>
             </div>
           </div>
-          <div class="px-6 py-4 bg-white">
-            <div
-              contenteditable="true"
-              class="min-h-[200px] outline-none text-sm text-base-800"
-            >
-              <p class="italic text-base-400">Press '/' for commands</p>
-            </div>
+          <div class="px-6 py-4 bg-sand-50">
+            <p class="text-xs text-base-600 italic">
+              "Tu expediente avanza según el cronograma legal establecido. Próximo hito: emisión de cita consular."
+            </p>
           </div>
         </div>
       </div>

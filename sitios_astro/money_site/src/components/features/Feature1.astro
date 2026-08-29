@@ -1,227 +1,108 @@
 ---
 // Assets
-import { Code } from "astro:components";
 // Fundations
 import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
-// icons
-import Node from "@/components/fundations/icons/Node.astro";
-import Serverless from "@/components/fundations/icons/Serverless.astro";
-import Ruby from "@/components/fundations/icons/Ruby.astro";
-import Python from "@/components/fundations/icons/Python.astro";
-import Php from "@/components/fundations/icons/Php.astro";
-import Go from "@/components/fundations/icons/Go.astro";
-import Rust from "@/components/fundations/icons/Rust.astro";
-import Java from "@/components/fundations/icons/Java.astro";
-import Elixir from "@/components/fundations/icons/Elixir.astro";
-import Net from "@/components/fundations/icons/Net.astro";
-import Rest from "@/components/fundations/icons/Rest.astro";
-import Smtp from "@/components/fundations/icons/Smtp.astro";
 
-// Tabs
-const tabs = [
-  "node",
-  "serverless",
-  "ruby",
-  "python",
-  "php",
-  "go",
-  "rust",
-  "java",
-  "elixir",
-  "net",
-  "rest",
-  "smtp",
-];
+// Icons
+import Brain from "@/components/fundations/icons/Brain.astro";
+import WaveSquare from "@/components/fundations/icons/WaveSquare.astro";
+import Stacked from "@/components/fundations/icons/Stacked.astro";
+import Persist from "@/components/fundations/icons/Persist.astro";
+import Report from "@/components/fundations/icons/Report.astro";
+import Code from "@/components/fundations/icons/Code.astro";
 
-const labelMap = {
-  node: "Node.js",
-  serverless: "Serverless",
-  ruby: "Ruby",
-  python: "Python",
-  php: "PHP",
-  go: "Go",
-  rust: "Rust",
-  java: "Java",
-  elixir: "Elixir",
-  net: ".NET",
-  rest: "REST",
-  smtp: "SMTP",
-};
-
-const iconMap = {
-  node: Node,
-  serverless: Serverless,
-  ruby: Ruby,
-  python: Python,
-  php: Php,
-  go: Go,
-  rust: Rust,
-  java: Java,
-  elixir: Elixir,
-  net: Net,
-  rest: Rest,
-  smtp: Smtp,
-};
-const codeBlocks = [
+const stages = [
   {
-    id: "node",
-    lang: "js",
-    code: `const sdk = require('email-sdk');
-
-const message = {
-  to: 'user@example.com',
-  from: 'noreply@myapp.com',
-  subject: 'Welcome to MyApp',
-  body: \`Hi there,
-
-Thanks for signing up! We're thrilled to have you on board.
-
-– The MyApp Team\`,
-};
-
-sdk.send(message)
-  .then(() => console.log('Email sent'))
-  .catch(console.error);`,
+    id: "homologacion",
+    title: "1. Homologación",
+    subtitle: "Revalidación de Credenciales Universitarias",
+    icon: Brain,
+    duration: "2 - 3 Meses",
+    summary: "Revisión y validación de tu título universitario y plan de estudios ante CGFNS, WES o la Junta de Enfermería del estado correspondiente.",
+    requirements: [
+      "Título profesional de Enfermería traducido por perito oficial",
+      "Certificado de notas y horas de práctica clínica",
+      "Licencia profesional activa en tu país de origen",
+      "Verificación directa emitida por la universidad de origen"
+    ],
+    deliverable: "Reporte de Equivalencia Académica Aprobado"
   },
   {
-    id: "serverless",
-    lang: "js",
-    code: `exports.handler = async (event) => {
-  const { sendEmail } = require('email-sdk');
-
-  await sendEmail({
-    to: "user@example.com",
-    subject: "Serverless Email",
-    body: "Dispatched from Lambda with ❤️",
-  });
-
-  return {
-    statusCode: 200,
-    body: JSON.stringify({ message: "Email sent" }),
-  };
-};`,
+    id: "nclex",
+    title: "2. Examen NCLEX-RN",
+    subtitle: "Preparación Intensiva NGN",
+    icon: WaveSquare,
+    duration: "3 - 5 Meses",
+    summary: "Entrenamiento adaptativo con simuladores Next Generation NCLEX (NGN) y clases clínicas en vivo para asegurar tu aprobación en el primer intento.",
+    requirements: [
+      "Acceso a la plataforma interactiva de simulacros NGN",
+      "Evaluación continua por módulo de especialidad médica",
+      "Autorización para evaluar (ATT - Authorization to Test)",
+      "Programación de cita en centro evaluador Pearson VUE"
+    ],
+    deliverable: "Licencia de Registered Nurse (RN) Oficial"
   },
   {
-    id: "ruby",
-    lang: "rb",
-    code: `require 'email_sdk'
-
-EmailSDK.send(
-  to: "user@example.com",
-  from: "team@myapp.com",
-  subject: "Welcome!",
-  body: "Hello from Ruby. Your account has been created successfully."
-)`,
+    id: "ingles",
+    title: "3. Inglés Clínico",
+    subtitle: "Certificación de Dominio del Idioma",
+    icon: Stacked,
+    duration: "2 - 4 Meses",
+    summary: "Capacitación enfocada en comunicación hospitalaria y terminología médica para alcanzar el puntaje requerido en TOEFL iBT o IELTS Academic.",
+    requirements: [
+      "Módulos especializados en vocabulario y sintaxis médica",
+      "Prácticas de expresión oral (Speaking) con hablantes nativos",
+      "Simulacros oficiales de examen con retroalimentación",
+      "Puntaje objetivo: TOEFL iBT 84+ (26 speaking) o IELTS 6.5+"
+    ],
+    deliverable: "Certificado de Dominio de Inglés Aprobado"
   },
   {
-    id: "python",
-    lang: "py",
-    code: `import email_sdk
-
-email_sdk.send(
-  to="user@example.com",
-  from_="noreply@myapp.com",
-  subject="Your Receipt",
-  body="Thanks for your purchase! Here’s your confirmation."
-)`,
+    id: "contrato",
+    title: "4. Oferta Laboral",
+    subtitle: "Entrevistas y Contrato Directo con Hospitales",
+    icon: Persist,
+    duration: "1 - 2 Meses",
+    summary: "Presentación de tu perfil ante nuestra red de más de 45 sistemas de salud y hospitales de primer nivel en EE. UU. con ofertas salariales competitivas.",
+    requirements: [
+      "Formato de Currículum Clínico adaptado al estándar estadounidense",
+      "Entrevistas virtuales directas con directores de enfermería",
+      "Selección del estado de destino (Florida, Texas, Georgia, etc.)",
+      "Firma de contrato laboral directo con beneficios completos"
+    ],
+    deliverable: "Contrato Laboral Firmado con Patrocinio"
   },
   {
-    id: "php",
-    lang: "php",
-    code: `<?php
-EmailSDK::send([
-  'to' => 'user@example.com',
-  'from' => 'support@myapp.com',
-  'subject' => 'Password Reset',
-  'body' => "Click the link below to reset your password:\\nhttps://myapp.com/reset"
-]);`,
+    id: "visa",
+    title: "5. Visa EB-3",
+    subtitle: "Trámite de Residencia Permanente (Green Card)",
+    icon: Report,
+    duration: "6 - 12 Meses",
+    summary: "Gestión legal completa ante el USCIS y NVC para la emisión de la Visa EB-3 de Inmigrante para ti y tu grupo familiar directo.",
+    requirements: [
+      "Petición de Inmigrante I-140 presentada por el hospital",
+      "Procesamiento Consular en la Embajada de EE. UU. de tu país",
+      "Certificado VisaScreen oficial emitido por CGFNS",
+      "Examen médico migratorio y entrevista consular final"
+    ],
+    deliverable: "Visa EB-3 de Residencia Permanente Estampada"
   },
   {
-    id: "go",
-    lang: "go",
-    code: `email := Email{
-  To: "user@example.com",
-  From: "noreply@myapp.com",
-  Subject: "Go Email Example",
-  Body: "This email was sent using Go!",
-}
-
-if err := sdk.Send(email); err != nil {
-  log.Fatal("Failed to send:", err)
-}`,
-  },
-  {
-    id: "rust",
-    lang: "rs",
-    code: `let email = Email::new()
-  .to("user@example.com")
-  .from("noreply@myapp.com")
-  .subject("Hello from Rust")
-  .body("This is a longer Rust example.");
-
-email_sdk::send(email)?;`,
-  },
-  {
-    id: "java",
-    lang: "java",
-    code: `Email message = new Email.Builder()
-  .to("user@example.com")
-  .from("noreply@myapp.com")
-  .subject("Java Email")
-  .body("This email was sent from Java!")
-  .build();
-
-EmailSDK.send(message);`,
-  },
-  {
-    id: "elixir",
-    lang: "elixir",
-    code: `EmailSDK.send(%{
-  to: "user@example.com",
-  from: "noreply@myapp.com",
-  subject: "Elixir Example",
-  body: "This was delivered using Elixir!"
-})`,
-  },
-  {
-    id: "net",
-    lang: "csharp",
-    code: `var email = new Email {
-  To = "user@example.com",
-  From = "noreply@myapp.com",
-  Subject = "Welcome from .NET",
-  Body = "You're all set. Happy coding!"
-};
-
-EmailSDK.Send(email);`,
-  },
-  {
-    id: "rest",
-    lang: "json",
-    code: `POST /send
-Content-Type: application/json
-
-{
-  "to": "user@example.com",
-  "from": "noreply@myapp.com",
-  "subject": "Hello from REST",
-  "body": "Sent using a simple POST request."
-}`,
-  },
-  {
-    id: "smtp",
-    lang: "txt",
-    code: `EHLO smtp.myapp.com
-MAIL FROM:<noreply@myapp.com>
-RCPT TO:<user@example.com>
-DATA
-Subject: SMTP Welcome
-
-Welcome to MyApp via SMTP!
-.
-QUIT`,
-  },
+    id: "relocalizacion",
+    title: "6. Relocalización",
+    subtitle: "Llegada e Incorporación al Hospital",
+    icon: Code,
+    duration: "Paso Final",
+    summary: "Acompañamiento integral a tu llegada a EE. UU., incluyendo bono de reubicación, vivienda temporal, SSN y orientación laboral inicial.",
+    requirements: [
+      "Boleto aéreo de llegada y bono de instalación asignado",
+      "Coordinación de vivienda temporal y transporte local",
+      "Obtención del Número de Seguro Social (SSN)",
+      "Programa de inducción y bienvenida formal en el hospital"
+    ],
+    deliverable: "Primer Día de Trabajo como RN en Estados Unidos"
+  }
 ];
 ---
 
@@ -240,90 +121,115 @@ QUIT`,
         variant="textBase"
         class="max-w-xl mx-auto mt-4 text-base-500"
       >
-        Un programa estructurado para acompañarte desde la convalidación de tu título hasta tu primer día de trabajo en un hospital estadounidense.
+        Un programa estructurado paso a paso para acompañarte desde la convalidación de tu título hasta tu primer día de trabajo en un hospital estadounidense.
       </Text>
     </div>
 
     <!-- Tabs -->
     <div
-      class="flex items-center justify-between w-full py-2 mt-12 overflow-x-scroll gap-3 scrollbar-hide"
+      class="flex items-center justify-between w-full py-4 mt-8 overflow-x-auto gap-3 scrollbar-hide border-b border-sand-200"
     >
       {
-        tabs.map((lang, i) => {
-          const Icon = iconMap[lang];
+        stages.map((stage, i) => {
+          const Icon = stage.icon;
           return (
             <button
-              class="flex flex-col items-center w-full cursor-pointer gap-2"
-              id={`tab-${lang}`}
-              data-tab={lang}
+              class={`flex flex-col items-center min-w-[130px] w-full cursor-pointer p-3 rounded-xl transition-all duration-200 ${
+                i === 0 ? "bg-sand-200 text-black font-semibold" : "bg-sand-50 text-base-500 hover:bg-sand-100"
+              }`}
+              id={`tab-${stage.id}`}
+              data-tab={stage.id}
             >
-              <div
-                class="p-2 bg-sand-100 rounded-xl"
-                class={` ${
-                  i === 0 ? "opacity-100 " : "opacity-50 hover:opacity-100"
-                }`}
-              >
-                <Icon class="mx-auto size-8" />
+              <div class="p-2 bg-white rounded-lg shadow-sm mb-1">
+                <Icon class="size-6 text-accent-600" />
               </div>
-              <span class="mt-2 text-xs text-base-500">{labelMap[lang]}</span>
+              <span class="text-xs text-center">{stage.title}</span>
             </button>
           );
         })
       }
     </div>
-    <div class="mt-8 -m-4 border-t border-base-200 border-dashed">
+
+    <!-- Stage Content Cards -->
+    <div class="mt-8">
       {
-        codeBlocks.map(({ id, lang, code }, index) => (
-          <div id={`content-${id}`} class={index === 0 ? "" : "hidden"}>
-            <div class="h-full overflow-hidden  divide-y divide-sand-50">
-              <div class="p-4  bg-sand-100">
-                <div class="flex items-center gap-1">
-                  <div class="size-2 rounded-full bg-[#ff421e]" />
-                  <div class="size-2 rounded-full bg-[#60beff]" />
-                  <div class="size-2 rounded-full bg-[#e3962d]" />
+        stages.map((stage, index) => (
+          <div id={`content-${stage.id}`} class={index === 0 ? "" : "hidden"}>
+            <div class="p-6 md:p-8 bg-sand-100 rounded-2xl border border-sand-200 shadow-sm">
+              <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-sand-200">
+                <div>
+                  <span class="inline-block px-3 py-1 text-xs font-semibold text-accent-700 bg-accent-100 rounded-full mb-2">
+                    Etapa {index + 1} de 6
+                  </span>
+                  <h3 class="text-xl font-bold text-base-900">{stage.subtitle}</h3>
+                  <p class="mt-1 text-sm text-base-600 max-w-2xl">{stage.summary}</p>
+                </div>
+                <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-xl shadow-xs border border-sand-200 self-start md:self-auto">
+                  <span class="text-xs font-medium text-base-500">Tiempo Estimado:</span>
+                  <span class="text-xs font-bold text-accent-600">{stage.duration}</span>
                 </div>
               </div>
-              <Code
-                lang={lang}
-                theme="css-variables"
-                class="h-full p-4 pl-2 text-xs scrollbar-hide"
-                code={code}
-              />
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                <div class="md:col-span-2">
+                  <h4 class="text-sm font-semibold text-base-900 mb-3 flex items-center gap-2">
+                    <span class="size-2 rounded-full bg-accent-500"></span> Requisitos y Actividades Clave:
+                  </h4>
+                  <ul class="space-y-2">
+                    {stage.requirements.map((req) => (
+                      <li class="flex items-start gap-2 text-xs md:text-sm text-base-700 bg-white/70 p-2.5 rounded-lg border border-sand-200/60">
+                        <span class="text-accent-500 font-bold">✓</span>
+                        <span>{req}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div class="flex flex-col justify-between p-5 bg-white rounded-xl border border-sand-200 shadow-xs">
+                  <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-base-400 mb-2">Entregable de la Etapa</h4>
+                    <p class="text-sm font-bold text-base-900 leading-snug">{stage.deliverable}</p>
+                  </div>
+                  <div class="mt-4 pt-4 border-t border-sand-100">
+                    <span class="text-[11px] text-base-500 block mb-2">Soporte continuo de nuestro equipo legal y docente.</span>
+                    <a href="#contacto" class="inline-flex items-center text-xs font-semibold text-accent-600 hover:text-accent-700">
+                      Iniciar esta etapa →
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         ))
       }
     </div>
 
-    <!-- JS -->
+    <!-- JS for Tabs -->
     <script type="module">
-      const tabs = [
-        "node",
-        "serverless",
-        "ruby",
-        "python",
-        "php",
-        "go",
-        "rust",
-        "java",
-        "elixir",
-        "net",
-        "rest",
-        "smtp",
-      ];
+      const stageIds = ["homologacion", "nclex", "ingles", "contrato", "visa", "relocalizacion"];
 
-      tabs.forEach((lang) => {
-        const button = document.getElementById(`tab-${lang}`);
+      stageIds.forEach((id) => {
+        const button = document.getElementById(`tab-${id}`);
+        if (!button) return;
         button.addEventListener("click", () => {
-          tabs.forEach((l) => {
-            document.getElementById(`tab-${l}`).classList.remove("opacity-100");
-            document.getElementById(`tab-${l}`).classList.add("opacity-50");
-            document.getElementById(`content-${l}`).classList.add("hidden");
+          stageIds.forEach((s) => {
+            const btn = document.getElementById(`tab-${s}`);
+            const content = document.getElementById(`content-${s}`);
+            if (btn) {
+              btn.classList.remove("bg-sand-200", "text-black", "font-semibold");
+              btn.classList.add("bg-sand-50", "text-base-500");
+            }
+            if (content) {
+              content.classList.add("hidden");
+            }
           });
 
-          button.classList.remove("opacity-50");
-          button.classList.add("opacity-100");
-          document.getElementById(`content-${lang}`).classList.remove("hidden");
+          button.classList.remove("bg-sand-50", "text-base-500");
+          button.classList.add("bg-sand-200", "text-black", "font-semibold");
+          const targetContent = document.getElementById(`content-${id}`);
+          if (targetContent) {
+            targetContent.classList.remove("hidden");
+          }
         });
       });
     </script>
