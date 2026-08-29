@@ -880,6 +880,7 @@ def auditar_y_limpiar_integridad(sitio_id, ruta_astro, configuracion_actual, man
         "something": "ayuda"
     }
 
+    descripcion_base = configuracion_actual.get("seo", {}).get("descripcion_base", "Agencia especializada en la homologación de títulos, preparación NCLEX-RN y patrocinio de visa EB-3 para enfermeras internacionales en Estados Unidos.")
     # Cargar reglas de reemplazo definidas explícitamente en el manifiesto JSON
     for regla in manifiesto.get("reglas_reemplazo", []):
         buscar = regla.get("buscar")
@@ -888,7 +889,8 @@ def auditar_y_limpiar_integridad(sitio_id, ruta_astro, configuracion_actual, man
             valor_real = rem.replace("{sitio_nombre}", nombre_sitio)\
                             .replace("{empresa_legal}", empresa_legal)\
                             .replace("{whatsapp_numero}", "123456789")\
-                            .replace("{dominio_sitio}", dominio_sitio)
+                            .replace("{dominio_sitio}", dominio_sitio)\
+                            .replace("{seo_descripcion_base}", descripcion_base)
             reemplazos_directos[buscar] = valor_real
 
     archivos_limpiados = 0

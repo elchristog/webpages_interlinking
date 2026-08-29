@@ -16,7 +16,7 @@
   },
   "menu_global": [
     {
-      "nombre": "Título USA",
+      "nombre": "Validar Título",
       "ruta": "/homologacion"
     },
     {
@@ -24,15 +24,15 @@
       "ruta": "/nclex"
     },
     {
-      "nombre": "Empleos RN",
+      "nombre": "Trabajo Hoy",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Visa EB-3",
+      "nombre": "Migrar Legal",
       "ruta": "/visa"
     },
     {
-      "nombre": "Ingresos USA",
+      "nombre": "Tablas Sueldos",
       "ruta": "/salarios"
     },
     {
@@ -40,11 +40,11 @@
       "ruta": "/blog"
     },
     {
-      "nombre": "Hablar Asesor",
+      "nombre": "Consultar Ahora",
       "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Mi Cuenta",
+      "nombre": "Entrar",
       "ruta": "/login"
     }
   ],

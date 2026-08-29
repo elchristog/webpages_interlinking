@@ -37,6 +37,21 @@
       "buscar": "TU_NUMERO_DE_WHATSAPP",
       "reemplazar_con": "{whatsapp_numero}",
       "sensible_mayusculas": true
+    },
+    {
+      "buscar": "Red PBN & Interlinking",
+      "reemplazar_con": "Recursos Recomendados EE. UU.",
+      "sensible_mayusculas": false
+    },
+    {
+      "buscar": "Premium multipage themes crafted with Astro and Tailwind CSS",
+      "reemplazar_con": "{seo_descripcion_base}",
+      "sensible_mayusculas": false
+    },
+    {
+      "buscar": "money_site",
+      "reemplazar_con": "{sitio_nombre}",
+      "sensible_mayusculas": false
     }
   ],
   "blacklist_placeholders": [
@@ -45,6 +60,9 @@
     "TU_NUMERO_DE_WHATSAPP",
     "Lorem ipsum",
     "dolor sit amet",
-    "something"
+    "something",
+    "Red PBN & Interlinking",
+    "Premium multipage themes",
+    "money_site"
   ]
 }
