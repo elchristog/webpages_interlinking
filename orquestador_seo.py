@@ -640,8 +640,8 @@ const footerLinks = [
     links: siteMenu
   },
   {
-    heading: "Red PBN & Interlinking",
-    title: "Red PBN & Interlinking",
+    heading: "Recursos Recomendados EE. UU.",
+    title: "Recursos Recomendados EE. UU.",
     links: interlinkLinks
   },
   {

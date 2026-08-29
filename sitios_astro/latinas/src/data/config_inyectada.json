@@ -16,23 +16,23 @@
   },
   "menu_global": [
     {
-      "nombre": "Validar Título",
+      "nombre": "Revalidar Meta",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Guía NCLEX",
+      "nombre": "Pasar NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Buscar Trabajo",
+      "nombre": "Trabajo Hoy",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Visa Trabajo",
+      "nombre": "Green Card",
       "ruta": "/visa"
     },
     {
-      "nombre": "Tablas Sueldos",
+      "nombre": "Sueldos USA",
       "ruta": "/salarios"
     },
     {
@@ -40,11 +40,11 @@
       "ruta": "/blog"
     },
     {
-      "nombre": "Soporte",
-      "ruta": "https://wa.me/something"
+      "nombre": "Consultar Ahora",
+      "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Entrar",
+      "nombre": "Mi Cuenta",
       "ruta": "/login"
     }
   ],

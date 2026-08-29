@@ -16,7 +16,7 @@
   },
   "menu_global": [
     {
-      "nombre": "Proceso Grado",
+      "nombre": "Validar Diploma",
       "ruta": "/homologacion"
     },
     {
@@ -24,7 +24,7 @@
       "ruta": "/nclex"
     },
     {
-      "nombre": "Puestos Libres",
+      "nombre": "Vacantes USA",
       "ruta": "/vacantes"
     },
     {
@@ -32,19 +32,19 @@
       "ruta": "/visa"
     },
     {
-      "nombre": "Sueldos USA",
+      "nombre": "Ingresos USA",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Novedades",
+      "nombre": "Casos Éxito",
       "ruta": "/blog"
     },
     {
-      "nombre": "Ayuda Chat",
+      "nombre": "WhatsApp",
       "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Portal RN",
+      "nombre": "Iniciar",
       "ruta": "/login"
     }
   ],

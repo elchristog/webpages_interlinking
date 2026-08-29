@@ -16,27 +16,27 @@
   },
   "menu_global": [
     {
-      "nombre": "Diploma Online",
+      "nombre": "Título USA",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Estudio NCLEX",
+      "nombre": "Superar NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Ofertas Trabajo",
+      "nombre": "Empleos RN",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Trámite EB3",
+      "nombre": "Visa EB-3",
       "ruta": "/visa"
     },
     {
-      "nombre": "Sueldo Promedio",
+      "nombre": "Ingresos USA",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Novedades",
+      "nombre": "Historias",
       "ruta": "/blog"
     },
     {
@@ -44,7 +44,7 @@
       "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Acceso",
+      "nombre": "Mi Cuenta",
       "ruta": "/login"
     }
   ],

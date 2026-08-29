@@ -39,8 +39,8 @@ const footerLinks = [
     links: siteMenu
   },
   {
-    heading: "Red PBN & Interlinking",
-    title: "Red PBN & Interlinking",
+    heading: "Recursos Recomendados EE. UU.",
+    title: "Recursos Recomendados EE. UU.",
     links: interlinkLinks
   },
   {
@@ -61,14 +61,14 @@ const links = footerLinks;
       <div class="text-black">
         <a
           href="/"
-          class="flex items-center font-serif text-lg gap-2 text-accent-900"
+          class="flex items-center font-serif text-lg gap-2 text-accent-900 font-bold"
         >
           <span class="sr-only">Go to homepage</span>
           <Logo class="h-4 text-base-900" />
-          money_site
+          {config.nombre_sitio || config.footer?.empresa_legal || "Enfermera en Estados Unidos"}
         </a>
-        <p class="mt-1 text-sm font-normal text-base-500 text-balance">
-          Premium multipage themes crafted with Astro and Tailwind CSS
+        <p class="mt-2 text-sm font-normal text-base-500 text-balance leading-relaxed">
+          {config.seo?.descripcion_base || "Agencia especializada en la homologación de títulos, preparación NCLEX-RN y patrocinio de visa EB-3 para enfermeras internacionales en Estados Unidos."}
         </p>
       </div>
       <div class="md:grid md:grid-cols-2 xl:grid-cols-4 md:gap-8 xl:col-span-2">

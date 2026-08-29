@@ -16,15 +16,15 @@
   },
   "menu_global": [
     {
-      "nombre": "Revalidar Meta",
+      "nombre": "Validar Título",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Pasar NCLEX",
+      "nombre": "Prep NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Vacantes USA",
+      "nombre": "Empleos RN",
       "ruta": "/vacantes"
     },
     {
@@ -32,19 +32,19 @@
       "ruta": "/visa"
     },
     {
-      "nombre": "Salario Real",
+      "nombre": "Pagos RN",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Guías Tips",
+      "nombre": "Actualidad",
       "ruta": "/blog"
     },
     {
-      "nombre": "Soporte",
+      "nombre": "WhatsApp",
       "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Mi Cuenta",
+      "nombre": "Entrar",
       "ruta": "/login"
     }
   ],
