@@ -871,6 +871,7 @@ def auditar_y_limpiar_integridad(sitio_id, ruta_astro, configuracion_actual, man
 
     nombre_sitio = configuracion_actual.get("nombre", sitio_id)
     empresa_legal = configuracion_actual.get("footer", {}).get("empresa_legal", "Enfermera en Estados Unidos")
+    dominio_sitio = configuracion_actual.get("dominio", "enfermeraeeu.com").replace("https://", "").replace("http://", "")
 
     reemplazos_directos = {
         "Brightlight": nombre_sitio,
@@ -878,6 +879,17 @@ def auditar_y_limpiar_integridad(sitio_id, ruta_astro, configuracion_actual, man
         "TU_NUMERO_DE_WHATSAPP": "123456789",
         "something": "ayuda"
     }
+
+    # Cargar reglas de reemplazo definidas explícitamente en el manifiesto JSON
+    for regla in manifiesto.get("reglas_reemplazo", []):
+        buscar = regla.get("buscar")
+        rem = regla.get("reemplazar_con")
+        if buscar and rem:
+            valor_real = rem.replace("{sitio_nombre}", nombre_sitio)\
+                            .replace("{empresa_legal}", empresa_legal)\
+                            .replace("{whatsapp_numero}", "123456789")\
+                            .replace("{dominio_sitio}", dominio_sitio)
+            reemplazos_directos[buscar] = valor_real
 
     archivos_limpiados = 0
     src_dir = os.path.join(ruta_astro, 'src')
