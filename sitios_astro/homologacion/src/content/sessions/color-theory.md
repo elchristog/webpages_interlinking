@@ -11,6 +11,9 @@ level: beginner
 tags:
   - color
   - accessibility
+
+author: "David Lee"
+team: "david-lee"
 ---
 
 Explore color harmonies, contrast, and how to build accessible palettes.

@@ -3,8 +3,11 @@ name: Swissted
 tier: silver
 url: "#_"
 logo:
-  url: /imagenes_proyecto/pasos-y-requisitos-legales-para-que-las-enfermeras-extrajeras-puedan-homologar-o-validar-su-t-tulo-de-enfermer-a-en-estados-unidos-7.webp
+  url: /src/images/blog/1.jpg
   alt: Swissted logo
+
+author: "David Lee"
+team: "david-lee"
 ---
 
 ## About Swissted

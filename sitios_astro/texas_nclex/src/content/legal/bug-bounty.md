@@ -1,6 +1,9 @@
 ---
 page: Bug Bounty
 pubDate: 2025-02-02
+
+author: "David Lee"
+team: "david-lee"
 ---
 
 

@@ -9,7 +9,7 @@ hiringPage: "#_"
 headquarters: "Barcelona"
 location: "Spain"
 size: "50+"
-logo: "/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-3.webp"
+logo: "/src/images/blog/1.jpg"
 industry: "Design Tools"
 socials:
   twitter: "#_"
@@ -34,4 +34,7 @@ benefits:
   - "Learning and conference budgets"
   - "Generous vacation policy"
   - "Early-stage equity options"
+
+author: "David Lee"
+team: "david-lee"
 ---

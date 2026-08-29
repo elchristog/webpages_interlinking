@@ -1,6 +1,9 @@
 ---
 page: Privacy
 pubDate: 2024-00-00
+
+author: "David Lee"
+team: "david-lee"
 ---
 
 California Resident Notice at Collection

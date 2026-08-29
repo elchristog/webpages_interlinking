@@ -9,7 +9,7 @@ hiringPage: "#_"
 headquarters: "San Francisco"
 location: "United States"
 size: "400+"
-logo: "/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-7.webp"
+logo: "/src/images/blog/1.jpg"
 industry: "Web Infrastructure"
 socials:
   twitter: "#_"
@@ -34,4 +34,7 @@ benefits:
   - "Unlimited PTO"
   - "Wellbeing and learning budgets"
   - "Equity and competitive compensation"
+
+author: "David Lee"
+team: "david-lee"
 ---

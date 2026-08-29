@@ -11,6 +11,9 @@ level: beginner
 tags:
   - white-space
   - uiux
+
+author: "David Lee"
+team: "david-lee"
 ---
 
 Discover the Swiss approach to minimalism and why less is often more.

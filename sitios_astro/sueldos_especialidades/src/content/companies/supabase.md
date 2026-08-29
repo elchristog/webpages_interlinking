@@ -9,7 +9,7 @@ hiringPage: "#_"
 headquarters: "San Francisco"
 location: "United States"
 size: "100+"
-logo: "/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-6.webp"
+logo: "/src/images/blog/1.jpg"
 industry: "Database & Developer Tools"
 socials:
   twitter: "#_"
@@ -33,4 +33,7 @@ benefits:
   - "Competitive compensation"
   - "Health insurance"
   - "Learning and development budget"
+
+author: "David Lee"
+team: "david-lee"
 ---

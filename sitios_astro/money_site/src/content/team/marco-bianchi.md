@@ -8,11 +8,14 @@ bio: |
 
   Marco is dedicated to making economics accessible, breaking down complex theories and trends into easily understandable concepts. He aims to equip readers with the knowledge they need to navigate the ever-evolving landscape of global finance.
 image:
-  url: "/imagenes_proyecto/enfermera-en-estados-unidos-gu-a-principal-2.webp"
+  url: "/src/images/blog/1.jpg"
   alt: "Marco Bianchi"
 socials:
   twitter: "#_"
   website: "#_"
   linkedin: "#_"
   email: "#_"
+
+author: "David Lee"
+team: "david-lee"
 ---

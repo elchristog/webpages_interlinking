@@ -3,7 +3,7 @@ name: Javier García
 role: Frontend Engineer
 company: España Innovación
 headshot:
-  url: /imagenes_proyecto/pasos-y-requisitos-legales-para-que-las-enfermeras-extrajeras-puedan-homologar-o-validar-su-t-tulo-de-enfermer-a-en-estados-unidos-12.webp
+  url: /src/images/blog/1.jpg
   alt: Javier García headshot
 location: Madrid, Spain
 summary: "Frontend engineer translating Swiss clarity into performant, accessible web systems."
@@ -18,6 +18,9 @@ socials:
   website: "#_"
 talks: []
 featured: false
+
+author: "David Lee"
+team: "david-lee"
 ---
 
 # Speaker Profile

@@ -2,6 +2,7 @@
 title: "Guía Oficial Para Obtener La Licencia De Registered Nurse (Rn) En Estados Unidos"
 pubDate: 2026-08-28
 description: "Guía definitiva sobre Guía oficial para obtener la licencia de Registered Nurse (RN) en Estados Unidos."
+author: "David Lee"
 team: "david-lee"
 image:
   url: "/src/images/blog/1.jpg"

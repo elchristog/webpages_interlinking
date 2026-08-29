@@ -16,7 +16,7 @@
   },
   "menu_global": [
     {
-      "nombre": "Homologar Título",
+      "nombre": "Diploma Online",
       "ruta": "/homologacion"
     },
     {
@@ -24,23 +24,23 @@
       "ruta": "/nclex"
     },
     {
-      "nombre": "Bolsa Empleo",
+      "nombre": "Vacantes USA",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Visa EB-3",
+      "nombre": "Residencia USA",
       "ruta": "/visa"
     },
     {
-      "nombre": "Tablas Sueldos",
+      "nombre": "Sueldo Promedio",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Blog Oficial",
+      "nombre": "Guías Tips",
       "ruta": "/blog"
     },
     {
-      "nombre": "Consultar Ahora",
+      "nombre": "WhatsApp",
       "ruta": "https://wa.me/ayuda"
     },
     {

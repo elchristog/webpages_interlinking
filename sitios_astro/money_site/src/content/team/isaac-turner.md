@@ -8,11 +8,14 @@ bio: |
 
   Whether examining the impact of new technologies or the revival of past trends, Isaac's writing is an insightful commentary on the cultural forces that influence us all.
 image:
-  url: "/imagenes_proyecto/enfermera-en-estados-unidos-gu-a-principal-10.webp"
+  url: "/src/images/blog/1.jpg"
   alt: "Isaac Turner"
 socials:
   twitter: "#_"
   website: "#_"
   linkedin: "#_"
   email: "#_"
+
+author: "David Lee"
+team: "david-lee"
 ---

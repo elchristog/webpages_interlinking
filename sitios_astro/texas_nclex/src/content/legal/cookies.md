@@ -1,6 +1,9 @@
 ---
 page: Cookies
 pubDate: 2024-01-01
+
+author: "David Lee"
+team: "david-lee"
 ---
 This cookie policy describes how Simplexity (Simplexity) uses “cookies” and other similar technologies, in connection with our Site and Services. For more information on Simplexity privacy practices, please see our Privacy Policy.
 ### About cookies

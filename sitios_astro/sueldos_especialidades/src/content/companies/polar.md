@@ -9,7 +9,7 @@ hiringPage: "#_"
 headquarters: "Remote"
 location: "Global"
 size: "20+"
-logo: "/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-4.webp"
+logo: "/src/images/blog/1.jpg"
 industry: "Open Source Funding"
 socials:
   twitter: "#_"
@@ -33,4 +33,7 @@ benefits:
   - "Flexible hours"
   - "Competitive compensation"
   - "Open source contribution time"
+
+author: "David Lee"
+team: "david-lee"
 ---

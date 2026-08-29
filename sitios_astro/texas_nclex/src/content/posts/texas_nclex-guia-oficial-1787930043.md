@@ -2,13 +2,14 @@
 title: "Guía Táctica Para Pasar El Nclex, Trámites Cgfns Y Requisitos Del Board Of Nursing En Texas"
 pubDate: 2026-08-28
 description: "Guía definitiva sobre Guía táctica para pasar el NCLEX, trámites CGFNS y requisitos del Board of Nursing en Texas."
+author: "David Lee"
 team: "david-lee"
 image:
   url: "/src/images/blog/1.jpg"
   alt: "Guía Táctica Para Pasar El Nclex, Trámites Cgfns Y Requisitos Del Board Of Nursing En Texas"
 tags:
   - enfermeria
-  - empleos
+  - texas_nclex
 ---
 
 <section class="ui-hero-product ui-preset--professional">

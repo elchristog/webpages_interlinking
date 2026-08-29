@@ -9,7 +9,7 @@ hiringPage: "#_"
 headquarters: "San Francisco"
 location: "United States"
 size: "7000+"
-logo: "/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-5.webp"
+logo: "/src/images/blog/1.jpg"
 industry: "Fintech"
 socials:
   twitter: "#_"
@@ -34,4 +34,7 @@ benefits:
   - "Wellness and learning stipends"
   - "Generous parental leave"
   - "Global mobility opportunities"
+
+author: "David Lee"
+team: "david-lee"
 ---

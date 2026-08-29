@@ -8,11 +8,14 @@ bio: |
 
   With a keen eye on the future of health, Leila’s reporting aims to inform readers about the transformative changes happening in healthcare, making complex medical topics more accessible to the general public.
 image:
-  url: "/imagenes_proyecto/enfermera-en-estados-unidos-gu-a-principal-1.webp"
+  url: "/src/images/blog/1.jpg"
   alt: "Leila Fernandez"
 socials:
   twitter: "#_"
   website: "#_"
   linkedin: "#_"
   email: "#_"
+
+author: "David Lee"
+team: "david-lee"
 ---

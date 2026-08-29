@@ -8,11 +8,14 @@ bio: |
 
   As an advocate for financial education, Oliver also emphasizes the importance of financial literacy, offering actionable advice for readers to take control of their financial futures. His work aims to simplify complex financial concepts and empower individuals to make informed decisions about their wealth-building journey.
 image:
-  url: "/imagenes_proyecto/enfermera-en-estados-unidos-gu-a-principal-4.webp"
+  url: "/src/images/blog/1.jpg"
   alt: "Oliver Grant"
 socials:
   twitter: "#_"
   website: "#_"
   linkedin: "#_"
   email: "#_"
+
+author: "David Lee"
+team: "david-lee"
 ---

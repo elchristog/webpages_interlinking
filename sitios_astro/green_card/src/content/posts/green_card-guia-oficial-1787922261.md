@@ -2,13 +2,14 @@
 title: "Requisitos Y Proceso Legal Detallado Para Obtener La Green Card (Residencia Permanente) Siendo Enfermera"
 pubDate: 2026-08-28
 description: "Guía definitiva sobre Requisitos y proceso legal detallado para obtener la Green Card (Residencia Permanente) siendo enfermera."
+author: "David Lee"
 team: "david-lee"
 image:
   url: "/src/images/blog/1.jpg"
   alt: "Requisitos Y Proceso Legal Detallado Para Obtener La Green Card (Residencia Permanente) Siendo Enfermera"
 tags:
   - enfermeria
-  - empleos
+  - green_card
 ---
 
 <section class="ui-hero-product ui-preset--emerald">

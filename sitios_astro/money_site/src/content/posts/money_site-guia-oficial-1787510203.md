@@ -1,14 +1,15 @@
 ---
 title: "Enfermera En Estados Unidos - Guía Principal"
-pubDate: 2026-08-23
+pubDate: 2026-08-28
 description: "Guía definitiva sobre Enfermera en Estados Unidos - Guía Principal."
+author: "David Lee"
 team: "david-lee"
 image:
   url: "/src/images/blog/1.jpg"
   alt: "Enfermera En Estados Unidos - Guía Principal"
 tags:
   - enfermeria
-  - empleos
+  - money_site
 ---
 
 <section class="ui-hero-agency ui-preset--light">

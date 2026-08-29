@@ -8,10 +8,13 @@ bio: |
 
   David’s work has been featured in top industry magazines, and he continues to be a leading voice for sustainability in the fashion world.
 image:
-  url: "/imagenes_proyecto/enfermera-en-estados-unidos-gu-a-principal-8.webp"
+  url: "/src/images/blog/1.jpg"
   alt: "#_"
 socials:
   twitter: "#_"
   website: "#_"
   linkedin: "#_"
+
+author: "David Lee"
+team: "david-lee"
 ---

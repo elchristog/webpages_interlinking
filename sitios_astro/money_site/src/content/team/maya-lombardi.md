@@ -8,11 +8,14 @@ bio: |
 
   Maya's work is dedicated to capturing the energy and transformation taking place in women’s sports, from grassroots initiatives to international tournaments. Her coverage is both informative and inspiring, offering fresh perspectives on the games, the athletes, and the fans.
 image:
-  url: "/imagenes_proyecto/enfermera-en-estados-unidos-gu-a-principal-3.webp"
+  url: "/src/images/blog/1.jpg"
   alt: "Maya Lombardi"
 socials:
   twitter: "#_"
   website: "#_"
   linkedin: "#_"
   email: "#_"
+
+author: "David Lee"
+team: "david-lee"
 ---

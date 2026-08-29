@@ -11,6 +11,9 @@ level: beginner
 tags:
   - ux
   - research
+
+author: "David Lee"
+team: "david-lee"
 ---
 
 A practical guide to planning and conducting user research for digital products.

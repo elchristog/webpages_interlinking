@@ -11,6 +11,9 @@ level: advanced
 tags:
   - modular
   - systems
+
+author: "David Lee"
+team: "david-lee"
 ---
 
 A deep dive into building flexible design systems inspired by Swiss rationality.

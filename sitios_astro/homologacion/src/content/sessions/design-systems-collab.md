@@ -11,6 +11,9 @@ level: advanced
 tags:
   - design-systems
   - teamwork
+
+author: "David Lee"
+team: "david-lee"
 ---
 
 Best practices for cross-functional teams working on design systems.

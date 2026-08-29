@@ -3,7 +3,7 @@ name: Anna Müller
 role: Product Designer
 company: Swiss Digital Studio
 headshot:
-  url: /imagenes_proyecto/pasos-y-requisitos-legales-para-que-las-enfermeras-extrajeras-puedan-homologar-o-validar-su-t-tulo-de-enfermer-a-en-estados-unidos-10.webp
+  url: /src/images/blog/1.jpg
   alt: Anna Müller headshot
 location: Zurich, Switzerland
 summary: "Programme chair focused on translating Swiss grid discipline into scalable product systems."
@@ -18,6 +18,9 @@ socials:
   website: "#_"
 talks: ["modular-design-systems"]
 featured: true
+
+author: "David Lee"
+team: "david-lee"
 ---
 
 ## About Anna

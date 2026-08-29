@@ -2,13 +2,14 @@
 title: "Proceso Paso A Paso Y Agencias De Enfermería En Usa Para Enfermeras Latinas De Toda Latinoamérica"
 pubDate: 2026-08-28
 description: "Guía definitiva sobre Proceso paso a paso y agencias de enfermería en USA para enfermeras latinas de toda latinoamérica."
+author: "David Lee"
 team: "david-lee"
 image:
   url: "/src/images/blog/1.jpg"
   alt: "Proceso Paso A Paso Y Agencias De Enfermería En Usa Para Enfermeras Latinas De Toda Latinoamérica"
 tags:
   - enfermeria
-  - empleos
+  - latinas
 ---
 
 <section class="ui-hero-product ui-preset--midnight">

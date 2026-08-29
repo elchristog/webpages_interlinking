@@ -3,7 +3,7 @@ name: Sofia Hagblom
 role: Visual Designer
 company: Swiss Creative Group
 headshot:
-  url: /imagenes_proyecto/pasos-y-requisitos-legales-para-que-las-enfermeras-extrajeras-puedan-homologar-o-validar-su-t-tulo-de-enfermer-a-en-estados-unidos-3.webp
+  url: /src/images/blog/1.jpg
   alt: Sofia hagblom headshot
 location: Geneva, Switzerland
 summary: "Visual designer merging Swiss minimalism with expressive colour and accessible storytelling."
@@ -18,6 +18,9 @@ socials:
   website: "#_"
 talks: []
 featured: false
+
+author: "David Lee"
+team: "david-lee"
 ---
 
 # Speaker Profile

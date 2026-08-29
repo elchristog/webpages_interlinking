@@ -11,6 +11,9 @@ level: intermediate
 tags:
   - proportion
   - harmony
+
+author: "David Lee"
+team: "david-lee"
 ---
 
 Techniques and examples for achieving balance in digital design, the Swiss way.

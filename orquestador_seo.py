@@ -913,23 +913,24 @@ def auditar_y_limpiar_integridad(sitio_id, ruta_astro, configuracion_actual, man
                             modificado = True
 
                     norm_filepath = filepath.replace('\\', '/')
-                    if file.endswith('.md') and ('/content/posts' in norm_filepath or '/content/articulos' in norm_filepath) and content.startswith('---'):
+                    if file.endswith('.md') and content.startswith('---'):
                         parts = content.split('---', 2)
                         if len(parts) >= 3:
                             fm = parts[1]
                             body = parts[2]
                             if '/imagenes_proyecto/' in fm:
                                 import re
-                                fm = re.sub(r'url:\s*["\']/imagenes_proyecto/[^"\']+["\']', 'url: "/src/images/blog/1.jpg"', fm)
+                                fm = re.sub(r'/imagenes_proyecto/[^\s"\']+', '/src/images/blog/1.jpg', fm)
                                 content = f'---{fm}---' + body
                                 modificado = True
-                            elif 'titulo:' in fm or 'fecha:' in fm or 'descripcion:' in fm or 'title:' not in fm or 'pubDate:' not in fm or 'team:' not in fm or 'image:' not in fm or 'tags:' not in fm:
+                            
+                            if ('/content/posts' in norm_filepath or '/content/articulos' in norm_filepath) and ('author:' not in fm or 'team:' not in fm or 'titulo:' in fm or 'title:' not in fm):
                                 import re
                                 title_match = re.search(r'(?:title|titulo):\s*\"?([^\n\"]+)\"?', fm)
                                 title = title_match.group(1) if title_match else 'Guía Oficial de Enfermería'
                                 desc_match = re.search(r'(?:description|descripcion):\s*\"?([^\n\"]+)\"?', fm)
                                 desc = desc_match.group(1) if desc_match else f'Guía completa sobre {title}.'
-                                new_fm = f'\ntitle: "{title}"\npubDate: 2026-08-28\ndescription: "{desc}"\nteam: "david-lee"\nimage:\n  url: "/src/images/blog/1.jpg"\n  alt: "{title}"\ntags:\n  - enfermeria\n  - {sitio_id}\n'
+                                new_fm = f'\ntitle: "{title}"\npubDate: 2026-08-28\ndescription: "{desc}"\nauthor: "David Lee"\nteam: "david-lee"\nimage:\n  url: "/src/images/blog/1.jpg"\n  alt: "{title}"\navatar:\n  url: "/src/images/blog/1.jpg"\n  alt: "{title}"\ntags:\n  - enfermeria\n  - {sitio_id}\n'
                                 content = f'---{new_fm}---' + body
                                 modificado = True
 

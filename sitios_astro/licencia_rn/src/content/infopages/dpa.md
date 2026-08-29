@@ -1,6 +1,9 @@
 ---
 page: DPA
 pubDate: 2024-00-00
+
+author: "David Lee"
+team: "david-lee"
 ---
 # Data Processing Agreement (DPA)
 

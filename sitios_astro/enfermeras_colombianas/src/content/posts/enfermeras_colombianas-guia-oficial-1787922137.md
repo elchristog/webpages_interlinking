@@ -2,13 +2,14 @@
 title: "Guía Exclusiva Para Revalidar Título Desde Colombia Y Agencias Especializadas En Reclutar Talento Colombiano"
 pubDate: 2026-08-28
 description: "Guía definitiva sobre Guía exclusiva para revalidar título desde Colombia y agencias especializadas en reclutar talento colombiano."
+author: "David Lee"
 team: "david-lee"
 image:
   url: "/src/images/blog/1.jpg"
   alt: "Guía Exclusiva Para Revalidar Título Desde Colombia Y Agencias Especializadas En Reclutar Talento Colombiano"
 tags:
   - enfermeria
-  - empleos
+  - enfermeras_colombianas
 ---
 
 <section class="ui-hero-product ui-preset--emerald">

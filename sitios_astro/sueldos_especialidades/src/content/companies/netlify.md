@@ -9,7 +9,7 @@ hiringPage: "#_"
 headquarters: "San Francisco"
 location: "United States"
 size: "300+"
-logo: "/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-2.webp"
+logo: "/src/images/blog/1.jpg"
 industry: "Web Infrastructure"
 socials:
   twitter: "#_"
@@ -34,4 +34,7 @@ benefits:
   - "Home office stipend"
   - "Learning and development support"
   - "Competitive health benefits"
+
+author: "David Lee"
+team: "david-lee"
 ---

@@ -1,6 +1,9 @@
 ---
 page: Terms
 pubDate: 2023-12-22
+
+author: "David Lee"
+team: "david-lee"
 ---
 This privacy policy sets out how Unwrapped AB collects, processes and uses your Personal Information through your use of our Services.
 

@@ -8,11 +8,14 @@ bio: |
 
   Her articles inspire wanderlust and offer practical advice for fellow travelers seeking their next great adventure.
 image:
-  url: "/imagenes_proyecto/enfermera-en-estados-unidos-gu-a-principal-9.webp"
+  url: "/src/images/blog/1.jpg"
   alt: "Emma Carter"
 socials:
   twitter: "#_"
   website: "#_"
   linkedin: "#_"
   email: "#_"
+
+author: "David Lee"
+team: "david-lee"
 ---
