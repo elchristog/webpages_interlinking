@@ -10,7 +10,7 @@ import Search from "@/components/global/Search.astro";
 // Hides nav and footer on selected screens by passing
 // the hideNav and hideFooter props
 // <BaseLayout hideNav={true} hideFooter={true}>
-const { title, description,  hideNav = false, hideFooter = false } = Astro.props;
+const { title = "Enfermería Florida Hoy", description = "Guía oficial y vacantes para enfermeras en Estados Unidos.", hideNav = false, hideFooter = false } = Astro.props;
 // Scripts
 import ToggleScript from "@/components/fundations/scripts/ToggleScript.astro";
 ---

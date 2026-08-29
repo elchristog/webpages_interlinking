@@ -946,6 +946,52 @@ def auditar_y_limpiar_integridad(sitio_id, ruta_astro, configuracion_actual, man
     else:
         print(f"[Auditor Manifiesto] Auditoría completada para {sitio_id}: 0 placeholders detectados.")
 
+def estandarizar_baselayout(ruta_astro, configuracion_actual):
+    """
+    Garantiza que src/layouts/BaseLayout.astro tenga definida la desestructuración de props
+    con valores por defecto seguros (title y description) para evitar fallos de compilación en Astro (404/prerender).
+    """
+    baselayout_path = os.path.join(ruta_astro, 'src', 'layouts', 'BaseLayout.astro')
+    if not os.path.exists(baselayout_path):
+        return
+
+    try:
+        with open(baselayout_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+
+        nombre_sitio = configuracion_actual.get('nombre_sitio', 'Enfermera en EE. UU.')
+        desc_sitio = configuracion_actual.get('descripcion', 'Guía oficial y vacantes para enfermeras en Estados Unidos.')
+
+        if "---" in content:
+            parts = content.split("---", 2)
+            fm = parts[1]
+
+            if 'Astro.props' in fm:
+                extra_props = ""
+                if 'showSearch' in content:
+                    extra_props += ", showSearch = false"
+                if 'hideSearch' in content:
+                    extra_props += ", hideSearch = true"
+                if 'hideNavigation' in content:
+                    extra_props += ", hideNavigation = false"
+
+                fm = re.sub(
+                    r'const\s+\{[\s\S]*?\}\s*=\s*Astro\.props;',
+                    f'const {{ title = "{nombre_sitio}", description = "{desc_sitio}", hideNav = false, hideFooter = false{extra_props} }} = Astro.props;',
+                    fm
+                )
+            else:
+                props_code = f'\nconst {{ title = "{nombre_sitio}", description = "{desc_sitio}", hideNav = false, hideFooter = false }} = Astro.props;\n'
+                fm = fm.rstrip() + props_code
+
+            parts[1] = fm
+            content = "---".join(parts)
+            with open(baselayout_path, 'w', encoding='utf-8') as f:
+                f.write(content)
+            print(f"[BaseLayout Fix] Sincronizado BaseLayout en {baselayout_path}")
+    except Exception as e:
+        print(f"[-] Error estandarizando BaseLayout en {baselayout_path}: {e}")
+
 def compilar_y_persistir(sitio_id, ruta_proyecto, ruta_base, nombre_proyecto, nicho=""):
     """Construye el sitio y lo mueve a una carpeta persistente para su visualización."""
     ruta_sitios = os.path.join(ruta_base, 'sitios_generados', nombre_proyecto)
@@ -1354,6 +1400,9 @@ def procesar_sitio(sitio, config_global, config_menus, ruta_proyecto_config, rut
     manifiesto = cargar_manifiesto_plantilla(sitio['ruta_astro'])
     auditar_y_limpiar_integridad(sitio_id, sitio['ruta_astro'], configuracion_actual, manifiesto)
     
+    # NUEVO: Estandarizar BaseLayout para prevenir fallos de prerenderizado (ReferenceError: title is not defined)
+    estandarizar_baselayout(sitio['ruta_astro'], configuracion_actual)
+
     compilar_y_persistir(sitio_id, sitio['ruta_astro'], ruta_base, nombre_proyecto, sitio.get('nicho', ''))
     return {"id": sitio_id, "dominio": configuracion_actual["dominio"]}
 

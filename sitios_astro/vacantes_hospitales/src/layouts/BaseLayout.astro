@@ -10,7 +10,7 @@ import Navigation from "@/components/global/Navigation.astro";
 // Hides nav and footer on selected screens by passing
 // the hideNav and hideFooter props
 // <BaseLayout hideNav={true} hideFooter={true}>
-const { title, description,  hideNav = false, hideFooter = false } = Astro.props;
+const { title = "Vacantes Hospitales", description = "Guía oficial y vacantes para enfermeras en Estados Unidos.", hideNav = false, hideFooter = false } = Astro.props;
 ---
 
 <html

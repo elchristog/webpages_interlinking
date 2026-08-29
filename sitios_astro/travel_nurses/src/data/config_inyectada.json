@@ -16,23 +16,23 @@
   },
   "menu_global": [
     {
-      "nombre": "Proceso Grado",
+      "nombre": "Título USA",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Superar NCLEX",
+      "nombre": "NCLEX Paso",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Empleos RN",
+      "nombre": "Bolsa Empleo",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Migrar Legal",
+      "nombre": "Residencia USA",
       "ruta": "/visa"
     },
     {
-      "nombre": "Cuanto Ganan",
+      "nombre": "Pagos RN",
       "ruta": "/salarios"
     },
     {
@@ -41,7 +41,7 @@
     },
     {
       "nombre": "Chat Directo",
-      "ruta": "https://wa.me/ayuda"
+      "ruta": "https://wa.me/something"
     },
     {
       "nombre": "Iniciar",

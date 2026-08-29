@@ -20,15 +20,15 @@
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Estudio NCLEX",
+      "nombre": "Examen NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Empleos RN",
+      "nombre": "Vacantes USA",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Sponsor Visa",
+      "nombre": "Trámite EB3",
       "ruta": "/visa"
     },
     {
@@ -36,12 +36,12 @@
       "ruta": "/salarios"
     },
     {
-      "nombre": "Actualidad",
+      "nombre": "Novedades",
       "ruta": "/blog"
     },
     {
-      "nombre": "Ayuda Chat",
-      "ruta": "https://wa.me/ayuda"
+      "nombre": "Chat Directo",
+      "ruta": "https://wa.me/something"
     },
     {
       "nombre": "Iniciar",
