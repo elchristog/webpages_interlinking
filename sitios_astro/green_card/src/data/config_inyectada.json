@@ -16,35 +16,35 @@
   },
   "menu_global": [
     {
-      "nombre": "Diploma Online",
+      "nombre": "Validar Diploma",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Estudio NCLEX",
+      "nombre": "Examen NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Vacantes USA",
+      "nombre": "Empleos RN",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Residencia USA",
+      "nombre": "Green Card",
       "ruta": "/visa"
     },
     {
-      "nombre": "Sueldo Promedio",
+      "nombre": "Salario Real",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Guías Tips",
+      "nombre": "Historias",
       "ruta": "/blog"
     },
     {
-      "nombre": "WhatsApp",
+      "nombre": "Consultar Ahora",
       "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Entrar",
+      "nombre": "Login",
       "ruta": "/login"
     }
   ],

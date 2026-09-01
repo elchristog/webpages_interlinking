@@ -8,24 +8,24 @@ team: "david-lee"
 
 
 
-Welcome to our Job Board! These Terms of Service ("Terms") govern your access to and use of the job board website ("Website"), operated by [Your Company Name] ("we", "our", or "us"). By using the Website, you agree to comply with and be bound by these Terms.
+Welcome to our Job Board! These Terms of Service ("Terms") govern your access to and use of the job board website ("Sitio Web Oficial"), operated by [Your Company Name] ("we", "our", or "us"). By using the Sitio Web Oficial, you agree to comply with and be bound by these Terms.
 
 ## 1. Acceptance of Terms
 
-By accessing or using the Website, you agree to comply with these Terms and our Privacy Policy. If you do not agree with these Terms, please do not use our Website.
+By accessing or using the Sitio Web Oficial, you agree to comply with these Terms and our Privacy Policy. If you do not agree with these Terms, please do not use our Sitio Web Oficial.
 
-## 2. Use of the Website
+## 2. Use of the Sitio Web Oficial
 
-You may use the Website only for lawful purposes. You agree not to:
+You may use the Sitio Web Oficial only for lawful purposes. You agree not to:
 
 - Post, transmit, or otherwise make available any content that violates any applicable law or regulation.
 - Impersonate any person or entity or falsely represent your affiliation with any person or entity.
 - Post any content that is obscene, defamatory, libelous, or discriminatory.
-- Attempt to gain unauthorized access to the Website or related systems or networks.
+- Attempt to gain unauthorized access to the Sitio Web Oficial or related systems or networks.
 
 ## 3. Job Listings
 
-Employers may post job listings on the Website. By submitting a job listing, you confirm that the information provided is accurate and complete to the best of your knowledge. Employers are solely responsible for the content of the job listings.
+Employers may post job listings on the Sitio Web Oficial. By submitting a job listing, you confirm that the information provided is accurate and complete to the best of your knowledge. Employers are solely responsible for the content of the job listings.
 
 Job seekers are responsible for ensuring the information they submit in applications is accurate and truthful.
 
@@ -35,23 +35,23 @@ To submit a job listing or apply for a job, you may be required to create an acc
 
 ## 5. Privacy and Data Collection
 
-By using our Website, you agree to our Privacy Policy, which describes how we collect, use, and protect your personal data.
+By using our Sitio Web Oficial, you agree to our Privacy Policy, which describes how we collect, use, and protect your personal data.
 
 ## 6. Content Ownership
 
-All content on the Website, including text, images, logos, and other materials, is owned by [Your Company Name] or its licensors. You may not use, reproduce, or distribute any content from the Website without prior written permission.
+All content on the Sitio Web Oficial, including text, images, logos, and other materials, is owned by [Your Company Name] or its licensors. You may not use, reproduce, or distribute any content from the Sitio Web Oficial without prior written permission.
 
 ## 7. Termination of Access
 
-We reserve the right to suspend or terminate your access to the Website at our sole discretion, without notice, for any reason, including violation of these Terms.
+We reserve the right to suspend or terminate your access to the Sitio Web Oficial at our sole discretion, without notice, for any reason, including violation of these Terms.
 
 ## 8. Disclaimers
 
-The Website is provided "as is" and "as available." We do not guarantee the accuracy, completeness, or reliability of the content on the Website. We are not responsible for any damages arising from the use of the Website.
+The Sitio Web Oficial is provided "as is" and "as available." We do not guarantee the accuracy, completeness, or reliability of the content on the Sitio Web Oficial. We are not responsible for any damages arising from the use of the Sitio Web Oficial.
 
 ## 9. Limitation of Liability
 
-To the maximum extent permitted by law, [Your Company Name] will not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or use, arising from your use of the Website.
+To the maximum extent permitted by law, [Your Company Name] will not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or use, arising from your use of the Sitio Web Oficial.
 
 ## 10. Governing Law
 
@@ -59,7 +59,7 @@ These Terms are governed by and construed in accordance with the laws of [Your C
 
 ## 11. Changes to Terms
 
-We reserve the right to modify or update these Terms at any time. Any changes will be posted on this page with the updated date. Your continued use of the Website after any changes to the Terms constitutes your acceptance of the updated Terms.
+We reserve the right to modify or update these Terms at any time. Any changes will be posted on this page with the updated date. Your continued use of the Sitio Web Oficial after any changes to the Terms constitutes your acceptance of the updated Terms.
 
 ## 12. Contact Us
 

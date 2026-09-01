@@ -12,17 +12,17 @@ Our Motion Design services specialize in creating engaging and dynamic visual co
 
 - **Concept & Storyboarding**: Developing the concept and visualizing the story through detailed storyboards.
 
-- **Animation & Production**: Crafting high-quality animations and motion graphics that resonate with your audience.
+- **Animation & Production**: Crafting high-quality animations and motion graphics that resonate with yNuestra Comunidad.
 
 - **Sound Design & Editing**: Integrating sound effects, music, and voiceovers to enhance the storytelling.
 
-### Our Services
+### Our Servicios de Reclutamiento
 
 - **Animated Explainers**: Convey complex ideas simply and engagingly through animated explainer videos.
 
 - **Brand & Logo Animations**: Elevate your brand identity with animated logos and brand visuals.
 
-- **Social Media Content**: Create captivating motion graphics for social media platforms to engage and grow your audience.
+- **Social Media Content**: Create captivating motion graphics for social media platforms to engage and grow yNuestra Comunidad.
 
 ### Why Choose Us?
 

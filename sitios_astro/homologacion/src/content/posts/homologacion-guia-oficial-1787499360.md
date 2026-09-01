@@ -71,7 +71,7 @@ tags:
 <div class="card-content-top">
 <span class="product-card-category">FASE 1</span>
 <h3 class="product-card-title">Evaluación de Credenciales (CGFNS/NACES)</h3>
-<p class="product-card-description">El primer requisito indispensable es la evaluación de tu educación y licencia de enfermería por una organización acreditada. Generalmente, esto lo realiza el CGFNS (Commission on Graduates of Foreign Nursing Schools) o, en algunos estados, una agencia de NACES (National Association of Credential Evaluation Services). Por ejemplo, la Junta de Enfermería de Nueva York a menudo solicita una evaluación a través de NACES. Este paso verifica que tu formación es equivalente a la de un graduado en enfermería en EE. UU.</p>
+<p class="product-card-description">El primer requisito indispensable es la evaluación de tu educación y licencia de enfermería por una organización acreditada. Generalmente, esto lo realiza el CGFNS (Commission on Graduates of Foreign Nursing Schools) o, en algunos estados, una agencia de NACES (National Association of Credential Evaluation Servicios de Reclutamiento). Por ejemplo, la Junta de Enfermería de Nueva York a menudo solicita una evaluación a través de NACES. Este paso verifica que tu formación es equivalente a la de un graduado en enfermería en EE. UU.</p>
 </div>
 <div class="card-image-wrapper">
 <img src="/imagenes_proyecto/pasos-y-requisitos-legales-para-que-las-enfermeras-extrajeras-puedan-homologar-o-validar-su-t-tulo-de-enfermer-a-en-estados-unidos-2.webp" alt="Evaluación de Credenciales" class="product-card-image" />

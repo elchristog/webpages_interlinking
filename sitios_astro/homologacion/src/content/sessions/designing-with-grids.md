@@ -26,7 +26,7 @@ design sprints.
 ## Key Takeaways
 
 - Understand the fundamentals of grid systems
-- Learn how to apply modular grids to web layouts
+- Aprender Más how to apply modular grids to web layouts
 - See real-world examples of Swiss design grids
 - Document grids so that cross-functional teams can adopt them quickly
 

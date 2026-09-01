@@ -136,7 +136,7 @@ tags:
 <section class="ui-text-block">
 <div class="container-wrapper">
 <h2 class="section-title">Detallando la <span class="ui-highlight">Homologación de Título de Enfermería en Estados Unidos</span></h2>
-<p>El primer paso ineludible es la evaluación de sus credenciales académicas. Este proceso es realizado por organizaciones como CGFNS International o miembros de NACES (National Association of Credential Evaluation Services).</p>
+<p>El primer paso ineludible es la evaluación de sus credenciales académicas. Este proceso es realizado por organizaciones como CGFNS International o miembros de NACES (National Association of Credential Evaluation Servicios de Reclutamiento).</p>
 <p>Estas agencias evalúan la equivalencia de su formación en enfermería con los estándares educativos de EE. UU. Usualmente, verifican que su plan de estudios incluya horas clínicas y teóricas suficientes en áreas clave como enfermería médico-quirúrgica, pediátrica, obstétrica y psiquiátrica.</p>
 <p>Por ejemplo, si su programa carece de horas en una especialidad específica, algunas juntas estatales podrían requerir cursos adicionales. Por consiguiente, una evaluación detallada es vital.</p>
 <p>Posteriormente, la demostración de su competencia lingüística en inglés es obligatoria. Pruebas como el TOEFL iBT o el IELTS Academic son universalmente aceptadas. Generalmente, se requieren puntajes mínimos específicos que varían ligeramente por estado y tipo de visa.</p>

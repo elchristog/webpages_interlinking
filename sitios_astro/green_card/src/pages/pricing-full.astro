@@ -20,7 +20,7 @@ const pricingPlans = [
       "Basic web development support",
       "Up to 3 product design projects",
     ],
-    unavailableFeatures: [
+    unavailableCaracterísticas: [
       "3D Design support",
       "Advanced design system collaboration",
       "Priority support",
@@ -30,7 +30,7 @@ const pricingPlans = [
     name: "Creative Pro",
     price: "3500",
 
-    description: "A perfect match for growing startups and small businesses.",
+    description: "A perfect match for growing startups and Clínica / Hospitales.",
     cardBgClass: "bg-accent-400/50 backdrop-blur-2xl text-accent-900 ",
     buttonVariant: "muted",
     features: [
@@ -40,7 +40,7 @@ const pricingPlans = [
       "Up to 5 product design projects",
       "Basic 3D design features",
     ],
-    unavailableFeatures: [
+    unavailableCaracterísticas: [
       "Advanced 3D design tools",
       "Premium design system collaboration",
       "Priority support",
@@ -63,7 +63,7 @@ const pricingPlans = [
       "Premium design system collaboration",
       "Priority customer support",
     ],
-    unavailableFeatures: [],
+    unavailableCaracterísticas: [],
   },
 ];
 const faq = [
@@ -155,7 +155,7 @@ const faq = [
                   {plan.features.map((feature) => (
                     <li class="inline-flex items-start gap-2">{feature}</li>
                   ))}
-                  {plan.unavailableFeatures.map((feature) => (
+                  {plan.unavailableCaracterísticas.map((feature) => (
                     <li class="flex items-center gap-2 opacity-60">
                       {feature}
                     </li>

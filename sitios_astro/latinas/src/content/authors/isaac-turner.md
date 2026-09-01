@@ -8,7 +8,7 @@ bio: |
 
   Whether examining the impact of new technologies or the revival of past trends, Isaac's writing is an insightful commentary on the cultural forces that influence us all.
 image:
-  url: "/imagenes_proyecto/proceso-paso-a-paso-y-agencias-de-enfermer-a-en-usa-para-enfermeras-latinas-de-toda-latinoam-rica-6.webp"
+  url: "/src/images/blog/1.jpg"
   alt: "Isaac Turner"
 socials:
   twitter: "#_"

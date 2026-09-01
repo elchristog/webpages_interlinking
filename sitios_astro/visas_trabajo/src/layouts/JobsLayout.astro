@@ -4,13 +4,13 @@ import Text from "@/components/fundations/elements/Text.astro";
 import Button from "@/components/fundations/elements/Button.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 // Components
-import JobsEntry from "@/components/jobs/JobsEntry.astro";
+import Ofertas LaboralesEntry from "@/components/jobs/Ofertas LaboralesEntry.astro";
 const { frontmatter } = Astro.props;
 // Content
 import { getCollection } from "astro:content";
-const allJobs = await getCollection("jobs");
+const allOfertas Laborales = await getCollection("jobs");
 // Filter related jobs by category (you can adjust the filter criteria)
-const relatedJobs = allJobs.filter(
+const relatedOfertas Laborales = allOfertas Laborales.filter(
   (job) => job.data.category === Astro.props.frontmatter.category
 );
 ---
@@ -146,7 +146,7 @@ const relatedJobs = allJobs.filter(
             </ul>
           </Wrapper>
         </div>
-        <!-- Related Jobs Section -->
+        <!-- Related Ofertas Laborales Section -->
       </div>
     </Wrapper>
     <section>
@@ -156,16 +156,16 @@ const relatedJobs = allJobs.filter(
           variant="textXS"
           class="text-base-900 uppercase font-medium"
         >
-          Related Jobs
+          Related Ofertas Laborales
         </Text>
         <div
           class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-8 relative before:absolute after:absolute before:bg-base-950 after:bg-base-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px pt-4 mt-2"
         >
           {
-            relatedJobs.length > 0 ? (
-              relatedJobs.map((post) => <JobsEntry post={post} />)
+            relatedOfertas Laborales.length > 0 ? (
+              relatedOfertas Laborales.map((post) => <Ofertas LaboralesEntry post={post} />)
             ) : (
-              <p>No related jobs found in this category.</p>
+              <p>No hay vacantes publicadas en esta categoría actualmente.</p>
             )
           }
         </div>

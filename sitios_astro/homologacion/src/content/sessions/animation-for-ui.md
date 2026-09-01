@@ -16,7 +16,7 @@ author: "David Lee"
 team: "david-lee"
 ---
 
-Learn how to use animation to guide users and add delight to your products.
+Aprender Más how to use animation to guide users and add delight to your products.
 
 This session dives deep into the choreography of motion for digital products.
 Attendees will learn how to storyboard micro-interactions, craft transitions

@@ -65,7 +65,7 @@ tags:
 <div class="card-content-top">
 <span class="product-card-category">FASE INICIAL</span>
 <h3 class="product-card-title">Evaluación de Credenciales con CGFNS/NACES</h3>
-<p class="product-card-description">El Georgia Board of Nursing exige una evaluación de tus credenciales académicas por parte de organismos como CGFNS (Commission on Graduates of Foreign Nursing Schools) o NACES (National Association of Credential Evaluation Services). El CGFNS es un requisito estándar para enfermeras formadas internacionalmente.</p>
+<p class="product-card-description">El Georgia Board of Nursing exige una evaluación de tus credenciales académicas por parte de organismos como CGFNS (Commission on Graduates of Foreign Nursing Schools) o NACES (National Association of Credential Evaluation Servicios de Reclutamiento). El CGFNS es un requisito estándar para enfermeras formadas internacionalmente.</p>
 </div>
 <div class="card-image-wrapper">
 <img src="/imagenes_proyecto/proceso-migratorio-requisitos-de-licencia-y-b-squeda-de-sponsor-para-enfermeras-en-georgia-10.webp" alt="Documentos de homologación de título" class="product-card-image" />

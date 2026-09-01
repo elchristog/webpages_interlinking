@@ -1,7 +1,7 @@
 {
-  "plantilla_id": "brightlight_maestra",
-  "version": "1.0.0",
-  "descripcion": "Plantilla Astro Maestra con manifiesto de inyección y auditoría estricta anti-placeholders",
+  "plantilla_id": "starter_colombia",
+  "version": "1.2.0",
+  "descripcion": "Plantilla Astro Starter para enfermeras en Colombia buscando homologar en EE. UU.",
   "componentes_clave": {
     "header": [
       "src/components/global/Navigation.astro",
@@ -23,6 +23,21 @@
     ]
   },
   "reglas_reemplazo": [
+    {
+      "buscar": "Available properties for sale",
+      "reemplazar_con": "Guías de Revalidación desde Colombia",
+      "sensible_mayusculas": false
+    },
+    {
+      "buscar": "See all properties for sale",
+      "reemplazar_con": "Ver Todos los Requisitos CGFNS",
+      "sensible_mayusculas": false
+    },
+    {
+      "buscar": "Exclusive Properties",
+      "reemplazar_con": "Agencias con Convenio en Colombia",
+      "sensible_mayusculas": false
+    },
     {
       "buscar": "Brightlight",
       "reemplazar_con": "{sitio_nombre}",
@@ -63,6 +78,12 @@
     "something",
     "Red PBN & Interlinking",
     "Premium multipage themes",
-    "money_site"
+    "money_site",
+    "Ælen's CRM",
+    "A next generation CRM",
+    "The last business platform you'll ever need",
+    "Build today without limits.",
+    "Available properties for sale",
+    "Dusk Swiss Design Week"
   ]
 }

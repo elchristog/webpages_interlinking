@@ -8,7 +8,7 @@ bio: |
 
   Her articles inspire wanderlust and offer practical advice for fellow travelers seeking their next great adventure.
 image:
-  url: "/imagenes_proyecto/proceso-paso-a-paso-y-agencias-de-enfermer-a-en-usa-para-enfermeras-latinas-de-toda-latinoam-rica-5.webp"
+  url: "/src/images/blog/1.jpg"
   alt: "Emma Carter"
 socials:
   twitter: "#_"

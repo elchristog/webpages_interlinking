@@ -16,35 +16,35 @@
   },
   "menu_global": [
     {
-      "nombre": "Validar Título",
+      "nombre": "Proceso Grado",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Estudio NCLEX",
+      "nombre": "Examen NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Trabajo Hoy",
+      "nombre": "Puestos Libres",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Visa Trabajo",
+      "nombre": "Visa EB-3",
       "ruta": "/visa"
     },
     {
-      "nombre": "Ingresos USA",
+      "nombre": "Cuanto Ganan",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Guías Tips",
+      "nombre": "Novedades",
       "ruta": "/blog"
     },
     {
-      "nombre": "Ayuda Chat",
+      "nombre": "Soporte",
       "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Mi Cuenta",
+      "nombre": "Entrar",
       "ruta": "/login"
     }
   ],

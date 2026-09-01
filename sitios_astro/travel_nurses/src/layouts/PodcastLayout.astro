@@ -17,7 +17,7 @@ import RewindForward10S from "@/components/fundations/icons/RewindForward10s.ast
 // Components
 import PodcastCardSimple from "@/components/podcast/PodcastCardSimple.astro";
 // Sections
-import Subscribe from "@/components/ctas/Subscribe.astro";
+import Suscribirse from "@/components/ctas/Suscribirse.astro";
 // Props
 const { frontmatter, previous, next, slug } = Astro.props;
 import { getEntry } from "astro:content";
@@ -173,7 +173,7 @@ const relatedPosts = allPosts.filter(
                 variant="displaySM"
                 class="max-w-4xl mx-auto font-serif font-light tracking-tight text-base-900 text-balance"
               >
-                This episode is for subscribers only. Unlock premium insights by
+                This episode is for subscribers only. Unlock premium Estadísticas e Información by
                 becoming a member.
               </Text>
               <div class="flex flex-wrap justify-center mt-8 gap-2">
@@ -181,7 +181,7 @@ const relatedPosts = allPosts.filter(
                   Log in
                 </Button>
                 <Button isLink size="sm" variant="default" href="/pricing">
-                  Subscribe Now
+                  Suscribirse Now
                 </Button>
               </div>
             </div>
@@ -261,5 +261,5 @@ const relatedPosts = allPosts.filter(
       </section>
     )
   }
-  <Subscribe />
+  <Suscribirse />
 </BaseLayout>

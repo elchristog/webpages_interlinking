@@ -4,7 +4,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 // Sections
-import Subscribe from "@/components/ctas/Subscribe.astro";
+import Suscribirse from "@/components/ctas/Suscribirse.astro";
 // Content
 import { getCollection } from "astro:content";
 const allPosts = await getCollection("posts");
@@ -23,7 +23,7 @@ const pageTitle = "Tag Index";
         data-aos-duration="1500"
         class="font-medium tracking-tighter text-base-900"
       >
-        All tags
+        Todas las Categorías
       </Text>
       <div
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-8 border-t border-base-200 pt-8"
@@ -41,5 +41,5 @@ const pageTitle = "Tag Index";
       </div>
     </Wrapper>
   </section>
-  <Subscribe />
+  <Suscribirse />
 </BaseLayout>

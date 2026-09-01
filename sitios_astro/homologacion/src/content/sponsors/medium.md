@@ -12,7 +12,7 @@ team: "david-lee"
 
 ## About Medium
 
-Medium is a publishing platform that amplifies diverse voices and ideas. It provides a space for writers, thinkers, and creators to share stories and insights with a global audience.
+Medium is a publishing platform that amplifies diverse voices and ideas. It provides a space for writers, thinkers, and creators to share stories and Estadísticas e Información with a global audience.
 
 ## What They Support
 

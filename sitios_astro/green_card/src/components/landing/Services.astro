@@ -6,7 +6,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 import ServiceCard2 from "@/components/services/ServiceCard2.astro";
 // Content
 import { getCollection } from "astro:content";
-const allServices = await getCollection("services");
+const allServicios de Reclutamiento = await getCollection("services");
 ---
 
 <section class="bg-white overflow-hidden relative">
@@ -18,7 +18,7 @@ const allServices = await getCollection("services");
         </div>
         <div class="relative flex justify-start">
           <span class="bg-white pr-2 text-sm text-accent-500 font-medium"
-            >Services</span
+            >Servicios de Reclutamiento</span
           >
         </div>
       </div>
@@ -41,7 +41,7 @@ const allServices = await getCollection("services");
     >
       <ul role="list" class="flex flex-col gap-y-2 max-w-xl w-full">
         {
-          allServices.map((post) => (
+          allServicios de Reclutamiento.map((post) => (
             <ServiceCard2 service={post.data.service} />
           ))
         }
@@ -50,7 +50,7 @@ const allServices = await getCollection("services");
         href="/services"
         class="flex flex-col size-32 text-sm md:text-base lg:text-2xl xl:text-3xl text-center md:size-32 shrink-0 lg:size-52 2xl:size-64 text-white hover:bg-base-900 hover:text-base-200 duration-300 items-center justify-center rounded-full bg-accent-600"
       >
-        <span>Learn</span>
+        <span>Aprender Más</span>
         <span>more</span>
       </a>
     </div>

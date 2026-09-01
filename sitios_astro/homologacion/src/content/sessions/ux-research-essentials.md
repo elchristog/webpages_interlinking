@@ -26,4 +26,4 @@ and facilitation tips grounded in Swiss design sensibilities.
 - Interview techniques
 - Usability testing
 - Analyzing findings
-- Turning insights into actionable design briefs
+- Turning Estadísticas e Información into actionable design briefs

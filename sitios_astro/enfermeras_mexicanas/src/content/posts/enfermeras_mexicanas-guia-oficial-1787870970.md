@@ -75,7 +75,7 @@ tags:
 <div class="card-content-top">
 <span class="product-card-category">FASE 1</span>
 <h3 class="product-card-title">Evaluación de Credenciales: El Inicio de la <span class="ui-highlight">Homologación</span></h3>
-<p class="product-card-description">El primer escalón para cualquier enfermera mexicana que aspira a ejercer en EE. UU. es la evaluación de sus credenciales académicas. Esto implica que una agencia autorizada, como CGFNS International o una entidad miembro de NACES (National Association of Credential Evaluation Services), revise tu título universitario, historial académico y cédula profesional.</p>
+<p class="product-card-description">El primer escalón para cualquier enfermera mexicana que aspira a ejercer en EE. UU. es la evaluación de sus credenciales académicas. Esto implica que una agencia autorizada, como CGFNS International o una entidad miembro de NACES (National Association of Credential Evaluation Servicios de Reclutamiento), revise tu título universitario, historial académico y cédula profesional.</p>
 <p class="product-card-description">Este proceso verifica que tu educación en México sea equivalente a los estándares educativos de enfermería en Estados Unidos. Se examinan minuciosamente el plan de estudios, las horas clínicas y la acreditación de tu universidad. Es un paso indispensable para cumplir con los `requisitos para enfermera mexicana en usa`.</p>
 </div>
 <div class="card-image-wrapper">

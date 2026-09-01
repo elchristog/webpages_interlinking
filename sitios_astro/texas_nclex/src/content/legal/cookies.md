@@ -5,7 +5,7 @@ pubDate: 2024-01-01
 author: "David Lee"
 team: "david-lee"
 ---
-This cookie policy describes how Simplexity (Simplexity) uses “cookies” and other similar technologies, in connection with our Site and Services. For more information on Simplexity privacy practices, please see our Privacy Policy.
+This cookie policy describes how Simplexity (Simplexity) uses “cookies” and other similar technologies, in connection with our Site and Servicios de Reclutamiento. For more information on Simplexity privacy practices, please see our Privacy Policy.
 ### About cookies
 A cookie is a small piece of information stored on your computer via the web browser you use. Cookies are used to personalize your web experience with a website. They help with things like understanding how you use a website, remembering your login details, and storing site preferences.
 ### How Simplexity uses cookies

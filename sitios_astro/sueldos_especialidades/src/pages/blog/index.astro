@@ -7,7 +7,7 @@ import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 // Component
 import BlogEntries from "@/components/blog/BlogEntries.astro";
-import SubscribeCta from "@/components/blog/SubscribeCta.astro";
+import SuscribirseCta from "@/components/blog/SuscribirseCta.astro";
 // Content
 import { getCollection } from "astro:content";
 const allPostsUnsorted = await getCollection("posts");
@@ -54,7 +54,7 @@ const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
         >
           {allPosts.map((post) => <BlogEntries post={post} />)}
         </div>
-        <div class="lg:sticky lg:top-24 lg:z-50"><SubscribeCta /></div>
+        <div class="lg:sticky lg:top-24 lg:z-50"><SuscribirseCta /></div>
       </div>
     </Wrapper>
   </section>

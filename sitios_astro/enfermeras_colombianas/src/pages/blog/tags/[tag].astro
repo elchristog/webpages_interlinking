@@ -6,7 +6,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 // Components
 import Entries1 from "@/components/blog/Entries1.astro";
 // Sections
-import Subscribe from "@/components/ctas/Subscribe.astro";
+import Suscribirse from "@/components/ctas/Suscribirse.astro";
 // Content
 import { getCollection } from "astro:content";
 export async function getStaticPaths() {
@@ -47,5 +47,5 @@ const { posts } = Astro.props;
       </div>
     </Wrapper>
   </section>
-  <Subscribe />
+  <Suscribirse />
 </BaseLayout>

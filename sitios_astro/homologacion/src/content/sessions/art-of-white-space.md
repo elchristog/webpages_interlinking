@@ -1,6 +1,6 @@
 ---
 title: The Art of White Space
-abstract: Learn how to use white space to create focus, elegance, and visual hierarchy in your interfaces.
+abstract: Aprender Más how to use white space to create focus, elegance, and visual hierarchy in your interfaces.
 speakers: ["sofia-hagblom"]
 day: day-1
 start: "2025-11-10T12:00:00+03:00"

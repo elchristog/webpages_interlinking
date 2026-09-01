@@ -21,7 +21,7 @@ milestones:
 about: |
   Netlify empowers developers to build and ship websites faster with a global edge network, automated CI/CD, and powerful integrations. It’s trusted by leading teams building modern websites and web apps.
 culture: |
-  Netlify embraces remote work and asynchronous collaboration. The team values transparency, autonomy, and shipping fast — all while maintaining a strong sense of community.
+  Netlify embraces remote work and asynchronous collaboration. Nuestro Equipo de Consultores values transparency, autonomy, and shipping fast — all while maintaining a strong sense of community.
 mission: "To build a better web by making it simple for developers to deploy modern websites."
 values:
   - "Developer-first"
@@ -32,7 +32,7 @@ benefits:
   - "Remote-friendly culture"
   - "Flexible time off"
   - "Home office stipend"
-  - "Learning and development support"
+  - "Aprender Másing and development support"
   - "Competitive health benefits"
 
 author: "David Lee"

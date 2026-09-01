@@ -1,7 +1,7 @@
 {
-  "plantilla_id": "brightlight_maestra",
-  "version": "1.0.0",
-  "descripcion": "Plantilla Astro Maestra con manifiesto de inyección y auditoría estricta anti-placeholders",
+  "plantilla_id": "kotei_texas",
+  "version": "1.2.0",
+  "descripcion": "Plantilla Astro Kotei para vacantes y empleos de enfermería en Texas.",
   "componentes_clave": {
     "header": [
       "src/components/global/Navigation.astro",
@@ -23,6 +23,16 @@
     ]
   },
   "reglas_reemplazo": [
+    {
+      "buscar": "Selected projects",
+      "reemplazar_con": "Hospitales Reclutadores en Texas",
+      "sensible_mayusculas": false
+    },
+    {
+      "buscar": "Featured work",
+      "reemplazar_con": "Ofertas Destacadas en Houston y Dallas",
+      "sensible_mayusculas": false
+    },
     {
       "buscar": "Brightlight",
       "reemplazar_con": "{sitio_nombre}",
@@ -63,6 +73,12 @@
     "something",
     "Red PBN & Interlinking",
     "Premium multipage themes",
-    "money_site"
+    "money_site",
+    "Ælen's CRM",
+    "A next generation CRM",
+    "The last business platform you'll ever need",
+    "Build today without limits.",
+    "Available properties for sale",
+    "Dusk Swiss Design Week"
   ]
 }

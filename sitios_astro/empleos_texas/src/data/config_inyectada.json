@@ -16,35 +16,35 @@
   },
   "menu_global": [
     {
-      "nombre": "Homologar Título",
+      "nombre": "Título USA",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Estudio NCLEX",
+      "nombre": "Guía NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Empleos RN",
+      "nombre": "Buscar Trabajo",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Sponsor Visa",
+      "nombre": "Trámite EB3",
       "ruta": "/visa"
     },
     {
-      "nombre": "Ingresos USA",
+      "nombre": "Pagos RN",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Noticias",
+      "nombre": "Actualidad",
       "ruta": "/blog"
     },
     {
-      "nombre": "Chat Directo",
+      "nombre": "Consultar Ahora",
       "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Iniciar",
+      "nombre": "Acceso",
       "ruta": "/login"
     }
   ],

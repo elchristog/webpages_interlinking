@@ -32,7 +32,7 @@ benefits:
   - "Remote-first work environment"
   - "Competitive compensation"
   - "Health insurance"
-  - "Learning and development budget"
+  - "Aprender Másing and development budget"
 
 author: "David Lee"
 team: "david-lee"

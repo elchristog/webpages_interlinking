@@ -1,7 +1,7 @@
 ---
 // Assets
 import { Image } from "astro:assets";
-const Services = "/imagenes_proyecto/requisitos-y-proceso-legal-detallado-para-obtener-la-green-card-residencia-permanente-siendo-enfermera-12.webp";
+const Servicios de Reclutamiento = "/imagenes_proyecto/requisitos-y-proceso-legal-detallado-para-obtener-la-green-card-residencia-permanente-siendo-enfermera-12.webp";
 import Shape1 from "@/components/assets/Shape1.astro";
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
@@ -9,11 +9,11 @@ import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 // Components
 import CtaHire from "@/components/ctas/CtaHire.astro";
-import ServicesCard1 from "@/components/services/ServicesCard1.astro";
+import Servicios de ReclutamientoCard1 from "@/components/services/Servicios de ReclutamientoCard1.astro";
 // Content
 import { getCollection } from "astro:content";
 import Shape2 from "@/components/assets/Shape2.astro";
-const allServices = await getCollection("services");
+const allServicios de Reclutamiento = await getCollection("services");
 ---
 
 <BaseLayout>
@@ -33,7 +33,7 @@ const allServices = await getCollection("services");
           </Text>
         </div>
         <img
-          src={Services}
+          src={Servicios de Reclutamiento}
           width={1200}
           height={630}
           class="aspect-[4/4] object-cover rounded-2xl h-full lg:col-span-2 w-full"
@@ -56,7 +56,7 @@ const allServices = await getCollection("services");
             </div>
             <div class="relative flex justify-start">
               <span class="bg-white pr-2 text-sm text-accent-500 font-medium"
-                >How we work</span
+                >Proceso Legal de Visa EB-3 y Residencia</span
               >
             </div>
           </div>
@@ -73,7 +73,7 @@ const allServices = await getCollection("services");
       <div
         class="grid g sm:grid-cols-2 lg:grid-cols-2 gap-x-12 gap-y-24 list-none max-w-xl mt-24"
       >
-        {allServices.map((post) => <ServicesCard1 post={post} />)}
+        {allServicios de Reclutamiento.map((post) => <Servicios de ReclutamientoCard1 post={post} />)}
       </div>
     </Wrapper>
   </section>

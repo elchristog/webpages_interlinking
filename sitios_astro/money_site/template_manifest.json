@@ -1,7 +1,7 @@
 {
   "plantilla_id": "brightlight_maestra",
-  "version": "1.1.0",
-  "descripcion": "Plantilla Astro Maestra con manifiesto de inyección y auditoría estricta anti-placeholders",
+  "version": "1.2.0",
+  "descripcion": "Plantilla Astro Brightlight Maestra para el portal central.",
   "componentes_clave": {
     "header": [
       "src/components/global/Navigation.astro",
@@ -14,12 +14,6 @@
       "src/components/global/FooterV2.astro",
       "src/components/global/FooterV3.astro",
       "src/components/Footer.astro"
-    ],
-    "features": [
-      "src/components/features/Feature1.astro",
-      "src/components/features/Feature2.astro",
-      "src/components/features/Feature3.astro",
-      "src/components/features/Feature4.astro"
     ],
     "logo": [
       "src/components/assets/Logo.astro"
@@ -35,18 +29,13 @@
       "sensible_mayusculas": false
     },
     {
+      "buscar": "Brightlight",
+      "reemplazar_con": "{sitio_nombre}",
+      "sensible_mayusculas": false
+    },
+    {
       "buscar": "Lexington Themes",
       "reemplazar_con": "{empresa_legal}",
-      "sensible_mayusculas": false
-    },
-    {
-      "buscar": "your.name@lexingtonthemes.com",
-      "reemplazar_con": "contacto@{dominio_sitio}",
-      "sensible_mayusculas": false
-    },
-    {
-      "buscar": "noreply@myapp.com",
-      "reemplazar_con": "contacto@{dominio_sitio}",
       "sensible_mayusculas": false
     },
     {
@@ -77,13 +66,14 @@
     "Lorem ipsum",
     "dolor sit amet",
     "something",
-    "email-sdk",
-    "myapp.com",
-    "lexingtonthemes.com",
-    "Deliverability",
-    "Bounced",
     "Red PBN & Interlinking",
     "Premium multipage themes",
-    "money_site"
+    "money_site",
+    "Ælen's CRM",
+    "A next generation CRM",
+    "The last business platform you'll ever need",
+    "Build today without limits.",
+    "Available properties for sale",
+    "Dusk Swiss Design Week"
   ]
 }

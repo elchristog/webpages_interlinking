@@ -8,7 +8,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 import JobCard from "@/components/jobs/JobCard.astro";
 // Content
 import { getCollection } from "astro:content";
-const allJobs = await getCollection("jobs");
+const allOfertas Laborales = await getCollection("jobs");
 // Benift array
 const benefits = [
   [
@@ -51,7 +51,7 @@ const benefits = [
   <section>
     <Wrapper class="pt-42 grid grid-cols-1 gap-y-12 md:grid-cols-4">
       <div class="md:col-span-2 md:col-start-2 md:text-enter">
-        <Text tag="span" variant="textSM" class="text-white"> Jobs </Text>
+        <Text tag="span" variant="textSM" class="text-white"> Ofertas Laborales </Text>
         <Text
           tag="h1"
           variant="displayXL"
@@ -79,7 +79,7 @@ const benefits = [
           class="mt-12 text-white text-balance font-display"
         >
           The magic of Web3 is fading. <span class="block text-base-400"
-            >We need your expertise to reignite it.</span
+            >Tu experiencia médica es requerida en centros de salud de EE. UU.</span
           >
         </Text>
         <Wrapper variant="prose" class="mt-12">
@@ -87,7 +87,7 @@ const benefits = [
             Do you remember when Web3 felt revolutionary? Blockchain,
             decentralization, and the power to truly own and control your
             digital assets. Web3 promised to radically transform how we
-            interact, work, and build online. It felt like the future was within
+            interact, work, and build online. It felt like el futuro was within
             reach.
           </p>
           <p>
@@ -107,7 +107,7 @@ const benefits = [
             decentralized applications (dApps). These are just a few of the
             elements we’re working with to reimagine what’s possible. We’re
             looking for passionate people who understand the vision of Web3 and
-            who want to build the future together.
+            who want to build el futuro together.
           </p>
           <p>
             If you’re driven by innovation, if you believe in a truly
@@ -115,7 +115,7 @@ const benefits = [
             of blockchain technology – then you might be the perfect fit for our
             team.
           </p>
-          <p>Join us, and let’s reignite the magic of Web3.</p>
+          <p>Únete a nuestro programa y acelera tu proceso migratorio.</p>
         </Wrapper>
       </div>
       <dl
@@ -164,7 +164,7 @@ const benefits = [
       <div
         class="divide-y divide-white/10 border-y border-white/10 md:row-start-2 md:col-start-2 md:col-span-2"
       >
-        {allJobs.map((post) => <JobCard post={post} />)}
+        {allOfertas Laborales.map((post) => <JobCard post={post} />)}
       </div>
     </Wrapper>
   </section>

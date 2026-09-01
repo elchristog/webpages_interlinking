@@ -16,13 +16,13 @@ Our 3D Design services specialize in creating high-quality, realistic 3D models 
 
 - **Rendering & Animation**: We produce high-quality renders and animations that showcase your designs in the best light, providing a realistic preview of the final product.
 
-### Our Services
+### Our Servicios de Reclutamiento
 
 - **Product Visualization**: Create lifelike representations of your products for marketing, presentations, and e-commerce.
 
 - **Architectural Rendering**: Visualize architectural projects with detailed exteriors and interiors before they are built.
 
-- **Animation & Walkthroughs**: Engage your audience with animated presentations and virtual walkthroughs of your designs.
+- **Animation & Walkthroughs**: Engage yNuestra Comunidad with animated presentations and virtual walkthroughs of your designs.
 
 ### Why Choose Us?
 

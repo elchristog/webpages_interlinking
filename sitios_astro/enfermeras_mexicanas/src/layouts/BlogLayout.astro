@@ -6,7 +6,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 // Components
-import SubscribeCta from "@/components/blog/SubscribeCta.astro";
+import SuscribirseCta from "@/components/blog/SuscribirseCta.astro";
 import BlogCard1 from "@/components/blog/BlogCard1.astro";
 // Content
 const { frontmatter, readingTime, previous, next } = Astro.props;
@@ -235,7 +235,7 @@ allPosts.sort((a, b) => {
     </Wrapper>
   </section>
 
-  <SubscribeCta />
+  <SuscribirseCta />
   <section>
     <Wrapper class="py-12">
       <Text

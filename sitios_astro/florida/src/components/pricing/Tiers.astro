@@ -9,12 +9,12 @@ const pricingOptions = [
     monthly: "$19.00",
     annual: "$15.00",
     button: {
-      text: "Start Learning",
+      text: "Start Aprender Másing",
       variant: "accent",
     },
     features: [
       { title: "Complete Course Materials" },
-      { title: "Learn at Your Own Pace" },
+      { title: "Aprender Más at Your Own Pace" },
       { title: "Downloadable Design Assets" },
       { title: "Peer Design Community" },
       { title: "Certificate of Completion" },
@@ -27,11 +27,11 @@ const pricingOptions = [
     monthly: "$499.00",
     annual: "$459.00",
     button: {
-      text: "Start Learning",
+      text: "Start Aprender Másing",
       variant: "muted",
     },
     features: [
-      { title: "All Individual Features Included" },
+      { title: "All Individual Características Included" },
       { title: "Multi-Seat Team Access" },
       { title: "Team Progress Dashboard" },
       { title: "Priority Design Feedback" },
@@ -42,7 +42,7 @@ const pricingOptions = [
 ];
 ---
 
-<!-- Pricing Cards -->
+<!-- Programas y Asesoría Cards -->
 <div class="mt-4 grid gap-1 sm:grid-cols-2 lg:grid-cols-2">
   {
     pricingOptions.map((tier) => (
@@ -118,7 +118,7 @@ const pricingOptions = [
     }
 
     // Function to update UI based on selected duration
-    function updatePricingUI(duration) {
+    function updateProgramas y AsesoríaUI(duration) {
       // Update toggle slider position
       if (duration === "monthly") {
         updateSliderPosition(monthlyBtn);
@@ -158,19 +158,19 @@ const pricingOptions = [
 
     // Add event listeners to buttons
     monthlyBtn.addEventListener("click", function () {
-      updatePricingUI("monthly");
+      updateProgramas y AsesoríaUI("monthly");
     });
 
     annualBtn.addEventListener("click", function () {
-      updatePricingUI("annual");
+      updateProgramas y AsesoríaUI("annual");
     });
 
     // Handle window resize to maintain proper positioning
     window.addEventListener("resize", function () {
-      updatePricingUI(currentDuration);
+      updateProgramas y AsesoríaUI(currentDuration);
     });
 
     // Initialize UI
-    updatePricingUI(currentDuration);
+    updateProgramas y AsesoríaUI(currentDuration);
   });
 </script>

@@ -13,10 +13,10 @@ All deployments and plugins hosted on Buio operate under the fair use policy. Us
 Allowed
 -------
 
-*   Websites
+*   Sitio Web Oficials
 *   APIs + Backends
-*   Cron Jobs / Scheduled Jobs
-*   ML Jobs
+*   Cron Ofertas Laborales / Scheduled Ofertas Laborales
+*   ML Ofertas Laborales
 *   Code Servers
 
 Not Allowed

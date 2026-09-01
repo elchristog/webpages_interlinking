@@ -1,5 +1,5 @@
 ---
-export const description = "Pricing section with three tiers";
+export const description = "Programas y Asesoría section with three tiers";
 
 // Components
 import Text from "@/components/fundations/elements/Text.astro";
@@ -84,7 +84,7 @@ const pricingOptions = [
 ];
 
 // TAble
-export const pricingFeatures = [
+export const pricingCaracterísticas = [
   {
     category: "Proceso de Homologación",
     features: [
@@ -135,7 +135,7 @@ export const pricingFeatures = [
         Elige el programa que mejor se adapte a tu etapa actual o realiza la ruta completa con nuestro acompañamiento integral.
       </Text>
 
-      <!-- Pricing Toggle -->
+      <!-- Programas y Asesoría Toggle -->
       <div
         aria-labelledby="pricing-toggle"
         class="relative z-0 inline-flex justify-center p-1 mx-auto mt-8 overflow-hidden bg-white shadow ring-1 ring-base-200 ring-offset-2 gap-4 lg:mx-0 rounded-md w-fit"
@@ -166,7 +166,7 @@ export const pricingFeatures = [
       </div>
     </div>
 
-    <!-- Pricing Cards -->
+    <!-- Programas y Asesoría Cards -->
     <div class="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
       {
         pricingOptions.map((tier) => (
@@ -252,7 +252,7 @@ export const pricingFeatures = [
           <thead class="text-center border-b border-base-200">
             <tr>
               <th class="px-4 pt-8 pb-2 font-medium text-left text-base-900"
-                >Features</th
+                >Características</th
               >
 
               <th class="px-4 py-2 font-medium text-base-900">Pro</th>
@@ -262,7 +262,7 @@ export const pricingFeatures = [
           </thead>
           <tbody>
             {
-              pricingFeatures.map(({ category, features }) => (
+              pricingCaracterísticas.map(({ category, features }) => (
                 <>
                   <tr class="font-semibold bg-sand-100">
                     <td
@@ -329,7 +329,7 @@ export const pricingFeatures = [
       let currentDuration = "monthly";
 
       // Function to update UI based on selected duration
-      function updatePricingUI(duration) {
+      function updateProgramas y AsesoríaUI(duration) {
         // Update toggle slider position
         if (duration === "monthly") {
           toggleSlider.style.transform = "translateX(0)";
@@ -378,15 +378,15 @@ export const pricingFeatures = [
 
       // Add event listeners to buttons
       monthlyBtn.addEventListener("click", function () {
-        updatePricingUI("monthly");
+        updateProgramas y AsesoríaUI("monthly");
       });
 
       annualBtn.addEventListener("click", function () {
-        updatePricingUI("annual");
+        updateProgramas y AsesoríaUI("annual");
       });
 
       // Initialize UI
-      updatePricingUI(currentDuration);
+      updateProgramas y AsesoríaUI(currentDuration);
     });
   </script>
 </section>

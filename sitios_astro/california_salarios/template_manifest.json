@@ -1,7 +1,7 @@
 {
-  "plantilla_id": "brightlight_maestra",
-  "version": "1.0.0",
-  "descripcion": "Plantilla Astro Maestra con manifiesto de inyección y auditoría estricta anti-placeholders",
+  "plantilla_id": "aelen_california",
+  "version": "1.2.0",
+  "descripcion": "Plantilla Astro Ælen adaptada para salarios e ingresos de enfermería en California.",
   "componentes_clave": {
     "header": [
       "src/components/global/Navigation.astro",
@@ -23,6 +23,26 @@
     ]
   },
   "reglas_reemplazo": [
+    {
+      "buscar": "Ælen's CRM",
+      "reemplazar_con": "{sitio_nombre}",
+      "sensible_mayusculas": false
+    },
+    {
+      "buscar": "A next generation CRM",
+      "reemplazar_con": "Guía Salarial y Financiera para Enfermeras en California",
+      "sensible_mayusculas": false
+    },
+    {
+      "buscar": "Redefining what a CRM can do.",
+      "reemplazar_con": "Análisis exclusivo de ingresos, bonos y licencias BSN.",
+      "sensible_mayusculas": false
+    },
+    {
+      "buscar": "Blending AI and sales expertise, we build smart CRM solutions for startups, enterprises, and everything in between.",
+      "reemplazar_con": "Información detallada sobre salarios por especialidad y turnos en California.",
+      "sensible_mayusculas": false
+    },
     {
       "buscar": "Brightlight",
       "reemplazar_con": "{sitio_nombre}",
@@ -63,6 +83,12 @@
     "something",
     "Red PBN & Interlinking",
     "Premium multipage themes",
-    "money_site"
+    "money_site",
+    "Ælen's CRM",
+    "A next generation CRM",
+    "The last business platform you'll ever need",
+    "Build today without limits.",
+    "Available properties for sale",
+    "Dusk Swiss Design Week"
   ]
 }

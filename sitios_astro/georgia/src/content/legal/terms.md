@@ -5,7 +5,7 @@ pubDate: 2023-12-22
 author: "David Lee"
 team: "david-lee"
 ---
-This privacy policy sets out how Unwrapped AB collects, processes and uses your Personal Information through your use of our Services.
+This privacy policy sets out how Unwrapped AB collects, processes and uses your Personal Information through your use of our Servicios de Reclutamiento.
 
 ### Definitions
 
@@ -15,21 +15,21 @@ DPO means Data Protection Officer, and is the person specifically appointed by u
 
 Personal Information means any identifying information about you. This includes, but is not limited to, the following: cookies and usage data.
 
-Services means all services provided by Michael Alexander Web Agency to you, including (but not limited to) this Website.
+Servicios de Reclutamiento means all services provided by Michael Alexander Web Agency to you, including (but not limited to) this Sitio Web Oficial.
 
-Website means this website and all websites, applications and communications that post a link to this Privacy Policy.
+Sitio Web Oficial means this website and all websites, applications and communications that post a link to this Privacy Policy.
 
 ### Personal Information Collection
 
-We only collect and use Personal Information to the extent necessary to provide you with the Services. We collect Personal Information for the Website to provide you with a better online experience.
+We only collect and use Personal Information to the extent necessary to provide you with the Servicios de Reclutamiento. We collect Personal Information for the Sitio Web Oficial to provide you with a better online experience.
 
 ### Personal Information Retention
 
-We keep Personal Information for the shortest time necessary to provide you with Services and to meet all our legal and compliance obligations. To determine this retention period, we take into account (i) the nature of the Personal Information gathered; and (ii) the nature of our legal and compliance obligations. All Personal Information no longer required by us is destroyed and/or erased.
+We keep Personal Information for the shortest time necessary to provide you with Servicios de Reclutamiento and to meet all our legal and compliance obligations. To determine this retention period, we take into account (i) the nature of the Personal Information gathered; and (ii) the nature of our legal and compliance obligations. All Personal Information no longer required by us is destroyed and/or erased.
 
 ### Personal Data from Third Parties
 
-We may, from time to time, obtain Personal Information from third parties to enable us to better tailor our Services to you (Third Party Personal Information). When we obtain Third Party Personal Information, we will notify you within one month. If we use or share Third Party Personal Information, we will notify you immediately.
+We may, from time to time, obtain Personal Information from third parties to enable us to better tailor our Servicios de Reclutamiento to you (Third Party Personal Information). When we obtain Third Party Personal Information, we will notify you within one month. If we use or share Third Party Personal Information, we will notify you immediately.
 
 ### Your Rights
 
@@ -45,11 +45,11 @@ With respect to Personal Information we hold, you have the following rights:
 
 ### Social Media
 
-You may choose to engage with our Services through a variety of social media sites and platforms, for example Facebook, Instagram and Twitter. When you interact with our Services through these social media platforms, you may allow us to receive Personal Information on how you are interacting with our Services. This will depend on your privacy settings on each social media site and platform. The data we are provided by you through your interaction with our Services on social media sites and platforms will be used by us subject to the terms of this privacy policy. Depending on your social media site’s privacy settings, your Personal Information may become public to a community of users if you choose to engage with our Services through these platforms. For further information on how you can customize your privacy settings on social media sites and how those sites handle your privacy, please refer to the privacy policy of each particular social media site.
+You may choose to engage with our Servicios de Reclutamiento through a variety of social media sites and platforms, for example Facebook, Instagram and Twitter. When you interact with our Servicios de Reclutamiento through these social media platforms, you may allow us to receive Personal Information on how you are interacting with our Servicios de Reclutamiento. This will depend on your privacy settings on each social media site and platform. The data we are provided by you through your interaction with our Servicios de Reclutamiento on social media sites and platforms will be used by us subject to the terms of this privacy policy. Depending on your social media site’s privacy settings, your Personal Information may become public to a community of users if you choose to engage with our Servicios de Reclutamiento through these platforms. For further information on how you can customize your privacy settings on social media sites and how those sites handle your privacy, please refer to the privacy policy of each particular social media site.
 
 ### Minors
 
-We do not knowingly collect information on children under the age of 16 (“Child”). If you become aware that a Child has provided us with Personal Information, please contact us. If we become aware that we have collected Personal Information from a Child without their parent's verifiable authorization to access our Services, we will take steps to remove that information from our servers.
+We do not knowingly collect information on children under the age of 16 (“Child”). If you become aware that a Child has provided us with Personal Information, please contact us. If we become aware that we have collected Personal Information from a Child without their parent's verifiable authorization to access our Servicios de Reclutamiento, we will take steps to remove that information from our servers.
 
 ### Third Party Links
 

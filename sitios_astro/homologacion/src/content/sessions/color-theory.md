@@ -1,6 +1,6 @@
 ---
 title: Color Theory in Practice
-abstract: Learn how to use color to create mood, hierarchy, and accessibility.
+abstract: Aprender Más how to use color to create mood, hierarchy, and accessibility.
 speakers: ["sofia-hagblom"]
 day: day-4
 start: "2025-11-13T10:00:00+03:00"

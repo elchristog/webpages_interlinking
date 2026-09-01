@@ -1,7 +1,7 @@
 {
-  "plantilla_id": "brightlight_maestra",
-  "version": "1.0.0",
-  "descripcion": "Plantilla Astro Maestra con manifiesto de inyección y auditoría estricta anti-placeholders",
+  "plantilla_id": "alfred_licencia",
+  "version": "1.2.0",
+  "descripcion": "Plantilla Astro Alfred para la tramitación de Licencia Registered Nurse.",
   "componentes_clave": {
     "header": [
       "src/components/global/Navigation.astro",
@@ -23,6 +23,16 @@
     ]
   },
   "reglas_reemplazo": [
+    {
+      "buscar": "The last business platform you'll ever need",
+      "reemplazar_con": "Tu Guía Definitiva para Obtener la Licencia RN en EE. UU.",
+      "sensible_mayusculas": false
+    },
+    {
+      "buscar": "Stay up to date with Alfred's news.",
+      "reemplazar_con": "Noticias y Novedades de los Boards de Enfermería.",
+      "sensible_mayusculas": false
+    },
     {
       "buscar": "Brightlight",
       "reemplazar_con": "{sitio_nombre}",
@@ -63,6 +73,12 @@
     "something",
     "Red PBN & Interlinking",
     "Premium multipage themes",
-    "money_site"
+    "money_site",
+    "Ælen's CRM",
+    "A next generation CRM",
+    "The last business platform you'll ever need",
+    "Build today without limits.",
+    "Available properties for sale",
+    "Dusk Swiss Design Week"
   ]
 }

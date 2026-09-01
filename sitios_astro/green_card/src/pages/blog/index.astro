@@ -9,7 +9,7 @@ import Button from "@/components/fundations/elements/Button.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 // Components
 import BlogCard1 from "@/components/blog/BlogCard1.astro";
-import CtaSubscribe from "@/components/ctas/CtaSubscribe.astro";
+import CtaSuscribirse from "@/components/ctas/CtaSuscribirse.astro";
 // Content
 import { getCollection } from "astro:content";
 const allPosts = await getCollection("posts");
@@ -52,7 +52,7 @@ const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
               placeholder="Enter your email"
             />
             <Button type="submit" size="base" variant="accent">
-              Subscribe
+              Suscribirse
             </Button>
           </div>
         </form>
@@ -97,5 +97,5 @@ const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
       </div>
     </div>
   </section>
-  <CtaSubscribe />
+  <CtaSuscribirse />
 </BaseLayout>

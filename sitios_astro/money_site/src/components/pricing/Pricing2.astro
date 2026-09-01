@@ -1,5 +1,5 @@
 ---
-export const description = "Pricing section with three tiers";
+export const description = "Programas y Asesoría section with three tiers";
 
 // Components
 import Text from "@/components/fundations/elements/Text.astro";
@@ -136,7 +136,7 @@ const pricingOptions = [
         Elige la fase en la que te encuentras o realiza la ruta completa con nuestro acompañamiento.
       </Text>
 
-      <!-- Pricing Toggle -->
+      <!-- Programas y Asesoría Toggle -->
       <div
         aria-labelledby="pricing-toggle"
         class="relative z-0 inline-flex justify-center p-1 mx-auto mt-8 overflow-hidden bg-white shadow ring-1 ring-base-200 ring-offset-2 gap-4 lg:mx-0 rounded-md w-fit"
@@ -167,7 +167,7 @@ const pricingOptions = [
       </div>
     </div>
 
-    <!-- Pricing Cards -->
+    <!-- Programas y Asesoría Cards -->
     <div class="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2">
       {
         pricingOptions.map((tier) => (
@@ -259,7 +259,7 @@ const pricingOptions = [
       let currentDuration = "monthly";
 
       // Function to update UI based on selected duration
-      function updatePricingUI(duration) {
+      function updateProgramas y AsesoríaUI(duration) {
         // Update toggle slider position
         if (duration === "monthly") {
           toggleSlider.style.transform = "translateX(0)";
@@ -308,15 +308,15 @@ const pricingOptions = [
 
       // Add event listeners to buttons
       monthlyBtn.addEventListener("click", function () {
-        updatePricingUI("monthly");
+        updateProgramas y AsesoríaUI("monthly");
       });
 
       annualBtn.addEventListener("click", function () {
-        updatePricingUI("annual");
+        updateProgramas y AsesoríaUI("annual");
       });
 
       // Initialize UI
-      updatePricingUI(currentDuration);
+      updateProgramas y AsesoríaUI(currentDuration);
     });
   </script>
 </section>

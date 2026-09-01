@@ -6,7 +6,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 // Component
 import BlogCard from "@/components/blog/BlogCard.astro";
 // Sections
-import Subscribe from "@/components/blog/Subscribe.astro";
+import Suscribirse from "@/components/blog/Suscribirse.astro";
 // Content
 import { getCollection } from "astro:content";
 const allPostsUnsorted = await getCollection("posts");
@@ -48,5 +48,5 @@ const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
       </div>
     </Wrapper>
   </section>
-  <Subscribe />
+  <Suscribirse />
 </BaseLayout>

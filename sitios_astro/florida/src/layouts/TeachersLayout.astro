@@ -11,7 +11,7 @@ import CourseCard from "@/components/courses/CourseCard.astro";
 import { getCollection } from "astro:content";
 // Content
 const allCourses = await getCollection("courses");
-// Get the team slug from the URL
+// Get Nuestro Equipo de Consultores slug from the URL
 const teacherSlug = Astro.url.pathname.split("/").filter(Boolean).pop();
 // Filter posts by this team (based on slug)
 const relatedCourses = allCourses.filter(
@@ -84,9 +84,9 @@ const { frontmatter } = Astro.props;
         <a
           href={frontmatter.socials.website}
           class="text-xs text-primary hover:text-primary/60"
-          aria-label="Website"
+          aria-label="Sitio Web Oficial"
         >
-          Website
+          Sitio Web Oficial
         </a>
       </div>
     </Wrapper>

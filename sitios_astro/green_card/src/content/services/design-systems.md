@@ -3,7 +3,7 @@ service: Design systems
 description: Strategizing and executing data-driven marketing campaigns is crucial for enhancing your online presence. 
 ---
 
-# Design Systems Services
+# Design Systems Servicios de Reclutamiento
 
 ## Streamlining Design for Consistency and Efficiency
 
@@ -17,7 +17,7 @@ Our Design Systems services help organizations create comprehensive design syste
 
 - **Implementation & Integration**: Assisting with the implementation of the design system across your projects and platforms.
 
-### Our Services
+### Our Servicios de Reclutamiento
 
 - **UI Component Libraries**: Developing libraries of reusable UI components for faster and more consistent design.
 

@@ -2,7 +2,7 @@
 name: Marco Bianchi
 role: Senior Economic Analyst
 bio: |
-  Marco Bianchi is a senior economic analyst with a focus on global market trends, fiscal policy, and the future of finance. He has extensive experience in analyzing the factors that influence financial markets and the broader global economy, offering insights into market behavior and economic shifts.
+  Marco Bianchi is a senior economic analyst with a focus on global market trends, fiscal policy, and el futuro of finance. He has extensive experience in analyzing the factors that influence financial markets and the broader global economy, offering Estadísticas e Información into market behavior and economic shifts.
 
   With a background in economics and finance, Marco's work explores how political and economic changes affect market stability, investment strategies, and economic growth. His analysis helps readers understand complex economic topics and their real-world implications for businesses, governments, and consumers alike.
 

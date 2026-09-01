@@ -1,7 +1,7 @@
 {
-  "plantilla_id": "brightlight_maestra",
-  "version": "1.0.0",
-  "descripcion": "Plantilla Astro Maestra con manifiesto de inyección y auditoría estricta anti-placeholders",
+  "plantilla_id": "profoliox_mexico",
+  "version": "1.2.0",
+  "descripcion": "Plantilla Astro Profoliox para enfermeras en México (Visa TN y equivalencias).",
   "componentes_clave": {
     "header": [
       "src/components/global/Navigation.astro",
@@ -23,6 +23,16 @@
     ]
   },
   "reglas_reemplazo": [
+    {
+      "buscar": "Introduction to Product Design & Design Thinking",
+      "reemplazar_con": "Proceso de Homologación de Título para Enfermeras de México",
+      "sensible_mayusculas": false
+    },
+    {
+      "buscar": "Wireframing, Prototyping, and Usability Testing",
+      "reemplazar_con": "Trámites de Visa TN, CGFNS y Preparación NCLEX",
+      "sensible_mayusculas": false
+    },
     {
       "buscar": "Brightlight",
       "reemplazar_con": "{sitio_nombre}",
@@ -63,6 +73,12 @@
     "something",
     "Red PBN & Interlinking",
     "Premium multipage themes",
-    "money_site"
+    "money_site",
+    "Ælen's CRM",
+    "A next generation CRM",
+    "The last business platform you'll ever need",
+    "Build today without limits.",
+    "Available properties for sale",
+    "Dusk Swiss Design Week"
   ]
 }

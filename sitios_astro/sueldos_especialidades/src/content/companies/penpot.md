@@ -31,7 +31,7 @@ values:
 benefits:
   - "Remote work flexibility"
   - "Open-source contribution time"
-  - "Learning and conference budgets"
+  - "Aprender Másing and conference budgets"
   - "Generous vacation policy"
   - "Early-stage equity options"
 

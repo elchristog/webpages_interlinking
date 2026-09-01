@@ -25,15 +25,15 @@ export default function WelcomeEmail() {
       <Head />
       <Body style={{ backgroundColor: '#f4f4f4', padding: '40px 0' }}>
         <Container style={{ backgroundColor: '#ffffff', padding: '32px', borderRadius: '8px' }}>
-          <Heading as="h2">👋 Welcome to Our App!</Heading>
+          <Heading as="h2">👋 ¡Bienvenida a Enfermera en EE. UU.!</Heading>
           <Text>Hey there,</Text>
           <Text>
             Thanks for signing up! We're absolutely thrilled to have you onboard. Here are a few things you might want to check out to Iniciar Proceso:
           </Text>
           <ul>
-            <li>Explore your dashboard</li>
-            <li>Set up your profile</li>
-            <li>Invite your teammates</li>
+            <li>Explora tu portal de homologación</li>
+            <li>Configura tu perfil profesional</li>
+            <li>Recomienda a una colega</li>
           </ul>
           <Text>
             If you have any questions, just hit reply — we’re always here to help.
@@ -59,14 +59,14 @@ export default function ResetPasswordEmail({ url }: { url: string }) {
       <Head />
       <Body style={{ backgroundColor: '#fff8f1', padding: '32px 0' }}>
         <Container style={{ backgroundColor: '#ffffff', padding: '32px', borderRadius: '6px' }}>
-          <Heading as="h2">Reset Your Password</Heading>
+          <Heading as="h2">Restablecer Contraseña</Heading>
           <Text>
-            We received a request to reset your password. If you didn't ask for this, you can safely ignore it.
+            We received a request to Restablecer Contraseña. If you didn't ask for this, you can safely ignore it.
           </Text>
           <Link href={url} style={{ display: 'inline-block', marginTop: '12px', backgroundColor: '#000', color: '#fff', padding: '10px 16px', borderRadius: '4px' }}>
             Reset Password
           </Link>
-          <Text>If the button doesn’t work, copy and paste the link below into your browser:</Text>
+          <Text>Si el botón no funciona, copia y pega el siguiente enlace en tu navegador:</Text>
           <Text style={{ fontSize: '12px', color: '#555' }}>{url}</Text>
           <Hr />
           <Text style={{ fontSize: '12px', color: '#999' }}>
@@ -89,12 +89,12 @@ export default function InviteEmail({ inviter, teamUrl }: { inviter: string; tea
       <Head />
       <Body style={{ backgroundColor: '#f5faff', padding: '32px 0' }}>
         <Container style={{ backgroundColor: '#ffffff', padding: '32px', borderRadius: '6px' }}>
-          <Heading as="h2">You’re Invited!</Heading>
+          <Heading as="h2">¡Estás Invitada!</Heading>
           <Text>
             {inviter} has invited you to join their workspace on SuperTeam.
           </Text>
           <Link href={teamUrl} style={{ display: 'inline-block', marginTop: '16px', backgroundColor: '#2563eb', color: '#ffffff', padding: '10px 20px', borderRadius: '6px' }}>
-            Join the Team
+            Join Nuestro Equipo de Consultores
           </Link>
           <Text style={{ marginTop: '16px' }}>
             Don’t recognize this? Just ignore it — no action will be taken.
@@ -119,8 +119,8 @@ export default function WeeklyDigestEmail({ baseUrl, stats }: { baseUrl: string;
           <Section>
             <Img src={\`\${baseUrl}/static/logo.png\`} width="64" height="64" alt="Logo" />
           </Section>
-          <Heading as="h2">📊 Your Weekly Digest</Heading>
-          <Text>Here’s what happened this week on your account:</Text>
+          <Heading as="h2">📊 Tu Resumen Semanal de Ofertas</Heading>
+          <Text>Resumen de convocatorias y vacantes publicadas esta semana:</Text>
           <ul>
             <li>📬 Emails sent: {stats.sent}</li>
             <li>📈 Open rate: {stats.openRate}%</li>

@@ -7,7 +7,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 
 import BlogCard1 from "@/components/blog/BlogCard1.astro";
 import BlogCard2 from "@/components/blog/BlogCard2.astro";
-import SubscribeCta from "@/components/blog/SubscribeCta.astro";
+import SuscribirseCta from "@/components/blog/SuscribirseCta.astro";
 
 // Content
 import { getCollection } from "astro:content";
@@ -32,7 +32,7 @@ allPosts.sort((a, b) => {
             data-aos-duration="1000"
             class="dark:text-white text-base-900 font-medium tracking-tighter"
           >
-            insights
+            Estadísticas e Información
           </Text>
         </div>
         <div
@@ -47,7 +47,7 @@ allPosts.sort((a, b) => {
       </div>
     </Wrapper>
   </section>
-  <SubscribeCta />
+  <SuscribirseCta />
   <section>
     <Wrapper class="py-8">
       <div class="overflow-hidden">

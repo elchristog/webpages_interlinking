@@ -8,7 +8,7 @@ bio: |
 
   Maya's work is dedicated to capturing the energy and transformation taking place in women’s sports, from grassroots initiatives to international tournaments. Her coverage is both informative and inspiring, offering fresh perspectives on the games, the athletes, and the fans.
 image:
-  url: "/imagenes_proyecto/an-lisis-legal-de-los-tipos-de-visa-h-1b-tn-eb-3-para-trabajar-de-enfermera-extranjera-en-usa-6.webp"
+  url: "/src/images/blog/1.jpg"
   alt: "Maya Lombardi"
 socials:
   twitter: "#_"

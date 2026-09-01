@@ -4,7 +4,7 @@ import { Image } from "astro:assets";
 // Fundations
 import Text from "@/components/fundations/elements/Text.astro";
 
-// Mirror the TeamCard destructuring pattern
+// Mirror Nuestro Equipo de ConsultoresCard destructuring pattern
 const { url, name, avatar, location, experience, status, date, preferences } = {
   url: "/candidates/" + Astro.props.candidate.id,
   name: `${Astro.props.candidate.data.firstName} ${Astro.props.candidate.data.lastName}`,

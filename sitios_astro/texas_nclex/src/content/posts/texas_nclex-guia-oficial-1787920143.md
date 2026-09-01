@@ -5,7 +5,7 @@ description: "Guía definitiva sobre Guía táctica para pasar el NCLEX, trámit
 author: "David Lee"
 team: "david-lee"
 image:
-  url: "/imagenes_proyecto/gu-a-t-ctica-para-pasar-el-nclex-tr-mites-cgfns-y-requisitos-del-board-of-nursing-en-texas-10.webp"
+  url: "/src/images/blog/1.jpg"
   alt: "Guía Táctica Para Pasar El Nclex, Trámites Cgfns Y Requisitos Del Board Of Nursing En Texas"
 tags:
   - enfermeria

@@ -16,35 +16,35 @@
   },
   "menu_global": [
     {
-      "nombre": "Homologar Título",
+      "nombre": "Validar Título",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Examen NCLEX",
+      "nombre": "Pasar NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Bolsa Empleo",
+      "nombre": "Buscar Trabajo",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Visa Trabajo",
+      "nombre": "Migrar Legal",
       "ruta": "/visa"
     },
     {
-      "nombre": "Sueldo Promedio",
+      "nombre": "Ingresos USA",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Novedades",
+      "nombre": "Noticias",
       "ruta": "/blog"
     },
     {
-      "nombre": "WhatsApp",
+      "nombre": "Soporte",
       "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Login",
+      "nombre": "Acceso",
       "ruta": "/login"
     }
   ],

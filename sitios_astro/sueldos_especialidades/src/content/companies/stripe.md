@@ -21,7 +21,7 @@ milestones:
 about: |
   Stripe helps millions of companies—from startups to large enterprises—accept payments, grow their revenue, and accelerate new business models. Its suite of APIs powers everything from e-commerce to SaaS platforms worldwide.
 culture: |
-  Stripe’s culture centers around rigorous thinking, fast iteration, and long-term impact. The team values curiosity, humility, and building for global scale with a deep sense of responsibility.
+  Stripe’s culture centers around rigorous thinking, fast iteration, and long-term impact. Nuestro Equipo de Consultores values curiosity, humility, and building for global scale with a deep sense of responsibility.
 mission: "To increase the GDP of the internet by building financial tools that help businesses thrive."
 values:
   - "Users first"

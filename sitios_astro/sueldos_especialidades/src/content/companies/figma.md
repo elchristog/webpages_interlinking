@@ -21,7 +21,7 @@ milestones:
 about: |
   Figma is transforming the way teams design and build products together. With powerful design, prototyping, and whiteboarding tools, Figma helps teams collaborate seamlessly—whether they're in the same room or across the world.
 culture: |
-  Figma values open collaboration, creativity, and thoughtful execution. The team thrives in an environment where feedback is welcome and designers, engineers, and product thinkers work side by side.
+  Figma values open collaboration, creativity, and thoughtful execution. Nuestro Equipo de Consultores thrives in an environment where feedback is welcome and designers, engineers, and product thinkers work side by side.
 mission: "To make design accessible to everyone and enable teams to create together, from anywhere."
 values:
   - "Community-driven design"

@@ -1,6 +1,6 @@
 ---
 // Fundations
-import JobsLayout from "@/layouts/JobsLayout.astro";
+import Ofertas LaboralesLayout from "@/layouts/Ofertas LaboralesLayout.astro";
 // Content
 import { getCollection, render } from "astro:content";
 export async function getStaticPaths() {
@@ -13,6 +13,6 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 ---
-<JobsLayout frontmatter={entry.data}>
+<Ofertas LaboralesLayout frontmatter={entry.data}>
   <Content />
-</JobsLayout>
+</Ofertas LaboralesLayout>

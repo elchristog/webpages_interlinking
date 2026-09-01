@@ -11,7 +11,7 @@ import BlogEntries1 from "@/components/blog/BlogEntries.astro";
 import { getCollection } from "astro:content";
 // Content
 const allPosts = await getCollection("posts");
-// Get the team slug from the URL
+// Get Nuestro Equipo de Consultores slug from the URL
 const teamSlug = Astro.url.pathname.split("/").filter(Boolean).pop();
 // Filter posts by this team (based on slug)
 const relatedPosts = allPosts.filter((post) => post.data.team === teamSlug);
@@ -76,7 +76,7 @@ const { frontmatter } = Astro.props;
                 )}
                 {frontmatter.socials.website && (
                   <a
-                    aria-label="Website"
+                    aria-label="Sitio Web Oficial"
                     href={frontmatter.socials.website}
                     class="text-primary font-mono text-xs font-medium uppercase duration-300 hover:underline"
                   >

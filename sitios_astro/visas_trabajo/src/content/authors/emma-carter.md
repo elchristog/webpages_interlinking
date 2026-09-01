@@ -8,7 +8,7 @@ bio: |
 
   Her articles inspire wanderlust and offer practical advice for fellow travelers seeking their next great adventure.
 image:
-  url: "/imagenes_proyecto/an-lisis-legal-de-los-tipos-de-visa-h-1b-tn-eb-3-para-trabajar-de-enfermera-extranjera-en-usa-12.webp"
+  url: "/src/images/blog/1.jpg"
   alt: "Emma Carter"
 socials:
   twitter: "#_"

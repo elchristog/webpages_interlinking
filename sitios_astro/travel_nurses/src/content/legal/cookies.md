@@ -3,7 +3,7 @@ page: Cookies
 pubDate: 2025-01-19
 ---
 
-This cookie policy describes how this company ( this company ) uses “cookies” and other similar technologies, in connection with our Site and Services. For more information on this company privacy practices, please see our Privacy Policy.
+This cookie policy describes how this company ( this company ) uses “cookies” and other similar technologies, in connection with our Site and Servicios de Reclutamiento. For more information on this company privacy practices, please see our Privacy Policy.
 
 ### About cookies
 

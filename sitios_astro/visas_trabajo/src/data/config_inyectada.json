@@ -16,7 +16,7 @@
   },
   "menu_global": [
     {
-      "nombre": "Proceso Grado",
+      "nombre": "Diploma Online",
       "ruta": "/homologacion"
     },
     {
@@ -24,19 +24,19 @@
       "ruta": "/nclex"
     },
     {
-      "nombre": "Buscar Trabajo",
+      "nombre": "Puestos Libres",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Visa Trabajo",
+      "nombre": "Visa EB-3",
       "ruta": "/visa"
     },
     {
-      "nombre": "Cuanto Ganan",
+      "nombre": "Sueldo Promedio",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Blog Oficial",
+      "nombre": "Historias",
       "ruta": "/blog"
     },
     {
@@ -44,7 +44,7 @@
       "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Iniciar",
+      "nombre": "Acceso",
       "ruta": "/login"
     }
   ],
