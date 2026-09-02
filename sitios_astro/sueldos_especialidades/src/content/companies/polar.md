@@ -33,7 +33,4 @@ benefits:
   - "Flexible hours"
   - "Competitive compensation"
   - "Open source contribution time"
-
-author: "David Lee"
-team: "david-lee"
 ---

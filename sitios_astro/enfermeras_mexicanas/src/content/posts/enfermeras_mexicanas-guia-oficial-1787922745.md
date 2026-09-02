@@ -10,6 +10,9 @@ image:
 tags:
   - enfermeria
   - enfermeras_mexicanas
+avatar:
+  url: "/src/images/blog/1.jpg"
+  alt: "Avatar"
 ---
 
 <section class="ui-hero-product ui-preset--professional">

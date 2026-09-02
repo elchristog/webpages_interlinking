@@ -16,11 +16,11 @@
   },
   "menu_global": [
     {
-      "nombre": "Proceso Grado",
+      "nombre": "Diploma Online",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Examen NCLEX",
+      "nombre": "NCLEX Paso",
       "ruta": "/nclex"
     },
     {
@@ -28,7 +28,7 @@
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Visa EB-3",
+      "nombre": "Sponsor Visa",
       "ruta": "/visa"
     },
     {
@@ -36,15 +36,15 @@
       "ruta": "/salarios"
     },
     {
-      "nombre": "Novedades",
+      "nombre": "Guías Tips",
       "ruta": "/blog"
     },
     {
-      "nombre": "Soporte",
+      "nombre": "Consultar Ahora",
       "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Entrar",
+      "nombre": "Acceso",
       "ruta": "/login"
     }
   ],

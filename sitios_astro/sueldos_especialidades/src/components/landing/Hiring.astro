@@ -3,15 +3,15 @@
 import Text from "@/components/fundations/elements/Text.astro";
 // Content
 import { getCollection } from "astro:content";
-const allOfertas Laborales = await getCollection("jobs");
+const allJobs = await getCollection("jobs");
 const allCompanies = await getCollection("companies");
 // Filter companies that have jobs
 const hiringCompanies = allCompanies.filter((company) =>
-  allOfertas Laborales.some((job) => job.data.company === company.id)
+  allJobs.some((job) => job.data.company === company.id)
 );
 // Count open roles for each company
 const getOpenRolesCount = (companySlug) => {
-  return allOfertas Laborales.filter(
+  return allJobs.filter(
     (job) => job.data.company === companySlug && !job.data.isClosed
   ).length;
 };

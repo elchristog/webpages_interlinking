@@ -33,7 +33,4 @@ benefits:
   - "Competitive compensation"
   - "Health insurance"
   - "Aprender Másing and development budget"
-
-author: "David Lee"
-team: "david-lee"
 ---

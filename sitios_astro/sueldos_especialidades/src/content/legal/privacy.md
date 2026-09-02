@@ -1,9 +1,6 @@
 ---
 page: Privacy Policy
 pubDate: 2026-04-01
-
-author: "David Lee"
-team: "david-lee"
 ---
 
 

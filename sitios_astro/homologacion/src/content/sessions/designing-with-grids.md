@@ -11,9 +11,6 @@ level: intermediate
 tags:
   - grids
   - swiss-design
-
-author: "David Lee"
-team: "david-lee"
 ---
 
 A practical session on using grids to achieve clarity and order in digital products.

@@ -2,7 +2,7 @@
 // Assets
 import Logo from "@/components/assets/Logo.astro";
 import { Image } from "astro:assets";
-const visual = "/imagenes_proyecto/gu-a-salarial-y-de-ofertas-laborales-exclusivas-para-travel-nurses-en-estados-unidos-7.webp";
+import visual from "@/images/about/3.jpeg";
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Text from "@/components/fundations/elements/Text.astro";
@@ -132,7 +132,7 @@ import Button from "@/components/fundations/elements/Button.astro";
         </div>
       </div>
     </div>
-    <img
+    <Image
       src={visual}
       alt="Background"
       aria-hidden="true"

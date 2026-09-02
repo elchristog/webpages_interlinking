@@ -12,8 +12,8 @@ const { frontmatter } = Astro.props;
 // Get full company data
 const company = await getEntry("companies", frontmatter.company);
 // Get related jobs by category
-const allOfertas Laborales = await getCollection("jobs");
-const relatedOfertas Laborales = allOfertas Laborales
+const allJobs = await getCollection("jobs");
+const relatedJobs = allJobs
 .filter(
 (job) =>
 job.data.category === frontmatter.category &&
@@ -157,12 +157,12 @@ job.id !== Astro.url.pathname.split("/").pop()
             
             <div class="lg:sticky lg:top-24 lg:z-50">
                {
-               relatedOfertas Laborales.length > 0 && (
+               relatedJobs.length > 0 && (
                <Text tag="h2" variant="textBase" class="font-medium text-primary">
                      Related Ofertas Laborales
                </Text>
                <div class="flex flex-col mt-1 divide-primary/10 border-primary/10 divide-y border-y">
-                  {relatedOfertas Laborales.map((job) => (
+                  {relatedJobs.map((job) => (
                   <JobEntry post={job} />
                   ))}
                </div>

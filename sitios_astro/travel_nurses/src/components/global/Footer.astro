@@ -1,4 +1,12 @@
----import config from "@/data/config_inyectada.json";
+---
+// Assets
+import Logo from "@/components/assets/Logo.astro";
+
+import Signature from "@/components/global/Signature.astro";
+// Fundations
+import Text from "../fundations/elements/Text.astro";
+import Wrapper from "../fundations/containers/Wrapper.astro";
+import config from "@/data/config_inyectada.json";
 
 const siteMenu = (config.menu_global && config.menu_global.length > 0)
   ? config.menu_global.map(item => ({
@@ -26,17 +34,6 @@ const interlinkLinks = [
   { label: "Portal Oficial CGFNS", title: "Portal Oficial CGFNS", text: "Portal Oficial CGFNS", nombre: "Portal Oficial CGFNS", href: "https://www.cgfns.org/", ruta: "https://www.cgfns.org/" },
   { label: "Examen Oficial NCSBN NCLEX", title: "Examen Oficial NCSBN NCLEX", text: "Examen Oficial NCSBN NCLEX", nombre: "Examen Oficial NCSBN NCLEX", href: "https://www.ncsbn.org/nclex.page", ruta: "https://www.ncsbn.org/nclex.page" }
 ];
-
-// Assets
-import Logo from "@/components/assets/Logo.astro";
-
-import Signature from "@/components/global/Signature.astro";
-// Fundations
-import Text from "../fundations/elements/Text.astro";
-import Wrapper from "../fundations/containers/Wrapper.astro";
-
-
-
 
 const footerLinks = [
   {
@@ -94,29 +91,26 @@ const links = footerLinks;
       <div class="lg:ml-auto">
         {
           footerLinks.map((section) => (
-            <div class="flex flex-col ">
+            <div class="flex flex-col mb-6">
               <Text
                 tag="h3"
                 variant="textXS"
-                id={section.id}
                 class="font-medium text-white uppercase"
               >
-                {section.title}
+                {section.heading || section.title}
               </Text>
               <nav
                 role="navigation"
-                class="flex flex-col mt-8 gap-2"
-                aria-labelledby={section.id}
+                class="flex flex-col mt-2 gap-2"
               >
-                {section.platforms.map((platform, index) => (
+                {(section.links || []).map((link, index) => (
                   <Text
                     tag="a"
                     variant="textXS"
-                    href={platform.link}
-                    aria-label={`Go to ${platform.name}`}
+                    href={link.href || link.ruta}
                     class="font-medium uppercase text-base-300 hover:underline"
                   >
-                    {platform.name}
+                    {link.label || link.text || link.title || link.nombre}
                   </Text>
                 ))}
               </nav>

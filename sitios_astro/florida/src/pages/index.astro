@@ -6,7 +6,7 @@ import Button from "@/components/fundations/elements/Button.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 // Sections
 import Hero from "@/components/landing/Hero.astro";
-import Aprender Más from "@/components/landing/Aprender Más.astro";
+import Learn from "@/components/landing/Learn.astro";
 import Who from "@/components/landing/Who.astro";
 import Expectations from "@/components/landing/Expectations.astro";
 import Testimonials from "@/components/testimonials/Testimonials.astro";
@@ -21,9 +21,9 @@ const allCourses = (await getCollection("courses")).sort(
 
 ---
 
-<BaseLayout>
-  <Hero />
-  <Aprender Más />
+<BaseLayout >
+    <Hero />
+  <Learn />
   <Who />
   <Expectations />
   <section>
@@ -36,7 +36,8 @@ const allCourses = (await getCollection("courses")).sort(
         variant="textBase"
         class="font-serif text-primary/60 text-balance"
       >
-        Explora nuestros artículos detallados sobre trámites de enfermería, visas laborales y consejos de examen.
+        New lessons and UI patterns released regularly. Stay sharp, stay current
+        — and keep building with confidence.
       </Text>
       <a href="/courses" class="text-xs text-primary hover:text-primary/60">
         Conocer Requisitos</a
@@ -44,7 +45,7 @@ const allCourses = (await getCollection("courses")).sort(
       <div
         class="flex flex-col pt-2 mt-2 border-t border-dotted gap-2 border-primary/10"
       >
-        {
+                {
           allCourses.map((course) => (
             <CourseCard post={course} lessons={allLessons} />
           ))
@@ -53,4 +54,5 @@ const allCourses = (await getCollection("courses")).sort(
     </Wrapper>
   </section>
   <Testimonials />
+
 </BaseLayout>

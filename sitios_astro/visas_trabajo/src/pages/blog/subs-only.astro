@@ -4,7 +4,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 // Components
-import Suscribirse from "@/components/cta/Suscribirse.astro";
+import Subscribe from "@/components/cta/Subscribe.astro";
 import BlogCard2 from "@/components/blog/BlogCard2.astro";
 // Content
 const allPosts = await getCollection("posts");
@@ -41,7 +41,7 @@ allPosts.sort((a, b) => {
                 .map((post) => <BlogCard2 post={post} />)
             }
           </div>
-          <Suscribirse />
+          <Subscribe />
         </div>
         <div
           class="lg:pl-8 lg:relative lg:before:absolute lg:after:absolute

@@ -10,6 +10,9 @@ image:
 tags:
   - enfermeria
   - visas_trabajo
+avatar:
+  url: "/src/images/blog/1.jpg"
+  alt: "Avatar"
 ---
 
 <section class="ui-hero-product ui-preset--midnight">

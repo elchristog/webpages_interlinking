@@ -10,6 +10,9 @@ image:
 tags:
   - enfermeria
   - texas_nclex
+avatar:
+  url: "/src/images/blog/1.jpg"
+  alt: "Avatar"
 ---
 
 <section class="ui-hero-agency ui-preset--emerald">

@@ -11,9 +11,6 @@ level: beginner
 tags:
   - typography
   - fonts
-
-author: "David Lee"
-team: "david-lee"
 ---
 
 Join a hands-on session on choosing and pairing typefaces for maximum impact.

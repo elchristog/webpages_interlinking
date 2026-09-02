@@ -16,23 +16,23 @@
   },
   "menu_global": [
     {
-      "nombre": "Validar Título",
+      "nombre": "Validar Diploma",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Guía NCLEX",
+      "nombre": "Estudio NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Bolsa Empleo",
+      "nombre": "Buscar Trabajo",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Sponsor Visa",
+      "nombre": "Residencia USA",
       "ruta": "/visa"
     },
     {
-      "nombre": "Sueldo Promedio",
+      "nombre": "Sueldos USA",
       "ruta": "/salarios"
     },
     {
@@ -40,11 +40,11 @@
       "ruta": "/blog"
     },
     {
-      "nombre": "Ayuda Chat",
+      "nombre": "Hablar Asesor",
       "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Iniciar",
+      "nombre": "Mi Cuenta",
       "ruta": "/login"
     }
   ],

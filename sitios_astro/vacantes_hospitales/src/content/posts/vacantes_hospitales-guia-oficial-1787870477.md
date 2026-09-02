@@ -10,6 +10,9 @@ image:
 tags:
   - enfermeria
   - vacantes_hospitales
+avatar:
+  url: "/src/images/blog/1.jpg"
+  alt: "Avatar"
 ---
 
 <section class="ui-hero-agency ui-preset--emerald">

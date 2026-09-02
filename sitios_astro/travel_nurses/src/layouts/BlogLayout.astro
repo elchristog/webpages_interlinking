@@ -8,7 +8,7 @@ import Text from "@/components/fundations/elements/Text.astro";
 import Button from "@/components/fundations/elements/Button.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 // Sections
-import Suscribirse from "@/components/ctas/Suscribirse.astro";
+import Subscribe from "@/components/ctas/Subscribe.astro";
 import BlogCard2 from "@/components/blog/BlogCard2.astro";
 // Props
 const { frontmatter, previous, next, slug } = Astro.props;
@@ -66,7 +66,7 @@ const relatedPosts = allPosts.filter(
           {
             author && (
               <a
-                href={`/authors/${author.id}`}
+                href={`/authors/${author?.id || ""}`}
                 class="flex items-center justify-center gap-3 hover:opacity-80 transition"
               >
                 {author?.data?.image?.url && (
@@ -99,10 +99,10 @@ const relatedPosts = allPosts.filter(
                   <span class="">
                     by
                     <span class="italic font-medium text-base-600">
-                      {author.data.name}
+                      {author?.data?.name || "Asesor Oficial"}
                     </span>
                   </span>
-                  <span class="block"> {author.data.role}</span>
+                  <span class="block"> {author?.data?.role || "Asesor de Enfermería"}</span>
                 </Text>
               </a>
             )
@@ -215,5 +215,5 @@ const relatedPosts = allPosts.filter(
       </section>
     )
   }
-  <Suscribirse />
+  <Subscribe />
 </BaseLayout>

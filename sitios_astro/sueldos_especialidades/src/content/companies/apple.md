@@ -39,7 +39,4 @@ benefits:
   - "Private health coverage"
   - "Professional development"
   - "Paid volunteer days"
-
-author: "David Lee"
-team: "david-lee"
 ---

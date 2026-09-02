@@ -16,23 +16,23 @@
   },
   "menu_global": [
     {
-      "nombre": "Validar Diploma",
+      "nombre": "Validar Título",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Examen NCLEX",
+      "nombre": "Guía NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Empleos RN",
+      "nombre": "Puestos Libres",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Green Card",
+      "nombre": "Trámite EB3",
       "ruta": "/visa"
     },
     {
-      "nombre": "Salario Real",
+      "nombre": "Cuanto Ganan",
       "ruta": "/salarios"
     },
     {
@@ -44,7 +44,7 @@
       "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Login",
+      "nombre": "Iniciar",
       "ruta": "/login"
     }
   ],

@@ -16,15 +16,15 @@
   },
   "menu_global": [
     {
-      "nombre": "Validar Título",
+      "nombre": "Proceso Grado",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Pasar NCLEX",
+      "nombre": "Prep NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Buscar Trabajo",
+      "nombre": "Bolsa Empleo",
       "ruta": "/vacantes"
     },
     {
@@ -32,19 +32,19 @@
       "ruta": "/visa"
     },
     {
-      "nombre": "Ingresos USA",
+      "nombre": "Cuanto Ganan",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Noticias",
+      "nombre": "Casos Éxito",
       "ruta": "/blog"
     },
     {
-      "nombre": "Soporte",
+      "nombre": "Ayuda Chat",
       "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Acceso",
+      "nombre": "Login",
       "ruta": "/login"
     }
   ],

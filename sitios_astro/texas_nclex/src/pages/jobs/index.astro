@@ -8,7 +8,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 import JobCard from "@/components/jobs/JobCard.astro";
 // Content
 import { getCollection } from "astro:content";
-const allOfertas Laborales = await getCollection("jobs");
+const allJobs = await getCollection("jobs");
 // Benift array
 const benefits = [
   [
@@ -51,7 +51,7 @@ const benefits = [
   <section>
     <Wrapper class="pt-42 grid grid-cols-1 gap-y-12 md:grid-cols-4">
       <div class="md:col-span-2 md:col-start-2 md:text-enter">
-        <Text tag="span" variant="textSM" class="text-white"> Ofertas Laborales </Text>
+        <Text tag="span" variant="textSM" class="text-white"> Jobs </Text>
         <Text
           tag="h1"
           variant="displayXL"
@@ -164,7 +164,7 @@ const benefits = [
       <div
         class="divide-y divide-white/10 border-y border-white/10 md:row-start-2 md:col-start-2 md:col-span-2"
       >
-        {allOfertas Laborales.map((post) => <JobCard post={post} />)}
+        {allJobs.map((post) => <JobCard post={post} />)}
       </div>
     </Wrapper>
   </section>

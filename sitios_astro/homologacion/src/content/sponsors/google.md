@@ -3,11 +3,8 @@ name: Google
 tier: gold
 url: "#_"
 logo:
-  url: /src/images/blog/1.jpg
+  url: /src/images/sponsors/google.svg
   alt: Google logo
-
-author: "David Lee"
-team: "david-lee"
 ---
 
 ## About Google

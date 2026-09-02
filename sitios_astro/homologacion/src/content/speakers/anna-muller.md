@@ -3,7 +3,7 @@ name: Anna Müller
 role: Product Designer
 company: Swiss Digital Studio
 headshot:
-  url: /src/images/blog/1.jpg
+  url: /src/images/speakers/anna-muller.png
   alt: Anna Müller headshot
 location: Zurich, Switzerland
 summary: "Programme chair focused on translating Swiss grid discipline into scalable product systems."
@@ -18,9 +18,6 @@ socials:
   website: "#_"
 talks: ["modular-design-systems"]
 featured: true
-
-author: "David Lee"
-team: "david-lee"
 ---
 
 ## About Anna

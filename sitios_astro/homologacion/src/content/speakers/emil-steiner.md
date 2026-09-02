@@ -3,7 +3,7 @@ name: Emil Steiner
 role: Creative Director
 company: Ratio Studio
 headshot:
-  url: /src/images/blog/1.jpg
+  url: /src/images/speakers/emil-steiner.png
   alt: Emil Steiner headshot
 location: Basel, Switzerland
 summary: "Creative director bringing Swiss rationalism to contemporary design systems and team culture."
@@ -18,9 +18,6 @@ socials:
   website: "#_"
 talks: []
 featured: false
-
-author: "David Lee"
-team: "david-lee"
 ---
 
 ## About Emil

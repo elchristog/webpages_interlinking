@@ -3,7 +3,7 @@ name: Martina Rossi
 role: UX Researcher
 company: Italia Digitale
 headshot:
-  url: /src/images/blog/1.jpg
+  url: /src/images/speakers/martina-rossi.png
   alt: Martina Rossi headshot
 location: Milan, Italy
 summary: "UX researcher blending musical structure with Swiss proportion to craft balanced interfaces."
@@ -18,9 +18,6 @@ socials:
   website: "#_"
 talks: ["proportion-harmony-ui"]
 featured: false
-
-author: "David Lee"
-team: "david-lee"
 ---
 
 # Speaker Profile

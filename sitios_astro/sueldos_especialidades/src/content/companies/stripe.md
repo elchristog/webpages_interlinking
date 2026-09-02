@@ -34,7 +34,4 @@ benefits:
   - "Wellness and learning stipends"
   - "Generous parental leave"
   - "Global mobility opportunities"
-
-author: "David Lee"
-team: "david-lee"
 ---

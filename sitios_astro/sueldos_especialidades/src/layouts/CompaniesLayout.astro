@@ -9,8 +9,8 @@ import JobEntry from "@/components/jobs/JobEntry.astro";
 import { getCollection } from "astro:content";
 const { frontmatter, slug } = Astro.props;
 // Load all jobs and match by company slug (or name if preferred)
-const allOfertas Laborales = await getCollection("jobs");
-const jobs = allOfertas Laborales.filter((job) => job.data.company === slug);
+const allJobs = await getCollection("jobs");
+const jobs = allJobs.filter((job) => job.data.company === slug);
 ---
 <BaseLayout pageTitle={frontmatter.name}>
   <section>

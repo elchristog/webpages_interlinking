@@ -9,16 +9,16 @@ import Hiring from "@/components/landing/Hiring.astro";
 import Companies from "@/components/landing/Companies.astro";
 import Categories from "@/components/landing/Categories.astro";
 import Candidates from "@/components/landing/Candidates.astro";
-import FeaturedOfertas Laborales from "@/components/landing/FeaturedOfertas Laborales.astro";
+import FeaturedJobs from "@/components/landing/FeaturedJobs.astro";
 
 ---
 
 <BaseLayout >
-<section>
+    <section>
     <Wrapper variant="standard" class="py-24">
       <Hero />
       <div class="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
-        <FeaturedOfertas Laborales />
+        <FeaturedJobs />
         <Categories />
         <div class="space-y-12">
           <Hiring />
@@ -28,4 +28,5 @@ import FeaturedOfertas Laborales from "@/components/landing/FeaturedOfertas Labo
       </div>
     </Wrapper>
   </section>
+
 </BaseLayout>

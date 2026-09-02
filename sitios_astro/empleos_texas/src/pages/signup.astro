@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
-const Avatar = "/imagenes_proyecto/ofertas-de-trabajo-y-vacantes-en-hospitales-top-de-houston-dallas-y-el-resto-de-texas-10.webp";
+import Avatar from "@/images/avatar.jpeg";
 import Text from "@/components/fundations/elements/Text.astro";
 import Button from "@/components/fundations/elements/Button.astro";
 ---
@@ -88,7 +88,7 @@ import Button from "@/components/fundations/elements/Button.astro";
         >
       </div>
     </div>
-    <img
+    <Image
       width={1000}
       height={2000}
       src={Avatar}

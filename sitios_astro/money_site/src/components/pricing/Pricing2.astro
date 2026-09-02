@@ -1,5 +1,5 @@
 ---
-export const description = "Programas y Asesoría section with three tiers";
+export const description = "Pricing section with three tiers";
 
 // Components
 import Text from "@/components/fundations/elements/Text.astro";
@@ -126,17 +126,18 @@ const pricingOptions = [
         variant="displayMD"
         class="font-serif font-medium tracking-tight text-black"
       >
-        Programas Diseñados para Tu Éxito Profesional
+        Plans that grow with your ambition (or chaos)
       </Text>
       <Text
         tag="p"
         variant="textBase"
         class="max-w-xl mx-auto mt-4 text-base-500"
       >
-        Elige la fase en la que te encuentras o realiza la ruta completa con nuestro acompañamiento.
+        Start free. Pay when your side project accidentally turns into a
+        business.
       </Text>
 
-      <!-- Programas y Asesoría Toggle -->
+      <!-- Pricing Toggle -->
       <div
         aria-labelledby="pricing-toggle"
         class="relative z-0 inline-flex justify-center p-1 mx-auto mt-8 overflow-hidden bg-white shadow ring-1 ring-base-200 ring-offset-2 gap-4 lg:mx-0 rounded-md w-fit"
@@ -167,7 +168,7 @@ const pricingOptions = [
       </div>
     </div>
 
-    <!-- Programas y Asesoría Cards -->
+    <!-- Pricing Cards -->
     <div class="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2">
       {
         pricingOptions.map((tier) => (
@@ -259,7 +260,7 @@ const pricingOptions = [
       let currentDuration = "monthly";
 
       // Function to update UI based on selected duration
-      function updateProgramas y AsesoríaUI(duration) {
+      function updatePricingUI(duration) {
         // Update toggle slider position
         if (duration === "monthly") {
           toggleSlider.style.transform = "translateX(0)";
@@ -308,15 +309,15 @@ const pricingOptions = [
 
       // Add event listeners to buttons
       monthlyBtn.addEventListener("click", function () {
-        updateProgramas y AsesoríaUI("monthly");
+        updatePricingUI("monthly");
       });
 
       annualBtn.addEventListener("click", function () {
-        updateProgramas y AsesoríaUI("annual");
+        updatePricingUI("annual");
       });
 
       // Initialize UI
-      updateProgramas y AsesoríaUI(currentDuration);
+      updatePricingUI(currentDuration);
     });
   </script>
 </section>

@@ -16,19 +16,19 @@
   },
   "menu_global": [
     {
-      "nombre": "Revalidar Meta",
+      "nombre": "Diploma Online",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Pasar NCLEX",
+      "nombre": "Prep NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Ofertas Trabajo",
+      "nombre": "Trabajo Hoy",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Residencia USA",
+      "nombre": "Trámite EB3",
       "ruta": "/visa"
     },
     {
@@ -40,11 +40,11 @@
       "ruta": "/blog"
     },
     {
-      "nombre": "Consultar Ahora",
+      "nombre": "Hablar Asesor",
       "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Iniciar",
+      "nombre": "Portal RN",
       "ruta": "/login"
     }
   ],

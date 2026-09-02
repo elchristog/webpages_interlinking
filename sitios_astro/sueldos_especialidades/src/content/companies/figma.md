@@ -34,7 +34,4 @@ benefits:
   - "Health, dental, and vision insurance"
   - "Wellness and learning stipends"
   - "Generous parental leave"
-
-author: "David Lee"
-team: "david-lee"
 ---

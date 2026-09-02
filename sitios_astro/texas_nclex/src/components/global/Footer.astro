@@ -1,4 +1,8 @@
----import config from "@/data/config_inyectada.json";
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import config from "@/data/config_inyectada.json";
 
 const siteMenu = (config.menu_global && config.menu_global.length > 0)
   ? config.menu_global.map(item => ({
@@ -26,13 +30,6 @@ const interlinkLinks = [
   { label: "Portal Oficial CGFNS", title: "Portal Oficial CGFNS", text: "Portal Oficial CGFNS", nombre: "Portal Oficial CGFNS", href: "https://www.cgfns.org/", ruta: "https://www.cgfns.org/" },
   { label: "Examen Oficial NCSBN NCLEX", title: "Examen Oficial NCSBN NCLEX", text: "Examen Oficial NCSBN NCLEX", nombre: "Examen Oficial NCSBN NCLEX", href: "https://www.ncsbn.org/nclex.page", ruta: "https://www.ncsbn.org/nclex.page" }
 ];
-
-// Fundations
-import Text from "@/components/fundations/elements/Text.astro";
-import Wrapper from "@/components/fundations/containers/Wrapper.astro";
-
-
-
 
 const footerLinks = [
   {

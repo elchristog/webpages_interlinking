@@ -1,18 +1,23 @@
 ---
 // Fundations
-import Ofertas LaboralesLayout from "@/layouts/Ofertas LaboralesLayout.astro";
+import JobsLayout from "@/layouts/JobsLayout.astro";
 // Content
 import { getCollection, render } from "astro:content";
 export async function getStaticPaths() {
-  const jobEntries = await getCollection("jobs");
-  return jobEntries.map((entry) => ({
-    params: { slug: entry.id },
-    props: { entry },
-  }));
+  const jobs = await getCollection("jobs");
+  const paths = jobs.map((page) => {
+    return {
+      params: { slug: page.id },
+      props: { page },
+      trailingSlash: false,
+    };
+  });
+  return paths;
 }
-const { entry } = Astro.props;
-const { Content } = await render(entry);
+const { page } = Astro.props;
+const { Content } = await render(page);
 ---
-<Ofertas LaboralesLayout frontmatter={entry.data}>
+
+<JobsLayout frontmatter={page.data}>
   <Content />
-</Ofertas LaboralesLayout>
+</JobsLayout>

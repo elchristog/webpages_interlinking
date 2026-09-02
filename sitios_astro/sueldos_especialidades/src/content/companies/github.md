@@ -33,7 +33,4 @@ benefits:
   - "Comprehensive health coverage"
   - "Professional development stipend"
   - "Home office stipend"
-
-author: "David Lee"
-team: "david-lee"
 ---

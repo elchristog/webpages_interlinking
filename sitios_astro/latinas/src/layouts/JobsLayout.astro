@@ -4,13 +4,13 @@ import Text from "@/components/fundations/elements/Text.astro";
 import Button from "@/components/fundations/elements/Button.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 // Components
-import Ofertas LaboralesCard from "@/components/jobs/JobCard.astro";
+import JobsCard from "@/components/jobs/JobCard.astro";
 const { frontmatter } = Astro.props;
 // Content
 import { getCollection } from "astro:content";
-const allOfertas Laborales = await getCollection("jobs");
+const allJobs = await getCollection("jobs");
 // Filter related jobs by category (you can adjust the filter criteria)
-const relatedOfertas Laborales = allOfertas Laborales.filter(
+const relatedJobs = allJobs.filter(
   (job) => job.data.category === Astro.props.frontmatter.category
 );
 ---
@@ -160,8 +160,8 @@ const relatedOfertas Laborales = allOfertas Laborales.filter(
         </div>
         <div class="mt-2 grid grid-cols-1 lg:grid-cols-4 gap-2">
           {
-            relatedOfertas Laborales.length > 0 ? (
-              relatedOfertas Laborales.map((post) => <Ofertas LaboralesCard post={post} />)
+            relatedJobs.length > 0 ? (
+              relatedJobs.map((post) => <JobsCard post={post} />)
             ) : (
               <p>No hay vacantes publicadas en esta categoría actualmente.</p>
             )

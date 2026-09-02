@@ -56,7 +56,7 @@ const relatedPosts = allPosts.filter((post) =>
               {
                 author && (
                   <a
-                    href={`/authors/${author.id}`}
+                    href={`/authors/${author?.id || ""}`}
                     class="flex items-center text-white hover:opacity-80  gap-3 hover:text-orange-500 font-display uppercase"
                   >
                     <Text variant="textLG">
@@ -74,7 +74,7 @@ const relatedPosts = allPosts.filter((post) =>
                         )}
                       </time>
                       by
-                      {author.data.name} an {author.data.role} at Snowpeak
+                      {author?.data?.name || "Asesor Oficial"} an {author?.data?.role || "Asesor de Enfermería"} at Snowpeak
                     </Text>
                   </a>
                 )

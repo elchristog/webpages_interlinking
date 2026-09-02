@@ -16,31 +16,31 @@
   },
   "menu_global": [
     {
-      "nombre": "Título USA",
+      "nombre": "Revalidar Meta",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Guía NCLEX",
+      "nombre": "Examen NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Buscar Trabajo",
+      "nombre": "Ofertas Trabajo",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Trámite EB3",
+      "nombre": "Visa Trabajo",
       "ruta": "/visa"
     },
     {
-      "nombre": "Pagos RN",
+      "nombre": "Cuanto Ganan",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Actualidad",
+      "nombre": "Casos Éxito",
       "ruta": "/blog"
     },
     {
-      "nombre": "Consultar Ahora",
+      "nombre": "Hablar Asesor",
       "ruta": "https://wa.me/ayuda"
     },
     {

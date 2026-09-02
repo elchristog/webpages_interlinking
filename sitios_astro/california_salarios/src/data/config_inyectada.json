@@ -16,7 +16,7 @@
   },
   "menu_global": [
     {
-      "nombre": "Homologar Título",
+      "nombre": "Validar Título",
       "ruta": "/homologacion"
     },
     {
@@ -24,7 +24,7 @@
       "ruta": "/nclex"
     },
     {
-      "nombre": "Empleos RN",
+      "nombre": "Buscar Trabajo",
       "ruta": "/vacantes"
     },
     {
@@ -32,19 +32,19 @@
       "ruta": "/visa"
     },
     {
-      "nombre": "Pagos RN",
+      "nombre": "Sueldo Promedio",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Casos Éxito",
+      "nombre": "Novedades",
       "ruta": "/blog"
     },
     {
-      "nombre": "Ayuda Chat",
+      "nombre": "Soporte",
       "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Login",
+      "nombre": "Acceso",
       "ruta": "/login"
     }
   ],

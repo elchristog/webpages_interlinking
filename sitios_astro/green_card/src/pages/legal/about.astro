@@ -2,8 +2,8 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 // Assets
 import { Image } from "astro:assets";
-const AboutImage = "/imagenes_proyecto/requisitos-y-proceso-legal-detallado-para-obtener-la-green-card-residencia-permanente-siendo-enfermera-10.webp";
-const AboutImage2 = "/imagenes_proyecto/requisitos-y-proceso-legal-detallado-para-obtener-la-green-card-residencia-permanente-siendo-enfermera-11.webp";
+import AboutImage from "@/images/assets/about.jpeg";
+import AboutImage2 from "@/images/avatar2.jpeg";
 import Shape3 from "@/components/assets/Shape3.astro";
 // Fundations
 import Text from "@/components/fundations/elements/Text.astro";
@@ -28,7 +28,7 @@ const operations = [
   {
     term: "Jetsetters",
     description:
-      "We're remote workers, so we can team up with you whether you're chilling in a hammock or scaling a mountain. Distance is just a number, right? Ver Guías",
+      "We're remote workers, so we can team up with you whether you're chilling in a hammock or scaling a mountain. Distance is just a number, right? Aprender Más more",
   },
 ];
 const culture = [
@@ -99,7 +99,7 @@ import CtaHire from "@/components/ctas/CtaHire.astro";
             Who we are and what we offer
           </Text>
         </div>
-        <img
+        <Image
           width={800}
           height={800}
           src={AboutImage}
@@ -306,7 +306,7 @@ import CtaHire from "@/components/ctas/CtaHire.astro";
         </div>
       </div>
 
-      <img
+      <Image
         width={1280}
         height={720}
         class="aspect-[4/4] object-cover object-center rounded-2xl max-h-120 mt-8"

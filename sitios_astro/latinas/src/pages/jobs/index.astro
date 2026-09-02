@@ -4,10 +4,10 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 // Components
-import Ofertas LaboralesCard from "@/components/jobs/JobCard.astro";
+import JobsCard from "@/components/jobs/JobCard.astro";
 // Content
 import { getCollection } from "astro:content";
-const allOfertas Laborales = await getCollection("jobs");
+const allJobs = await getCollection("jobs");
 ---
 
 <BaseLayout>
@@ -33,7 +33,7 @@ const allOfertas Laborales = await getCollection("jobs");
       </Text>
     </div>
     <div class="mt-2 grid grid-cols-1 lg:grid-cols-4 gap-2">
-      {allOfertas Laborales.map((post) => <Ofertas LaboralesCard post={post} />)}
+      {allJobs.map((post) => <JobsCard post={post} />)}
     </div>
   </Wrapper>
 </BaseLayout>

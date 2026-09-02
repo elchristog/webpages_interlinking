@@ -16,35 +16,35 @@
   },
   "menu_global": [
     {
-      "nombre": "Título USA",
+      "nombre": "Diploma Online",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "NCLEX Paso",
+      "nombre": "Superar NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Bolsa Empleo",
+      "nombre": "Ofertas Trabajo",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Residencia USA",
+      "nombre": "Trámite EB3",
       "ruta": "/visa"
     },
     {
-      "nombre": "Pagos RN",
+      "nombre": "Tablas Sueldos",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Novedades",
+      "nombre": "Blog Oficial",
       "ruta": "/blog"
     },
     {
-      "nombre": "Chat Directo",
+      "nombre": "WhatsApp",
       "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Iniciar",
+      "nombre": "Portal RN",
       "ruta": "/login"
     }
   ],

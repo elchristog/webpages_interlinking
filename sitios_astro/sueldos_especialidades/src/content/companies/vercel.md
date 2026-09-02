@@ -34,7 +34,4 @@ benefits:
   - "Unlimited PTO"
   - "Wellbeing and learning budgets"
   - "Equity and competitive compensation"
-
-author: "David Lee"
-team: "david-lee"
 ---

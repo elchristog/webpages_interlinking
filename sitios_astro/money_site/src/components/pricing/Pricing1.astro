@@ -1,5 +1,5 @@
 ---
-export const description = "Programas y Asesoría section with three tiers";
+export const description = "Pricing section with three tiers";
 
 // Components
 import Text from "@/components/fundations/elements/Text.astro";
@@ -12,103 +12,151 @@ import X from "@/components/fundations/icons/X.astro";
 import Minus from "@/components/fundations/icons/Minus.astro";
 const pricingOptions = [
   {
-    id: "Fase1",
+    id: "Pro",
     cardClass: "bg-sand-50 ",
     primaryTextColor: "text-base-900",
     secondaryTextColor: "text-base-500",
     featuresBorderColor: "border-base-200",
-    title: "Convalidación de Título",
-    monthly: "Fase 1",
-    annual: "Fase 1",
+    title: "Pro",
+    monthly: "$29.00",
+    annual: "$19.00",
     description:
-      "Para enfermeras que inician la traducción y revisión de credenciales universitarias.",
+      "For solo devs who just want their emails to work (without rage-quitting).",
     button: {
-      text: "Iniciar Convalidación",
+      text: "Iniciar Proceso",
       variant: "accent",
     },
     features: [
-      { text: "Evaluación CGFNS / WES" },
-      { text: "Traducción oficial de notas" },
-      { text: "Apertura de expediente en Board" },
-      { text: "Verificación de horas prácticas" },
-      { text: "Asesoría paso a paso 1 a 1" },
+      { text: "10,000 emails/mo" },
+      { text: "1 custom domain" },
+      { text: "Basic analytics (open & click)" },
+      { text: "API access, no SDK required" },
+      { text: "Developer-friendly docs" },
+      { text: "Basic support (yes, from humans)" },
+      { text: "Markdown, HTML, and MJML" },
     ],
   },
   {
-    id: "Fase2",
+    id: "Scale",
     cardClass: "bg-sand-100",
     primaryTextColor: "text-base-900",
     secondaryTextColor: "text-base-500",
     featuresBorderColor: "border-base-200",
-    title: "Preparación NCLEX-RN",
-    monthly: "Fase 2",
-    annual: "Fase 2",
-    description: "Para enfermeras listas para estudiar y aprobar el examen de licencia estadounidense.",
+    title: "Scale",
+    monthly: "$49.00",
+    annual: "$39.00",
+    description: "For teams tired of email platforms that require PhDs to use.",
     button: {
-      text: "Inscribirse al Curso",
+      text: "Iniciar Proceso",
       variant: "accent",
     },
     features: [
-      { text: "Clases en vivo + Grabaciones" },
-      { text: "Banco con +3,000 preguntas NGN" },
-      { text: "Simuladores de examen computarizado" },
-      { text: "Tutorías de inglés médico iBT" },
-      { text: "Estrategias de razonamiento clínico" },
-      { text: "Garantía de repetición sin costo" },
+      { text: "50,000 emails/mo" },
+      { text: "Multiple custom domains" },
+      { text: "Custom DKIM & SPF" },
+      { text: "Webhook support " },
+      { text: "Inbox previews (even Outlook )" },
+      { text: "Email templating engine" },
+      { text: "Click, open, and bounce tracking" },
+      { text: "Team access + roles" },
+      { text: "Light automation workflows" },
+      { text: "Chat support" },
     ],
   },
   {
-    id: "Fase3",
+    id: "Enterprise",
     cardClass: "bg-sand-50 ",
     primaryTextColor: "text-base-900",
     secondaryTextColor: "text-base-500",
     featuresBorderColor: "border-base-200",
-    title: "Programa VIP Completo",
-    monthly: "Fase 3",
-    annual: "Fase 3",
+    title: "Enterprise",
+    monthly: "$99.00",
+    annual: "$79.00",
     description:
-      "Acompañamiento total: Convalidación + NCLEX + Visa EB-3 + Empleo Hospitalario Directo.",
+      "For startups and teams that treat email as a core product, not an afterthought.",
     button: {
-      text: "Aplicar al Programa VIP",
+      text: "Aplicar al Programa",
       variant: "default",
     },
     features: [
-      { text: "Todo lo incluido en Fase 1 y 2" },
-      { text: "Patrocinio directo de Visa EB-3" },
-      { text: "Residencia permanente (Green Card)" },
-      { text: "Contrato laboral de 3 años en EE. UU." },
-      { text: "Bono de bienvenida e instalación" },
-      { text: "Asistencia en vivienda y relocalización" },
+      { text: "100,000+ emails/mo" },
+      { text: "Dedicated IPs (no sharing)" },
+      { text: "SSO & enterprise auth" },
+      { text: "Live log stream + debugging" },
+      { text: "Blocklist monitoring & auto-removal" },
+      { text: "Premium SLA & uptime guarantees" },
+      { text: "VIP onboarding + migration" },
     ],
   },
 ];
 
 // TAble
-export const pricingCaracterísticas = [
+export const pricingFeatures = [
   {
-    category: "Proceso de Homologación",
+    category: "Email Sending",
     features: [
-      { label: "Revisión de Kárdex y Sílabus", values: ["yes", "yes", "yes"] },
-      { label: "Traducción Certificada de Documentos", values: ["yes", "yes", "yes"] },
-      { label: "Reporte CGFNS / Credentials Evaluation", values: ["yes", "yes", "yes"] },
-      { label: "Licencia Provisional de Enfermería", values: ["no", "yes", "yes"] },
+      {
+        label: "Daily Limit",
+        values: ["No limit", "No limit", "No limit"],
+      },
+      { label: "RESTful API", values: ["yes"] },
+      { label: "SMTP Relay", values: ["yes"] },
+      { label: "Official SDKs", values: ["yes"] },
+      { label: "Schedule Emails", values: ["yes"] },
+      { label: "Batch Sending", values: ["yes"] },
+      { label: "Open Tracking", values: ["yes"] },
+      { label: "Link Tracking", values: ["yes"] },
+      { label: "React Email", values: ["yes"] },
     ],
   },
   {
-    category: "Preparación NCLEX & Inglés",
+    category: "Deliverability & Reliability",
     features: [
-      { label: "Simuladores Adaptativos NGN", values: ["no", "yes", "yes"] },
-      { label: "Curso Intensivo TOEFL / IELTS Academic", values: ["no", "yes", "yes"] },
-      { label: "Talleres de Farmacología y Priorización", values: ["no", "yes", "yes"] },
+      { label: "Custom Domains", values: ["10", "1,000", "Flexible"] },
+      {
+        label: "Dedicated IPs",
+        values: ["no", "With Add-on", "With Add-on"],
+      },
+      { label: "Dedicated IP Warming", values: ["no", "yes", "yes"] },
+      { label: "Pristine Shared IPs", values: ["yes"] },
+      { label: "Automatic Suppression List", values: ["yes"] },
+      { label: "Bounce Details", values: ["yes"] },
+      { label: "Multi-Region", values: ["yes"] },
+      {
+        label: "Data Retention",
+        values: ["3 days", "7 days", "Flexible"],
+      },
+      { label: "Deliverability Insights", values: ["yes"] },
+      { label: "DKIM, SPF, DMARC", values: ["yes"] },
+      { label: "Webhook Endpoints", values: ["10", "10", "Flexible"] },
+      { label: "Webhook Events", values: ["All Events"] },
     ],
   },
   {
-    category: "Patrocinio Laboral & Visados",
+    category: "Security & Privacy",
     features: [
-      { label: "Petición Inmigratoria Form I-140", values: ["no", "no", "yes"] },
-      { label: "Inclusión de Cónyuge e Hijos menores de 21", values: ["no", "no", "yes"] },
-      { label: "Entrevistas Directas con Hospitales en EE. UU.", values: ["no", "no", "yes"] },
-      { label: "Bono para Tiquetes Aéreos y Vivienda Inicial", values: ["no", "no", "yes"] },
+      { label: "Single Sign-On", values: ["no", "yes", "yes"] },
+      { label: "Social Login", values: ["yes"] },
+      { label: "Team Members", values: ["5", "100", "Flexible"] },
+      { label: "GDPR Compliance", values: ["yes"] },
+      { label: "SOC 2 Type II", values: ["yes"] },
+      { label: "Penetration Testing", values: ["yes"] },
+      { label: "DDoS Protection", values: ["yes"] },
+      { label: "Automated Backups", values: ["yes"] },
+      { label: "Multi-factor Auth", values: ["yes"] },
+      { label: "API Key Permissions", values: ["yes"] },
+      { label: "Signed Webhooks", values: ["yes"] },
+    ],
+  },
+  {
+    category: "Customer Support",
+    features: [
+      { label: "Ticket Support", values: ["yes"] },
+      { label: "Slack Support", values: ["no", "yes", "yes"] },
+      { label: "Urgent Response SLA", values: ["no", "yes", "yes"] },
+      { label: "Deliverability Expertise", values: ["no", "yes", "yes"] },
+      { label: "In-App Docs", values: ["yes"] },
+      { label: "AI Assistant", values: ["yes"] },
     ],
   },
 ];
@@ -125,17 +173,18 @@ export const pricingCaracterísticas = [
         variant="displayMD"
         class="font-serif font-medium tracking-tight text-black"
       >
-        Programas Diseñados para Tu Éxito Profesional
+        Plans that grow with your ambition (or chaos)
       </Text>
       <Text
         tag="p"
         variant="textBase"
         class="max-w-xl mx-auto mt-4 text-base-500"
       >
-        Elige el programa que mejor se adapte a tu etapa actual o realiza la ruta completa con nuestro acompañamiento integral.
+        Start free. Pay when your side project accidentally turns into a
+        business.
       </Text>
 
-      <!-- Programas y Asesoría Toggle -->
+      <!-- Pricing Toggle -->
       <div
         aria-labelledby="pricing-toggle"
         class="relative z-0 inline-flex justify-center p-1 mx-auto mt-8 overflow-hidden bg-white shadow ring-1 ring-base-200 ring-offset-2 gap-4 lg:mx-0 rounded-md w-fit"
@@ -166,7 +215,7 @@ export const pricingCaracterísticas = [
       </div>
     </div>
 
-    <!-- Programas y Asesoría Cards -->
+    <!-- Pricing Cards -->
     <div class="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
       {
         pricingOptions.map((tier) => (
@@ -252,7 +301,7 @@ export const pricingCaracterísticas = [
           <thead class="text-center border-b border-base-200">
             <tr>
               <th class="px-4 pt-8 pb-2 font-medium text-left text-base-900"
-                >Características</th
+                >Features</th
               >
 
               <th class="px-4 py-2 font-medium text-base-900">Pro</th>
@@ -262,7 +311,7 @@ export const pricingCaracterísticas = [
           </thead>
           <tbody>
             {
-              pricingCaracterísticas.map(({ category, features }) => (
+              pricingFeatures.map(({ category, features }) => (
                 <>
                   <tr class="font-semibold bg-sand-100">
                     <td
@@ -329,7 +378,7 @@ export const pricingCaracterísticas = [
       let currentDuration = "monthly";
 
       // Function to update UI based on selected duration
-      function updateProgramas y AsesoríaUI(duration) {
+      function updatePricingUI(duration) {
         // Update toggle slider position
         if (duration === "monthly") {
           toggleSlider.style.transform = "translateX(0)";
@@ -378,15 +427,15 @@ export const pricingCaracterísticas = [
 
       // Add event listeners to buttons
       monthlyBtn.addEventListener("click", function () {
-        updateProgramas y AsesoríaUI("monthly");
+        updatePricingUI("monthly");
       });
 
       annualBtn.addEventListener("click", function () {
-        updateProgramas y AsesoríaUI("annual");
+        updatePricingUI("annual");
       });
 
       // Initialize UI
-      updateProgramas y AsesoríaUI(currentDuration);
+      updatePricingUI(currentDuration);
     });
   </script>
 </section>

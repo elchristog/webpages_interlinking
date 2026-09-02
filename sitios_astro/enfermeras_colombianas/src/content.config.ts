@@ -84,7 +84,7 @@ const posts = defineCollection({
       avatar: z.object({
         url: z.union([z.string(), image()]),
         alt: z.string(),
-      }).optional(),
+      }),
       tags: z.array(z.string()),
     }),
 });

@@ -3,11 +3,8 @@ name: Swissted
 tier: silver
 url: "#_"
 logo:
-  url: /src/images/blog/1.jpg
+  url: /src/images/sponsors/swissted.svg
   alt: Swissted logo
-
-author: "David Lee"
-team: "david-lee"
 ---
 
 ## About Swissted

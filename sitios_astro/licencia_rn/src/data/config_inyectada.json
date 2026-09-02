@@ -16,27 +16,27 @@
   },
   "menu_global": [
     {
-      "nombre": "Proceso Grado",
+      "nombre": "Diploma Online",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Superar NCLEX",
+      "nombre": "Guía NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Vacantes USA",
+      "nombre": "Buscar Trabajo",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Green Card",
+      "nombre": "Visa EB-3",
       "ruta": "/visa"
     },
     {
-      "nombre": "Pagos RN",
+      "nombre": "Sueldo Promedio",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Blog Oficial",
+      "nombre": "Noticias",
       "ruta": "/blog"
     },
     {
@@ -44,7 +44,7 @@
       "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Iniciar",
+      "nombre": "Entrar",
       "ruta": "/login"
     }
   ],

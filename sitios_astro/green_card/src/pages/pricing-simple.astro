@@ -9,7 +9,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 import ServiceCard2 from "@/components/services/ServiceCard2.astro";
 // Content
 import { getCollection } from "astro:content";
-const allServicios de Reclutamiento = await getCollection("services");
+const allServices = await getCollection("services");
 ---
 
 <BaseLayout>
@@ -40,7 +40,7 @@ const allServicios de Reclutamiento = await getCollection("services");
         >
           <ul role="list" class="flex flex-col gap-y-2 w-full">
             {
-              allServicios de Reclutamiento
+              allServices
                 .slice(0, 6)
                 .map((post) => <ServiceCard2 service={post.data.service} />)
             }

@@ -1,14 +1,14 @@
 ---
 // Assets
 import { Image } from "astro:assets";
-const formoLogo = "/imagenes_proyecto/logo.webp";
-const typoraLogo = "/imagenes_proyecto/logo.webp";
-const gridlineLogo = "/imagenes_proyecto/logo.webp";
-const nordicFormLogo = "/imagenes_proyecto/logo.webp";
-const modulorLogo = "/imagenes_proyecto/logo.webp";
-const atelierLogo = "/imagenes_proyecto/logo.webp";
-const signalStreamLogo = "/imagenes_proyecto/logo.webp";
-const designCommonsLogo = "/imagenes_proyecto/logo.webp";
+import formoLogo from "@/images/partners/formo.svg";
+import typoraLogo from "@/images/partners/typora-studio.svg";
+import gridlineLogo from "@/images/partners/gridline-labs.svg";
+import nordicFormLogo from "@/images/partners/nordic-form.svg";
+import modulorLogo from "@/images/partners/modulor-assembly.svg";
+import atelierLogo from "@/images/partners/atelier-helvetice.svg";
+import signalStreamLogo from "@/images/partners/signal-stream.svg";
+import designCommonsLogo from "@/images/partners/design-commons.svg";
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Text from "@/components/fundations/elements/Text.astro";
@@ -161,7 +161,7 @@ const partnerCategories = [
                     <div class="flex items-center gap-4">
                       <div class="flex size-10 items-center justify-center bg-accent-500">
                         {partner.logo?.src && (
-                          <img
+                          <Image
                             src={partner.logo.src}
                             alt={partner.logo.alt || partner.name}
                             width={64}

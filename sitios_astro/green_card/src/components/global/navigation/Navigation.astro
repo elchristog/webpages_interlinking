@@ -1,25 +1,4 @@
 ---
-import config from "@/data/config_inyectada.json";
-
-const navigationLinks = (config.menu_global && config.menu_global.length > 0)
-  ? config.menu_global.map(item => ({
-      title: item.nombre,
-      text: item.nombre,
-      label: item.nombre,
-      nombre: item.nombre,
-      href: item.ruta,
-      ruta: item.ruta
-    }))
-  : [
-      { title: "Inicio", text: "Inicio", label: "Inicio", nombre: "Inicio", href: "/", ruta: "/" },
-      { title: "Homologación", text: "Homologación", label: "Homologación", nombre: "Homologación", href: "/homologacion", ruta: "/homologacion" },
-      { title: "NCLEX-RN", text: "NCLEX-RN", label: "NCLEX-RN", nombre: "NCLEX-RN", href: "/nclex", ruta: "/nclex" },
-      { title: "Vacantes", text: "Vacantes", label: "Vacantes", nombre: "Vacantes", href: "/vacantes", ruta: "/vacantes" },
-      { title: "Visa EB-3", text: "Visa EB-3", label: "Visa EB-3", nombre: "Visa EB-3", href: "/visa", ruta: "/visa" },
-      { title: "Blog", text: "Blog", label: "Blog", nombre: "Blog", href: "/blog", ruta: "/blog" }
-    ];
-const links = navigationLinks;
-
 // Assets
 import BigLogo from "@/components/assets/BigLogo.astro";
 // Fundations
@@ -33,7 +12,7 @@ import Close from "@/components/fundations/icons/Close.astro";
 const navLinks = [
   { label: "Inicio", href: "/system/overview" },
 
-  { label: "Servicios de Reclutamiento", href: "/services" },
+  { label: "Services", href: "/services" },
   { label: "Work", href: "/work" },
   { label: "Team", href: "/team" },
   { label: "Programas y Asesoría", href: "/pricing-simple" },
@@ -112,7 +91,7 @@ const navLinks = [
                   variant="accent"
                   href="https://lexingtonthemes.com/templates/outkast"
                 >
-                  Contacto outkast
+                  Buy outkast
                 </Button>
                 <Button isLink size="base" variant="muted" href="/contact">
                   Book a call

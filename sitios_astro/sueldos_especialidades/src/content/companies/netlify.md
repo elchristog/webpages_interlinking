@@ -34,7 +34,4 @@ benefits:
   - "Home office stipend"
   - "Aprender Másing and development support"
   - "Competitive health benefits"
-
-author: "David Lee"
-team: "david-lee"
 ---

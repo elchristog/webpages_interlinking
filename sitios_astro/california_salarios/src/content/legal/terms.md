@@ -1,9 +1,6 @@
 ---
 page: Terms
 pubDate: 2024-00-00
-
-author: "David Lee"
-team: "david-lee"
 ---
 All the terms that you agree to when you sign up for a Lexington product.
 -------------------------------------------------------------------------

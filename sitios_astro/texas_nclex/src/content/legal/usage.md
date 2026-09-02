@@ -1,9 +1,6 @@
 ---
 page: Usage
 pubDate: 2025-02-02
-
-author: "David Lee"
-team: "david-lee"
 ---
 Buio Fair Use Policy
 ====================
@@ -13,10 +10,10 @@ All deployments and plugins hosted on Buio operate under the fair use policy. Us
 Allowed
 -------
 
-*   Sitio Web Oficials
+*   Websites
 *   APIs + Backends
-*   Cron Ofertas Laborales / Scheduled Ofertas Laborales
-*   ML Ofertas Laborales
+*   Cron Jobs / Scheduled Jobs
+*   ML Jobs
 *   Code Servers
 
 Not Allowed

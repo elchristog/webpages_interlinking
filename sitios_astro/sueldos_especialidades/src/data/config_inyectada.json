@@ -20,31 +20,31 @@
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Pasar NCLEX",
+      "nombre": "NCLEX Paso",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Bolsa Empleo",
+      "nombre": "Buscar Trabajo",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Residencia USA",
+      "nombre": "Green Card",
       "ruta": "/visa"
     },
     {
-      "nombre": "Tablas Sueldos",
+      "nombre": "Ingresos USA",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Guías Tips",
+      "nombre": "Historias",
       "ruta": "/blog"
     },
     {
-      "nombre": "Chat Directo",
+      "nombre": "Escríbenos",
       "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Iniciar",
+      "nombre": "Entrar",
       "ruta": "/login"
     }
   ],

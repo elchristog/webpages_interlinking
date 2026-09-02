@@ -11,9 +11,6 @@ level: intermediate
 tags:
   - animation
   - motion
-
-author: "David Lee"
-team: "david-lee"
 ---
 
 Aprender Más how to use animation to guide users and add delight to your products.

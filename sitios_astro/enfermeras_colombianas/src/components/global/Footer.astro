@@ -66,18 +66,16 @@ const links = footerLinks;
           links.map((linkGroup) => (
             <div>
               <Text tag="h3" variant="textBase" class=" text-base-900 ">
-                {linkGroup.type.charAt(0).toUpperCase() +
-                  linkGroup.type.slice(1)}{" "}
-                {/* Capitalize type */}
+                {linkGroup.heading || linkGroup.title}
               </Text>
               <ul class="list-none text-base-500 mt-8 text-base gap-1 list-inside flex flex-col">
-                {linkGroup.items.map((item) => (
+                {(linkGroup.links || []).map((item) => (
                   <li>
                     <a
-                      href={item.href}
+                      href={item.href || item.ruta}
                       class="hover:text-base-900  text-base-500 mt-auto flex gap-3 items-center justify-between"
                     >
-                      {item.text}
+                      {item.label || item.text || item.title || item.nombre}
                     </a>
                   </li>
                 ))}

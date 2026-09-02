@@ -6,7 +6,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 // Components
 import BlogCard1 from "@/components/blog/BlogCard1.astro";
 import BlogCard4 from "@/components/blog/BlogCard4.astro";
-import SuscribirseCta from "@/components/blog/SuscribirseCta.astro";
+import SubscribeCta from "@/components/blog/SubscribeCta.astro";
 // Content
 import { getCollection } from "astro:content";
 // Sort posts by date
@@ -40,7 +40,7 @@ allPosts.sort((a, b) => {
       </div>
     </Wrapper>
   </section>
-  <SuscribirseCta />
+  <SubscribeCta />
   <section>
     <Wrapper variant="standard" class="py-24">
       <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">

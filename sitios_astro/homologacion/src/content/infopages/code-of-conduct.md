@@ -1,9 +1,6 @@
 ---
 page: Code of Conduct
 pubDate: 2025-10-22
-
-author: "David Lee"
-team: "david-lee"
 ---
 
 

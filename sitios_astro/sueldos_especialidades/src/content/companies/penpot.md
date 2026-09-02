@@ -34,7 +34,4 @@ benefits:
   - "Aprender Másing and conference budgets"
   - "Generous vacation policy"
   - "Early-stage equity options"
-
-author: "David Lee"
-team: "david-lee"
 ---

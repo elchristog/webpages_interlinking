@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 import Sell from "@/components/ctas/Sell.astro";
-const ContactImage = "/imagenes_proyecto/gu-a-exclusiva-para-revalidar-t-tulo-desde-colombia-y-agencias-especializadas-en-reclutar-talento-colombiano-4.webp";
+import ContactImage from "@/images/sell.png";
 import Text from "@/components/fundations/elements/Text.astro";
 import Button from "@/components/fundations/elements/Button.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
@@ -25,7 +25,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
       </Text>
       <div class="grid lg:grid-cols-3 pt-8 mt-8 border-t border-base-200 gap-8">
         <div class="relative overflow-hidden">
-          <img
+          <Image
             src={ContactImage}
             alt="#_"
             data-aos="fade-up"

@@ -16,27 +16,27 @@
   },
   "menu_global": [
     {
-      "nombre": "Revalidar Meta",
+      "nombre": "Proceso Grado",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "Prep NCLEX",
+      "nombre": "NCLEX Paso",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Bolsa Empleo",
+      "nombre": "Puestos Libres",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Migrar Legal",
+      "nombre": "Visa EB-3",
       "ruta": "/visa"
     },
     {
-      "nombre": "Cuanto Ganan",
+      "nombre": "Ingresos USA",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Noticias",
+      "nombre": "Guías Tips",
       "ruta": "/blog"
     },
     {
@@ -44,7 +44,7 @@
       "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Portal RN",
+      "nombre": "Login",
       "ruta": "/login"
     }
   ],

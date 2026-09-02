@@ -47,7 +47,7 @@ const relatedPosts = allPosts.filter((post) =>
             </div>
             <div class="mt-8">
               <a
-                href={`/authors/${author.id}`}
+                href={author ? `/authors/${author?.id || ""}` : "/blog"}
                 class="flex items-center font-display uppercase text-white hover:opacity-80 gap-3 hover:text-orange-500"
               >
                 <Text tag="p" variant="textLG">
@@ -65,7 +65,7 @@ const relatedPosts = allPosts.filter((post) =>
                     }
                   </time>
                   by
-                  {author.data.name} an {author.data.role} at Snowpeak
+                  {author?.data?.name || frontmatter.author || "Red Enfermeras Latinas"}
                 </Text>
               </a>
               <Text

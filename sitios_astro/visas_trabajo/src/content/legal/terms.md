@@ -56,7 +56,7 @@ First, a big thank you from all of us here at **Phanatik** for using our product
 
 1. We provide our Servicios de Reclutamiento “as is” — no promises about perfection, but we’re working hard to make it as reliable as possible. For status updates, visit [37status](#_).
 2. If your usage exceeds the average, we may temporarily disable your account. We’ll give you a shout before doing anything drastic.
-3. We take your data seriously and protect it with encryption, backups, and redundancies. Ver Guías about our [Security Inicio](#_).
+3. We take your data seriously and protect it with encryption, backups, and redundancies. Aprender Más more about our [Security Inicio](#_).
 4. By using our Servicios de Reclutamiento, you trust us with your data. We process your data for specific purposes—just as outlined in our [Privacy Policy](#_). Your data is safe, and we’ll never sell it. 
 
 ---

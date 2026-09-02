@@ -920,8 +920,26 @@ def auditar_y_limpiar_integridad(sitio_id, ruta_astro, configuracion_actual, man
                     modificado = False
                     for token, reemplazo in reemplazos_directos.items():
                         if token in content:
-                            content = content.replace(token, reemplazo)
-                            modificado = True
+                            if file.endswith('.astro'):
+                                lines = content.splitlines(keepends=True)
+                                new_lines = []
+                                token_mod = False
+                                for line in lines:
+                                    sline = line.strip()
+                                    if sline.startswith("import ") or sline.startswith("export ") or (" " in reemplazo and token in line and ("import" in line or "<" in line or "const " in line or "let " in line)):
+                                        new_lines.append(line)
+                                    else:
+                                        if token in line:
+                                            new_lines.append(line.replace(token, reemplazo))
+                                            token_mod = True
+                                        else:
+                                            new_lines.append(line)
+                                if token_mod:
+                                    content = "".join(new_lines)
+                                    modificado = True
+                            else:
+                                content = content.replace(token, reemplazo)
+                                modificado = True
 
                     norm_filepath = filepath.replace('\\', '/')
                     if file.endswith('.md') and content.startswith('---'):
@@ -935,7 +953,7 @@ def auditar_y_limpiar_integridad(sitio_id, ruta_astro, configuracion_actual, man
                                 content = f'---{fm}---' + body
                                 modificado = True
                             
-                            if ('/content/posts' in norm_filepath or '/content/articulos' in norm_filepath) and ('author:' not in fm or 'team:' not in fm or 'titulo:' in fm or 'title:' not in fm):
+                            if ('/content/posts' in norm_filepath or '/content/articulos' in norm_filepath) and ('author:' not in fm or 'team:' not in fm or 'avatar:' not in fm or 'titulo:' in fm or 'title:' not in fm):
                                 import re
                                 title_match = re.search(r'(?:title|titulo):\s*\"?([^\n\"]+)\"?', fm)
                                 title = title_match.group(1) if title_match else 'Guía Oficial de Enfermería'
@@ -1226,7 +1244,6 @@ def personalizar_componentes_plantilla(ruta_astro, nicho, palabras_clave):
         ("How we work", "Proceso Legal de Visa EB-3 y Residencia"),
         ("The team", "Nuestro Equipo de Consultores"),
         ("Our customers", "Casos de Éxito y Enfermeras Contratadas"),
-        ("Learn", "Aprender Más"),
 
         # Blog / Dusk (homologacion)
         ("Dusk Swiss Design Week", "Portal Oficial de Homologación CGFNS"),
@@ -1241,7 +1258,6 @@ def personalizar_componentes_plantilla(ruta_astro, nicho, palabras_clave):
         ("hello@dusk.design", "contacto@enfermeraeeuu.com"),
         ("partners@dusk.design", "contacto@enfermeraeeuu.com"),
         ("tickets page", "página de contacto"),
-        ("Dusk", "Portal de Enfermería"),
 
         # Snowpeak (latinas)
         ("No related jobs found in this category.", "No hay vacantes publicadas en esta categoría actualmente."),
@@ -1296,7 +1312,6 @@ def personalizar_componentes_plantilla(ruta_astro, nicho, palabras_clave):
         # Navy (vacantes_hospitales)
         ("Your Message", "Tu Mensaje o Consulta"),
         ("insights", "Estadísticas e Información"),
-        ("Services", "Servicios de Reclutamiento"),
 
         # Phanatik (visas_trabajo)
         ("See them all", "Ver Todas las Guías"),
@@ -1313,8 +1328,6 @@ def personalizar_componentes_plantilla(ruta_astro, nicho, palabras_clave):
         ("You’re Invited!", "¡Estás Invitada!"),
         ("📊 Your Weekly Digest", "📊 Tu Resumen Semanal de Ofertas"),
         ("Here’s what happened this week on your account:", "Resumen de convocatorias y vacantes publicadas esta semana:"),
-        ("Features", "Características"),
-        ("Pricing", "Programas y Asesoría"),
 
         # Frases Universales y Generales
         ("A course for developers who care about design. Learn to craft beautiful, responsive UIs with precision — from layout to component polish.",
@@ -1340,10 +1353,7 @@ def personalizar_componentes_plantilla(ruta_astro, nicho, palabras_clave):
         ("Learn more", "Ver Guías"),
         ("Sign in", "Asesoría"),
         ("Overview", "Inicio"),
-        ("Subscribe", "Suscribirse"),
         ("Subscribe to", "Suscribirse a"),
-        ("Website", "Sitio Web Oficial"),
-        ("Jobs", "Ofertas Laborales"),
         ("Your Website Title", f"{nicho_title} | Guía Oficial EE. UU.")
     ]
 
@@ -1356,14 +1366,40 @@ def personalizar_componentes_plantilla(ruta_astro, nicho, palabras_clave):
     ]
 
     def flexible_replace(content, orig, reemp):
-        if orig in content:
-            return content.replace(orig, reemp), True
-        words = orig.strip().split()
-        if len(words) < 2:
-            return content, False
-        regex_pattern = r"\s+".join(re.escape(w) for w in words)
-        new_content, count = re.subn(regex_pattern, reemp, content, flags=re.IGNORECASE | re.DOTALL)
-        return new_content, (count > 0)
+        lines = content.splitlines(keepends=True)
+        new_lines = []
+        modified = False
+        in_script = False
+        
+        for line in lines:
+            stripped = line.strip()
+            if "<script" in stripped:
+                in_script = True
+            if "</script>" in stripped:
+                in_script = False
+                new_lines.append(line)
+                continue
+                
+            if in_script or stripped.startswith("import ") or stripped.startswith("export "):
+                new_lines.append(line)
+                continue
+
+            if orig in line:
+                pattern = r"(?<![A-Za-z0-9_/\-])" + re.escape(orig) + r"(?![A-Za-z0-9_/\-])"
+                new_line, count = re.subn(pattern, reemp, line)
+                if count > 0:
+                    line = new_line
+                    modified = True
+            else:
+                words = orig.strip().split()
+                if len(words) >= 2:
+                    regex_pattern = r"\s+".join(re.escape(w) for w in words)
+                    new_line, count = re.subn(regex_pattern, reemp, line, flags=re.IGNORECASE | re.DOTALL)
+                    if count > 0:
+                        line = new_line
+                        modified = True
+            new_lines.append(line)
+        return "".join(new_lines), modified
 
     for carpeta in rutas_a_escanear:
         if not os.path.exists(carpeta):
@@ -1396,7 +1432,6 @@ def personalizar_componentes_plantilla(ruta_astro, nicho, palabras_clave):
                             print(f"[Text Injector] Personalizado {file} -> {nicho[:30]}...")
                     except Exception as e:
                         pass
-
 
 def procesar_sitio(sitio, config_global, config_menus, ruta_proyecto_config, ruta_base, nombre_proyecto, modo_propagar=None, input_base=None, slug_pestaña=None, ruta_recursos=None):
     sitio_id = sitio['id']

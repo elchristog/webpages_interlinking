@@ -3,11 +3,8 @@ name: Medium
 tier: gold
 url: "#_"
 logo:
-  url: /src/images/blog/1.jpg
+  url: /src/images/sponsors/medium.svg
   alt: Medium logo
-
-author: "David Lee"
-team: "david-lee"
 ---
 
 ## About Medium

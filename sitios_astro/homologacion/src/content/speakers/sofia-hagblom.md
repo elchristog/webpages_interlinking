@@ -3,7 +3,7 @@ name: Sofia Hagblom
 role: Visual Designer
 company: Swiss Creative Group
 headshot:
-  url: /src/images/blog/1.jpg
+  url: /src/images/speakers/sofia-hagblom.png
   alt: Sofia hagblom headshot
 location: Geneva, Switzerland
 summary: "Visual designer merging Swiss minimalism with expressive colour and accessible storytelling."
@@ -18,9 +18,6 @@ socials:
   website: "#_"
 talks: []
 featured: false
-
-author: "David Lee"
-team: "david-lee"
 ---
 
 # Speaker Profile

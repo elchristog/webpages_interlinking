@@ -3,11 +3,8 @@ name: Polar SH
 tier: bronze
 url: "#_"
 logo:
-  url: /src/images/blog/1.jpg
+  url: /src/images/sponsors/polar-sh.svg
   alt: Polar SH logo
-
-author: "David Lee"
-team: "david-lee"
 ---
 
 ## About Polar SH

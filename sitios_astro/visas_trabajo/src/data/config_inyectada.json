@@ -16,7 +16,7 @@
   },
   "menu_global": [
     {
-      "nombre": "Diploma Online",
+      "nombre": "Título USA",
       "ruta": "/homologacion"
     },
     {
@@ -28,23 +28,23 @@
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Visa EB-3",
+      "nombre": "Visa Trabajo",
       "ruta": "/visa"
     },
     {
-      "nombre": "Sueldo Promedio",
+      "nombre": "Ingresos USA",
       "ruta": "/salarios"
     },
     {
-      "nombre": "Historias",
+      "nombre": "Actualidad",
       "ruta": "/blog"
     },
     {
-      "nombre": "Ayuda Chat",
+      "nombre": "Hablar Asesor",
       "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Acceso",
+      "nombre": "Login",
       "ruta": "/login"
     }
   ],

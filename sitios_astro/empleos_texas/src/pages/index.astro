@@ -5,7 +5,7 @@ import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 // Sections
 import Hero from "@/components/landing/Hero.astro";
-import Servicios de Reclutamiento from "@/components/landing/Servicios de Reclutamiento.astro";
+import Services from "@/components/landing/Services.astro";
 import Philosphy from "@/components/landing/Philosphy.astro";
 import HowWeWork from "@/components/landing/HowWeWork.astro";
 
@@ -27,9 +27,9 @@ allPosts.sort((a, b) => {
 ---
 
 <BaseLayout >
-<Hero />
+    <Hero />
   <LogoCloud />
-  <Servicios de Reclutamiento />
+  <Services />
   <section>
     <Wrapper variant="standard" class="pb-12">
       <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
@@ -108,4 +108,5 @@ allPosts.sort((a, b) => {
       </div>
     </Wrapper>
   </section>
+
 </BaseLayout>

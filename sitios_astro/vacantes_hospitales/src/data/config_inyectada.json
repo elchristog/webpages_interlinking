@@ -16,19 +16,19 @@
   },
   "menu_global": [
     {
-      "nombre": "Validar Título",
+      "nombre": "Título USA",
       "ruta": "/homologacion"
     },
     {
-      "nombre": "NCLEX Paso",
+      "nombre": "Prep NCLEX",
       "ruta": "/nclex"
     },
     {
-      "nombre": "Empleos RN",
+      "nombre": "Buscar Trabajo",
       "ruta": "/vacantes"
     },
     {
-      "nombre": "Visa EB-3",
+      "nombre": "Trámite EB3",
       "ruta": "/visa"
     },
     {
@@ -36,7 +36,7 @@
       "ruta": "/salarios"
     },
     {
-      "nombre": "Actualidad",
+      "nombre": "Blog Oficial",
       "ruta": "/blog"
     },
     {
@@ -44,7 +44,7 @@
       "ruta": "https://wa.me/ayuda"
     },
     {
-      "nombre": "Login",
+      "nombre": "Iniciar",
       "ruta": "/login"
     }
   ],
