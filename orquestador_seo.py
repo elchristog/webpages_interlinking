@@ -1485,11 +1485,11 @@ def procesar_sitio(sitio, config_global, config_menus, ruta_proyecto_config, rut
     # NUEVO: Procesar e inyectar logo, favicons e imágenes WebP del nicho
     procesar_e_inyectar_media(sitio_id, sitio['ruta_astro'], ruta_base, nombre_proyecto, sitio.get('nicho', 'Enfermera en Estados Unidos'))
 
-    # NUEVO: Personalizar automáticamente textos de componentes de la plantilla en español según el nicho
-    personalizar_componentes_plantilla(sitio['ruta_astro'], sitio.get('nicho', 'Enfermera en Estados Unidos'), sitio.get('palabras_clave', []))
-
     # NUEVO: Inyectar navegación de menú superior e inferior con enlaces e interlinking
     inyectar_navegacion_e_interlinking(sitio['ruta_astro'], configuracion_actual, ruta_proyecto_config)
+
+    # NUEVO: Personalizar automáticamente textos de componentes de la plantilla en español según el nicho
+    personalizar_componentes_plantilla(sitio['ruta_astro'], sitio.get('nicho', 'Enfermera en Estados Unidos'), sitio.get('palabras_clave', []))
 
     # NUEVO: Gestionar estado
     gestionar_estado_contenido(sitio_id, sitio['ruta_astro'], ruta_base, nombre_proyecto, modo_propagar)
