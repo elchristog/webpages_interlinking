@@ -988,24 +988,25 @@ def estandarizar_baselayout(ruta_astro, configuracion_actual):
         with open(baselayout_path, 'r', encoding='utf-8') as f:
             content = f.read()
 
-        nombre_sitio = configuracion_actual.get('nombre_sitio', 'Enfermera en EE. UU.')
-        desc_sitio = configuracion_actual.get('descripcion', 'Guía oficial y vacantes para enfermeras en Estados Unidos.')
+        nombre_sitio = configuracion_actual.get('nombre_sitio', 'Enfermera en EE. UU.').replace('"', '\\"')
+        desc_sitio = configuracion_actual.get('descripcion', 'Guía oficial y vacantes para enfermeras en Estados Unidos.').replace('"', '\\"')
 
-        if "---" in content:
-            parts = content.split("---", 2)
-            fm = parts[1]
+        if content.startswith("---") and "---" in content[3:]:
+            end_fm_idx = content.find("---", 3)
+            fm = content[3:end_fm_idx]
+            body = content[end_fm_idx+3:]
 
             if 'Astro.props' in fm:
                 extra_props = ""
-                if 'showSearch' in content:
+                if 'showSearch' in fm:
                     extra_props += ", showSearch = false"
-                if 'hideSearch' in content:
+                if 'hideSearch' in fm:
                     extra_props += ", hideSearch = true"
-                if 'hideNavigation' in content:
+                if 'hideNavigation' in fm:
                     extra_props += ", hideNavigation = false"
 
                 fm = re.sub(
-                    r'const\s+\{[\s\S]*?\}\s*=\s*Astro\.props;',
+                    r'const\s+\{[\s\S]*?\}\s*=\s*Astro\.props;?',
                     f'const {{ title = "{nombre_sitio}", description = "{desc_sitio}", hideNav = false, hideFooter = false{extra_props} }} = Astro.props;',
                     fm
                 )
@@ -1013,8 +1014,7 @@ def estandarizar_baselayout(ruta_astro, configuracion_actual):
                 props_code = f'\nconst {{ title = "{nombre_sitio}", description = "{desc_sitio}", hideNav = false, hideFooter = false }} = Astro.props;\n'
                 fm = fm.rstrip() + props_code
 
-            parts[1] = fm
-            content = "---".join(parts)
+            content = "---" + fm + "---" + body
             with open(baselayout_path, 'w', encoding='utf-8') as f:
                 f.write(content)
             print(f"[BaseLayout Fix] Sincronizado BaseLayout en {baselayout_path}")
@@ -1328,6 +1328,16 @@ def personalizar_componentes_plantilla(ruta_astro, nicho, palabras_clave):
         ("You’re Invited!", "¡Estás Invitada!"),
         ("📊 Your Weekly Digest", "📊 Tu Resumen Semanal de Ofertas"),
         ("Here’s what happened this week on your account:", "Resumen de convocatorias y vacantes publicadas esta semana:"),
+        ("Built by developers who were sick of broken email APIs", "Creado por especialistas para acompañar tu homologación"),
+        ("We got tired of wrestling with clunky tools, so we built the email platform we always wanted — fast, clean, and actually works without swearing at your terminal.", "Diseñamos un sistema integral para resolver cada etapa del proceso: desde la convalidación de credenciales CGFNS hasta tu vinculación laboral."),
+        ("Test Mode (aka Safe Chaos)", "Evaluación de Credenciales CGFNS"),
+        ("Blow things up without consequences. Simulate everything, send nothing. Perfect for testing, debugging, and not losing your job.", "Validamos tus materias universitarias e intensidad horaria clínica para garantizar la elegibilidad ante el Board of Nursing."),
+        ("Webhooks That Actually Work", "Simulador Adaptativo NCLEX-RN"),
+        ("We ping your server the second ayuda happens — delivery, open, click, bounce, interpretive dance. You’ll know.", "Plataforma de estudio con bancos de preguntas NGN tipo examen real para asegurar tu aprobación en el primer intento."),
+        ("Live Logs (Bring Popcorn)", "Gestión de Visa EB-3 y Residencia"),
+        ("Every request, every response, every oops — logged in real time. It's like tailing your server logs, but less painful.", "Acompañamiento legal completo para la petición I-140 y obtención de Green Card para ti y tu familia."),
+        ("Retry Logic That Babysits for You", "Ubicación Hospitalaria Directa"),
+        ("Flaky internet? Broken SMTP? We’ve got auto-retries so you don’t have to watch your queue like a hawk on Red Bull.", "Conexión con redes de hospitales y ofertas laborales con excelentes salarios y beneficios en EE. UU."),
 
         # Frases Universales y Generales
         ("A course for developers who care about design. Learn to craft beautiful, responsive UIs with precision — from layout to component polish.",
@@ -1370,9 +1380,19 @@ def personalizar_componentes_plantilla(ruta_astro, nicho, palabras_clave):
         new_lines = []
         modified = False
         in_script = False
+        in_frontmatter = False
+        frontmatter_fence_count = 0
         
         for line in lines:
             stripped = line.strip()
+
+            # Frontmatter protection: standard Astro frontmatter starts with --- at top
+            if stripped == "---":
+                frontmatter_fence_count += 1
+                in_frontmatter = (frontmatter_fence_count % 2 == 1)
+                new_lines.append(line)
+                continue
+
             if "<script" in stripped:
                 in_script = True
             if "</script>" in stripped:
@@ -1380,7 +1400,7 @@ def personalizar_componentes_plantilla(ruta_astro, nicho, palabras_clave):
                 new_lines.append(line)
                 continue
                 
-            if in_script or stripped.startswith("import ") or stripped.startswith("export "):
+            if in_script or in_frontmatter or stripped.startswith("import ") or stripped.startswith("export "):
                 new_lines.append(line)
                 continue
 
