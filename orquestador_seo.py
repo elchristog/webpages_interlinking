@@ -1338,6 +1338,19 @@ def personalizar_componentes_plantilla(ruta_astro, nicho, palabras_clave):
         ("Every request, every response, every oops — logged in real time. It's like tailing your server logs, but less painful.", "Acompañamiento legal completo para la petición I-140 y obtención de Green Card para ti y tu familia."),
         ("Retry Logic That Babysits for You", "Ubicación Hospitalaria Directa"),
         ("Flaky internet? Broken SMTP? We’ve got auto-retries so you don’t have to watch your queue like a hawk on Red Bull.", "Conexión con redes de hospitales y ofertas laborales con excelentes salarios y beneficios en EE. UU."),
+        ("Write Like a Human, Not a Hacker", "Prepara tu Carrera Sin Complicaciones"),
+        ("Finally, an editor that doesn’t fight you. Format, style, and send emails without touching a single . Build visually, tweak freely, and leave the HTML rage-quits behind.", "Un acompañamiento diseñado a tu medida. Conoce los requisitos de convalidación, homologación de título y visa sin perderte en trámites complejos."),
+        ("Contact Management That Doesn’t Suck", "Gestión Integral de Credenciales y Proceso NCLEX"),
+        ("Import your entire list in minutes — whether it’s 50 or 50,000. See every contact’s details without clicking through 12 tabs. It’s like a CRM, but without the bloat (or the monthly breakdown).", "Organizamos tu expediente académico y documentos de enfermería en tiempo récord para enviarlos al CGFNS o Board de Enfermería de tu estado de destino."),
+        ("Broadcast Analytics (Because Guesswork Is for Amateurs)", "Seguimiento y Estado de Revalidación en Tiempo Real"),
+        ("See who opened, clicked, ignored, or rage-deleted your email. Real Estadísticas e Información, no fluff — so you actually know what’s working (and what’s not).", "Supervisa el progreso de tu proceso de verificación, aprobación de credenciales e inscripción al examen NCLEX con transparencia total."),
+        ("Email, But Actually Good", "Tu Futuro como Enfermera en EE. UU. Empieza Hoy"),
+        ("No setup rituals. No DNS sorcery. Just emails that send, land, and look damn good doing it. — Available now. Because why wait?", "Sin rodeos ni demoras. Te guiamos paso a paso desde la convalidación hasta la firma de tu contrato laboral y visa EB-3."),
+        ("Plans that grow with your ambition (or chaos)", "Programas y Planes de Acompañamiento"),
+        ("Start free. Pay when your side project accidentally turns into a business.", "Elige el plan que mejor se adapte a tu nivel actual de inglés y avance de homologación."),
+        ("For solo devs who just want their emails to work (without rage-quitting).", "Ideal para enfermeras que inician su proceso de evaluación de títulos y preparación de documentos."),
+        ("For teams tired of email platforms that require PhDs to use.", "Para quienes buscan un acompañamiento guiado con simuladores NCLEX y revisión de expediente."),
+        ("For startups and teams that treat email as a core product, not an afterthought.", "Para quienes desean gestión integral llave en mano: convalidación, NCLEX, visa EB-3 y patrocinio laboral."),
 
         # Frases Universales y Generales
         ("A course for developers who care about design. Learn to craft beautiful, responsive UIs with precision — from layout to component polish.",
@@ -1376,50 +1389,39 @@ def personalizar_componentes_plantilla(ruta_astro, nicho, palabras_clave):
     ]
 
     def flexible_replace(content, orig, reemp):
-        lines = content.splitlines(keepends=True)
-        new_lines = []
-        modified = False
-        in_script = False
-        in_frontmatter = False
-        frontmatter_fence_count = 0
+        if not orig or not reemp:
+            return content, False
         
-        for line in lines:
-            stripped = line.strip()
-
-            # Frontmatter protection: standard Astro frontmatter starts with --- at top
-            if stripped == "---":
-                frontmatter_fence_count += 1
-                in_frontmatter = (frontmatter_fence_count % 2 == 1)
-                new_lines.append(line)
-                continue
-
-            if "<script" in stripped:
-                in_script = True
-            if "</script>" in stripped:
-                in_script = False
-                new_lines.append(line)
-                continue
-                
-            if in_script or in_frontmatter or stripped.startswith("import ") or stripped.startswith("export "):
-                new_lines.append(line)
-                continue
-
-            if orig in line:
-                pattern = r"(?<![A-Za-z0-9_/\-])" + re.escape(orig) + r"(?![A-Za-z0-9_/\-])"
-                new_line, count = re.subn(pattern, reemp, line)
-                if count > 0:
-                    line = new_line
-                    modified = True
+        # Separar frontmatter si existe para no alterar imports/frontmatter
+        if content.startswith("---"):
+            parts = content.split("---", 2)
+            if len(parts) == 3:
+                frontmatter = "---" + parts[1] + "---"
+                body = parts[2]
             else:
-                words = orig.strip().split()
-                if len(words) >= 2:
-                    regex_pattern = r"\s+".join(re.escape(w) for w in words)
-                    new_line, count = re.subn(regex_pattern, reemp, line, flags=re.IGNORECASE | re.DOTALL)
-                    if count > 0:
-                        line = new_line
-                        modified = True
-            new_lines.append(line)
-        return "".join(new_lines), modified
+                frontmatter = ""
+                body = content
+        else:
+            frontmatter = ""
+            body = content
+
+        modified = False
+        
+        # 1. Exact string replace
+        if orig in body:
+            body = body.replace(orig, reemp)
+            modified = True
+        else:
+            # 2. Normalized whitespace replace for multi-line text blocks
+            words = orig.strip().split()
+            if len(words) >= 2:
+                regex_pattern = r"\s+".join(re.escape(w) for w in words)
+                new_body, count = re.subn(regex_pattern, reemp, body, flags=re.IGNORECASE)
+                if count > 0:
+                    body = new_body
+                    modified = True
+
+        return frontmatter + body, modified
 
     for carpeta in rutas_a_escanear:
         if not os.path.exists(carpeta):
