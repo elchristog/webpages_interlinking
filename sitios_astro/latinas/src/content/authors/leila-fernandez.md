@@ -8,7 +8,7 @@ bio: |
 
   With a keen eye on el futuro of health, Leila’s reporting aims to inform readers about the transformative changes happening in healthcare, making complex medical topics more accessible to the general public.
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/proceso-paso-a-paso-y-agencias-de-enfermer-a-en-usa-para-enfermeras-latinas-de-toda-latinoam-rica-1.webp"
   alt: "Leila Fernandez"
 socials:
   twitter: "#_"

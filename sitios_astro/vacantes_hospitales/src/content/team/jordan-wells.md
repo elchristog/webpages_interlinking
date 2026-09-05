@@ -8,7 +8,7 @@ bio: |
 
   Whether discussing the latest in eSports or the rise of interactive fan experiences, Jordan provides insightful commentary on the ever-changing landscape of sports and its relationship with technology.
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/directorio-de-agencias-y-hospitales-reclutando-enfermeras-extranjeras-en-estado-unidos-1.webp"
   alt: "Jordan Wells"
 socials:
   twitter: "#_"

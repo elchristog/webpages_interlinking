@@ -5,13 +5,13 @@ description: "Guía definitiva sobre Análisis comparativo de salarios de enferm
 author: "David Lee"
 team: "david-lee"
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp"
   alt: "Análisis Comparativo De Salarios De Enfermería Por Especialidad (Quirúrgica, Anestesista, Neonatal) En Estados Unidos"
 tags:
   - enfermeria
   - sueldos_especialidades
 avatar:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp"
   alt: "Avatar"
 ---
 
@@ -140,7 +140,7 @@ avatar:
 </div>
 </div>
 <div class="services-split-image-col">
-<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-1.webp" alt="Enfermera Anestesista en quirófano" class="services-split-image" />
+<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp" alt="Enfermera Anestesista en quirófano" class="services-split-image" />
 </div>
 </div>
 </section>
@@ -236,7 +236,7 @@ avatar:
 <p class="product-card-description">Aprobación del National Council Licensure Examination for Registered Nurses (NCLEX-RN), requisito indispensable para la licencia estatal en cualquier estado de EE. UU.</p>
 </div>
 <div class="card-image-wrapper">
-<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-2.webp" alt="Enfermera estudiando para el NCLEX" class="product-card-image" />
+<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp" alt="Enfermera estudiando para el NCLEX" class="product-card-image" />
 </div>
 <a href="https://enfermeraenestadosunidos.com/nclex-rn" class="product-card-btn" aria-label="Ver detalles NCLEX">→</a>
 </div>

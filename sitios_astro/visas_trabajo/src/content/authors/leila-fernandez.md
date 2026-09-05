@@ -8,7 +8,7 @@ bio: |
 
   With a keen eye on el futuro of health, Leila’s reporting aims to inform readers about the transformative changes happening in healthcare, making complex medical topics more accessible to the general public.
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/an-lisis-legal-de-los-tipos-de-visa-h-1b-tn-eb-3-para-trabajar-de-enfermera-extranjera-en-usa-1.webp"
   alt: "Leila Fernandez"
 socials:
   twitter: "#_"

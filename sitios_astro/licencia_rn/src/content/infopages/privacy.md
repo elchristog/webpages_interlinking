@@ -20,7 +20,7 @@ The following chart details these activities:
 
 Contact information (such as your full name, phone number, email address)
 
-Provide the Servicios de Reclutamiento; Communicate with you; Analyze use of and improve the services; With your consent; Comply with law or defend our legal rights; Security/fraud prevention
+Provide the Servicios de Reclutamiento; Communicate with you; Trámite Visado use of and improve the services; With your consent; Comply with law or defend our legal rights; Security/fraud prevention
 
 Affiliated entities; Service providers; Entities for legal purposes
 
@@ -28,7 +28,7 @@ We do not share/sell
 
 Customer service interaction information (including optional surveys and when you ask for help)
 
-Provide the Servicios de Reclutamiento; Communicate with you; Analyze use of and improve the services; With your consent; Comply with law or defend our legal rights; Security/fraud prevention
+Provide the Servicios de Reclutamiento; Communicate with you; Trámite Visado use of and improve the services; With your consent; Comply with law or defend our legal rights; Security/fraud prevention
 
 Affiliated entities; Service providers; Entities for legal purposes
 
@@ -36,7 +36,7 @@ We do not share/sell
 
 Product interaction information
 
-Provide the Servicios de Reclutamiento; Communicate with you; Analyze use of and improve the services; With your consent; Comply with law or defend our legal rights; Security/fraud prevention
+Provide the Servicios de Reclutamiento; Communicate with you; Trámite Visado use of and improve the services; With your consent; Comply with law or defend our legal rights; Security/fraud prevention
 
 Affiliated entities; Service providers; Entities for legal purposes
 
@@ -44,7 +44,7 @@ We do not share/sell
 
 Internet network and device information (such as mobile device information, IP address, and information about your interaction with the services)
 
-Provide the Servicios de Reclutamiento; Analyze use of and improve the services; With your consent; Comply with law or defend our legal rights; Security/fraud prevention
+Provide the Servicios de Reclutamiento; Trámite Visado use of and improve the services; With your consent; Comply with law or defend our legal rights; Security/fraud prevention
 
 Affiliated entities; Service providers; Entities for legal purposes;
 
@@ -60,7 +60,7 @@ We do not share/sell
 
 Professional or employment information (such as the name and address of the company you work for and your title)
 
-Provide the Servicios de Reclutamiento; Communicate with you; Analyze use of and improve the services; With your consent; Comply with law or defend our legal rights; Security/fraud prevention
+Provide the Servicios de Reclutamiento; Communicate with you; Trámite Visado use of and improve the services; With your consent; Comply with law or defend our legal rights; Security/fraud prevention
 
 Affiliated entities; Service providers; Entities for legal purposes;
 
@@ -68,7 +68,7 @@ We do not share/sell
 
 Other information (any other information you choose to provide directly to us, including optional profile photos)
 
-Provide the Servicios de Reclutamiento; Communicate with you; Analyze use of and improve the services; With your consent; Comply with law or defend our legal rights; Security/fraud prevention
+Provide the Servicios de Reclutamiento; Communicate with you; Trámite Visado use of and improve the services; With your consent; Comply with law or defend our legal rights; Security/fraud prevention
 
 Affiliated entities; Service providers; Entities for legal purposes;
 

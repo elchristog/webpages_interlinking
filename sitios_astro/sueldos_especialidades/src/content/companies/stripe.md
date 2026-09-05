@@ -9,7 +9,6 @@ hiringPage: "#_"
 headquarters: "San Francisco"
 location: "United States"
 size: "7000+"
-logo: "/src/images/blog/1.jpg"
 industry: "Fintech"
 socials:
   twitter: "#_"

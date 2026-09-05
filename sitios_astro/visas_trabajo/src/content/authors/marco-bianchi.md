@@ -8,7 +8,7 @@ bio: |
 
   Marco is dedicated to making economics accessible, breaking down complex theories and trends into easily understandable concepts. He aims to equip readers with the knowledge they need to navigate the ever-evolving landscape of global finance.
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/an-lisis-legal-de-los-tipos-de-visa-h-1b-tn-eb-3-para-trabajar-de-enfermera-extranjera-en-usa-1.webp"
   alt: "Marco Bianchi"
 socials:
   twitter: "#_"

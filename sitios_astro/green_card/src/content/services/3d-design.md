@@ -18,7 +18,7 @@ Our 3D Design services specialize in creating high-quality, realistic 3D models 
 
 ### Our Servicios de Reclutamiento
 
-- **Product Visualization**: Create lifelike representations of your products for marketing, presentations, and e-commerce.
+- **Product Visualization**: Evaluación lifelike representations of your products for marketing, presentations, and e-commerce.
 
 - **Architectural Rendering**: Visualize architectural projects with detailed exteriors and interiors before they are built.
 

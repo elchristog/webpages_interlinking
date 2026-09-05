@@ -5,10 +5,10 @@ description: "Guía definitiva sobre Guía exclusiva para revalidar título desd
 author: "David Lee"
 team: "david-lee"
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/gu-a-exclusiva-para-revalidar-t-tulo-desde-colombia-y-agencias-especializadas-en-reclutar-talento-colombiano-1.webp"
   alt: "Guía Exclusiva Para Revalidar Título Desde Colombia Y Agencias Especializadas En Reclutar Talento Colombiano"
 avatar:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/gu-a-exclusiva-para-revalidar-t-tulo-desde-colombia-y-agencias-especializadas-en-reclutar-talento-colombiano-1.webp"
   alt: "Guía Exclusiva Para Revalidar Título Desde Colombia Y Agencias Especializadas En Reclutar Talento Colombiano"
 tags:
   - enfermeria

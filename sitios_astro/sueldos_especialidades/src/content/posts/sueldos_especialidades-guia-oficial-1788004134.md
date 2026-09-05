@@ -5,10 +5,10 @@ description: "Guía definitiva sobre Análisis comparativo de salarios de enferm
 author: "David Lee"
 team: "david-lee"
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp"
   alt: "Análisis Comparativo De Salarios De Enfermería Por Especialidad (Quirúrgica, Anestesista, Neonatal) En Estados Unidos"
 avatar:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp"
   alt: "Análisis Comparativo De Salarios De Enfermería Por Especialidad (Quirúrgica, Anestesista, Neonatal) En Estados Unidos"
 tags:
   - enfermeria
@@ -82,14 +82,14 @@ tags:
 <div class="props-grid">
 <div class="prop-card">
 <div class="prop-icon-wrapper">
-<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-2.webp" alt="Enfermera anestesista preparando a un paciente en quirófano" class="prop-icon" />
+<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp" alt="Enfermera anestesista preparando a un paciente en quirófano" class="prop-icon" />
 </div>
 <p class="prop-text"><strong>Enfermera Anestesista Certificada (CRNA):</strong> Aquí es donde observamos los ingresos más elevados dentro de la enfermería. Un <span class="ui-highlight">salario enfermera anestesista USA</span> puede oscilar entre 180,000 y 200,000 dólares anuales, e incluso superar estas cifras en ciertas áreas metropolitanas de alta demanda. Su formación es extensa y altamente especializada, requiriendo un Doctorado en Práctica de Enfermería (DNP). Este rol implica una enorme responsabilidad.</p>
 <a href="https://www.ncsbn.org/nclex.page" class="prop-link" target="_blank" rel="noopener noreferrer">Conoce más sobre credenciales avanzadas →</a>
 </div>
 <div class="prop-card">
 <div class="prop-icon-wrapper">
-<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-1.webp" alt="Enfermera quirúrgica asistiendo en una operación" class="prop-icon" />
+<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp" alt="Enfermera quirúrgica asistiendo en una operación" class="prop-icon" />
 </div>
 <p class="prop-text"><strong>Enfermera Quirúrgica (Perioperatoria):</strong> Estas profesionales son absolutamente vitales en cada sala de operaciones, desde la preparación preoperatoria hasta la recuperación. El <span class="ui-highlight">sueldo de una enfermera quirúrgica</span> se mueve en un rango de 75,000 a 100,000 dólares anuales, en promedio. Este campo exige precisión milimétrica, una capacidad de respuesta rápida ante imprevistos y un conocimiento profundo de los procedimientos quirúrgicos. La experiencia en trauma, cardiología o subespecialidades específicas puede elevar aún más estos números. Son esenciales para el éxito de cualquier cirugía.</p>
 <a href="#contacto" class="prop-link">Ver oportunidades en cirugía →</a>
@@ -192,7 +192,7 @@ tags:
 <p class="product-card-description">Obtener certificaciones reconocidas como CNOR (enfermera quirúrgica certificada), RNC-NIC (enfermera neonatal de cuidados intensivos) o CEN (enfermera de emergencias certificada) valida tu expertise y puede incrementar tu <span class="ui-highlight">sueldo enfermera neonatal</span> o quirúrgica significativamente. Estas credenciales demuestran un compromiso con la excelencia.</p>
 </div>
 <div class="card-image-wrapper">
-<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-2.webp" alt="Insignia de certificación profesional brillante" class="product-card-image" />
+<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp" alt="Insignia de certificación profesional brillante" class="product-card-image" />
 </div>
 <a href="#contacto" class="product-card-btn" aria-label="Ver detalles">→</a>
 </div>

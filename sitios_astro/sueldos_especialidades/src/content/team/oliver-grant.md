@@ -8,7 +8,7 @@ bio: |
 
   As an advocate for financial education, Oliver also emphasizes the importance of financial literacy, offering actionable advice for readers to take control of their financial futures. His work aims to simplify complex financial concepts and empower individuals to make informed decisions about their wealth-building journey.
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp"
   alt: "Oliver Grant"
 socials:
   twitter: "#_"

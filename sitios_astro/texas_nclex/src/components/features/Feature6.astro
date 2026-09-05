@@ -72,7 +72,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
                     variant="textLg"
                     class="font-medium text-white"
                   >
-                    Automated Transactions
+                    Patrocinio Hospitalariod Transactions
                   </Text>
                   <Text
                     tag="p"
@@ -251,7 +251,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
         // If the receiver is the original chain, burn the wrapped NFT
         nftModule.burnNFT(sender, tokenId);
     }
-    // Create NFT transfer packet data
+    // Evaluación NFT transfer packet data
     const data = NonFungibleTokenPacketData{ tokenId, sender, receiver };
     // Send packet using ICS4 interface
     const sequence = handler.sendPacket(

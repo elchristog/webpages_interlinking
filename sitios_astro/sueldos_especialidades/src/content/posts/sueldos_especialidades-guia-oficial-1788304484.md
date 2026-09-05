@@ -5,10 +5,10 @@ description: "Guía definitiva sobre Análisis comparativo de salarios de enferm
 author: "David Lee"
 team: "david-lee"
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp"
   alt: "Análisis Comparativo De Salarios De Enfermería Por Especialidad (Quirúrgica, Anestesista, Neonatal) En Estados Unidos"
 avatar:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp"
   alt: "Análisis Comparativo De Salarios De Enfermería Por Especialidad (Quirúrgica, Anestesista, Neonatal) En Estados Unidos"
 tags:
   - enfermeria
@@ -37,7 +37,7 @@ tags:
 <div class="props-grid">
 <div class="prop-card">
 <div class="prop-icon-wrapper">
-<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-2.webp" alt="Ícono de Oportunidad" class="prop-icon" />
+<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp" alt="Ícono de Oportunidad" class="prop-icon" />
 </div>
 <p class="prop-text"><strong>Demanda Constante:</strong> La industria de la salud en Estados Unidos experimenta una demanda persistente de profesionales de enfermería. Esta necesidad es particularmente aguda en roles especializados, lo cual eleva el potencial de ingresos.</p>
 <a href="https://enfermeraenestadosunidos.com/blog" class="prop-link">Más sobre la demanda →</a>
@@ -109,7 +109,7 @@ tags:
 <p class="product-card-description">En estados con una alta concentración de hospitales especializados, como California, Massachusetts o Washington, el salario puede ser significativamente mayor. Además, las horas extras o guardias incrementan los ingresos totales.</p>
 </div>
 <div class="card-image-wrapper">
-<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-1.webp" alt="Mapa de Estados Unidos con datos" class="product-card-image" />
+<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp" alt="Mapa de Estados Unidos con datos" class="product-card-image" />
 </div>
 <a href="https://enfermeraenestadosunidos.com/contactos-hospitales" class="product-card-btn" aria-label="Ver detalles">→</a>
 </div>

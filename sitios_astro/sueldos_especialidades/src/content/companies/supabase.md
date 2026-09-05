@@ -9,7 +9,6 @@ hiringPage: "#_"
 headquarters: "San Francisco"
 location: "United States"
 size: "100+"
-logo: "/src/images/blog/1.jpg"
 industry: "Database & Developer Tools"
 socials:
   twitter: "#_"

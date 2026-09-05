@@ -5,10 +5,10 @@ description: "Guía definitiva sobre Análisis comparativo de salarios de enferm
 author: "David Lee"
 team: "david-lee"
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp"
   alt: "Análisis Comparativo De Salarios De Enfermería Por Especialidad (Quirúrgica, Anestesista, Neonatal) En Estados Unidos"
 avatar:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp"
   alt: "Análisis Comparativo De Salarios De Enfermería Por Especialidad (Quirúrgica, Anestesista, Neonatal) En Estados Unidos"
 tags:
   - enfermeria
@@ -30,7 +30,7 @@ tags:
 <section class="ui-services-split ui-preset--midnight">
 <div class="services-split-container">
 <div class="services-split-image-col">
-<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-1.webp" alt="Enfermera revisando datos salariales" class="services-split-image" />
+<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp" alt="Enfermera revisando datos salariales" class="services-split-image" />
 </div>
 <div class="services-split-content-col">
 <h2 class="services-split-title">¿Por Qué Es Crucial Entender el <span class="ui-highlight">Análisis Salarial</span> en Enfermería?</h2>
@@ -69,7 +69,7 @@ tags:
 <div class="props-grid">
 <div class="prop-card">
 <div class="prop-icon-wrapper">
-<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-2.webp" alt="CRNA en acción" class="prop-icon" />
+<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp" alt="CRNA en acción" class="prop-icon" />
 </div>
 <p class="prop-text"><strong>Roles y Responsabilidades:</strong> Las <span class="ui-highlight">Enfermeras Anestesistas Certificadas Registradas (CRNAs)</span> son profesionales altamente especializadas. Ellas administran anestesia y monitorean a los pacientes antes, durante y después de procedimientos quirúrgicos. Su rol es crítico en cualquier equipo médico, lo cual justifica en gran medida sus compensaciones.</p>
 <a href="https://este-sitio.com/enfermera-anestesista" class="prop-link">Conoce más sobre CRNA →</a>

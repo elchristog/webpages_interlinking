@@ -8,7 +8,7 @@ bio: |
 
   Juliet’s writing offers a balanced view of the potential benefits and challenges posed by technological advancements, making her a leading voice in the tech and culture space.
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/proceso-paso-a-paso-y-agencias-de-enfermer-a-en-usa-para-enfermeras-latinas-de-toda-latinoam-rica-1.webp"
   alt: "Juliet Ramos"
 socials:
   twitter: "#_"

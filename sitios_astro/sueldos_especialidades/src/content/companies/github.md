@@ -9,7 +9,6 @@ hiringPage: "#_"
 headquarters: "San Francisco"
 location: "United States"
 size: "3000+"
-logo: "/src/images/blog/1.jpg"
 industry: "Software Development"
 socials:
   twitter: "#_"

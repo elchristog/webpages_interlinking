@@ -5,13 +5,13 @@ description: "Guía definitiva sobre Análisis comparativo de salarios de enferm
 author: "David Lee"
 team: "david-lee"
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp"
   alt: "Análisis Comparativo De Salarios De Enfermería Por Especialidad (Quirúrgica, Anestesista, Neonatal) En Estados Unidos"
 tags:
   - enfermeria
   - sueldos_especialidades
 avatar:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp"
   alt: "Avatar"
 ---
 
@@ -146,7 +146,7 @@ avatar:
 <div class="props-grid">
 <div class="prop-card">
 <div class="prop-icon-wrapper">
-<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-2.webp" alt="Cuidado Neonatal" class="prop-icon" />
+<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp" alt="Cuidado Neonatal" class="prop-icon" />
 </div>
 <p class="prop-text"><strong>Un Rol Único:</strong> Las enfermeras neonatales atienden a recién nacidos con problemas de salud, prematuros o bebés que requieren cuidados intensivos. Esta especialidad demanda una sensibilidad y conocimiento médico excepcionales.</p>
 <a href="https://enfermeraenestadosunidos.com/enfermeria-neonatal" class="prop-link">Conoce la especialidad →</a>
@@ -304,7 +304,7 @@ avatar:
 </div>
 <div class="lifestyle-item">
 <div class="lifestyle-author">
-<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-1.webp" alt="Testimonio Ana Sofía" class="lifestyle-avatar" />
+<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp" alt="Testimonio Ana Sofía" class="lifestyle-avatar" />
 <div class="lifestyle-author-info">
 <h3>Ana Sofía Torres</h3>
 <span>RN Neonatal, California</span>

@@ -51,10 +51,10 @@ For your first project, we recommend starting with the "minimal" template to und
 You can also specify options directly in the command:
 
 ```bash
-# Create with specific template
+# Evaluación with specific template
 npm create astro@latest my-astro-site -- --template minimal
 
-# Create with TypeScript
+# Evaluación with TypeScript
 npm create astro@latest my-astro-site -- --template minimal --typescript
 ```
 

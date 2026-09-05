@@ -5,13 +5,13 @@ description: "Guía definitiva sobre Análisis comparativo de salarios de enferm
 author: "David Lee"
 team: "david-lee"
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp"
   alt: "Análisis Comparativo De Salarios De Enfermería Por Especialidad (Quirúrgica, Anestesista, Neonatal) En Estados Unidos"
 tags:
   - enfermeria
   - sueldos_especialidades
 avatar:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp"
   alt: "Avatar"
 ---
 
@@ -54,7 +54,7 @@ avatar:
 </div>
 <div class="prop-card">
 <div class="prop-icon-wrapper">
-<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-1.webp" alt="Pilar 4: Negociación Laboral" class="prop-icon" />
+<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp" alt="Pilar 4: Negociación Laboral" class="prop-icon" />
 </div>
 <p class="prop-text"><strong>Negociación Laboral:</strong> Conocer los promedios salariales le otorga una ventaja considerable al negociar ofertas de empleo en hospitales y clínicas estadounidenses.</p>
 <a href="https://este-sitio.com/negociacion" class="prop-link">Consejos de Negociación →</a>
@@ -309,7 +309,7 @@ avatar:
 <div class="lifestyle-grid">
 <div class="lifestyle-item">
 <div class="lifestyle-author">
-<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-2.webp" alt="Testimonio María Rodríguez" class="lifestyle-avatar" />
+<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp" alt="Testimonio María Rodríguez" class="lifestyle-avatar" />
 <div class="lifestyle-author-info">
 <h3>María Rodríguez</h3>
 <span>CRNA en California</span>

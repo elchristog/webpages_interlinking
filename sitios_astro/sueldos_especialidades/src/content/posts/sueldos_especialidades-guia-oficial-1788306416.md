@@ -5,10 +5,10 @@ description: "Guía definitiva sobre Análisis comparativo de salarios de enferm
 author: "David Lee"
 team: "david-lee"
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp"
   alt: "Análisis Comparativo De Salarios De Enfermería Por Especialidad (Quirúrgica, Anestesista, Neonatal) En Estados Unidos"
 avatar:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp"
   alt: "Análisis Comparativo De Salarios De Enfermería Por Especialidad (Quirúrgica, Anestesista, Neonatal) En Estados Unidos"
 tags:
   - enfermeria
@@ -33,14 +33,14 @@ tags:
 <div class="props-grid">
 <div class="prop-card">
 <div class="prop-icon-wrapper">
-<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-1.webp" alt="Ubicación Geográfica" class="prop-icon" />
+<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp" alt="Ubicación Geográfica" class="prop-icon" />
 </div>
 <p class="prop-text"><strong>Ubicación Geográfica:</strong> Los salarios varían drásticamente según el estado y la ciudad. Por ejemplo, California o Nueva York suelen ofrecer compensaciones más altas, aunque también tienen un costo de vida elevado.</p>
 <a href="https://enfermeraenestadosunidos.com/estados-con-mejores-salarios" class="prop-link">Descubre los mejores estados →</a>
 </div>
 <div class="prop-card">
 <div class="prop-icon-wrapper">
-<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-2.webp" alt="Nivel de Experiencia" class="prop-icon" />
+<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp" alt="Nivel de Experiencia" class="prop-icon" />
 </div>
 <p class="prop-text"><strong>Nivel de Experiencia:</strong> Una enfermera recién graduada no ganará lo mismo que una con diez años de experiencia. Cada año adicional de práctica puede significar un incremento sustancial en el paquete salarial.</p>
 <a href="https://enfermeraenestadosunidos.com/carrera-profesional" class="prop-link">Potencia tu carrera →</a>
@@ -289,7 +289,7 @@ tags:
 <h3 class="chart-title">La Proyección de Crecimiento en el Sector de Enfermería</h3>
 <p class="chart-desc">La Oficina de Estadísticas Laborales de EE. UU. proyecta un crecimiento del 6% para enfermeras registradas entre 2022 y 2032, lo que se traduce en aproximadamente 177,400 nuevas vacantes cada año. Esta alta demanda asegura un panorama laboral estable y lucrativo.</p>
 <div class="chart-wrapper">
-<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-1.webp" alt="Gráfico de tendencias de empleo" class="chart-img" />
+<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp" alt="Gráfico de tendencias de empleo" class="chart-img" />
 </div>
 </div>
 </div>

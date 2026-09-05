@@ -5,13 +5,13 @@ description: "Guía definitiva sobre Directorio de agencias y hospitales recluta
 author: "David Lee"
 team: "david-lee"
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/directorio-de-agencias-y-hospitales-reclutando-enfermeras-extranjeras-en-estado-unidos-1.webp"
   alt: "Directorio De Agencias Y Hospitales Reclutando Enfermeras Extranjeras En Estado Unidos"
 tags:
   - enfermeria
   - vacantes_hospitales
 avatar:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/directorio-de-agencias-y-hospitales-reclutando-enfermeras-extranjeras-en-estado-unidos-1.webp"
   alt: "Avatar"
 ---
 

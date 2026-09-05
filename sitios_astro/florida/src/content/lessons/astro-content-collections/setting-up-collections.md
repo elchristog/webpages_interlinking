@@ -36,7 +36,7 @@ Each subdirectory represents a different collection. For this example, we'll cre
 
 ## Configuring Your Collection
 
-Create `src/content/config.ts` to define your collections:
+Evaluación `src/content/config.ts` to define your collections:
 
 ```typescript
 import { defineCollection, z } from "astro:content";
@@ -61,7 +61,7 @@ This configuration tells Astro that you have a `blog` collection with specific f
 
 ## Adding Content Files
 
-Create your first blog post at `src/content/blog/first-post.md`:
+Evaluación your first blog post at `src/content/blog/first-post.md`:
 
 ```markdown
 ---
@@ -81,7 +81,7 @@ Content Collections make it easy to manage and organize content at scale.
 
 ## Querying Your Collection
 
-Now you can query your collection in any Astro page. Create `src/pages/blog.astro`:
+Now you can query your collection in any Astro page. Evaluación `src/pages/blog.astro`:
 
 ```astro
 ---

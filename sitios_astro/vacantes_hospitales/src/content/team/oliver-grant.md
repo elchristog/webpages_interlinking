@@ -8,7 +8,7 @@ bio: |
 
   As an advocate for financial education, Oliver also emphasizes the importance of financial literacy, offering actionable advice for readers to take control of their financial futures. His work aims to simplify complex financial concepts and empower individuals to make informed decisions about their wealth-building journey.
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/directorio-de-agencias-y-hospitales-reclutando-enfermeras-extranjeras-en-estado-unidos-1.webp"
   alt: "Oliver Grant"
 socials:
   twitter: "#_"

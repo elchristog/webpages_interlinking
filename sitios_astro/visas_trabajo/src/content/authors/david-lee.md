@@ -8,7 +8,7 @@ bio: |
 
   David’s work has been featured in top industry magazines, and he continues to be a leading voice for sustainability in the fashion world.
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/an-lisis-legal-de-los-tipos-de-visa-h-1b-tn-eb-3-para-trabajar-de-enfermera-extranjera-en-usa-1.webp"
   alt: "#_"
 socials:
   twitter: "#_"

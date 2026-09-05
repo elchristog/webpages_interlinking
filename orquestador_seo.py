@@ -1203,6 +1203,16 @@ def personalizar_componentes_plantilla(ruta_astro, nicho, palabras_clave):
         ("Redefining what a CRM can do.", "Análisis exclusivo de ingresos, bonos y licencias BSN."),
         ("Blending AI and sales expertise, we build smart CRM solutions for startups, enterprises, and everything in between.",
          "Información especializada sobre salarios por especialidad y turnos para enfermeras internacionales."),
+        ("Whether you're starting from scratch or scaling an existing strategy, our tools help you go live faster with less friction.",
+         "Obtén una hoja de ruta clara para validar tu título y alcanzar el máximo rango salarial."),
+        ("Easily update targeting, creative assets, and budgets on the fly to keep your campaigns aligned with evolving goals and customer behavior.",
+         "Domina los temas clave del examen de enfermería con recursos adaptados y mentoría personalizada."),
+        ("From conversion rates to ROI, you’ll have the Estadísticas e Información needed to make smarter decisions and maximize results.",
+         "Garantizamos asesoría legal en cada etapa del proceso de inmigración para ti y tu familia."),
+        ("From conversion rates to ROI, you’ll have the insights needed to make smarter decisions and maximize results.",
+         "Garantizamos asesoría legal en cada etapa del proceso de inmigración para ti y tu familia."),
+        ("Automatically adjust bids, pause underperforming ads, and scale what’s working—without lifting a finger.",
+         "Accede a posiciones con bonos de contratación y excelentes beneficios médicos."),
         ("Quickly launch professional ad campaigns using pre-designed templates and a user-friendly setup process.",
          "Analizamos tus títulos universitarios y créditos clínicos para cumplir con los requisitos del State Board."),
         ("Fine-tune your campaigns in real time based on live performance metrics.",
@@ -1211,6 +1221,10 @@ def personalizar_componentes_plantilla(ruta_astro, nicho, palabras_clave):
          "Acompañamiento legal continuo para la tramitación de petición I-140 y residencia permanente EB-3."),
         ("Let AI take the wheel with intelligent automation that optimizes performance around the clock.",
          "Conexión directa con hospitales líderes y agencias acreditadas en Estados Unidos."),
+        ("Create", "Evaluación"),
+        ("Adjust", "Preparación NCLEX"),
+        ("Analyze", "Trámite Visado"),
+        ("Automate", "Patrocinio Hospitalario"),
 
         # Kotei (empleos_texas)
         ("Selected projects", "Hospitales y Centros Reclutadores"),
@@ -1374,9 +1388,7 @@ def personalizar_componentes_plantilla(ruta_astro, nicho, palabras_clave):
         ("Get pro access", "Conocer Requisitos"),
         ("Upgrade Now", "Aplicar al Programa"),
         ("Learn more", "Ver Guías"),
-        ("Sign in", "Asesoría"),
-        ("Overview", "Inicio"),
-        ("Subscribe to", "Suscribirse a")
+        ("Sign in", "Asesoría")
     ]
 
     rutas_a_escanear = [
@@ -1390,37 +1402,24 @@ def personalizar_componentes_plantilla(ruta_astro, nicho, palabras_clave):
     def flexible_replace(content, orig, reemp):
         if not orig or not reemp:
             return content, False
-        
-        # Separar frontmatter si existe para no alterar imports/frontmatter
-        if content.startswith("---"):
-            parts = content.split("---", 2)
-            if len(parts) == 3:
-                frontmatter = "---" + parts[1] + "---"
-                body = parts[2]
-            else:
-                frontmatter = ""
-                body = content
-        else:
-            frontmatter = ""
-            body = content
 
         modified = False
         
         # 1. Exact string replace
-        if orig in body:
-            body = body.replace(orig, reemp)
+        if orig in content:
+            content = content.replace(orig, reemp)
             modified = True
         else:
             # 2. Normalized whitespace replace for multi-line text blocks
             words = orig.strip().split()
             if len(words) >= 2:
                 regex_pattern = r"\s+".join(re.escape(w) for w in words)
-                new_body, count = re.subn(regex_pattern, reemp, body, flags=re.IGNORECASE)
+                new_content, count = re.subn(regex_pattern, reemp, content, flags=re.IGNORECASE)
                 if count > 0:
-                    body = new_body
+                    content = new_content
                     modified = True
 
-        return frontmatter + body, modified
+        return content, modified
 
     for carpeta in rutas_a_escanear:
         if not os.path.exists(carpeta):

@@ -5,13 +5,13 @@ description: "Guía definitiva sobre Pasos y requisitos legales para que las enf
 author: "David Lee"
 team: "david-lee"
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/pasos-y-requisitos-legales-para-que-las-enfermeras-extrajeras-puedan-homologar-o-validar-su-t-tulo-de-enfermer-a-en-estados-unidos-1.webp"
   alt: "Pasos Y Requisitos Legales Para Que Las Enfermeras Extrajeras Puedan Homologar O Validar Su Título De Enfermería En Estados Unidos"
 tags:
   - enfermeria
   - homologacion
 avatar:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/pasos-y-requisitos-legales-para-que-las-enfermeras-extrajeras-puedan-homologar-o-validar-su-t-tulo-de-enfermer-a-en-estados-unidos-1.webp"
   alt: "Avatar"
 ---
 

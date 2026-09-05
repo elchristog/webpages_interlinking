@@ -5,13 +5,13 @@ description: "Guía definitiva sobre Análisis comparativo de salarios de enferm
 author: "David Lee"
 team: "david-lee"
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp"
   alt: "Análisis Comparativo De Salarios De Enfermería Por Especialidad (Quirúrgica, Anestesista, Neonatal) En Estados Unidos"
 tags:
   - enfermeria
   - sueldos_especialidades
 avatar:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp"
   alt: "Avatar"
 ---
 
@@ -42,14 +42,14 @@ avatar:
 <div class="props-grid">
 <div class="prop-card">
 <div class="prop-icon-wrapper">
-<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-1.webp" alt="Especialización" class="prop-icon" />
+<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp" alt="Especialización" class="prop-icon" />
 </div>
 <p class="prop-text"><strong>Especialización:</strong> Evidentemente, tu área de práctica es el factor más determinante. Las especialidades con mayor demanda o que requieren formación avanzada suelen ofrecer salarios significativamente más altos. Considera si tu experiencia actual se alinea con estas áreas de alta remuneración.</p>
 <a href="URL_detalle_especializacion" class="prop-link">Ver detalles →</a>
 </div>
 <div class="prop-card">
 <div class="prop-icon-wrapper">
-<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-2.webp" alt="Ubicación Geográfica" class="prop-icon" />
+<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp" alt="Ubicación Geográfica" class="prop-icon" />
 </div>
 <p class="prop-text"><strong>Ubicación Geográfica:</strong> Los salarios varían drásticamente de un estado a otro y de una ciudad a otra. Por ejemplo, California o Nueva York suelen tener ingresos más altos, aunque también un costo de vida elevado. Asimismo, la densidad de hospitales influye.</p>
 <a href="URL_detalle_ubicacion" class="prop-link">Explorar estados →</a>

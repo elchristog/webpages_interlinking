@@ -8,7 +8,7 @@ bio: |
 
   Samuel’s passion lies in providing insightful commentary on the political factors shaping the world. Through his work, he aims to educate readers on the complexities of global governance and foster a deeper understanding of political issues that affect people’s lives on a global scale.
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/enfermera-en-estados-unidos-gu-a-principal-1.webp"
   alt: "Samuel Ortiz"
 socials:
   twitter: "#_"

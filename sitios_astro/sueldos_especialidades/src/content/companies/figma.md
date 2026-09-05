@@ -9,7 +9,6 @@ hiringPage: "#_"
 headquarters: "San Francisco"
 location: "United States"
 size: "1000+"
-logo: "/src/images/blog/1.jpg"
 industry: "Design Tools"
 socials:
   twitter: "#_"

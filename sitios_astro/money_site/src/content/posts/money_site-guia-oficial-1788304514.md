@@ -5,10 +5,10 @@ description: "Guía definitiva sobre Enfermera en Estados Unidos - Guía Princip
 author: "David Lee"
 team: "david-lee"
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/enfermera-en-estados-unidos-gu-a-principal-1.webp"
   alt: "Enfermera En Estados Unidos - Guía Principal"
 avatar:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/enfermera-en-estados-unidos-gu-a-principal-1.webp"
   alt: "Enfermera En Estados Unidos - Guía Principal"
 tags:
   - enfermeria

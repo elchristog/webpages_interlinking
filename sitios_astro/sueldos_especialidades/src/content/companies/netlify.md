@@ -9,7 +9,6 @@ hiringPage: "#_"
 headquarters: "San Francisco"
 location: "United States"
 size: "300+"
-logo: "/src/images/blog/1.jpg"
 industry: "Web Infrastructure"
 socials:
   twitter: "#_"

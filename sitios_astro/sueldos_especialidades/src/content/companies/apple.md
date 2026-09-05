@@ -9,7 +9,6 @@ hiringPage: "#_"
 headquarters: "Cupertino"
 location: "United States"
 size: "5000+"
-logo: "/src/images/blog/1.jpg"
 industry: "Consumer Electronics"
 
 socials:

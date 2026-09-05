@@ -5,10 +5,10 @@ description: "Guía definitiva sobre Ofertas de trabajo y vacantes en hospitales
 author: "David Lee"
 team: "david-lee"
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/ofertas-de-trabajo-y-vacantes-en-hospitales-top-de-houston-dallas-y-el-resto-de-texas-1.webp"
   alt: "Ofertas De Trabajo Y Vacantes En Hospitales Top De Houston, Dallas Y El Resto De Texas"
 avatar:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/ofertas-de-trabajo-y-vacantes-en-hospitales-top-de-houston-dallas-y-el-resto-de-texas-1.webp"
   alt: "Ofertas De Trabajo Y Vacantes En Hospitales Top De Houston, Dallas Y El Resto De Texas"
 tags:
   - enfermeria

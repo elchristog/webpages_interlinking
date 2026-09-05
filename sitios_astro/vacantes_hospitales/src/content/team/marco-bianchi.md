@@ -8,7 +8,7 @@ bio: |
 
   Marco is dedicated to making economics accessible, breaking down complex theories and trends into easily understandable concepts. He aims to equip readers with the knowledge they need to navigate the ever-evolving landscape of global finance.
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/directorio-de-agencias-y-hospitales-reclutando-enfermeras-extranjeras-en-estado-unidos-1.webp"
   alt: "Marco Bianchi"
 socials:
   twitter: "#_"

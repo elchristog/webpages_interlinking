@@ -5,10 +5,10 @@ description: "Guía definitiva sobre Ofertas de empleo y salarios promedios para
 author: "David Lee"
 team: "david-lee"
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/ofertas-de-empleo-y-salarios-promedios-para-enfermeras-extranjeras-en-miami-y-tampa-florida-1.webp"
   alt: "Ofertas De Empleo Y Salarios Promedios Para Enfermeras Extranjeras En Miami Y Tampa, Florida"
 avatar:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/ofertas-de-empleo-y-salarios-promedios-para-enfermeras-extranjeras-en-miami-y-tampa-florida-1.webp"
   alt: "Ofertas De Empleo Y Salarios Promedios Para Enfermeras Extranjeras En Miami Y Tampa, Florida"
 tags:
   - enfermeria
@@ -292,7 +292,7 @@ tags:
 <span class="faq-icon">▼</span>
 </summary>
 <div class="faq-answer">
-<p>Recibirás un apoyo integral. Nos encargamos de la preparación y presentación de toda la documentación migratoria. Esto incluye la Petición I-140, el Adjustment of Status (si ya estás en EE. UU.) o el proceso consular (si estás fuera). Te guiamos en cada entrevista y respondemos a todas tus preguntas para que el proceso sea lo más fluido posible. Nuestro objetivo es minimizar tu estrés.</p>
+<p>Recibirás un apoyo integral. Nos encargamos de la preparación y presentación de toda la documentación migratoria. Esto incluye la Petición I-140, el Preparación NCLEXment of Status (si ya estás en EE. UU.) o el proceso consular (si estás fuera). Te guiamos en cada entrevista y respondemos a todas tus preguntas para que el proceso sea lo más fluido posible. Nuestro objetivo es minimizar tu estrés.</p>
 </div>
 </details>
 <details class="faq-item">

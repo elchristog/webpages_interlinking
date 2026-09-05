@@ -8,7 +8,7 @@ bio: |
 
   Maya's work is dedicated to capturing the energy and transformation taking place in women’s sports, from grassroots initiatives to international tournaments. Her coverage is both informative and inspiring, offering fresh perspectives on the games, the athletes, and the fans.
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp"
   alt: "Maya Lombardi"
 socials:
   twitter: "#_"

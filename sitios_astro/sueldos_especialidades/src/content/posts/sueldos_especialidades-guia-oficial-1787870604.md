@@ -5,13 +5,13 @@ description: "Guía definitiva sobre Análisis comparativo de salarios de enferm
 author: "David Lee"
 team: "david-lee"
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp"
   alt: "Análisis Comparativo De Salarios De Enfermería Por Especialidad (Quirúrgica, Anestesista, Neonatal) En Estados Unidos"
 tags:
   - enfermeria
   - sueldos_especialidades
 avatar:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp"
   alt: "Avatar"
 ---
 
@@ -66,7 +66,7 @@ avatar:
 <p class="product-card-description">Las especialidades como enfermera anestesista o neonatal suelen ofrecer remuneraciones superiores debido a la formación requerida.</p>
 </div>
 <div class="card-image-wrapper">
-<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-1.webp" alt="Enfermera con título avanzado" class="product-card-image" />
+<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp" alt="Enfermera con título avanzado" class="product-card-image" />
 </div>
 <a href="#especialidades" class="product-card-btn" aria-label="Ver más sobre especializaciones">→</a>
 </div>
@@ -139,7 +139,7 @@ avatar:
 <section class="ui-services-split ui-preset--midnight">
 <div class="services-split-container">
 <div class="services-split-image-col">
-<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-2.webp" alt="Enfermera quirúrgica en quirófano" class="services-split-image" />
+<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp" alt="Enfermera quirúrgica en quirófano" class="services-split-image" />
 </div>
 <div class="services-split-content-col">
 <h2 class="services-split-title">¿<span class="ui-highlight">Cuánto Gana una Enfermera de Emergencias</span> o Quirúrgica en EE. UU.?</h2>
@@ -326,7 +326,7 @@ avatar:
 </div>
 <div class="prop-card">
 <div class="prop-icon-wrapper">
-<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-1.webp" alt="Ícono de certificación" class="prop-icon" />
+<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp" alt="Ícono de certificación" class="prop-icon" />
 </div>
 <p class="prop-text"><strong>Certificaciones de Especialidad:</strong> Las certificaciones específicas para su área, como CCRN para cuidados críticos o PCCN para cardiología, demuestran competencia y pueden justificar un salario superior.</p>
 <a href="https://www.aacn.org/certification" class="prop-link" target="_blank" rel="noopener noreferrer">Certificaciones AACN →</a>

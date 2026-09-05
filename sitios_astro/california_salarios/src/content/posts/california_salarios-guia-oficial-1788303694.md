@@ -5,10 +5,10 @@ description: "Guía definitiva sobre Análisis de salarios por especialidad, ing
 author: "David Lee"
 team: "david-lee"
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/an-lisis-de-salarios-por-especialidad-ingresos-de-travel-nurses-y-finanzas-para-enfermeras-en-california-1.webp"
   alt: "Análisis De Salarios Por Especialidad, Ingresos De Travel Nurses Y Finanzas Para Enfermeras En California"
 avatar:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/an-lisis-de-salarios-por-especialidad-ingresos-de-travel-nurses-y-finanzas-para-enfermeras-en-california-1.webp"
   alt: "Análisis De Salarios Por Especialidad, Ingresos De Travel Nurses Y Finanzas Para Enfermeras En California"
 tags:
   - enfermeria

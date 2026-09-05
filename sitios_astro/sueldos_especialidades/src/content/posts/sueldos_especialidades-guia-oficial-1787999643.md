@@ -5,10 +5,10 @@ description: "Guía definitiva sobre Análisis comparativo de salarios de enferm
 author: "David Lee"
 team: "david-lee"
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp"
   alt: "Análisis Comparativo De Salarios De Enfermería Por Especialidad (Quirúrgica, Anestesista, Neonatal) En Estados Unidos"
 avatar:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp"
   alt: "Análisis Comparativo De Salarios De Enfermería Por Especialidad (Quirúrgica, Anestesista, Neonatal) En Estados Unidos"
 tags:
   - enfermeria
@@ -119,7 +119,7 @@ tags:
 <p class="product-card-description">Coordina y asiste en todos los aspectos del cuidado del paciente antes, durante y después de la cirugía.</p>
 </div>
 <div class="card-image-wrapper">
-<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-1.webp" alt="Enfermera Quirúrgica" class="product-card-image" />
+<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp" alt="Enfermera Quirúrgica" class="product-card-image" />
 </div>
 <a href="URL" class="product-card-btn" aria-label="Ver detalles">→</a>
 </div>
@@ -186,7 +186,7 @@ tags:
 <div class="props-grid">
 <div class="prop-card">
 <div class="prop-icon-wrapper">
-<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-2.webp" alt="Educación Avanzada" class="prop-icon" />
+<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp" alt="Educación Avanzada" class="prop-icon" />
 </div>
 <p class="prop-text"><strong>Grados Superiores:</strong> Un Master of Science in Nursing (MSN) o un Doctor of Nursing Practice (DNP) abren puertas a roles avanzados (APRNs) con salarios mucho más altos.</p>
 <a href="URL" class="prop-link">Más sobre MSN →</a>

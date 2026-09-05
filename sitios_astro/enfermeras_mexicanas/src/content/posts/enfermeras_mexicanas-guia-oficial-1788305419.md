@@ -5,10 +5,10 @@ description: "Guía definitiva sobre Requisitos específicos, equivalencias y tr
 author: "David Lee"
 team: "david-lee"
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/requisitos-espec-ficos-equivalencias-y-tr-mites-consulares-para-enfermeras-mexicanas-queriendo-cruzar-a-usa-1.webp"
   alt: "Requisitos Específicos, Equivalencias Y Trámites Consulares Para Enfermeras Mexicanas Queriendo Cruzar A Usa"
 avatar:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/requisitos-espec-ficos-equivalencias-y-tr-mites-consulares-para-enfermeras-mexicanas-queriendo-cruzar-a-usa-1.webp"
   alt: "Requisitos Específicos, Equivalencias Y Trámites Consulares Para Enfermeras Mexicanas Queriendo Cruzar A Usa"
 tags:
   - enfermeria

@@ -9,7 +9,6 @@ hiringPage: "#_"
 headquarters: "Barcelona"
 location: "Spain"
 size: "50+"
-logo: "/src/images/blog/1.jpg"
 industry: "Design Tools"
 socials:
   twitter: "#_"

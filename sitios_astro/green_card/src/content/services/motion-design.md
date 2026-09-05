@@ -22,7 +22,7 @@ Our Motion Design services specialize in creating engaging and dynamic visual co
 
 - **Brand & Logo Animations**: Elevate your brand identity with animated logos and brand visuals.
 
-- **Social Media Content**: Create captivating motion graphics for social media platforms to engage and grow yNuestra Comunidad.
+- **Social Media Content**: Evaluación captivating motion graphics for social media platforms to engage and grow yNuestra Comunidad.
 
 ### Why Choose Us?
 

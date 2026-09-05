@@ -64,7 +64,7 @@ team: "david-lee"
 </div>
 <div class="prop-card">
 <div class="prop-icon-wrapper">
-<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-2.webp" alt="Pilar 2" class="prop-icon" />
+<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp" alt="Pilar 2" class="prop-icon" />
 </div>
 <p class="prop-text"><strong>Guía Integral y Personalizada:</strong> Nuestro equipo experto te acompaña en cada etapa del complejo proceso, desde la homologación de tu título hasta tu llegada a EE. UU. Olvídate de la burocracia; nosotros hacemos el camino simple para ti.</p>
 <a href="#proceso" class="prop-link">Conoce el Proceso →</a>
@@ -105,7 +105,7 @@ team: "david-lee"
 </div>
 <div class="lifestyle-item">
 <div class="lifestyle-author">
-<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-1.webp" alt="Tania Camila Lizarazo" class="lifestyle-avatar" />
+<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp" alt="Tania Camila Lizarazo" class="lifestyle-avatar" />
 <div class="lifestyle-author-info">
 <h3>Tania Camila Lizarazo</h3>
 <span>Enfermera Neonatal, Texas</span>
@@ -182,7 +182,7 @@ team: "david-lee"
 <p class="product-card-description">Te preparamos con los mejores recursos didácticos y simuladores para que apruebes el examen NCLEX-RN. Este es el requisito indispensable para obtener tu licencia de Registered Nurse (RN) y aspirar a los mejores sueldos.</p>
 </div>
 <div class="card-image-wrapper">
-<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-2.webp" alt="Preparación NCLEX" class="product-card-image" />
+<img src="/imagenes_proyecto/an-lisis-comparativo-de-salarios-de-enfermer-a-por-especialidad-quir-rgica-anestesista-neonatal-en-estados-unidos-10.webp" alt="Preparación NCLEX" class="product-card-image" />
 </div>
 <a href="#nclex" class="product-card-btn" aria-label="Ver detalles">→</a>
 </div>

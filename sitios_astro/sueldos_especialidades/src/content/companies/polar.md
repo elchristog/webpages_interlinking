@@ -9,7 +9,6 @@ hiringPage: "#_"
 headquarters: "Remote"
 location: "Global"
 size: "20+"
-logo: "/src/images/blog/1.jpg"
 industry: "Open Source Funding"
 socials:
   twitter: "#_"

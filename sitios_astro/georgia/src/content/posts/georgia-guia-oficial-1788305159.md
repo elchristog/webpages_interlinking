@@ -5,10 +5,10 @@ description: "Guía definitiva sobre Proceso migratorio, requisitos de licencia 
 author: "David Lee"
 team: "david-lee"
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/proceso-migratorio-requisitos-de-licencia-y-b-squeda-de-sponsor-para-enfermeras-en-georgia-1.webp"
   alt: "Proceso Migratorio, Requisitos De Licencia Y Búsqueda De Sponsor Para Enfermeras En Georgia"
 avatar:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/proceso-migratorio-requisitos-de-licencia-y-b-squeda-de-sponsor-para-enfermeras-en-georgia-1.webp"
   alt: "Proceso Migratorio, Requisitos De Licencia Y Búsqueda De Sponsor Para Enfermeras En Georgia"
 tags:
   - enfermeria

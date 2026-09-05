@@ -5,13 +5,13 @@ description: "Guía definitiva sobre Guía salarial y de ofertas laborales exclu
 author: "David Lee"
 team: "david-lee"
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/gu-a-salarial-y-de-ofertas-laborales-exclusivas-para-travel-nurses-en-estados-unidos-1.webp"
   alt: "Guía Salarial Y De Ofertas Laborales Exclusivas Para Travel Nurses En Estados Unidos"
 tags:
   - enfermeria
   - travel_nurses
 avatar:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/gu-a-salarial-y-de-ofertas-laborales-exclusivas-para-travel-nurses-en-estados-unidos-1.webp"
   alt: "Avatar"
 ---
 

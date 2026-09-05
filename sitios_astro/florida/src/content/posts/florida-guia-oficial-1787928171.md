@@ -5,13 +5,13 @@ description: "Guía definitiva sobre Ofertas de empleo y salarios promedios para
 author: "David Lee"
 team: "david-lee"
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/ofertas-de-empleo-y-salarios-promedios-para-enfermeras-extranjeras-en-miami-y-tampa-florida-1.webp"
   alt: "Ofertas De Empleo Y Salarios Promedios Para Enfermeras Extranjeras En Miami Y Tampa, Florida"
 tags:
   - enfermeria
   - florida
 avatar:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/ofertas-de-empleo-y-salarios-promedios-para-enfermeras-extranjeras-en-miami-y-tampa-florida-1.webp"
   alt: "Avatar"
 ---
 

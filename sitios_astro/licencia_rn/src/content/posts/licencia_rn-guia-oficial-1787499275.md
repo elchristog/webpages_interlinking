@@ -5,13 +5,13 @@ description: "Guía definitiva sobre Guía oficial para obtener la licencia de R
 author: "David Lee"
 team: "david-lee"
 image:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/gu-a-oficial-para-obtener-la-licencia-de-registered-nurse-rn-en-estados-unidos-1.webp"
   alt: "Guía Oficial Para Obtener La Licencia De Registered Nurse (Rn) En Estados Unidos"
 tags:
   - enfermeria
   - licencia_rn
 avatar:
-  url: "/src/images/blog/1.jpg"
+  url: "/imagenes_proyecto/gu-a-oficial-para-obtener-la-licencia-de-registered-nurse-rn-en-estados-unidos-1.webp"
   alt: "Avatar"
 ---
 
