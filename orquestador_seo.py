@@ -1376,8 +1376,7 @@ def personalizar_componentes_plantilla(ruta_astro, nicho, palabras_clave):
         ("Learn more", "Ver Guías"),
         ("Sign in", "Asesoría"),
         ("Overview", "Inicio"),
-        ("Subscribe to", "Suscribirse a"),
-        ("Your Website Title", f"{nicho_title} | Guía Oficial EE. UU.")
+        ("Subscribe to", "Suscribirse a")
     ]
 
     rutas_a_escanear = [

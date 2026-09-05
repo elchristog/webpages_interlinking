@@ -1,68 +1,31 @@
 ---
-const { title = "Enfermera en Estados Unidos", description = "Guía oficial para trabajar como enfermera en Estados Unidos." } = Astro.props;
-
-// @ts-expect-error - AstroSeo is exported from .astro; package types are partial
 import { AstroSeo } from "@lexingtonthemes/seo";
+const { 
+  title = "Enfermera en Estados Unidos - Guía Oficial", 
+  description = "Guía completa y oficial para trabajar como enfermera en Estados Unidos con patrocinio de visa." 
+} = Astro.props;
 ---
-
 
 <AstroSeo
   title={title}
   description={description}
-  canonical="https://yoursite.com/current-page"
   openGraph={{
-    url: "https://yoursite.com/current-page",
-    title: "Your Page Title",
-    description: "A detailed description of your page content.",
+    title: title,
+    description: description,
     images: [
       {
-        url: "https://yoursite.com/og-image.jpg",
+        url: "/imagenes_proyecto/logo.webp",
         width: 1200,
         height: 630,
-        alt: "Open Graph Image Alt",
-        type: "image/jpeg",
+        alt: title,
+        type: "image/webp",
       },
     ],
-    site_name: "Your Site Name",
+    site_name: title,
     type: "website",
-    locale: "en_US",
-  }}
-  twitter={{
-    handle: "@yourhandle",
-    site: "@yoursite",
-    cardType: "summary_large_image",
+    locale: "es_ES",
   }}
 />
-
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://www.yourwebsite.com/" />
-<meta property="og:title" content="Your Sitio Web Oficial Title" />
-<meta
-  property="og:description"
-  content="A brief description of your website content."
-/>
-<meta
-  property="og:image"
-  content="https://www.yourwebsite.com/path/to/image.jpg"
-/>
-
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content="https://www.yourwebsite.com/" />
-<meta property="twitter:title" content="Your Sitio Web Oficial Title" />
-<meta
-  property="twitter:description"
-  content="A brief description of your website content."
-/>
-<meta
-  property="twitter:image"
-  content="https://www.yourwebsite.com/path/to/image.jpg"
-/>
-
-<!-- Canonical URL -->
-<link rel="canonical" href="https://www.yourwebsite.com/" />
-
 <!-- Additional SEO -->
 <meta name="robots" content="index, follow" />
 <meta name="googlebot" content="index, follow" />
